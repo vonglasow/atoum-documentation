@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="Gerald Croes / Julien Bianchi / Mikael Randy" />
+    <meta name="date" content="09/18/2012"/>
+    <meta name="generator" content="easybook 4.2"/>
+
+    <title>atoum Documentation</title>
+
+    <link rel="stylesheet" href="./css/easybook.css" />
+
+</head>
+
+<body><div class="container">
+
+    <div class="item item:cover">
+
+<h1>atoum Documentation</h1>
+
+<h2>Gerald Croes / Julien Bianchi / Mikael Randy</h2>
+
+</div>
+    <div class="item item:toc">
+
+<h1>Table of contents</h1>
+
+<ul>
+                        
+                                                                <li class="chapter level-1">
+                        <span>Chapter 1</span> <a href="#quest-ce-quatoum-">Qu'est-ce qu'atoum ?</a>
+                    </li>
+                                                                <li class="chapter level-2">
+                        <span>1.1</span> <a href="#telechargement-et-installation">Téléchargement et installation</a>
+                    </li>
+                                                                                                                                                    <li class="chapter level-2">
+                        <span>1.2</span> <a href="#la-philosophie-datoum">La philosophie d'atoum</a>
+                    </li>
+                                                                                                                                                                                                                                                                                        
+                            
+                                                                <li class="chapter level-1">
+                        <span>Chapter 2</span> <a href="#asserters">Asserters</a>
+                    </li>
+                                                                <li class="chapter level-2">
+                        <span>2.1</span> <a href="#variable">variable</a>
+                    </li>
+                                                                                                                                                                                                                                                                    <li class="chapter level-2">
+                        <span>2.2</span> <a href="#integer">integer</a>
+                    </li>
+                                                                                                                                                                                                            <li class="chapter level-2">
+                        <span>2.3</span> <a href="#float">float</a>
+                    </li>
+                                                                <li class="chapter level-2">
+                        <span>2.4</span> <a href="#boolean">boolean</a>
+                    </li>
+                                                                                                                        <li class="chapter level-2">
+                        <span>2.5</span> <a href="#string">string</a>
+                    </li>
+                                                                                                                                                                                <li class="chapter level-2">
+                        <span>2.6</span> <a href="#datetime">dateTime</a>
+                    </li>
+                                                                                                                                                                                                            <li class="chapter level-2">
+                        <span>2.7</span> <a href="#phparray-array">phpArray / array</a>
+                    </li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <li class="chapter level-2">
+                        <span>2.8</span> <a href="#sizeof">sizeOf</a>
+                    </li>
+                                                                <li class="chapter level-2">
+                        <span>2.9</span> <a href="#object">object</a>
+                    </li>
+                                                                                                                                                    <li class="chapter level-2">
+                        <span>2.10</span> <a href="#phpclass-class">phpClass / class</a>
+                    </li>
+                                                                                                                                                                                                                                        <li class="chapter level-2">
+                        <span>2.11</span> <a href="#testedclass">testedClass</a>
+                    </li>
+                                                                <li class="chapter level-2">
+                        <span>2.12</span> <a href="#hash">hash</a>
+                    </li>
+                                                                                                                                                                                <li class="chapter level-2">
+                        <span>2.13</span> <a href="#error">error</a>
+                    </li>
+                                                                                                                                                                                                                                                                    <li class="chapter level-2">
+                        <span>2.14</span> <a href="#exception">exception</a>
+                    </li>
+                                                                                                                                                                                <li class="chapter level-2">
+                        <span>2.15</span> <a href="#mock">mock</a>
+                    </li>
+                            
+                    </ul>
+
+</div>
+    <div class="item item:chapter">
+
+<h1 id="quest-ce-quatoum-"><span>Chapter 1</span> Qu'est-ce qu'atoum ?</h1>
+
+<p>atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais :
+* il est moderne et utilise les innovations des dernières versions de PHP ;
+* il est simple et facile à maitriser ;
+* il est intuitif, son API se veut la plus proche du language naturel (en anglais).</p>
+
+<h2 id="telechargement-et-installation">1.1 Téléchargement et installation</h2>
+
+<p>Pour le moment, atoum n'est pas versionné. Si vous souhaitez utiliser atoum, il vous suffit de télécharger la dernière version stable.
+Malgré les évolutions constantes d'atoum, la rétro-compatibilité est assurée autant que possible.</p>
+
+<p>Vous pouvez installer atoum de 3 manières :
+* en téléchargeant une archive PHAR ;
+* en utilisant composer ;
+* en clonant le dépôt github.</p>
+
+<h3 id="archive-phar">1.1.1 Archive PHAR</h3>
+
+<p>Une archive PHAR est créée automatiquement à chaque modification d'atoum. PHAR (<strong>PH</strong>P <strong>Ar</strong>chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.</p>
+
+<p>Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : http://downloads.atoum.org/nightly/mageekguy.atoum.phar</p>
+
+<h3 id="composer">1.1.2 Composer</h3>
+
+<p><a href="http://getcomposer.org">Composer</a> est un outil de gestion de dépendance en PHP.</p>
+
+<p>Commencer par installer composer</p>
+
+<pre><code>[shell]
+curl -s https://getcomposer.org/installer | php
+</code></pre>
+
+<p>Créez, ensuite, un fichier composer.json contenant le JSON suivant :</p>
+
+<pre><code>[json]
+{
+    "require"; {
+        "mageekguy/atoum": "dev-master"
+    }
+}
+</code></pre>
+
+<p>Enfin, exécutez la commande suivante :</p>
+
+<pre><code>[shell]
+php composer.phar install
+</code></pre>
+
+<h3 id="github">1.1.3 Github</h3>
+
+<p>Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez cloner ou forker son dépôt github : git://github.com/mageekguy/atoum.git</p>
+
+<h2 id="la-philosophie-datoum">1.2 La philosophie d'atoum</h2>
+
+<h3 id="exemple-basic">1.2.1 Exemple basic</h3>
+
+<p>Vous devez écrire une classe de test pour chaque classe à tester.
+Si nous prenons, par exemple, la fameuse classe HelloWorld, vous devez créer la classe de test test\units\HelloWorld.</p>
+
+<p>NOTE : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld, vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.</p>
+
+<p>Voici le code de la classe HelloWorld que nous allons tester. Cette classe est dans le fichier src/Vendor/Application/HelloWorld.php</p>
+
+<pre><code>[php]
+&lt;?php
+namespace Vendor\Application;
+
+/**
+ * The class to be tested
+ */
+class HelloWorld
+{
+    public function getHiAtoum ()
+    {
+        return "Hi atoum !";
+    }
+}
+</code></pre>
+
+<p>Maintenant, voici le code de la classe de test que nous pourrions écrire. Cette classe se trouverait dans src/Vendor/Application/tests/units/HelloWorld.php</p>
+
+<pre><code>[php]
+&lt;?php
+//Your test classes are in a dedicated namespace
+namespace Vendor\Application\tests\units;
+
+//You have to include your tested class
+require_once __DIR__ . '/../../HelloTheWorld.php';
+
+//You now include atoum, using it’s phar archive
+require_once __DIR__ . '/atoum/mageekguy.atoum.phar';
+
+use \mageekguy\atoum;
+
+/**
+ * Test class for \HelloTheWorld
+ * Test classes extends from atoum\test
+ */
+class HelloTheWorld extends atoum\test
+{
+    public function testGetHiBob ()
+    {
+        //new instance of the tested class
+        $helloToTest = new \HelloTheWorld();
+
+        $this-&gt;assert
+                    //we expect the getHiBob method to return a string
+                    -&gt;string($helloToTest-&gt;getHiBob())
+                    //and the string should be Hi Bob !
+                    -&gt;isEqualTo('Hi Bob !');
+    }
+}
+</code></pre>
+
+<p>Now, let's launch the tests</p>
+
+<pre><code>[bash]
+php -f ./test/HelloTheWorld.php
+</code></pre>
+
+<p>You will see something like this</p>
+
+<pre><code>[bash]
+&gt; atoum version nightly-941-201201011548 by Frédéric Hardy (phar:///home/documentation/projects/tests/atoum/mageekguy.atoum.phar/1)
+&gt; PHP path: /usr/bin/php5
+&gt; PHP version:
+=&gt; PHP 5.3.6-13ubuntu3.3 with Suhosin-Patch (cli) (built: Dec 13 2011 18:37:10)
+=&gt; Copyright (c) 1997-2011 The PHP Group
+=&gt; Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+=&gt;     with Xdebug v2.1.2, Copyright (c) 2002-2011, by Derick Rethans
+&gt; tests\units\HelloTheWorld...
+[S___________________________________________________________][1/1]
+=&gt; Test duration: 0.01 second.
+=&gt; Memory usage: 0.00 Mb.
+&gt; Total test duration: 0.01 second.
+&gt; Total test memory usage: 0.00 Mb.
+&gt; Code coverage value: 100.00%
+&gt; Running duration: 0.16 second.
+Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
+</code></pre>
+
+<p>You're done, your code is rock solid !</p>
+
+<h3 id="rule-of-thumb">1.2.2 Rule of Thumb</h3>
+
+<p>The basics when you’re testing things using atoum are the following :
+*    Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
+*    Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).</p>
+
+<p>In the above example we tested that the method getHiBob
+*    did return a string (step 1),
+*    and that this string was equal to « Hi Bob ! » (step 2).</p>
+
+<h3 id="more-asserters">1.2.3 More asserters</h3>
+
+<p>There are of course a lot more asserters in atoum. To see the complete list, see chapter 2.</p>
+
+<p>Let's see with a quick class some more asserters in atoum !</p>
+
+<p>First, the class to be tested, located in PROJECT_PATH/classes/BasicTypes.php.</p>
+
+<pre><code>[php]
+&lt;?php
+class BasicTypes
+{
+    public function getOne (){return 1;}
+    public function getTrue(){return true;}
+    public function getFalse(){return false;}
+    public function getHello(){return 'hello';}
+    public function create(){return new BasicTypes();}
+    public function getFloat(){return 1.1;}
+    public function getNull(){return null;}
+    public function getEmptyArray(){return array();}
+    public function getArraySizeOf3(){return range(0,2,1);}
+}
+</code></pre>
+
+<p>Now the test class, located in PROJECT_PATH/tests/BasicTypes.php</p>
+
+<pre><code>[php]
+&lt;?php //...
+class BasicTypes extends atoum\test
+{
+    public function testBoolean ()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;boolean($bt-&gt;getFalse())
+                    -&gt;isFalse()//getFalse retourne bien false
+                -&gt;boolean($bt-&gt;getTrue())
+                    -&gt;isTrue();//getTrue retourne bien true
+    }
+
+    public function testInteger ()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;integer($bt-&gt;getOne())
+                -&gt;isEqualTo(1)
+                -&gt;isGreaterThan(0);
+    }
+
+    public function testString()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;string($bt-&gt;getHello())
+                -&gt;isNotEmpty()
+                -&gt;isEqualTo('hello');
+    }
+
+    public function testObject ()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;object($bt-&gt;create())
+                -&gt;isInstanceOf('BasicTypes')
+                -&gt;isNotIdenticalTo($bt);//Une nouvelle instance
+    }
+
+    public function testFloat()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;float($bt-&gt;getFloat())
+                -&gt;isEqualTo(1.1);
+    }
+
+    public function testArray()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;array($bt-&gt;getArraySizeOf3())
+                    -&gt;hasSize(3)
+                    -&gt;isNotEmpty()
+                -&gt;array($bt-&gt;getEmptyArray())
+                    -&gt;isEmpty();
+    }
+
+    public function testNull ()
+    {
+        $bt = new \BasicTypes();
+        $this-&gt;assert
+                -&gt;variable($bt-&gt;getNull())
+                -&gt;isNull();
+    }
+}
+</code></pre>
+
+<p>Here you are, you saw a complet and basic example of tests using atoum.</p>
+
+<h3 id="testing-a-singleton">1.2.4 Testing a Singleton</h3>
+
+<p>To test if your method always returns the same instance of the same object, you can ask atoum to check that the instances are identicals.</p>
+
+<pre><code>[php]
+&lt;?php //...
+class Singleton extends atoum\test
+{
+    public function testGetInstance()
+    {
+        $this-&gt;assert
+                -&gt;object(\Singleton::getInstance())
+                    -&gt;isInstanceOf('Singleton')
+                    -&gt;isIdenticalTo(\Singleton::getInstance());
+    }
+}
+</code></pre>
+
+<h3 id="testing-exceptions">1.2.5 Testing exceptions</h3>
+
+<p>To test exceptions atoum is using closures (introduced in PHP 5,3).</p>
+
+<pre><code>[php]
+class ExceptionLauncher extends atoum\test
+{
+    public function testLaunchException ()
+    {
+        $exception = new \ExceptionLauncher();
+        $this-&gt;assert
+                 -&gt;exception(function()use($exception){
+                                $exception-&gt;launchException();
+                            })
+                 -&gt;isInstanceOf('LaunchedException')
+                 -&gt;hasMessage('Message in the exception');
+
+    }
+}
+</code></pre>
+
+<h3 id="testing-errors">1.2.6 Testing errors</h3>
+
+<p>Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :</p>
+
+<pre><code>[php]
+class RaiseError extends atoum\test
+{
+    public function testRaiseError ()
+    {
+        $error = new \RaiseError();
+
+        $this-&gt;assert-&gt;object($error);
+        $this-&gt;assert
+                 -&gt;when(function()use($error){
+                        $error-&gt;raise();
+                 })
+                 -&gt;error('This is an error', E_USER_WARNING)
+                    -&gt;exists();
+                 //Sachant qu'il est possible de ne spécifier
+                 // ni message ni type attendu.
+    }
+}
+</code></pre>
+
+<h3 id="testing-using-mocks">1.2.7 Testing using Mocks</h3>
+
+<p>Mocks are of course supported by atoum !
+Generating a Mock from an interface</p>
+
+<p>atoum can generate a mock directly from an interface.</p>
+
+<pre><code>[php]
+class UsingWriter extends atoum\test
+{
+    public function testWithMockedInterface ()
+    {
+        $this-&gt;mockGenerator-&gt;generate('\IWriter');
+        $mockIWriter = new \mock\IWriter;
+
+        $usingWriter = new \UsingWriter();
+        //La méthode setIWriter attends un objet
+        //qui implemente l'interface IWriter
+        //  (setIWriter (IWriter $writer))
+        $usingWriter-&gt;setIWriter($mockIWriter);
+
+        $this-&gt;assert
+                -&gt;when(function () use($usingWriter) {
+                                $usingWriter-&gt;write('hello');
+                })
+                -&gt;mock($mockIWriter)
+                    -&gt;call('write')
+                    -&gt;once();
+    }
+}
+</code></pre>
+
+<h3 id="generating-a-mock-from-a-class">1.2.8 Generating a Mock from a class</h3>
+
+<p>atoum can generate a mock directly from a class definition.</p>
+
+<pre><code>[php]
+public function testWithMockedObject ()
+{
+    $this-&gt;mockGenerator-&gt;generate('\Writer');
+    $mockWriter = new \mock\Writer;
+
+    $usingWriter = new \UsingWriter();
+    //La méthode setWriter attends un objet
+    //de type Writer (setWriter (Writer $writer))
+    $usingWriter-&gt;setWriter($mockWriter);
+
+    $this-&gt;assert
+            -&gt;when(function () use($usingWriter) {
+                            $usingWriter-&gt;write('hello');
+            })
+            -&gt;mock($mockWriter)
+                -&gt;call('write')
+                -&gt;once();
+}
+</code></pre>
+
+<p>There is also a shorter syntax to generate mock from a class definition.</p>
+
+<pre><code>[php]
+public function testWithMockedObject ()
+{
+    $mockWriter = new \mock\Writer;
+
+    //...
+}
+</code></pre>
+
+<p>atoum is able to automatically find the class definition to mock on demand so you don't have to call the mock generator.</p>
+
+<p>When requesting a mock instance for a class, do not forget to specify the full class path (including namespaces).</p>
+
+<pre><code>[php]
+namespace Package\Writers
+{
+    class SampleWriter implements Writer
+    {
+        //...
+    }
+
+}
+
+namespace
+{
+    class UsingWriter 
+    {
+        public function write(\Package\Writers\Writer $writer, $string) 
+        {
+            $writer-&gt;write($string);
+        }
+    }
+}
+</code></pre>
+
+<p>In this example, the class we want to mock lives in the Package\Writers namespace, so to request a mock in our test we should do :</p>
+
+<pre><code>[php]
+namespace Package\test\units;
+
+class UsingWriter extends atoum\test
+{
+    public function testWrite()
+    {                     
+        $this
+            -&gt;if($mockWriter = new \mock\Package\Writers\SampleWriter())
+            -&gt;then()
+                -&gt;when(function() use($mockWriter) {
+                    $usingWriter = new \UsingWriter();
+                    $usingWriter-&gt;write($mockWriter, 'Hello World!');  
+                })    
+                -&gt;mock($mockWriter)
+                    -&gt;call('write')
+                    -&gt;withArguments('Hello World!')
+                    -&gt;once()
+        ;
+    }
+}
+</code></pre>
+
+<h3 id="generating-a-mock-from-scratch">1.2.9 Generating a Mock from scratch</h3>
+
+<p>atoum can also let you create and completely specify a mock object.</p>
+
+<pre><code>[php]
+$this-&gt;mockGenerator-&gt;generate('WriterFree');
+$mockWriter = new \mock\WriterFree;
+$mockWriter-&gt;getMockController()-&gt;write = function($text){};
+
+$usingWriter = new \UsingWriter();
+$usingWriter-&gt;setFreeWriter($mockWriter);
+
+$this-&gt;assert
+        -&gt;when(function () use($usingWriter) {
+                        $usingWriter-&gt;write('hello');
+        })
+        -&gt;mock($mockWriter)
+            -&gt;call('write')
+            -&gt;once();
+</code></pre>
+
+
+</div>
+    <div class="item item:chapter">
+
+<h1 id="asserters"><span>Chapter 2</span> Asserters</h1>
+
+<h2 id="variable">2.1 variable</h2>
+
+<p>This is the base asserter for variables, it includes the basics assertions you may need while testing values of any type.</p>
+
+<h3 id="isequalto">2.1.1 isEqualTo</h3>
+
+<p>isEqualTo verify that the tested variable is equal to a given value.
+    [php]
+    $a = 'a';</p>
+
+<pre><code>$this-&gt;assert
+        -&gt;variable($a)
+           -&gt;isEqualTo('a');//Will pass
+
+isEqualTo won't verify the type of the variables, only the value itself.
+
+$a1 = '1';
+
+$a2 = 1;
+
+
+$this-&gt;assert
+        -&gt;variable($a1)
+           -&gt;isEqualTo($a2); //Will pass
+</code></pre>
+
+<p>Note</p>
+
+<p>while testing values of different types with isEqualTo, variables are compared like the == operator in PHP.</p>
+
+<p>If you to verify both types and values, use the isIdenticalTo assertion instead.</p>
+
+<h3 id="isnotequalto">2.1.2 isNotEqualTo</h3>
+
+<p>isNotEqualTo verify that the tested variable is different from a given value.</p>
+
+<pre><code>[php]
+$a = 'a';
+
+$this-&gt;assert
+        -&gt;variable($a)
+           -&gt;isNotEqualTo('a');//Will fail
+
+$this-&gt;assert
+        -&gt;variable($a)
+           -&gt;isNotEqualTo('b');//Will pass
+
+As isEqualTo, isNotEqualTo won't check the type of the variables.
+
+$a1 = '1';
+
+$this-&gt;assert
+        -&gt;variable($a1)
+           -&gt;isNotEqualTo(1);//Will fail
+</code></pre>
+
+<h3 id="isidenticalto">2.1.3 isIdenticalTo</h3>
+
+<p>isIdenticalTo verify that the tested variables are the same (types and values). In case you are testing objects, isIdenticalTo will tell if both variables represents the same instance.</p>
+
+<pre><code>$a1 = '1';
+
+$this-&gt;assert
+        -&gt;variable($a1)
+           -&gt;isIdenticalTo(1); //Will fail
+
+$stdClass    = new StdClass();
+$stdClass2   = new StdClass();
+$stdClassRef = $stdClass;
+
+$this-&gt;assert
+        -&gt;variable($stdClass)
+           -&gt;isIdenticalTo(stdClass2); //Will fail
+
+$this-&gt;assert
+        -&gt;variable($stdClass)
+           -&gt;isIdenticalTo(stdClassRef); //Will pass
+</code></pre>
+
+<p>If you don't want to consider the types of the variable, use isEqualTo.</p>
+
+<h3 id="isnotidenticalto">2.1.4 isNotIdenticalTo</h3>
+
+<p>isNotIdenticalTo verify that the tested variables are not the same (types or values). In case you are testing objects, isNotIdenticalTo will assert that the tested variables points to different instances.</p>
+
+<pre><code>[php]
+$a1 = '1';
+
+$this-&gt;assert
+        -&gt;variable($a1)
+           -&gt;isNotIdenticalTo(1); //Will Pass ($a1 is a string, does not match an integer)
+
+$stdClass    = new StdClass();
+$stdClass2   = new StdClass();
+$stdClassRef = $stdClass;
+
+$this-&gt;assert
+        -&gt;variable($stdClass)
+           -&gt;isNotIdenticalTo(stdClass2); //Will fail, variables do not point to the same instance, even if their values are the same
+
+$this-&gt;assert
+        -&gt;variable($stdClass)
+           -&gt;isNotIdenticalTo(stdClassRef); //Will fail, both variables points to the same instance of StdClass
+</code></pre>
+
+<p>If you don't want to consider the types of the variables, use isNotEqualTo.</p>
+
+<h3 id="isnull">2.1.5 isNull</h3>
+
+<p>isNull verify that the variable is null.</p>
+
+<pre><code>[php]
+$a1 = '';
+$this-&gt;assert
+        -&gt;variable($a1)
+           -&gt;isNull(); //Will Fail ($a1 is empty but not null)
+
+$a2 = null;
+$this-&gt;assert
+        -&gt;variable($a2)
+           -&gt;isNull(); //Will Pass
+</code></pre>
+
+<h3 id="isnotnull">2.1.6 isNotNull</h3>
+
+<p>isNotNull verify taht the variable is not null.</p>
+
+<pre><code>[php]
+$a1 = '';
+$this-&gt;assert
+        -&gt;variable($a1)
+           -&gt;isNotNull(); //Will pass ($a1 is empty but not null)
+</code></pre>
+
+<h3 id="isreferenceto">2.1.7 isReferenceTo</h3>
+
+<h2 id="integer">2.2 integer</h2>
+
+<p>This is the asserter dedicated to integer testing. It extends the variable asserter : You can use every assertions in the variable asserter while testing integers.</p>
+
+<p>If you try to test a variable that is not an integer with the integer asserter, it will raise a failure.</p>
+
+<pre><code>[php]
+$a1 = '1';
+
+$this-&gt;assert
+        -&gt;integer($a1) //Will fail, a1 is not an integer, event if it represents one
+</code></pre>
+
+<p>Note</p>
+
+<p>null is not considered as a valid integer. You can check PHP's is_int function to check what is considered an integer.</p>
+
+<h3 id="iszero">2.2.1 isZero</h3>
+
+<p>isZero verify that the tested variable is equal to 0.</p>
+
+<pre><code>[php]
+$zero = 0;
+$minusOne = -1;
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isZero(); // Will pass
+
+$this-&gt;assert
+        -&gt;integer($minusOne)
+           -&gt;isZero(); // Will fail
+</code></pre>
+
+<h3 id="islessthan">2.2.2 isLessThan</h3>
+
+<p>isLessThan verify that the tested integer is strictly less than a given integer.</p>
+
+<pre><code>[php]
+$zero = 0;
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isLessThan(10); // Will pass
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isLessThan('10'); // Will fail, you have to pass an actual integer to isLessThan
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isLessThan(0); // Will fail, 0 is equal to 0
+</code></pre>
+
+<p>Note</p>
+
+<p>values given to isLessThan must be actual integers.</p>
+
+<h3 id="isgreaterthan">2.2.3 isGreaterThan</h3>
+
+<p>isGreaterThan verify that the tested integer is strictly greater than a given integer.</p>
+
+<pre><code>[php]
+$zero = 0;
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isGreaterThan(-1); // Will pass
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isGreaterThan('-1'); // Will fail, you have to pass an actual integer to isGreaterThan
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isGreaterThan(0); // Will fail, 0 is equal to 0
+</code></pre>
+
+<p>Note</p>
+
+<p>values given to isGreaterThan must be actual integers.</p>
+
+<h3 id="islessthanorequalto">2.2.4 isLessThanOrEqualTo</h3>
+
+<p>isLessThanOrEqualTo verify that the tested integer is less or equal to a given integer.</p>
+
+<pre><code>[php]
+$zero = 0;
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isLessThanOrEqualTo(10); // Will pass
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isLessThanOrEqualTo('10'); // Will fail, you have to pass an actual integer to isLessThanOrEqualTo
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isLessThanOrEqualTo(0); // Will pass
+</code></pre>
+
+<p>Note</p>
+
+<p>values given to isLessThanOrEqualTo must be actual integers.</p>
+
+<h3 id="isgreaterthanorequalto">2.2.5 isGreaterThanOrEqualTo</h3>
+
+<p>isGreaterThanOrEqualTo verify that the tested integer is greater or equal to a given integer.</p>
+
+<pre><code>[php]
+$zero = 0;
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isGreaterThanOrEqualTo(-1); // Will pass
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isGreaterThanOrEqualTo('-1'); // Will fail, you have to pass an actual integer to isGreaterThanOrEqualTo
+
+$this-&gt;assert
+        -&gt;integer($zero)
+           -&gt;isGreaterThanOrEqualTo(0); // Will pass
+</code></pre>
+
+<p>Note</p>
+
+<p>values given to isGreaterThanOrEqualTo must be actual integers.</p>
+
+<h2 id="float">2.3 float</h2>
+
+<p>This is the asserter dedicated to floating values testing.</p>
+
+<p>It extends the integer asserter making it possible to test floating point values.</p>
+
+<p>You can use every assertions that are present in the integer asserter.
+Note</p>
+
+<p>Of course, while testing float values, assertions that expected integers will expect float values (isGreaterThan, isGreaterOrEqualTo, isLessThan, isLessThanOrEqualTo)</p>
+
+<h2 id="boolean">2.4 boolean</h2>
+
+<p>This is the asserter dedicated to boolean testing.</p>
+
+<p>It extends the variable asserter.</p>
+
+<h3 id="istrue">2.4.1 isTrue</h3>
+
+<p>isTrue verify that the tested boolean is true (strictly equals to false).</p>
+
+<pre><code>[php]
+$boolean = false;
+$boolean2 = true;
+
+$this-&gt;assert
+        -&gt;boolean($boolean)
+           -&gt;isTrue(); // Will fail
+
+$this-&gt;assert
+        -&gt;boolean($boolean2)
+           -&gt;isTrue(); // Will pass
+</code></pre>
+
+<h3 id="isfalse">2.4.2 isFalse</h3>
+
+<p>isFalse verify that the tested boolean is false (strictly equals to false).</p>
+
+<pre><code>[php]
+$boolean = false;
+$boolean2 = true;
+
+$this-&gt;assert
+       -&gt;boolean($boolean)
+          -&gt;isFalse(); // Will pass
+
+$this-&gt;assert
+       -&gt;boolean($boolean2)
+          -&gt;isFalse(); // Will fail
+</code></pre>
+
+<h2 id="string">2.5 string</h2>
+
+<p>This is the asserter dedicated to string testing.</p>
+
+<p>It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.</p>
+
+<h3 id="isempty">2.5.1 isEmpty</h3>
+
+<p>isEmpty verify that the string is empty (no characters)</p>
+
+<pre><code>[php]
+$emptyString = '';
+$nonEmptyString = ' ';
+
+$this-&gt;assert
+        -&gt;string($emptyString)
+            -&gt;isEmpty();//Will pass
+$this-&gt;assert
+        -&gt;string($nonEmptyString)
+            -&gt;isEmpty();//Will fail
+</code></pre>
+
+<h3 id="isnotempty">2.5.2 isNotEmpty</h3>
+
+<p>isNotEmpty verify that the string is not empty (contains some characters)</p>
+
+<pre><code>[php]
+$emptyString = '';
+$nonEmptyString = ' ';
+
+$this-&gt;assert
+        -&gt;string($emptyString)
+            -&gt;isNotEmpty();//Will fail
+$this-&gt;assert
+        -&gt;string($nonEmptyString)
+            -&gt;isNotEmpty();//Will pass
+</code></pre>
+
+<h3 id="match">2.5.3 match</h3>
+
+<p>match will try to verify that the string matches a given regular expression.</p>
+
+<pre><code>[php]
+$polite = 'Hello the world';
+$rude   = 'yeah... the world ';
+
+$this-&gt;assert
+        -&gt;string($polite)
+            -&gt;match();//will pass
+
+$this-&gt;assert
+        -&gt;string($rude)
+            -&gt;match();//will fail
+</code></pre>
+
+<h3 id="haslength">2.5.4 hasLength</h3>
+
+<p>hasLength will verify that the string has a given length.</p>
+
+<pre><code>[php]
+$string = 'Hello the world';
+
+$this-&gt;assert
+        -&gt;string($string)
+            -&gt;hasLength(15);//Will pass
+
+$this-&gt;assert
+        -&gt;string($string)
+            -&gt;hasLength(16);//Will fail
+</code></pre>
+
+<h2 id="datetime">2.6 dateTime</h2>
+
+<p>This is the asserter dedicated to DateTime testing.</p>
+
+<p>It extends from the variable asserter : You can use every assertions of the variable asserter while testing a DateTime object.</p>
+
+<h3 id="hastimezone">2.6.1 hasTimezone</h3>
+
+<h3 id="isinyear">2.6.2 isInYear</h3>
+
+<h3 id="isinmonth">2.6.3 isInMonth</h3>
+
+<h3 id="isinday">2.6.4 isInDay</h3>
+
+<h3 id="hasdate">2.6.5 hasDate</h3>
+
+<h2 id="phparray-array">2.7 phpArray / array</h2>
+
+<p>This is the asserter dedicated to array testing.</p>
+
+<p>It extends from the variable asserter : You can use every assertions of the variable asserter while testing arrays.</p>
+
+<h3 id="hassize">2.7.1 hasSize</h3>
+
+<p>hasSize will verify that the tested array has a given number of element (non recursive).</p>
+
+<pre><code>[php]
+$array = array(1, 2, 3, 7);
+$this-&gt;assert
+        -&gt;array($array)
+        -&gt;hasSize(4);//will pass
+
+$this-&gt;assert
+        -&gt;array($array)
+        -&gt;hasSize(7);//Will fail
+</code></pre>
+
+<h3 id="isempty-3">2.7.2 isEmpty</h3>
+
+<p>isEmpty will verify that the array is empty (does not contains any value)</p>
+
+<pre><code>[php]
+$emptyArray = array();
+$nonEmptyArray = array(null, null);
+
+$this-&gt;assert
+        -&gt;array($emptyArray)
+        -&gt;isEmpty();//will pass
+
+$this-&gt;assert
+        -&gt;array($nonEmptyArray)
+        -&gt;isEmpty();//will fail
+</code></pre>
+
+<h3 id="isnotempty-3">2.7.3 isNotEmpty</h3>
+
+<p>isEmpty will verify that the array is not empty (contains at least one value of any kind)</p>
+
+<pre><code>[php]
+$emptyArray = array();
+$nonEmptyArray = array(null, null);
+
+$this-&gt;assert
+        -&gt;array($emptyArray)
+        -&gt;isNotEmpty();//will fail
+
+$this-&gt;assert
+        -&gt;array($nonEmptyArray)
+        -&gt;isNotEmpty();//will pass
+</code></pre>
+
+<h3 id="contains">2.7.4 contains</h3>
+
+<p>contains will verify that the tested array directly contains a given value (will not search for the value recursively).
+contains will not test the type of the value.</p>
+
+<p>If you want to test both the type and the value, you will use strictlyContains.</p>
+
+<pre><code>[php]
+$arrayWithNull = array(null);
+$arrayWithEmptyString = array('', 1);
+$arrayWithArrayWithNull = array(array(null));
+$arrayWithString1 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithNull)
+            -&gt;contains(null);//will pass
+        -&gt;array($arrayWithEmptyString)
+            -&gt;contains(null)//will pass (null == '')
+        -&gt;array($arrayWithArrayWithNull)
+            -&gt;contains(null);//will fail, does not search recursively
+        -&gt;array($arrayWithString1)
+            -&gt;contains(1);//will pass, does not match the type
+</code></pre>
+
+<h3 id="notcontains">2.7.5 notContains</h3>
+
+<p>notContains will verify that the tested array does not contains a given value (will not search for the value recursively).
+notContains will not test the type of the value.</p>
+
+<p>If you want to test both the type and the value, you will use strictlyNotContains.</p>
+
+<pre><code>[php]
+$arrayWithNull = array(null);
+$arrayWithEmptyString = array('', 1);
+$arrayWithArrayWithNull = array(array(null));
+$arrayWithString1 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithNull)
+            -&gt;notContains(null);//will fail
+        -&gt;array($arrayWithEmptyString)
+            -&gt;notContains(null)//will fail (null == '')
+        -&gt;array($arrayWithArrayWithNull)
+            -&gt;notContains(null);//will pass, does not search recursively
+        -&gt;array($arrayWithString1)
+            -&gt;notContains(1);//will fail, 1 == '1'
+</code></pre>
+
+<h3 id="containsvalues">2.7.6 containsValues</h3>
+
+<p>containsValues will verify that the tested array does contains some values (given in an array)
+containsValues will not test the type of the values to look for.</p>
+
+<p>If you want to test both the types and the values, you will use strictlyContainsValues.</p>
+
+<pre><code>[php]
+$arrayWithString1And2And3 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithString1And2And3)
+            -&gt;containsValues(array(1, 2, 3))//will pass
+            -&gt;containsValues(array('1', '2', '3'))//will pass
+            -&gt;containsValues(array('1, 2, 3));//will pass
+</code></pre>
+
+<h3 id="notcontainsvalues">2.7.7 notContainsValues</h3>
+
+<p>notContainsValues will verify that the tested array does not contains any value of a given array
+notContainsValues will not test the type of the values to look for.</p>
+
+<p>If you want to test both the types and the values, you will use strictlyNotContainsValues.</p>
+
+<pre><code>[php]
+$arrayWithString1And2And3 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithString1And2And3)
+            -&gt;notContainsValues(array(1, 4, 5))//will faill as '1' is in the tested array
+            -&gt;notContainsValues(array(4, 6, '2'))//will fail as 2 is in the tested array
+            -&gt;notContainsValues(array('1', 2, 3))//will fail as all the values are in the tested array
+            -&gt;notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+</code></pre>
+
+<h3 id="strictlycontainsvalues">2.7.8 strictlyContainsValues</h3>
+
+<p>strictlyContainsValues will verify that the tested array contains all the values of a given array
+stricltyContainsValues will test the type of the values to look for.</p>
+
+<p>If you do not want to test both the types and the values, you will use containsValues.</p>
+
+<pre><code>[php]
+$arrayWithString1And2And3 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithString1And2And3)
+            -&gt;notContainsValues(array(1, 2, 3))//will faill as '1' is in the tested array, not 1
+            -&gt;notContainsValues(array('3', '2', '1'))//will fail as '3' and '2' are not in the tested array, but 2 and 3 are
+            -&gt;notContainsValues(array(2, '1', 3));//will pass as all the values are in the tested array
+</code></pre>
+
+<h3 id="strictlynotcontainsvalues">2.7.9 strictlyNotContainsValues</h3>
+
+<p>strictlyNotContainsValues will verify that the tested array does not contains any value of a given array
+strictlyNotContainsValues will test the type of the values to look for.</p>
+
+<p>If you do not want to test both the types and the values, you will use notContainsValues.</p>
+
+<pre><code>[php]
+$arrayWithString1And2And3 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithString1And2And3)
+            -&gt;notContainsValues(array(1, 4, 5))//will pass as none of the values are in the tested array (1 !== '1')
+            -&gt;notContainsValues(array(4, 6, '2'))//will pass as none of the values are in the tested array (2 !== '2')
+            -&gt;notContainsValues(array('1', 2, 3))//will fail as all of the values are in the tested array
+            -&gt;notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+</code></pre>
+
+<h3 id="strictlycontains">2.7.10 strictlyContains</h3>
+
+<p>contains will verify that the tested array directly contains a given value (will not search for the value recursively).
+contains will test the type of the value.</p>
+
+<p>If you do not want to test both the type and the value, you will use contains.</p>
+
+<pre><code>[php]
+$arrayWithNull = array(null);
+$arrayWithEmptyString = array('', 1);
+$arrayWithArrayWithNull = array(array(null));
+$arrayWithString1 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithNull)
+            -&gt;strictlyContains(null)//will pass
+        -&gt;array($arrayWithEmptyString)
+            -&gt;strictlyContains(null)//will fail (null !== '')
+        -&gt;array($arrayWithArrayWithNull)
+            -&gt;strictlyContains(null)//will fail, does not search recursively
+        -&gt;array($arrayWithString1)
+            -&gt;strictlyContains(1)//will fail, 1 !== '1'
+        -&gt;array($arrayWithString1)
+            -&gt;strictlyContains('1');//Will pass
+</code></pre>
+
+<h3 id="strictlynotcontains">2.7.11 strictlyNotContains</h3>
+
+<p>strictlyNotContains will verify that the tested array does not contains a given value (will not search for the value recursively).
+strictlyNotContains will test the type of the value.</p>
+
+<p>If you do not want to test both the type and the value, you will use notContains.</p>
+
+<pre><code>[php]
+$arrayWithNull = array(null);
+$arrayWithEmptyString = array('', 1);
+$arrayWithArrayWithNull = array(array(null));
+$arrayWithString1 = array('1', 2, 3);
+
+$this-&gt;assert
+        -&gt;array($arrayWithNull)
+            -&gt;strictlyNotContains(null)//will fail
+        -&gt;array($arrayWithEmptyString)
+            -&gt;strictlyNotContains(null)//will pass (null !== '')
+        -&gt;array($arrayWithArrayWithNull)
+            -&gt;strictlyNotContains(null)//will pass, does not search recursively
+        -&gt;array($arrayWithString1)
+            -&gt;strictlyNotContains(1);//will pass, 1 !== '1'
+</code></pre>
+
+<h3 id="haskey">2.7.12 hasKey</h3>
+
+<p>hasKey will verify that the given array has a given key</p>
+
+<pre><code>[php]
+$array  = array(2, 4, 6);
+$array2 = array("2"=&gt;1, "3"=&gt;2, "4"=&gt;3);
+
+$this-&gt;assert
+        -&gt;array($array1)
+            -&gt;hasKey(1)//will pass
+            -&gt;hasKey(2)//will pass
+            -&gt;hasKey('1')//will pass, keys are "casted", and $array[1] do exists
+            -&gt;hasKey(5);//will fail
+$this-&gt;assert
+        -&gt;array($array2)
+            -&gt;hasKey(2)//will pass
+            -&gt;hasKey("3")//will pass
+            -&gt;hasKey(0);//will fail
+</code></pre>
+
+<h3 id="nothaskey">2.7.13 notHasKey</h3>
+
+<p>notHasKey will verify that the given array does not have a given key</p>
+
+<pre><code>[php]
+$array  = array(2, 4, 6);
+$array2 = array("2"=&gt;1, "3"=&gt;2, "3"=&gt;3);
+
+$this-&gt;assert
+        -&gt;array($array1)
+            -&gt;notHasKey(1)//will fail
+            -&gt;notHasKey(2)//will fail
+            -&gt;notHasKey('1')//will fail, keys are "casted", and $array[1] do exists
+            -&gt;notHasKey(5);//will pass
+$this-&gt;assert
+        -&gt;array($array2)
+            -&gt;notHasKey(2)//will fail
+            -&gt;notHasKey("3")//will fail
+            -&gt;notHasKey(0);//will pass
+</code></pre>
+
+<h3 id="haskeys">2.7.14 hasKeys</h3>
+
+<p>hasKeys will verify that the tested array contains all the given keyx (given as an array)</p>
+
+<pre><code>[php]
+$array  = array(2, 4, 6);
+$array2 = array("2"=&gt;1, "3"=&gt;2, "4"=&gt;3);
+
+$this-&gt;assert
+        -&gt;array($array1)
+            -&gt;hasKeys(array(1, 2))//will pass
+            -&gt;hasKeys(array('0', 2))//will pass
+            -&gt;hasKeys(array("2", 0))//will pass
+            -&gt;hasKeys(array(0, 3))//will fail, $array[3] does not exists
+
+$this-&gt;assert
+        -&gt;array($array2)
+            -&gt;hasKeys(array(2, "3"))//will pass
+            -&gt;hasKeys(array("3", 4));//will pass
+</code></pre>
+
+<h3 id="nothaskeys">2.7.15 notHasKeys</h3>
+
+<p>notHasKeys will verify that the tested array does not contains any of the given keys (given as an array of keys)</p>
+
+<pre><code>[php]
+$array  = array(2, 4, 6);
+$array2 = array("2"=&gt;1, "3"=&gt;2, "4"=&gt;3);
+
+$this-&gt;assert
+        -&gt;array($array1)
+            -&gt;notHasKeys(array(1, 2))//will fail, all the keys exists in the tested array
+            -&gt;notHasKeys(array('0', 3))//will fail, $array['0'] exists
+            -&gt;notHasKeys(array("4", 5))//will pass, none of the keys exists in the tested array
+            -&gt;notHasKeys(array(3, 'two'))//will pass, none of the keys exists in the tested array
+
+$this-&gt;assert
+        -&gt;array($array2)
+            -&gt;notHasKeys(array(2, "3"))//will pass
+            -&gt;notHasKeys(array("3", 4));//will pass
+</code></pre>
+
+<h2 id="sizeof">2.8 sizeOf</h2>
+
+<p>This asserter is dedicated to test the length of an array.</p>
+
+<p>It extends from the integer asserter : You can use every assertions of the integer asserter while testing the size of an array.</p>
+
+<h2 id="object">2.9 object</h2>
+
+<p>This is the asserter dedicated to object testing.</p>
+
+<p>It extends from the variable asserter : You can use every assertions of the variable asserter while testing an object.</p>
+
+<h3 id="isinstanceof">2.9.1 isInstanceOf</h3>
+
+<p>isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of a given type.</p>
+
+<pre><code>[php]
+$stdClass = new stdClass();
+$this-&gt;assert
+        -&gt;object($stdClass)
+            -&gt;isInstanceOf('\StdClass')//Will pass
+            -&gt;isInstanceOf('\Iterator');//Will fail
+
+
+interface SomeInterface
+{
+    public function doTest();
+}
+
+class SomeClass implements SomeInterface
+{
+    public function doTest ()
+    {
+        echo "testing atoum is the best thing ever.";
+    }
+}
+
+class SomeChildClass extends SomeClass
+{
+
+}
+
+$someClass = new SomeClass();
+$someClone = clone($someClass);
+$someChildClass = new SomeChildClass();
+
+$this-&gt;assert
+        -&gt;object($someClass)
+            -&gt;isInstanceOf('\SomeClass')//will pass
+            -&gt;isInstanceOf('\SomeInterface')//will pass
+            -&gt;isInstanceOf('\SomeChildClass');//will fail
+
+$this-&gt;assert
+        -&gt;object($someClone)
+            -&gt;isInstanceOf('\SomeClass')//will pass
+            -&gt;isInstanceOf('\SomeInterface')//will pass
+            -&gt;isInstanceOf('\SomeChildClass');//will fail
+
+$this-&gt;assert
+        -&gt;object($someChildClass)
+            -&gt;isInstanceOf('\SomeClass')//will pass, inheritance
+            -&gt;isInstanceOf('\SomeInterface')//will pass, inheritance of interfaces
+            -&gt;isInstanceOf('\SomeChildClass');//will pass
+</code></pre>
+
+<h3 id="hassize-3">2.9.2 hasSize</h3>
+
+<p>hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable
+interface.</p>
+
+<h3 id="isempty-4">2.9.3 isEmpty</h3>
+
+<h2 id="phpclass-class">2.10 phpClass / class</h2>
+
+<p>This is the asserter dedicated to class definition testing.</p>
+
+<h3 id="hasparent">2.10.1 hasParent</h3>
+
+<h3 id="hasnoparent">2.10.2 hasNoParent</h3>
+
+<h3 id="issubclassof">2.10.3 isSubclassOf</h3>
+
+<h3 id="hasinterface">2.10.4 hasInterface</h3>
+
+<h3 id="isabstract">2.10.5 isAbstract</h3>
+
+<h3 id="hasmethod">2.10.6 hasMethod</h3>
+
+<h2 id="testedclass">2.11 testedClass</h2>
+
+<p>This is the asserter dedicated to the tested class definition testing.</p>
+
+<p>It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter while testing the tested class.</p>
+
+<h2 id="hash">2.12 hash</h2>
+
+<p>This is the asserter dedicated to the validation of hashing function results.</p>
+
+<p>It extends the string asserters : You can use every asertions of the string asserter while testing a hash.</p>
+
+<h3 id="issha1">2.12.1 isSha1</h3>
+
+<p>isSha1 verify that the given hash <em>could be</em> the result of a sha1 hash.</p>
+
+<h3 id="issha256">2.12.2 isSha256</h3>
+
+<p>isSha256 verify that the given hash <em>could be</em> the result of a sha256 hash.</p>
+
+<h3 id="issha512">2.12.3 isSha512</h3>
+
+<p>isSha256 verify that the given hash <em>could be</em> the result of a sha512 hash.</p>
+
+<h3 id="ismd5">2.12.4 isMd5</h3>
+
+<p>md5 verify that the given hash <em>could be</em> the result of a md5 hash.</p>
+
+<h2 id="error">2.13 error</h2>
+
+<p>This asserter is dedicated to error testing.</p>
+
+<h3 id="exists">2.13.1 exists</h3>
+
+<h3 id="notexists">2.13.2 notExists</h3>
+
+<h3 id="withtype">2.13.3 withType</h3>
+
+<h3 id="withanytype">2.13.4 withAnyType</h3>
+
+<h3 id="withmessage">2.13.5 withMessage</h3>
+
+<h3 id="withanymessage">2.13.6 withAnyMessage</h3>
+
+<h3 id="withpattern">2.13.7 withPattern</h3>
+
+<h2 id="exception">2.14 exception</h2>
+
+<p>This is the asserter dedicated to exception testing.</p>
+
+<p>It extends from the object asserter : You can use every assertions of the object asserter while testing exceptions.</p>
+
+<p>atoum takes part of closures to test exceptions.</p>
+
+<pre><code>[php]
+$this-&gt;assert
+        -&gt;exception(function () {
+            //this code will raise an exception
+            throw new Exception('This is an exception');
+        })
+</code></pre>
+
+<h3 id="hasdefaultcode">2.14.1 hasDefaultCode</h3>
+
+<h3 id="hascode">2.14.2 hasCode</h3>
+
+<h3 id="hasmessage">2.14.3 hasMessage</h3>
+
+<h3 id="hasnestedexception">2.14.4 hasNestedException</h3>
+
+<h2 id="mock">2.15 mock</h2>
+
+<p>This is the asserter dedicated to test your code using mock objects.</p>
+
+
+</div>
+
+</div></body>
+</html>
