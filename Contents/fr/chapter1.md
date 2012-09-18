@@ -53,10 +53,10 @@ Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez clo
 
 ### Exemple basic ###
 
-Vous devez écrire une clase de test pour chaque classe à tester.
+Vous devez écrire une classe de test pour chaque classe à tester.
 Si nous prenons, par exemple, la fameuse classe HelloWorld, vous devez créer la classe de test test\units\HelloWorld.
 
-NOTE : atoum utilise les espaces de noms. Par exemple, pour tester la class \Vendor\Application\HelloWorld, vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
+NOTE : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld, vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
 
 Voici le code de la classe HelloWorld que nous allons tester. Cette classe est dans le fichier src/Vendor/Application/HelloWorld.php
 
@@ -75,7 +75,7 @@ Voici le code de la classe HelloWorld que nous allons tester. Cette classe est d
         }
     }
 
-Maintenant voici le code de la classe de teste que nous pourrions écrire. Cette classe se trouverais dans src/Vendor/Application/tests/units/HelloWorld.php
+Maintenant, voici le code de la classe de test que nous pourrions écrire. Cette classe se trouverait dans src/Vendor/Application/tests/units/HelloWorld.php
 
     [php]
     <?php
