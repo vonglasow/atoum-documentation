@@ -5,7 +5,7 @@ book:
     language:         fr
     publication_date: ~
 
-    generator: { name: easybook, version: 4.8 }
+    generator: { name: easybook, version: 4.2 }
 
     contents:
         # available content types: acknowledgement, afterword, appendix, author,

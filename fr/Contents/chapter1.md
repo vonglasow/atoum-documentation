@@ -1,25 +1,30 @@
-# Qu'est-ce qu'atoum ? #
+# Qu'est-ce qu'atoum ?
 
 atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais :
+
 * il est moderne et utilise les innovations des dernières versions de PHP ;
 * il est simple et facile à maitriser ;
 * il est intuitif, son API se veut la plus proche du language naturel (en anglais).
 
-## Téléchargement et installation ##
+
+## Téléchargement et installation
 
 Pour le moment, atoum n'est pas versionné. Si vous souhaitez utiliser atoum, il vous suffit de télécharger la dernière version stable.
 Malgré les évolutions constantes d'atoum, la rétro-compatibilité est assurée autant que possible.
 
 Vous pouvez installer atoum de 3 manières :
+
 * en téléchargeant une archive PHAR ;
 * en utilisant composer ;
 * en clonant le dépôt github.
+
 
 ### Archive PHAR
 
 Une archive PHAR est créée automatiquement à chaque modification d'atoum. PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.
 
-Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : [http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
+
 
 ### Composer
 
@@ -44,205 +49,275 @@ Enfin, exécutez la commande suivante :
     [shell]
     php composer.phar install
 
+
 ### Github
 
 Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez cloner ou forker son dépôt github : git://github.com/mageekguy/atoum.git
 
 
-## La philosophie d'atoum ##
+## La philosophie d'atoum
 
-### Exemple basic ###
+### Exemple simple
 
 Vous devez écrire une classe de test pour chaque classe à tester.
-Si nous prenons, par exemple, la fameuse classe HelloWorld, vous devez créer la classe de test test\units\HelloWorld.
+Si nous prenons, par exemple, la traditionnelle classe HelloWorld, vous devez créer la classe de test test\units\HelloWorld.
 
-NOTE : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld, vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
+**NOTE** : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld, vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
 
-Voici le code de la classe HelloWorld que nous allons tester. Cette classe est dans le fichier src/Vendor/Application/HelloWorld.php
+Voici le code de la classe HelloWorld que nous allons tester.
 
     [php]
     <?php
+    # src/Vendor/Application/HelloWorld.php
+
     namespace Vendor\Application;
 
     /**
-     * The class to be tested
-     */
+    * La classe à tester
+    */
     class HelloWorld
     {
         public function getHiAtoum ()
         {
-            return "Hi atoum !";
+            return 'Hi atoum !';
         }
     }
 
-Maintenant, voici le code de la classe de test que nous pourrions écrire. Cette classe se trouverait dans src/Vendor/Application/tests/units/HelloWorld.php
+Maintenant, voici le code de la classe de test que nous pourrions écrire.
 
     [php]
     <?php
-    //Your test classes are in a dedicated namespace
+    # src/Vendor/Application/tests/units/HelloWorld.php
+
+    // La classe de test à son propre namespace
     namespace Vendor\Application\tests\units;
 
-    //You have to include your tested class
-    require_once __DIR__ . '/../../HelloTheWorld.php';
-
-    //You now include atoum, using it’s phar archive
-    require_once __DIR__ . '/atoum/mageekguy.atoum.phar';
+    // Vous devez inclure la classe à tester
+    require_once __DIR__ . '/../../HelloWorld.php';
 
     use \mageekguy\atoum;
 
-    /**
-     * Test class for \HelloTheWorld
-     * Test classes extends from atoum\test
+    /*
+     * Classe de test pour \HelloWorld
+     * Remarquez qu'elle porte le même nom que la classe à tester !
+     * Elle étend atoum\test
      */
-    class HelloTheWorld extends atoum\test
+    class HelloWorld extends atoum\test
     {
-        public function testGetHiBob ()
+        /*
+         * Cette méthode est dédiée à la méthode getHiAtoum()
+         */
+        public function testGetHiAtoum ()
         {
-            //new instance of the tested class
-            $helloToTest = new \HelloTheWorld();
+            $this
+                // création d'une nouvelle instance de la classe à tester
+                ->given($helloToTest = new \Vendor\Application\HelloWorld())
 
-            $this->assert
-                        //we expect the getHiBob method to return a string
-                        ->string($helloToTest->getHiBob())
-                        //and the string should be Hi Bob !
-                        ->isEqualTo('Hi Bob !');
+                // nous testons que la méthode getHiAtoum retourne bien une chaîne de caractère...
+                ->string($helloToTest->getHiAtoum())
+                    // et que la chaîne est bien celle attendu, c'est à dire 'Hi atoum !'
+                    ->isEqualTo('Hi atoum !')
+            ;
         }
     }
 
-Now, let's launch the tests
+Maintenant, lançons nos tests :
 
     [bash]
-    php -f ./test/HelloTheWorld.php
+    php vendor/mageekguy.atoum.phar -f src/Vendor/Application/tests/units/HelloWorld.php
 
-You will see something like this
+Vous devriez voir quelque chose comme ça :
 
     [bash]
-    > atoum version nightly-941-201201011548 by Frédéric Hardy (phar:///home/documentation/projects/tests/atoum/mageekguy.atoum.phar/1)
-    > PHP path: /usr/bin/php5
+    > PHP path: /usr/bin/php
     > PHP version:
-    => PHP 5.3.6-13ubuntu3.3 with Suhosin-Patch (cli) (built: Dec 13 2011 18:37:10)
-    => Copyright (c) 1997-2011 The PHP Group
-    => Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
-    =>     with Xdebug v2.1.2, Copyright (c) 2002-2011, by Derick Rethans
-    > tests\units\HelloTheWorld...
+    => PHP 5.4.7 (cli) (built: Sep 13 2012 04:24:47)
+    => Copyright (c) 1997-2012 The PHP Group
+    => Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
+    =>     with Xdebug v2.2.1, Copyright (c) 2002-2012, by Derick Rethans
+    > Vendor\Application\tests\units\HelloWorld...
     [S___________________________________________________________][1/1]
-    => Test duration: 0.01 second.
+    => Test duration: 0.02 second.
     => Memory usage: 0.00 Mb.
-    > Total test duration: 0.01 second.
+    > Total test duration: 0.02 second.
     > Total test memory usage: 0.00 Mb.
     > Code coverage value: 100.00%
-    > Running duration: 0.16 second.
+    > Running duration: 0.34 second.
     Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
 
-You're done, your code is rock solid !
+Et voilà, votre code est solide comme un rock grâce à atoum !
 
-### Rule of Thumb ###
 
-The basics when you’re testing things using atoum are the following :
-*    Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
-*    Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).
+### Règles générales
 
-In the above example we tested that the method getHiBob
-*    did return a string (step 1),
-*    and that this string was equal to « Hi Bob ! » (step 2).
+Avec atoum, quand vous voulez tester quelque chose :
 
-### More asserters ###
+* spécifiez sur quoi vous voulez travailler (une variable, un objet, un tableau, une chaîne de caractère, un nombre entier, etc...) ;
+* indiquez dans quel état il doit être (égal à, null, contenan quelque chose, etc...).
 
-There are of course a lot more asserters in atoum. To see the complete list, see chapter 2.
+Dans l'exemple précédent, nous avons tester que la méthode getHiAtoum :
 
-Let's see with a quick class some more asserters in atoum !
+* retourne bien une chaîne de caractère ;
+* et que cette chaîne est bien celle attendu, c'est à dire 'Hi atoum !'.
 
-First, the class to be tested, located in PROJECT_PATH/classes/BasicTypes.php.
+
+### Plus d'asserters
+
+Avec atoum vous pouvez tester plusieurs types de données avec des "asserters".
+Pour voir la liste complète, allez voir le [chapitre 2](#asserters).
+
+Voyons ensemble les principaux asserters avec ce nouvel exemple.
+
+D'abord, la classe à tester :
 
     [php]
     <?php
+    # src/Vendor/Application/BasicTypes.php
+
+    namespace Vendor\Application;
+
     class BasicTypes
     {
-        public function getOne (){return 1;}
-        public function getTrue(){return true;}
-        public function getFalse(){return false;}
-        public function getHello(){return 'hello';}
-        public function create(){return new BasicTypes();}
-        public function getFloat(){return 1.1;}
-        public function getNull(){return null;}
-        public function getEmptyArray(){return array();}
-        public function getArraySizeOf3(){return range(0,2,1);}
+        public function getInteger()      { return 1;                }
+        public function getTrue()         { return true;             }
+        public function getFalse()        { return false;            }
+        public function getString()       { return 'atoum';          }
+        public function getObject()       { return new BasicTypes(); }
+        public function getFloat()        { return 1.1;              }
+        public function getNull()         { return null;             }
+        public function getEmptyArray()   { return array();          }
+        public function getArraySizeOf3() { return range(0, 2);      }
     }
 
-Now the test class, located in PROJECT_PATH/tests/BasicTypes.php
+Maintenant, la classe de test
 
     [php]
-    <?php //...
+    <?php
+    # src/Vendor/Application/tests/units/BasicTypes.php
+
+    // La classe de test à son propre namespace
+    namespace Vendor\Application\tests\units;
+
+    // Vous devez inclure la classe à tester
+    require_once __DIR__ . '/../../BasicTypes.php';
+
+    use \mageekguy\atoum;
+
     class BasicTypes extends atoum\test
     {
-        public function testBoolean ()
+        public function testBoolean()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->boolean($bt->getFalse())
-                        ->isFalse()//getFalse retourne bien false
-                    ->boolean($bt->getTrue())
-                        ->isTrue();//getTrue retourne bien true
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type booléen
+                ->boolean($bt->getFalse())
+                    // c'est bien la valeur false
+                    ->isFalse()
+                // vérification du type boolean
+                ->boolean($bt->getTrue())
+                    // c'est bien la valeur true
+                    ->isTrue()
+            ;
         }
 
-        public function testInteger ()
+        public function testInteger()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->integer($bt->getOne())
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type entier
+                ->integer($bt->getInteger())
+                    // c'est bien un entier positif
+                    ->isGreaterThan(0)
+                    // c'est bien égal à 1
                     ->isEqualTo(1)
-                    ->isGreaterThan(0);
+            ;
         }
 
         public function testString()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->string($bt->getHello())
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type chaîne de caractère
+                ->string($bt->getString())
+                    // c'est bien une chaîne non vide
                     ->isNotEmpty()
-                    ->isEqualTo('hello');
+                    // c'est bien égal à 'atoum'
+                    ->isEqualTo('atoum')
+            ;
         }
 
-        public function testObject ()
+        public function testObject()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->object($bt->create())
-                    ->isInstanceOf('BasicTypes')
-                    ->isNotIdenticalTo($bt);//Une nouvelle instance
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type objet
+                ->object($bt->getObject())
+                    // c'est bien une instance de \Vendor\Application\BasicTypes
+                    ->isInstanceOf('\Vendor\Application\BasicTypes')
+                    // c'est bien une nouvelle instance
+                    ->isNotIdenticalTo($bt)
+            ;
         }
 
         public function testFloat()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->float($bt->getFloat())
-                    ->isEqualTo(1.1);
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type float
+                ->float($bt->getFloat())
+                    // c'est bien égal à 1.1
+                    ->isEqualTo(1.1)
+            ;
         }
 
         public function testArray()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->array($bt->getArraySizeOf3())
-                        ->hasSize(3)
-                        ->isNotEmpty()
-                    ->array($bt->getEmptyArray())
-                        ->isEmpty();
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type array
+                ->array($bt->getEmptyArray())
+                    // il est bien vide
+                    ->isEmpty()
+
+                // vérification du type array
+                ->array($bt->getArraySizeOf3())
+                    // il est bien non vide
+                    ->isNotEmpty()
+                    // il contient bien 3 valeurs
+                    ->hasSize(3)
+            ;
         }
 
-        public function testNull ()
+        public function testNull()
         {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->variable($bt->getNull())
-                    ->isNull();
+            $this
+                // création de l'instance à tester
+                ->given($bt = new \Vendor\Application\BasicTypes())
+
+                // vérification du type variable
+                ->variable($bt->getNull())
+                    // c'est bien une variable null
+                    ->isNull()
+            ;
         }
     }
 
-Here you are, you saw a complet and basic example of tests using atoum.
+Vous connaissez, maintenant, les principaux asserters proposés par atoum.
 
-### Testing a Singleton ###
+
+### Testing a Singleton
 
 To test if your method always returns the same instance of the same object, you can ask atoum to check that the instances are identicals.
 
@@ -259,7 +334,7 @@ To test if your method always returns the same instance of the same object, you 
         }
     }
 
-### Testing exceptions ###
+### Testing exceptions
 
 To test exceptions atoum is using closures (introduced in PHP 5,3).
 
@@ -279,7 +354,7 @@ To test exceptions atoum is using closures (introduced in PHP 5,3).
         }
     }
 
-### Testing errors ###
+### Testing errors
 
 Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :
 
@@ -302,7 +377,7 @@ Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :
         }
     }
 
-### Testing using Mocks ###
+### Testing using Mocks
 
 Mocks are of course supported by atoum !
 Generating a Mock from an interface
@@ -333,7 +408,7 @@ atoum can generate a mock directly from an interface.
         }
     }
 
-### Generating a Mock from a class ###
+### Generating a Mock from a class
 
 atoum can generate a mock directly from a class definition.
 
@@ -407,7 +482,7 @@ In this example, the class we want to mock lives in the Package\Writers namespac
                     ->when(function() use($mockWriter) {
                         $usingWriter = new \UsingWriter();
                         $usingWriter->write($mockWriter, 'Hello World!');  
-                    })	
+                    })  
                     ->mock($mockWriter)
                         ->call('write')
                         ->withArguments('Hello World!')
@@ -416,7 +491,7 @@ In this example, the class we want to mock lives in the Package\Writers namespac
         }
     }
 
-### Generating a Mock from scratch ###
+### Generating a Mock from scratch
 
 atoum can also let you create and completely specify a mock object.
 
