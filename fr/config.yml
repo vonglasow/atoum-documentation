@@ -1,11 +1,11 @@
 book:
     title:            "atoum Documentation"
-    author:           "Gerald Croes / Julien Bianchi / Mikael Randy"
+    author:           "Gerald Croes / Julien Bianchi / Mikael Randy / Renaud Littolff"
     edition:          "First edition"
-    language:         en
+    language:         fr
     publication_date: ~
 
-    generator: { name: easybook, version: 4.2 }
+    generator: { name: easybook, version: 4.8 }
 
     contents:
         # available content types: acknowledgement, afterword, appendix, author,
