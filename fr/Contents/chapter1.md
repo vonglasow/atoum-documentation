@@ -161,12 +161,12 @@ Dans l'exemple précédent, nous avons tester que la méthode getHiAtoum :
 * et que cette chaîne est bien celle attendu, c'est à dire 'Hi atoum !'.
 
 
-### Plus d'asserters
+### Plus d'assertions
 
-Avec atoum vous pouvez tester plusieurs types de données avec des "asserters".
+Les différentes assertions disponible dans atoum vous permettent de tester plusieurs types de données.
 Pour voir la liste complète, allez voir le [chapitre 2](#asserters).
 
-Voyons ensemble les principaux asserters avec ce nouvel exemple.
+Voyons ensemble les principales assertions avec ce nouvel exemple.
 
 D'abord, la classe à tester :
 
@@ -314,7 +314,7 @@ Maintenant, la classe de test
         }
     }
 
-Vous connaissez, maintenant, les principaux asserters proposés par atoum.
+Vous connaissez, maintenant, les principales assertions proposées par atoum.
 
 
 ### Testing a Singleton
