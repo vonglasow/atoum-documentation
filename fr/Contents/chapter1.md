@@ -134,9 +134,11 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
             $helloToTest = new \Vendor\Application\HelloWorld();
 
             $this
-                // nous testons que la méthode getHiAtoum retourne bien une chaîne de caractère...
+                // nous testons que la méthode getHiAtoum retourne bien
+                // une chaîne de caractère...
                 ->string($helloToTest->getHiAtoum())
-                    // ... et que la chaîne est bien celle attendu, c'est à dire 'Hi atoum !'
+                    // ... et que la chaîne est bien celle attendu,
+                    // c'est à dire 'Hi atoum !'
                     ->isEqualTo('Hi atoum !')
             ;
         }
