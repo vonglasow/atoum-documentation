@@ -16,6 +16,8 @@ book:
         - { element: toc   }
         - { element: chapter, number: 1, content: chapter1.md }
         - { element: chapter, number: 2, content: chapter2.md }
+        - { element: chapter, number: 3, content: chapter3.md }
+        - { element: chapter, number: 4, content: chapter4.md }
 
     editions:
         ebook:
@@ -50,7 +52,7 @@ book:
             include_styles: true
             labels:         ["appendix", "chapter"]  # labels also available for: "figure", "table"
             toc:
-                deep:       2
+                deep:       6
                 elements:   ["appendix", "chapter"]
 
         website:

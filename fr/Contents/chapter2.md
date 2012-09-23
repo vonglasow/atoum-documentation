@@ -1,10 +1,12 @@
-# Asserters #
+# Écrire ses tests
 
-## variable ##
+## Assertions
+
+### variable
 
 This is the base asserter for variables, it includes the basics assertions you may need while testing values of any type.
 
-### isEqualTo ###
+#### isEqualTo
 
 isEqualTo verify that the tested variable is equal to a given value.
     [php]
@@ -31,7 +33,7 @@ while testing values of different types with isEqualTo, variables are compared l
 
 If you to verify both types and values, use the isIdenticalTo assertion instead.
 
-### isNotEqualTo ###
+#### isNotEqualTo
 
 isNotEqualTo verify that the tested variable is different from a given value.
 
@@ -54,7 +56,7 @@ isNotEqualTo verify that the tested variable is different from a given value.
             ->variable($a1)
                ->isNotEqualTo(1);//Will fail
 
-### isIdenticalTo ###
+#### isIdenticalTo
 
 isIdenticalTo verify that the tested variables are the same (types and values). In case you are testing objects, isIdenticalTo will tell if both variables represents the same instance.
 
@@ -78,7 +80,7 @@ isIdenticalTo verify that the tested variables are the same (types and values). 
 
 If you don't want to consider the types of the variable, use isEqualTo.
 
-### isNotIdenticalTo ###
+#### isNotIdenticalTo
 
 isNotIdenticalTo verify that the tested variables are not the same (types or values). In case you are testing objects, isNotIdenticalTo will assert that the tested variables points to different instances.
 
@@ -103,7 +105,7 @@ isNotIdenticalTo verify that the tested variables are not the same (types or val
 
 If you don't want to consider the types of the variables, use isNotEqualTo.
 
-### isNull ###
+#### isNull
 
 isNull verify that the variable is null.
 
@@ -118,7 +120,7 @@ isNull verify that the variable is null.
             ->variable($a2)
                ->isNull(); //Will Pass
 
-### isNotNull ###
+#### isNotNull
 
 isNotNull verify taht the variable is not null.
 
@@ -128,9 +130,9 @@ isNotNull verify taht the variable is not null.
             ->variable($a1)
                ->isNotNull(); //Will pass ($a1 is empty but not null)
 
-### isReferenceTo ###
+#### isReferenceTo
 
-## integer ##
+### integer
 
 This is the asserter dedicated to integer testing. It extends the variable asserter : You can use every assertions in the variable asserter while testing integers.
 
@@ -146,7 +148,7 @@ Note
 
 null is not considered as a valid integer. You can check PHP's is_int function to check what is considered an integer.
 
-### isZero ###
+#### isZero
 
 isZero verify that the tested variable is equal to 0.
 
@@ -162,7 +164,7 @@ isZero verify that the tested variable is equal to 0.
             ->integer($minusOne)
                ->isZero(); // Will fail
 
-### isLessThan ###
+#### isLessThan
 
 isLessThan verify that the tested integer is strictly less than a given integer.
 
@@ -185,7 +187,7 @@ Note
 
 values given to isLessThan must be actual integers.
 
-### isGreaterThan ###
+#### isGreaterThan
 
 isGreaterThan verify that the tested integer is strictly greater than a given integer.
 
@@ -209,7 +211,7 @@ Note
 
 values given to isGreaterThan must be actual integers.
 
-### isLessThanOrEqualTo ###
+#### isLessThanOrEqualTo
 
 isLessThanOrEqualTo verify that the tested integer is less or equal to a given integer.
 
@@ -232,7 +234,7 @@ Note
 
 values given to isLessThanOrEqualTo must be actual integers.
 
-### isGreaterThanOrEqualTo ###
+#### isGreaterThanOrEqualTo
 
 isGreaterThanOrEqualTo verify that the tested integer is greater or equal to a given integer.
 
@@ -256,7 +258,7 @@ Note
 
 values given to isGreaterThanOrEqualTo must be actual integers.
 
-## float ##
+### float
 
 This is the asserter dedicated to floating values testing.
 
@@ -267,13 +269,13 @@ Note
 
 Of course, while testing float values, assertions that expected integers will expect float values (isGreaterThan, isGreaterOrEqualTo, isLessThan, isLessThanOrEqualTo)
 
-## boolean ##
+### boolean
 
 This is the asserter dedicated to boolean testing.
 
 It extends the variable asserter.
 
-### isTrue ###
+#### isTrue
 
 isTrue verify that the tested boolean is true (strictly equals to false).
 
@@ -289,7 +291,7 @@ isTrue verify that the tested boolean is true (strictly equals to false).
             ->boolean($boolean2)
                ->isTrue(); // Will pass
 
-### isFalse ###
+#### isFalse
 
 isFalse verify that the tested boolean is false (strictly equals to false).
 
@@ -305,13 +307,13 @@ isFalse verify that the tested boolean is false (strictly equals to false).
            ->boolean($boolean2)
               ->isFalse(); // Will fail
 
-## string ##
+### string
 
 This is the asserter dedicated to string testing.
 
 It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
 
-### isEmpty ###
+#### isEmpty
 
 isEmpty verify that the string is empty (no characters)
 
@@ -326,7 +328,7 @@ isEmpty verify that the string is empty (no characters)
             ->string($nonEmptyString)
                 ->isEmpty();//Will fail
 
-### isNotEmpty ###
+#### isNotEmpty
 
 isNotEmpty verify that the string is not empty (contains some characters)
 
@@ -341,7 +343,7 @@ isNotEmpty verify that the string is not empty (contains some characters)
             ->string($nonEmptyString)
                 ->isNotEmpty();//Will pass
 
-### match ###
+#### match
 
 match will try to verify that the string matches a given regular expression.
 
@@ -357,7 +359,7 @@ match will try to verify that the string matches a given regular expression.
             ->string($rude)
                 ->match();//will fail
 
-### hasLength ###
+#### hasLength
 
 hasLength will verify that the string has a given length.
 
@@ -372,29 +374,29 @@ hasLength will verify that the string has a given length.
             ->string($string)
                 ->hasLength(16);//Will fail
 
-## dateTime ##
+### dateTime
 
 This is the asserter dedicated to DateTime testing.
 
 It extends from the variable asserter : You can use every assertions of the variable asserter while testing a DateTime object.
 
-### hasTimezone ###
+#### hasTimezone
 
-### isInYear ###
+#### isInYear
 
-### isInMonth ###
+#### isInMonth
 
-### isInDay ###
+#### isInDay
 
-### hasDate ###
+#### hasDate
 
-## phpArray / array ##
+### phpArray / array
 
 This is the asserter dedicated to array testing.
 
 It extends from the variable asserter : You can use every assertions of the variable asserter while testing arrays.
 
-### hasSize ###
+#### hasSize
 
 hasSize will verify that the tested array has a given number of element (non recursive).
 
@@ -408,7 +410,7 @@ hasSize will verify that the tested array has a given number of element (non rec
             ->array($array)
             ->hasSize(7);//Will fail
 
-### isEmpty ###
+#### isEmpty
 
 isEmpty will verify that the array is empty (does not contains any value)
 
@@ -424,7 +426,7 @@ isEmpty will verify that the array is empty (does not contains any value)
             ->array($nonEmptyArray)
             ->isEmpty();//will fail
 
-### isNotEmpty ###
+#### isNotEmpty
 
 isEmpty will verify that the array is not empty (contains at least one value of any kind)
 
@@ -440,7 +442,7 @@ isEmpty will verify that the array is not empty (contains at least one value of 
             ->array($nonEmptyArray)
             ->isNotEmpty();//will pass
 
-### contains ###
+#### contains
 
 contains will verify that the tested array directly contains a given value (will not search for the value recursively).
 contains will not test the type of the value.
@@ -463,7 +465,7 @@ If you want to test both the type and the value, you will use strictlyContains.
             ->array($arrayWithString1)
                 ->contains(1);//will pass, does not match the type
 
-### notContains ###
+#### notContains
 
 notContains will verify that the tested array does not contains a given value (will not search for the value recursively).
 notContains will not test the type of the value.
@@ -486,7 +488,7 @@ If you want to test both the type and the value, you will use strictlyNotContain
             ->array($arrayWithString1)
                 ->notContains(1);//will fail, 1 == '1'
 
-### containsValues ###
+#### containsValues
 
 containsValues will verify that the tested array does contains some values (given in an array)
 containsValues will not test the type of the values to look for.
@@ -502,7 +504,7 @@ If you want to test both the types and the values, you will use strictlyContains
                 ->containsValues(array('1', '2', '3'))//will pass
                 ->containsValues(array('1, 2, 3));//will pass
 
-### notContainsValues ###
+#### notContainsValues
 
 notContainsValues will verify that the tested array does not contains any value of a given array
 notContainsValues will not test the type of the values to look for.
@@ -519,7 +521,7 @@ If you want to test both the types and the values, you will use strictlyNotConta
                 ->notContainsValues(array('1', 2, 3))//will fail as all the values are in the tested array
                 ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
 
-### strictlyContainsValues ###
+#### strictlyContainsValues
 
 strictlyContainsValues will verify that the tested array contains all the values of a given array
 stricltyContainsValues will test the type of the values to look for.
@@ -535,7 +537,7 @@ If you do not want to test both the types and the values, you will use containsV
                 ->notContainsValues(array('3', '2', '1'))//will fail as '3' and '2' are not in the tested array, but 2 and 3 are
                 ->notContainsValues(array(2, '1', 3));//will pass as all the values are in the tested array
 
-### strictlyNotContainsValues ###
+#### strictlyNotContainsValues
 
 strictlyNotContainsValues will verify that the tested array does not contains any value of a given array
 strictlyNotContainsValues will test the type of the values to look for.
@@ -552,7 +554,7 @@ If you do not want to test both the types and the values, you will use notContai
                 ->notContainsValues(array('1', 2, 3))//will fail as all of the values are in the tested array
                 ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
 
-### strictlyContains ###
+#### strictlyContains
 
 contains will verify that the tested array directly contains a given value (will not search for the value recursively).
 contains will test the type of the value.
@@ -577,7 +579,7 @@ If you do not want to test both the type and the value, you will use contains.
             ->array($arrayWithString1)
                 ->strictlyContains('1');//Will pass
 
-### strictlyNotContains ###
+#### strictlyNotContains
 
 strictlyNotContains will verify that the tested array does not contains a given value (will not search for the value recursively).
 strictlyNotContains will test the type of the value.
@@ -600,7 +602,7 @@ If you do not want to test both the type and the value, you will use notContains
             ->array($arrayWithString1)
                 ->strictlyNotContains(1);//will pass, 1 !== '1'
 
-### hasKey ###
+#### hasKey
 
 hasKey will verify that the given array has a given key
 
@@ -620,7 +622,7 @@ hasKey will verify that the given array has a given key
                 ->hasKey("3")//will pass
                 ->hasKey(0);//will fail
 
-### notHasKey ###
+#### notHasKey
 
 notHasKey will verify that the given array does not have a given key
 
@@ -640,7 +642,7 @@ notHasKey will verify that the given array does not have a given key
                 ->notHasKey("3")//will fail
                 ->notHasKey(0);//will pass
 
-### hasKeys ###
+#### hasKeys
 
 hasKeys will verify that the tested array contains all the given keyx (given as an array)
 
@@ -660,7 +662,7 @@ hasKeys will verify that the tested array contains all the given keyx (given as 
                 ->hasKeys(array(2, "3"))//will pass
                 ->hasKeys(array("3", 4));//will pass
 
-### notHasKeys ###
+#### notHasKeys
 
 notHasKeys will verify that the tested array does not contains any of the given keys (given as an array of keys)
 
@@ -680,19 +682,19 @@ notHasKeys will verify that the tested array does not contains any of the given 
                 ->notHasKeys(array(2, "3"))//will pass
                 ->notHasKeys(array("3", 4));//will pass
 
-## sizeOf ##
+### sizeOf
 
 This asserter is dedicated to test the length of an array.
 
 It extends from the integer asserter : You can use every assertions of the integer asserter while testing the size of an array.
 
-## object ##
+### object
 
 This is the asserter dedicated to object testing.
 
 It extends from the variable asserter : You can use every assertions of the variable asserter while testing an object.
 
-### isInstanceOf ###
+#### isInstanceOf
 
 isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of a given type.
 
@@ -744,77 +746,98 @@ isInstanceOf will tell if the tested object is an instance of a given interface 
                 ->isInstanceOf('\SomeInterface')//will pass, inheritance of interfaces
                 ->isInstanceOf('\SomeChildClass');//will pass
 
-### hasSize ###
+#### hasSize
 
 hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable
 interface.
 
 
-### isEmpty ###
+#### isEmpty
 
-## phpClass / class ##
+### phpClass / class
 
 This is the asserter dedicated to class definition testing.
 
-### hasParent ###
+#### hasParent
 
-### hasNoParent ###
+#### hasNoParent
 
-### isSubclassOf ###
+#### isSubclassOf
 
-### hasInterface ###
+#### hasInterface
 
-### isAbstract ###
+#### isAbstract
 
-### hasMethod ###
+#### hasMethod
 
-## testedClass ##
+### testedClass
 
 This is the asserter dedicated to the tested class definition testing.
 
 It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter while testing the tested class.
 
-## hash ##
+### hash
 
 This is the asserter dedicated to the validation of hashing function results.
 
 It extends the string asserters : You can use every asertions of the string asserter while testing a hash.
 
-### isSha1 ###
+#### isSha1
 
 isSha1 verify that the given hash *could be* the result of a sha1 hash.
 
-### isSha256 ###
+#### isSha256
 
 isSha256 verify that the given hash *could be* the result of a sha256 hash.
 
-### isSha512 ###
+#### isSha512
 
 isSha256 verify that the given hash *could be* the result of a sha512 hash.
 
-### isMd5 ###
+#### isMd5
 
 md5 verify that the given hash *could be* the result of a md5 hash.
 
-## error ##
+### error
 
 This asserter is dedicated to error testing.
 
-### exists ###
+Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :
 
-### notExists ###
+    [php]
+    class RaiseError extends atoum\test
+    {
+        public function testRaiseError ()
+        {
+            $error = new \RaiseError();
 
-### withType ###
+            $this->assert->object($error);
+            $this->assert
+                     ->when(function()use($error){
+                            $error->raise();
+                     })
+                     ->error('This is an error', E_USER_WARNING)
+                        ->exists();
+                     //Sachant qu'il est possible de ne spécifier
+                     // ni message ni type attendu.
+        }
+    }
 
-### withAnyType ###
+#### exists
 
-### withMessage ###
+#### notExists
 
-### withAnyMessage ###
+#### withType
 
-### withPattern ###
+#### withAnyType
 
-## exception ##
+#### withMessage
+
+#### withAnyMessage
+
+#### withPattern
+
+### exception
 
 This is the asserter dedicated to exception testing.
 
@@ -829,14 +852,172 @@ atoum takes part of closures to test exceptions.
                 throw new Exception('This is an exception');
             })
 
-### hasDefaultCode ###
 
-### hasCode ###
+            
 
-### hasMessage ###
+To test exceptions atoum is using closures (introduced in PHP 5,3).
 
-### hasNestedException ###
+    [php]
+    class ExceptionLauncher extends atoum\test
+    {
+        public function testLaunchException ()
+        {
+            $exception = new \ExceptionLauncher();
+            $this->assert
+                     ->exception(function()use($exception){
+                                    $exception->launchException();
+                                })
+                     ->isInstanceOf('LaunchedException')
+                     ->hasMessage('Message in the exception');
 
-## mock ##
+        }
+    }
+
+#### hasDefaultCode
+
+#### hasCode
+
+#### hasMessage
+
+#### hasNestedException
+
+### mock
 
 This is the asserter dedicated to test your code using mock objects.
+
+## Fournisseur de données
+
+## Les mock
+
+Mocks are of course supported by atoum !
+Generating a Mock from an interface
+
+atoum can generate a mock directly from an interface.
+
+    [php]
+    class UsingWriter extends atoum\test
+    {
+        public function testWithMockedInterface ()
+        {
+            $this->mockGenerator->generate('\IWriter');
+            $mockIWriter = new \mock\IWriter;
+
+            $usingWriter = new \UsingWriter();
+            //La méthode setIWriter attends un objet
+            //qui implemente l'interface IWriter
+            //  (setIWriter (IWriter $writer))
+            $usingWriter->setIWriter($mockIWriter);
+
+            $this->assert
+                    ->when(function () use($usingWriter) {
+                                    $usingWriter->write('hello');
+                    })
+                    ->mock($mockIWriter)
+                        ->call('write')
+                        ->once();
+        }
+    }
+
+### À partir d'une classe existante
+
+atoum can generate a mock directly from a class definition.
+
+    [php]
+    public function testWithMockedObject ()
+    {
+        $this->mockGenerator->generate('\Writer');
+        $mockWriter = new \mock\Writer;
+
+        $usingWriter = new \UsingWriter();
+        //La méthode setWriter attends un objet
+        //de type Writer (setWriter (Writer $writer))
+        $usingWriter->setWriter($mockWriter);
+
+        $this->assert
+                ->when(function () use($usingWriter) {
+                                $usingWriter->write('hello');
+                })
+                ->mock($mockWriter)
+                    ->call('write')
+                    ->once();
+    }
+
+There is also a shorter syntax to generate mock from a class definition.
+
+    [php]
+    public function testWithMockedObject ()
+    {
+        $mockWriter = new \mock\Writer;
+
+        //...
+    }
+
+atoum is able to automatically find the class definition to mock on demand so you don't have to call the mock generator.
+
+When requesting a mock instance for a class, do not forget to specify the full class path (including namespaces).
+
+    [php]
+    namespace Package\Writers
+    {
+        class SampleWriter implements Writer
+        {
+            //...
+        }
+
+    }
+
+    namespace
+    {
+        class UsingWriter 
+        {
+            public function write(\Package\Writers\Writer $writer, $string) 
+            {
+                $writer->write($string);
+            }
+        }
+    }
+
+In this example, the class we want to mock lives in the Package\Writers namespace, so to request a mock in our test we should do :
+
+    [php]
+    namespace Package\test\units;
+
+    class UsingWriter extends atoum\test
+    {
+        public function testWrite()
+        {                     
+            $this
+                ->if($mockWriter = new \mock\Package\Writers\SampleWriter())
+                ->then()
+                    ->when(function() use($mockWriter) {
+                        $usingWriter = new \UsingWriter();
+                        $usingWriter->write($mockWriter, 'Hello World!');  
+                    })  
+                    ->mock($mockWriter)
+                        ->call('write')
+                        ->withArguments('Hello World!')
+                        ->once()
+            ;
+        }
+    }
+
+### À partir de rien
+
+atoum can also let you create and completely specify a mock object.
+
+    [php]
+    $this->mockGenerator->generate('WriterFree');
+    $mockWriter = new \mock\WriterFree;
+    $mockWriter->getMockController()->write = function($text){};
+
+    $usingWriter = new \UsingWriter();
+    $usingWriter->setFreeWriter($mockWriter);
+
+    $this->assert
+            ->when(function () use($usingWriter) {
+                            $usingWriter->write('hello');
+            })
+            ->mock($mockWriter)
+                ->call('write')
+                ->once();
+
