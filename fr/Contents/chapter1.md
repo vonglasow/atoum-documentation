@@ -17,11 +17,11 @@ Malgré les évolutions constantes d'atoum, la rétro-compatibilité est une des
 
 Vous pouvez installer atoum de 5 manières :
 
-* en téléchargeant une archive PHAR ;
-* en utilisant composer ;
-* en clonant le dépôt github.
-* en utilisant un plugin symfony 1
-* en utilisant un bundle symfony 2
+* [en téléchargeant une archive PHAR](#archive-phar) ;
+* [en utilisant composer](#composer) ;
+* [en clonant le dépôt github](#github) ;
+* [en utilisant un plugin symfony 1](#plugin-symfony-1) ;
+* [en utilisant un bundle symfony 2](#bundle-symfony-2).
 
 
 ### Archive PHAR
