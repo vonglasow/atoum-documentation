@@ -3,25 +3,34 @@
 ## Assertions
 
     variable
-        boolean
-        integer
-            float
-            sizeOf
-        object
-            dateTime
-                mysqlDateTime
-            exception
-        phpArray
-        string
-            castToString
-            hash
-            output
+        isCallable
+        isEqualTo
+        isIdenticalTo
+        isNotCallable
+        isNotEqualTo
+        isNotIdenticalTo
+        isNotNull
+        isNull
+        isReferenceTo
+    boolean
+    integer
+    float
+    sizeOf
+    object
+    dateTime
+    mysqlDateTime
+    exception
+    phpArray
+    string
+    castToString
+    hash
+    output
     adapter
     afterDestructionOf
     error
     mock
     phpClass
-        testedClass
+    testedClass
     stream
 
 
@@ -31,6 +40,30 @@
 ### variable
 
 C'est l'assertion de base de toutes les variables. Elle contient les tests de base nécessaire à n'importe quel type de variable.
+
+#### isCallable
+
+isCallable vérifie que la donnée testée peut être appelée comme fonction.
+
+    [php]
+    $f = function() {
+        // code
+    };
+
+    $this
+        ->variable($f)
+            ->isCallable()  // passe
+
+        ->variable('\Vendor\Application\foobar')
+            ->isCallable()
+
+        ->variable(array('\Vendor\Application\Foo', 'bar'))
+            ->isCallable()
+
+        ->variable('\Vendor\Application\Foo::bar')
+            ->isCallable()
+    ;
+
 
 #### isEqualTo
 
@@ -60,38 +93,10 @@ isEqualTo ne vérifie pas le type des données, uniquement leurs valeurs.
 Si vous souhaitez tester la valeur et le type, utilisez [isIdenticalTo](#isidenticalto).
 
 
-#### isNotEqualTo
-
-isEqualTo vérifie que les données testées n'ont pas la même valeur.
-
-    [php]
-    $a = 'a';
-
-    $this
-        ->variable($a)
-            ->isNotEqualTo('a')     // ne passe pas
-    ;
-
-    $this
-        ->variable($a)
-            ->isNotEqualTo('b')     // passe
-    ;
-
-Tout comme [isEqualTo](#isequalto), isNotEqualTo ne vérifie pas le type des données, uniquement leurs valeurs.
-
-    [php]
-    $aString = '1';
-    $aInt    = 1;
-
-    $this
-        ->variable($aString)
-            ->isNotEqualTo($aInt)   // ne passe pas
-    ;
-
-
 #### isIdenticalTo
 
-isIdenticalTo vérifie que les données testées ont la même valeur et sont de même types. Dans le cas d'objet, isIdenticalTo vérifie que les données représentent la même instance.
+isIdenticalTo vérifie que les données testées ont la même valeur et sont de même types.
+Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même instance.
 
     [php]
     $a = '1';
@@ -108,9 +113,7 @@ isIdenticalTo vérifie que les données testées ont la même valeur et sont de 
     $this
         ->variable($stdClass1)
             ->isIdenticalTo(stdClass2)  // ne passe pas
-    ;
 
-    $this
         ->variable($stdClass1)
             ->isIdenticalTo(stdClass3)  // passe
     ;
@@ -118,57 +121,117 @@ isIdenticalTo vérifie que les données testées ont la même valeur et sont de 
 Si vous ne souhaitez pas vérifier le type des données, utilisez [isEqualTo](#isequalto).
 
 
-#### isNotIdenticalTo
+#### isNotCallable
 
-isNotIdenticalTo verify that the tested variables are not the same (types or values). In case you are testing objects, isNotIdenticalTo will assert that the tested variables points to different instances.
+isNotCallable vérifie que la donnée testée ne peut pas être appelée comme fonction.
 
     [php]
-    $a1 = '1';
+    $f = function() {
+        // code
+    };
+    $int    = 1;
+    $string = 'nonExistingMethod';
 
     $this
-            ->variable($a1)
-               ->isNotIdenticalTo(1); //Will Pass ($a1 is a string, does not match an integer)
+        ->variable($f)
+            ->isNotCallable()   // ne passe pas
 
-    $stdClass    = new StdClass();
-    $stdClass2   = new StdClass();
-    $stdClassRef = $stdClass;
+        ->variable($int)
+            ->isNotCallable()   // passe
+
+        ->variable($string)
+            ->isNotCallable()   // passe
+    ;
+
+
+#### isNotEqualTo
+
+isEqualTo vérifie que les données testées n'ont pas la même valeur.
+
+    [php]
+    $a = 'a';
 
     $this
-            ->variable($stdClass)
-               ->isNotIdenticalTo(stdClass2); //Will fail, variables do not point to the same instance, even if their values are the same
+        ->variable($a)
+            ->isNotEqualTo('a')     // ne passe pas
+
+        ->variable($a)
+            ->isNotEqualTo('b')     // passe
+    ;
+
+Tout comme [isEqualTo](#isequalto), isNotEqualTo ne vérifie pas le type des données, uniquement leurs valeurs.
+
+    [php]
+    $aString = '1';
+    $aInt    = 1;
 
     $this
-            ->variable($stdClass)
-               ->isNotIdenticalTo(stdClassRef); //Will fail, both variables points to the same instance of StdClass
+        ->variable($aString)
+            ->isNotEqualTo($aInt)   // ne passe pas
+    ;
 
-If you don't want to consider the types of the variables, use isNotEqualTo.
+
+#### isNotIdenticalTo
+
+isNotIdenticalTo vérifie que les données testées n'ont ni le même type, ni la même valeur.
+Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas sur la même instance.
+
+    [php]
+    $a = '1';
+
+    $this
+        ->variable($a)
+            ->isNotIdenticalTo(1)           // passe
+    ;
+
+    $stdClass1 = new StdClass();
+    $stdClass2 = new StdClass();
+    $stdClass3 = $stdClass1;
+
+    $this
+        ->variable($stdClass1)
+            ->isNotIdenticalTo(stdClass2)   // passe
+
+        ->variable($stdClass1)
+            ->isNotIdenticalTo(stdClass3)   // ne passe pas
+    ;
+
+Si vous ne souhaitez pas vérifier le type des données, utilisez [isNotEqualTo](#isnotequalto).
+
 
 #### isNull
 
-isNull verify that the variable is null.
+isNull vérifie que la donnée testée est nulle.
 
     [php]
-    $a1 = '';
-    $this
-            ->variable($a1)
-               ->isNull(); //Will Fail ($a1 is empty but not null)
+    $emptyString = '';
+    $null        = null;
 
-    $a2 = null;
     $this
-            ->variable($a2)
-               ->isNull(); //Will Pass
+        ->variable($emptyString)
+            ->isNull()              // ne passe pas (c'est vide mais pas null)
+
+        ->variable($null)
+            ->isNull()              // passe
+    ;
+
 
 #### isNotNull
 
-isNotNull verify taht the variable is not null.
+isNotNull vérifie que la donnée testée n'est pas nulle.
 
     [php]
-    $a1 = '';
-    $this
-            ->variable($a1)
-               ->isNotNull(); //Will pass ($a1 is empty but not null)
+    $emptyString = '';
+    $null        = null;
 
-#### isReferenceTo
+    $this
+        ->variable($emptyString)
+            ->isNotNull()           // passe (c'est vide mais pas null)
+
+        ->variable($null)
+            ->isNotNull()           // ne passe pass
+    ;
+    
 
 ### integer
 
