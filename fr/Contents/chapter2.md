@@ -2,6 +2,7 @@
 
 ## Assertions
 
+<!--
     variable
         isCallable
         isEqualTo
@@ -32,7 +33,7 @@
     phpClass
     testedClass
     stream
-
+-->
 
 
 
@@ -231,7 +232,7 @@ isNotNull vérifie que la donnée testée n'est pas nulle.
         ->variable($null)
             ->isNotNull()           // ne passe pass
     ;
-    
+
 
 ### integer
 
