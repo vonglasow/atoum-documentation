@@ -2,42 +2,6 @@
 
 ## Assertions
 
-<!--
-    variable
-        isCallable
-        isEqualTo
-        isIdenticalTo
-        isNotCallable
-        isNotEqualTo
-        isNotIdenticalTo
-        isNotNull
-        isNull
-        isReferenceTo
-    boolean
-    integer
-    float
-    sizeOf
-    object
-    dateTime
-    mysqlDateTime
-    exception
-    phpArray
-    string
-    castToString
-    hash
-    output
-    adapter
-    afterDestructionOf
-    error
-    mock
-    phpClass
-    testedClass
-    stream
--->
-
-
-
-
 ### variable
 
 C'est l'assertion de base de toutes les variables. Elle contient les tests de base nécessaire à n'importe quel type de variable.
@@ -104,7 +68,7 @@ Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même i
 
     $this
         ->variable($a)
-            ->isIdenticalTo(1)          // ne passe pas
+            ->isIdenticalTo(1)          // échoue
     ;
 
     $stdClass1 = new StdClass();
@@ -113,7 +77,7 @@ Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même i
 
     $this
         ->variable($stdClass1)
-            ->isIdenticalTo(stdClass2)  // ne passe pas
+            ->isIdenticalTo(stdClass2)  // échoue
 
         ->variable($stdClass1)
             ->isIdenticalTo(stdClass3)  // passe
@@ -135,7 +99,7 @@ isNotCallable vérifie que la donnée testée ne peut pas être appelée comme f
 
     $this
         ->variable($f)
-            ->isNotCallable()   // ne passe pas
+            ->isNotCallable()   // échoue
 
         ->variable($int)
             ->isNotCallable()   // passe
@@ -154,7 +118,7 @@ isEqualTo vérifie que les données testées n'ont pas la même valeur.
 
     $this
         ->variable($a)
-            ->isNotEqualTo('a')     // ne passe pas
+            ->isNotEqualTo('a')     // échoue
 
         ->variable($a)
             ->isNotEqualTo('b')     // passe
@@ -168,7 +132,7 @@ Tout comme [isEqualTo](#isequalto), isNotEqualTo ne vérifie pas le type des don
 
     $this
         ->variable($aString)
-            ->isNotEqualTo($aInt)   // ne passe pas
+            ->isNotEqualTo($aInt)   // échoue
     ;
 
 
@@ -194,7 +158,7 @@ Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas 
             ->isNotIdenticalTo(stdClass2)   // passe
 
         ->variable($stdClass1)
-            ->isNotIdenticalTo(stdClass3)   // ne passe pas
+            ->isNotIdenticalTo(stdClass3)   // échoue
     ;
 
 Si vous ne souhaitez pas vérifier le type des données, utilisez [isNotEqualTo](#isnotequalto).
@@ -210,7 +174,7 @@ isNull vérifie que la donnée testée est nulle.
 
     $this
         ->variable($emptyString)
-            ->isNull()              // ne passe pas (c'est vide mais pas null)
+            ->isNull()              // échoue (c'est vide mais pas null)
 
         ->variable($null)
             ->isNull()              // passe
@@ -230,25 +194,85 @@ isNotNull vérifie que la donnée testée n'est pas nulle.
             ->isNotNull()           // passe (c'est vide mais pas null)
 
         ->variable($null)
-            ->isNotNull()           // ne passe pass
+            ->isNotNull()           // échoue
     ;
+
+
+
+### boolean
+
+C'est l'assertion dédiée aux booléens.
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+Si vous essayer de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
+
+    [php]
+    $a = 'true';
+
+    $this
+        ->boolean($a)   // échoue car $a n'est pas un booléen
+    ;
+
+**Note** : null n'est pas considéré comme un booléen.
+Reportez vous au manuel PHP pour voir ce que [is_bool](http://php.net/is_bool) considère ou non comme un booléen.
+
+#### isFalse
+
+isFalse vérifie que la donnée testée est strictement égale à false.
+
+    [php]
+    $true  = true;
+    $false = false;
+
+    $this
+        ->boolean($true)
+            ->isTrue()      // échoue
+
+        ->boolean($false)
+            ->isTrue()      // passe
+    ;
+
+#### isTrue
+
+isTrue vérifie que la donnée testée est strictement égale à true.
+
+    [php]
+    $true  = true;
+    $false = false;
+
+    $this
+        ->boolean($true)
+            ->isTrue()      // passe
+
+        ->boolean($false)
+            ->isTrue()      // échoue
+    ;
+
 
 
 ### integer
 
-This is the asserter dedicated to integer testing. It extends the variable asserter : You can use every assertions in the variable asserter while testing integers.
+C'est l'assertion dédiée aux entiers.
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-If you try to test a variable that is not an integer with the integer asserter, it will raise a failure.
+Si vous essayer de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
 
     [php]
-    $a1 = '1';
+    $a = '1';
 
     $this
-            ->integer($a1) //Will fail, a1 is not an integer, event if it represents one
+        ->integer($a)       // échoue car $a n'est pas un entier
+    ;
 
-Note
+**Note** : null n'est pas considéré comme un entier.
+Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme un entier.
 
-null is not considered as a valid integer. You can check PHP's is_int function to check what is considered an integer.
+#### isEqualTo
+#### isGreaterThan
+#### isGreaterThanOrEqualTo
+#### isLessThan
+#### isLessThanOrEqualTo
+#### isZero
 
 #### isZero
 
@@ -360,6 +384,7 @@ Note
 
 values given to isGreaterThanOrEqualTo must be actual integers.
 
+
 ### float
 
 This is the asserter dedicated to floating values testing.
@@ -371,110 +396,83 @@ Note
 
 Of course, while testing float values, assertions that expected integers will expect float values (isGreaterThan, isGreaterOrEqualTo, isLessThan, isLessThanOrEqualTo)
 
-### boolean
 
-This is the asserter dedicated to boolean testing.
 
-It extends the variable asserter.
+### sizeOf
 
-#### isTrue
+This asserter is dedicated to test the length of an array.
 
-isTrue verify that the tested boolean is true (strictly equals to false).
+It extends from the integer asserter : You can use every assertions of the integer asserter while testing the size of an array.
 
-    [php]
-    $boolean = false;
-    $boolean2 = true;
 
-    $this
-            ->boolean($boolean)
-               ->isTrue(); // Will fail
 
-    $this
-            ->boolean($boolean2)
-               ->isTrue(); // Will pass
+### object
 
-#### isFalse
+This is the asserter dedicated to object testing.
 
-isFalse verify that the tested boolean is false (strictly equals to false).
+It extends from the variable asserter : You can use every assertions of the variable asserter while testing an object.
+
+#### isInstanceOf
+
+isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of a given type.
 
     [php]
-    $boolean = false;
-    $boolean2 = true;
+    $stdClass = new stdClass();
+    $this
+            ->object($stdClass)
+                ->isInstanceOf('\StdClass')//Will pass
+                ->isInstanceOf('\Iterator');//Will fail
+
+
+    interface SomeInterface
+    {
+        public function doTest();
+    }
+
+    class SomeClass implements SomeInterface
+    {
+        public function doTest ()
+        {
+            echo "testing atoum is the best thing ever.";
+        }
+    }
+
+    class SomeChildClass extends SomeClass
+    {
+
+    }
+
+    $someClass = new SomeClass();
+    $someClone = clone($someClass);
+    $someChildClass = new SomeChildClass();
 
     $this
-           ->boolean($boolean)
-              ->isFalse(); // Will pass
+            ->object($someClass)
+                ->isInstanceOf('\SomeClass')//will pass
+                ->isInstanceOf('\SomeInterface')//will pass
+                ->isInstanceOf('\SomeChildClass');//will fail
 
     $this
-           ->boolean($boolean2)
-              ->isFalse(); // Will fail
+            ->object($someClone)
+                ->isInstanceOf('\SomeClass')//will pass
+                ->isInstanceOf('\SomeInterface')//will pass
+                ->isInstanceOf('\SomeChildClass');//will fail
 
-### string
+    $this
+            ->object($someChildClass)
+                ->isInstanceOf('\SomeClass')//will pass, inheritance
+                ->isInstanceOf('\SomeInterface')//will pass, inheritance of interfaces
+                ->isInstanceOf('\SomeChildClass');//will pass
 
-This is the asserter dedicated to string testing.
+#### hasSize
 
-It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
+hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable
+interface.
+
 
 #### isEmpty
 
-isEmpty verify that the string is empty (no characters)
 
-    [php]
-    $emptyString = '';
-    $nonEmptyString = ' ';
-
-    $this
-            ->string($emptyString)
-                ->isEmpty();//Will pass
-    $this
-            ->string($nonEmptyString)
-                ->isEmpty();//Will fail
-
-#### isNotEmpty
-
-isNotEmpty verify that the string is not empty (contains some characters)
-
-    [php]
-    $emptyString = '';
-    $nonEmptyString = ' ';
-
-    $this
-            ->string($emptyString)
-                ->isNotEmpty();//Will fail
-    $this
-            ->string($nonEmptyString)
-                ->isNotEmpty();//Will pass
-
-#### match
-
-match will try to verify that the string matches a given regular expression.
-
-    [php]
-    $polite = 'Hello the world';
-    $rude   = 'yeah... the world ';
-
-    $this
-            ->string($polite)
-                ->match();//will pass
-
-    $this
-            ->string($rude)
-                ->match();//will fail
-
-#### hasLength
-
-hasLength will verify that the string has a given length.
-
-    [php]
-    $string = 'Hello the world';
-
-    $this
-            ->string($string)
-                ->hasLength(15);//Will pass
-
-    $this
-            ->string($string)
-                ->hasLength(16);//Will fail
 
 ### dateTime
 
@@ -491,6 +489,58 @@ It extends from the variable asserter : You can use every assertions of the vari
 #### isInDay
 
 #### hasDate
+
+
+
+### mysqlDateTime
+
+
+
+### exception
+
+This is the asserter dedicated to exception testing.
+
+It extends from the object asserter : You can use every assertions of the object asserter while testing exceptions.
+
+atoum takes part of closures to test exceptions.
+
+    [php]
+    $this
+            ->exception(function () {
+                //this code will raise an exception
+                throw new Exception('This is an exception');
+            })
+
+
+            
+
+To test exceptions atoum is using closures (introduced in PHP 5,3).
+
+    [php]
+    class ExceptionLauncher extends atoum\test
+    {
+        public function testLaunchException ()
+        {
+            $exception = new \ExceptionLauncher();
+            $this
+                     ->exception(function()use($exception){
+                                    $exception->launchException();
+                                })
+                     ->isInstanceOf('LaunchedException')
+                     ->hasMessage('Message in the exception');
+
+        }
+    }
+
+#### hasDefaultCode
+
+#### hasCode
+
+#### hasMessage
+
+#### hasNestedException
+
+
 
 ### phpArray / array
 
@@ -784,99 +834,80 @@ notHasKeys will verify that the tested array does not contains any of the given 
                 ->notHasKeys(array(2, "3"))//will pass
                 ->notHasKeys(array("3", 4));//will pass
 
-### sizeOf
-
-This asserter is dedicated to test the length of an array.
-
-It extends from the integer asserter : You can use every assertions of the integer asserter while testing the size of an array.
-
-### object
-
-This is the asserter dedicated to object testing.
-
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing an object.
-
-#### isInstanceOf
-
-isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of a given type.
-
-    [php]
-    $stdClass = new stdClass();
-    $this
-            ->object($stdClass)
-                ->isInstanceOf('\StdClass')//Will pass
-                ->isInstanceOf('\Iterator');//Will fail
 
 
-    interface SomeInterface
-    {
-        public function doTest();
-    }
+### string
 
-    class SomeClass implements SomeInterface
-    {
-        public function doTest ()
-        {
-            echo "testing atoum is the best thing ever.";
-        }
-    }
+This is the asserter dedicated to string testing.
 
-    class SomeChildClass extends SomeClass
-    {
-
-    }
-
-    $someClass = new SomeClass();
-    $someClone = clone($someClass);
-    $someChildClass = new SomeChildClass();
-
-    $this
-            ->object($someClass)
-                ->isInstanceOf('\SomeClass')//will pass
-                ->isInstanceOf('\SomeInterface')//will pass
-                ->isInstanceOf('\SomeChildClass');//will fail
-
-    $this
-            ->object($someClone)
-                ->isInstanceOf('\SomeClass')//will pass
-                ->isInstanceOf('\SomeInterface')//will pass
-                ->isInstanceOf('\SomeChildClass');//will fail
-
-    $this
-            ->object($someChildClass)
-                ->isInstanceOf('\SomeClass')//will pass, inheritance
-                ->isInstanceOf('\SomeInterface')//will pass, inheritance of interfaces
-                ->isInstanceOf('\SomeChildClass');//will pass
-
-#### hasSize
-
-hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable
-interface.
-
+It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
 
 #### isEmpty
 
-### phpClass / class
+isEmpty verify that the string is empty (no characters)
 
-This is the asserter dedicated to class definition testing.
+    [php]
+    $emptyString = '';
+    $nonEmptyString = ' ';
 
-#### hasParent
+    $this
+            ->string($emptyString)
+                ->isEmpty();//Will pass
+    $this
+            ->string($nonEmptyString)
+                ->isEmpty();//Will fail
 
-#### hasNoParent
+#### isNotEmpty
 
-#### isSubclassOf
+isNotEmpty verify that the string is not empty (contains some characters)
 
-#### hasInterface
+    [php]
+    $emptyString = '';
+    $nonEmptyString = ' ';
 
-#### isAbstract
+    $this
+            ->string($emptyString)
+                ->isNotEmpty();//Will fail
+    $this
+            ->string($nonEmptyString)
+                ->isNotEmpty();//Will pass
 
-#### hasMethod
+#### match
 
-### testedClass
+match will try to verify that the string matches a given regular expression.
 
-This is the asserter dedicated to the tested class definition testing.
+    [php]
+    $polite = 'Hello the world';
+    $rude   = 'yeah... the world ';
 
-It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter while testing the tested class.
+    $this
+            ->string($polite)
+                ->match();//will pass
+
+    $this
+            ->string($rude)
+                ->match();//will fail
+
+#### hasLength
+
+hasLength will verify that the string has a given length.
+
+    [php]
+    $string = 'Hello the world';
+
+    $this
+            ->string($string)
+                ->hasLength(15);//Will pass
+
+    $this
+            ->string($string)
+                ->hasLength(16);//Will fail
+
+
+
+### castToString
+
+
 
 ### hash
 
@@ -899,6 +930,14 @@ isSha256 verify that the given hash *could be* the result of a sha512 hash.
 #### isMd5
 
 md5 verify that the given hash *could be* the result of a md5 hash.
+
+
+
+### output
+### adapter
+### afterDestructionOf
+
+
 
 ### error
 
@@ -939,55 +978,51 @@ Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :
 
 #### withPattern
 
-### exception
 
-This is the asserter dedicated to exception testing.
-
-It extends from the object asserter : You can use every assertions of the object asserter while testing exceptions.
-
-atoum takes part of closures to test exceptions.
-
-    [php]
-    $this
-            ->exception(function () {
-                //this code will raise an exception
-                throw new Exception('This is an exception');
-            })
-
-
-            
-
-To test exceptions atoum is using closures (introduced in PHP 5,3).
-
-    [php]
-    class ExceptionLauncher extends atoum\test
-    {
-        public function testLaunchException ()
-        {
-            $exception = new \ExceptionLauncher();
-            $this
-                     ->exception(function()use($exception){
-                                    $exception->launchException();
-                                })
-                     ->isInstanceOf('LaunchedException')
-                     ->hasMessage('Message in the exception');
-
-        }
-    }
-
-#### hasDefaultCode
-
-#### hasCode
-
-#### hasMessage
-
-#### hasNestedException
 
 ### mock
 
 This is the asserter dedicated to test your code using mock objects.
 
+
+
+### phpClass / class
+
+This is the asserter dedicated to class definition testing.
+
+#### hasParent
+
+#### hasNoParent
+
+#### isSubclassOf
+
+#### hasInterface
+
+#### isAbstract
+
+#### hasMethod
+
+
+
+### testedClass
+
+This is the asserter dedicated to the tested class definition testing.
+
+It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter while testing the tested class.
+
+
+
+
+### stream
+
+
+
+
+
 ## Fournisseur de données
+
+
+
 
 ## Les mock
 
