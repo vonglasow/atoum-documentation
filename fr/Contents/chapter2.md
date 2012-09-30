@@ -267,125 +267,122 @@ Si vous essayer de tester une variable qui n'est pas un entier avec cette assert
 **Note** : null n'est pas considéré comme un entier.
 Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme un entier.
 
-#### isEqualTo
-#### isGreaterThan
-#### isGreaterThanOrEqualTo
-#### isLessThan
-#### isLessThanOrEqualTo
-#### isZero
-
-#### isZero
-
-isZero verify that the tested variable is equal to 0.
-
-    [php]
-    $zero = 0;
-    $minusOne = -1;
-
-    $this
-            ->integer($zero)
-               ->isZero(); // Will pass
-
-    $this
-            ->integer($minusOne)
-               ->isZero(); // Will fail
-
-#### isLessThan
-
-isLessThan verify that the tested integer is strictly less than a given integer.
-
-    [php]
-    $zero = 0;
-
-    $this
-            ->integer($zero)
-               ->isLessThan(10); // Will pass
-
-    $this
-            ->integer($zero)
-               ->isLessThan('10'); // Will fail, you have to pass an actual integer to isLessThan
-
-    $this
-            ->integer($zero)
-               ->isLessThan(0); // Will fail, 0 is equal to 0
-
-Note
-
-values given to isLessThan must be actual integers.
-
 #### isGreaterThan
 
-isGreaterThan verify that the tested integer is strictly greater than a given integer.
+isGreaterThan vérifie que la donnée testée est strictement supérieure à une valeur donnée.
 
     [php]
     $zero = 0;
 
     $this
-            ->integer($zero)
-               ->isGreaterThan(-1); // Will pass
+        ->integer($zero)
+            ->isGreaterThan(-1)     // passe
 
-    $this
-            ->integer($zero)
-               ->isGreaterThan('-1'); // Will fail, you have to pass an actual integer to isGreaterThan
+        ->integer($zero)
+            ->isGreaterThan('-1')   // échoue car "-1" n'est pas un entier
 
-    $this
-            ->integer($zero)
-               ->isGreaterThan(0); // Will fail, 0 is equal to 0
+        ->integer($zero)
+            ->isGreaterThan(0)      // échoue
+    ;
 
-
-Note
-
-values given to isGreaterThan must be actual integers.
-
-#### isLessThanOrEqualTo
-
-isLessThanOrEqualTo verify that the tested integer is less or equal to a given integer.
-
-    [php]
-    $zero = 0;
-
-    $this
-            ->integer($zero)
-               ->isLessThanOrEqualTo(10); // Will pass
-
-    $this
-            ->integer($zero)
-               ->isLessThanOrEqualTo('10'); // Will fail, you have to pass an actual integer to isLessThanOrEqualTo
-
-    $this
-            ->integer($zero)
-               ->isLessThanOrEqualTo(0); // Will pass
-
-Note
-
-values given to isLessThanOrEqualTo must be actual integers.
+**Note** : la valeur donnée à isGreaterThan doit être un entier.
 
 #### isGreaterThanOrEqualTo
 
-isGreaterThanOrEqualTo verify that the tested integer is greater or equal to a given integer.
+isGreaterThanOrEqualTo vérifie que la donnée testée est supérieure ou égale à une valeur donnée.
 
     [php]
     $zero = 0;
 
     $this
-            ->integer($zero)
-               ->isGreaterThanOrEqualTo(-1); // Will pass
+        ->integer($zero)
+            ->isGreaterThanOrEqualTo(-1)    // passe
+
+        ->integer($zero)
+            ->isGreaterThanOrEqualTo('-1')  // échoue car "-1" n'est pas un entier
+
+        ->integer($zero)
+            ->isGreaterThanOrEqualTo(0)     // passe
+    ;
+
+**Note** : la valeur donnée à isGreaterThanOrEqualTo doit être un entier.
+
+#### isLessThan
+
+isLessThan vérifie que la donnée testée est strictement inférieure à une valeur donnée.
+
+    [php]
+    $zero = 0;
 
     $this
-            ->integer($zero)
-               ->isGreaterThanOrEqualTo('-1'); // Will fail, you have to pass an actual integer to isGreaterThanOrEqualTo
+        ->integer($zero)
+            ->isLessThan(10)    // passe
+
+        ->integer($zero)
+            ->isLessThan('10')  // échoue car "10" n'est pas un entier
+
+        ->integer($zero)
+            ->isLessThan(0)     // échoue
+    ;
+
+**Note** : la valeur donnée à isLessThan doit être un entier.
+
+#### isLessThanOrEqualTo
+
+isLessThanOrEqualTo vérifie que la donnée testée est inférieure ou égale à une valeur donnée.
+
+    [php]
+    $zero = 0;
 
     $this
-            ->integer($zero)
-               ->isGreaterThanOrEqualTo(0); // Will pass
+        ->integer($zero)
+            ->isLessThanOrEqualTo(10)       // passe
 
+        ->integer($zero)
+            ->isLessThanOrEqualTo('10')     // échoue car "10" n'est pas un entier
 
-Note
+        ->integer($zero)
+            ->isLessThanOrEqualTo(0)        // passe
+    ;
 
-values given to isGreaterThanOrEqualTo must be actual integers.
+**Note** : la valeur donnée à isLessThanOrEqualTo doit être un entier.
+
+#### isZero
+
+isZero vérifie que la donnée testée est égale à 0.
+
+    [php]
+    $zero    = 0;
+    $notZero = -1;
+
+    $this
+        ->integer($zero)
+            ->isZero()          // passe
+
+        ->integer($notZero)
+            ->isZero()          // échoue
+    ;
+
+**Note** : isZero est équivalent à isEqualTo(0).
+
 
 
 ### float
+
+C'est l'assertion dédiée aux nombres décimaux.
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+Si vous essayer de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
+
+    [php]
+    $a = '1';
+
+    $this
+        ->integer($a)       // échoue car $a n'est pas un entier
+    ;
+
+**Note** : null n'est pas considéré comme un entier.
+Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme un entier.
 
 This is the asserter dedicated to floating values testing.
 
