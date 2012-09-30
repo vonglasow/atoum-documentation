@@ -77,10 +77,8 @@ Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même i
 
     $this
         ->variable($stdClass1)
-            ->isIdenticalTo(stdClass2)  // échoue
-
-        ->variable($stdClass1)
             ->isIdenticalTo(stdClass3)  // passe
+            ->isIdenticalTo(stdClass2)  // échoue
     ;
 
 Si vous ne souhaitez pas vérifier le type des données, utilisez [isEqualTo](#isequalto).
@@ -118,10 +116,8 @@ isEqualTo vérifie que les données testées n'ont pas la même valeur.
 
     $this
         ->variable($a)
-            ->isNotEqualTo('a')     // échoue
-
-        ->variable($a)
             ->isNotEqualTo('b')     // passe
+            ->isNotEqualTo('a')     // échoue
     ;
 
 Tout comme [isEqualTo](#isequalto), isNotEqualTo ne vérifie pas le type des données, uniquement leurs valeurs.
@@ -156,8 +152,6 @@ Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas 
     $this
         ->variable($stdClass1)
             ->isNotIdenticalTo(stdClass2)   // passe
-
-        ->variable($stdClass1)
             ->isNotIdenticalTo(stdClass3)   // échoue
     ;
 
@@ -204,7 +198,7 @@ isNotNull vérifie que la donnée testée n'est pas nulle.
 C'est l'assertion dédiée aux booléens.
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayer de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
 
     [php]
     $a = 'true';
@@ -255,13 +249,13 @@ isTrue vérifie que la donnée testée est strictement égale à true.
 C'est l'assertion dédiée aux entiers.
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayer de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
 
     [php]
     $a = '1';
 
     $this
-        ->integer($a)       // échoue car $a n'est pas un entier
+        ->integer($a)       // échoue car "1" n'est pas un entier mais une chaine de caractère
     ;
 
 **Note** : null n'est pas considéré comme un entier.
@@ -277,11 +271,7 @@ isGreaterThan vérifie que la donnée testée est strictement supérieure à une
     $this
         ->integer($zero)
             ->isGreaterThan(-1)     // passe
-
-        ->integer($zero)
             ->isGreaterThan('-1')   // échoue car "-1" n'est pas un entier
-
-        ->integer($zero)
             ->isGreaterThan(0)      // échoue
     ;
 
@@ -297,12 +287,8 @@ isGreaterThanOrEqualTo vérifie que la donnée testée est supérieure ou égale
     $this
         ->integer($zero)
             ->isGreaterThanOrEqualTo(-1)    // passe
-
-        ->integer($zero)
-            ->isGreaterThanOrEqualTo('-1')  // échoue car "-1" n'est pas un entier
-
-        ->integer($zero)
             ->isGreaterThanOrEqualTo(0)     // passe
+            ->isGreaterThanOrEqualTo('-1')  // échoue car "-1" n'est pas un entier
     ;
 
 **Note** : la valeur donnée à isGreaterThanOrEqualTo doit être un entier.
@@ -317,11 +303,7 @@ isLessThan vérifie que la donnée testée est strictement inférieure à une va
     $this
         ->integer($zero)
             ->isLessThan(10)    // passe
-
-        ->integer($zero)
             ->isLessThan('10')  // échoue car "10" n'est pas un entier
-
-        ->integer($zero)
             ->isLessThan(0)     // échoue
     ;
 
@@ -337,12 +319,8 @@ isLessThanOrEqualTo vérifie que la donnée testée est inférieure ou égale à
     $this
         ->integer($zero)
             ->isLessThanOrEqualTo(10)       // passe
-
-        ->integer($zero)
-            ->isLessThanOrEqualTo('10')     // échoue car "10" n'est pas un entier
-
-        ->integer($zero)
             ->isLessThanOrEqualTo(0)        // passe
+            ->isLessThanOrEqualTo('10')     // échoue car "10" n'est pas un entier
     ;
 
 **Note** : la valeur donnée à isLessThanOrEqualTo doit être un entier.
@@ -370,105 +348,182 @@ isZero vérifie que la donnée testée est égale à 0.
 ### float
 
 C'est l'assertion dédiée aux nombres décimaux.
-Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
+Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
+Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float attende un nombre décimal et non plus un entier.
 
-Si vous essayer de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
 
     [php]
     $a = '1';
 
     $this
-        ->integer($a)       // échoue car $a n'est pas un entier
+        ->float($a)     // échoue car "1" n'est pas un nombre décimal mais une chaine de caractère
     ;
 
-**Note** : null n'est pas considéré comme un entier.
-Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme un entier.
+**Note** : null n'est pas considéré comme un nombre décimal.
+Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float) considère ou non comme un nombre décimal.
 
-This is the asserter dedicated to floating values testing.
+#### isNearlyEqualTo
 
-It extends the integer asserter making it possible to test floating point values.
+isNearlyEqualTo vérifie que la donnée testée et suffisament égale à une valeur donnée.
+En effet, les nombres décimaux ont une valeur interne qui est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
 
-You can use every assertions that are present in the integer asserter.
-Note
+    [bash]
+    php -r 'var_dump(1 - 0.97 === 0.03);'
+    bool(false)
 
-Of course, while testing float values, assertions that expected integers will expect float values (isGreaterThan, isGreaterOrEqualTo, isLessThan, isLessThanOrEqualTo)
+Le résultat devrait pourtant être true. 
+
+**Note** : pour avoir plus d'informations sur ce phénomène, reportez vous au [manuel PHP](http://php.net/types.float).
+
+Cette méthode cherche donc à corriger le problème
+
+    [php]
+    $float = 1 - 0.97;
+
+    $this
+        ->float($float)
+            ->isNearlyEqualTo(0.03) // passe
+            ->isEqualTo(0.03)       // échoue
+    ;
+
+**Note** : pour avoir plus d'informations sur l'algorithme utilisé, consultez le [floating point guide](http://www.floating-point-gui.de/errors/comparison/).
 
 
 
 ### sizeOf
 
-This asserter is dedicated to test the length of an array.
+C'est l'assertion dédiée aux tests sur la taille des tableaux et des objets implémentants l'interface Countable.
+Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-It extends from the integer asserter : You can use every assertions of the integer asserter while testing the size of an array.
+    [php]
+    $array           = array(1, 2, 3);
+    $countableObject = new GlobIterator('*');
+
+    $this
+        ->sizeOf($array)
+            ->isEqualTo(3)  // passe
+
+        ->sizeOf($countableObject)
+            ->isGreatherThan(0)
+    ;
 
 
 
 ### object
 
-This is the asserter dedicated to object testing.
+C'est l'assertion dédiée aux objets.
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing an object.
-
-#### isInstanceOf
-
-isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of a given type.
+Si vous essayez de tester une variable qui n'est pas un objet avec cette assertion, cela échouera.
 
     [php]
-    $stdClass = new stdClass();
-    $this
-            ->object($stdClass)
-                ->isInstanceOf('\StdClass')//Will pass
-                ->isInstanceOf('\Iterator');//Will fail
-
-
-    interface SomeInterface
-    {
-        public function doTest();
-    }
-
-    class SomeClass implements SomeInterface
-    {
-        public function doTest ()
-        {
-            echo "testing atoum is the best thing ever.";
-        }
-    }
-
-    class SomeChildClass extends SomeClass
-    {
-
-    }
-
-    $someClass = new SomeClass();
-    $someClone = clone($someClass);
-    $someChildClass = new SomeChildClass();
+    $a = 1;
 
     $this
-            ->object($someClass)
-                ->isInstanceOf('\SomeClass')//will pass
-                ->isInstanceOf('\SomeInterface')//will pass
-                ->isInstanceOf('\SomeChildClass');//will fail
+        ->object($a)    // échoue car 1 n'est pas un objet mais un entier
+    ;
 
-    $this
-            ->object($someClone)
-                ->isInstanceOf('\SomeClass')//will pass
-                ->isInstanceOf('\SomeInterface')//will pass
-                ->isInstanceOf('\SomeChildClass');//will fail
-
-    $this
-            ->object($someChildClass)
-                ->isInstanceOf('\SomeClass')//will pass, inheritance
-                ->isInstanceOf('\SomeInterface')//will pass, inheritance of interfaces
-                ->isInstanceOf('\SomeChildClass');//will pass
+**Note** : null n'est pas considéré comme un objet.
+Reportez vous au manuel PHP pour voir ce que [is_object](http://php.net/is_object) considère ou non comme un objet.
 
 #### hasSize
 
-hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable
-interface.
+hasSize vérifie la taille d'un objet qui implémente l'interface Countable.
 
+    [php]
+    $countableObject = new GlobIterator('*');
+
+    $this
+        ->object($countableObject)
+            ->hasSize(3)
+    ;
+
+#### isCloneOf
+
+isCloneOf vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
+
+    [php]
+    $object1 = new StdClass;
+    $object2 = new StdClass;
+    $object3 = clone($object1);
+    $object4 = new StdClass;
+    $object4->foo = 'bar';
+
+    $this
+        ->object($object1)
+            ->isCloneOf($object2)   // passe
+            ->isCloneOf($object3)   // passe
+            ->isCloneOf($object4)   // échoue
+    ;
+
+**Note** : pour avoir plus de précision sur la comparaison d'objet, reportez vous au [manuel PHP](php.net/language.oop5.object-comparison).
 
 #### isEmpty
 
+isEmpty vérifie que la taille d'un objet implémentant l'interface Countable est égale à 0.
+
+    [php]
+    $countableObject = new GlobIterator('atoum.php');
+
+    $this
+        ->object($countableObject)
+            ->isEmpty()
+    ;
+
+**Note** : isEmpty est équivalent à hasSize(0).
+
+#### isInstanceOf
+
+isInstanceOf vérifie qu'un objet est:
+* une instance de la classe donnée (abstraite ou non),
+* une sous-classe de la classe donnée (abstraite ou non),
+* une instance d'une classe (abstraite ou non) qui implémente l'interface donnée.
+
+    [php]
+    $object = new StdClass();
+    $this
+        ->object($object)
+            ->isInstanceOf('\StdClass')     // passe
+            ->isInstanceOf('\Iterator')     // échoue
+    ;
+
+
+    interface FooInterface
+    {
+        public function foo();
+    }
+
+    class FooClass implements FooInterface
+    {
+        public function foo()
+        {
+            echo "foo";
+        }
+    }
+
+    class BarClass extends FooClass
+    {
+    }
+
+    $foo = new FooClass;
+    $bar = new BarClass;
+
+    $this
+        ->object($foo)
+            ->isInstanceOf('\FooClass')     // passe
+            ->isInstanceOf('\FooInterface') // passe
+            ->isInstanceOf('\BarClass')     // échoue
+            ->isInstanceOf('\StdClass')     // échoue
+
+        ->object($bar)
+            ->isInstanceOf('\FooClass')     // passe
+            ->isInstanceOf('\FooInterface') // passe
+            ->isInstanceOf('\BarClass')     // passe
+            ->isInstanceOf('\StdClass')     // échoue
+    ;
+
+**Note** : Les noms des classes et des interfaces doit être absolu et commencé par un antislash.
 
 
 ### dateTime
