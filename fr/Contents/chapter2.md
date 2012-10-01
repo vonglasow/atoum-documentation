@@ -534,9 +534,117 @@ Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans c
 
 Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
+#### hasDate
+
+hasDate vérifie la partie date de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('1981-02-13');
+
+    $this
+        ->dateTime($dt)
+            ->hasDate('1981', '02', '13')   // passe
+            ->hasDate('1981', '2',  '13')   // passe
+            ->hasDate(1981,   2,    13)     // passe
+    ;
+
+#### hasDateAndTime
+
+hasDateAndTime vérifie la date et l'horaire de l'objet DateTime
+
+    [php]
+    $dt = new DateTime('1981-02-13 01:02:03');
+
+    $this
+        ->dateTime($dt)
+            ->hasDateAndTime('1981', '02', '13', '01', '02', '03')  // passe
+            ->hasDateAndTime('1981', '2',  '13', '1',  '2',  '3')   // passe
+            ->hasDateAndTime(1981,   2,    13,   1,    2,    3)     // passe
+    ;
+
+#### hasDay
+
+hasDay vérifie le jour de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('1981-02-13');
+
+    $this
+        ->dateTime($dt)
+            ->hasDay(13)        // passe
+    ;
+
+#### hasHours
+
+hasHours vérifie les heures de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('01:02:03');
+
+    $this
+        ->dateTime($dt)
+            ->hasHours('01')    // passe
+            ->hasHours('1')     // passe
+            ->hasHours(1)       // passe
+    ;
+
+#### hasMinutes
+
+hasMinutes vérifie les minutes de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('01:02:03');
+
+    $this
+        ->dateTime($dt)
+            ->hasMinutes('02')  // passe
+            ->hasMinutes('2')   // passe
+            ->hasMinutes(2)     // passe
+    ;
+
+#### hasMonth
+
+hasMonth vérifie le mois de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('1981-02-13');
+
+    $this
+        ->dateTime($dt)
+            ->hasMonth(2)       // passe
+    ;
+
+#### hasSeconds
+
+hasSeconds vérifie les secondes de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('01:02:03');
+
+    $this
+        ->dateTime($dt)
+            ->hasSeconds('03')    // passe
+            ->hasSeconds('3')     // passe
+            ->hasSeconds(3)       // passe
+    ;
+
+#### hasTime
+
+hasTime vérifie la partie horaire de l'objet DateTime
+
+    [php]
+    $dt = new DateTime('01:02:03');
+
+    $this
+        ->dateTime($dt)
+            ->hasTime('01', '02', '03')     // passe
+            ->hasTime('1',  '2',  '3')      // passe
+            ->hasTime(1,    2,    3)        // passe
+    ;
+
 #### hasTimezone
 
-hasTimezone test le fuseau horaire de l'objet DateTime.
+hasTimezone vérifie le fuseau horaire de l'objet DateTime.
 
     [php]
     $dt = new DateTime();
@@ -546,43 +654,17 @@ hasTimezone test le fuseau horaire de l'objet DateTime.
             ->hasTimezone('Europe/Paris')
     ;
 
-#### isInYear
+#### hasYear
 
-isInYear test l'année de l'objet DateTime.
-
-    [php]
-    $dt = new DateTime('1981-02-13');
-
-    $this
-        ->dateTime($dt)
-            ->isInYear(1981)    // passe
-    ;
-
-#### isInMonth
-
-isInMonth test le mois de l'objet DateTime.
+hasYear vérifie l'année de l'objet DateTime.
 
     [php]
     $dt = new DateTime('1981-02-13');
 
     $this
         ->dateTime($dt)
-            ->isInMonth(2)      // passe
+            ->hasYear(1981)     // passe
     ;
-
-#### isInDay
-
-isInDay test le jour de l'objet DateTime.
-
-    [php]
-    $dt = new DateTime('1981-02-13');
-
-    $this
-        ->dateTime($dt)
-            ->isInDay(13)       // passe
-    ;
-
-#### hasDate
 
 
 
