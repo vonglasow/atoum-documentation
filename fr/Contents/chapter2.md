@@ -482,6 +482,7 @@ isInstanceOf vérifie qu'un objet est:
 
     [php]
     $object = new StdClass();
+
     $this
         ->object($object)
             ->isInstanceOf('\StdClass')     // passe
@@ -528,17 +529,58 @@ isInstanceOf vérifie qu'un objet est:
 
 ### dateTime
 
-This is the asserter dedicated to DateTime testing.
+C'est l'assertion dédiée à l'objet [DateTime](http://php.net/datetime).
+Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing a DateTime object.
+Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
 #### hasTimezone
 
+hasTimezone test le fuseau horaire de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime();
+
+    $this
+        ->dateTime($dt)
+            ->hasTimezone('Europe/Paris')
+    ;
+
 #### isInYear
+
+isInYear test l'année de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('1981-02-13');
+
+    $this
+        ->dateTime($dt)
+            ->isInYear(1981)    // passe
+    ;
 
 #### isInMonth
 
+isInMonth test le mois de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('1981-02-13');
+
+    $this
+        ->dateTime($dt)
+            ->isInMonth(2)      // passe
+    ;
+
 #### isInDay
+
+isInDay test le jour de l'objet DateTime.
+
+    [php]
+    $dt = new DateTime('1981-02-13');
+
+    $this
+        ->dateTime($dt)
+            ->isInDay(13)       // passe
+    ;
 
 #### hasDate
 
