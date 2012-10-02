@@ -44,7 +44,7 @@ Créez, ensuite, un fichier composer.json contenant le JSON suivant :
 
     [json]
     {
-        "require"; {
+        "require": {
             "mageekguy/atoum": "dev-master"
         }
     }

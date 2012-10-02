@@ -35,7 +35,7 @@ Then, create a file named composer.json who contains
 
     [json]
     {
-        "require"; {
+        "require": {
             "mageekguy/atoum": "dev-master"
         }
     }
