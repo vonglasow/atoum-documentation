@@ -196,6 +196,7 @@ isNotNull vérifie que la donnée testée n'est pas nulle.
 ### boolean
 
 C'est l'assertion dédiée aux booléens.
+
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
@@ -247,6 +248,7 @@ isTrue vérifie que la donnée testée est strictement égale à true.
 ### integer
 
 C'est l'assertion dédiée aux entiers.
+
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
@@ -348,6 +350,7 @@ isZero vérifie que la donnée testée est égale à 0.
 ### float
 
 C'est l'assertion dédiée aux nombres décimaux.
+
 Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
 Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float attende un nombre décimal et non plus un entier.
 
@@ -394,6 +397,7 @@ Cette méthode cherche donc à corriger le problème
 ### sizeOf
 
 C'est l'assertion dédiée aux tests sur la taille des tableaux et des objets implémentants l'interface Countable.
+
 Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
 
     [php]
@@ -413,6 +417,7 @@ Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans
 ### object
 
 C'est l'assertion dédiée aux objets.
+
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un objet avec cette assertion, cela échouera.
@@ -530,6 +535,7 @@ isInstanceOf vérifie qu'un objet est:
 ### dateTime
 
 C'est l'assertion dédiée à l'objet [DateTime](http://php.net/datetime).
+
 Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion, cela échouera.
@@ -670,59 +676,215 @@ hasYear vérifie l'année de l'objet DateTime.
 
 ### mysqlDateTime
 
+C'est l'assertion dédiée aux objets décrivant une date MySQL et basé sur l'objet [DateTime](http://php.net/datetime).
+Les dates doivent utiliser le format MySQL (et de nombreux SGBD), c'est à dire 'Y-m-d H:i:s'
+(Reportez vous à la documentation de la fonction [date()](http://php.net/date) du manuel PHP pour connaitre la signification de ce format).
+
+Elle étend [dateTime](#dateTime), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion, cela échouera.
+
 
 
 ### exception
 
-This is the asserter dedicated to exception testing.
+C'est l'assertion dédié aux exceptions.
 
-It extends from the object asserter : You can use every assertions of the object asserter while testing exceptions.
-
-atoum takes part of closures to test exceptions.
+Elle étend [objet](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
     [php]
     $this
-            ->exception(function () {
-                //this code will raise an exception
-                throw new Exception('This is an exception');
-            })
+        ->exception(
+            function () {
+                // ce code lève une exception
+                throw new \Exception;
+            }
+        )
+    ;
 
-
-            
-
-To test exceptions atoum is using closures (introduced in PHP 5,3).
+**Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
+Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
 
     [php]
-    class ExceptionLauncher extends atoum\test
-    {
-        public function testLaunchException ()
-        {
-            $exception = new \ExceptionLauncher();
-            $this
-                     ->exception(function()use($exception){
-                                    $exception->launchException();
-                                })
-                     ->isInstanceOf('LaunchedException')
-                     ->hasMessage('Message in the exception');
-
-        }
-    }
-
-#### hasDefaultCode
+    $this
+        ->exception(
+            function () {
+                throw new MyCataclysmicException('This a terrible error !');
+            }
+        )
+            ->isInstanceOf('MyCataclysmicException')
+            ->hasMessage('This a terrible error !')
+    ;
 
 #### hasCode
 
+hasCode vérifie le code de l'exception.
+
+    [php]
+    $this
+        ->exception(
+            function () {
+                throw new \Exception('Message', 42);
+            }
+        )
+            ->hasCode(42)
+    ;
+
+#### hasDefaultCode
+
+hasDefaultCode vérifie que le code de l'exception est bien 0.
+
+    [php]
+    $this
+        ->exception(
+            function () {
+                throw new \Exception;
+            }
+        )
+            ->hasDefaultCode()
+    ;
+
 #### hasMessage
+
+hasMessage vérifie le message de l'exception.
+
+    [php]
+    $this
+        ->exception(
+            function () {
+                throw new \Exception('Message');
+            }
+        )
+            ->hasMessage('Message')     // passe
+            ->hasMessage('message')     // échoue
+    ;
 
 #### hasNestedException
 
+hasNestedException vérifie que l'exception contient une référence vers l'exception précédente.
+Si l'exception est précisé, cela va également vérifier que c'est la bonne exception.
+
+    [php]
+    $this
+        ->exception(
+            function () {
+                throw new \Exception('Message');
+            }
+        )
+            ->hasNestedException()      // échoue
+
+        ->exception(
+            function () {
+                try {
+                    // Cette exception est levée...
+                    throw new \FirstException('Message 1', 42);
+                }
+                // ... puis attrapée...
+                catch(\FirstException $e) {
+                    // ... et enfin relancée, encapsulée dans une seconde exception
+                    throw new \SecondException('Message 2', 24, $e);
+                }
+            }
+        )
+            ->isInstanceOf('\FirstException')           // échoue
+            ->isInstanceOf('\SecondException')          // passe
+
+            ->hasNestedException()                      // passe
+            ->hasNestedException(new \FirstException)   // passe
+            ->hasNestedException(new \SecondException)  // échoue
+    ;
 
 
-### phpArray / array
 
-This is the asserter dedicated to array testing.
+### array
 
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing arrays.
+C'est l'assertion dédié aux tableaux.
+
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+**Note** : le mot clef "array" étant réservé, il n'a pas été possible de créer une classe array.
+La classe de l'assertion s'appelle donc phpArray et un alias "array" a été créé.
+Vous pourrez donc rencontrer des ->phpArray() ou des ->array().
+Nous vous conseillons d'utiliser exclusivement ->array().
+
+#### contains
+
+contains will verify that the tested array directly contains a given value (will not search for the value recursively).
+contains will not test the type of the value.
+
+If you want to test both the type and the value, you will use strictlyContains.
+
+    [php]
+    $arrayWithNull = array(null);
+    $arrayWithEmptyString = array('', 1);
+    $arrayWithArrayWithNull = array(array(null));
+    $arrayWithString1 = array('1', 2, 3);
+
+    $this
+            ->array($arrayWithNull)
+                ->contains(null);//will pass
+            ->array($arrayWithEmptyString)
+                ->contains(null)//will pass (null == '')
+            ->array($arrayWithArrayWithNull)
+                ->contains(null);//will fail, does not search recursively
+            ->array($arrayWithString1)
+                ->contains(1);//will pass, does not match the type
+
+#### containsValues
+
+containsValues will verify that the tested array does contains some values (given in an array)
+containsValues will not test the type of the values to look for.
+
+If you want to test both the types and the values, you will use strictlyContainsValues.
+
+    [php]
+    $arrayWithString1And2And3 = array('1', 2, 3);
+
+    $this
+            ->array($arrayWithString1And2And3)
+                ->containsValues(array(1, 2, 3))//will pass
+                ->containsValues(array('1', '2', '3'))//will pass
+                ->containsValues(array('1, 2, 3));//will pass
+
+#### hasKey
+
+hasKey will verify that the given array has a given key
+
+    [php]
+    $array  = array(2, 4, 6);
+    $array2 = array("2"=>1, "3"=>2, "4"=>3);
+
+    $this
+            ->array($array1)
+                ->hasKey(1)//will pass
+                ->hasKey(2)//will pass
+                ->hasKey('1')//will pass, keys are "casted", and $array[1] do exists
+                ->hasKey(5);//will fail
+    $this
+            ->array($array2)
+                ->hasKey(2)//will pass
+                ->hasKey("3")//will pass
+                ->hasKey(0);//will fail
+
+#### hasKeys
+
+hasKeys will verify that the tested array contains all the given keyx (given as an array)
+
+    [php]
+    $array  = array(2, 4, 6);
+    $array2 = array("2"=>1, "3"=>2, "4"=>3);
+
+    $this
+            ->array($array1)
+                ->hasKeys(array(1, 2))//will pass
+                ->hasKeys(array('0', 2))//will pass
+                ->hasKeys(array("2", 0))//will pass
+                ->hasKeys(array(0, 3))//will fail, $array[3] does not exists
+
+    $this
+            ->array($array2)
+                ->hasKeys(array(2, "3"))//will pass
+                ->hasKeys(array("3", 4));//will pass
 
 #### hasSize
 
@@ -770,29 +932,6 @@ isEmpty will verify that the array is not empty (contains at least one value of 
             ->array($nonEmptyArray)
             ->isNotEmpty();//will pass
 
-#### contains
-
-contains will verify that the tested array directly contains a given value (will not search for the value recursively).
-contains will not test the type of the value.
-
-If you want to test both the type and the value, you will use strictlyContains.
-
-    [php]
-    $arrayWithNull = array(null);
-    $arrayWithEmptyString = array('', 1);
-    $arrayWithArrayWithNull = array(array(null));
-    $arrayWithString1 = array('1', 2, 3);
-
-    $this
-            ->array($arrayWithNull)
-                ->contains(null);//will pass
-            ->array($arrayWithEmptyString)
-                ->contains(null)//will pass (null == '')
-            ->array($arrayWithArrayWithNull)
-                ->contains(null);//will fail, does not search recursively
-            ->array($arrayWithString1)
-                ->contains(1);//will pass, does not match the type
-
 #### notContains
 
 notContains will verify that the tested array does not contains a given value (will not search for the value recursively).
@@ -816,22 +955,6 @@ If you want to test both the type and the value, you will use strictlyNotContain
             ->array($arrayWithString1)
                 ->notContains(1);//will fail, 1 == '1'
 
-#### containsValues
-
-containsValues will verify that the tested array does contains some values (given in an array)
-containsValues will not test the type of the values to look for.
-
-If you want to test both the types and the values, you will use strictlyContainsValues.
-
-    [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
-
-    $this
-            ->array($arrayWithString1And2And3)
-                ->containsValues(array(1, 2, 3))//will pass
-                ->containsValues(array('1', '2', '3'))//will pass
-                ->containsValues(array('1, 2, 3));//will pass
-
 #### notContainsValues
 
 notContainsValues will verify that the tested array does not contains any value of a given array
@@ -849,38 +972,45 @@ If you want to test both the types and the values, you will use strictlyNotConta
                 ->notContainsValues(array('1', 2, 3))//will fail as all the values are in the tested array
                 ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
 
-#### strictlyContainsValues
+#### notHasKey
 
-strictlyContainsValues will verify that the tested array contains all the values of a given array
-stricltyContainsValues will test the type of the values to look for.
-
-If you do not want to test both the types and the values, you will use containsValues.
+notHasKey will verify that the given array does not have a given key
 
     [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
+    $array  = array(2, 4, 6);
+    $array2 = array("2"=>1, "3"=>2, "3"=>3);
 
     $this
-            ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 2, 3))//will faill as '1' is in the tested array, not 1
-                ->notContainsValues(array('3', '2', '1'))//will fail as '3' and '2' are not in the tested array, but 2 and 3 are
-                ->notContainsValues(array(2, '1', 3));//will pass as all the values are in the tested array
+            ->array($array1)
+                ->notHasKey(1)//will fail
+                ->notHasKey(2)//will fail
+                ->notHasKey('1')//will fail, keys are "casted", and $array[1] do exists
+                ->notHasKey(5);//will pass
+    $this
+            ->array($array2)
+                ->notHasKey(2)//will fail
+                ->notHasKey("3")//will fail
+                ->notHasKey(0);//will pass
 
-#### strictlyNotContainsValues
+#### notHasKeys
 
-strictlyNotContainsValues will verify that the tested array does not contains any value of a given array
-strictlyNotContainsValues will test the type of the values to look for.
-
-If you do not want to test both the types and the values, you will use notContainsValues.
+notHasKeys will verify that the tested array does not contains any of the given keys (given as an array of keys)
 
     [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
+    $array  = array(2, 4, 6);
+    $array2 = array("2"=>1, "3"=>2, "4"=>3);
 
     $this
-            ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 4, 5))//will pass as none of the values are in the tested array (1 !== '1')
-                ->notContainsValues(array(4, 6, '2'))//will pass as none of the values are in the tested array (2 !== '2')
-                ->notContainsValues(array('1', 2, 3))//will fail as all of the values are in the tested array
-                ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+            ->array($array1)
+                ->notHasKeys(array(1, 2))//will fail, all the keys exists in the tested array
+                ->notHasKeys(array('0', 3))//will fail, $array['0'] exists
+                ->notHasKeys(array("4", 5))//will pass, none of the keys exists in the tested array
+                ->notHasKeys(array(3, 'two'))//will pass, none of the keys exists in the tested array
+
+    $this
+            ->array($array2)
+                ->notHasKeys(array(2, "3"))//will pass
+                ->notHasKeys(array("3", 4));//will pass
 
 #### strictlyContains
 
@@ -907,6 +1037,22 @@ If you do not want to test both the type and the value, you will use contains.
             ->array($arrayWithString1)
                 ->strictlyContains('1');//Will pass
 
+#### strictlyContainsValues
+
+strictlyContainsValues will verify that the tested array contains all the values of a given array
+stricltyContainsValues will test the type of the values to look for.
+
+If you do not want to test both the types and the values, you will use containsValues.
+
+    [php]
+    $arrayWithString1And2And3 = array('1', 2, 3);
+
+    $this
+            ->array($arrayWithString1And2And3)
+                ->notContainsValues(array(1, 2, 3))//will faill as '1' is in the tested array, not 1
+                ->notContainsValues(array('3', '2', '1'))//will fail as '3' and '2' are not in the tested array, but 2 and 3 are
+                ->notContainsValues(array(2, '1', 3));//will pass as all the values are in the tested array
+
 #### strictlyNotContains
 
 strictlyNotContains will verify that the tested array does not contains a given value (will not search for the value recursively).
@@ -930,85 +1076,22 @@ If you do not want to test both the type and the value, you will use notContains
             ->array($arrayWithString1)
                 ->strictlyNotContains(1);//will pass, 1 !== '1'
 
-#### hasKey
+#### strictlyNotContainsValues
 
-hasKey will verify that the given array has a given key
+strictlyNotContainsValues will verify that the tested array does not contains any value of a given array
+strictlyNotContainsValues will test the type of the values to look for.
 
-    [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "4"=>3);
-
-    $this
-            ->array($array1)
-                ->hasKey(1)//will pass
-                ->hasKey(2)//will pass
-                ->hasKey('1')//will pass, keys are "casted", and $array[1] do exists
-                ->hasKey(5);//will fail
-    $this
-            ->array($array2)
-                ->hasKey(2)//will pass
-                ->hasKey("3")//will pass
-                ->hasKey(0);//will fail
-
-#### notHasKey
-
-notHasKey will verify that the given array does not have a given key
+If you do not want to test both the types and the values, you will use notContainsValues.
 
     [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "3"=>3);
+    $arrayWithString1And2And3 = array('1', 2, 3);
 
     $this
-            ->array($array1)
-                ->notHasKey(1)//will fail
-                ->notHasKey(2)//will fail
-                ->notHasKey('1')//will fail, keys are "casted", and $array[1] do exists
-                ->notHasKey(5);//will pass
-    $this
-            ->array($array2)
-                ->notHasKey(2)//will fail
-                ->notHasKey("3")//will fail
-                ->notHasKey(0);//will pass
-
-#### hasKeys
-
-hasKeys will verify that the tested array contains all the given keyx (given as an array)
-
-    [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "4"=>3);
-
-    $this
-            ->array($array1)
-                ->hasKeys(array(1, 2))//will pass
-                ->hasKeys(array('0', 2))//will pass
-                ->hasKeys(array("2", 0))//will pass
-                ->hasKeys(array(0, 3))//will fail, $array[3] does not exists
-
-    $this
-            ->array($array2)
-                ->hasKeys(array(2, "3"))//will pass
-                ->hasKeys(array("3", 4));//will pass
-
-#### notHasKeys
-
-notHasKeys will verify that the tested array does not contains any of the given keys (given as an array of keys)
-
-    [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "4"=>3);
-
-    $this
-            ->array($array1)
-                ->notHasKeys(array(1, 2))//will fail, all the keys exists in the tested array
-                ->notHasKeys(array('0', 3))//will fail, $array['0'] exists
-                ->notHasKeys(array("4", 5))//will pass, none of the keys exists in the tested array
-                ->notHasKeys(array(3, 'two'))//will pass, none of the keys exists in the tested array
-
-    $this
-            ->array($array2)
-                ->notHasKeys(array(2, "3"))//will pass
-                ->notHasKeys(array("3", 4));//will pass
+            ->array($arrayWithString1And2And3)
+                ->notContainsValues(array(1, 4, 5))//will pass as none of the values are in the tested array (1 !== '1')
+                ->notContainsValues(array(4, 6, '2'))//will pass as none of the values are in the tested array (2 !== '2')
+                ->notContainsValues(array('1', 2, 3))//will fail as all of the values are in the tested array
+                ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
 
 
 
