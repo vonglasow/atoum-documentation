@@ -182,4 +182,4 @@ Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un
 Avec atoum, quand vous voulez tester quelque chose :
 
 * spécifiez sur quoi vous voulez travailler (une variable, un objet, un tableau, une chaîne de caractère, un nombre entier, etc...) ;
-* indiquez dans quel état il doit être (égal à, null, contenan quelque chose, etc...).
+* indiquez dans quel état il doit être (égal à, null, contenant quelque chose, etc...).
