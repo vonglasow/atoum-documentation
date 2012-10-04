@@ -802,215 +802,242 @@ C'est l'assertion dédié aux tableaux.
 
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-**Note** : le mot clef "array" étant réservé, il n'a pas été possible de créer une classe array.
-La classe de l'assertion s'appelle donc phpArray et un alias "array" a été créé.
+**Note** : le mot-clef "array" étant réservé en PHP, il n'a pas été possible de créer une classe "array".
+La classe de l'assertion s'appelle donc "phpArray" et un alias "array" a été créé.
 Vous pourrez donc rencontrer des ->phpArray() ou des ->array().
-Nous vous conseillons d'utiliser exclusivement ->array().
+Il est conseillé d'utiliser exclusivement ->array().
 
 #### contains
 
-contains will verify that the tested array directly contains a given value (will not search for the value recursively).
-contains will not test the type of the value.
-
-If you want to test both the type and the value, you will use strictlyContains.
+contains vérifie qu'un tableau contient une certaine donnée.
 
     [php]
-    $arrayWithNull = array(null);
-    $arrayWithEmptyString = array('', 1);
-    $arrayWithArrayWithNull = array(array(null));
-    $arrayWithString1 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithNull)
-                ->contains(null);//will pass
-            ->array($arrayWithEmptyString)
-                ->contains(null)//will pass (null == '')
-            ->array($arrayWithArrayWithNull)
-                ->contains(null);//will fail, does not search recursively
-            ->array($arrayWithString1)
-                ->contains(1);//will pass, does not match the type
+        ->array($fibonacci)
+            ->contains('1')     // passe
+            ->contains(1)       // passe, ne vérifie pas le type de la donnée
+            ->contains('2')     // passe, ne vérifie pas le type de la donnée
+            ->contains(10)      // échoue
+    ;
+
+**Note**: contains ne fait pas de recherche récursive.
+
+**Note**: contains ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez [strictlyContains](#strictlycontains).
 
 #### containsValues
 
-containsValues will verify that the tested array does contains some values (given in an array)
-containsValues will not test the type of the values to look for.
-
-If you want to test both the types and the values, you will use strictlyContainsValues.
+containsValues vérifie qu'un tableau contient toutes les données fournies dans un tableau.
 
     [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithString1And2And3)
-                ->containsValues(array(1, 2, 3))//will pass
-                ->containsValues(array('1', '2', '3'))//will pass
-                ->containsValues(array('1, 2, 3));//will pass
+        ->array($array)
+            ->containsValues(array(1, 2, 3))        // passe
+            ->containsValues(array('5', '8', '13')) // passe
+            ->containsValues(array(0, 1, 2))        // échoue
+    ;
+
+**Note**: containsValues ne fait pas de recherche récursive.
+
+**Note**: containsValues ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [strictlyContainsValues](#strictlycontainsvalues).
 
 #### hasKey
 
-hasKey will verify that the given array has a given key
+hasKey vérifie qu'un tableau contient une certaine clef.
 
     [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "4"=>3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+    $atoum     = array(
+        'name'        => 'atoum',
+        'owner'       => 'mageekguy',
+        'description' => 'The modern, simple and intuitive PHP 5.3+ unit testing framework.',
+    );
 
     $this
-            ->array($array1)
-                ->hasKey(1)//will pass
-                ->hasKey(2)//will pass
-                ->hasKey('1')//will pass, keys are "casted", and $array[1] do exists
-                ->hasKey(5);//will fail
-    $this
-            ->array($array2)
-                ->hasKey(2)//will pass
-                ->hasKey("3")//will pass
-                ->hasKey(0);//will fail
+        ->array($fibonacci)
+            ->hasKey(0)         // passe
+            ->hasKey(1)         // passe
+            ->hasKey('1')       // passe
+            ->hasKey(10)        // échoue
+
+        ->array($atoum)
+            ->hasKey('name')    // passe
+            ->hasKey('price')   // échoue
+    ;
+
+**Note**: hasKey ne fait pas de recherche récursive.
+
+**Note**: hasKey ne teste pas le type des clef.
 
 #### hasKeys
 
-hasKeys will verify that the tested array contains all the given keyx (given as an array)
+hasKeys vérifie qu'un tableau contient toutes les clefs fournies dans un tableau.
 
     [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "4"=>3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+    $atoum     = array(
+        'name'        => 'atoum',
+        'owner'       => 'mageekguy',
+        'description' => 'The modern, simple and intuitive PHP 5.3+ unit testing framework.',
+    );
 
     $this
-            ->array($array1)
-                ->hasKeys(array(1, 2))//will pass
-                ->hasKeys(array('0', 2))//will pass
-                ->hasKeys(array("2", 0))//will pass
-                ->hasKeys(array(0, 3))//will fail, $array[3] does not exists
+        ->array($fibonacci)
+            ->hasKeys(array(0, 2, 4))           // passe
+            ->hasKeys(array('0', 2))            // passe
+            ->hasKeys(array('4', 0, 3))         // passe
+            ->hasKeys(array(0, 3, 10))          // échoue
 
-    $this
-            ->array($array2)
-                ->hasKeys(array(2, "3"))//will pass
-                ->hasKeys(array("3", 4));//will pass
+        ->array($atoum)
+            ->hasKeys(array('name', 'owner'))   // passe
+            ->hasKeys(array('name', 'price'))   // échoue
+    ;
+
+**Note**: hasKeys ne fait pas de recherche récursive.
+
+**Note**: hasKeys ne teste pas le type des clef.
 
 #### hasSize
 
-hasSize will verify that the tested array has a given number of element (non recursive).
+hasSize vérifie la taille d'un tableau.
 
     [php]
-    $array = array(1, 2, 3, 7);
-    $this
-            ->array($array)
-            ->hasSize(4);//will pass
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($array)
-            ->hasSize(7);//Will fail
+        ->array($fibonacci)
+            ->hasSize(7)        // passe
+            ->hasSize(10)       // échoue
+    ;
+
+**Note**: hasSize n'est pas récursif.
 
 #### isEmpty
 
-isEmpty will verify that the array is empty (does not contains any value)
+isEmpty vérifie qu'un tableau est vide.
 
     [php]
-    $emptyArray = array();
+    $emptyArray    = array();
     $nonEmptyArray = array(null, null);
 
     $this
-            ->array($emptyArray)
-            ->isEmpty();//will pass
+        ->array($emptyArray)
+            ->isEmpty()         // passe
 
-    $this
-            ->array($nonEmptyArray)
-            ->isEmpty();//will fail
+        ->array($nonEmptyArray)
+            ->isEmpty()         // échoue
+    ;
 
 #### isNotEmpty
 
-isEmpty will verify that the array is not empty (contains at least one value of any kind)
+isEmpty vérifie qu'un tableau n'est pas vide.
 
     [php]
-    $emptyArray = array();
+    $emptyArray    = array();
     $nonEmptyArray = array(null, null);
 
     $this
-            ->array($emptyArray)
-            ->isNotEmpty();//will fail
+        ->array($emptyArray)
+            ->isNotEmpty()      // échoue
 
-    $this
-            ->array($nonEmptyArray)
-            ->isNotEmpty();//will pass
+        ->array($nonEmptyArray)
+            ->isNotEmpty()      // passe
+    ;
 
 #### notContains
 
-notContains will verify that the tested array does not contains a given value (will not search for the value recursively).
-notContains will not test the type of the value.
-
-If you want to test both the type and the value, you will use strictlyNotContains.
+notContains vérifie qu'un tableau ne contient pas une donnée.
 
     [php]
-    $arrayWithNull = array(null);
-    $arrayWithEmptyString = array('', 1);
-    $arrayWithArrayWithNull = array(array(null));
-    $arrayWithString1 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithNull)
-                ->notContains(null);//will fail
-            ->array($arrayWithEmptyString)
-                ->notContains(null)//will fail (null == '')
-            ->array($arrayWithArrayWithNull)
-                ->notContains(null);//will pass, does not search recursively
-            ->array($arrayWithString1)
-                ->notContains(1);//will fail, 1 == '1'
+        ->array($fibonacci)
+            ->notContains(null)         // passe
+            ->notContains(1)            // échoue
+            ->notContains(10)           // passe
+    ;
+
+**Note**: notContains ne fait pas de recherche récursive.
+
+**Note**: notContains ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez [strictlyNotContains](#strictlynotcontains).
 
 #### notContainsValues
 
-notContainsValues will verify that the tested array does not contains any value of a given array
-notContainsValues will not test the type of the values to look for.
-
-If you want to test both the types and the values, you will use strictlyNotContainsValues.
+notContainsValues vérifie qu'un tableau ne contient aucune des données fournies dans un tableau.
 
     [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 4, 5))//will faill as '1' is in the tested array
-                ->notContainsValues(array(4, 6, '2'))//will fail as 2 is in the tested array
-                ->notContainsValues(array('1', 2, 3))//will fail as all the values are in the tested array
-                ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+        ->array($array)
+            ->notContainsValues(array(1, 4, 10))    // échoue
+            ->notContainsValues(array(4, 10, 34))   // passe
+            ->notContainsValues(array(1, '2', 3))   // échoue
+    ;
+
+**Note**: notContainsValues ne fait pas de recherche récursive.
+
+**Note**: notContainsValues ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [strictlyNotContainsValues](#strictlynotcontainsvalues).
 
 #### notHasKey
 
-notHasKey will verify that the given array does not have a given key
+notHasKey vérifie qu'un tableau ne contient pas une certaine clef.
 
     [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "3"=>3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+    $atoum     = array(
+        'name'        => 'atoum',
+        'owner'       => 'mageekguy',
+        'description' => 'The modern, simple and intuitive PHP 5.3+ unit testing framework.',
+    );
 
     $this
-            ->array($array1)
-                ->notHasKey(1)//will fail
-                ->notHasKey(2)//will fail
-                ->notHasKey('1')//will fail, keys are "casted", and $array[1] do exists
-                ->notHasKey(5);//will pass
-    $this
-            ->array($array2)
-                ->notHasKey(2)//will fail
-                ->notHasKey("3")//will fail
-                ->notHasKey(0);//will pass
+        ->array($fibonacci)
+            ->notHasKey(0)          // échoue
+            ->notHasKey(1)          // échoue
+            ->notHasKey('1')        // échoue
+            ->notHasKey(10)         // passe
+
+        ->array($atoum)
+            ->notHasKey('name')     // échoue
+            ->notHasKey('price')    // passe
+    ;
+
+**Note**: notHasKey ne fait pas de recherche récursive.
+
+**Note**: notHasKey ne teste pas le type des clef.
 
 #### notHasKeys
 
-notHasKeys will verify that the tested array does not contains any of the given keys (given as an array of keys)
+notHasKeys vérifie qu'un tableau ne contient aucune des clefs fournies dans un tableau.
 
     [php]
-    $array  = array(2, 4, 6);
-    $array2 = array("2"=>1, "3"=>2, "4"=>3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+    $atoum     = array(
+        'name'        => 'atoum',
+        'owner'       => 'mageekguy',
+        'description' => 'The modern, simple and intuitive PHP 5.3+ unit testing framework.',
+    );
 
     $this
-            ->array($array1)
-                ->notHasKeys(array(1, 2))//will fail, all the keys exists in the tested array
-                ->notHasKeys(array('0', 3))//will fail, $array['0'] exists
-                ->notHasKeys(array("4", 5))//will pass, none of the keys exists in the tested array
-                ->notHasKeys(array(3, 'two'))//will pass, none of the keys exists in the tested array
+        ->array($fibonacci)
+            ->notHasKeys(array(0, 2, 4))            // échoue
+            ->notHasKeys(array('0', 2))             // échoue
+            ->notHasKeys(array('4', 0, 3))          // échoue
+            ->notHasKeys(array(0, 3, 10))           // passe
 
-    $this
-            ->array($array2)
-                ->notHasKeys(array(2, "3"))//will pass
-                ->notHasKeys(array("3", 4));//will pass
+        ->array($atoum)
+            ->notHasKeys(array('name', 'owner'))    // échoue
+            ->notHasKeys(array('name', 'price'))    // passe
+    ;
+
+**Note**: notHasKeys ne fait pas de recherche récursive.
+
+**Note**: notHasKeys ne teste pas le type des clef.
 
 #### strictlyContains
 
