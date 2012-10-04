@@ -1041,84 +1041,82 @@ notHasKeys vérifie qu'un tableau ne contient aucune des clefs fournies dans un 
 
 #### strictlyContains
 
-contains will verify that the tested array directly contains a given value (will not search for the value recursively).
-contains will test the type of the value.
-
-If you do not want to test both the type and the value, you will use contains.
+strictlyContains vérifie qu'un tableau contient une certaine donnée (même valeur et même type).
 
     [php]
-    $arrayWithNull = array(null);
-    $arrayWithEmptyString = array('', 1);
-    $arrayWithArrayWithNull = array(array(null));
-    $arrayWithString1 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithNull)
-                ->strictlyContains(null)//will pass
-            ->array($arrayWithEmptyString)
-                ->strictlyContains(null)//will fail (null !== '')
-            ->array($arrayWithArrayWithNull)
-                ->strictlyContains(null)//will fail, does not search recursively
-            ->array($arrayWithString1)
-                ->strictlyContains(1)//will fail, 1 !== '1'
-            ->array($arrayWithString1)
-                ->strictlyContains('1');//Will pass
+        ->array($fibonacci)
+            ->strictlyContains('1')     // passe
+            ->strictlyContains(1)       // échoue
+            ->strictlyContains('2')     // échoue
+            ->strictlyContains(2)       // passe
+            ->strictlyContains(10)      // échoue
+    ;
+
+**Note**: strictlyContains ne fait pas de recherche récursive.
+
+**Note**: strictlyContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [contains](#contains).
 
 #### strictlyContainsValues
 
-strictlyContainsValues will verify that the tested array contains all the values of a given array
-stricltyContainsValues will test the type of the values to look for.
-
-If you do not want to test both the types and the values, you will use containsValues.
+strictlyContainsValues vérifie qu'un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
 
     [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 2, 3))//will faill as '1' is in the tested array, not 1
-                ->notContainsValues(array('3', '2', '1'))//will fail as '3' and '2' are not in the tested array, but 2 and 3 are
-                ->notContainsValues(array(2, '1', 3));//will pass as all the values are in the tested array
+        ->array($array)
+            ->strictlyContainsValues(array('1', 2, '3'))    // passe
+            ->strictlyContainsValues(array(1, 2, 3))        // échoue
+            ->strictlyContainsValues(array(5, '8', 13))     // passe
+            ->strictlyContainsValues(array('5', '8', '13')) // échoue
+            ->strictlyContainsValues(array(0, '1', 2))      // échoue
+    ;
+
+**Note**: strictlyContainsValues ne fait pas de recherche récursive.
+
+**Note**: strictlyContainsValues teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [containsValues](#containsvalues).
 
 #### strictlyNotContains
 
-strictlyNotContains will verify that the tested array does not contains a given value (will not search for the value recursively).
-strictlyNotContains will test the type of the value.
-
-If you do not want to test both the type and the value, you will use notContains.
+strictlyNotContains vérifie qu'un tableau ne contient pas une donnée (même valeur et même type).
 
     [php]
-    $arrayWithNull = array(null);
-    $arrayWithEmptyString = array('', 1);
-    $arrayWithArrayWithNull = array(array(null));
-    $arrayWithString1 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithNull)
-                ->strictlyNotContains(null)//will fail
-            ->array($arrayWithEmptyString)
-                ->strictlyNotContains(null)//will pass (null !== '')
-            ->array($arrayWithArrayWithNull)
-                ->strictlyNotContains(null)//will pass, does not search recursively
-            ->array($arrayWithString1)
-                ->strictlyNotContains(1);//will pass, 1 !== '1'
+        ->array($fibonacci)
+            ->strictlyNotContains(null)         // passe
+            ->strictlyNotContains('1')          // échoue
+            ->strictlyNotContains(1)            // passe
+            ->strictlyNotContains(10)           // passe
+    ;
+
+**Note**: strictlyNotContains ne fait pas de recherche récursive.
+
+**Note**: strictlyNotContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [notContains](#notcontains).
 
 #### strictlyNotContainsValues
 
-strictlyNotContainsValues will verify that the tested array does not contains any value of a given array
-strictlyNotContainsValues will test the type of the values to look for.
-
-If you do not want to test both the types and the values, you will use notContainsValues.
+strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
 
     [php]
-    $arrayWithString1And2And3 = array('1', 2, 3);
+    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
     $this
-            ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 4, 5))//will pass as none of the values are in the tested array (1 !== '1')
-                ->notContainsValues(array(4, 6, '2'))//will pass as none of the values are in the tested array (2 !== '2')
-                ->notContainsValues(array('1', 2, 3))//will fail as all of the values are in the tested array
-                ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+        ->array($array)
+            ->strictlyNotContainsValues(array('1', 4, 10))  // échoue
+            ->strictlyNotContainsValues(array(1, 4, 10))    // passe
+            ->strictlyNotContainsValues(array(4, 10, 34))   // passe
+            ->strictlyNotContainsValues(array('1', 2, '3')) // échoue
+            ->strictlyNotContainsValues(array(1, '2', 3))   // passe
+    ;
+
+**Note**: strictlyNotContainsValues ne fait pas de recherche récursive.
+
+**Note**: strictlyNotContainsValues teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [notContainsValues](#notcontainsvalues).
 
 
 
