@@ -1217,6 +1217,24 @@ match will try to verify that the string matches a given regular expression.
 
 ### castToString
 
+C'est l'assertion dédié aux tests sur le transtypage d'objets en chaine de caractères.
+
+Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+    [php]
+    class AtoumVersion {
+        private $version = '1.0';
+
+        public function __toString() {
+            return 'atoum v' . $this->version;
+        }
+    }
+
+    $this
+        ->castToString(new AtoumVersion())
+            ->isEqualTo('atoum v1.0')
+    ;
+
 
 
 ### hash
