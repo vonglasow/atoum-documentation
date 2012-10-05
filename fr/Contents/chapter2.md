@@ -8,7 +8,7 @@ C'est l'assertion de base de toutes les variables. Elle contient les tests néce
 
 #### isCallable
 
-isCallable vérifie que la donnée testée peut être appelée comme fonction.
+isCallable vérifie que la variable peut être appelée comme fonction.
 
     [php]
     $f = function() {
@@ -32,7 +32,7 @@ isCallable vérifie que la donnée testée peut être appelée comme fonction.
 
 #### isEqualTo
 
-isEqualTo vérifie que les données testées ont la même valeur.
+isEqualTo vérifie que la valeur de la variable.
 
     [php]
     $a = 'a';
@@ -42,25 +42,11 @@ isEqualTo vérifie que les données testées ont la même valeur.
             ->isEqualTo('a')    // passe
     ;
 
-isEqualTo ne vérifie pas le type des données, uniquement leurs valeurs.
-
-    [php]
-    $aString = '1';
-    $aInt    = 1;
-
-    $this
-        ->variable($aString)
-            ->isEqualTo($aInt)  // passe
-    ;
-
-**Note** : Quand vous testez des données de différents types avec isEqualTo, elles sont comparées avec l'opérateur "==".
-
-Si vous souhaitez tester la valeur et le type, utilisez [isIdenticalTo](#isidenticalto).
-
+**Note**: isEqualTo ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [isIdenticalTo](#isidenticalto).
 
 #### isIdenticalTo
 
-isIdenticalTo vérifie que les données testées ont la même valeur et sont de même types.
+isIdenticalTo vérifie que la variable a la même ont la même valeur et sont de même types.
 Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même instance.
 
     [php]
@@ -86,7 +72,7 @@ Si vous ne souhaitez pas vérifier le type des données, utilisez [isEqualTo](#i
 
 #### isNotCallable
 
-isNotCallable vérifie que la donnée testée ne peut pas être appelée comme fonction.
+isNotCallable vérifie que la variable ne peut pas être appelée comme fonction.
 
     [php]
     $f = function() {
@@ -109,7 +95,7 @@ isNotCallable vérifie que la donnée testée ne peut pas être appelée comme f
 
 #### isNotEqualTo
 
-isEqualTo vérifie que les données testées n'ont pas la même valeur.
+isEqualTo vérifie que les variables n'ont pas la même valeur.
 
     [php]
     $a = 'a';
@@ -134,7 +120,7 @@ Tout comme [isEqualTo](#isequalto), isNotEqualTo ne vérifie pas le type des don
 
 #### isNotIdenticalTo
 
-isNotIdenticalTo vérifie que les données testées n'ont ni le même type, ni la même valeur.
+isNotIdenticalTo vérifie que les variables n'ont ni le même type, ni la même valeur.
 Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas sur la même instance.
 
     [php]
@@ -160,7 +146,7 @@ Si vous ne souhaitez pas vérifier le type des données, utilisez [isNotEqualTo]
 
 #### isNull
 
-isNull vérifie que la donnée testée est nulle.
+isNull vérifie que la variable est nulle.
 
     [php]
     $emptyString = '';
@@ -177,7 +163,7 @@ isNull vérifie que la donnée testée est nulle.
 
 #### isNotNull
 
-isNotNull vérifie que la donnée testée n'est pas nulle.
+isNotNull vérifie que la variable n'est pas nulle.
 
     [php]
     $emptyString = '';
@@ -213,7 +199,7 @@ Reportez vous au manuel PHP pour voir ce que [is_bool](http://php.net/is_bool) c
 
 #### isFalse
 
-isFalse vérifie que la donnée testée est strictement égale à false.
+isFalse vérifie que le booléen est strictement égal à false.
 
     [php]
     $true  = true;
@@ -229,7 +215,7 @@ isFalse vérifie que la donnée testée est strictement égale à false.
 
 #### isTrue
 
-isTrue vérifie que la donnée testée est strictement égale à true.
+isTrue vérifie que le booléen est strictement égal à true.
 
     [php]
     $true  = true;
