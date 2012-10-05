@@ -29,10 +29,9 @@ isCallable vérifie que la variable peut être appelée comme fonction.
             ->isCallable()
     ;
 
-
 #### isEqualTo
 
-isEqualTo vérifie que la valeur de la variable.
+isEqualTo vérifie que la variable est égale à une certaine donnée.
 
     [php]
     $a = 'a';
@@ -46,8 +45,8 @@ isEqualTo vérifie que la valeur de la variable.
 
 #### isIdenticalTo
 
-isIdenticalTo vérifie que la variable a la même ont la même valeur et sont de même types.
-Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même instance.
+isIdenticalTo vérifie que la variable a la même valeur et le même type qu'une certaine donnée.
+Dans le cas d'objets, isIdenticalTo vérifie que les données pointent sur la même instance.
 
     [php]
     $a = '1';
@@ -57,8 +56,8 @@ Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même i
             ->isIdenticalTo(1)          // échoue
     ;
 
-    $stdClass1 = new StdClass();
-    $stdClass2 = new StdClass();
+    $stdClass1 = new \StdClass();
+    $stdClass2 = new \StdClass();
     $stdClass3 = $stdClass1;
 
     $this
@@ -67,8 +66,7 @@ Dans le cas d'objet, isIdenticalTo vérifie que les données pointent la même i
             ->isIdenticalTo(stdClass2)  // échoue
     ;
 
-Si vous ne souhaitez pas vérifier le type des données, utilisez [isEqualTo](#isequalto).
-
+**Note**: isIdenticalTo teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [isEqualTo](#isequalto).
 
 #### isNotCallable
 
@@ -92,36 +90,29 @@ isNotCallable vérifie que la variable ne peut pas être appelée comme fonction
             ->isNotCallable()   // passe
     ;
 
-
 #### isNotEqualTo
 
-isEqualTo vérifie que les variables n'ont pas la même valeur.
+isNotEqualTo vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
 
     [php]
-    $a = 'a';
+    $a       = 'a';
+    $aString = '1';
 
     $this
         ->variable($a)
             ->isNotEqualTo('b')     // passe
             ->isNotEqualTo('a')     // échoue
-    ;
 
-Tout comme [isEqualTo](#isequalto), isNotEqualTo ne vérifie pas le type des données, uniquement leurs valeurs.
-
-    [php]
-    $aString = '1';
-    $aInt    = 1;
-
-    $this
         ->variable($aString)
-            ->isNotEqualTo($aInt)   // échoue
+            ->isNotEqualTo($1)      // échoue
     ;
 
+**Note**: isNotEqualTo ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [isNotIdenticalTo](#isnotidenticalto).
 
 #### isNotIdenticalTo
 
-isNotIdenticalTo vérifie que les variables n'ont ni le même type, ni la même valeur.
-Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas sur la même instance.
+isNotIdenticalTo vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine donnée.
+Dans le cas d'objets, isNotIdenticalTo vérifie que les données ne pointent pas sur la même instance.
 
     [php]
     $a = '1';
@@ -131,8 +122,8 @@ Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas 
             ->isNotIdenticalTo(1)           // passe
     ;
 
-    $stdClass1 = new StdClass();
-    $stdClass2 = new StdClass();
+    $stdClass1 = new \StdClass();
+    $stdClass2 = new \StdClass();
     $stdClass3 = $stdClass1;
 
     $this
@@ -141,8 +132,7 @@ Dans le cas d'objet, isNotIdenticalTo vérifie que les données ne pointent pas 
             ->isNotIdenticalTo(stdClass3)   // échoue
     ;
 
-Si vous ne souhaitez pas vérifier le type des données, utilisez [isNotEqualTo](#isnotequalto).
-
+**Note**: isNotIdenticalTo teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [isNotEqualTo](#isnotequalto).
 
 #### isNull
 
@@ -159,7 +149,6 @@ isNull vérifie que la variable est nulle.
         ->variable($null)
             ->isNull()              // passe
     ;
-
 
 #### isNotNull
 
@@ -243,7 +232,7 @@ Si vous essayez de tester une variable qui n'est pas un entier avec cette assert
     $a = '1';
 
     $this
-        ->integer($a)       // échoue car "1" n'est pas un entier mais une chaine de caractère
+        ->integer($a)       // échoue car "1" n'est pas un entier
     ;
 
 **Note** : null n'est pas considéré comme un entier.
@@ -251,7 +240,7 @@ Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) con
 
 #### isGreaterThan
 
-isGreaterThan vérifie que la donnée testée est strictement supérieure à une valeur donnée.
+isGreaterThan vérifie que l'entier est strictement supérieur à une certaine donnée.
 
     [php]
     $zero = 0;
@@ -263,11 +252,9 @@ isGreaterThan vérifie que la donnée testée est strictement supérieure à une
             ->isGreaterThan(0)      // échoue
     ;
 
-**Note** : la valeur donnée à isGreaterThan doit être un entier.
-
 #### isGreaterThanOrEqualTo
 
-isGreaterThanOrEqualTo vérifie que la donnée testée est supérieure ou égale à une valeur donnée.
+isGreaterThanOrEqualTo vérifie que l'entier est supérieur ou égal à une certaine donnée.
 
     [php]
     $zero = 0;
@@ -279,11 +266,9 @@ isGreaterThanOrEqualTo vérifie que la donnée testée est supérieure ou égale
             ->isGreaterThanOrEqualTo('-1')  // échoue car "-1" n'est pas un entier
     ;
 
-**Note** : la valeur donnée à isGreaterThanOrEqualTo doit être un entier.
-
 #### isLessThan
 
-isLessThan vérifie que la donnée testée est strictement inférieure à une valeur donnée.
+isLessThan vérifie que l'entier est strictement inférieur à une certaine donnée.
 
     [php]
     $zero = 0;
@@ -295,11 +280,9 @@ isLessThan vérifie que la donnée testée est strictement inférieure à une va
             ->isLessThan(0)     // échoue
     ;
 
-**Note** : la valeur donnée à isLessThan doit être un entier.
-
 #### isLessThanOrEqualTo
 
-isLessThanOrEqualTo vérifie que la donnée testée est inférieure ou égale à une valeur donnée.
+isLessThanOrEqualTo vérifie que l'entier est inférieur ou égal à une certaine donnée.
 
     [php]
     $zero = 0;
@@ -311,11 +294,9 @@ isLessThanOrEqualTo vérifie que la donnée testée est inférieure ou égale à
             ->isLessThanOrEqualTo('10')     // échoue car "10" n'est pas un entier
     ;
 
-**Note** : la valeur donnée à isLessThanOrEqualTo doit être un entier.
-
 #### isZero
 
-isZero vérifie que la donnée testée est égale à 0.
+isZero vérifie que l'entier est égal à 0.
 
     [php]
     $zero    = 0;
@@ -346,7 +327,7 @@ Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cet
     $a = '1';
 
     $this
-        ->float($a)     // échoue car "1" n'est pas un nombre décimal mais une chaine de caractère
+        ->float($a)     // échoue car "1" n'est pas un nombre décimal
     ;
 
 **Note** : null n'est pas considéré comme un nombre décimal.
@@ -354,18 +335,18 @@ Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float)
 
 #### isNearlyEqualTo
 
-isNearlyEqualTo vérifie que la donnée testée et suffisament égale à une valeur donnée.
+isNearlyEqualTo vérifie que le décimal et suffisament égal à une certaine donnée.
 En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
 
     [bash]
-    php -r 'var_dump(1 - 0.97 === 0.03);'
+    $ php -r 'var_dump(1 - 0.97 === 0.03);'
     bool(false)
 
 Le résultat devrait pourtant être true. 
 
 **Note** : pour avoir plus d'informations sur ce phénomène, reportez vous au [manuel PHP](http://php.net/types.float).
 
-Cette méthode cherche donc à corriger le problème
+Cette méthode cherche donc à corriger ce problème.
 
     [php]
     $float = 1 - 0.97;
@@ -392,7 +373,7 @@ Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans
 
     $this
         ->sizeOf($array)
-            ->isEqualTo(3)  // passe
+            ->isEqualTo(3)
 
         ->sizeOf($countableObject)
             ->isGreatherThan(0)
@@ -412,7 +393,7 @@ Si vous essayez de tester une variable qui n'est pas un objet avec cette asserti
     $a = 1;
 
     $this
-        ->object($a)    // échoue car 1 n'est pas un objet mais un entier
+        ->object($a)    // échoue car 1 n'est pas un objet
     ;
 
 **Note** : null n'est pas considéré comme un objet.
@@ -435,10 +416,10 @@ hasSize vérifie la taille d'un objet qui implémente l'interface Countable.
 isCloneOf vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
 
     [php]
-    $object1 = new StdClass;
-    $object2 = new StdClass;
+    $object1 = new \StdClass;
+    $object2 = new \StdClass;
     $object3 = clone($object1);
-    $object4 = new StdClass;
+    $object4 = new \StdClass;
     $object4->foo = 'bar';
 
     $this
@@ -467,12 +448,12 @@ isEmpty vérifie que la taille d'un objet implémentant l'interface Countable es
 #### isInstanceOf
 
 isInstanceOf vérifie qu'un objet est:
-* une instance de la classe donnée (abstraite ou non),
+* une instance de la classe donnée,
 * une sous-classe de la classe donnée (abstraite ou non),
-* une instance d'une classe (abstraite ou non) qui implémente l'interface donnée.
+* une instance d'une classe qui implémente l'interface donnée.
 
     [php]
-    $object = new StdClass();
+    $object = new \StdClass();
 
     $this
         ->object($object)
@@ -516,6 +497,7 @@ isInstanceOf vérifie qu'un objet est:
     ;
 
 **Note** : Les noms des classes et des interfaces doit être absolu et commencé par un antislash.
+
 
 
 ### dateTime
@@ -663,6 +645,7 @@ hasYear vérifie l'année de l'objet DateTime.
 ### mysqlDateTime
 
 C'est l'assertion dédiée aux objets décrivant une date MySQL et basé sur l'objet [DateTime](http://php.net/datetime).
+
 Les dates doivent utiliser le format MySQL (et de nombreux SGBD), c'est à dire 'Y-m-d H:i:s'
 (Reportez vous à la documentation de la fonction [date()](http://php.net/date) du manuel PHP pour connaitre la signification de ce format).
 
@@ -718,7 +701,7 @@ hasCode vérifie le code de l'exception.
 
 #### hasDefaultCode
 
-hasDefaultCode vérifie que le code de l'exception est bien 0.
+hasDefaultCode vérifie que le code de l'exception est la valeur par défaut, c'est à dire 0.
 
     [php]
     $this
@@ -729,6 +712,8 @@ hasDefaultCode vérifie que le code de l'exception est bien 0.
         )
             ->hasDefaultCode()
     ;
+
+**Note** : hasDefaultCode est équivalent à hasCode(0).
 
 #### hasMessage
 
@@ -748,7 +733,7 @@ hasMessage vérifie le message de l'exception.
 #### hasNestedException
 
 hasNestedException vérifie que l'exception contient une référence vers l'exception précédente.
-Si l'exception est précisée, cela va également vérifier que c'est la bonne exception.
+Si l'exception est précisée, cela va également vérifier la classe de l'exception.
 
     [php]
     $this
