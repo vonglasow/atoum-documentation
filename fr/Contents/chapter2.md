@@ -1126,6 +1126,33 @@ C'est l'assertion dédié aux chaines de caractères.
 
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
+#### contains
+
+contains vérifie qu'une chaine de caractère contient une autre chaine de caractère donnée.
+
+    [php]
+    $string = 'Hello world';
+
+    $this
+        ->string($string)
+            ->contains('ll')    // passe
+            ->contains(' ')     // passe
+            ->contains('php')   // échoue
+    ;
+
+#### hasLength
+
+hasLength vérifie la taille d'une chaine de caractères.
+
+    [php]
+    $string = 'Hello world';
+
+    $this
+        ->string($string)
+            ->hasLength(11)     // passe
+            ->hasLength(20)     // échoue
+    ;
+
 #### isEmpty
 
 isEmpty vérifie qu'une chaine de caractères est vide.
@@ -1141,6 +1168,18 @@ isEmpty vérifie qu'une chaine de caractères est vide.
         ->string($nonEmptyString)
             ->isEmpty()             // échoue
     ;
+
+#### isEqualToContentsOfFile
+
+isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné par son chemin.
+
+    [php]
+    $this
+        ->string($string)
+            ->isEqualToContentsOfFile('/path/to/file')
+    ;
+
+**Note** : Si le fichier n'existe pas, le test échoue.
 
 #### isNotEmpty
 
@@ -1172,19 +1211,6 @@ match will try to verify that the string matches a given regular expression.
 
         ->string($vdm)
             ->match("#^Aujourd'hui.*VDM$#")
-    ;
-
-#### hasLength
-
-hasLength vérifie la taille d'une chaine de caractères.
-
-    [php]
-    $string = 'Hello world';
-
-    $this
-        ->string($string)
-            ->hasLength(11)     // passe
-            ->hasLength(20)     // échoue
     ;
 
 
