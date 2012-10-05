@@ -1028,11 +1028,11 @@ notHasKeys vérifie qu'un tableau ne contient aucune des clefs fournies dans un 
             ->notHasKeys(array(0, 2, 4))            // échoue
             ->notHasKeys(array('0', 2))             // échoue
             ->notHasKeys(array('4', 0, 3))          // échoue
-            ->notHasKeys(array(0, 3, 10))           // passe
+            ->notHasKeys(array(10, 11, 12))         // passe
 
         ->array($atoum)
             ->notHasKeys(array('name', 'owner'))    // échoue
-            ->notHasKeys(array('name', 'price'))    // passe
+            ->notHasKeys(array('foo', 'price'))     // passe
     ;
 
 **Note**: notHasKeys ne fait pas de recherche récursive.
