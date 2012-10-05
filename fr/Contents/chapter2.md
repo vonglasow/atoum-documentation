@@ -221,10 +221,10 @@ isFalse vérifie que la donnée testée est strictement égale à false.
 
     $this
         ->boolean($true)
-            ->isFalse()      // échoue
+            ->isFalse()     // échoue
 
         ->boolean($false)
-            ->isFalse()      // passe
+            ->isFalse()     // passe
     ;
 
 #### isTrue
@@ -1122,98 +1122,186 @@ strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données
 
 ### string
 
-This is the asserter dedicated to string testing.
+C'est l'assertion dédié aux chaines de caractères.
 
-It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+#### contains
+
+contains vérifie qu'une chaine de caractère contient une autre chaine de caractère donnée.
+
+    [php]
+    $string = 'Hello world';
+
+    $this
+        ->string($string)
+            ->contains('ll')    // passe
+            ->contains(' ')     // passe
+            ->contains('php')   // échoue
+    ;
+
+#### hasLength
+
+hasLength vérifie la taille d'une chaine de caractères.
+
+    [php]
+    $string = 'Hello world';
+
+    $this
+        ->string($string)
+            ->hasLength(11)     // passe
+            ->hasLength(20)     // échoue
+    ;
 
 #### isEmpty
 
-isEmpty verify that the string is empty (no characters)
+isEmpty vérifie qu'une chaine de caractères est vide.
 
     [php]
-    $emptyString = '';
-    $nonEmptyString = ' ';
+    $emptyString    = '';
+    $nonEmptyString = 'atoum';
 
     $this
-            ->string($emptyString)
-                ->isEmpty();//Will pass
+        ->string($emptyString)
+            ->isEmpty()             // passe
+    
+        ->string($nonEmptyString)
+            ->isEmpty()             // échoue
+    ;
+
+#### isEqualToContentsOfFile
+
+isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné par son chemin.
+
+    [php]
     $this
-            ->string($nonEmptyString)
-                ->isEmpty();//Will fail
+        ->string($string)
+            ->isEqualToContentsOfFile('/path/to/file')
+    ;
+
+**Note** : Si le fichier n'existe pas, le test échoue.
 
 #### isNotEmpty
 
-isNotEmpty verify that the string is not empty (contains some characters)
+isNotEmpty vérifie qu'une chaine de caractères n'est pas vide.
 
     [php]
-    $emptyString = '';
-    $nonEmptyString = ' ';
+    $emptyString    = '';
+    $nonEmptyString = 'atoum';
 
     $this
-            ->string($emptyString)
-                ->isNotEmpty();//Will fail
-    $this
-            ->string($nonEmptyString)
-                ->isNotEmpty();//Will pass
+        ->string($emptyString)
+            ->isNotEmpty()          // échoue
+    
+        ->string($nonEmptyString)
+            ->isNotEmpty()          // passe
+    ;
 
 #### match
 
 match will try to verify that the string matches a given regular expression.
 
     [php]
-    $polite = 'Hello the world';
-    $rude   = 'yeah... the world ';
+    $phone = '0102030405';
+    $vdm   = 'Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM';
 
     $this
-            ->string($polite)
-                ->match();//will pass
+        ->string($phone)
+            ->match('#0\d{7}#')
 
-    $this
-            ->string($rude)
-                ->match();//will fail
-
-#### hasLength
-
-hasLength will verify that the string has a given length.
-
-    [php]
-    $string = 'Hello the world';
-
-    $this
-            ->string($string)
-                ->hasLength(15);//Will pass
-
-    $this
-            ->string($string)
-                ->hasLength(16);//Will fail
+        ->string($vdm)
+            ->match("#^Aujourd'hui.*VDM$#")
+    ;
 
 
 
 ### castToString
 
+C'est l'assertion dédié aux tests sur le transtypage d'objets en chaine de caractères.
+
+Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+    [php]
+    class AtoumVersion {
+        private $version = '1.0';
+
+        public function __toString() {
+            return 'atoum v' . $this->version;
+        }
+    }
+
+    $this
+        ->castToString(new AtoumVersion())
+            ->isEqualTo('atoum v1.0')
+    ;
+
 
 
 ### hash
 
-This is the asserter dedicated to the validation of hashing function results.
+C'est l'assertion dédié aux tests sur les hashs (empreintes numériques).
 
-It extends the string asserters : You can use every asertions of the string asserter while testing a hash.
-
-#### isSha1
-
-isSha1 verify that the given hash *could be* the result of a sha1 hash.
-
-#### isSha256
-
-isSha256 verify that the given hash *could be* the result of a sha256 hash.
-
-#### isSha512
-
-isSha256 verify that the given hash *could be* the result of a sha512 hash.
+Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 #### isMd5
 
-md5 verify that the given hash *could be* the result of a md5 hash.
+isMd5 vérifie que la chaine de caractère est au format md5, c'est à dire une chaine hexadécimale de 32 caractères.
+
+    [php]
+    $hash    = hash('md5', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isMd5()       // passe
+        ->hash($notHash)
+            ->isMd5()       // échoue
+    ;
+
+#### isSha1
+
+isSha1 vérifie que la chaine de caractère est au format sha1, c'est à dire une chaine hexadécimale de 40 caractères.
+
+    [php]
+    $hash    = hash('sha1', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isSha1()      // passe
+        ->hash($notHash)
+            ->isSha1()      // échoue
+    ;
+
+#### isSha256
+
+isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dire une chaine hexadécimale de 64 caractères.
+
+    [php]
+    $hash    = hash('sha256', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isSha256()      // passe
+        ->hash($notHash)
+            ->isSha256()      // échoue
+    ;
+
+#### isSha512
+
+isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dire une chaine hexadécimale de 128 caractères.
+
+    [php]
+    $hash    = hash('sha512', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isSha512()      // passe
+        ->hash($notHash)
+            ->isSha512()      // échoue
+    ;
 
 
 
