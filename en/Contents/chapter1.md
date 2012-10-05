@@ -18,15 +18,15 @@ You can install atoum by 3 ways :
 
 ### PHAR
 
-atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5,3.
+atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5.3.
 
-You can download the last stable version of atoum directly from the official website here : http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+You can download the latest stable version of atoum directly from the official website here : http://downloads.atoum.org/nightly/mageekguy.atoum.phar
 
 ### Composer
 
-[Composer](http://getcomposer.org/) is a tool for dependancy management in PHP.
+[Composer](http://getcomposer.org/) is a tool for dependency management in PHP.
 
-To install atoum throught composer, you must install composer
+To install atoum through composer, you must install composer
 
     [shell]
     curl -s https://getcomposer.org/installer | php
@@ -47,7 +47,7 @@ And finally execute
 
 ### Github
 
-If you want to use atoum directly from it's sources, you can clone or fork it's git repository on github : git://github.com/mageekguy/atoum.git
+If you want to use atoum directly from it's sources, you can clone or fork its git repository on github : git://github.com/mageekguy/atoum.git
 
 ## A quick overview of atoum's philosophy ##
 
@@ -258,7 +258,7 @@ To test if your method always returns the same instance of the same object, you 
 
 ### Testing exceptions ###
 
-To test exceptions atoum is using closures (introduced in PHP 5,3).
+To test exceptions atoum is using closures (introduced in PHP 5.3).
 
     [php]
     class ExceptionLauncher extends atoum\test
