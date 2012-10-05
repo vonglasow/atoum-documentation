@@ -352,7 +352,7 @@ isZero vérifie que la donnée testée est égale à 0.
 C'est l'assertion dédiée aux nombres décimaux.
 
 Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
-Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float attende un nombre décimal et non plus un entier.
+Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float attendent un nombre décimal et non plus un entier.
 
 Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
 
@@ -369,7 +369,7 @@ Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float)
 #### isNearlyEqualTo
 
 isNearlyEqualTo vérifie que la donnée testée et suffisament égale à une valeur donnée.
-En effet, les nombres décimaux ont une valeur interne qui est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
+En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
 
     [bash]
     php -r 'var_dump(1 - 0.97 === 0.03);'
@@ -688,7 +688,7 @@ Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une c
 
 ### exception
 
-C'est l'assertion dédié aux exceptions.
+C'est l'assertion dédiée aux exceptions.
 
 Elle étend [objet](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -762,7 +762,7 @@ hasMessage vérifie le message de l'exception.
 #### hasNestedException
 
 hasNestedException vérifie que l'exception contient une référence vers l'exception précédente.
-Si l'exception est précisé, cela va également vérifier que c'est la bonne exception.
+Si l'exception est précisée, cela va également vérifier que c'est la bonne exception.
 
     [php]
     $this
@@ -1412,7 +1412,7 @@ atoum can generate a mock directly from an interface.
             $mockIWriter = new \mock\IWriter;
 
             $usingWriter = new \UsingWriter();
-            //La méthode setIWriter attends un objet
+            //La méthode setIWriter attend un objet
             //qui implemente l'interface IWriter
             //  (setIWriter (IWriter $writer))
             $usingWriter->setIWriter($mockIWriter);
@@ -1438,7 +1438,7 @@ atoum can generate a mock directly from a class definition.
         $mockWriter = new \mock\Writer;
 
         $usingWriter = new \UsingWriter();
-        //La méthode setWriter attends un objet
+        //La méthode setWriter attend un objet
         //de type Writer (setWriter (Writer $writer))
         $usingWriter->setWriter($mockWriter);
 
