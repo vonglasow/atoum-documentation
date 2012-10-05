@@ -1239,25 +1239,69 @@ Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans c
 
 ### hash
 
-This is the asserter dedicated to the validation of hashing function results.
+C'est l'assertion dédié aux tests sur les hashs (empreintes numériques).
 
-It extends the string asserters : You can use every asertions of the string asserter while testing a hash.
-
-#### isSha1
-
-isSha1 verify that the given hash *could be* the result of a sha1 hash.
-
-#### isSha256
-
-isSha256 verify that the given hash *could be* the result of a sha256 hash.
-
-#### isSha512
-
-isSha256 verify that the given hash *could be* the result of a sha512 hash.
+Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 #### isMd5
 
-md5 verify that the given hash *could be* the result of a md5 hash.
+isMd5 vérifie que la chaine de caractère est au format md5, c'est à dire une chaine hexadécimale de 32 caractères.
+
+    [php]
+    $hash    = hash('md5', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isMd5()       // passe
+        ->hash($notHash)
+            ->isMd5()       // échoue
+    ;
+
+#### isSha1
+
+isSha1 vérifie que la chaine de caractère est au format sha1, c'est à dire une chaine hexadécimale de 40 caractères.
+
+    [php]
+    $hash    = hash('sha1', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isSha1()      // passe
+        ->hash($notHash)
+            ->isSha1()      // échoue
+    ;
+
+#### isSha256
+
+isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dire une chaine hexadécimale de 64 caractères.
+
+    [php]
+    $hash    = hash('sha256', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isSha256()      // passe
+        ->hash($notHash)
+            ->isSha256()      // échoue
+    ;
+
+#### isSha512
+
+isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dire une chaine hexadécimale de 128 caractères.
+
+    [php]
+    $hash    = hash('sha512', 'atoum');
+    $notHash = 'atoum';
+
+    $this
+        ->hash($hash)
+            ->isSha512()      // passe
+        ->hash($notHash)
+            ->isSha512()      // échoue
+    ;
 
 
 
