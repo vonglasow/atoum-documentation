@@ -870,7 +870,7 @@ hasKey vérifie qu'un tableau contient une certaine clef.
 
 **Note**: hasKey ne fait pas de recherche récursive.
 
-**Note**: hasKey ne teste pas le type des clef.
+**Note**: hasKey ne teste pas le type des clefs.
 
 #### hasKeys
 
@@ -898,7 +898,7 @@ hasKeys vérifie qu'un tableau contient toutes les clefs fournies dans un tablea
 
 **Note**: hasKeys ne fait pas de recherche récursive.
 
-**Note**: hasKeys ne teste pas le type des clef.
+**Note**: hasKeys ne teste pas le type des clefs.
 
 #### hasSize
 
@@ -933,7 +933,7 @@ isEmpty vérifie qu'un tableau est vide.
 
 #### isNotEmpty
 
-isEmpty vérifie qu'un tableau n'est pas vide.
+isNotEmpty vérifie qu'un tableau n'est pas vide.
 
     [php]
     $emptyArray    = array();
@@ -1009,7 +1009,7 @@ notHasKey vérifie qu'un tableau ne contient pas une certaine clef.
 
 **Note**: notHasKey ne fait pas de recherche récursive.
 
-**Note**: notHasKey ne teste pas le type des clef.
+**Note**: notHasKey ne teste pas le type des clefs.
 
 #### notHasKeys
 
@@ -1037,7 +1037,7 @@ notHasKeys vérifie qu'un tableau ne contient aucune des clefs fournies dans un 
 
 **Note**: notHasKeys ne fait pas de recherche récursive.
 
-**Note**: notHasKeys ne teste pas le type des clef.
+**Note**: notHasKeys ne teste pas le type des clefs.
 
 #### strictlyContains
 
