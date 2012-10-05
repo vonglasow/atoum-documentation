@@ -71,7 +71,7 @@ Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliq
 ### Bundle symfony 2
 
 Si vous souhaitez utiliser atoum au sein d'un projet symfony 2, un bundle existe et est disponible à l'adresse suivante :
-[https://github.com/FlorianLB/JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle)
+[https://github.com/FlorianLB/JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle).
 Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliquées sur cette page.
 
 
@@ -81,7 +81,7 @@ Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliq
 
 Vous devez écrire une classe de test pour chaque classe à tester.
 
-Imaginons que nous voulions tester la traditionnelle classe HelloWorld, alors vous devez créer la classe de test test\units\HelloWorld.
+Imaginez que nous vouliez tester la traditionnelle classe HelloWorld, alors vous devez créer la classe de test test\units\HelloWorld.
 
 **NOTE** : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld,
 vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
@@ -177,7 +177,7 @@ Nous venons de tester que la méthode getHiAtoum :
 Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
 
 
-### Règles générales
+### Principes de base
 
 Avec atoum, quand vous voulez tester quelque chose :
 

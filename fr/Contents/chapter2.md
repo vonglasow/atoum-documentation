@@ -4,7 +4,7 @@
 
 ### variable
 
-C'est l'assertion de base de toutes les variables. Elle contient les tests de base nécessaire à n'importe quel type de variable.
+C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
 
 #### isCallable
 
@@ -1283,9 +1283,9 @@ isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dir
 
     $this
         ->hash($hash)
-            ->isSha256()      // passe
+            ->isSha256()    // passe
         ->hash($notHash)
-            ->isSha256()      // échoue
+            ->isSha256()    // échoue
     ;
 
 #### isSha512
@@ -1298,9 +1298,9 @@ isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dir
 
     $this
         ->hash($hash)
-            ->isSha512()      // passe
+            ->isSha512()    // passe
         ->hash($notHash)
-            ->isSha512()      // échoue
+            ->isSha512()    // échoue
     ;
 
 
