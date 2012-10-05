@@ -1122,70 +1122,70 @@ strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données
 
 ### string
 
-This is the asserter dedicated to string testing.
+C'est l'assertion dédié aux chaines de caractères.
 
-It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
+Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 #### isEmpty
 
-isEmpty verify that the string is empty (no characters)
+isEmpty vérifie qu'une chaine de caractères est vide.
 
     [php]
-    $emptyString = '';
-    $nonEmptyString = ' ';
+    $emptyString    = '';
+    $nonEmptyString = 'atoum';
 
     $this
-            ->string($emptyString)
-                ->isEmpty();//Will pass
-    $this
-            ->string($nonEmptyString)
-                ->isEmpty();//Will fail
+        ->string($emptyString)
+            ->isEmpty()             // passe
+    
+        ->string($nonEmptyString)
+            ->isEmpty()             // échoue
+    ;
 
 #### isNotEmpty
 
-isNotEmpty verify that the string is not empty (contains some characters)
+isNotEmpty vérifie qu'une chaine de caractères n'est pas vide.
 
     [php]
-    $emptyString = '';
-    $nonEmptyString = ' ';
+    $emptyString    = '';
+    $nonEmptyString = 'atoum';
 
     $this
-            ->string($emptyString)
-                ->isNotEmpty();//Will fail
-    $this
-            ->string($nonEmptyString)
-                ->isNotEmpty();//Will pass
+        ->string($emptyString)
+            ->isNotEmpty()          // échoue
+    
+        ->string($nonEmptyString)
+            ->isNotEmpty()          // passe
+    ;
 
 #### match
 
 match will try to verify that the string matches a given regular expression.
 
     [php]
-    $polite = 'Hello the world';
-    $rude   = 'yeah... the world ';
+    $phone = '0102030405';
+    $vdm   = 'Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM';
 
     $this
-            ->string($polite)
-                ->match();//will pass
+        ->string($phone)
+            ->match('#0\d{7}#')
 
-    $this
-            ->string($rude)
-                ->match();//will fail
+        ->string($vdm)
+            ->match("#^Aujourd'hui.*VDM$#")
+    ;
 
 #### hasLength
 
-hasLength will verify that the string has a given length.
+hasLength vérifie la taille d'une chaine de caractères.
 
     [php]
-    $string = 'Hello the world';
+    $string = 'Hello world';
 
     $this
-            ->string($string)
-                ->hasLength(15);//Will pass
-
-    $this
-            ->string($string)
-                ->hasLength(16);//Will fail
+        ->string($string)
+            ->hasLength(11)     // passe
+            ->hasLength(20)     // échoue
+    ;
 
 
 
