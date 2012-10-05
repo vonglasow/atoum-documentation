@@ -221,10 +221,10 @@ isFalse vérifie que la donnée testée est strictement égale à false.
 
     $this
         ->boolean($true)
-            ->isFalse()      // échoue
+            ->isFalse()     // échoue
 
         ->boolean($false)
-            ->isFalse()      // passe
+            ->isFalse()     // passe
     ;
 
 #### isTrue
