@@ -664,7 +664,7 @@ Elle étend [objet](#object), toutes ses méthodes sont donc disponibles dans ce
     [php]
     $this
         ->exception(
-            function () {
+            function() {
                 // ce code lève une exception
                 throw new \Exception;
             }
@@ -674,17 +674,6 @@ Elle étend [objet](#object), toutes ses méthodes sont donc disponibles dans ce
 **Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
 Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
 
-    [php]
-    $this
-        ->exception(
-            function () {
-                throw new MyCataclysmicException('This a terrible error !');
-            }
-        )
-            ->isInstanceOf('MyCataclysmicException')
-            ->hasMessage('This a terrible error !')
-    ;
-
 #### hasCode
 
 hasCode vérifie le code de l'exception.
@@ -692,7 +681,7 @@ hasCode vérifie le code de l'exception.
     [php]
     $this
         ->exception(
-            function () {
+            function() {
                 throw new \Exception('Message', 42);
             }
         )
@@ -706,7 +695,7 @@ hasDefaultCode vérifie que le code de l'exception est la valeur par défaut, c'
     [php]
     $this
         ->exception(
-            function () {
+            function() {
                 throw new \Exception;
             }
         )
@@ -722,7 +711,7 @@ hasMessage vérifie le message de l'exception.
     [php]
     $this
         ->exception(
-            function () {
+            function() {
                 throw new \Exception('Message');
             }
         )
@@ -738,14 +727,14 @@ Si l'exception est précisée, cela va également vérifier la classe de l'excep
     [php]
     $this
         ->exception(
-            function () {
+            function() {
                 throw new \Exception('Message');
             }
         )
             ->hasNestedException()      // échoue
 
         ->exception(
-            function () {
+            function() {
                 try {
                     // Cette exception est levée...
                     throw new \FirstException('Message 1', 42);
@@ -769,7 +758,7 @@ Si l'exception est précisée, cela va également vérifier la classe de l'excep
 
 ### array
 
-C'est l'assertion dédié aux tableaux.
+C'est l'assertion dédiée aux tableaux.
 
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -1093,7 +1082,7 @@ strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données
 
 ### string
 
-C'est l'assertion dédié aux chaines de caractères.
+C'est l'assertion dédiée aux chaines de caractères.
 
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -1188,7 +1177,7 @@ match will try to verify that the string matches a given regular expression.
 
 ### castToString
 
-C'est l'assertion dédié aux tests sur le transtypage d'objets en chaine de caractères.
+C'est l'assertion dédiée aux tests sur le transtypage d'objets en chaine de caractères.
 
 Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -1210,7 +1199,7 @@ Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans c
 
 ### hash
 
-C'est l'assertion dédié aux tests sur les hashs (empreintes numériques).
+C'est l'assertion dédiée aux tests sur les hashs (empreintes numériques).
 
 Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -1277,6 +1266,25 @@ isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dir
 
 
 ### output
+
+C'est l'assertion dédiée aux tests sur les sorties, c'est à dire tout ce qui est censé être affiché à l'écran.
+
+Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+    [php]
+    $this
+        ->output(
+            function() {
+                echo 'Hello world';
+            }
+        )
+    ;
+
+**Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
+Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
+
+
+
 ### adapter
 ### afterDestructionOf
 
@@ -1389,7 +1397,7 @@ atoum can generate a mock directly from an interface.
             $usingWriter->setIWriter($mockIWriter);
 
             $this
-                    ->when(function () use($usingWriter) {
+                    ->when(function() use($usingWriter) {
                                     $usingWriter->write('hello');
                     })
                     ->mock($mockIWriter)
@@ -1414,7 +1422,7 @@ atoum can generate a mock directly from a class definition.
         $usingWriter->setWriter($mockWriter);
 
         $this
-                ->when(function () use($usingWriter) {
+                ->when(function() use($usingWriter) {
                                 $usingWriter->write('hello');
                 })
                 ->mock($mockWriter)
@@ -1494,7 +1502,7 @@ atoum can also let you create and completely specify a mock object.
     $usingWriter->setFreeWriter($mockWriter);
 
     $this
-            ->when(function () use($usingWriter) {
+            ->when(function() use($usingWriter) {
                             $usingWriter->write('hello');
             })
             ->mock($mockWriter)
