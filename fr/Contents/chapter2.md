@@ -176,13 +176,6 @@ Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles da
 
 Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
 
-    [php]
-    $a = 'true';
-
-    $this
-        ->boolean($a)   // échoue car $a n'est pas un booléen
-    ;
-
 **Note** : null n'est pas considéré comme un booléen.
 Reportez vous au manuel PHP pour voir ce que [is_bool](http://php.net/is_bool) considère ou non comme un booléen.
 
@@ -227,13 +220,6 @@ C'est l'assertion dédiée aux entiers.
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
-
-    [php]
-    $a = '1';
-
-    $this
-        ->integer($a)       // échoue car "1" n'est pas un entier
-    ;
 
 **Note** : null n'est pas considéré comme un entier.
 Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme un entier.
@@ -323,13 +309,6 @@ Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans
 
 Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
 
-    [php]
-    $a = '1';
-
-    $this
-        ->float($a)     // échoue car "1" n'est pas un nombre décimal
-    ;
-
 **Note** : null n'est pas considéré comme un nombre décimal.
 Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float) considère ou non comme un nombre décimal.
 
@@ -388,13 +367,6 @@ C'est l'assertion dédiée aux objets.
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un objet avec cette assertion, cela échouera.
-
-    [php]
-    $a = 1;
-
-    $this
-        ->object($a)    // échoue car 1 n'est pas un objet
-    ;
 
 **Note** : null n'est pas considéré comme un objet.
 Reportez vous au manuel PHP pour voir ce que [is_object](http://php.net/is_object) considère ou non comme un objet.
@@ -496,7 +468,7 @@ isInstanceOf vérifie qu'un objet est:
             ->isInstanceOf('\StdClass')     // échoue
     ;
 
-**Note** : Les noms des classes et des interfaces doit être absolu et commencé par un antislash.
+**Note** : les noms des classes et des interfaces doit être absolu et commencé par un antislash.
 
 
 
@@ -762,8 +734,8 @@ C'est l'assertion dédiée aux tableaux.
 
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-**Note** : le mot-clef "array" étant réservé en PHP, il n'a pas été possible de créer une classe "array".
-La classe de l'assertion s'appelle donc "phpArray" et un alias "array" a été créé.
+**Note** : le mot-clef "array" étant réservé en PHP, il n'a pas été possible de créer une assertion "array".
+Elle s'appelle donc "phpArray" et un alias "array" a été créé.
 Vous pourrez donc rencontrer des ->phpArray() ou des ->array().
 Il est conseillé d'utiliser exclusivement ->array().
 
@@ -1139,7 +1111,7 @@ isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au conte
             ->isEqualToContentsOfFile('/path/to/file')
     ;
 
-**Note** : Si le fichier n'existe pas, le test échoue.
+**Note** : si le fichier n'existe pas, le test échoue.
 
 #### isNotEmpty
 
@@ -1159,15 +1131,15 @@ isNotEmpty vérifie qu'une chaine de caractères n'est pas vide.
 
 #### match
 
-match will try to verify that the string matches a given regular expression.
+match vérifie qu'une expression régulière correspond à la chaine de caractères.
 
     [php]
     $phone = '0102030405';
-    $vdm   = 'Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM';
+    $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
 
     $this
         ->string($phone)
-            ->match('#0\d{7}#')
+            ->match('#^0[1-9]\d{8}$#')
 
         ->string($vdm)
             ->match("#^Aujourd'hui.*VDM$#")
@@ -1285,81 +1257,229 @@ Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plu
 
 
 
-### adapter
+### utf8String
+
+C'est l'assertion dédiée aux chaines de caractères UTF-8.
+
+Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+**Note** : utf8Strings utilise les fonctions mb_* pour gérer les chaines multi-octets.
+Reportez vous au manuel PHP pour voir avoir plus d'information sur l'extension [mbstring](http://php.net/mbstring).
+
+#### match
+
+match vérifie qu'une expression régulière correspond à la chaine de caractères.
+
+    [php]
+    $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+
+    $this
+        ->utf8String($vdm)
+            ->match("#^Aujourd'hui.*VDM$#u")
+    ;
+
+**Note** : pensez à bien ajouter "u" comme option de recherche dans votre expression régulière.
+Reportez vous au [manuel PHP](http://php.net/reference.pcre.pattern.modifiers) pour avoir plus d'informations sur le sujet.
+
+
+
 ### afterDestructionOf
+
+C'est l'assertion dédiée à la destruction des objets.
+
+Cette assertion ne fait que prendre un objet, vérifier que la méthode __destruct() est bien définie puis l'appelle.
+
+Si __destruct() existe bien et si son appel se passe sans erreur ni exception, alors le test passe.
+
+    [php]
+    $this
+        ->afterDestructionOf($objectWithDestructor)     // passe
+        
+        ->afterDestructionOf($objectWithoutDestructor)  // échoue
+    ;
 
 
 
 ### error
 
-This asserter is dedicated to error testing.
-
-Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :
+C'est l'assertion dédiée aux erreurs.
 
     [php]
-    class RaiseError extends atoum\test
-    {
-        public function testRaiseError ()
-        {
-            $error = new \RaiseError();
+    $this
+        ->when(
+            function() {
+                trigger_error('message');
+            }
+        )
+            ->error()
+    ;
 
-            $this->object($error);
-            $this
-                     ->when(function()use($error){
-                            $error->raise();
-                     })
-                     ->error('This is an error', E_USER_WARNING)
-                        ->exists();
-                     //Sachant qu'il est possible de ne spécifier
-                     // ni message ni type attendu.
-        }
-    }
+**Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
+Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
+
+**Note** : les types d'erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING
+ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
 
 #### exists
 
+exists vérifie qu'une erreur a été levée lors de l'exécution du code précédent.
+
+    [php]
+    $this
+        ->when(
+            function() {
+                trigger_error('message');
+            }
+        )
+            ->error()
+                ->exists()      // passe
+
+        ->when(
+            function() {
+                // code sans erreur
+            }
+        )
+            ->error()
+                ->exists()      // échoue
+    ;
+
 #### notExists
+
+notExists vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
+
+    [php]
+    $this
+        ->when(
+            function() {
+                trigger_error('message');
+            }
+        )
+            ->error()
+                ->notExists()   // échoue
+
+        ->when(
+            function() {
+                // code sans erreur
+            }
+        )
+            ->error()
+                ->notExists()   // passe
+    ;
 
 #### withType
 
-#### withAnyType
+withType vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
 
-#### withMessage
-
-#### withAnyMessage
-
-#### withPattern
-
-
-
-### mock
-
-This is the asserter dedicated to test your code using mock objects.
-
+    [php]
+    $this
+        ->when(
+            function() {
+                trigger_error('message');
+            }
+        )
+            ->error()
+                ->notExists()   // échoue
+    ;
 
 
-### phpClass / class
 
-This is the asserter dedicated to class definition testing.
+### class
 
-#### hasParent
+C'est l'assertion dédiée aux classes.
 
-#### hasNoParent
+    [php]
+    $object = new \StdClass;
 
-#### isSubclassOf
+    $this
+        ->class(get_class($object))
+
+        ->class('\StdClass')
+    ;
+
+**Note** : le mot-clef "class" étant réservé en PHP, il n'a pas été possible de créer une assertion "class".
+Elle s'appelle donc "phpClass" et un alias "class" a été créé.
+Vous pourrez donc rencontrer des ->phpClass() ou des ->class().
+Il est conseillé d'utiliser exclusivement ->class().
 
 #### hasInterface
 
-#### isAbstract
+hasInterface vérifie que la classe implémente une interface donnée.
+
+    [php]
+    $this
+        ->class('\ArrayIterator')
+            ->hasInterface('Countable')     // passe
+            
+        ->class('\StdClass')
+            ->hasInterface('Countable')     // échoue
+    ;
 
 #### hasMethod
 
+hasMethod vérifie que la classe contient une méthode donnée.
 
+    [php]
+    $this
+        ->class('\ArrayIterator')
+            ->hasMethod('count')    // passe
+            
+        ->class('\StdClass')
+            ->hasMethod('count')    // échoue
+    ;
 
-### testedClass
+#### hasNoParent
 
-This is the asserter dedicated to the tested class definition testing.
+hasNoParent vérifie que la classe n'hérite d'aucune classe.
 
-It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter while testing the tested class.
+    [php]
+    $this
+        ->class('\StdClass')
+            ->hasNoParent()     // passe
+            
+        ->class('\FilesystemIterator')
+            ->hasNoParent()     // échoue
+    ;
+
+**Note** : une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
+hasNoParent ne vérifie pas les interfaces, uniquement les classes héritées.
+
+#### hasParent
+
+hasParent vérifie que la classe hérite bien d'une classe.
+
+    [php]
+    $this
+        ->class('\StdClass')
+            ->hasParent()       // échoue
+            
+        ->class('\FilesystemIterator')
+            ->hasParent()       // passe
+    ;
+
+**Note** : une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
+hasParent ne vérifie pas les interfaces, uniquement les classes héritées.
+
+#### isAbstract
+
+isAbstract vérifie que la classe est abstraite.
+
+    [php]
+    $this
+        ->class('\StdClass')
+            ->isAbstract()       // échoue
+    ;
+
+#### isSubclassOf
+
+isSubclassOf vérifie que la classe hérite de la classe donnée.
+
+    [php]
+    $this
+        ->class('\FilesystemIterator')
+            ->isSubclassOf('\DirectoryIterator')    // passe
+            ->isSubclassOf('\SplFileInfo')          // passe
+            ->isSubclassOf('\StdClass')             // échoue
+    ;
 
 
 
