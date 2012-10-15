@@ -81,7 +81,7 @@ Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliq
 
 Vous devez écrire une classe de test pour chaque classe à tester.
 
-Imaginez que nous vouliez tester la traditionnelle classe HelloWorld, alors vous devez créer la classe de test test\units\HelloWorld.
+Imaginez que vous vouliez tester la traditionnelle classe HelloWorld, alors vous devez créer la classe de test test\units\HelloWorld.
 
 **NOTE** : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld,
 vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
@@ -181,5 +181,5 @@ Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un
 
 Avec atoum, quand vous voulez tester quelque chose :
 
-* spécifiez sur quoi vous voulez travailler (une variable, un objet, un tableau, une chaîne de caractère, un nombre entier, etc...) ;
+* spécifiez sur quoi vous voulez travailler (une variable, un objet, un tableau, une chaîne de caractères, un nombre entier, etc...);
 * indiquez dans quel état il doit être (égal à, null, contenant quelque chose, etc...).
