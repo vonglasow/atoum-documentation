@@ -1294,7 +1294,7 @@ Si __destruct() existe bien et si son appel se passe sans erreur ni exception, a
     [php]
     $this
         ->afterDestructionOf($objectWithDestructor)     // passe
-        
+
         ->afterDestructionOf($objectWithoutDestructor)  // échoue
     ;
 
@@ -1484,7 +1484,15 @@ isSubclassOf vérifie que la classe hérite de la classe donnée.
 
 
 
-### stream
+### stream 
+
+C'est l'assertion dédiée aux stream.
+
+Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'hésitez pas à compléter cette partie !
+
+#### isRead
+
+#### isWrite
 
 
 
@@ -1492,140 +1500,133 @@ isSubclassOf vérifie que la classe hérite de la classe donnée.
 
 ## Fournisseur de données
 
+Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs des données (data provider en anglais).
 
+Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test,
+arguments qui seront utilisés par ladite méthode pour valider des assertions.
 
-
-## Les mock
-
-Mocks are of course supported by atoum !
-Generating a Mock from an interface
-
-atoum can generate a mock directly from an interface.
+La définition du fournisseur de données qui doit être utilisé par une méthode de test se fait grâce à l'annotation @dataProvider
+appliquée à la méthode de test concernée, de la manière suivante :
 
     [php]
-    class UsingWriter extends atoum\test
+    class calculator extends atoum\test
     {
-        public function testWithMockedInterface ()
+        /**
+         * @dataProvider sumDataProvider
+         */
+        public function testSum($a, $b) // Attention à définir le bon nombre d'arguments.
         {
-            $this->mockGenerator->generate('\IWriter');
-            $mockIWriter = new \mock\IWriter;
-
-            $usingWriter = new \UsingWriter();
-            //La méthode setIWriter attend un objet
-            //qui implemente l'interface IWriter
-            //  (setIWriter (IWriter $writer))
-            $usingWriter->setIWriter($mockIWriter);
-
             $this
-                    ->when(function() use($usingWriter) {
-                                    $usingWriter->write('hello');
-                    })
-                    ->mock($mockIWriter)
-                        ->call('write')
-                        ->once();
+                ->if($calculator = new project\calculator())
+                ->then
+                    ->integer($calculator->sum($a, $b))->isEqualTo($a + $b)
+            ; 
         }
+
+        ...
     }
 
-### À partir d'une classe existante
+Évidemment, il ne faut pas oublier de définir, au niveau de la méthode de test,
+les arguments correspondant à ceux qui seront retournés par le fournisseur de données.
+Si ce n'est pas le cas, atoum générera une erreur lors de l'exécution des tests.
 
-atoum can generate a mock directly from a class definition.
-
-    [php]
-    public function testWithMockedObject ()
-    {
-        $this->mockGenerator->generate('\Writer');
-        $mockWriter = new \mock\Writer;
-
-        $usingWriter = new \UsingWriter();
-        //La méthode setWriter attend un objet
-        //de type Writer (setWriter (Writer $writer))
-        $usingWriter->setWriter($mockWriter);
-
-        $this
-                ->when(function() use($usingWriter) {
-                                $usingWriter->write('hello');
-                })
-                ->mock($mockWriter)
-                    ->call('write')
-                    ->once();
-    }
-
-There is also a shorter syntax to generate mock from a class definition.
+Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspondante :
 
     [php]
-    public function testWithMockedObject ()
+    class calculator extends atoum\test
     {
-        $mockWriter = new \mock\Writer;
+        ...
 
-        //...
-    }
-
-atoum is able to automatically find the class definition to mock on demand so you don't have to call the mock generator.
-
-When requesting a mock instance for a class, do not forget to specify the full class path (including namespaces).
-
-    [php]
-    namespace Package\Writers
-    {
-        class SampleWriter implements Writer
+        // Fournisseur de données de testSum().
+        public function sumDataProvider()
         {
-            //...
-        }
-
-    }
-
-    namespace
-    {
-        class UsingWriter 
-        {
-            public function write(\Package\Writers\Writer $writer, $string) 
-            {
-                $writer->write($string);
-            }
+            return array(
+                array( 1, 1),
+                array( 1, 2),
+                array(-1, 1),
+                array(-1, 2),
+            );
         }
     }
 
-In this example, the class we want to mock lives in the Package\Writers namespace, so to request a mock in our test we should do :
+Lors de l'exécution des tests, atoum appellera la méthode de test testSum() successivement avec les arguments
+(1, 1), (1, 2), (-1, 1) et (-1, 2) renvoyés par la méthode sumDataProvider().
+
+**Note** : attention, l'isolation des tests ne sera pas utilisée dans ce contexte,
+ce qui veut dire que chacun des appels successifs à la méthode testSum() sera réalisé dans le même processus PHP.
+
+**Note** : un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
+
+
+
+
+
+## Les bouchons
+
+atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre.
+
+### À partir d'une interface ou d'une classe existante
+
+Il y a plusieurs manière de créer un bouchon à partir d'une interface ou d'une classe (abstraite ou non).
+
+la plus simple est de créer un objet dont le nom absolu est préfixé par \mock :
 
     [php]
-    namespace Package\test\units;
+    // création d'un bouchon de l'interface \Countable
+    $countableMock = new \mock\Countable;
+    
+    // création d'un bouchon de la classe abstraite \Vendor\Application\AbstractClass
+    $vendorAppMock = new \mock\Vendor\Application\AbstractClass;
+    
+    // création d'un bouchon de la classe \StdClass
+    $stdObject     = new \mock\StdClass;
 
-    class UsingWriter extends atoum\test
-    {
-        public function testWrite()
-        {                     
-            $this
-                ->if($mockWriter = new \mock\Package\Writers\SampleWriter())
-                ->then()
-                    ->when(function() use($mockWriter) {
-                        $usingWriter = new \UsingWriter();
-                        $usingWriter->write($mockWriter, 'Hello World!');  
-                    })  
-                    ->mock($mockWriter)
-                        ->call('write')
-                        ->withArguments('Hello World!')
-                        ->once()
-            ;
-        }
-    }
+Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le mockGenerator.
+Sa méthode generate prend 3 paramètres :
+
+* le nom de l'interface ou de la classe à bouchonner ;
+* le nouvel espace de nom, optionnel ;
+* le nouveau nom de la classe, optionnel.
+
+    [php]
+    // création d'un bouchon de l'interface \Countable vers \MyMock\Countable
+    // on ne change que l'espace de nom
+    $this->mockGenerator->generate('\Countable', '\MyMock');
+    $countableMock = new \myMock\Countable;
+    
+    // création d'un bouchon de la classe abstraite \Vendor\Application\AbstractClass
+    // vers \MyMock\AClass
+    // on change l'espace de nom et le nom de la classe
+    $this->mockGenerator->generate('\Countable', '\MyMock', 'AClass');
+    $vendorAppMock = new \mock\Vendor\Application\AbstractClass;
+    
+    // création d'un bouchon de la classe \StdClass vers \mock\OneClass
+    // on ne change que le nom de la classe
+    $stdObject     = new \mock\OneClass;
+
+**Note** : si vous n'utilisez que le premier argument et ne changer ni l'espace de nom, ni le nom de la classe,
+alors c'est équivalent à la première solution.
+
+    [php]
+    $countableMock = new \mock\Countable;
+
+    // est équivalent à :
+
+    $this->mockGenerator->generate('\Countable');   // inutile
+    $countableMock = new \mock\Countable;
 
 ### À partir de rien
 
-atoum can also let you create and completely specify a mock object.
+Vous pouvez également créer un mock qui ne soit pas lié à une interface ou une classe (abstraite ou non) existante.
+
+Pour cela, et bien faite comme si elle existait !
+
+En effet, le code suivant fonctionne parfaitement :
 
     [php]
-    $this->mockGenerator->generate('WriterFree');
-    $mockWriter = new \mock\WriterFree;
-    $mockWriter->getMockController()->write = function($text){};
+    $firstMockedObject = new \mock\MyUnknownClass;
+    $secondMockedObject = new \mock\My\Unknown\Class;
 
-    $usingWriter = new \UsingWriter();
-    $usingWriter->setFreeWriter($mockWriter);
+### Prendre le contrôle d'un mock
 
-    $this
-            ->when(function() use($usingWriter) {
-                            $usingWriter->write('hello');
-            })
-            ->mock($mockWriter)
-                ->call('write')
-                ->once();
-
+C'est bien joli d'avoir créer un mock, mais il est souvent utile de pouvoir contrôler son comportement.
