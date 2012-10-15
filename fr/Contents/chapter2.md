@@ -1514,7 +1514,8 @@ appliquée à la méthode de test concernée, de la manière suivante :
         /**
          * @dataProvider sumDataProvider
          */
-        public function testSum($a, $b) // Attention à définir le bon nombre d'arguments.
+        // Veillez à définir le bon nombre d'arguments
+        public function testSum($a, $b)
         {
             $this
                 ->if($calculator = new project\calculator())
@@ -1575,7 +1576,8 @@ la plus simple est de créer un objet dont le nom absolu est préfixé par \mock
     // création d'un bouchon de l'interface \Countable
     $countableMock = new \mock\Countable;
     
-    // création d'un bouchon de la classe abstraite \Vendor\Application\AbstractClass
+    // création d'un bouchon de la classe abstraite
+    // \Vendor\Application\AbstractClass
     $vendorAppMock = new \mock\Vendor\Application\AbstractClass;
     
     // création d'un bouchon de la classe \StdClass
@@ -1594,8 +1596,8 @@ Sa méthode generate prend 3 paramètres :
     $this->mockGenerator->generate('\Countable', '\MyMock');
     $countableMock = new \myMock\Countable;
     
-    // création d'un bouchon de la classe abstraite \Vendor\Application\AbstractClass
-    // vers \MyMock\AClass
+    // création d'un bouchon de la classe abstraite
+    // \Vendor\Application\AbstractClass vers \MyMock\AClass
     // on change l'espace de nom et le nom de la classe
     $this->mockGenerator->generate('\Countable', '\MyMock', 'AClass');
     $vendorAppMock = new \mock\Vendor\Application\AbstractClass;
@@ -1624,7 +1626,7 @@ Pour cela, et bien faite comme si elle existait !
 En effet, le code suivant fonctionne parfaitement :
 
     [php]
-    $firstMockedObject = new \mock\MyUnknownClass;
+    $firstMockedObject  = new \mock\MyUnknownClass;
     $secondMockedObject = new \mock\My\Unknown\Class;
 
 ### Prendre le contrôle d'un mock
