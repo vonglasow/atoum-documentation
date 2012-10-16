@@ -1498,7 +1498,7 @@ Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'h
 
 
 
-## Fournisseur de données
+## Fournisseurs de données
 
 Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs des données (data provider en anglais).
 
