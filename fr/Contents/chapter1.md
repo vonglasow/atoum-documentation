@@ -26,9 +26,11 @@ Vous pouvez installer atoum de 5 manières :
 
 ### Archive PHAR
 
-Une archive PHAR est créée automatiquement à chaque modification d'atoum. PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.
+Une archive PHAR est créée automatiquement à chaque modification d'atoum.
+PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.
 
-Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : [http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
+Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel :
+[http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
 
 
 ### Composer

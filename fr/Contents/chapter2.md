@@ -1500,7 +1500,7 @@ Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'h
 
 ## Fournisseurs de données
 
-Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs des données (data provider en anglais).
+Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
 
 Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test,
 arguments qui seront utilisés par ladite méthode pour valider des assertions.
@@ -1604,6 +1604,7 @@ Sa méthode generate prend 3 paramètres :
     
     // création d'un bouchon de la classe \StdClass vers \mock\OneClass
     // on ne change que le nom de la classe
+    $this->mockGenerator->generate('\StdClass', null, 'OneClass');
     $stdObject     = new \mock\OneClass;
 
 **Note** : si vous n'utilisez que le premier argument et ne changer ni l'espace de nom, ni le nom de la classe,
@@ -1616,6 +1617,7 @@ alors c'est équivalent à la première solution.
 
     $this->mockGenerator->generate('\Countable');   // inutile
     $countableMock = new \mock\Countable;
+
 
 ### À partir de rien
 
@@ -1631,4 +1633,10 @@ En effet, le code suivant fonctionne parfaitement :
 
 ### Prendre le contrôle d'un mock
 
-C'est bien joli d'avoir créer un mock, mais il est souvent utile de pouvoir contrôler son comportement.
+Un fois le mock créé et instancié, il est souvent utile de pouvoir contrôler son comportement.
+
+Pour cela, appelez la méthode getMockController() de l'objet que vous venez de mocker.
+
+**Note**: vous ne pouvez redéfinir que les méthodes publiques (dont __construct) et les propriétés publiques.
+
+#### A FAIRE !!!
