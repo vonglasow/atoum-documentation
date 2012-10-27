@@ -32,6 +32,9 @@ PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible
 Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel :
 [http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
 
+Ensuite, pour mettre à jour l'archive:
+TODO https://github.com/mageekguy/atoum/wiki/Mettre-%C3%A0-jour-l'archive-PHAR-de-atoum
+
 
 ### Composer
 
@@ -85,16 +88,16 @@ Vous devez écrire une classe de test pour chaque classe à tester.
 
 Imaginez que vous vouliez tester la traditionnelle classe HelloWorld, alors vous devez créer la classe de test test\units\HelloWorld.
 
-**NOTE** : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Application\HelloWorld,
-vous devez créer la classe \Vendor\Application\tests\units\HelloWorld.
+**NOTE** : atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Project\HelloWorld,
+vous devez créer la classe \Vendor\Project\tests\units\HelloWorld.
 
 Voici le code de la classe HelloWorld que nous allons tester.
 
     [php]
     <?php
-    # src/Vendor/Application/HelloWorld.php
+    # src/Vendor/Project/HelloWorld.php
 
-    namespace Vendor\Application;
+    namespace Vendor\Project;
 
     class HelloWorld
     {
@@ -108,16 +111,16 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
 
     [php]
     <?php
-    # src/Vendor/Application/tests/units/HelloWorld.php
+    # src/Vendor/Project/tests/units/HelloWorld.php
 
     // La classe de test à son propre namespace :
     // Le namespace de la classe à tester + "tests\units"
-    namespace Vendor\Application\tests\units;
+    namespace Vendor\Project\tests\units;
 
     // Vous devez inclure la classe à tester
     require_once __DIR__ . '/../../HelloWorld.php';
 
-    use \mageekguy\atoum;
+    use \atoum;
 
     /*
      * Classe de test pour \HelloWorld
@@ -133,7 +136,7 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
         public function testGetHiAtoum ()
         {
             // création d'une nouvelle instance de la classe à tester
-            $helloToTest = new \Vendor\Application\HelloWorld();
+            $helloToTest = new \Vendor\Project\HelloWorld();
 
             $this
                 // nous testons que la méthode getHiAtoum retourne bien
@@ -149,7 +152,7 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
 Maintenant, lançons nos tests :
 
     [bash]
-    php vendor/mageekguy.atoum.phar -f src/Vendor/Application/tests/units/HelloWorld.php
+    php vendor/mageekguy.atoum.phar -f src/Vendor/Project/tests/units/HelloWorld.php
 
 Vous devriez voir quelque chose comme ça :
 
@@ -160,7 +163,7 @@ Vous devriez voir quelque chose comme ça :
     => Copyright (c) 1997-2012 The PHP Group
     => Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
     =>     with Xdebug v2.2.1, Copyright (c) 2002-2012, by Derick Rethans
-    > Vendor\Application\tests\units\HelloWorld...
+    > Vendor\Project\tests\units\HelloWorld...
     [S___________________________________________________________][1/1]
     => Test duration: 0.02 second.
     => Memory usage: 0.00 Mb.
@@ -185,3 +188,14 @@ Avec atoum, quand vous voulez tester quelque chose :
 
 * spécifiez sur quoi vous voulez travailler (une variable, un objet, un tableau, une chaîne de caractères, un nombre entier, etc...);
 * indiquez dans quel état il doit être (égal à, null, contenant quelque chose, etc...).
+
+
+## Intégration d'atoum dans votre IDE
+
+## Sublime Text 2
+
+https://github.com/mageekguy/atoum/wiki/atoum-et-SublimeText-2
+
+## vim
+
+https://github.com/mageekguy/atoum/wiki/atoum-et-VIM

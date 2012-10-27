@@ -19,6 +19,7 @@ book:
         - { element: chapter, number: 3, content: chapter3.md }
         - { element: chapter, number: 4, content: chapter4.md }
         - { element: chapter, number: 5, content: chapter5.md }
+        - { element: chapter, number: 6, content: chapter6.md }
 
     editions:
         ebook:

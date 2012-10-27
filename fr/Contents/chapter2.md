@@ -19,13 +19,13 @@ isCallable vérifie que la variable peut être appelée comme fonction.
         ->variable($f)
             ->isCallable()  // passe
 
-        ->variable('\Vendor\Application\foobar')
+        ->variable('\Vendor\Project\foobar')
             ->isCallable()
 
-        ->variable(array('\Vendor\Application\Foo', 'bar'))
+        ->variable(array('\Vendor\Project\Foo', 'bar'))
             ->isCallable()
 
-        ->variable('\Vendor\Application\Foo::bar')
+        ->variable('\Vendor\Project\Foo::bar')
             ->isCallable()
     ;
 
@@ -41,7 +41,8 @@ isEqualTo vérifie que la variable est égale à une certaine donnée.
             ->isEqualTo('a')    // passe
     ;
 
-**Note**: isEqualTo ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [isIdenticalTo](#isidenticalto).
+**Note**: isEqualTo ne teste pas le type de la variable.
+Si vous souhaitez vérifier également son type, utilisez [isIdenticalTo](#isidenticalto).
 
 #### isIdenticalTo
 
@@ -66,7 +67,8 @@ Dans le cas d'objets, isIdenticalTo vérifie que les données pointent sur la m�
             ->isIdenticalTo(stdClass2)  // échoue
     ;
 
-**Note**: isIdenticalTo teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [isEqualTo](#isequalto).
+**Note**: isIdenticalTo teste le type de la variable.
+Si vous ne souhaitez pas vérifier son type, utilisez [isEqualTo](#isequalto).
 
 #### isNotCallable
 
@@ -107,7 +109,8 @@ isNotEqualTo vérifie que la variable n'a pas la même valeur qu'une certaine do
             ->isNotEqualTo($1)      // échoue
     ;
 
-**Note**: isNotEqualTo ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [isNotIdenticalTo](#isnotidenticalto).
+**Note**: isNotEqualTo ne teste pas le type de la variable.
+Si vous souhaitez vérifier également son type, utilisez [isNotIdenticalTo](#isnotidenticalto).
 
 #### isNotIdenticalTo
 
@@ -132,7 +135,8 @@ Dans le cas d'objets, isNotIdenticalTo vérifie que les données ne pointent pas
             ->isNotIdenticalTo(stdClass3)   // échoue
     ;
 
-**Note**: isNotIdenticalTo teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [isNotEqualTo](#isnotequalto).
+**Note**: isNotIdenticalTo teste le type de la variable.
+Si vous ne souhaitez pas vérifier son type, utilisez [isNotEqualTo](#isnotequalto).
 
 #### isNull
 
@@ -305,7 +309,8 @@ isZero vérifie que l'entier est égal à 0.
 C'est l'assertion dédiée aux nombres décimaux.
 
 Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
-Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float attendent un nombre décimal et non plus un entier.
+Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float
+attendent un nombre décimal et non plus un entier.
 
 Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
 
@@ -336,7 +341,8 @@ Cette méthode cherche donc à corriger ce problème.
             ->isEqualTo(0.03)       // échoue
     ;
 
-**Note** : pour avoir plus d'informations sur l'algorithme utilisé, consultez le [floating point guide](http://www.floating-point-gui.de/errors/comparison/).
+**Note** : pour avoir plus d'informations sur l'algorithme utilisé,
+consultez le [floating point guide](http://www.floating-point-gui.de/errors/comparison/).
 
 
 
@@ -385,7 +391,8 @@ hasSize vérifie la taille d'un objet qui implémente l'interface Countable.
 
 #### isCloneOf
 
-isCloneOf vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
+isCloneOf vérifie qu'un objet est le clone d'un objet donné,
+c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
 
     [php]
     $object1 = new \StdClass;
@@ -401,7 +408,8 @@ isCloneOf vérifie qu'un objet est le clone d'un objet donné, c'est à dire que
             ->isCloneOf($object4)   // échoue
     ;
 
-**Note** : pour avoir plus de précision sur la comparaison d'objet, reportez vous au [manuel PHP](php.net/language.oop5.object-comparison).
+**Note** : pour avoir plus de précision sur la comparaison d'objet,
+reportez vous au [manuel PHP](php.net/language.oop5.object-comparison).
 
 #### isEmpty
 
@@ -478,7 +486,8 @@ C'est l'assertion dédiée à l'objet [DateTime](http://php.net/datetime).
 
 Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion,
+cela échouera.
 
 #### hasDate
 
@@ -619,11 +628,13 @@ hasYear vérifie l'année de l'objet DateTime.
 C'est l'assertion dédiée aux objets décrivant une date MySQL et basé sur l'objet [DateTime](http://php.net/datetime).
 
 Les dates doivent utiliser le format MySQL (et de nombreux SGBD), c'est à dire 'Y-m-d H:i:s'
-(Reportez vous à la documentation de la fonction [date()](http://php.net/date) du manuel PHP pour connaitre la signification de ce format).
+(Reportez vous à la documentation de la fonction [date()](http://php.net/date) du manuel PHP
+pour connaitre la signification de ce format).
 
 Elle étend [dateTime](#dateTime), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion,
+cela échouera.
 
 
 
@@ -756,7 +767,8 @@ contains vérifie qu'un tableau contient une certaine donnée.
 
 **Note**: contains ne fait pas de recherche récursive.
 
-**Note**: contains ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez [strictlyContains](#strictlycontains).
+**Note**: contains ne teste pas le type de la donnée.
+Si vous souhaitez vérifier également son type, utilisez [strictlyContains](#strictlycontains).
 
 #### containsValues
 
@@ -774,7 +786,8 @@ containsValues vérifie qu'un tableau contient toutes les données fournies dans
 
 **Note**: containsValues ne fait pas de recherche récursive.
 
-**Note**: containsValues ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [strictlyContainsValues](#strictlycontainsvalues).
+**Note**: containsValues ne teste pas le type des données.
+Si vous souhaitez vérifier également leurs types, utilisez [strictlyContainsValues](#strictlycontainsvalues).
 
 #### hasKey
 
@@ -895,7 +908,8 @@ notContains vérifie qu'un tableau ne contient pas une donnée.
 
 **Note**: notContains ne fait pas de recherche récursive.
 
-**Note**: notContains ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez [strictlyNotContains](#strictlynotcontains).
+**Note**: notContains ne teste pas le type de la donnée.
+Si vous souhaitez vérifier également son type, utilisez [strictlyNotContains](#strictlynotcontains).
 
 #### notContainsValues
 
@@ -913,7 +927,8 @@ notContainsValues vérifie qu'un tableau ne contient aucune des données fournie
 
 **Note**: notContainsValues ne fait pas de recherche récursive.
 
-**Note**: notContainsValues ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [strictlyNotContainsValues](#strictlynotcontainsvalues).
+**Note**: notContainsValues ne teste pas le type des données.
+Si vous souhaitez vérifier également leurs types, utilisez [strictlyNotContainsValues](#strictlynotcontainsvalues).
 
 #### notHasKey
 
@@ -1009,7 +1024,8 @@ strictlyContainsValues vérifie qu'un tableau contient toutes les données fourn
 
 **Note**: strictlyContainsValues ne fait pas de recherche récursive.
 
-**Note**: strictlyContainsValues teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [containsValues](#containsvalues).
+**Note**: strictlyContainsValues teste le type des données.
+Si vous ne souhaitez pas vérifier leurs types, utilisez [containsValues](#containsvalues).
 
 #### strictlyNotContains
 
@@ -1028,7 +1044,8 @@ strictlyNotContains vérifie qu'un tableau ne contient pas une donnée (même va
 
 **Note**: strictlyNotContains ne fait pas de recherche récursive.
 
-**Note**: strictlyNotContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [notContains](#notcontains).
+**Note**: strictlyNotContains teste le type de la donnée.
+Si vous ne souhaitez pas vérifier son type, utilisez [notContains](#notcontains).
 
 #### strictlyNotContainsValues
 
@@ -1048,7 +1065,8 @@ strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données
 
 **Note**: strictlyNotContainsValues ne fait pas de recherche récursive.
 
-**Note**: strictlyNotContainsValues teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [notContainsValues](#notcontainsvalues).
+**Note**: strictlyNotContainsValues teste le type des données.
+Si vous ne souhaitez pas vérifier leurs types, utilisez [notContainsValues](#notcontainsvalues).
 
 
 
@@ -1484,7 +1502,183 @@ isSubclassOf vérifie que la classe hérite de la classe donnée.
 
 
 
-### stream 
+### mock
+
+C'est l'assertion dédiée aux mocks.
+
+    [php]
+    $mock = new \mock\MyClass;
+
+    $this
+        ->mock($mock)
+    ;
+
+#### wasCalled
+
+wasCalled vérifie qu'au moins une méthode du mock a été appelée au moins une fois.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->wasCalled()
+    ;
+
+#### wasNotCalled
+
+wasNotCalled vérifie qu'aucune méthode du mock n'a été appelée.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->wasNotCalled()
+    ;
+
+#### call
+
+call permet de spécifier une méthode du mock à tester
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->once()
+    ;
+
+##### atLeastOnce
+
+atLeastOnce vérifie que la méthode testée (voir [call](#call)) du mock testé a été appelée au moins une fois.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->atLeastOnce()
+    ;
+
+##### exactly
+
+exactly vérifie que la méthode testée (voir [call](#call)) du mock testé exactement un certain nombre de fois.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->exactly(2)
+    ;
+
+##### never
+
+never vérifie que la méthode testée (voir [call](#call)) du mock testé n'a jamais été appelée.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->never()
+    ;
+
+**Note**: once est équivalent à [exactly](#exactly)(0).
+
+##### once
+
+once vérifie que la méthode testée (voir [call](#call)) du mock testé a été appelée exactement une fois.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->once()
+    ;
+
+**Note**: once est équivalent à [exactly](#exactly)(1).
+
+##### withArguments
+
+withArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [call](#call)) du mock testé.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->withArguments('first', 'second')->once()
+    ;
+
+**Note**: withArguments ne teste pas le type des arguments.
+Si vous souhaitez vérifier également leurs types, utilisez [withIdenticalArguments](#withidenticalarguments).
+
+##### withIdenticalArguments
+
+withIdenticalArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [call](#call)) du mock testé.
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->withIdenticalArguments('first', 'second')->once()
+    ;
+
+**Note**: withIdenticalArguments teste le type des arguments.
+Si vous ne souhaitez pas vérifier leurs types, utilisez [withArguments](#witharguments).
+
+##### withAnyArguments
+
+withAnyArguments permet de ne pas spécifier de paramètres attendus lors de l'appel à la méthode testée (voir [call](#call)) du mock testé.
+
+Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l'exemple suivant:
+
+    [php]
+    $mock = new \mock\MyFirstClass;
+
+    $this
+        ->object(new MySecondClass($mock))
+
+        ->mock($mock)
+            ->call('myMethod')
+                ->withArguments('first')     ->once()
+                ->withArguments('second')    ->once()
+                ->withAnyArgumentsArguments()->exactly(2)
+    ;
+
+
+
+
+### stream
 
 C'est l'assertion dédiée aux stream.
 
@@ -1493,6 +1687,29 @@ Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'h
 #### isRead
 
 #### isWrite
+
+
+
+
+
+## Aide à l'écriture
+
+https://github.com/mageekguy/atoum/wiki/%C3%80-propos-de-if(),-and(),-then-et-c%C3%A6tera
+
+
+
+
+## Le mode debug
+
+https://github.com/mageekguy/atoum/wiki/Le-mode-%22debug%22
+
+
+
+
+
+## Les méthodes d'initialisation
+
+https://github.com/mageekguy/atoum/wiki/Utiliser-les-m%C3%A9thodes-d'initialisation-des-tests
 
 
 
@@ -1577,8 +1794,8 @@ la plus simple est de créer un objet dont le nom absolu est préfixé par \mock
     $countableMock = new \mock\Countable;
     
     // création d'un bouchon de la classe abstraite
-    // \Vendor\Application\AbstractClass
-    $vendorAppMock = new \mock\Vendor\Application\AbstractClass;
+    // \Vendor\Project\AbstractClass
+    $vendorAppMock = new \mock\Vendor\Project\AbstractClass;
     
     // création d'un bouchon de la classe \StdClass
     $stdObject     = new \mock\StdClass;
@@ -1597,10 +1814,10 @@ Sa méthode generate prend 3 paramètres :
     $countableMock = new \myMock\Countable;
     
     // création d'un bouchon de la classe abstraite
-    // \Vendor\Application\AbstractClass vers \MyMock\AClass
+    // \Vendor\Project\AbstractClass vers \MyMock\AClass
     // on change l'espace de nom et le nom de la classe
     $this->mockGenerator->generate('\Countable', '\MyMock', 'AClass');
-    $vendorAppMock = new \mock\Vendor\Application\AbstractClass;
+    $vendorAppMock = new \mock\Vendor\Project\AbstractClass;
     
     // création d'un bouchon de la classe \StdClass vers \mock\OneClass
     // on ne change que le nom de la classe
@@ -1631,12 +1848,86 @@ En effet, le code suivant fonctionne parfaitement :
     $firstMockedObject  = new \mock\MyUnknownClass;
     $secondMockedObject = new \mock\My\Unknown\Class;
 
-### Prendre le contrôle d'un mock
+### Modifier le comportement d'un mock
 
-Un fois le mock créé et instancié, il est souvent utile de pouvoir contrôler son comportement.
+Un fois le mock créé et instancié, il est souvent utile de pouvoir modifier son comportement.
 
-Pour cela, appelez la méthode getMockController() de l'objet que vous venez de mocker.
+Pour cela, il faut passer par son contrôleur en utilisant la méthode getMockController().
 
-**Note**: vous ne pouvez redéfinir que les méthodes publiques (dont __construct) et les propriétés publiques.
+**Note**: vous ne pouvez redéfinir que les méthodes publiques (dont __construct).
 
-#### A FAIRE !!!
+    [php]
+    $databaseClient = new \mock\Database\Client();
+
+    // redéfinie la méthode connect
+    $databaseClient->getMockController()->connect = function() {};
+
+
+    // redéfinie la méthode select
+    $databaseClient->getMockController()->select = function() {
+        return array();
+    };
+
+    // redéfinie la méthode query avec des arguments
+    $databaseClient->getMockController()->query = function(Query $query) {
+        switch($query->type) {
+            case Query::SELECT:
+                return array();
+            break;
+
+            default;
+                return null;
+        }
+    };
+
+**Note**: vous pouvez définir directement une valeur à retourner systématiquement
+
+    [php]
+    // indique que la méthode query retourne systématiquement un tableau vide
+    $databaseClient->getMockController()->query = array();
+
+    // équivalent à:
+    $databaseClient->getMockController()->query = function() {
+        return array();
+    };
+
+
+### Cas particulier du constructeur
+
+Pour bouchonner le constructeur d'une classe, il faut:
+
+* créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
+* définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
+* appeler sur le contrôleur la méthode injectInNextMockInstance().
+
+    [php]
+    $controller = new \atoum\mock\controller();
+    $controller->__construct = function() {};
+    $controller->injectInNextMockInstance();
+
+    $databaseClient = new \mock\Database\Client();
+
+
+### Tester un mock
+
+atoum vous permet de vérifier qu'un mock a été utilisé correctement.
+
+    [php]
+    $databaseClient = new \mock\Database\Client();
+    $databaseClient->getMockController()->connect = function() {};
+    $databaseClient->getMockController()->query   = array();
+
+    $bankAccount = new \Vendor\Project\Bank\Account();
+    $this
+        // utilisation du mock via un autre objet
+        ->array($bankAccount->getOperation($databaseClient))
+            ->isEmpty()
+
+        // test du mock
+        ->mock($databaseClient)
+            ->call('query')
+                ->once()        // vérifie que la méthode query
+                                // n'a été appelé qu'une seule fois
+    ;
+
+**Note**: reportez-vous à la documentation sur l'assertion [mock](#mock) pour obtenir plus d'informations sur les tests de mock
