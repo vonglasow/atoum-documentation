@@ -409,7 +409,7 @@ c'est à dire que les objets sont égaux mais ne pointent pas vers la même inst
     ;
 
 **Note** : pour avoir plus de précision sur la comparaison d'objet,
-reportez vous au [manuel PHP](php.net/language.oop5.object-comparison).
+reportez vous au [manuel PHP](http://php.net/language.oop5.object-comparison).
 
 #### isEmpty
 
@@ -631,7 +631,7 @@ Les dates doivent utiliser le format MySQL (et de nombreux SGBD), c'est à dire 
 (Reportez vous à la documentation de la fonction [date()](http://php.net/date) du manuel PHP
 pour connaitre la signification de ce format).
 
-Elle étend [dateTime](#dateTime), toutes ses méthodes sont donc disponibles dans cette assertion.
+Elle étend [dateTime](#datetime), toutes ses méthodes sont donc disponibles dans cette assertion.
 
 Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion,
 cela échouera.
@@ -1504,7 +1504,7 @@ isSubclassOf vérifie que la classe hérite de la classe donnée.
 
 ### mock
 
-C'est l'assertion dédiée aux mocks.
+C'est l'assertion dédiée aux bouchons.
 
     [php]
     $mock = new \mock\MyClass;
@@ -1512,6 +1512,9 @@ C'est l'assertion dédiée aux mocks.
     $this
         ->mock($mock)
     ;
+
+**Note**: reportez-vous à la documentation sur les [bouchons](#les-bouchons)
+pour obtenir plus d'informations sur la façon de créer et gérer les bouchons.
 
 #### wasCalled
 
@@ -1850,11 +1853,11 @@ En effet, le code suivant fonctionne parfaitement :
 
 ### Modifier le comportement d'un mock
 
-Un fois le mock créé et instancié, il est souvent utile de pouvoir modifier son comportement.
+Un fois le mock créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
 
 Pour cela, il faut passer par son contrôleur en utilisant la méthode getMockController().
 
-**Note**: vous ne pouvez redéfinir que les méthodes publiques (dont __construct).
+**Note**: vous ne pouvez redéfinir que les méthodes publiques.
 
     [php]
     $databaseClient = new \mock\Database\Client();
@@ -1930,4 +1933,4 @@ atoum vous permet de vérifier qu'un mock a été utilisé correctement.
                                 // n'a été appelé qu'une seule fois
     ;
 
-**Note**: reportez-vous à la documentation sur l'assertion [mock](#mock) pour obtenir plus d'informations sur les tests de mock
+**Note**: reportez-vous à la documentation sur l'assertion [mock](#mock) pour obtenir plus d'informations sur les tests des bouchons.

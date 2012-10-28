@@ -22,10 +22,10 @@
 -- [@briceatwork](https://twitter.com/briceatwork/status/108180796543737858) sur twitter
 
 <cite>« Chers Dormeurs, arrêtez d'être Timide ou Grincheux, les Pro(f)s utilisent At(ch)oum le framework de TU PHP5.3 très Simple(t) qui rend Joyeux »</cite>   
--- [@Guiled](https://twitter.com/#!/Guiled/status/129839017280798720) sur twitter
+-- [@Guiled](https://twitter.com/Guiled/status/129839017280798720) sur twitter
 
 <cite>« Je sais pas vous, mais #atoum donne plus envie d'écrire des #tests #unitaires que #PHPUnit : c'est clair, efficace #php »</cite>   
--- [@Guiled](http://twitter.com/#!/Guiled/status/99951136131395584) sur twitter
+-- [@Guiled](http://twitter.com/Guiled/status/99951136131395584) sur twitter
 
 <cite>« Atoum est vraiment un plaisir à utiliser de par sa simplicité et sa légèreté donc n’hésitez pas à l’essayer car l’essayer, c’est l’adopter ! »</cite>   
 -- [Joris](http://blog.eexit.net/2011/11/php-projet-silex-tdd-pour-le-code-metier.html) sur son blog
