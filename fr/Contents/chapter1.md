@@ -194,8 +194,8 @@ Avec atoum, quand vous voulez tester quelque chose :
 
 ## Sublime Text 2
 
-https://github.com/mageekguy/atoum/wiki/atoum-et-SublimeText-2
+TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-SublimeText-2
 
 ## vim
 
-https://github.com/mageekguy/atoum/wiki/atoum-et-VIM
+TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-VIM

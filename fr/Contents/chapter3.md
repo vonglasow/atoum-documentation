@@ -58,12 +58,80 @@ Pour lancer les tests d'un fichier, il vous suffit d'utiliser l'option -f ou --f
     [bash]
     ./bin/atoum -f tests/units/MyTest.php
 
-Vous pouvez évidemment spécifier plusieurs fichiers:
+
+### Par répertoires
+
+Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou --directories.
+
+    [bash]
+    ./bin/atoum -d tests/units
+
+
+## Filtres
+
+Une fois que vous avez préciser à atoum [quels fichiers exécuter](#fichiers-a-executer), vous pouvez filtrer ce qui sera réellement exécuter.
+
+### Par espace de nom
+
+Pour filtrer sur l'espace de nom, c'est à dire n'exécuter que les tests d'un espace de nom donné,
+il vous suffit d'utiliser l'option -ns ou --namespaces.
+
+    [bash]
+    ./bin/atoum -d tests/units -ns mageekguy\\atoum\\tests\\units\\asserters
+
+**Note**: il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+
+### Une classe ou une méthode
+
+Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les tests d'une classe ou d'une méthode donnée,
+il vous suffit d'utiliser l'option -m ou --methods.
+
+    [bash]
+    ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\string::testContains
+
+**Note**: il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+
+Vous pouvez remplacer le nom de la classe ou de la méthode par "*" pour signifier "tous".
+
+Si vous remplacez le nom de la méthode par "*", cela revient à dire que vous filtrez par classe.
+
+    [bash]
+    ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\string::*
+
+Si vous remplacez le nom de la class par "*", cela revient à dire que vous filtrez par méthode.
+
+    [bash]
+    ./bin/atoum -d tests/units -m *::testContains
+
+### Tags
+
+TODO https://github.com/mageekguy/atoum/wiki/Utiliser-les-tags
+
+## Fichier de configuration
+
+TODO
+
+### Couverture du code
+
+TODO https://github.com/mageekguy/atoum/wiki/G%C3%A9n%C3%A9rer-le-rapport-de-couverture-du-code-au-format-HTML
+
+## Fichier de bootstrap
+
+TODO https://github.com/mageekguy/atoum/wiki/Utiliser-un-fichier-de-%22bootstrap%22
+
+## Option de la ligne de commande
+
+TODO https://github.com/mageekguy/atoum/wiki/Le-mode-%22loop%22
+
+
+
+Vous pouvez évidemment spécifier plusieurs valeurs par option:
 
     [bash]
     ./bin/atoum -f tests/units/MyFirstTest.php tests/units/MySecondTest.php
 
-**Note**: vous ne devez mettre qu'une seule fois l'option -f.
+
+**Note**: vous ne devez mettre qu'une seule fois chaque option.
 Dans le cas contraire, seul le dernier est pris en compte.
 
     [bash]
@@ -73,58 +141,6 @@ Dans le cas contraire, seul le dernier est pris en compte.
     # Ne test que MyThirdTest.php et MyFourthTest.php
     ./bin/atoum -f MyFirstTest.php MySecondTest.php -f MyThirdTest.php MyFourthTest.php
 
-
-### Par répertoires
-
-Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou --directories.
-
-    [bash]
-    ./bin/atoum -d tests/units
-
-Vous pouvez évidemment spécifier plusieurs répertoires:
-
-    [bash]
-    ./bin/atoum -d tests/units/First tests/units/Second
-
-**Note**: vous ne devez mettre qu'une seule fois l'option -d.
-Dans le cas contraire, seul le dernier est pris en compte.
-
-    [bash]
-    # Ne test que le répertoire Second
-    ./bin/atoum -d First -d Second
-
-    # Ne test que les répertoires Third et Fourth
-    ./bin/atoum -d First Second -d Third Fourth
-
-
-## Filtres
-
-Une fois que vous avez préciser à atoum [quels fichiers exécuter](#fichiers-a-executer), vous pouvez filtrer ce qui sera réellement exécuter.
-
-### Par namespaces
-
-Pour filtrer sur le namespace, il vous suffit d'utiliser l'option -ns ou --namespaces.
-
-    [bash]
-    ./bin/atoum -d tests/units -ns mageekguy, please help me !
-
-### Une classe
-### Une méthode
-### Tags
-
-https://github.com/mageekguy/atoum/wiki/Utiliser-les-tags
-
-## Fichier de configuration
-### Couverture du code
-
-https://github.com/mageekguy/atoum/wiki/G%C3%A9n%C3%A9rer-le-rapport-de-couverture-du-code-au-format-HTML
-
-## Fichier de bootstrap
-
-https://github.com/mageekguy/atoum/wiki/Utiliser-un-fichier-de-%22bootstrap%22
-
-## Option de la ligne de commande
-
-https://github.com/mageekguy/atoum/wiki/Le-mode-%22loop%22
-
 ## Sortie
+
+TODO

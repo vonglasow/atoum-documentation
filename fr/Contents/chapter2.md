@@ -1697,14 +1697,14 @@ Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'h
 
 ## Aide à l'écriture
 
-https://github.com/mageekguy/atoum/wiki/%C3%80-propos-de-if(),-and(),-then-et-c%C3%A6tera
+TODO: https://github.com/mageekguy/atoum/wiki/%C3%80-propos-de-if(),-and(),-then-et-c%C3%A6tera
 
 
 
 
 ## Le mode debug
 
-https://github.com/mageekguy/atoum/wiki/Le-mode-%22debug%22
+TODO: https://github.com/mageekguy/atoum/wiki/Le-mode-%22debug%22
 
 
 
@@ -1712,7 +1712,7 @@ https://github.com/mageekguy/atoum/wiki/Le-mode-%22debug%22
 
 ## Les méthodes d'initialisation
 
-https://github.com/mageekguy/atoum/wiki/Utiliser-les-m%C3%A9thodes-d'initialisation-des-tests
+TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-les-m%C3%A9thodes-d'initialisation-des-tests
 
 
 
