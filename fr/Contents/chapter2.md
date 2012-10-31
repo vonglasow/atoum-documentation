@@ -319,7 +319,7 @@ Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float)
 
 #### isNearlyEqualTo
 
-isNearlyEqualTo vérifie que le décimal et suffisament égal à une certaine donnée.
+isNearlyEqualTo vérifie que le décimal est suffisament égal à une certaine donnée.
 En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
 
     [bash]
@@ -642,7 +642,7 @@ cela échouera.
 
 C'est l'assertion dédiée aux exceptions.
 
-Elle étend [objet](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
+Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
     [php]
     $this
