@@ -29,20 +29,18 @@ TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-Git
 
 TODO: https://github.com/mageekguy/atoum/wiki/Modifier-l'espace-de-nom-par-d%C3%A9faut-des-tests-unitaires
 
-## utilisation avec ezPublish 
+## Utilisation avec ezPublish 
 
 TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-atoum-avec-eZ-publish
 
-## utilisation avec symfony 2
+## Utilisation avec symfony 2
 
 Vous avez la possibilité d'utiliser atoum sur un projet symfony 2 avec 
-[JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle) mais vous avez aussi la possibilité d'utiliser 
-atoum avec seulement [le fichier PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar).
+[JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle) mais vous pouvez également configurer atoum vous-même avec [le fichier PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar).
 
 ### Etape 1 : Initialisation de votre classe de test
 
-Par défaut, nous avons le bundle Acme/DemoBundle. Ajouter le dossier Acme/DemoBundle/Entity et créer le 
-fichier "Car.php".
+Pour notre test, nous utiliserons une classe qu'on appellera "Car.php" que l'on placera dans l'Entity d'un bundle.
 
     [php]
     <?php
@@ -79,18 +77,17 @@ fichier "Car.php".
         private $max_speed;
     }
 
-Générer les méthodes automatiquement de votre classe 
-([voir ici](http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite)). 
-Mettons maintenant en place atoum pour tester ces méthodes.
+[Voir ici](http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite)) pour plus d'info sur les 
+entities de symfony 2. 
 
-### Etape 2 : Mise en place d'atoum
-
-Télécharger [le fichier PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar) et placer le dans le 
-répertoire vendor qui est à la racine de votre projet.
+Si votre projet est en symfony 2.0.* ,téléchargez 
+[le fichier PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar) et placez le dans le répertoire 
+vendor qui est à la racine de votre projet.
+Sinon, si vous utilisez symfony 2.1.*, ajoutez atoum avec composer comme décrit dans le chapitre 1.
 
 Ajouter à votre dossier src/Acme/DemoBundle le dossier Tests/Units/Entity et créer le fichier Car.php dans ce nouveau
 dossier.
-Ajouter un fichier Test.php à placer directement dans le dossier Tests/Units.
+Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
 
     [php]
     <?php
@@ -141,8 +138,8 @@ Ajouter un fichier Test.php à placer directement dans le dossier Tests/Units.
         {
             $car = new \Acme\DemoBundle\Entity\Car();
             $car->setName('batmobile');
-            $this->assert->string($car->getName())->isEqualTo('batmobile');
-            $this->assert->string($car->getName())->isNotEqualTo('delorean');
+            $this->string($car->getName())->isEqualTo('batmobile');
+            $this->string($car->getName())->isNotEqualTo('delorean');
         }
     }
 
