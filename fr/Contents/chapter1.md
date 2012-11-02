@@ -267,4 +267,73 @@ TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-SublimeText-2
 
 ## vim
 
-TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-VIM
+atoum est livré avec un plug-in facilitant son utilisation dans l'éditeur VIM.
+
+Il permet d'exécuter les tests sans quitter VIM et d'obtenir le rapport correspondant dans une fenêtre de l'éditeur.
+
+Il est alors possible de naviguer parmi les éventuelles erreurs,
+voir de se rendre à la ligne correspondant à une assertion ne passant pas à l'aide d'une simple combinaison de touches.
+
+### Installation du plug-in atoum pour VIM
+
+Si vous n'utilisez pas atoum sous la forme d'une archive PHAR, vous trouverez le fichier correspondant au plug-in, nommé atoum.vba,
+dans le répertoire ressources/vim.
+
+Dans le cas contraire, il faut demander à l'archive PHAR d'*atoum* d'extraire le fichier à l'aide de la commande suivante :
+
+    [shell]
+    php mageekguy.atoum.phar --extractRessourcesTo path/to/a/directory
+
+Une fois l'extraction réalisée, le fichier atoum.vba correspondant au plug-in pour VIM sera dans le répertoire
+path/to/a/directory/ressources/vim.
+
+Une fois en possession du fichier atoum.vba, il faut l'éditer à l'aide de VIM :
+
+    [shell]
+    vim path/to/atoum.vba
+
+Il n'y a plus ensuite qu'à demander à VIM l'installation du plug-in à l'aide de la commande :
+
+    [vim]
+    :source %
+
+### Utilisation du plug-in atoum pour VIM
+
+Pour utiliser le plug-in, atoum doit évidemment être installé
+et vous devez être en train d'éditer un fichier contenant une classe de tests unitaires basée sur atoum.
+
+Une fois dans cette configuration, la commande suivante lancera l'exécution des tests :
+
+    [vim]
+    :Atoum
+
+Les tests se lancent alors, et une fois qu'ils sont terminés, un rapport basé sur le fichier de configuration
+pour atoum qui se trouve dans le répertoire ftplugin/php/atoum.vim de votre répertoire .vim est généré dans une nouvelle fenêtre.
+
+Évidemment, vous êtes libre de lier cette commande à la combinaison de touche de votre choix,
+en ajoutant par exemple la ligne suivante dans votre fichier .vimrc :
+
+    [vim]
+    nnoremap *.php :Atoum
+
+L'utilisation de la touche F12 de votre clavier en mode normal appellera alors la commande :Atoum.
+
+### Gestion des fichiers de configuration de atoum
+
+Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier .vimrc :
+
+    [vim]
+    call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
+
+La fonction atoum#defineConfiguration permet en effet de définir le fichier de configuration à utiliser
+en fonction du répertoire ou se trouve le fichier de tests unitaires.
+
+Elle accepte pour cela trois arguments :
+* un chemin d'accès vers le répertoire contenant les tests unitaires ;
+* un chemin d'accès vers le fichier de configuration de atoum devant être utilisé ;
+* l'extension des fichiers de tests unitaires concernés.
+
+Pour plus de détails sur l'utilisation du plug-in, une aide est disponible dans VIM via la commande suivante :
+
+    [vim]
+    :help atoum
