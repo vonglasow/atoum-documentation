@@ -27,14 +27,82 @@ Vous pouvez installer atoum de 5 manières :
 ### Archive PHAR
 
 Une archive PHAR est créée automatiquement à chaque modification d'atoum.
+
 PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.
+
+#### Installation
 
 Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel :
 [http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
 
-Ensuite, pour mettre à jour l'archive:
+#### Mise à jour
 
-TODO https://github.com/mageekguy/atoum/wiki/Mettre-%C3%A0-jour-l'archive-PHAR-de-atoum
+La mise à jour de l'archive est très simple. Il vous suffit de lancer la commande suivante:
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+
+**Note**: la mise à jour de d'atoum nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php
+ne l'autorise pas. Voilà pourquoi il faut utiler la directive "-d phar.readonly=0".
+
+Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l'archive:
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+    Checking if a new version is available... Done !
+    Update to version 'nightly-1568-201210311708'... Done !
+    Enable version 'nightly-1568-201210311708'... Done !
+    Atoum was updated to version 'nightly-1568-201210311708' successfully !
+
+S'il n'y a pas de version plus récente disponible, atoum s'arrêtera immédiatement :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+    Checking if a new version is available... Done !
+    There is no new version available !
+
+atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour
+car il est très facile de revenir à une version précédente.
+
+#### Lister les versions contenues dans l'archive
+
+Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jours,
+il faut faire appel à l'argument --list-available-versions, ou -lav en version abrégée :
+
+    [shell]
+    php mageekguy.atoum.phar -lav
+    nightly-941-201201011548
+    * nightly-1568-201210311708
+
+La liste des versions présentes dans l'archive est alors affichée, la version actuellement active étant précédée de "*".
+
+#### Changer la version courante
+
+Pour activer une autre version, il suffit d'utiliser l'argument --enable-version, ou -ev en version abrégé,
+suivi du nom de la version à utiliser :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
+
+**Note**: la modification de la version courante nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php
+ne l'autorise pas. Voilà pourquoi il faut utiler la directive -d phar.readonly=0.
+
+#### Suppression d'anciennes versions
+
+Au cours du temps, l'archive peut contenir plusieurs versions d'atoum qui ne sont plus utilisées.
+
+Pour les supprimer, il suffit d'utiliser l'argument --delete-version, ou -dv dans sa version abrégée,
+suivi du nom de la version à supprimer :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
+
+La version est alors supprimée.
+
+**Note**: il n'est pas possible de supprimer la version active.
+
+**Note**: la suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php
+ne l'autorise pas. Voilà pourquoi il faut utiler la directive -d phar.readonly=0.
 
 
 ### Composer
