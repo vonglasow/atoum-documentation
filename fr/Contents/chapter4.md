@@ -36,7 +36,8 @@ TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-atoum-avec-eZ-publish
 ## Utilisation avec symfony 2
 
 Vous avez la possibilité d'utiliser atoum sur un projet symfony 2 avec 
-[JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle) mais vous pouvez également configurer atoum vous-même avec [le fichier PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar).
+[JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle) mais vous pouvez également configurer atoum vous-même
+avec [l'archive PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar).
 
 ### Etape 1 : Initialisation de votre classe de test
 
@@ -81,9 +82,9 @@ Pour notre test, nous utiliserons une classe qu'on appellera "Car.php" que l'on 
 entities de symfony 2. 
 
 Si votre projet est en symfony 2.0.* ,téléchargez 
-[le fichier PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar) et placez le dans le répertoire 
+[l'archive PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar) et placez le dans le répertoire 
 vendor qui est à la racine de votre projet.
-Sinon, si vous utilisez symfony 2.1.*, ajoutez atoum avec composer comme décrit dans le chapitre 1.
+Sinon, si vous utilisez symfony 2.1.*, ajoutez atoum [en utilisant composer](#composer) comme décrit dans le chapitre 1.
 
 Ajouter à votre dossier src/Acme/DemoBundle le dossier Tests/Units/Entity et créer le fichier Car.php dans ce nouveau
 dossier.
@@ -109,18 +110,19 @@ Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
 
     use mageekguy\atoum;
 
+    // A commenter si vous utilisez composer
     require_once __DIR__ . '/../../../../../vendor/mageekguy.atoum.phar';
 
     abstract class Test extends atoum\test
     {
-        public function __construct(atoum\factory $factory = null)
+        public function __construct(adapter $adapter = null, annotations\extractor $annotationExtractor = null,        asserter\generator $asserterGenerator = null, test\assertion\manager $assertionManager = null, \closure        $reflectionClassFactory = null)
         {
             $this->setTestNamespace('Tests\Units');
             parent::__construct($factory);
         }
     }
 
-### Etape 3 : Ecriture d'un test
+### Etape 2 : Ecriture d'un test
 
     [php]
     <?php
@@ -138,15 +140,27 @@ Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
         {
             $car = new \Acme\DemoBundle\Entity\Car();
             $car->setName('batmobile');
-            $this->string($car->getName())->isEqualTo('batmobile');
-            $this->string($car->getName())->isNotEqualTo('delorean');
+
+            $this
+                ->string($car->getName())
+                    ->isEqualTo('batmobile')
+                    ->isNotEqualTo('delorean');
         }
     }
 
 Tout est maintenant en place pour lancer votre test.
 
+Avec l'archive PHAR :
+
     [bash]
     php src/Acme/DemoBundle/Tests/Units/Entity/Car.php
+
+Avec composer ([voir le chapitre 3](#lancement-des-tests)) :
+
+    [bash]
+    ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
+
+
 
     > PHP path: /usr/bin/php
     > PHP version:
