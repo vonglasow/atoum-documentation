@@ -27,13 +27,82 @@ Vous pouvez installer atoum de 5 manières :
 ### Archive PHAR
 
 Une archive PHAR est créée automatiquement à chaque modification d'atoum.
+
 PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.
+
+#### Installation
 
 Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel :
 [http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
 
-Ensuite, pour mettre à jour l'archive:
-TODO https://github.com/mageekguy/atoum/wiki/Mettre-%C3%A0-jour-l'archive-PHAR-de-atoum
+#### Mise à jour
+
+La mise à jour de l'archive est très simple. Il vous suffit de lancer la commande suivante:
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+
+**Note**: la mise à jour de d'atoum nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php
+ne l'autorise pas. Voilà pourquoi il faut utiler la directive "-d phar.readonly=0".
+
+Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l'archive:
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+    Checking if a new version is available... Done !
+    Update to version 'nightly-1568-201210311708'... Done !
+    Enable version 'nightly-1568-201210311708'... Done !
+    Atoum was updated to version 'nightly-1568-201210311708' successfully !
+
+S'il n'y a pas de version plus récente disponible, atoum s'arrêtera immédiatement :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+    Checking if a new version is available... Done !
+    There is no new version available !
+
+atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour
+car il est très facile de revenir à une version précédente.
+
+#### Lister les versions contenues dans l'archive
+
+Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jours,
+il faut faire appel à l'argument --list-available-versions, ou -lav en version abrégée :
+
+    [shell]
+    php mageekguy.atoum.phar -lav
+    nightly-941-201201011548
+    * nightly-1568-201210311708
+
+La liste des versions présentes dans l'archive est alors affichée, la version actuellement active étant précédée de "*".
+
+#### Changer la version courante
+
+Pour activer une autre version, il suffit d'utiliser l'argument --enable-version, ou -ev en version abrégé,
+suivi du nom de la version à utiliser :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
+
+**Note**: la modification de la version courante nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php
+ne l'autorise pas. Voilà pourquoi il faut utiler la directive -d phar.readonly=0.
+
+#### Suppression d'anciennes versions
+
+Au cours du temps, l'archive peut contenir plusieurs versions d'atoum qui ne sont plus utilisées.
+
+Pour les supprimer, il suffit d'utiliser l'argument --delete-version, ou -dv dans sa version abrégée,
+suivi du nom de la version à supprimer :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
+
+La version est alors supprimée.
+
+**Note**: il n'est pas possible de supprimer la version active.
+
+**Note**: la suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php
+ne l'autorise pas. Voilà pourquoi il faut utiler la directive -d phar.readonly=0.
 
 
 ### Composer
@@ -198,4 +267,73 @@ TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-SublimeText-2
 
 ## vim
 
-TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-VIM
+atoum est livré avec un plug-in facilitant son utilisation dans l'éditeur VIM.
+
+Il permet d'exécuter les tests sans quitter VIM et d'obtenir le rapport correspondant dans une fenêtre de l'éditeur.
+
+Il est alors possible de naviguer parmi les éventuelles erreurs,
+voir de se rendre à la ligne correspondant à une assertion ne passant pas à l'aide d'une simple combinaison de touches.
+
+### Installation du plug-in atoum pour VIM
+
+Si vous n'utilisez pas atoum sous la forme d'une archive PHAR, vous trouverez le fichier correspondant au plug-in, nommé atoum.vba,
+dans le répertoire ressources/vim.
+
+Dans le cas contraire, il faut demander à l'archive PHAR d'*atoum* d'extraire le fichier à l'aide de la commande suivante :
+
+    [shell]
+    php mageekguy.atoum.phar --extractRessourcesTo path/to/a/directory
+
+Une fois l'extraction réalisée, le fichier atoum.vba correspondant au plug-in pour VIM sera dans le répertoire
+path/to/a/directory/ressources/vim.
+
+Une fois en possession du fichier atoum.vba, il faut l'éditer à l'aide de VIM :
+
+    [shell]
+    vim path/to/atoum.vba
+
+Il n'y a plus ensuite qu'à demander à VIM l'installation du plug-in à l'aide de la commande :
+
+    [vim]
+    :source %
+
+### Utilisation du plug-in atoum pour VIM
+
+Pour utiliser le plug-in, atoum doit évidemment être installé
+et vous devez être en train d'éditer un fichier contenant une classe de tests unitaires basée sur atoum.
+
+Une fois dans cette configuration, la commande suivante lancera l'exécution des tests :
+
+    [vim]
+    :Atoum
+
+Les tests se lancent alors, et une fois qu'ils sont terminés, un rapport basé sur le fichier de configuration
+pour atoum qui se trouve dans le répertoire ftplugin/php/atoum.vim de votre répertoire .vim est généré dans une nouvelle fenêtre.
+
+Évidemment, vous êtes libre de lier cette commande à la combinaison de touche de votre choix,
+en ajoutant par exemple la ligne suivante dans votre fichier .vimrc :
+
+    [vim]
+    nnoremap *.php :Atoum
+
+L'utilisation de la touche F12 de votre clavier en mode normal appellera alors la commande :Atoum.
+
+### Gestion des fichiers de configuration de atoum
+
+Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier .vimrc :
+
+    [vim]
+    call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
+
+La fonction atoum#defineConfiguration permet en effet de définir le fichier de configuration à utiliser
+en fonction du répertoire ou se trouve le fichier de tests unitaires.
+
+Elle accepte pour cela trois arguments :
+* un chemin d'accès vers le répertoire contenant les tests unitaires ;
+* un chemin d'accès vers le fichier de configuration de atoum devant être utilisé ;
+* l'extension des fichiers de tests unitaires concernés.
+
+Pour plus de détails sur l'utilisation du plug-in, une aide est disponible dans VIM via la commande suivante :
+
+    [vim]
+    :help atoum
