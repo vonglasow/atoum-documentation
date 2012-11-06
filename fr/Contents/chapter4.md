@@ -124,16 +124,16 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
         public function __construct(adapter $adapter = null, annotations\extractor $annotationExtractor = null, asserter\generator $asserterGenerator = null, test\assertion\manager $assertionManager = null, \closure $reflectionClassFactory = null)
         {
             $this->setTestNamespace('Tests\Units');
-            parent::__construct($adapter, annotationExtractor, asserterGenerator, $assertionManager, $reflectionClassFactory);
+            parent::__construct($adapter, $annotationExtractor, $asserterGenerator, $assertionManager, $reflectionClassFactory);
         }
     }
 
 **Note**: l'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0.
 Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
 
-**Note**: par défaut, atoum utilises le namespace tests/units pour les tests.
-Or Symfony 2 et son class loader exige des majscules au début des noms.
-Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace.
+**Note**: par défaut, atoum utilise le namespace tests/units pour les tests.
+Or Symfony 2 et son class loader exigent des majuscules au début des noms.
+Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
 
 ### Étape 3: écriture d'un test
 
@@ -149,18 +149,18 @@ Créons notre fichier de test:
 
     require_once __DIR__ . '/../Test.php';
 
-    use Acme\DemoBundle\Tests\Units;
+    use Acme\DemoBundle\Tests\Units\Test;
 
-    class Car extends Units\Test
+    class Car extends Test
     {
         public function testGetName()
         {
             $this
                 ->if($car = new \Acme\DemoBundle\Entity\Car())
-                ->and($car->setName('batmobile'))
+                ->and($car->setName('Batmobile'))
                     ->string($car->getName())
-                        ->isEqualTo('batmobile')
-                        ->isNotEqualTo('delorean')
+                        ->isEqualTo('Batmobile')
+                        ->isNotEqualTo('De Lorean')
             ;
         }
     }
@@ -185,7 +185,7 @@ Si vous utilisez Symfony 2.1:
     # Lancement de tous les tests du Bundle
     ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
-**Note**: vous pourrez obtenir plus d'informations sur le [lancement des tests](#lancement-des-tests) au chapitre 3.
+**Note**: vous pouvez obtenir plus d'informations sur le [lancement des tests](#lancement-des-tests) au chapitre 3.
 
 
 Dans tous les cas, voilà ce que vous devriez obtenir:
