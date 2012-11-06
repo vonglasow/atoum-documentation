@@ -480,6 +480,100 @@ isInstanceOf vérifie qu'un objet est:
 
 
 
+### dateInterval
+
+C'est l'assertion dédiée à l'objet [DateInterval](http://php.net/dateinterval).
+
+Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
+
+Si vous essayez de tester une variable qui n'est pas un objet DateInterval (ou une classe qui l'étend) avec cette assertion,
+cela échouera.
+
+#### isEqualTo
+
+isEqualTo vérifie que la durée de l'objet DateInterval est égale à la durée d'un autre objet DateInterval.
+
+    [php]
+    $di = new DateInterval('P1D');
+
+    $this
+        ->dateInterval($di)
+            ->isEqualTo(new DateInterval('P1D')     // passe
+            ->isEqualTo(new DateInterval('P2D')     // échoue
+    ;
+
+#### isGreaterThan
+
+isGreaterThan vérifie que la durée de l'objet DateInterval est supérieure à la durée d'un autre objet DateInterval.
+
+    [php]
+    $di = new DateInterval('P2D');
+
+    $this
+        ->dateInterval($di)
+            ->isGreaterThan(new DateInterval('P1D')     // passe
+            ->isGreaterThan(new DateInterval('P2D')     // échoue
+    ;
+
+#### isGreaterThanOrEqualTo
+
+isGreaterThanOrEqualTo vérifie que la durée de l'objet DateInterval est supérieure ou égale à la durée d'un autre objet DateInterval.
+
+    [php]
+    $di = new DateInterval('P2D');
+
+    $this
+        ->dateInterval($di)
+            ->isGreaterThanOrEqualTo(new DateInterval('P1D')     // passe
+            ->isGreaterThanOrEqualTo(new DateInterval('P2D')     // passe
+            ->isGreaterThanOrEqualTo(new DateInterval('P3D')     // échoue
+    ;
+
+#### isLessThan
+
+isLessThan vérifie que la durée de l'objet DateInterval est inférieure à la durée d'un autre objet DateInterval.
+
+    [php]
+    $di = new DateInterval('P1D');
+
+    $this
+        ->dateInterval($di)
+            ->isLessThan(new DateInterval('P2D')     // passe
+            ->isLessThan(new DateInterval('P1D')     // échoue
+    ;
+
+#### isLessThanOrEqualTo
+
+isLessThanOrEqualTo vérifie que la durée de l'objet DateInterval est inférieure ou égale à la durée d'un autre objet DateInterval.
+
+    [php]
+    $di = new DateInterval('P2D');
+
+    $this
+        ->dateInterval($di)
+            ->isLessThanOrEqualTo(new DateInterval('P3D')     // passe
+            ->isLessThanOrEqualTo(new DateInterval('P2D')     // passe
+            ->isLessThanOrEqualTo(new DateInterval('P1D')     // échoue
+    ;
+
+#### isZero
+
+isZero vérifie que la durée de l'objet DateInterval est égale à 0.
+
+    [php]
+    $di1 = new DateInterval('P0D');
+    $di2 = new DateInterval('P1D');
+
+    $this
+        ->dateInterval($di1)
+            ->isZero()      // passe
+        ->dateInterval($di2)
+            ->isZero()      // échoue
+    ;
+    
+
+
+
 ### dateTime
 
 C'est l'assertion dédiée à l'objet [DateTime](http://php.net/datetime).
@@ -1841,7 +1935,7 @@ alors c'est équivalent à la première solution.
 
 ### À partir de rien
 
-Vous pouvez également créer un mock qui ne soit pas lié à une interface ou une classe (abstraite ou non) existante.
+Vous pouvez également créer un bouchon qui ne soit pas lié à une interface ou une classe (abstraite ou non) existante.
 
 Pour cela, et bien faite comme si elle existait !
 
@@ -1851,9 +1945,9 @@ En effet, le code suivant fonctionne parfaitement :
     $firstMockedObject  = new \mock\MyUnknownClass;
     $secondMockedObject = new \mock\My\Unknown\Class;
 
-### Modifier le comportement d'un mock
+### Modifier le comportement d'un bouchon
 
-Un fois le mock créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
+Un fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
 
 Pour cela, il faut passer par son contrôleur en utilisant la méthode getMockController().
 
@@ -1911,9 +2005,9 @@ Pour bouchonner le constructeur d'une classe, il faut:
     $databaseClient = new \mock\Database\Client();
 
 
-### Tester un mock
+### Tester un bouchon
 
-atoum vous permet de vérifier qu'un mock a été utilisé correctement.
+atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
 
     [php]
     $databaseClient = new \mock\Database\Client();
@@ -1922,11 +2016,11 @@ atoum vous permet de vérifier qu'un mock a été utilisé correctement.
 
     $bankAccount = new \Vendor\Project\Bank\Account();
     $this
-        // utilisation du mock via un autre objet
+        // utilisation du bouchon via un autre objet
         ->array($bankAccount->getOperation($databaseClient))
             ->isEmpty()
 
-        // test du mock
+        // test du bouchon
         ->mock($databaseClient)
             ->call('query')
                 ->once()        // vérifie que la méthode query
