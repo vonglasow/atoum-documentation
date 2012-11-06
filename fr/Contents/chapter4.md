@@ -33,20 +33,29 @@ TODO: https://github.com/mageekguy/atoum/wiki/Modifier-l'espace-de-nom-par-d%C3%
 
 TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-atoum-avec-eZ-publish
 
-## Utilisation avec symfony 2
+## Utilisation avec Symfony 2
 
-Vous avez la possibilité d'utiliser atoum sur un projet symfony 2 avec 
-[JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle) mais vous pouvez également configurer atoum vous-même
-avec [l'archive PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar).
+Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle
+[JediAtoumBundle](#bundle-symfony-2).
 
-### Etape 1 : Initialisation de votre classe de test
+Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
 
-Pour notre test, nous utiliserons une classe qu'on appellera "Car.php" que l'on placera dans l'Entity d'un bundle.
+### Étape 1: installation d'atoum
+
+Si vous utilisez Symfony 2.0, [téléchargez l'archive PHAR](#archive-phar) et placez-la dans le répertoire vendor
+qui est à la racine de votre projet.
+
+Si vous utilisez Symfony 2.1, [ajoutez atoum dans votre fichier composer.json](#composer).
+
+### Étape 2: création de la classe de test
+
+Imaginons que nous voulions tester cet Entity:
 
     [php]
     <?php
     // src/Acme/DemoBundle/Entity/Car.php
     namespace Acme\DemoBundle\Entity;
+
     use Doctrine\ORM\Mapping as ORM;
 
     /**
@@ -78,23 +87,20 @@ Pour notre test, nous utiliserons une classe qu'on appellera "Car.php" que l'on 
         private $max_speed;
     }
 
-[Voir ici](http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite)) pour plus d'info sur les 
-entities de symfony 2. 
+**Note**: pour plus d'informations sur la création d'Entity dans Symfony 2,
+reportez-vous au [manuel Symfony](http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite). 
 
-Si votre projet est en symfony 2.0.* ,téléchargez 
-[l'archive PHAR](http://downloads.atoum.org/nightly/mageekguy.atoum.phar) et placez le dans le répertoire 
-vendor qui est à la racine de votre projet.
-Sinon, si vous utilisez symfony 2.1.*, ajoutez atoum [en utilisant composer](#composer) comme décrit dans le chapitre 1.
+Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units).
+C'est dans ce répertoire que seront stoqués tous les tests de ce Bundle.
 
-Ajouter à votre dossier src/Acme/DemoBundle le dossier Tests/Units/Entity et créer le fichier Car.php dans ce nouveau
-dossier.
-Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
+Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.
 
     [php]
     <?php
     // src/Acme/DemoBundle/Tests/Units/Test.php
     namespace Acme\DemoBundle\Tests\Units;
 
+    // On inclus et active le class loader
     require_once __DIR__ . '/../../../../../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
     $loader = new \Symfony\Component\ClassLoader\UniversalClassLoader();
@@ -110,23 +116,35 @@ Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
 
     use mageekguy\atoum;
 
-    // A commenter si vous utilisez composer
+    // Pour Symfony 2.0 uniquement !
     require_once __DIR__ . '/../../../../../vendor/mageekguy.atoum.phar';
 
     abstract class Test extends atoum\test
     {
-        public function __construct(adapter $adapter = null, annotations\extractor $annotationExtractor = null,        asserter\generator $asserterGenerator = null, test\assertion\manager $assertionManager = null, \closure        $reflectionClassFactory = null)
+        public function __construct(adapter $adapter = null, annotations\extractor $annotationExtractor = null, asserter\generator $asserterGenerator = null, test\assertion\manager $assertionManager = null, \closure $reflectionClassFactory = null)
         {
             $this->setTestNamespace('Tests\Units');
-            parent::__construct($adapter);
+            parent::__construct($adapter, annotationExtractor, asserterGenerator, $assertionManager, $reflectionClassFactory);
         }
     }
 
-### Etape 2 : Ecriture d'un test
+**Note**: l'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0.
+Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
+
+**Note**: par défaut, atoum utilises le namespace tests/units pour les tests.
+Or Symfony 2 et son class loader exige des majscules au début des noms.
+Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace.
+
+### Étape 3: écriture d'un test
+
+Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester
+(par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
+
+Créons notre fichier de test:
 
     [php]
     <?php
-    // src/Acme/DemoBundle/Tests/Units/Car.php
+    // src/Acme/DemoBundle/Tests/Units/Entity/Car.php
     namespace Acme\DemoBundle\Tests\Units\Entity;
 
     require_once __DIR__ . '/../Test.php';
@@ -135,31 +153,42 @@ Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
 
     class Car extends Units\Test
     {
-
         public function testGetName()
         {
-            $car = new \Acme\DemoBundle\Entity\Car();
-            $car->setName('batmobile');
-
             $this
-                ->string($car->getName())
-                    ->isEqualTo('batmobile')
-                    ->isNotEqualTo('delorean');
+                ->if($car = new \Acme\DemoBundle\Entity\Car())
+                ->and($car->setName('batmobile'))
+                    ->string($car->getName())
+                        ->isEqualTo('batmobile')
+                        ->isNotEqualTo('delorean')
+            ;
         }
     }
 
-Tout est maintenant en place pour lancer votre test.
+### Étape 4: lancement des tests
 
-Avec l'archive PHAR :
-
-    [bash]
-    php src/Acme/DemoBundle/Tests/Units/Entity/Car.php
-
-Avec composer ([voir le chapitre 3](#lancement-des-tests)) :
+Si vous utilisez Symfony 2.0:
 
     [bash]
+    # Lancement des tests d'un fichier
+    php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
+
+    # Lancement de tous les tests du Bundle
+    php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
+
+Si vous utilisez Symfony 2.1:
+
+    [bash]
+    # Lancement des tests d'un fichier
     ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
+    # Lancement de tous les tests du Bundle
+    ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
+
+**Note**: vous pourrez obtenir plus d'informations sur le [lancement des tests](#lancement-des-tests) au chapitre 3.
+
+
+Dans tous les cas, voilà ce que vous devriez obtenir:
 
     [bash]
     > PHP path: /usr/bin/php
@@ -181,6 +210,3 @@ Avec composer ([voir le chapitre 3](#lancement-des-tests)) :
     ==> Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%
     > Running duration: 0.24 second.
     Success (1 test, 1/1 method, 0 skipped method, 4 assertions) !    
-
-
-
