@@ -1935,7 +1935,7 @@ alors c'est équivalent à la première solution.
 
 ### À partir de rien
 
-Vous pouvez également créer un mock qui ne soit pas lié à une interface ou une classe (abstraite ou non) existante.
+Vous pouvez également créer un bouchon qui ne soit pas lié à une interface ou une classe (abstraite ou non) existante.
 
 Pour cela, et bien faite comme si elle existait !
 
@@ -1945,9 +1945,9 @@ En effet, le code suivant fonctionne parfaitement :
     $firstMockedObject  = new \mock\MyUnknownClass;
     $secondMockedObject = new \mock\My\Unknown\Class;
 
-### Modifier le comportement d'un mock
+### Modifier le comportement d'un bouchon
 
-Un fois le mock créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
+Un fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
 
 Pour cela, il faut passer par son contrôleur en utilisant la méthode getMockController().
 
@@ -2005,9 +2005,9 @@ Pour bouchonner le constructeur d'une classe, il faut:
     $databaseClient = new \mock\Database\Client();
 
 
-### Tester un mock
+### Tester un bouchon
 
-atoum vous permet de vérifier qu'un mock a été utilisé correctement.
+atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
 
     [php]
     $databaseClient = new \mock\Database\Client();
@@ -2016,11 +2016,11 @@ atoum vous permet de vérifier qu'un mock a été utilisé correctement.
 
     $bankAccount = new \Vendor\Project\Bank\Account();
     $this
-        // utilisation du mock via un autre objet
+        // utilisation du bouchon via un autre objet
         ->array($bankAccount->getOperation($databaseClient))
             ->isEmpty()
 
-        // test du mock
+        // test du bouchon
         ->mock($databaseClient)
             ->call('query')
                 ->once()        // vérifie que la méthode query
