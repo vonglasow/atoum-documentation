@@ -118,7 +118,7 @@ Ajoutez un fichier Test.php à placer directement dans le dossier Tests/Units.
         public function __construct(adapter $adapter = null, annotations\extractor $annotationExtractor = null,        asserter\generator $asserterGenerator = null, test\assertion\manager $assertionManager = null, \closure        $reflectionClassFactory = null)
         {
             $this->setTestNamespace('Tests\Units');
-            parent::__construct($factory);
+            parent::__construct($adapter);
         }
     }
 
@@ -161,7 +161,7 @@ Avec composer ([voir le chapitre 3](#lancement-des-tests)) :
     ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
 
-
+    [bash]
     > PHP path: /usr/bin/php
     > PHP version:
     => PHP 5.3.15 with Suhosin-Patch (cli) (built: Aug 24 2012 17:45:44)
