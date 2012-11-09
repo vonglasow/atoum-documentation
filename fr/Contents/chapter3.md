@@ -110,7 +110,76 @@ Si vous remplacez le nom de la class par "*", cela revient à dire que vous filt
 
 ### Tags
 
-TODO https://github.com/mageekguy/atoum/wiki/Utiliser-les-tags
+Tout comme de nombreux outils dont [Behat](http://behat.org), atoum vous permet de tagger vos tests
+unitaires et de n'exécuter que ceux ayant un ou plusieurs tags spécifiques.
+
+Pour cela, il faut commencer par définir un ou plusieurs tags pour une ou plusieurs classes de tests
+unitaires.
+
+Cela se fait très simplement grâce aux annotations et à la balise @tags:
+
+    [php]
+    <?php
+
+    namespace vendor\project\tests\units;
+
+    require_once __DIR__ . '/mageekguy.atoum.phar';
+
+    use mageekguy\atoum;
+
+    /**
+     * @tags thisIsOneTag thisIsTwoTag thisIsThreeTag
+     */
+    class foo extends atoum\test
+    {
+        public function testBar()
+        {
+            ...
+        }
+    }
+
+De la même manière, il est également possible de tagger les méthodes de test.
+
+*Note**: les tags définis au niveau d'une méthode prennent le pas sur ceux définis au niveau de la
+classe.
+
+    [php]
+    <?php
+
+    namespace vendor\project\tests\units;
+
+    require_once __DIR__ . '/mageekguy.atoum.phar';
+
+    use mageekguy\atoum;
+
+    class foo extends atoum\test
+    {
+        /**
+         * @tags thisIsOneMethodTag thisIsTwoMethodTag thisIsThreeMethodTag
+         */
+        public function testBar()
+        {
+            ...
+        }
+    }
+
+Une fois les tags nécessaires définis, il n'y a plus qu'à exécuter les tests avec le ou les tags
+adéquates à l'aide de l'option --tags, ou -t dans sa version courte:
+
+    [shell]
+    ./bin/atoum -d tests/units -t thisIsOneTag
+
+Attention, cette instruction n'a de sens que s'il y a une ou plusieurs classes de tests unitaires et
+qu'au moins l'une d'entres elles porte le tag spécifié. Dans le cas contraire, aucun test ne sera
+exécuté.
+
+Il est possible de définir plusieurs tags:
+
+    [shell]
+    ./bin/atoum -d tests/units -t thisIsOneTag thisIsThreeTag
+
+Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOneTag, soit avec
+thisIsThreeTag, seront les seules à être exécutées.
 
 ## Fichier de configuration
 
