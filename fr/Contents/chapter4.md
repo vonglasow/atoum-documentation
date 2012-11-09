@@ -42,8 +42,8 @@ Si vous souhaitez installer et configurer atoum manuellement, voici comment fair
 
 ### Étape 1: installation d'atoum
 
-Si vous utilisez Symfony 2.0, [téléchargez l'archive PHAR](#archive-phar) et placez-la dans le répertoire vendor
-qui est à la racine de votre projet.
+Si vous utilisez Symfony 2.0, [téléchargez l'archive PHAR](#archive-phar) et placez-la dans le
+répertoire vendor qui est à la racine de votre projet.
 
 Si vous utilisez Symfony 2.1, [ajoutez atoum dans votre fichier composer.json](#composer).
 
@@ -88,7 +88,8 @@ Imaginons que nous voulions tester cet Entity:
     }
 
 **Note**: pour plus d'informations sur la création d'Entity dans Symfony 2,
-reportez-vous au [manuel Symfony](http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite). 
+reportez-vous au
+[manuel Symfony](http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite). 
 
 Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units).
 C'est dans ce répertoire que seront stoqués tous les tests de ce Bundle.
@@ -121,10 +122,22 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
     abstract class Test extends atoum\test
     {
-        public function __construct(adapter $adapter = null, annotations\extractor $annotationExtractor = null, asserter\generator $asserterGenerator = null, test\assertion\manager $assertionManager = null, \closure $reflectionClassFactory = null)
+        public function __construct(
+            adapter $adapter = null,
+            annotations\extractor $annotationExtractor = null,
+            asserter\generator $asserterGenerator = null,
+            test\assertion\manager $assertionManager = null,
+            \closure $reflectionClassFactory = null
+        )
         {
             $this->setTestNamespace('Tests\Units');
-            parent::__construct($adapter, $annotationExtractor, $asserterGenerator, $assertionManager, $reflectionClassFactory);
+            parent::__construct(
+                $adapter,
+                $annotationExtractor,
+                $asserterGenerator,
+                $assertionManager,
+                $reflectionClassFactory
+            );
         }
     }
 
@@ -133,12 +146,13 @@ Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
 
 **Note**: par défaut, atoum utilise le namespace tests/units pour les tests.
 Or Symfony 2 et son class loader exigent des majuscules au début des noms.
-Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+Pour cette raison, nous changeons le namespace des tests grâce à la méthode
+setTestNamespace('Tests\Units').
 
 ### Étape 3: écriture d'un test
 
-Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester
-(par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
+Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous
+souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
 Créons notre fichier de test:
 
@@ -185,7 +199,8 @@ Si vous utilisez Symfony 2.1:
     # Lancement de tous les tests du Bundle
     ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
-**Note**: vous pouvez obtenir plus d'informations sur le [lancement des tests](#lancement-des-tests) au chapitre 3.
+**Note**: vous pouvez obtenir plus d'informations sur le [lancement des tests](#lancement-des-tests)
+au chapitre 3.
 
 
 Dans tous les cas, voilà ce que vous devriez obtenir:

@@ -4,7 +4,8 @@
 
 ### variable
 
-C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
+C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe
+quel type de variable.
 
 #### isCallable
 
@@ -114,7 +115,9 @@ Si vous souhaitez vérifier également son type, utilisez [isNotIdenticalTo](#is
 
 #### isNotIdenticalTo
 
-isNotIdenticalTo vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine donnée.
+isNotIdenticalTo vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine
+donnée.
+
 Dans le cas d'objets, isNotIdenticalTo vérifie que les données ne pointent pas sur la même instance.
 
     [php]
@@ -180,8 +183,9 @@ Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles da
 
 Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
 
-**Note** : null n'est pas considéré comme un booléen.
-Reportez vous au manuel PHP pour voir ce que [is_bool](http://php.net/is_bool) considère ou non comme un booléen.
+**Note**: null n'est pas considéré comme un booléen.
+Reportez vous au manuel PHP pour voir ce que [is_bool](http://php.net/is_bool) considère ou non
+comme un booléen.
 
 #### isFalse
 
@@ -225,8 +229,9 @@ Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles da
 
 Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
 
-**Note** : null n'est pas considéré comme un entier.
-Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme un entier.
+**Note**: null n'est pas considéré comme un entier.
+Reportez vous au manuel PHP pour voir ce que [is_int](http://php.net/is_int) considère ou non comme
+un entier.
 
 #### isGreaterThan
 
@@ -300,7 +305,7 @@ isZero vérifie que l'entier est égal à 0.
             ->isZero()          // échoue
     ;
 
-**Note** : isZero est équivalent à isEqualTo(0).
+**Note**: isZero est équivalent à isEqualTo(0).
 
 
 
@@ -309,18 +314,22 @@ isZero vérifie que l'entier est égal à 0.
 C'est l'assertion dédiée aux nombres décimaux.
 
 Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
-Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées à travers float
-attendent un nombre décimal et non plus un entier.
+Évidemment, les méthodes héritées d'integer (isEqualTo, isGreaterThan, isLessThan, etc...) utilisées
+à travers float attendent un nombre décimal et non plus un entier.
 
-Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela
+échouera.
 
-**Note** : null n'est pas considéré comme un nombre décimal.
-Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float) considère ou non comme un nombre décimal.
+**Note**: null n'est pas considéré comme un nombre décimal.
+Reportez vous au manuel PHP pour voir ce que [is_float](http://php.net/is_float) considère ou non
+comme un nombre décimal.
 
 #### isNearlyEqualTo
 
 isNearlyEqualTo vérifie que le décimal est suffisament égal à une certaine donnée.
-En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
+
+En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par
+exemple d'exécuter la commande suivante:
 
     [bash]
     $ php -r 'var_dump(1 - 0.97 === 0.03);'
@@ -328,7 +337,8 @@ En effet, les nombres décimaux ont une valeur interne qui n'est pas assez préc
 
 Le résultat devrait pourtant être true. 
 
-**Note** : pour avoir plus d'informations sur ce phénomène, reportez vous au [manuel PHP](http://php.net/types.float).
+**Note**: pour avoir plus d'informations sur ce phénomène, reportez vous au
+[manuel PHP](http://php.net/types.float).
 
 Cette méthode cherche donc à corriger ce problème.
 
@@ -341,14 +351,15 @@ Cette méthode cherche donc à corriger ce problème.
             ->isEqualTo(0.03)       // échoue
     ;
 
-**Note** : pour avoir plus d'informations sur l'algorithme utilisé,
+**Note**: pour avoir plus d'informations sur l'algorithme utilisé,
 consultez le [floating point guide](http://www.floating-point-gui.de/errors/comparison/).
 
 
 
 ### sizeOf
 
-C'est l'assertion dédiée aux tests sur la taille des tableaux et des objets implémentants l'interface Countable.
+C'est l'assertion dédiée aux tests sur la taille des tableaux et des objets implémentants
+l'interface Countable.
 
 Elle étend [integer](#integer), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -374,8 +385,9 @@ Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles da
 
 Si vous essayez de tester une variable qui n'est pas un objet avec cette assertion, cela échouera.
 
-**Note** : null n'est pas considéré comme un objet.
-Reportez vous au manuel PHP pour voir ce que [is_object](http://php.net/is_object) considère ou non comme un objet.
+**Note**: null n'est pas considéré comme un objet.
+Reportez vous au manuel PHP pour voir ce que [is_object](http://php.net/is_object) considère ou non
+comme un objet.
 
 #### hasSize
 
@@ -408,7 +420,7 @@ c'est à dire que les objets sont égaux mais ne pointent pas vers la même inst
             ->isCloneOf($object4)   // échoue
     ;
 
-**Note** : pour avoir plus de précision sur la comparaison d'objet,
+**Note**: pour avoir plus de précision sur la comparaison d'objet,
 reportez vous au [manuel PHP](http://php.net/language.oop5.object-comparison).
 
 #### isEmpty
@@ -423,7 +435,7 @@ isEmpty vérifie que la taille d'un objet implémentant l'interface Countable es
             ->isEmpty()
     ;
 
-**Note** : isEmpty est équivalent à hasSize(0).
+**Note**: isEmpty est équivalent à hasSize(0).
 
 #### isInstanceOf
 
@@ -476,7 +488,7 @@ isInstanceOf vérifie qu'un objet est:
             ->isInstanceOf('\StdClass')     // échoue
     ;
 
-**Note** : les noms des classes et des interfaces doit être absolu et commencé par un antislash.
+**Note**: les noms des classes et des interfaces doit être absolu et commencé par un antislash.
 
 
 
@@ -486,12 +498,13 @@ C'est l'assertion dédiée à l'objet [DateInterval](http://php.net/dateinterval
 
 Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayez de tester une variable qui n'est pas un objet DateInterval (ou une classe qui l'étend) avec cette assertion,
-cela échouera.
+Si vous essayez de tester une variable qui n'est pas un objet DateInterval (ou une classe qui
+l'étend) avec cette assertion, cela échouera.
 
 #### isEqualTo
 
-isEqualTo vérifie que la durée de l'objet DateInterval est égale à la durée d'un autre objet DateInterval.
+isEqualTo vérifie que la durée de l'objet DateInterval est égale à la durée d'un autre objet
+DateInterval.
 
     [php]
     $di = new DateInterval('P1D');
@@ -504,7 +517,8 @@ isEqualTo vérifie que la durée de l'objet DateInterval est égale à la durée
 
 #### isGreaterThan
 
-isGreaterThan vérifie que la durée de l'objet DateInterval est supérieure à la durée d'un autre objet DateInterval.
+isGreaterThan vérifie que la durée de l'objet DateInterval est supérieure à la durée d'un autre
+objet DateInterval.
 
     [php]
     $di = new DateInterval('P2D');
@@ -517,7 +531,8 @@ isGreaterThan vérifie que la durée de l'objet DateInterval est supérieure à 
 
 #### isGreaterThanOrEqualTo
 
-isGreaterThanOrEqualTo vérifie que la durée de l'objet DateInterval est supérieure ou égale à la durée d'un autre objet DateInterval.
+isGreaterThanOrEqualTo vérifie que la durée de l'objet DateInterval est supérieure ou égale à la
+durée d'un autre objet DateInterval.
 
     [php]
     $di = new DateInterval('P2D');
@@ -531,7 +546,8 @@ isGreaterThanOrEqualTo vérifie que la durée de l'objet DateInterval est supér
 
 #### isLessThan
 
-isLessThan vérifie que la durée de l'objet DateInterval est inférieure à la durée d'un autre objet DateInterval.
+isLessThan vérifie que la durée de l'objet DateInterval est inférieure à la durée d'un autre objet
+DateInterval.
 
     [php]
     $di = new DateInterval('P1D');
@@ -544,7 +560,8 @@ isLessThan vérifie que la durée de l'objet DateInterval est inférieure à la 
 
 #### isLessThanOrEqualTo
 
-isLessThanOrEqualTo vérifie que la durée de l'objet DateInterval est inférieure ou égale à la durée d'un autre objet DateInterval.
+isLessThanOrEqualTo vérifie que la durée de l'objet DateInterval est inférieure ou égale à la durée
+d'un autre objet DateInterval.
 
     [php]
     $di = new DateInterval('P2D');
@@ -580,8 +597,8 @@ C'est l'assertion dédiée à l'objet [DateTime](http://php.net/datetime).
 
 Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion,
-cela échouera.
+Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend)
+avec cette assertion, cela échouera.
 
 #### hasDate
 
@@ -719,7 +736,8 @@ hasYear vérifie l'année de l'objet DateTime.
 
 ### mysqlDateTime
 
-C'est l'assertion dédiée aux objets décrivant une date MySQL et basé sur l'objet [DateTime](http://php.net/datetime).
+C'est l'assertion dédiée aux objets décrivant une date MySQL et basé sur l'objet
+[DateTime](http://php.net/datetime).
 
 Les dates doivent utiliser le format MySQL (et de nombreux SGBD), c'est à dire 'Y-m-d H:i:s'
 (Reportez vous à la documentation de la fonction [date()](http://php.net/date) du manuel PHP
@@ -727,8 +745,8 @@ pour connaitre la signification de ce format).
 
 Elle étend [dateTime](#datetime), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend) avec cette assertion,
-cela échouera.
+Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une classe qui l'étend)
+avec cette assertion, cela échouera.
 
 
 
@@ -748,8 +766,10 @@ Elle étend [object](#object), toutes ses méthodes sont donc disponibles dans c
         )
     ;
 
-**Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
-Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
+**Note**: la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures)
+introduites en PHP 5.3.
+Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur
+le sujet.
 
 #### hasCode
 
@@ -779,7 +799,7 @@ hasDefaultCode vérifie que le code de l'exception est la valeur par défaut, c'
             ->hasDefaultCode()
     ;
 
-**Note** : hasDefaultCode est équivalent à hasCode(0).
+**Note**: hasDefaultCode est équivalent à hasCode(0).
 
 #### hasMessage
 
@@ -839,9 +859,10 @@ C'est l'assertion dédiée aux tableaux.
 
 Elle étend [variable](#variable), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-**Note** : le mot-clef "array" étant réservé en PHP, il n'a pas été possible de créer une assertion "array".
-Elle s'appelle donc "phpArray" et un alias "array" a été créé.
-Vous pourrez donc rencontrer des ->phpArray() ou des ->array().
+**Note**: le mot-clef "array" étant réservé en PHP, il n'a pas été possible de créer une assertion
+"array". Elle s'appelle donc "phpArray" et un alias "array" a été créé. Vous pourrez donc rencontrer
+des ->phpArray() ou des ->array().
+
 Il est conseillé d'utiliser exclusivement ->array().
 
 #### contains
@@ -881,7 +902,8 @@ containsValues vérifie qu'un tableau contient toutes les données fournies dans
 **Note**: containsValues ne fait pas de recherche récursive.
 
 **Note**: containsValues ne teste pas le type des données.
-Si vous souhaitez vérifier également leurs types, utilisez [strictlyContainsValues](#strictlycontainsvalues).
+Si vous souhaitez vérifier également leurs types, utilisez
+[strictlyContainsValues](#strictlycontainsvalues).
 
 #### hasKey
 
@@ -1022,7 +1044,8 @@ notContainsValues vérifie qu'un tableau ne contient aucune des données fournie
 **Note**: notContainsValues ne fait pas de recherche récursive.
 
 **Note**: notContainsValues ne teste pas le type des données.
-Si vous souhaitez vérifier également leurs types, utilisez [strictlyNotContainsValues](#strictlynotcontainsvalues).
+Si vous souhaitez vérifier également leurs types, utilisez
+[strictlyNotContainsValues](#strictlynotcontainsvalues).
 
 #### notHasKey
 
@@ -1098,11 +1121,13 @@ strictlyContains vérifie qu'un tableau contient une certaine donnée (même val
 
 **Note**: strictlyContains ne fait pas de recherche récursive.
 
-**Note**: strictlyContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [contains](#contains).
+**Note**: strictlyContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type,
+utilisez [contains](#contains).
 
 #### strictlyContainsValues
 
-strictlyContainsValues vérifie qu'un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
+strictlyContainsValues vérifie qu'un tableau contient toutes les données fournies dans un tableau
+(même valeur et même type).
 
     [php]
     $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1143,7 +1168,8 @@ Si vous ne souhaitez pas vérifier son type, utilisez [notContains](#notcontains
 
 #### strictlyNotContainsValues
 
-strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
+strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données fournies dans un
+tableau (même valeur et même type).
 
     [php]
     $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1215,7 +1241,8 @@ isEmpty vérifie qu'une chaine de caractères est vide.
 
 #### isEqualToContentsOfFile
 
-isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné par son chemin.
+isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné
+par son chemin.
 
     [php]
     $this
@@ -1223,7 +1250,7 @@ isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au conte
             ->isEqualToContentsOfFile('/path/to/file')
     ;
 
-**Note** : si le fichier n'existe pas, le test échoue.
+**Note**: si le fichier n'existe pas, le test échoue.
 
 #### isNotEmpty
 
@@ -1289,7 +1316,8 @@ Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans c
 
 #### isMd5
 
-isMd5 vérifie que la chaine de caractère est au format md5, c'est à dire une chaine hexadécimale de 32 caractères.
+isMd5 vérifie que la chaine de caractère est au format md5, c'est à dire une chaine hexadécimale de
+32 caractères.
 
     [php]
     $hash    = hash('md5', 'atoum');
@@ -1304,7 +1332,8 @@ isMd5 vérifie que la chaine de caractère est au format md5, c'est à dire une 
 
 #### isSha1
 
-isSha1 vérifie que la chaine de caractère est au format sha1, c'est à dire une chaine hexadécimale de 40 caractères.
+isSha1 vérifie que la chaine de caractère est au format sha1, c'est à dire une chaine hexadécimale
+de 40 caractères.
 
     [php]
     $hash    = hash('sha1', 'atoum');
@@ -1319,7 +1348,8 @@ isSha1 vérifie que la chaine de caractère est au format sha1, c'est à dire un
 
 #### isSha256
 
-isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dire une chaine hexadécimale de 64 caractères.
+isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dire une chaine
+hexadécimale de 64 caractères.
 
     [php]
     $hash    = hash('sha256', 'atoum');
@@ -1334,7 +1364,8 @@ isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dir
 
 #### isSha512
 
-isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dire une chaine hexadécimale de 128 caractères.
+isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dire une chaine
+hexadécimale de 128 caractères.
 
     [php]
     $hash    = hash('sha512', 'atoum');
@@ -1351,7 +1382,8 @@ isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dir
 
 ### output
 
-C'est l'assertion dédiée aux tests sur les sorties, c'est à dire tout ce qui est censé être affiché à l'écran.
+C'est l'assertion dédiée aux tests sur les sorties, c'est à dire tout ce qui est censé être affiché
+à l'écran.
 
 Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
 
@@ -1364,8 +1396,10 @@ Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans c
         )
     ;
 
-**Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
-Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
+**Note**: la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures)
+introduites en PHP 5.3.
+Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur
+le sujet.
 
 
 
@@ -1375,8 +1409,9 @@ C'est l'assertion dédiée aux chaines de caractères UTF-8.
 
 Elle étend [string](#string), toutes ses méthodes sont donc disponibles dans cette assertion.
 
-**Note** : utf8Strings utilise les fonctions mb_* pour gérer les chaines multi-octets.
-Reportez vous au manuel PHP pour voir avoir plus d'information sur l'extension [mbstring](http://php.net/mbstring).
+**Note**: utf8Strings utilise les fonctions mb_* pour gérer les chaines multi-octets.
+Reportez vous au manuel PHP pour voir avoir plus d'information sur l'extension
+[mbstring](http://php.net/mbstring).
 
 #### match
 
@@ -1390,8 +1425,9 @@ match vérifie qu'une expression régulière correspond à la chaine de caractè
             ->match("#^Aujourd'hui.*VDM$#u")
     ;
 
-**Note** : pensez à bien ajouter "u" comme option de recherche dans votre expression régulière.
-Reportez vous au [manuel PHP](http://php.net/reference.pcre.pattern.modifiers) pour avoir plus d'informations sur le sujet.
+**Note**: pensez à bien ajouter "u" comme option de recherche dans votre expression régulière.
+Reportez vous au [manuel PHP](http://php.net/reference.pcre.pattern.modifiers) pour avoir plus
+d'informations sur le sujet.
 
 
 
@@ -1399,7 +1435,8 @@ Reportez vous au [manuel PHP](http://php.net/reference.pcre.pattern.modifiers) p
 
 C'est l'assertion dédiée à la destruction des objets.
 
-Cette assertion ne fait que prendre un objet, vérifier que la méthode __destruct() est bien définie puis l'appelle.
+Cette assertion ne fait que prendre un objet, vérifier que la méthode __destruct() est bien définie 
+puis l'appelle.
 
 Si __destruct() existe bien et si son appel se passe sans erreur ni exception, alors le test passe.
 
@@ -1426,11 +1463,13 @@ C'est l'assertion dédiée aux erreurs.
             ->error()
     ;
 
-**Note** : la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
-Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur le sujet.
+**Note**: la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures)
+introduites en PHP 5.3.
+Reportez vous au [manuel PHP](http://php.net/functions.anonymous) pour avoir plus d'informations sur
+le sujet.
 
-**Note** : les types d'erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING
-ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
+**Note**: les types d'erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR,
+E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
 
 #### exists
 
@@ -1508,9 +1547,10 @@ C'est l'assertion dédiée aux classes.
         ->class('\StdClass')
     ;
 
-**Note** : le mot-clef "class" étant réservé en PHP, il n'a pas été possible de créer une assertion "class".
-Elle s'appelle donc "phpClass" et un alias "class" a été créé.
-Vous pourrez donc rencontrer des ->phpClass() ou des ->class().
+**Note**: le mot-clef "class" étant réservé en PHP, il n'a pas été possible de créer une assertion
+"class". Elle s'appelle donc "phpClass" et un alias "class" a été créé. Vous pourrez donc rencontrer
+des ->phpClass() ou des ->class().
+
 Il est conseillé d'utiliser exclusivement ->class().
 
 #### hasInterface
@@ -1552,7 +1592,7 @@ hasNoParent vérifie que la classe n'hérite d'aucune classe.
             ->hasNoParent()     // échoue
     ;
 
-**Note** : une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
+**Note**: une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
 hasNoParent ne vérifie pas les interfaces, uniquement les classes héritées.
 
 #### hasParent
@@ -1568,7 +1608,7 @@ hasParent vérifie que la classe hérite bien d'une classe.
             ->hasParent()       // passe
     ;
 
-**Note** : une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
+**Note**: une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
 hasParent ne vérifie pas les interfaces, uniquement les classes héritées.
 
 #### isAbstract
@@ -1655,7 +1695,8 @@ call permet de spécifier une méthode du mock à tester
 
 ##### atLeastOnce
 
-atLeastOnce vérifie que la méthode testée (voir [call](#call)) du mock testé a été appelée au moins une fois.
+atLeastOnce vérifie que la méthode testée (voir [call](#call)) du mock testé a été appelée au moins
+une fois.
 
     [php]
     $mock = new \mock\MyFirstClass;
@@ -1670,7 +1711,8 @@ atLeastOnce vérifie que la méthode testée (voir [call](#call)) du mock testé
 
 ##### exactly
 
-exactly vérifie que la méthode testée (voir [call](#call)) du mock testé exactement un certain nombre de fois.
+exactly vérifie que la méthode testée (voir [call](#call)) du mock testé exactement un certain
+nombre de fois.
 
     [php]
     $mock = new \mock\MyFirstClass;
@@ -1702,7 +1744,8 @@ never vérifie que la méthode testée (voir [call](#call)) du mock testé n'a j
 
 ##### once
 
-once vérifie que la méthode testée (voir [call](#call)) du mock testé a été appelée exactement une fois.
+once vérifie que la méthode testée (voir [call](#call)) du mock testé a été appelée exactement une
+fois.
 
     [php]
     $mock = new \mock\MyFirstClass;
@@ -1719,7 +1762,8 @@ once vérifie que la méthode testée (voir [call](#call)) du mock testé a ét�
 
 ##### withArguments
 
-withArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [call](#call)) du mock testé.
+withArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée
+(voir [call](#call)) du mock testé.
 
     [php]
     $mock = new \mock\MyFirstClass;
@@ -1733,11 +1777,13 @@ withArguments permet de spécifier les paramètres attendus lors de l'appel à l
     ;
 
 **Note**: withArguments ne teste pas le type des arguments.
-Si vous souhaitez vérifier également leurs types, utilisez [withIdenticalArguments](#withidenticalarguments).
+Si vous souhaitez vérifier également leurs types, utilisez
+[withIdenticalArguments](#withidenticalarguments).
 
 ##### withIdenticalArguments
 
-withIdenticalArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [call](#call)) du mock testé.
+withIdenticalArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode
+testée (voir [call](#call)) du mock testé.
 
     [php]
     $mock = new \mock\MyFirstClass;
@@ -1755,7 +1801,8 @@ Si vous ne souhaitez pas vérifier leurs types, utilisez [withArguments](#withar
 
 ##### withAnyArguments
 
-withAnyArguments permet de ne pas spécifier de paramètres attendus lors de l'appel à la méthode testée (voir [call](#call)) du mock testé.
+withAnyArguments permet de ne pas spécifier de paramètres attendus lors de l'appel à la méthode
+testée (voir [call](#call)) du mock testé.
 
 Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l'exemple suivant:
 
@@ -1779,7 +1826,8 @@ Cette méthode est surtout utile pour remettre à zéro les arguments, comme dan
 
 C'est l'assertion dédiée aux stream.
 
-Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'hésitez pas à compléter cette partie !
+Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'hésitez pas à compléter
+cette partie !
 
 #### isRead
 
@@ -1791,14 +1839,292 @@ Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'h
 
 ## Aide à l'écriture
 
-TODO: https://github.com/mageekguy/atoum/wiki/%C3%80-propos-de-if(),-and(),-then-et-c%C3%A6tera
+Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières,
+et l'une d'elle est d'utiliser des mots-clefs tels que if, and ou bien encore then, when ou assert.
+
+### if, and, then
+
+L'utilisation de ces mots clefs est très intuitive:
+
+    [php]
+    $this
+        ->if($computer = new computer()))
+        ->and($computer->setFirstOperand(2))
+        ->and($computer->setSecondOperand(2))
+        ->then
+            ->object($computer->add())
+                ->isIdenticalTo($computer)
+            ->integer($computer->getResult())
+                ->isEqualTo(4)
+    ;
+
+Il est important de noter ces mots-clefs n'apporte rien techniquement ou fonctionnellement parlant,
+car ils n'ont pas d'autres but que de faciliter la compréhension du test et donc sa maintenance
+en y ajoutant de la sémantique compréhensible facilement par l'Humain et plus particulièrement un
+développeur.
+
+Ainsi, if et and permettent de définir les pré-conditions nécessaires pour que les assertions qui
+suivent le mot-clef then passent avec succès.
+
+Cependant, il n'y a pas de grammaire régissant l'ordre d'utilisation de ces mots-clefs et aucune
+vérification syntaxique n'est effectuée par atoum.
+
+En conséquence, il est de la responsabilité du développeur de les utiliser de façon à ce que le test
+soit signifiant, même s'il est par exemple tout à fait possible d'écrire le test de la manière
+suivante:
+
+    [php]
+    $this
+        ->and($computer = new computer()))
+        ->and($computer->setFirstOperand(2))
+        ->if($computer->setSecondOperand(2))
+        ->then
+            ->object($computer->add())
+                ->isIdenticalTo($computer)
+            ->integer($computer->getResult())
+                ->isEqualTo(4)
+    ;
+
+Pour les mêmes raisons, l'utilisation de then est facultative.
+
+Il est également important de noter qu'il est tout à fait possible d'écrire le même test en
+n'utilisant aucun mot-clef:
+
+    [php]
+    $computer = new computer();
+    $computer->setFirstOperand(2);
+    $computer->setSecondOperand(2);
+
+    $this
+        ->object($computer->add())
+            ->isIdenticalTo($computer)
+        ->integer($computer->getResult())
+            ->isEqualTo(4)
+    ;
+
+Le test ne sera pas plus lent ou plus rapide à exécuter et il n'y a aucun avantage à utiliser une
+notation plutôt qu'une autre, l'important étant d'en choisir une et de s'y tenir pour faciliter la
+maintenance des tests (la problématique est exactement la même que celle des conventions de codage).
+
+### when
+
+En plus de if, and et then, il existe également d'autres mots-clefs.
+
+L'un d'entre eux est when et qui dispose d'une fonctionnalité spécifique introduite pour contourner
+le fait qu'il est illégale d'écrire en PHP le code suivant:
+
+    [php]
+    $this
+        ->if($object = new object($valueAtKey0 = uniqid()))
+        ->and(unset($array[0])
+        ->then
+            ->sizeOf($object)
+                ->isZero()
+    ;
+
+Le langage génère en effet dans ce cas l'erreur fatale:
+
+    [shell]
+    Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'
+
+Il n'est en effet pas possible d'utiliser unset() comme argument d'une fonction.
+
+Pour résoudre ce problème, le mot-clef when est capable d'interpréter l'éventuelle fonction anonyme
+qui lui est passée en argument, ce qui permet d'écrire le test précédent de la manière suivante:
+
+    [php]
+    $this
+        ->if($object = new object($valueAtKey0 = uniqid()))
+        ->when(
+            function() use ($object) {
+                unset($object[0]); 
+            }
+        )
+        ->then
+          ->sizeOf($object)
+            ->isZero()
+    ;
+
+Bien évidemment, si when ne reçoit pas de fonction anonyme en argument, il se comporte exactement
+comme if, and et then, à savoir qu'il ne fait absolument rien fonctionnellement parlant.
+
+### assert
+
+Enfin, il existe le mot-clef assert qui a également un fonctionnement un peu particulier.
+
+Pour illustrer son fonctionnement, le test suivant va être utilisé:
+
+    [php]
+    $this
+        ->if($foo = new \mock\foo())
+        ->and($bar = new bar($foo))
+        ->and($bar->doSomething())
+        ->then
+            ->mock($foo)
+                ->call('doOtherThing')
+                    ->once()
+        ->if($bar->setValue(uniqid())
+        ->then
+            ->mock($foo)
+                ->call('doOtherThing')
+                    ->exactly(2)
+    ;
+
+Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin
+d'intercaler un ou plusieurs nouveaux appels à bar::doSomething() entre les deux appels déjà
+effectués, il sera obligé de mettre à jour en conséquence la valeur de l'argument passé à exactly().
+
+Pour remédier à ce problème, il est possible de recourir à la méthode resetCalls() du contrôleur du
+bouchon de la manière suivante:
+
+    [php]
+    $this
+        ->if($foo = new \mock\foo())
+        ->and($bar = new bar($foo))
+        ->and($bar->doSomething())
+        ->then
+            ->mock($foo)
+                ->call('doOtherThing')
+                    ->once()
+        ->if($foo->getMockController()->resetCalls())
+        ->and($bar->setValue(uniqid())
+        ->then
+            ->mock($foo)
+                ->call('doOtherThing')
+                    ->once()
+    ;
+
+En effet, la méthode resetCalls() efface la mémoire du contrôleur et il est donc possible d'écrire
+l'assertion suivante comme si le bouchon n'avait jamais été utilisé.
+
+Le mot-clef assert permet de se passer de l'appel explicite à resetCalls() et de plus il provoque
+l'effacement de la mémoire de l'ensemble des adaptateurs et des contrôleurs de bouchon définis au
+moment de son utilisation.
+
+Grâce à lui, il est donc possible d'écrire le test précédent d'une façon plus simple et plus
+lisible, d'autant qu'il est possible de passer une chaîne de caractère à assert afin d'expliquer le
+rôle des assertions suivantes:
+
+    [php]
+    $this
+        ->assert('Foo is empty')
+            ->if($foo = new \mock\foo())
+            ->and($bar = new bar($foo))
+            ->and($bar->doSomething())
+            ->then
+                ->mock($foo)
+                    ->call('doOtherThing')
+                        ->once()
+        ->assert('Foo has a value')
+            ->if($bar->setValue(uniqid())
+            ->then
+                ->mock($foo)
+                    ->call('doOtherThing')
+                        ->once()
+    ;
+
+La chaîne de caractères sera de plus reprise dans les messages générés par atoum si l'une des
+assertions ne passent pas avec succès.
 
 
 
 
 ## Le mode debug
 
-TODO: https://github.com/mageekguy/atoum/wiki/Le-mode-%22debug%22
+Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
+
+Dans ce cas, l'une des techniques possibles pour remédier au problème est de tracer le comportement
+du code concerné, soit directement au cœur de la classe testée à l'aide de fonctions du type de
+var_dump() ou print_r(), soit au niveau du test unitaire.
+
+Et il se trouve que atoum dispose d'un certain nombre d'outils pour faciliter la tâche du
+développeur dans ce dernier contexte.
+
+Ces outils ne sont cependant actif que lorsque atoum est exécuté à l'aide de l'argument --debug,
+afin que l'exécution des tests unitaires ne soit pas perturbée par les instructions relatives au
+déboggage hors de ce contexte.
+
+Lorsque l'argument --debug est utilisé, trois méthodes peuvent être activée:
+
+* dump() qui permet de connaître le contenu d'une variable ;
+* stop() qui permet d'arrêter l'exécution d'un test ;
+* executeOnFailure() qui permet de définir une fonction anonyme ou une fermeture lexicale qui ne
+sera exécutée qu'en cas d'échec d'une assertion.
+
+Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caractérise atoum.
+
+### dump
+
+La méthode dump() peut s'utiliser de la manière suivante:
+
+    [php]
+    $this
+        ->if($foo = new foo())
+        ->then
+            ->object($foo->setBar($bar = new bar()))
+                ->isIdenticalTo($foo)
+            ->dump($foo->getBar())
+    ;
+
+Lors de l'exécution du test, le retour de la méthode foo::getBar() sera affiché sur la sortie
+standard.
+
+Il est également possible de passer plusieurs arguments à dump(), de la manière suivante:
+
+    [php]
+    $this
+        ->if($foo = new foo())
+        ->then
+            ->object($foo->setBar($bar = new bar()))
+                ->isIdenticalTo($foo)
+            ->dump($foo->getBar(), $bar)
+    ;
+
+### stop
+
+L'utilisation de la méthode stop() est également très simple:
+
+    [php]
+    $this
+        ->if($foo = new foo())
+        ->then
+            ->object($foo->setBar($bar = new bar()))
+                ->isIdenticalTo($foo)
+            ->stop() // le test s'arrêtera ici si --debug est utilisé
+            ->object($foo->getBar())
+                ->isIdenticalTo($bar)
+    ;
+
+### executeOnFailure
+
+La méthode executeOnFailure() est très puissante et tout aussi simple à utiliser.
+
+Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l'une des
+assertions composant le test n'est pas vérifiée. Elle s'utilise de la manière suivante:
+
+    [php]
+    $this
+        ->if($foo = new foo())
+        ->executeOnFailure(
+            function() use ($foo) {
+                var_dump($foo); 
+            }
+        ) 
+        ->then
+            ->object($foo->setBar($bar = new bar()))
+                ->isIdenticalTo($foo)
+            ->object($foo->getBar())
+                ->isIdenticalTo($bar)
+    ;
+
+Dans l'exemple précédent, contrairement à dump() qui provoque systématiquement l'affichage sur la
+sortie standard le contenu des variables qui lui sont passées en argument, la fonction anonyme
+passée en argument ne provoquera l'affichage du contenu de la variable foo que si l'une des
+assertions suivantes est en échec.
+
+Bien évidement, il est possible de faire appel plusieurs fois à executeOnFailure() dans une même
+méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas
+d'échec du test.
 
 
 
@@ -1814,13 +2140,14 @@ TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-les-m%C3%A9thodes-d'initi
 
 ## Fournisseurs de données
 
-Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
+Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de
+données (data provider en anglais).
 
-Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test,
-arguments qui seront utilisés par ladite méthode pour valider des assertions.
+Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour
+une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
 
-La définition du fournisseur de données qui doit être utilisé par une méthode de test se fait grâce à l'annotation @dataProvider
-appliquée à la méthode de test concernée, de la manière suivante :
+La définition du fournisseur de données qui doit être utilisé par une méthode de test se fait grâce
+à l'annotation @dataProvider appliquée à la méthode de test concernée, de la manière suivante:
 
     [php]
     class calculator extends atoum\test
@@ -1845,7 +2172,7 @@ appliquée à la méthode de test concernée, de la manière suivante :
 les arguments correspondant à ceux qui seront retournés par le fournisseur de données.
 Si ce n'est pas le cas, atoum générera une erreur lors de l'exécution des tests.
 
-Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspondante :
+Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspondante:
 
     [php]
     class calculator extends atoum\test
@@ -1864,13 +2191,14 @@ Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspon
         }
     }
 
-Lors de l'exécution des tests, atoum appellera la méthode de test testSum() successivement avec les arguments
-(1, 1), (1, 2), (-1, 1) et (-1, 2) renvoyés par la méthode sumDataProvider().
+Lors de l'exécution des tests, atoum appellera la méthode de test testSum() successivement avec les
+arguments (1, 1), (1, 2), (-1, 1) et (-1, 2) renvoyés par la méthode sumDataProvider().
 
-**Note** : attention, l'isolation des tests ne sera pas utilisée dans ce contexte,
-ce qui veut dire que chacun des appels successifs à la méthode testSum() sera réalisé dans le même processus PHP.
+**Note**: attention, l'isolation des tests ne sera pas utilisée dans ce contexte,
+ce qui veut dire que chacun des appels successifs à la méthode testSum() sera réalisé dans le même
+processus PHP.
 
-**Note** : un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
+**Note**: un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
 
 
 
@@ -1882,9 +2210,10 @@ atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple 
 
 ### À partir d'une interface ou d'une classe existante
 
-Il y a plusieurs manière de créer un bouchon à partir d'une interface ou d'une classe (abstraite ou non).
+Il y a plusieurs manière de créer un bouchon à partir d'une interface ou d'une classe (abstraite ou
+non).
 
-la plus simple est de créer un objet dont le nom absolu est préfixé par \mock :
+la plus simple est de créer un objet dont le nom absolu est préfixé par \mock:
 
     [php]
     // création d'un bouchon de l'interface \Countable
@@ -1897,8 +2226,10 @@ la plus simple est de créer un objet dont le nom absolu est préfixé par \mock
     // création d'un bouchon de la classe \StdClass
     $stdObject     = new \mock\StdClass;
 
-Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le mockGenerator.
-Sa méthode generate prend 3 paramètres :
+Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le
+mockGenerator.
+
+Sa méthode generate prend 3 paramètres:
 
 * le nom de l'interface ou de la classe à bouchonner ;
 * le nouvel espace de nom, optionnel ;
@@ -1921,13 +2252,13 @@ Sa méthode generate prend 3 paramètres :
     $this->mockGenerator->generate('\StdClass', null, 'OneClass');
     $stdObject     = new \mock\OneClass;
 
-**Note** : si vous n'utilisez que le premier argument et ne changer ni l'espace de nom, ni le nom de la classe,
-alors c'est équivalent à la première solution.
+**Note**: si vous n'utilisez que le premier argument et ne changer ni l'espace de nom, ni le nom de
+la classe, alors c'est équivalent à la première solution.
 
     [php]
     $countableMock = new \mock\Countable;
 
-    // est équivalent à :
+    // est équivalent à:
 
     $this->mockGenerator->generate('\Countable');   // inutile
     $countableMock = new \mock\Countable;
@@ -1935,11 +2266,12 @@ alors c'est équivalent à la première solution.
 
 ### À partir de rien
 
-Vous pouvez également créer un bouchon qui ne soit pas lié à une interface ou une classe (abstraite ou non) existante.
+Vous pouvez également créer un bouchon qui ne soit pas lié à une interface ou une classe (abstraite
+ou non) existante.
 
 Pour cela, et bien faite comme si elle existait !
 
-En effet, le code suivant fonctionne parfaitement :
+En effet, le code suivant fonctionne parfaitement:
 
     [php]
     $firstMockedObject  = new \mock\MyUnknownClass;
@@ -1947,7 +2279,8 @@ En effet, le code suivant fonctionne parfaitement :
 
 ### Modifier le comportement d'un bouchon
 
-Un fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
+Un fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de
+ses méthodes.
 
 Pour cela, il faut passer par son contrôleur en utilisant la méthode getMockController().
 
@@ -1993,8 +2326,10 @@ Pour cela, il faut passer par son contrôleur en utilisant la méthode getMockCo
 
 Pour bouchonner le constructeur d'une classe, il faut:
 
-* créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
-* définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
+* créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du
+bouchon ;
+* définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction
+anonyme ;
 * appeler sur le contrôleur la méthode injectInNextMockInstance().
 
     [php]
@@ -2027,4 +2362,5 @@ atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
                                 // n'a été appelé qu'une seule fois
     ;
 
-**Note**: reportez-vous à la documentation sur l'assertion [mock](#mock) pour obtenir plus d'informations sur les tests des bouchons.
+**Note**: reportez-vous à la documentation sur l'assertion [mock](#mock) pour obtenir plus
+d'informations sur les tests des bouchons.

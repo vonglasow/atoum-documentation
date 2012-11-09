@@ -40,12 +40,14 @@ Si vous utilisez les sources, l'exécutable se trouve dans path/to/atoum/bin.
 
 ### Exemples dans le reste de la documentation
 
-Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrit avec la forme suivante:
+Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrit avec la
+forme suivante:
 
     [bash]
     ./bin/atoum
 
-C'est exactement la commande que vous pourriez utiliser si vous avez [installé atoum avec composer](#composer) sous Linux.
+C'est exactement la commande que vous pourriez utiliser si vous avez
+[installé atoum avec composer](#composer) sous Linux.
 
 
 
@@ -69,7 +71,8 @@ Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou
 
 ## Filtres
 
-Une fois que vous avez préciser à atoum [quels fichiers exécuter](#fichiers-a-executer), vous pouvez filtrer ce qui sera réellement exécuter.
+Une fois que vous avez préciser à atoum [quels fichiers exécuter](#fichiers-a-executer), vous pouvez
+filtrer ce qui sera réellement exécuter.
 
 ### Par espace de nom
 
@@ -79,17 +82,19 @@ il vous suffit d'utiliser l'option -ns ou --namespaces.
     [bash]
     ./bin/atoum -d tests/units -ns mageekguy\\atoum\\tests\\units\\asserters
 
-**Note**: il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+**Note**: il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le
+shell.
 
 ### Une classe ou une méthode
 
-Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les tests d'une classe ou d'une méthode donnée,
-il vous suffit d'utiliser l'option -m ou --methods.
+Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les tests d'une classe ou
+d'une méthode donnée, il vous suffit d'utiliser l'option -m ou --methods.
 
     [bash]
     ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\string::testContains
 
-**Note**: il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+**Note**: il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le
+shell.
 
 Vous pouvez remplacer le nom de la classe ou de la méthode par "*" pour signifier "tous".
 
