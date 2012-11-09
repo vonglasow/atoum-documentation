@@ -2132,8 +2132,101 @@ d'échec du test.
 
 ## Les méthodes d'initialisation
 
-TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-les-m%C3%A9thodes-d'initialisation-des-tests
+Lorsqu'il exécute les méthodes de test d'une classe, atoum suit le processus suivant:
 
+- il exécute la méthode setUp() de la classe de test ;
+- il lance un sous-processus PHP pour exécuter chaque méthode de test ;
+- dans le sous-processus PHP, avant d'exécuter la méthode de test, il exécute la méthode
+beforeTestMethod() de la classe de test ;
+- dans le sous-processus PHP, il exécute la méthode de test ;
+- dans le sous-processus PHP, il exécute la méthode afterTestMethod() de la classe de test ;
+- une fois le sous-processus PHP terminé, il exécute la méthode tearDown()de la classe de test ;
+
+Les méthodes setUp() et tearDown() permettent donc respectivement d'initialiser et de nettoyer
+l'environnement de test pour l'ensemble des méthodes de test de la classe exécutée, à la différence
+des méthodes beforeTestMethod() et afterTestMethod().
+
+Ces deux méthodes permettent en effet respectivement d'initialiser et de nettoyer l'environnement
+d'exécution des tests individuellement pour chacune des méthodes de test de la classe, puisqu'elles
+sont exécutées dans le même sous-processus, au contraire de setUp() et tearDown().
+
+C'est d'ailleurs la raison pour laquelle les méthodes beforeTestMethod() et afterTestMethod()
+acceptent comme argument le nom de la méthode de test exécutée, afin de pouvoir ajuster les
+traitements en conséquence.
+
+    [php]
+    <?php
+    namespace vendor\project\tests\units;
+
+    use
+        mageekguy\atoum,
+        vendor\project
+    ;
+
+    require __DIR__ . '/mageekguy.atoum.phar';
+
+    class bankAccount extends atoum\test
+    {
+        public function setUp()
+        {
+            // Exécutée **avant l'ensemble** des méthodes de test.
+            // Initialisation globale.
+        }
+
+        public function beforeTestMethod($method)
+        {
+            // Exécutée **avant chaque** méthode de test.
+
+            switch ($method)
+            {
+                case 'testGetOwner':
+                    // Initialisation pour testGetOwner().
+                break;
+
+                case 'testGetOperations':
+                    // Initialisation pour testGetOperations().
+                break;         
+            }
+        }
+
+        public function testGetOwner()
+        {
+            ...
+        }
+
+        public function testGetOperations()
+        {
+            ...
+        }
+
+        public function afterTestMethod($method)
+        {
+            // Exécutée **après chaque** méthode de test.
+
+            switch ($method)
+            {
+                case 'testGetOwner':
+                    // Nettoyage pour testGetOwner().
+                break;
+
+                case 'testGetOperations':
+                    // Nettoyage pour testGetOperations().
+                break;         
+            }
+        }
+
+        public function tearDown()
+        {
+            // Exécutée après l'ensemble des méthodes de test.
+            // Nettoyage global.
+        }
+    }
+
+Par défaut, les méthodes setUp(), beforeTestMethod(), afterTestMethod() et tearDown() ne font
+absolument rien.
+
+Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les
+classes de test concernées.
 
 
 
