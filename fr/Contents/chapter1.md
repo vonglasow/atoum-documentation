@@ -292,7 +292,7 @@ tests unitaires par atoum et la visualisation du résultat sans quitter l'édite
 Les informations nécessaires à son installation et à sa configuration sont disponibles
 [via le blog de son auteur](http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/).
 
-## vim
+## VIM
 
 atoum est livré avec un plug-in facilitant son utilisation dans l'éditeur VIM.
 
