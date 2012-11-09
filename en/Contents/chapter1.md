@@ -15,6 +15,7 @@ You can install atoum by 3 ways :
 *   As a PHAR archive
 *   Using composer
 *   Cloning github repository
+*   Using zend framework 2 component
 
 ### PHAR
 
@@ -48,6 +49,11 @@ And finally execute
 ### Github
 
 If you want to use atoum directly from it's sources, you can clone or fork its git repository on github : git://github.com/mageekguy/atoum.git
+
+### Using zend framework 2 component
+
+A library is available to use Atoum with zend framework 2. Documentation and exemples are available at the following address :
+[https://github.com/blanchonvincent/zend-framework-test-atoum](https://github.com/blanchonvincent/zend-framework-test-atoum).
 
 ## A quick overview of atoum's philosophy ##
 
