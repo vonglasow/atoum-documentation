@@ -22,6 +22,7 @@ Vous pouvez installer atoum de 5 manières :
 * [en clonant le dépôt github](#github) ;
 * [en utilisant un plugin symfony 1](#plugin-symfony-1) ;
 * [en utilisant un bundle symfony 2](#bundle-symfony-2).
+* [en utilisant un composant zend framework 2](#composant-zend-framework-2).
 
 
 ### Archive PHAR
@@ -146,6 +147,13 @@ Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliq
 
 Si vous souhaitez utiliser atoum au sein d'un projet symfony 2, un bundle existe et est disponible à l'adresse suivante :
 [https://github.com/FlorianLB/JediAtoumBundle](https://github.com/FlorianLB/JediAtoumBundle).
+Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliquées sur cette page.
+
+
+### Composant zend framework 2
+
+Si vous souhaitez utiliser atoum au sein d'un projet zend framework 2, un composant existe et est disponible à l'adresse suivante :
+[https://github.com/blanchonvincent/zend-framework-test-atoum](https://github.com/blanchonvincent/zend-framework-test-atoum).
 Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliquées sur cette page.
 
 
