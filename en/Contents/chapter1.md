@@ -9,7 +9,8 @@ atoum distinguished itself as :
 
 ## Download & Install ##
 
-For now, atoum is not tagged with a version number. If you want to use atoum, just download the last stable version. atoum aims to provide backward compatibility anyway.
+For now, atoum is not tagged with a version number. If you want to use atoum, just download the last
+stable version. atoum aims to provide backward compatibility anyway.
 
 You can install atoum by 3 ways :
 *   As a PHAR archive
@@ -21,7 +22,8 @@ You can install atoum by 3 ways :
 
 atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5.3.
 
-You can download the latest stable version of atoum directly from the official website here : http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+You can download the latest stable version of atoum directly from the official website here :
+http://downloads.atoum.org/nightly/mageekguy.atoum.phar
 
 ### Composer
 
@@ -48,22 +50,27 @@ And finally execute
 
 ### Github
 
-If you want to use atoum directly from it's sources, you can clone or fork its git repository on github : git://github.com/mageekguy/atoum.git
+If you want to use atoum directly from it's sources, you can clone or fork its git repository on
+github : git://github.com/mageekguy/atoum.git
 
 ### Using zend framework 2 component
 
-A library is available to use Atoum with zend framework 2. Documentation and exemples are available at the following address :
+A library is available to use Atoum with zend framework 2. Documentation and exemples are available
+at the following address :
 [https://github.com/blanchonvincent/zend-framework-test-atoum](https://github.com/blanchonvincent/zend-framework-test-atoum).
 
 ## A quick overview of atoum's philosophy ##
 
 ### Very basic example ###
 
-atoum wants you to write a test class for each class you want to test. As an example, if you want to test the famous HelloTheWorld class, you'll have to write the test\units\HelloTheWorld test class.
+atoum wants you to write a test class for each class you want to test. As an example, if you want to
+test the famous HelloTheWorld class, you'll have to write the test\units\HelloTheWorld test class.
 
-NOTE : atoum is, of course, namespace aware. As an example, to test the Hello\The\World class, you'll write the \Hello\The\tests\units\World class.
+NOTE : atoum is, of course, namespace aware. As an example, to test the Hello\The\World class,
+you'll write the \Hello\The\tests\units\World class.
 
-Here is the code of your HelloTheWorld class that we'll be using as a first example. This class will be located in PROJECT_PATH/classes/HelloTheWorld.php
+Here is the code of your HelloTheWorld class that we'll be using as a first example. This class will
+be located in PROJECT_PATH/classes/HelloTheWorld.php
 
     [php]
     <?php
@@ -78,7 +85,8 @@ Here is the code of your HelloTheWorld class that we'll be using as a first exam
         }
     }
 
-Now, let's write our first test class. This class will be located in PROJECT_PATH/tests/HelloTheWorld.php
+Now, let's write our first test class. This class will be located in
+PROJECT_PATH/tests/HelloTheWorld.php
 
     [php]
     <?php
@@ -247,7 +255,8 @@ Here you are, you saw a complet and basic example of tests using atoum.
 
 ### Testing a Singleton ###
 
-To test if your method always returns the same instance of the same object, you can ask atoum to check that the instances are identicals.
+To test if your method always returns the same instance of the same object, you can ask atoum to
+check that the instances are identicals.
 
     [php]
     <?php //...
@@ -370,9 +379,11 @@ There is also a shorter syntax to generate mock from a class definition.
         //...
     }
 
-atoum is able to automatically find the class definition to mock on demand so you don't have to call the mock generator.
+atoum is able to automatically find the class definition to mock on demand so you don't have to call
+the mock generator.
 
-When requesting a mock instance for a class, do not forget to specify the full class path (including namespaces).
+When requesting a mock instance for a class, do not forget to specify the full class path (including
+namespaces).
 
     [php]
     namespace Package\Writers
@@ -395,7 +406,8 @@ When requesting a mock instance for a class, do not forget to specify the full c
         }
     }
 
-In this example, the class we want to mock lives in the Package\Writers namespace, so to request a mock in our test we should do :
+In this example, the class we want to mock lives in the Package\Writers namespace, so to request a
+mock in our test we should do :
 
     [php]
     namespace Package\test\units;

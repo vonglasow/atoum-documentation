@@ -2,7 +2,8 @@
 
 ## variable ##
 
-This is the base asserter for variables, it includes the basics assertions you may need while testing values of any type.
+This is the base asserter for variables, it includes the basics assertions you may need while
+testing values of any type.
 
 ### isEqualTo ###
 
@@ -27,7 +28,8 @@ isEqualTo verify that the tested variable is equal to a given value.
 
 Note
 
-while testing values of different types with isEqualTo, variables are compared like the == operator in PHP.
+while testing values of different types with isEqualTo, variables are compared like the == operator
+in PHP.
 
 If you to verify both types and values, use the isIdenticalTo assertion instead.
 
@@ -56,7 +58,8 @@ isNotEqualTo verify that the tested variable is different from a given value.
 
 ### isIdenticalTo ###
 
-isIdenticalTo verify that the tested variables are the same (types and values). In case you are testing objects, isIdenticalTo will tell if both variables represents the same instance.
+isIdenticalTo verify that the tested variables are the same (types and values). In case you are
+testing objects, isIdenticalTo will tell if both variables represents the same instance.
 
     $a1 = '1';
 
@@ -80,7 +83,9 @@ If you don't want to consider the types of the variable, use isEqualTo.
 
 ### isNotIdenticalTo ###
 
-isNotIdenticalTo verify that the tested variables are not the same (types or values). In case you are testing objects, isNotIdenticalTo will assert that the tested variables points to different instances.
+isNotIdenticalTo verify that the tested variables are not the same (types or values). In case you
+are testing objects, isNotIdenticalTo will assert that the tested variables points to different
+instances.
 
     [php]
     $a1 = '1';
@@ -95,11 +100,13 @@ isNotIdenticalTo verify that the tested variables are not the same (types or val
 
     $this->assert
             ->variable($stdClass)
-               ->isNotIdenticalTo(stdClass2); //Will fail, variables do not point to the same instance, even if their values are the same
+               ->isNotIdenticalTo(stdClass2); //Will fail, variables do not point to the same
+                                              //instance, even if their values are the same
 
     $this->assert
             ->variable($stdClass)
-               ->isNotIdenticalTo(stdClassRef); //Will fail, both variables points to the same instance of StdClass
+               ->isNotIdenticalTo(stdClassRef); //Will fail, both variables points to the same
+                                                //instance of StdClass
 
 If you don't want to consider the types of the variables, use isNotEqualTo.
 
@@ -132,9 +139,11 @@ isNotNull verify taht the variable is not null.
 
 ## integer ##
 
-This is the asserter dedicated to integer testing. It extends the variable asserter : You can use every assertions in the variable asserter while testing integers.
+This is the asserter dedicated to integer testing. It extends the variable asserter : You can use
+every assertions in the variable asserter while testing integers.
 
-If you try to test a variable that is not an integer with the integer asserter, it will raise a failure.
+If you try to test a variable that is not an integer with the integer asserter, it will raise a
+failure.
 
     [php]
     $a1 = '1';
@@ -144,7 +153,8 @@ If you try to test a variable that is not an integer with the integer asserter, 
 
 Note
 
-null is not considered as a valid integer. You can check PHP's is_int function to check what is considered an integer.
+null is not considered as a valid integer. You can check PHP's is_int function to check what is
+considered an integer.
 
 ### isZero ###
 
@@ -198,7 +208,8 @@ isGreaterThan verify that the tested integer is strictly greater than a given in
 
     $this->assert
             ->integer($zero)
-               ->isGreaterThan('-1'); // Will fail, you have to pass an actual integer to isGreaterThan
+               ->isGreaterThan('-1');   // Will fail, you have to pass an actual integer to
+                                        // isGreaterThan
 
     $this->assert
             ->integer($zero)
@@ -222,7 +233,8 @@ isLessThanOrEqualTo verify that the tested integer is less or equal to a given i
 
     $this->assert
             ->integer($zero)
-               ->isLessThanOrEqualTo('10'); // Will fail, you have to pass an actual integer to isLessThanOrEqualTo
+               ->isLessThanOrEqualTo('10'); // Will fail, you have to pass an actual integer to
+                                            // isLessThanOrEqualTo
 
     $this->assert
             ->integer($zero)
@@ -245,7 +257,8 @@ isGreaterThanOrEqualTo verify that the tested integer is greater or equal to a g
 
     $this->assert
             ->integer($zero)
-               ->isGreaterThanOrEqualTo('-1'); // Will fail, you have to pass an actual integer to isGreaterThanOrEqualTo
+               ->isGreaterThanOrEqualTo('-1');  // Will fail, you have to pass an actual integer to
+                                                // isGreaterThanOrEqualTo
 
     $this->assert
             ->integer($zero)
@@ -265,7 +278,8 @@ It extends the integer asserter making it possible to test floating point values
 You can use every assertions that are present in the integer asserter.
 Note
 
-Of course, while testing float values, assertions that expected integers will expect float values (isGreaterThan, isGreaterOrEqualTo, isLessThan, isLessThanOrEqualTo)
+Of course, while testing float values, assertions that expected integers will expect float values
+(isGreaterThan, isGreaterOrEqualTo, isLessThan, isLessThanOrEqualTo)
 
 ## boolean ##
 
@@ -309,7 +323,8 @@ isFalse verify that the tested boolean is false (strictly equals to false).
 
 This is the asserter dedicated to string testing.
 
-It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
+It extends the variable asserter : You can use every assertions of the variable asserter while
+testing a string.
 
 ### isEmpty ###
 
@@ -376,7 +391,8 @@ hasLength will verify that the string has a given length.
 
 This is the asserter dedicated to DateTime testing.
 
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing a DateTime object.
+It extends from the variable asserter : You can use every assertions of the variable asserter while
+testing a DateTime object.
 
 ### hasTimezone ###
 
@@ -392,7 +408,8 @@ It extends from the variable asserter : You can use every assertions of the vari
 
 This is the asserter dedicated to array testing.
 
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing arrays.
+It extends from the variable asserter : You can use every assertions of the variable asserter while
+testing arrays.
 
 ### hasSize ###
 
@@ -442,7 +459,8 @@ isEmpty will verify that the array is not empty (contains at least one value of 
 
 ### contains ###
 
-contains will verify that the tested array directly contains a given value (will not search for the value recursively).
+contains will verify that the tested array directly contains a given value (will not search for the
+value recursively).
 contains will not test the type of the value.
 
 If you want to test both the type and the value, you will use strictlyContains.
@@ -465,7 +483,8 @@ If you want to test both the type and the value, you will use strictlyContains.
 
 ### notContains ###
 
-notContains will verify that the tested array does not contains a given value (will not search for the value recursively).
+notContains will verify that the tested array does not contains a given value (will not search for
+the value recursively).
 notContains will not test the type of the value.
 
 If you want to test both the type and the value, you will use strictlyNotContains.
@@ -514,10 +533,12 @@ If you want to test both the types and the values, you will use strictlyNotConta
 
     $this->assert
             ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 4, 5))//will faill as '1' is in the tested array
-                ->notContainsValues(array(4, 6, '2'))//will fail as 2 is in the tested array
-                ->notContainsValues(array('1', 2, 3))//will fail as all the values are in the tested array
-                ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+                ->notContainsValues(array(1, 4, 5))     //will faill as '1' is in the tested array
+                ->notContainsValues(array(4, 6, '2'))   //will fail as 2 is in the tested array
+                ->notContainsValues(array('1', 2, 3))   //will fail as all the values are in the
+                                                        //tested array
+                ->notContainsValues(array(4, 5, 6));    //will pass as none of the values are in the
+                                                        //tested array
 
 ### strictlyContainsValues ###
 
@@ -531,13 +552,17 @@ If you do not want to test both the types and the values, you will use containsV
 
     $this->assert
             ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 2, 3))//will faill as '1' is in the tested array, not 1
-                ->notContainsValues(array('3', '2', '1'))//will fail as '3' and '2' are not in the tested array, but 2 and 3 are
-                ->notContainsValues(array(2, '1', 3));//will pass as all the values are in the tested array
+                ->notContainsValues(array(1, 2, 3))         //will faill as '1' is in the tested
+                                                            //array, not 1
+                ->notContainsValues(array('3', '2', '1'))   //will fail as '3' and '2' are not in
+                                                            //the tested array, but 2 and 3 are
+                ->notContainsValues(array(2, '1', 3));      //will pass as all the values are in the
+                                                            //tested array
 
 ### strictlyNotContainsValues ###
 
-strictlyNotContainsValues will verify that the tested array does not contains any value of a given array
+strictlyNotContainsValues will verify that the tested array does not contains any value of a given
+array
 strictlyNotContainsValues will test the type of the values to look for.
 
 If you do not want to test both the types and the values, you will use notContainsValues.
@@ -547,14 +572,19 @@ If you do not want to test both the types and the values, you will use notContai
 
     $this->assert
             ->array($arrayWithString1And2And3)
-                ->notContainsValues(array(1, 4, 5))//will pass as none of the values are in the tested array (1 !== '1')
-                ->notContainsValues(array(4, 6, '2'))//will pass as none of the values are in the tested array (2 !== '2')
-                ->notContainsValues(array('1', 2, 3))//will fail as all of the values are in the tested array
-                ->notContainsValues(array(4, 5, 6));//will pass as none of the values are in the tested array
+                ->notContainsValues(array(1, 4, 5))     //will pass as none of the values are in the
+                                                        //tested array (1 !== '1')
+                ->notContainsValues(array(4, 6, '2'))   //will pass as none of the values are in the
+                                                        //tested array (2 !== '2')
+                ->notContainsValues(array('1', 2, 3))   //will fail as all of the values are in the
+                                                        //tested array
+                ->notContainsValues(array(4, 5, 6));    //will pass as none of the values are in the
+                                                        //tested array
 
 ### strictlyContains ###
 
-contains will verify that the tested array directly contains a given value (will not search for the value recursively).
+contains will verify that the tested array directly contains a given value (will not search for the
+value recursively).
 contains will test the type of the value.
 
 If you do not want to test both the type and the value, you will use contains.
@@ -579,7 +609,8 @@ If you do not want to test both the type and the value, you will use contains.
 
 ### strictlyNotContains ###
 
-strictlyNotContains will verify that the tested array does not contains a given value (will not search for the value recursively).
+strictlyNotContains will verify that the tested array does not contains a given value (will not
+search for the value recursively).
 strictlyNotContains will test the type of the value.
 
 If you do not want to test both the type and the value, you will use notContains.
@@ -662,7 +693,8 @@ hasKeys will verify that the tested array contains all the given keyx (given as 
 
 ### notHasKeys ###
 
-notHasKeys will verify that the tested array does not contains any of the given keys (given as an array of keys)
+notHasKeys will verify that the tested array does not contains any of the given keys (given as an
+array of keys)
 
     [php]
     $array  = array(2, 4, 6);
@@ -670,10 +702,12 @@ notHasKeys will verify that the tested array does not contains any of the given 
 
     $this->assert
             ->array($array1)
-                ->notHasKeys(array(1, 2))//will fail, all the keys exists in the tested array
-                ->notHasKeys(array('0', 3))//will fail, $array['0'] exists
-                ->notHasKeys(array("4", 5))//will pass, none of the keys exists in the tested array
-                ->notHasKeys(array(3, 'two'))//will pass, none of the keys exists in the tested array
+                ->notHasKeys(array(1, 2))       //will fail, all the keys exists in the tested array
+                ->notHasKeys(array('0', 3))     //will fail, $array['0'] exists
+                ->notHasKeys(array("4", 5))     //will pass, none of the keys exists in the tested
+                                                //array
+                ->notHasKeys(array(3, 'two'))   //will pass, none of the keys exists in the tested
+                                                //array
 
     $this->assert
             ->array($array2)
@@ -684,17 +718,20 @@ notHasKeys will verify that the tested array does not contains any of the given 
 
 This asserter is dedicated to test the length of an array.
 
-It extends from the integer asserter : You can use every assertions of the integer asserter while testing the size of an array.
+It extends from the integer asserter : You can use every assertions of the integer asserter while
+testing the size of an array.
 
 ## object ##
 
 This is the asserter dedicated to object testing.
 
-It extends from the variable asserter : You can use every assertions of the variable asserter while testing an object.
+It extends from the variable asserter : You can use every assertions of the variable asserter while
+testing an object.
 
 ### isInstanceOf ###
 
-isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of a given type.
+isInstanceOf will tell if the tested object is an instance of a given interface and or a subclass of
+a given type.
 
     [php]
     $stdClass = new stdClass();
@@ -746,7 +783,8 @@ isInstanceOf will tell if the tested object is an instance of a given interface 
 
 ### hasSize ###
 
-hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable
+hasSize will check the size of an object. This assertion have sense mainly if your object implements
+the Countable
 interface.
 
 
@@ -772,13 +810,15 @@ This is the asserter dedicated to class definition testing.
 
 This is the asserter dedicated to the tested class definition testing.
 
-It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter while testing the tested class.
+It extends the phpClass (class) asserter : You can use every assertions of the phpClass asserter
+while testing the tested class.
 
 ## hash ##
 
 This is the asserter dedicated to the validation of hashing function results.
 
-It extends the string asserters : You can use every asertions of the string asserter while testing a hash.
+It extends the string asserters : You can use every asertions of the string asserter while testing a
+hash.
 
 ### isSha1 ###
 
@@ -818,7 +858,8 @@ This asserter is dedicated to error testing.
 
 This is the asserter dedicated to exception testing.
 
-It extends from the object asserter : You can use every assertions of the object asserter while testing exceptions.
+It extends from the object asserter : You can use every assertions of the object asserter while
+testing exceptions.
 
 atoum takes part of closures to test exceptions.
 
