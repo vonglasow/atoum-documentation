@@ -2029,6 +2029,115 @@ assertions ne passent pas avec succès.
 
 
 
+## Le mode loop
+
+Lorsqu'un développeur fait du développement piloté par les tests, il travaille de la manière
+suivante:
+
+- il commence par créer le test correspondant à ce qu'il veut développer ;
+- il exécute le test qu'il vient de créer ;
+- il écrit le code permettant au test de passer avec succès ;
+- il modifie ou complète son test et repart à l'étape 2.
+
+Concrètement, cela signifie qu'il doit:
+
+* créer son code dans son éditeur favori ;
+* quitter son éditeur pour utiliser une console afin d'exécuter son test ;
+* revenir à son éditeur pour écrire le code permettant au test de passer avec succès ;
+* revenir à la console afin de relancer l'exécution de son test ;
+* revenir à son éditeur afin de modifier ou compléter son test ;
+
+Il y a donc bien un cycle qui se répétera tant que la fonctionnalité n'aura pas été développé
+dans son intégralité.
+
+Cependant, ce cycle est complexe et impose de nombreux allers-retours entre plusieurs logiciels,
+ainsi que la saisie récurrente d'une même commande dans le terminal afin de lancer l'exécution des
+tests unitaires.
+
+atoum propose le mode "loop" disponible via les arguments -l ou --loop, qui permet au développeur de
+ne pas avoir à relancer manuellement les tests et permet donc de fluidifier le processus de
+développement.
+
+Dans ce mode, atoum commence par exécuter une première fois les tests qui lui sont demandés.
+
+Une fois les tests terminés, si les tests ont été passé avec succès par le code, atoum se met
+simplement en attente :
+
+    [shell]
+    php tests/units/classes/adapter.php -l
+    > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
+    > PHP path: /usr/local/bin/php
+    > PHP version:
+    => PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
+    => Copyright (c) 1997-2011 The PHP Group
+    => Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+    =>     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
+    > mageekguy\atoum\tests\units\adapter...
+    [S___________________________________________________________][1/1]
+    => Test duration: 0.02 second.
+    => Memory usage: 0.25 Mb.
+    > Total test duration: 0.02 second.
+    > Total test memory usage: 0.25 Mb.
+    > Code coverage value: 100.00%
+    > Running duration: 0.16 second.
+    Success (1 test, 0 method, 2 assertions, 0 error, 0 exception) !
+    Press <Enter> to reexecute, press any other key to stop...
+
+Si le développeur presse une autre touche que Enter, atoum se terminera.
+
+Dans le cas contraire, atoum ré-exécutera à nouveau les mêmes tests, sans que le développeur n'ait à
+faire une autre action.
+
+Dans le cas ou le code ne passe pas les tests avec succès, c'est à dire si des assertions ne sont
+pas vérifiées ou si il y a eu des erreurs ou des exceptions, atoum se met également en attente:
+
+    [shell]
+    php tests/units/classes/adapter.php -l
+    > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
+    > PHP path: /usr/local/bin/php
+    > PHP version:
+    => PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
+    => Copyright (c) 1997-2011 The PHP Group
+    => Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+    =>     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
+    > mageekguy\atoum\tests\units\adapter...
+    [F___________________________________________________________][1/1]
+    => Test duration: 0.00 second.
+    => Memory usage: 0.00 Mb.
+    > Total test duration: 0.00 second.
+    > Total test memory usage: 0.00 Mb.
+    > Running duration: 0.17 second.
+    Failure (1 test, 0 method, 1 failure, 0 error, 0 exception) !
+    > There is 1 failure:
+    => mageekguy\atoum\tests\units\adapter::test__call():
+    In file /Users/fch/Atoum/tests/units/classes/adapter.php on line 17, mageekguy\atoum\asserters\string::isEqualTo() failed: strings are not equals
+    -Reference
+    +Data
+    @@ -1 +1 @@
+    -string(13) "4ea0354cd717c"
+    +string(32) "19798c230d5462b3bdae194f364feffa"
+    Press <Enter> to reexecute, press any other key to stop...
+
+Tout comme dans le cas ou tout s'est bien passé, si le développeur presse une autre touche que
+Enter, atoum se terminera.
+
+Cependant, s'il presse la touche Enter, au lieu de rejouer les mêmes tests comme dans le cas ou les
+tests ont été passés avec succès, atoum n'exécutera que les tests en échec, au lieu de les rejouer
+dans leur intégralité.
+
+Le développeur pourra alors dépiler les problèmes et rejouer les tests en erreur autant de fois que
+nécessaire simplement en appuyant sur Enter.
+
+De plus, une fois que tous les tests en échec passeront à nouveau avec succès, atoum exécutera
+automatiquement la totalité de la suite de tests afin de détecter les éventuelles régressions
+introduite par la ou les corrections effectuées par le développeur.
+
+Bien évidemment, le mode "loop" ne prend en compte que
+[le ou les fichiers de tests unitaires lancés](#fichiers-excuter) par atoum.
+
+
+
+
 ## Le mode debug
 
 Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
