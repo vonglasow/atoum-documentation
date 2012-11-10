@@ -187,7 +187,91 @@ TODO
 
 ### Couverture du code
 
-TODO https://github.com/mageekguy/atoum/wiki/G%C3%A9n%C3%A9rer-le-rapport-de-couverture-du-code-au-format-HTML
+Par défaut, si PHP dispose de l'extension [Xdebug](http://xdebug.org), atoum indique en ligne de
+commande le taux de couverture du code par les tests venant d'être exécutés.
+
+Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans le cas contraire,
+il affiche le taux de couverture globale ainsi que celui de chaque méthode de la classe testée sous
+la forme la forme d'un pourcentage.
+
+    [shell]
+    # php tests/units/classes/template.php 
+    > atoum version DEVELOPMENT by Frederic Hardy (/Users/fch/Atoum)
+    > PHP path: /usr/local/bin/php
+    > PHP version:
+    => PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
+    => Copyright (c) 1997-2011 The PHP Group
+    => Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+    =>     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
+    > mageekguy\atoum\tests\units\template...
+    [SSSSSSSSSSSSSSSSSSSSSSSSSSS_________________________________][27/27]
+    => Test duration: 15.63 seconds.
+    => Memory usage: 8.25 Mb.
+    > Total test duration: 15.63 seconds.
+    > Total test memory usage: 8.25 Mb.
+    > Code coverage value: 92.52%
+    => Class mageekguy\atoum\template: 91.14%
+    ==> mageekguy\atoum\template::setWith(): 80.00%
+    ==> mageekguy\atoum\template::resetChildrenData(): 25.00%
+    ==> mageekguy\atoum\template::addToParent(): 0.00%
+    ==> mageekguy\atoum\template::unsetAttribute(): 0.00%
+    => Class mageekguy\atoum\template\data: 96.43%
+    ==> mageekguy\atoum\template\data::__toString(): 0.00%
+    > Running duration: 2.36 seconds.
+    Success (1 test, 27 methods, 485 assertions, 0 error, 0 exception) !
+
+Il est cependant possible d'obtenir une représentation plus précise du taux de couverture du code
+par les tests, sous la forme d'un rapport au format HTML.
+
+Pour l'obtenir, il suffit de se baser sur les modèles de fichiers de configuration inclus dans
+atoum.
+
+Si vous utliser l'archive PHAR, il faut les extraire en utilisant la commande suivante:
+
+    [php]
+    php mageekguy.atoum.phar -er /path/to/destination/directory
+
+Une fois l'extraction effectuée, vous devriez avoir dans le répertoire
+/path/to/destination/directory un répertoire nommé resources/configurations/runner.
+
+Dans le cas ou vous utilisez atoum avec un ([clone du dépôt github](#github) ou avec
+[composer](#composer), les modèles se trouvent dans /path/to/atoum/resources/configurations/runner
+
+Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration
+pour atoum nommé coverage.php.dist qu'il vous faudra copier à l'emplacement de votre choix, par
+exemple sous le nom coverage.php.
+
+Une fois la copie réalisée, il n'y a plus qu'à la modifier à l'aide de l'éditeur de votre choix afin
+de définir le répertoire dans lequel les fichiers HTML devront être générés ainsi que l'URL à partir
+de laquelle le rapport devra être accessible.
+
+Par exemple:
+
+    [php]
+    $coverageField = new atoum\report\fields\runner\coverage\html(
+        'Code coverage de mon projet',
+        '/path/to/destination/directory'
+    );
+
+    $coverageField->setRootUrl('http://url/of/web/site');
+
+**Note*: il est également possible de modifier le titre du rapport à l'aide du premier argument du
+constructeur de la classe mageekguy\atoum\report\fields\runner\coverage\html.
+
+Une fois tout cela effectué, il n'y a plus qu'à utiliser le fichier de configuration lors de
+l'exécution des tests, de la manière suivante:
+
+    [shell]
+    ./bin/atoum -c path/to/coverage.php -d tests/units
+
+Une fois les tests exécutés, atoum générera alors le rapport de couverture du code au format HTML
+dans le répertoire que vous aurez défini précédemment, et il sera lisible à l'aide du navigateur de
+votre choix.
+
+**Note**: le calcul du taux de couverture du code par les tests ainsi que la génération du rapport
+correspondant peuvent ralentir de manière notable l'exécution des tests.
+Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration
+correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
 
 ## Fichier de bootstrap
 
