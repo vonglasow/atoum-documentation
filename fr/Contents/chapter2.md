@@ -1223,6 +1223,32 @@ hasLength vérifie la taille d'une chaine de caractères.
             ->hasLength(20)     // échoue
     ;
 
+#### hasLengthGreaterThan
+
+hasLengthGreaterThan vérifie que la taille d'une chaine de caractères est plus grande qu'une valeur donnée.
+
+    [php]
+    $string = 'Hello world';
+
+    $this
+        ->string($string)
+            ->hasLengthGreaterThan(10)     // passe
+            ->hasLengthGreaterThan(20)     // échoue
+    ;
+
+#### hasLengthLessThan
+
+hasLengthLessThan vérifie que la taille d'une chaine de caractères est plus petite qu'une valeur donnée.
+
+    [php]
+    $string = 'Hello world';
+
+    $this
+        ->string($string)
+            ->hasLengthLessThan(20)     // passe
+            ->hasLengthLessThan(10)     // échoue
+    ;
+
 #### isEmpty
 
 isEmpty vérifie qu'une chaine de caractères est vide.
