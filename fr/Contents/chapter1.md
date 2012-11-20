@@ -392,3 +392,5 @@ suivante:
 
     [vim]
     :help atoum
+    
+### Ouvrir automatiquement les tests en échec
