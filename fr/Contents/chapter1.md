@@ -394,3 +394,77 @@ suivante:
     :help atoum
     
 ### Ouvrir automatiquement les tests en échec
+
+    [php]
+    <?php
+    use
+        mageekguy\atoum,
+        mageekguy\atoum\report\fields\runner\failures\execute\macos
+    ;
+
+    $script->addTestAllDirectory(__DIR__ . '/tests');
+
+    $cloverWriter = new atoum\writers\file('target/logs/atoum.coverage.xml');
+    $cloverReport = new atoum\reports\asynchronous\clover();
+    $cloverReport->addWriter($cloverWriter);
+
+    $xunitWriter = new atoum\writers\file('target/logs/atoum.xml');
+    $xunitReport = new atoum\reports\asynchronous\xunit();
+    $xunitReport->addWriter($xunitWriter);
+
+    $stdOutWriter = new atoum\writers\std\out();
+    $cliReport = new atoum\reports\realtime\cli();
+    $cliReport->addWriter($stdOutWriter);
+
+    $cliReport
+        //To use the PhpStorm failure field, you only need to instanciate it
+        //(if PhpStorm.app is installed in the /Applications directory)
+        ->addField(new macos\phpstorm())
+        //Otherwise, if it's not in /Applications, you'll have to set the path to the launcher
+        //->addField(new macos\phpstorm(/path/to/PhpStorm.app/Contents/MacOS/webide))
+        //To use other, more standards, fields you'll only have to instanciate them
+        //->addField(new macos\macvim())
+    ;
+
+    $runner
+        ->addReport($cliReport)
+        ->addReport($xunitReport)
+        ->addReport($cloverReport)
+    ;
+
+
+
+    [php]
+    <?php
+    use
+        mageekguy\atoum,
+        mageekguy\atoum\report\fields\runner\failures\execute\unix
+    ;
+
+    $script->addTestAllDirectory(__DIR__ . '/tests');
+
+    $cloverWriter = new atoum\writers\file('target/logs/atoum.coverage.xml');
+    $cloverReport = new atoum\reports\asynchronous\clover();
+    $cloverReport->addWriter($cloverWriter);
+
+    $xunitWriter = new atoum\writers\file('target/logs/atoum.xml');
+    $xunitReport = new atoum\reports\asynchronous\xunit();
+    $xunitReport->addWriter($xunitWriter);
+
+    $stdOutWriter = new atoum\writers\std\out();
+    $cliReport = new atoum\reports\realtime\cli();
+    $cliReport->addWriter($stdOutWriter);
+
+    $cliReport
+        //To use the PhpStorm failure field, you will need to set the path to the launcher
+        ->addField(new unix\phpstorm('/path/to/PhpStorm/bin/phpstorm.sh'))
+        //To use other, more standards, fields you'll only have to instanciate them
+        //->addField(new unix\gedit())
+        //->addField(new unix\gvim())
+    ;
+
+    $runner
+        ->addReport($cliReport)
+        ->addReport($xunitReport)
+        ->addReport($cloverReport)
+    ;
