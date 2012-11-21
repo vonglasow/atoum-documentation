@@ -15,23 +15,23 @@ vérifiez que deux appels successifs à la méthode testée sont bien identiques
 
 ## Utilisation dans behat
 
-TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-Behat
+TODO: https://github.com/atoum/atoum/wiki/atoum-et-Behat
 
 ## Utilisation dans Jenkins (ou Hudson)
 
-TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-Jenkins-(ou-Hudson)
+TODO: https://github.com/atoum/atoum/wiki/atoum-et-Jenkins-(ou-Hudson)
 
 ## Hook git
 
-TODO: https://github.com/mageekguy/atoum/wiki/atoum-et-Git
+TODO: https://github.com/atoum/atoum/wiki/atoum-et-Git
 
 ## Changer l'espace de nom par défaut
 
-TODO: https://github.com/mageekguy/atoum/wiki/Modifier-l'espace-de-nom-par-d%C3%A9faut-des-tests-unitaires
+TODO: https://github.com/atoum/atoum/wiki/Modifier-l'espace-de-nom-par-d%C3%A9faut-des-tests-unitaires
 
 ## Utilisation avec ezPublish 
 
-TODO: https://github.com/mageekguy/atoum/wiki/Utiliser-atoum-avec-eZ-publish
+TODO: https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish
 
 ## Utilisation avec Symfony 2
 

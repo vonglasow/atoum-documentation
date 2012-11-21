@@ -126,7 +126,7 @@ Créez, ensuite, un fichier composer.json contenant le JSON suivant:
     [json]
     {
         "require": {
-            "mageekguy/atoum": "dev-master"
+            "atoum/atoum": "dev-master"
         }
     }
 
@@ -140,7 +140,7 @@ Enfin, exécutez la commande suivante:
 
 Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez cloner ou forker le
 dépôt github:
-[git://github.com/mageekguy/atoum.git](git://github.com/mageekguy/atoum.git)
+[git://github.com/atoum/atoum.git](git://github.com/atoum/atoum.git)
 
 
 ### Plugin symfony 1

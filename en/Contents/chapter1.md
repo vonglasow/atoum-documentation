@@ -39,7 +39,7 @@ Then, create a file named composer.json who contains
     [json]
     {
         "require": {
-            "mageekguy/atoum": "dev-master"
+            "atoum/atoum": "dev-master"
         }
     }
 
@@ -51,7 +51,7 @@ And finally execute
 ### Github
 
 If you want to use atoum directly from it's sources, you can clone or fork its git repository on
-github : git://github.com/mageekguy/atoum.git
+github : git://github.com/atoum/atoum.git
 
 ### Using zend framework 2 component
 
