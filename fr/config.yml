@@ -60,3 +60,5 @@ book:
         website:
             extends:        web
             format:         html_chunked
+            toc:
+                deep:       2
