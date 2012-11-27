@@ -3,20 +3,23 @@
 atoum is a unit testing framework, like PHPUnit or SimpleTest.
 
 atoum distinguished itself as :
-*    It is modern and based on the last PHP versions
-*    It is quite simple and straightforward, with a very limited learning curve
-*    It is intuitive : its API wants to be as close as possible as a natural language
+
+* It is modern and based on the last PHP versions
+* It is quite simple and straightforward, with a very limited learning curve
+* It is intuitive : its API wants to be as close as possible as a natural language
 
 ## Download & Install ##
 
 For now, atoum is not tagged with a version number. If you want to use atoum, just download the last
 stable version. atoum aims to provide backward compatibility anyway.
 
-You can install atoum by 3 ways :
-*   As a PHAR archive
-*   Using composer
-*   Cloning github repository
-*   Using zend framework 2 component
+You can install atoum several ways :
+
+* [As a PHAR archive](#phar)
+* [Using composer](#composer)
+* [Using an install script](#installer)
+* [Cloning github repository](#github)
+* [Using zend framework 2 component](#using-zend-framework-2-component)
 
 ### PHAR
 

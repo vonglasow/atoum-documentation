@@ -16,10 +16,11 @@ utilisable.
 Si vous souhaitez utiliser atoum, il vous suffit de télécharger la dernière version.
 Malgré les évolutions constantes d'atoum, la rétro-compatibilité est une des priorités des développeurs.
 
-Vous pouvez installer atoum de 5 manières:
+Vous pouvez installer atoum de plusieurs manières:
 
 * [en téléchargeant l'archive PHAR](#archive-phar) ;
 * [en utilisant composer](#composer) ;
+* [en utilisant un script d'installation](#script-d-installation) ;
 * [en clonant le dépôt github](#github) ;
 * [en utilisant un plugin symfony 1](#plugin-symfony-1) ;
 * [en utilisant un bundle symfony 2](#bundle-symfony-2).
@@ -135,7 +136,7 @@ Enfin, exécutez la commande suivante:
     [shell]
     php composer.phar install
 
-### Installer
+### Script d'installation
 
 Vous pouvez installer atoum grâce à un [script](https://github.com/atoum/atoum-installer) dédié:
 
