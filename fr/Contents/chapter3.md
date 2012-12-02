@@ -508,7 +508,7 @@ Cette option vous permet de filtrer les classes et les méthodes en fonction des
     ./bin/atoum -ns mageekguy\\atoum\\tests\\units\\asserters
     ./bin/atoum --namespaces mageekguy\\atoum\\tests\\units\\asserters
 
-a**Note**: reportez-vous à la section sur les [filtres par espace de noms](#par-espace-de-noms) pour avoir plus
+**Note**: reportez-vous à la section sur les [filtres par espace de noms](#par-espace-de-noms) pour avoir plus
 d'informations.
 
 ### -p <file> / --php <file>
