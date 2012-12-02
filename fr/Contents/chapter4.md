@@ -75,6 +75,17 @@ Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant
 l'extension `.php` et dans des répertoires dont le chemin contient `/Tests/Units/`.
 Si ce n'est pas votre cas, vous devrez modifier le script suivant votre contexte.
 
+**Note**: dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour
+que le hook fonctionne.
+
+
+Les tests étant executés très rapidement avec atoum, on peut donc lancer l'ensemble
+des tests unitaires avant chaque commit avec un hook comme celui-ci :
+
+    [php]
+    #!/bin/sh
+    ./bin/atoum -d tests/
+
 ### Étape 2 : Ajout des droits d'exécution
 
 Pour être utilisable par Git, le fichier `.git/hook/pre-commit` doit être rendu
