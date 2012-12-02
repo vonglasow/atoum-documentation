@@ -393,7 +393,9 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 
 ## Utilisation avec symfony 1.4
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante: [https://github.com/atoum/sfAtoumPlugin](https://github.com/atoum/sfAtoumPlugin).
+Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le 
+plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante: 
+[https://github.com/atoum/sfAtoumPlugin](https://github.com/atoum/sfAtoumPlugin).
 
 ## Installation
 
@@ -411,7 +413,8 @@ Ajouter ceci dans le composer.json :
       "atoum/sfAtoumPlugin": "*"
     },
 
-Après avoir effectué un `php composer.phar update`, le plugin devrait se trouver dans le dossier plugins et atoum dans un dossier `vendor`.
+Après avoir effectué un `php composer.phar update`, le plugin devrait se trouver dans le dossier
+plugins et atoum dans un dossier `vendor`.
 
 Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le chemin d'atoum.
 
