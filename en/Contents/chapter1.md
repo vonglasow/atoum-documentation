@@ -19,27 +19,96 @@ You can install atoum several ways :
 * [Using composer](#composer)
 * [Using an install script](#installer)
 * [Cloning github repository](#github)
-* [Using zend framework 2 component](#using-zend-framework-2-component)
 * [Using a symfony 1.4 plugin](#using-the-symfony-14-plugin) ;
+* [Using a Symfony 2 Bundle](#symfony-2-bundle).
+* [Using zend framework 2 component](#using-zend-framework-2-component)
 
 
 ### PHAR
 
 atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5.3.
 
-You can download the latest stable version of atoum directly from the official website here :
-http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+#### Installation
+
+You can download the latest stable version of atoum directly from the official website :
+[http://downloads.atoum.org/nightly/mageekguy.atoum.phar](http://downloads.atoum.org/nightly/mageekguy.atoum.phar)
+
+#### Updating
+
+Updating atoum's PHAR is easy thanks to its command line tools :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+
+**Note**: To update atoum PHP needs to be able to update PHAR archives, wich is disable by default, reason why you have
+to specify the option "-d phar.readonly=0".
+
+If a newer version of atoum exists, it will be downloaded and installed in the archive itself :
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+    Checking if a new version is available... Done !
+    Update to version 'nightly-1568-201210311708'... Done !
+    Enable version 'nightly-1568-201210311708'... Done !
+    Atoum was updated to version 'nightly-1568-201210311708' successfully !
+
+If no newer version is available, atoum will just stop without doing anything.
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar --update
+    Checking if a new version is available... Done !
+    There is no new version available !
+
+atoum won't ask you for confirmation before proceeding to the update as it is very easy to go back to a previous version.
+
+#### Listing available versions of atoum in it's archive
+
+To show the list of atoum's version contained in its archive, you'll use the --list-available-versions (or the shorter
+-lav) argument.
+
+    [shell]
+    php mageekguy.atoum.phar -lav
+    nightly-941-201201011548
+    * nightly-1568-201210311708
+
+Available versions will be shown. The one prefixed with a "*" is active.
+
+#### Updating the current version
+
+To activate a different version of atoum, use the --enable-version (or the shorter -ev) argument with the name of the
+version you want to activate.
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
+
+**Note**: Updating the current version of atoum needs PHP to be able to update PHAR archives, wich is disable by
+default, reason why you have to specify the option "-d phar.readonly=0".
+
+#### Removing older versions
+
+If you want to remove unused older versions of atoum from your archive, use the --delete-version (or shorter -dv) argument
+followed by the name of the version you want to remove.
+
+    [shell]
+    php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
+
+The version will be removed
+
+**Note**: You cannot remove the active version
+
+**Note**: Removing a version of atoum needs PHP to be able to update PHAR archives, wich is disable by
+default, reason why you have to specify the option "-d phar.readonly=0".
 
 ### Composer
 
 [Composer](http://getcomposer.org/) is a tool for dependency management in PHP.
 
-To install atoum through composer, you must install composer
+Start by downloading and install composer
 
     [shell]
     curl -s https://getcomposer.org/installer | php
 
-Then, create a file named composer.json who contains 
+Then, create composer.json file containing
 
     [json]
     {
@@ -48,7 +117,7 @@ Then, create a file named composer.json who contains
         }
     }
 
-And finally execute 
+Finally execute
 
     [shell]
     php composer.phar install
@@ -77,18 +146,27 @@ Options are available and let you tweak the installation process : see the
 If you want to use atoum directly from it's sources, you can clone or fork its git repository on
 github : git://github.com/atoum/atoum.git
 
+### Symfony 1 plugin
+
+If you want to use atoum in a symfony 1 project, you can do so thanks to the
+[sfAtoumPlugin plugin](https://github.com/atoum/sfAtoumPlugin)
+
+Installation instructions are available [in the cookbook](#using-atoum-with-symfony-14) of on the project's page.
+
+### Symfony 2 bundle
+
+If you want to use atoum in a symfony 2 project, you can do so thanks to the
+[atoum Bundle](https://github.com/atoum/AtoumBundle).
+
+Installation instructions are available on the project's page.
+
 ### Using zend framework 2 component
 
-A library is available to use Atoum with zend framework 2. Documentation and exemples are available
+A library is available to use atoum with zend framework 2. Documentation and exemples are available
 at the following address :
 [https://github.com/blanchonvincent/zend-framework-test-atoum](https://github.com/blanchonvincent/zend-framework-test-atoum).
 
-### Using the symfony 1.4 plugin
-
-A plugin is available to use atoum with symfony 1.
-
-Documentation is available in [the cookbook](#usage-with-symfony-14).
-
+You'll find every installation instructions there.
 
 ## A quick overview of atoum's philosophy ##
 
@@ -110,9 +188,9 @@ be located in PROJECT_PATH/classes/HelloTheWorld.php
      */
     class HelloTheWorld
     {
-        public function getHiBob ()
+        public function getHiAtoum ()
         {
-            return "Hi Bob !";
+            return "Hi atoum !";
         }
     }
 
@@ -138,16 +216,16 @@ PROJECT_PATH/tests/HelloTheWorld.php
      */
     class HelloTheWorld extends atoum\test
     {
-        public function testGetHiBob ()
+        public function testGetHiAtoum ()
         {
             //new instance of the tested class
             $helloToTest = new \HelloTheWorld();
 
             $this->assert
-                        //we expect the getHiBob method to return a string
-                        ->string($helloToTest->getHiBob())
-                        //and the string should be Hi Bob !
-                        ->isEqualTo('Hi Bob !');
+                        //we expect the getHiAtoum method to return a string
+                        ->string($helloToTest->getHiAtoum())
+                        //and the string should be Hi atoum !
+                        ->isEqualTo('Hi atoum !');
         }
     }
 
@@ -176,7 +254,12 @@ You will see something like this
     > Running duration: 0.16 second.
     Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
 
-You're done, your code is rock solid !
+We've just test that the getHiAtoum method :
+
+* returns a string;
+* and that this string is the expected 'Hi atoum !' string.
+
+All tests passed. You're done, your code is rock solid !
 
 ### Rule of Thumb ###
 
@@ -184,300 +267,80 @@ The basics when you’re testing things using atoum are the following :
 *    Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
 *    Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).
 
-In the above example we tested that the method getHiBob
-*    did return a string (step 1),
-*    and that this string was equal to « Hi Bob ! » (step 2).
+## Using atoum with your favorite IDE
 
-### More asserters ###
+## Sublime Text 2
 
-There are of course a lot more asserters in atoum. To see the complete list, see chapter 2.
+A [SublimeText 2 plugin](https://github.com/toin0u/Sublime-atoum) enables you to launch tests and see their results
+directly from your IDE.
 
-Let's see with a quick class some more asserters in atoum !
+Required instructions to install the plugin are available through
+[the author's blog](http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/).
 
-First, the class to be tested, located in PROJECT_PATH/classes/BasicTypes.php.
+## VIM
 
-    [php]
-    <?php
-    class BasicTypes
-    {
-        public function getOne (){return 1;}
-        public function getTrue(){return true;}
-        public function getFalse(){return false;}
-        public function getHello(){return 'hello';}
-        public function create(){return new BasicTypes();}
-        public function getFloat(){return 1.1;}
-        public function getNull(){return null;}
-        public function getEmptyArray(){return array();}
-        public function getArraySizeOf3(){return range(0,2,1);}
-    }
+atoum is bundled with a plugin dedicated to VIM.
 
-Now the test class, located in PROJECT_PATH/tests/BasicTypes.php
+It enables you to launch tests staying in VIM, and to get the matching report in the editor's screen.
 
-    [php]
-    <?php //...
-    class BasicTypes extends atoum\test
-    {
-        public function testBoolean ()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->boolean($bt->getFalse())
-                        ->isFalse()//getFalse retourne bien false
-                    ->boolean($bt->getTrue())
-                        ->isTrue();//getTrue retourne bien true
-        }
+You can navigate through potential errors, directly going to the line where assertions failed thanks to matching
+key strokes.
 
-        public function testInteger ()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->integer($bt->getOne())
-                    ->isEqualTo(1)
-                    ->isGreaterThan(0);
-        }
+### Installing the VIM plugin
 
-        public function testString()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->string($bt->getHello())
-                    ->isNotEmpty()
-                    ->isEqualTo('hello');
-        }
+If you're not using the PHAR archive, you'll find the plugin in ressources/vim/atoum.vba.
 
-        public function testObject ()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->object($bt->create())
-                    ->isInstanceOf('BasicTypes')
-                    ->isNotIdenticalTo($bt);//Une nouvelle instance
-        }
+If you're using the PHAR archive, you can ask atoum to extract the file with the command line
 
-        public function testFloat()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->float($bt->getFloat())
-                    ->isEqualTo(1.1);
-        }
+    [shell]
+    php mageekguy.atoum.phar --extractRessourcesTo path/to/a/directory
 
-        public function testArray()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->array($bt->getArraySizeOf3())
-                        ->hasSize(3)
-                        ->isNotEmpty()
-                    ->array($bt->getEmptyArray())
-                        ->isEmpty();
-        }
+Once you got the atoum.vba file, use VIM to edit its content
 
-        public function testNull ()
-        {
-            $bt = new \BasicTypes();
-            $this->assert
-                    ->variable($bt->getNull())
-                    ->isNull();
-        }
-    }
+    [shell]
+    vim path/to/atoum.vba
 
-Here you are, you saw a complet and basic example of tests using atoum.
+And ask VIM to install the plugin with
 
-### Testing a Singleton ###
+    [vim]
+    :source %
 
-To test if your method always returns the same instance of the same object, you can ask atoum to
-check that the instances are identicals.
+### Using atoum and VIM
 
-    [php]
-    <?php //...
-    class Singleton extends atoum\test
-    {
-        public function testGetInstance()
-        {
-            $this->assert
-                    ->object(\Singleton::getInstance())
-                        ->isInstanceOf('Singleton')
-                        ->isIdenticalTo(\Singleton::getInstance());
-        }
-    }
+Of course to work properly the plugin needs to be correctly installed, and you're supposed to be editing a test case
+based on atoum.
 
-### Testing exceptions ###
+The following command line asks for tests execution:
 
-To test exceptions atoum is using closures (introduced in PHP 5.3).
+    [vim]
+    :Atoum
 
-    [php]
-    class ExceptionLauncher extends atoum\test
-    {
-        public function testLaunchException ()
-        {
-            $exception = new \ExceptionLauncher();
-            $this->assert
-                     ->exception(function()use($exception){
-                                    $exception->launchException();
-                                })
-                     ->isInstanceOf('LaunchedException')
-                     ->hasMessage('Message in the exception');
+Tests are launched and a report, based on your atoum configuration in ftplugin/php/atoum.vim of your .vim directory, is
+generated in a new screen.
 
-        }
-    }
+Feel free to link this command with a shortcut of your own. i.e. adding the following line to your .vimrc file :
 
-### Testing errors ###
+    [vim]
+    nnoremap *.php :Atoum
 
-Again, atoum is nicely using closure to test errors (NOTICE, WARNING, …) :
+The F12 function key will now trigger the :Atoum command.
 
-    [php]
-    class RaiseError extends atoum\test
-    {
-        public function testRaiseError ()
-        {
-            $error = new \RaiseError();
+### Managing configuration file for atoum
 
-            $this->assert->object($error);
-            $this->assert
-                     ->when(function()use($error){
-                            $error->raise();
-                     })
-                     ->error('This is an error', E_USER_WARNING)
-                        ->exists();
-                     //Sachant qu'il est possible de ne spécifier
-                     // ni message ni type attendu.
-        }
-    }
+You can specify another configuration file for atoum by adding the following line to your .vimrc file:
 
-### Testing using Mocks ###
+    [vim]
+    call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
 
-Mocks are of course supported by atoum !
-Generating a Mock from an interface
+The atoum#defineConfiguration function enables you to define the configuration file to use based on your unit test
+directory.
 
-atoum can generate a mock directly from an interface.
+Shoe accepts three arguments :
+* The path to the unit tests directory
+* The path to the atoum's configuration file to be considered
+* The extension of the unit test files that will be concerned.
 
-    [php]
-    class UsingWriter extends atoum\test
-    {
-        public function testWithMockedInterface ()
-        {
-            $this->mockGenerator->generate('\IWriter');
-            $mockIWriter = new \mock\IWriter;
+If you want to know more on the plugin, you can use the embedded help in VIM thanks to the following command :
 
-            $usingWriter = new \UsingWriter();
-            //La méthode setIWriter attends un objet
-            //qui implemente l'interface IWriter
-            //  (setIWriter (IWriter $writer))
-            $usingWriter->setIWriter($mockIWriter);
-
-            $this->assert
-                    ->when(function () use($usingWriter) {
-                                    $usingWriter->write('hello');
-                    })
-                    ->mock($mockIWriter)
-                        ->call('write')
-                        ->once();
-        }
-    }
-
-### Generating a Mock from a class ###
-
-atoum can generate a mock directly from a class definition.
-
-    [php]
-    public function testWithMockedObject ()
-    {
-        $this->mockGenerator->generate('\Writer');
-        $mockWriter = new \mock\Writer;
-
-        $usingWriter = new \UsingWriter();
-        //La méthode setWriter attends un objet
-        //de type Writer (setWriter (Writer $writer))
-        $usingWriter->setWriter($mockWriter);
-
-        $this->assert
-                ->when(function () use($usingWriter) {
-                                $usingWriter->write('hello');
-                })
-                ->mock($mockWriter)
-                    ->call('write')
-                    ->once();
-    }
-
-There is also a shorter syntax to generate mock from a class definition.
-
-    [php]
-    public function testWithMockedObject ()
-    {
-        $mockWriter = new \mock\Writer;
-
-        //...
-    }
-
-atoum is able to automatically find the class definition to mock on demand so you don't have to call
-the mock generator.
-
-When requesting a mock instance for a class, do not forget to specify the full class path (including
-namespaces).
-
-    [php]
-    namespace Package\Writers
-    {
-        class SampleWriter implements Writer
-        {
-            //...
-        }
-
-    }
-
-    namespace
-    {
-        class UsingWriter 
-        {
-            public function write(\Package\Writers\Writer $writer, $string) 
-            {
-                $writer->write($string);
-            }
-        }
-    }
-
-In this example, the class we want to mock lives in the Package\Writers namespace, so to request a
-mock in our test we should do :
-
-    [php]
-    namespace Package\test\units;
-
-    class UsingWriter extends atoum\test
-    {
-        public function testWrite()
-        {                     
-            $this
-                ->if($mockWriter = new \mock\Package\Writers\SampleWriter())
-                ->then()
-                    ->when(function() use($mockWriter) {
-                        $usingWriter = new \UsingWriter();
-                        $usingWriter->write($mockWriter, 'Hello World!');  
-                    })	
-                    ->mock($mockWriter)
-                        ->call('write')
-                        ->withArguments('Hello World!')
-                        ->once()
-            ;
-        }
-    }
-
-### Generating a Mock from scratch ###
-
-atoum can also let you create and completely specify a mock object.
-
-    [php]
-    $this->mockGenerator->generate('WriterFree');
-    $mockWriter = new \mock\WriterFree;
-    $mockWriter->getMockController()->write = function($text){};
-
-    $usingWriter = new \UsingWriter();
-    $usingWriter->setFreeWriter($mockWriter);
-
-    $this->assert
-            ->when(function () use($usingWriter) {
-                            $usingWriter->write('hello');
-            })
-            ->mock($mockWriter)
-                ->call('write')
-                ->once();
+    [vim]
+    :help atoum
