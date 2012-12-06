@@ -1770,7 +1770,8 @@ never vérifie que la méthode testée (voir [call](#call)) du mock testé n'a j
 
 ##### once/twice/thrice
 
-Ces assertions vérifient que la méthode testée (voir [call](#call)) du mock testé a été appelée exactement :
+Ces assertions vérifient que la méthode testée (voir [call](#call)) du mock testé a été appelée
+exactement :
 
 * une fois (once)
 * deux fois (twice)
@@ -1791,7 +1792,8 @@ Ces assertions vérifient que la méthode testée (voir [call](#call)) du mock t
                 ->thrice()
     ;
 
-**Note**: once, twice et thrice sont équivalents à un appel à [exactly](#exactly) auquel on passe le nombre d'appels attendu.
+**Note**: once, twice et thrice sont respectivement équivalents à un appel à [exactly](#exactly)(1),
+[exactly](#exactly)(2) et [exactly](#exactly)(3).
 
 ##### withArguments
 
