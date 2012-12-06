@@ -1,4 +1,6 @@
-# What is atoum ? #
+# Introduction #
+
+## What is atoum ? ##
 
 atoum is a unit testing framework, like PHPUnit or SimpleTest.
 
