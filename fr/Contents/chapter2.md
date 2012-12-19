@@ -1999,6 +1999,7 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé:
             ->mock($foo)
                 ->call('doOtherThing')
                     ->once()
+
         ->if($bar->setValue(uniqid())
         ->then
             ->mock($foo)
@@ -2010,8 +2011,10 @@ Le test précédent présente un inconvénient en terme de maintenance, car si l
 d'intercaler un ou plusieurs nouveaux appels à bar::doSomething() entre les deux appels déjà
 effectués, il sera obligé de mettre à jour en conséquence la valeur de l'argument passé à exactly().
 
-Pour remédier à ce problème, il est possible de recourir à la méthode resetCalls() du contrôleur du
-bouchon de la manière suivante:
+Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes:
+
+* soit en utilisant $mock->getMockController()->resetCalls() ;
+* soit en utilisant $this->resetMock($mock).
 
     [php]
     $this
@@ -2022,16 +2025,26 @@ bouchon de la manière suivante:
             ->mock($foo)
                 ->call('doOtherThing')
                     ->once()
+
+        // 1ère manière
         ->if($foo->getMockController()->resetCalls())
         ->and($bar->setValue(uniqid())
         ->then
             ->mock($foo)
                 ->call('doOtherThing')
                     ->once()
+
+        // 2ème manière
+        ->resetMock($foo)
+        ->if($bar->setValue(uniqid())
+        ->then
+            ->mock($foo)
+                ->call('doOtherThing')
+                    ->once()
     ;
 
-En effet, la méthode resetCalls() efface la mémoire du contrôleur et il est donc possible d'écrire
-l'assertion suivante comme si le bouchon n'avait jamais été utilisé.
+Ces méthodes effacent la mémoire du contrôleur, il est donc possible d'écrire l'assertion suivante
+comme si le bouchon n'avait jamais été utilisé.
 
 Le mot-clef assert permet de se passer de l'appel explicite à resetCalls() et de plus il provoque
 l'effacement de la mémoire de l'ensemble des adaptateurs et des contrôleurs de bouchon définis au
@@ -2051,6 +2064,7 @@ rôle des assertions suivantes:
                 ->mock($foo)
                     ->call('doOtherThing')
                         ->once()
+
         ->assert('Foo has a value')
             ->if($bar->setValue(uniqid())
             ->then
