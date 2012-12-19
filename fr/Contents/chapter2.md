@@ -2035,8 +2035,8 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
                     ->once()
 
         // 2ème manière
-        ->resetMock($foo)
-        ->if($bar->setValue(uniqid())
+        ->if($this->resetMock($foo))
+        ->and($bar->setValue(uniqid())
         ->then
             ->mock($foo)
                 ->call('doOtherThing')
