@@ -82,4 +82,3 @@ You can pass a configuration any atoum configuration, so for example, you can pa
 php symfony atoum:test -c config/atoum/hudson.php
 ]]]
 
-
