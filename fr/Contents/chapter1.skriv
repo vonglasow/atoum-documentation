@@ -66,7 +66,7 @@ atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser 
 
 ====Lister les versions contenues dans l'archive
 
-Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jours, il faut faire appel à l'argument ##--list-available-versions##, ou ##-lav## en version abrégée:
+Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jours, il faut faire appel à l'argument --list-available-versions, ou -lav en version abrégée:
 
 [[[shell
 php mageekguy.atoum.phar -lav
