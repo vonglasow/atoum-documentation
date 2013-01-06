@@ -1,0 +1,116 @@
+#! /usr/bin/env php
+<?php
+    foreach(array('fr') as $lang) {
+        foreach(glob(__DIR__ . "/../$lang/Contents/*.md") as $inputFile) {
+            // read file
+            writeln("Reading $inputFile");
+            $content = file_get_contents($inputFile);
+
+            // convert titles
+            $content = preg_replace('/^# /m',      '=',      $content);
+            $content = preg_replace('/^## /m',     '==',     $content);
+            $content = preg_replace('/^### /m',    '===',    $content);
+            $content = preg_replace('/^#### /m',   '====',   $content);
+            $content = preg_replace('/^##### /m',  '=====',  $content);
+            $content = preg_replace('/^###### /m', '======', $content);
+
+            // convert links
+            $content = preg_replace('/\[(.*)\]\((.*)\)/', '[[$1|$2]]', $content);
+
+            $content = preg_replace("#^<cite>(.*)</cite>\s*$\n^-- (.*)$#mU",                 ">$1\n>\n>##$2##\n",    $content);
+            $content = preg_replace("#^<cite>(.*)$\n^\s*</cite>\s*$\n^-- (.*)$#mU",          ">$1\n>\n>##$2##\n",    $content);
+            $content = preg_replace("#^<cite>(.*)$\n^\s*([^\s].*)</cite>\s*$\n^-- (.*)$#mU", ">$1 $2\n>\n>##$3##\n", $content);
+
+            // fusion truncated sentences
+            $content = preg_replace_callback('/^(.+)$\n^(.+)$/m', 'fusionCallback', $content);
+            $content = preg_replace_callback('/^(.+)$\n^(.+)$/m', 'fusionCallback', $content);  // 2 times
+
+            // Convert to monospace
+            do {
+                $oldContent = $content;
+                $content = preg_replace_callback('/^(.*)"(.+)"(.*)$/mU',               'monospacizeCallback', $content);
+                $content = preg_replace_callback('/^(.*)`(.+)`(.*)$/mU',               'monospacizeCallback', $content);
+            } while($oldContent != $content);
+            $content = str_replace('\##', '\\\\##', $content);
+
+
+            // convert code blocks
+            $content = str_replace("\t",     "    ", $content);
+            $content = str_replace("\r\n",   "\n",   $content);
+            $content = preg_replace('/^\s{4}$/m', '', $content);
+            $content = preg_replace('/^(\s{4}.*)$\n\n^(\s{4}.*)$/m', "$1\n    \n$2", $content);
+            $content = preg_replace('/^(\s{4}.*)$\n\n^(\s{4}.*)$/m', "$1\n    \n$2", $content); // 2 times... i don't know why
+            $content = preg_replace('/^$\n^\s{4}\[(.*)\]/m', "\n[[[$1", $content);
+            $content = preg_replace('/^(\s{4}.*)$\n\n/m', "$1\n]]]\n\n", $content);
+            $content = preg_replace('/^\s{4}(.*)$/m', "$1", $content);
+            $content = str_replace("[[[bash", "[[[shell", $content);
+
+            // convert note
+            $content = preg_replace('/^\*Note\*\*: (.*)$/m',   "{{{info\n$1\n}}}", $content);
+            $content = preg_replace('/^\*\*Note\*\*: (.*)$/m', "{{{info\n$1\n}}}", $content);
+            $content = preg_replace('/^\*\*NOTE\*\*: (.*)$/m', "{{{info\n$1\n}}}", $content);
+            $content = preg_replace('/^TODO$/m', "{{{todo\nWe need help to write this section !\n}}}", $content);
+            $content = preg_replace('/^TODO: (.*)$/m', "{{{todo\nWe need help to write this section !\n([[$1]])\n}}}", $content);
+
+            // delete empty line before list
+            $content = str_replace("\n\n* ", "\n* ", $content);
+
+            // fix misc
+            $content = preg_replace('/([\s])\*(.*)\*([\s,])/', '$1$2$3', $content);
+            $content = str_replace('de*hook',           'de hook',          $content);
+            $content = str_replace("par\n exemple",     'par exemple',      $content);
+            $content = str_replace('zend framework',    'Zend Framework',   $content);
+            $content = str_replace('symfony 2',         'Symfony 2',        $content);
+
+            // write file
+            $outputFile = __DIR__ . "/../$lang/Contents/" . str_replace('.md', '.skriv', basename($inputFile));
+            file_put_contents(
+                $outputFile,
+                $content
+            );
+            writeln("Writing $outputFile");
+        }
+    }
+
+
+
+    function monospacizeCallback($matches) {
+        if(substr($matches[0], 0, 4) == '    '
+        || substr($matches[1], 0, 1) == '#') {
+            return $matches[0];
+        }
+        else {
+            return $matches[1] . '##' . $matches[2] . '##' . $matches[3];
+        }
+    }
+
+    function fusionCallback($matches) {
+        if(substr($matches[2], 0, 2) == '* '
+        || substr($matches[1], 0, 4) == '    '
+        || substr($matches[2], 0, 4) == '    '
+        || substr($matches[2], 0, 1) == '>'
+        ) {
+            return $matches[0];
+        }
+        else {
+            return $matches[1] . ' ' . $matches[2];
+        }
+    }
+
+    function writeln() {
+        $args = func_get_args();
+
+        if(!isset($args[0])) {
+            $args[0] = '';
+        }
+
+        $args[0] .= PHP_EOL;
+
+        call_user_func_array('write', $args);
+    }
+
+    function write() {
+        $args = func_get_args();
+
+        vprintf($args[0], array_slice($args, 1));
+    }
