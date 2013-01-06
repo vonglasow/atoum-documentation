@@ -1,5 +1,32 @@
 #! /usr/bin/env php
 <?php
+    // detect links
+    $links = array();
+
+    foreach(array('fr') as $lang) {
+        foreach(glob(__DIR__ . "/../$lang/Contents/*.md") as $inputFile) {
+            $content = file_get_contents($inputFile);
+
+            // fix links
+            preg_match_all('/^#{1,6}\s*(.*)$/m', $content, $matches);
+            foreach(array_keys($matches[0]) as $match) {
+                $url = trim(
+                    preg_replace(
+                        '/[^a-zA-Z0-9\-_\.]/',
+                        '-',
+                        iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $matches[1][$match])
+                    ),
+                    '-'
+                );
+                
+                $links[strtolower($url)] = array(
+                    'url'  => $url,
+                    'page' => basename($inputFile, '.md')
+                );
+            }
+        }
+    }
+
     foreach(array('fr') as $lang) {
         foreach(glob(__DIR__ . "/../$lang/Contents/*.md") as $inputFile) {
             // read file
@@ -15,8 +42,38 @@
             $content = preg_replace('/^###### /m', '======', $content);
 
             // convert links
-            $content = preg_replace('/\[(.*)\]\((.*)\)/', '[[$1|$2]]', $content);
+            $content = preg_replace('/\[(.*)\]\((.*)\)/U', '[[$1|$2]]', $content);
 
+            // fix links
+            $currentPage = basename($inputFile, '.md');
+            $content = preg_replace_callback(
+                '/\[\[(.*)\|#(.*)\]\]/U',
+                function($matches) use($links, $currentPage) {
+                    if($matches[2] == 'script-dinstallation') {
+                        $matches[2] = 'script-d-installation';
+                    }
+
+                    if($matches[2] == 'utilisation-avec-symfony-14') {
+                        $matches[2] = 'utilisation-avec-symfony-1.4';
+                    }
+
+                    if(isset($links[$matches[2]])) {
+                        return sprintf(
+                            '[[%s|%s]]',
+                            $matches[1],
+                            $currentPage == $links[$matches[2]]['page']
+                                ? '#' . $links[$matches[2]]['url']
+                                : $links[$matches[2]]['page'] . '.html#' . $links[$matches[2]]['url']
+                        );
+                    }
+                    else {
+                        var_dump($matches);
+                    }
+                },
+                $content
+            );
+
+            // convert citations
             $content = preg_replace("#^<cite>(.*)</cite>\s*$\n^-- (.*)$#mU",                 ">$1\n>\n>##$2##\n",    $content);
             $content = preg_replace("#^<cite>(.*)$\n^\s*</cite>\s*$\n^-- (.*)$#mU",          ">$1\n>\n>##$2##\n",    $content);
             $content = preg_replace("#^<cite>(.*)$\n^\s*([^\s].*)</cite>\s*$\n^-- (.*)$#mU", ">$1 $2\n>\n>##$3##\n", $content);
@@ -28,8 +85,11 @@
             // Convert to monospace
             do {
                 $oldContent = $content;
-                $content = preg_replace_callback('/^(.*)"(.+)"(.*)$/mU',               'monospacizeCallback', $content);
-                $content = preg_replace_callback('/^(.*)`(.+)`(.*)$/mU',               'monospacizeCallback', $content);
+                $content = preg_replace_callback('/^(.*)"(.+)"(.*)$/mU', 'monospacizeCallback', $content);
+                $content = preg_replace_callback('/^(.*)`(.+)`(.*)$/mU', 'monospacizeCallback', $content);
+                // $content = preg_replace_callback('/^()([a-zA-Z]+[A-Z]+[a-zA-Z]+)( .*)$/mU', 'monospacizeCallback', $content);
+                // $content = preg_replace_callback('/^(.* )([a-zA-Z]+[A-Z]+[a-zA-Z]+)( .*)$/mU', 'monospacizeCallback', $content);
+                // $content = preg_replace_callback('/^(.* )([a-zA-Z]+[A-Z]+[a-zA-Z]+)()$/mU', 'monospacizeCallback', $content);
             } while($oldContent != $content);
             $content = str_replace('\##', '\\\\##', $content);
 
@@ -61,6 +121,7 @@
             $content = str_replace("par\n exemple",     'par exemple',      $content);
             $content = str_replace('zend framework',    'Zend Framework',   $content);
             $content = str_replace('symfony 2',         'Symfony 2',        $content);
+            $content = str_replace('symfony-2',         'Symfony-2',        $content);
 
             // write file
             $outputFile = __DIR__ . "/../$lang/Contents/" . str_replace('.md', '.skriv', basename($inputFile));
