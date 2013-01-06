@@ -1,0 +1,206 @@
+=Introduction #  ==What is atoum ? ## 
+atoum is a unit testing framework, like PHPUnit or SimpleTest.  atoum distinguished itself as : 
+* It is modern and based on the last PHP versions
+* It is quite simple and straightforward, with a very limited learning curve
+* It is intuitive : its API wants to be as close as possible as a natural language  ==Download & Install ## 
+For now, atoum is not tagged with a version number. If you want to use atoum, just download the last stable version. atoum aims to provide backward compatibility anyway.  You can install atoum several ways :
+* [[As a PHAR archive|#PHAR]]
+* [[Using composer|#Composer]]
+* [[Using an install script|#Installer]]
+* [[Cloning github repository|#Github]]
+*  ;
+* [[Using a Symfony 2 Bundle|#Symfony-2-bundle]].
+* [[Using Zend Framework 2 component|#Using-zend-framework-2-component]]
+===PHAR 
+atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5.3.  ====Installation 
+You can download the latest stable version of atoum directly from the official website : [[http://downloads.atoum.org/nightly/mageekguy.atoum.phar|http://downloads.atoum.org/nightly/mageekguy.atoum.phar]]  ====Updating
+ Updating atoum's PHAR is easy thanks to its command line tools : 
+[shell]
+php -d phar.readonly=0 mageekguy.atoum.phar --update
+ **Note**: To update atoum PHP needs to be able to update PHAR archives, wich is disable by default, reason why you have to specify the option ##-d phar.readonly=0##.
+ If a newer version of atoum exists, it will be downloaded and installed in the archive itself : 
+[shell]
+php -d phar.readonly=0 mageekguy.atoum.phar --update
+Checking if a new version is available... Done !
+Update to version 'nightly-1568-201210311708'... Done !
+Enable version 'nightly-1568-201210311708'... Done !
+Atoum was updated to version 'nightly-1568-201210311708' successfully !
+ If no newer version is available, atoum will just stop without doing anything. 
+[shell]
+php -d phar.readonly=0 mageekguy.atoum.phar --update
+Checking if a new version is available... Done !
+There is no new version available !
+ atoum won't ask you for confirmation before proceeding to the update as it is very easy to go back to a previous version.  ====Listing available versions of atoum in it's archive
+ To show the list of atoum's version contained in its archive, you'll use the --list-available-versions (or the shorter -lav) argument. 
+[shell]
+php mageekguy.atoum.phar -lav
+nightly-941-201201011548
+* nightly-1568-201210311708
+ Available versions will be shown. The one prefixed with a ##*## is active.  ====Updating the current version
+ To activate a different version of atoum, use the --enable-version (or the shorter -ev) argument with the name of the version you want to activate. 
+[shell]
+php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
+ **Note**: Updating the current version of atoum needs PHP to be able to update PHAR archives, wich is disable by default, reason why you have to specify the option ##-d phar.readonly=0##. 
+====Removing older versions  If you want to remove unused older versions of atoum from your archive, use the --delete-version (or shorter -dv) argument followed by the name of the version you want to remove.
+
+[[[shell
+php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
+]]]
+
+The version will be removed  **Note**: You cannot remove the active version 
+{{{info
+Removing a version of atoum needs PHP to be able to update PHAR archives, wich is disable by default, reason why you have to specify the option ##-d phar.readonly=0##.  ===Composer
+}}}
+ [[Composer|http://getcomposer.org/]] is a tool for dependency management in PHP.  Start by downloading and install composer
+
+[[[shell
+curl -s https://getcomposer.org/installer | php
+]]]
+
+Then, create composer.json file containing 
+[json]
+{
+    "require": {
+        "atoum/atoum": "dev-master"
+    }
+}
+ Finally execute
+
+[[[shell
+php composer.phar install
+]]]
+
+===Installer  You will also be able to install atoum with it's dedicated [[script|https://github.com/atoum/atoum-installer]]: 
+[shell]
+curl https://raw.github.com/atoum/atoum-installer/master/installer | php -- --phar
+php mageekguy.atoum.phar -v
+atoum version nightly-xxxx-yyyymmddhhmm by Frédéric Hardy (phar:///path/to/mageekguy.atoum.phar)
+ This script lets you install atoum locally (in a project, see the previous example) or as a system-wide utility: 
+[shell]
+curl https://raw.github.com/atoum/atoum-installer/master/installer | sudo php -- --phar --global
+which atoum
+/usr/local/bin/atoum
+ Options are available and let you tweak the installation process : see the [[documentation|https://github.com/atoum/atoum-installer/blob/master/README.md]] for more details.
+ ===Github  If you want to use atoum directly from it's sources, you can clone or fork its git repository on
+github : git://github.com/atoum/atoum.git  ===Symfony 1 plugin 
+If you want to use atoum in a symfony 1 project, you can do so thanks to the [[sfAtoumPlugin plugin|https://github.com/atoum/sfAtoumPlugin]]  Installation instructions are available  of on the project's page.
+ ===Symfony 2 bundle  If you want to use atoum in a Symfony 2 project, you can do so thanks to the
+[[atoum Bundle|https://github.com/atoum/AtoumBundle]].  Installation instructions are available on the project's page. 
+===Using Zend Framework 2 component  A library is available to use atoum with Zend Framework 2. Documentation and exemples are available at the following address :
+[[https://github.com/blanchonvincent/zend-framework-test-atoum|https://github.com/blanchonvincent/zend-framework-test-atoum]].  You'll find every installation instructions there. 
+==A quick overview of atoum's philosophy ##  ===Very basic example ### 
+atoum wants you to write a test class for each class you want to test. As an example, if you want to test the famous HelloTheWorld class, you'll have to write the test\units\HelloTheWorld test class.  NOTE : atoum is, of course, namespace aware. As an example, to test the Hello\The\World class,
+you'll write the \Hello\The\tests\units\World class.  Here is the code of your HelloTheWorld class that we'll be using as a first example. This class will be located in PROJECT_PATH/classes/HelloTheWorld.php
+
+[[[php
+<?php
+/**
+ * The class to be tested
+ */
+class HelloTheWorld
+{
+    public function getHiAtoum ()
+    {
+        return "Hi atoum !";
+    }
+}
+]]]
+
+Now, let's write our first test class. This class will be located in PROJECT_PATH/tests/HelloTheWorld.php 
+[php]
+<?php
+//Your test classes are in a dedicated namespace
+namespace tests\units;
+
+//You have to include your tested class
+require_once __DIR__.'/../classes/HelloTheWorld.php';
+
+//You now include atoum, using it’s phar archive
+require_once __DIR__.'/atoum/mageekguy.atoum.phar';
+
+use \mageekguy\atoum;
+
+/**
+ * Test class for \HelloTheWorld
+ * Test classes extends from atoum\test
+ */
+class HelloTheWorld extends atoum\test
+{
+    public function testGetHiAtoum ()
+    {
+        //new instance of the tested class
+        $helloToTest = new \HelloTheWorld();
+
+        $this->assert
+                    //we expect the getHiAtoum method to return a string
+                    ->string($helloToTest->getHiAtoum())
+                    //and the string should be Hi atoum !
+                    ->isEqualTo('Hi atoum !');
+    }
+}
+ Now, let's launch the tests
+
+[[[shell
+php -f ./test/HelloTheWorld.php
+]]]
+
+You will see something like this 
+[bash]
+> atoum version nightly-941-201201011548 by Frédéric Hardy (phar:///home/documentation/projects/tests/atoum/mageekguy.atoum.phar/1)
+> PHP path: /usr/bin/php5
+> PHP version:
+=> PHP 5.3.6-13ubuntu3.3 with Suhosin-Patch (cli) (built: Dec 13 2011 18:37:10)
+=> Copyright (c) 1997-2011 The PHP Group
+=> Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+=>     with Xdebug v2.1.2, Copyright (c) 2002-2011, by Derick Rethans
+> tests\units\HelloTheWorld...
+[S___________________________________________________________][1/1]
+=> Test duration: 0.01 second.
+=> Memory usage: 0.00 Mb.
+> Total test duration: 0.01 second.
+> Total test memory usage: 0.00 Mb.
+> Code coverage value: 100.00%
+> Running duration: 0.16 second.
+Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
+ We've just test that the getHiAtoum method : 
+* returns a string;
+* and that this string is the expected 'Hi atoum !' string.
+ All tests passed. You're done, your code is rock solid !  ===Rule of Thumb ###
+ The basics when you’re testing things using atoum are the following :
+*    Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
+*    Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).  ==Using atoum with your favorite IDE
+ ==Sublime Text 2  A [[SublimeText 2 plugin|https://github.com/toin0u/Sublime-atoum]] enables you to launch tests and see their results
+directly from your IDE.  Required instructions to install the plugin are available through [[the author's blog|http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/]].
+ ==VIM  atoum is bundled with a plugin dedicated to VIM.
+ It enables you to launch tests staying in VIM, and to get the matching report in the editor's screen.  You can navigate through potential errors, directly going to the line where assertions failed thanks to matching
+key strokes.  ===Installing the VIM plugin 
+If you're not using the PHAR archive, you'll find the plugin in ressources/vim/atoum.vba.  If you're using the PHAR archive, you can ask atoum to extract the file with the command line 
+[shell]
+php mageekguy.atoum.phar --extractRessourcesTo path/to/a/directory
+ Once you got the atoum.vba file, use VIM to edit its content 
+[shell]
+vim path/to/atoum.vba
+ And ask VIM to install the plugin with 
+[vim]
+:source %
+ ===Using atoum and VIM  Of course to work properly the plugin needs to be correctly installed, and you're supposed to be editing a test case
+based on atoum.  The following command line asks for tests execution: 
+[vim]
+:Atoum
+ Tests are launched and a report, based on your atoum configuration in ftplugin/php/atoum.vim of your .vim directory, is generated in a new screen. 
+Feel free to link this command with a shortcut of your own. i.e. adding the following line to your .vimrc file : 
+[vim]
+nnoremap *.php :Atoum
+ The F12 function key will now trigger the :Atoum command.
+ ===Managing configuration file for atoum  You can specify another configuration file for atoum by adding the following line to your .vimrc file:
+
+[[[vim
+call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
+]]]
+
+The atoum#defineConfiguration function enables you to define the configuration file to use based on your unit test directory.  Shoe accepts three arguments :
+* The path to the unit tests directory
+* The path to the atoum's configuration file to be considered
+* The extension of the unit test files that will be concerned.  If you want to know more on the plugin, you can use the embedded help in VIM thanks to the following command : 
+[vim]
+:help atoum

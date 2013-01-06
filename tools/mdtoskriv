@@ -3,7 +3,7 @@
     // detect links
     $links = array();
 
-    foreach(array('fr') as $lang) {
+    foreach(array('fr', 'en') as $lang) {
         foreach(glob(__DIR__ . "/../$lang/Contents/*.md") as $inputFile) {
             $content = file_get_contents($inputFile);
 
@@ -25,9 +25,7 @@
                 );
             }
         }
-    }
 
-    foreach(array('fr') as $lang) {
         foreach(glob(__DIR__ . "/../$lang/Contents/*.md") as $inputFile) {
             // read file
             writeln("Reading $inputFile");
