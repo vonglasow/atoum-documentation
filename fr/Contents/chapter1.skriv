@@ -66,7 +66,7 @@ atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser 
 
 ====Lister les versions contenues dans l'archive
 
-Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jours, il faut faire appel à l'argument --list-available-versions, ou -lav en version abrégée:
+Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jours, il faut faire appel à l'argument ##\--list-available-versions##, ou ##-lav## en version abrégée:
 
 [[[shell
 php mageekguy.atoum.phar -lav
@@ -119,7 +119,7 @@ Commencer par installer composer
 curl -s https://getcomposer.org/installer | php
 ]]]
 
-Créez, ensuite, un fichier composer.json contenant le JSON suivant: 
+Créez, ensuite, un fichier composer.json contenant le JSON suivant:
 
 [[[json
 {
@@ -442,11 +442,11 @@ $stdOutWriter = new atoum\writers\std\out();
 $cliReport = new atoum\reports\realtime\cli();
 $cliReport->addWriter($stdOutWriter);
 
-$cliReport 
-    // Si PhpStorm est installé dans /Applications       
+$cliReport
+    // Si PhpStorm est installé dans /Applications
     ->addField(new macos\phpstorm())
 
-    // Si vous avez installé PhpStorm 
+    // Si vous avez installé PhpStorm
     // dans un dossier différent de /Applications
     // ->addField(new macos\phpstorm(/path/to/PhpStorm.app/Contents/MacOS/webide))
 ;
@@ -469,7 +469,7 @@ $stdOutWriter = new atoum\writers\std\out();
 $cliReport = new atoum\reports\realtime\cli();
 $cliReport->addWriter($stdOutWriter);
 
-$cliReport        
+$cliReport
     ->addField(new unix\phpstorm('/chemin/vers/PhpStorm/bin/phpstorm.sh'))
 ;
 
