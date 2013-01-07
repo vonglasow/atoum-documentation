@@ -8,7 +8,7 @@ C'est l'assertion de base de toutes les variables. Elle contient les tests néce
 
 ====isCallable
 
-isCallable vérifie que la variable peut être appelée comme fonction.
+##isCallable## vérifie que la variable peut être appelée comme fonction.
 
 [[[php
 $f = function() {
