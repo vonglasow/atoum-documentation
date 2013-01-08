@@ -32,7 +32,7 @@ $this
 
 ====isEqualTo
 
-isEqualTo vérifie que la variable est égale à une certaine donnée.
+##isEqualTo## vérifie que la variable est égale à une certaine donnée.
 
 [[[php
 $a = 'a';
@@ -44,12 +44,12 @@ $this
 ]]]
 
 {{{info
-isEqualTo ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [[isIdenticalTo|#isIdenticalTo]].
+##isEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [[isIdenticalTo|#isIdenticalTo]].
 }}}
 
 ====isIdenticalTo
 
-isIdenticalTo vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, isIdenticalTo vérifie que les données pointent sur la même instance.
+##isIdenticalTo## vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, isIdenticalTo vérifie que les données pointent sur la même instance.
 
 [[[php
 $a = '1';
@@ -71,12 +71,12 @@ $this
 ]]]
 
 {{{info
-isIdenticalTo teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [[isEqualTo|#isEqualTo]].
+##isIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [[isEqualTo|#isEqualTo]].
 }}}
 
 ====isNotCallable
 
-isNotCallable vérifie que la variable ne peut pas être appelée comme fonction.
+##isNotCallable## vérifie que la variable ne peut pas être appelée comme fonction.
 
 [[[php
 $f = function() {
@@ -99,7 +99,7 @@ $this
 
 ====isNotEqualTo
 
-isNotEqualTo vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
+##isNotEqualTo## vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
 
 [[[php
 $a       = 'a';
@@ -116,12 +116,12 @@ $this
 ]]]
 
 {{{info
-isNotEqualTo ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [[isNotIdenticalTo|#isNotIdenticalTo]].
+##isNotEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [[isNotIdenticalTo|#isNotIdenticalTo]].
 }}}
 
 ====isNotIdenticalTo
 
-isNotIdenticalTo vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine donnée.
+##isNotIdenticalTo## vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine donnée.
 
 Dans le cas d'objets, isNotIdenticalTo vérifie que les données ne pointent pas sur la même instance.
 
@@ -145,12 +145,12 @@ $this
 ]]]
 
 {{{info
-isNotIdenticalTo teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [[isNotEqualTo|#isNotEqualTo]].
+##isNotIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez [[isNotEqualTo|#isNotEqualTo]].
 }}}
 
 ====isNull
 
-isNull vérifie que la variable est nulle.
+##isNull## vérifie que la variable est nulle.
 
 [[[php
 $emptyString = '';
@@ -167,7 +167,7 @@ $this
 
 ====isNotNull
 
-isNotNull vérifie que la variable n'est pas nulle.
+##isNotNull## vérifie que la variable n'est pas nulle.
 
 [[[php
 $emptyString = '';
@@ -198,7 +198,7 @@ null n'est pas considéré comme un booléen. Reportez vous au manuel PHP pour v
 
 ====isFalse
 
-isFalse vérifie que le booléen est strictement égal à false.
+##isFalse## vérifie que le booléen est strictement égal à false.
 
 [[[php
 $true  = true;
@@ -215,7 +215,7 @@ $this
 
 ====isTrue
 
-isTrue vérifie que le booléen est strictement égal à true.
+##isTrue## vérifie que le booléen est strictement égal à true.
 
 [[[php
 $true  = true;
@@ -246,7 +246,7 @@ null n'est pas considéré comme un entier. Reportez vous au manuel PHP pour voi
 
 ====isGreaterThan
 
-isGreaterThan vérifie que l'entier est strictement supérieur à une certaine donnée.
+##isGreaterThan## vérifie que l'entier est strictement supérieur à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -261,7 +261,7 @@ $this
 
 ====isGreaterThanOrEqualTo
 
-isGreaterThanOrEqualTo vérifie que l'entier est supérieur ou égal à une certaine donnée.
+##isGreaterThanOrEqualTo## vérifie que l'entier est supérieur ou égal à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -276,7 +276,7 @@ $this
 
 ====isLessThan
 
-isLessThan vérifie que l'entier est strictement inférieur à une certaine donnée.
+##isLessThan## vérifie que l'entier est strictement inférieur à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -291,7 +291,7 @@ $this
 
 ====isLessThanOrEqualTo
 
-isLessThanOrEqualTo vérifie que l'entier est inférieur ou égal à une certaine donnée.
+##isLessThanOrEqualTo## vérifie que l'entier est inférieur ou égal à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -306,7 +306,7 @@ $this
 
 ====isZero
 
-isZero vérifie que l'entier est égal à 0.
+##isZero## vérifie que l'entier est égal à 0.
 
 [[[php
 $zero    = 0;
@@ -322,7 +322,7 @@ $this
 ]]]
 
 {{{info
-isZero est équivalent à isEqualTo(0).
+##isZero## est équivalent à isEqualTo(0).
 }}}
 
 
@@ -341,7 +341,7 @@ null n'est pas considéré comme un nombre décimal. Reportez vous au manuel PHP
 
 ====isNearlyEqualTo
 
-isNearlyEqualTo vérifie que le décimal est suffisament égal à une certaine donnée.
+##isNearlyEqualTo## vérifie que le décimal est suffisament égal à une certaine donnée.
 
 En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
 
@@ -409,7 +409,7 @@ null n'est pas considéré comme un objet. Reportez vous au manuel PHP pour voir
 
 ====hasSize
 
-hasSize vérifie la taille d'un objet qui implémente l'interface Countable.
+##hasSize## vérifie la taille d'un objet qui implémente l'interface Countable.
 
 [[[php
 $countableObject = new GlobIterator('*');
@@ -422,7 +422,7 @@ $this
 
 ====isCloneOf
 
-isCloneOf vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
+##isCloneOf## vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
 
 [[[php
 $object1 = new \StdClass;
@@ -445,7 +445,7 @@ pour avoir plus de précision sur la comparaison d'objet, reportez vous au [[man
 
 ====isEmpty
 
-isEmpty vérifie que la taille d'un objet implémentant l'interface Countable est égale à 0.
+##isEmpty## vérifie que la taille d'un objet implémentant l'interface Countable est égale à 0.
 
 [[[php
 $countableObject = new GlobIterator('atoum.php');
@@ -457,12 +457,12 @@ $this
 ]]]
 
 {{{info
-isEmpty est équivalent à hasSize(0).
+##isEmpty## est équivalent à hasSize(0).
 }}}
 
 ====isInstanceOf
 
-isInstanceOf vérifie qu'un objet est:
+##isInstanceOf## vérifie qu'un objet est:
 * une instance de la classe donnée,
 * une sous-classe de la classe donnée (abstraite ou non),
 * une instance d'une classe qui implémente l'interface donnée.
@@ -528,7 +528,7 @@ Si vous essayez de tester une variable qui n'est pas un objet DateInterval (ou u
 
 ====isEqualTo
 
-isEqualTo vérifie que la durée de l'objet DateInterval est égale à la durée d'un autre objet DateInterval.
+##isEqualTo## vérifie que la durée de l'objet DateInterval est égale à la durée d'un autre objet DateInterval.
 
 [[[php
 $di = new DateInterval('P1D');
@@ -542,7 +542,7 @@ $this
 
 ====isGreaterThan
 
-isGreaterThan vérifie que la durée de l'objet DateInterval est supérieure à la durée d'un autre objet DateInterval.
+##isGreaterThan## vérifie que la durée de l'objet DateInterval est supérieure à la durée d'un autre objet DateInterval.
 
 [[[php
 $di = new DateInterval('P2D');
@@ -556,7 +556,7 @@ $this
 
 ====isGreaterThanOrEqualTo
 
-isGreaterThanOrEqualTo vérifie que la durée de l'objet DateInterval est supérieure ou égale à la durée d'un autre objet DateInterval.
+##isGreaterThanOrEqualTo## vérifie que la durée de l'objet DateInterval est supérieure ou égale à la durée d'un autre objet DateInterval.
 
 [[[php
 $di = new DateInterval('P2D');
@@ -571,7 +571,7 @@ $this
 
 ====isLessThan
 
-isLessThan vérifie que la durée de l'objet DateInterval est inférieure à la durée d'un autre objet DateInterval.
+##isLessThan## vérifie que la durée de l'objet DateInterval est inférieure à la durée d'un autre objet DateInterval.
 
 [[[php
 $di = new DateInterval('P1D');
@@ -585,7 +585,7 @@ $this
 
 ====isLessThanOrEqualTo
 
-isLessThanOrEqualTo vérifie que la durée de l'objet DateInterval est inférieure ou égale à la durée d'un autre objet DateInterval.
+##isLessThanOrEqualTo## vérifie que la durée de l'objet DateInterval est inférieure ou égale à la durée d'un autre objet DateInterval.
 
 [[[php
 $di = new DateInterval('P2D');
@@ -600,7 +600,7 @@ $this
 
 ====isZero
 
-isZero vérifie que la durée de l'objet DateInterval est égale à 0.
+##isZero## vérifie que la durée de l'objet DateInterval est égale à 0.
 
 [[[php
 $di1 = new DateInterval('P0D');
@@ -623,7 +623,7 @@ Si vous essayez de tester une variable qui n'est pas un objet DateTime (ou une c
 
 ====hasDate
 
-hasDate vérifie la partie date de l'objet DateTime.
+##hasDate## vérifie la partie date de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -638,7 +638,7 @@ $this
 
 ====hasDateAndTime
 
-hasDateAndTime vérifie la date et l'horaire de l'objet DateTime
+##hasDateAndTime## vérifie la date et l'horaire de l'objet DateTime
 
 [[[php
 $dt = new DateTime('1981-02-13 01:02:03');
@@ -653,7 +653,7 @@ $this
 
 ====hasDay
 
-hasDay vérifie le jour de l'objet DateTime.
+##hasDay## vérifie le jour de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -666,7 +666,7 @@ $this
 
 ====hasHours
 
-hasHours vérifie les heures de l'objet DateTime.
+##hasHours## vérifie les heures de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -681,7 +681,7 @@ $this
 
 ====hasMinutes
 
-hasMinutes vérifie les minutes de l'objet DateTime.
+##hasMinutes## vérifie les minutes de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -696,7 +696,7 @@ $this
 
 ====hasMonth
 
-hasMonth vérifie le mois de l'objet DateTime.
+##hasMonth## vérifie le mois de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -709,7 +709,7 @@ $this
 
 ====hasSeconds
 
-hasSeconds vérifie les secondes de l'objet DateTime.
+##hasSeconds## vérifie les secondes de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -724,7 +724,7 @@ $this
 
 ====hasTime
 
-hasTime vérifie la partie horaire de l'objet DateTime
+##hasTime## vérifie la partie horaire de l'objet DateTime
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -739,7 +739,7 @@ $this
 
 ====hasTimezone
 
-hasTimezone vérifie le fuseau horaire de l'objet DateTime.
+##hasTimezone## vérifie le fuseau horaire de l'objet DateTime.
 
 [[[php
 $dt = new DateTime();
@@ -752,7 +752,7 @@ $this
 
 ====hasYear
 
-hasYear vérifie l'année de l'objet DateTime.
+##hasYear## vérifie l'année de l'objet DateTime.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -800,7 +800,7 @@ la syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closure
 
 ====hasCode
 
-hasCode vérifie le code de l'exception.
+##hasCode## vérifie le code de l'exception.
 
 [[[php
 $this
@@ -815,7 +815,7 @@ $this
 
 ====hasDefaultCode
 
-hasDefaultCode vérifie que le code de l'exception est la valeur par défaut, c'est à dire 0.
+##hasDefaultCode## vérifie que le code de l'exception est la valeur par défaut, c'est à dire 0.
 
 [[[php
 $this
@@ -829,12 +829,12 @@ $this
 ]]]
 
 {{{info
-hasDefaultCode est équivalent à hasCode(0).
+##hasDefaultCode## est équivalent à hasCode(0).
 }}}
 
 ====hasMessage
 
-hasMessage vérifie le message de l'exception.
+##hasMessage## vérifie le message de l'exception.
 
 [[[php
 $this
@@ -850,7 +850,7 @@ $this
 
 ====hasNestedException
 
-hasNestedException vérifie que l'exception contient une référence vers l'exception précédente. Si l'exception est précisée, cela va également vérifier la classe de l'exception.
+##hasNestedException## vérifie que l'exception contient une référence vers l'exception précédente. Si l'exception est précisée, cela va également vérifier la classe de l'exception.
 
 [[[php
 $this
@@ -923,7 +923,7 @@ contains ne teste pas le type de la donnée. Si vous souhaitez vérifier égalem
 
 ====containsValues
 
-containsValues vérifie qu'un tableau contient toutes les données fournies dans un tableau.
+##containsValues## vérifie qu'un tableau contient toutes les données fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -937,16 +937,16 @@ $this
 ]]]
 
 {{{info
-containsValues ne fait pas de recherche récursive.
+##containsValues## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-containsValues ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [[strictlyContainsValues|#strictlyContainsValues]].
+##containsValues## ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [[strictlyContainsValues|#strictlyContainsValues]].
 }}}
 
 ====hasKey
 
-hasKey vérifie qu'un tableau contient une certaine clef.
+##hasKey## vérifie qu'un tableau contient une certaine clef.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -970,16 +970,16 @@ $this
 ]]]
 
 {{{info
-hasKey ne fait pas de recherche récursive.
+##hasKey## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-hasKey ne teste pas le type des clefs.
+##hasKey## ne teste pas le type des clefs.
 }}}
 
 ====hasKeys
 
-hasKeys vérifie qu'un tableau contient toutes les clefs fournies dans un tableau.
+##hasKeys## vérifie qu'un tableau contient toutes les clefs fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1003,16 +1003,16 @@ $this
 ]]]
 
 {{{info
-hasKeys ne fait pas de recherche récursive.
+##hasKeys## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-hasKeys ne teste pas le type des clefs.
+##hasKeys## ne teste pas le type des clefs.
 }}}
 
 ====hasSize
 
-hasSize vérifie la taille d'un tableau.
+##hasSize## vérifie la taille d'un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1025,12 +1025,12 @@ $this
 ]]]
 
 {{{info
-hasSize n'est pas récursif.
+##hasSize## n'est pas récursif.
 }}}
 
 ====isEmpty
 
-isEmpty vérifie qu'un tableau est vide.
+##isEmpty## vérifie qu'un tableau est vide.
 
 [[[php
 $emptyArray    = array();
@@ -1047,7 +1047,7 @@ $this
 
 ====isNotEmpty
 
-isNotEmpty vérifie qu'un tableau n'est pas vide.
+##isNotEmpty## vérifie qu'un tableau n'est pas vide.
 
 [[[php
 $emptyArray    = array();
@@ -1064,7 +1064,7 @@ $this
 
 ====notContains
 
-notContains vérifie qu'un tableau ne contient pas une donnée.
+##notContains## vérifie qu'un tableau ne contient pas une donnée.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1078,16 +1078,16 @@ $this
 ]]]
 
 {{{info
-notContains ne fait pas de recherche récursive.
+##notContains## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-notContains ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez [[strictlyNotContains|#strictlyNotContains]].
+##notContains## ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez [[strictlyNotContains|#strictlyNotContains]].
 }}}
 
 ====notContainsValues
 
-notContainsValues vérifie qu'un tableau ne contient aucune des données fournies dans un tableau.
+##notContainsValues## vérifie qu'un tableau ne contient aucune des données fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1101,16 +1101,16 @@ $this
 ]]]
 
 {{{info
-notContainsValues ne fait pas de recherche récursive.
+##notContainsValues## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-notContainsValues ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [[strictlyNotContainsValues|#strictlyNotContainsValues]].
+##notContainsValues## ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez [[strictlyNotContainsValues|#strictlyNotContainsValues]].
 }}}
 
 ====notHasKey
 
-notHasKey vérifie qu'un tableau ne contient pas une certaine clef.
+##notHasKey## vérifie qu'un tableau ne contient pas une certaine clef.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1134,16 +1134,16 @@ $this
 ]]]
 
 {{{info
-notHasKey ne fait pas de recherche récursive.
+##notHasKey## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-notHasKey ne teste pas le type des clefs.
+##notHasKey## ne teste pas le type des clefs.
 }}}
 
 ====notHasKeys
 
-notHasKeys vérifie qu'un tableau ne contient aucune des clefs fournies dans un tableau.
+##notHasKeys## vérifie qu'un tableau ne contient aucune des clefs fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1167,16 +1167,16 @@ $this
 ]]]
 
 {{{info
-notHasKeys ne fait pas de recherche récursive.
+##notHasKeys## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-notHasKeys ne teste pas le type des clefs.
+##notHasKeys## ne teste pas le type des clefs.
 }}}
 
 ====strictlyContains
 
-strictlyContains vérifie qu'un tableau contient une certaine donnée (même valeur et même type).
+##strictlyContains## vérifie qu'un tableau contient une certaine donnée (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1192,16 +1192,16 @@ $this
 ]]]
 
 {{{info
-strictlyContains ne fait pas de recherche récursive.
+##strictlyContains## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-strictlyContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [[contains|#contains]].
+##strictlyContains## teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [[contains|#contains]].
 }}}
 
 ====strictlyContainsValues
 
-strictlyContainsValues vérifie qu'un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
+##strictlyContainsValues## vérifie qu'un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1217,16 +1217,16 @@ $this
 ]]]
 
 {{{info
-strictlyContainsValues ne fait pas de recherche récursive.
+##strictlyContainsValues## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-strictlyContainsValues teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [[containsValues|#containsValues]].
+##strictlyContainsValues## teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [[containsValues|#containsValues]].
 }}}
 
 ====strictlyNotContains
 
-strictlyNotContains vérifie qu'un tableau ne contient pas une donnée (même valeur et même type).
+##strictlyNotContains## vérifie qu'un tableau ne contient pas une donnée (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1241,16 +1241,16 @@ $this
 ]]]
 
 {{{info
-strictlyNotContains ne fait pas de recherche récursive.
+##strictlyNotContains## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-strictlyNotContains teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [[notContains|#notContains]].
+##strictlyNotContains## teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez [[notContains|#notContains]].
 }}}
 
 ====strictlyNotContainsValues
 
-strictlyNotContainsValues vérifie qu'un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
+##strictlyNotContainsValues## vérifie qu'un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1266,11 +1266,11 @@ $this
 ]]]
 
 {{{info
-strictlyNotContainsValues ne fait pas de recherche récursive.
+##strictlyNotContainsValues## ne fait pas de recherche récursive.
 }}}
 
 {{{info
-strictlyNotContainsValues teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [[notContainsValues|#notContainsValues]].
+##strictlyNotContainsValues## teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez [[notContainsValues|#notContainsValues]].
 }}}
 
 
@@ -1298,7 +1298,7 @@ $this
 
 ====hasLength
 
-hasLength vérifie la taille d'une chaine de caractères.
+##hasLength## vérifie la taille d'une chaine de caractères.
 
 [[[php
 $string = 'Hello world';
@@ -1312,7 +1312,7 @@ $this
 
 ====hasLengthGreaterThan
 
-hasLengthGreaterThan vérifie que la taille d'une chaine de caractères est plus grande qu'une valeur donnée.
+##hasLengthGreaterThan## vérifie que la taille d'une chaine de caractères est plus grande qu'une valeur donnée.
 
 [[[php
 $string = 'Hello world';
@@ -1326,7 +1326,7 @@ $this
 
 ====hasLengthLessThan
 
-hasLengthLessThan vérifie que la taille d'une chaine de caractères est plus petite qu'une valeur donnée.
+##hasLengthLessThan## vérifie que la taille d'une chaine de caractères est plus petite qu'une valeur donnée.
 
 [[[php
 $string = 'Hello world';
@@ -1340,7 +1340,7 @@ $this
 
 ====isEmpty
 
-isEmpty vérifie qu'une chaine de caractères est vide.
+##isEmpty## vérifie qu'une chaine de caractères est vide.
 
 [[[php
 $emptyString    = '';
@@ -1357,7 +1357,7 @@ $this
 
 ====isEqualToContentsOfFile
 
-isEqualToContentsOfFile vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné par son chemin.
+##isEqualToContentsOfFile## vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné par son chemin.
 
 [[[php
 $this
@@ -1372,7 +1372,7 @@ si le fichier n'existe pas, le test échoue.
 
 ====isNotEmpty
 
-isNotEmpty vérifie qu'une chaine de caractères n'est pas vide.
+##isNotEmpty## vérifie qu'une chaine de caractères n'est pas vide.
 
 [[[php
 $emptyString    = '';
@@ -1437,7 +1437,7 @@ Elle étend [[string|#string]], toutes ses méthodes sont donc disponibles dans 
 
 ====isMd5
 
-isMd5 vérifie que la chaine de caractère est au format md5, c'est à dire une chaine hexadécimale de 32 caractères.
+##isMd5## vérifie que la chaine de caractère est au format md5, c'est à dire une chaine hexadécimale de 32 caractères.
 
 [[[php
 $hash    = hash('md5', 'atoum');
@@ -1453,7 +1453,7 @@ $this
 
 ====isSha1
 
-isSha1 vérifie que la chaine de caractère est au format sha1, c'est à dire une chaine hexadécimale de 40 caractères.
+##isSha1## vérifie que la chaine de caractère est au format sha1, c'est à dire une chaine hexadécimale de 40 caractères.
 
 [[[php
 $hash    = hash('sha1', 'atoum');
@@ -1469,7 +1469,7 @@ $this
 
 ====isSha256
 
-isSha256 vérifie que la chaine de caractère est au format sha256, c'est à dire une chaine hexadécimale de 64 caractères.
+##isSha256## vérifie que la chaine de caractère est au format sha256, c'est à dire une chaine hexadécimale de 64 caractères.
 
 [[[php
 $hash    = hash('sha256', 'atoum');
@@ -1485,7 +1485,7 @@ $this
 
 ====isSha512
 
-isSha512 vérifie que la chaine de caractère est au format sha512, c'est à dire une chaine hexadécimale de 128 caractères.
+##isSha512## vérifie que la chaine de caractère est au format sha512, c'est à dire une chaine hexadécimale de 128 caractères.
 
 [[[php
 $hash    = hash('sha512', 'atoum');
@@ -1620,7 +1620,7 @@ $this
 
 ====notExists
 
-notExists vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
+##notExists## vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
 
 [[[php
 $this
@@ -1644,7 +1644,7 @@ $this
 
 ====withType
 
-withType vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
+##withType## vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
 
 [[[php
 $this
@@ -1682,7 +1682,7 @@ Il est conseillé d'utiliser exclusivement ->class().
 
 ====hasInterface
 
-hasInterface vérifie que la classe implémente une interface donnée.
+##hasInterface## vérifie que la classe implémente une interface donnée.
 
 [[[php
 $this
@@ -1696,7 +1696,7 @@ $this
 
 ====hasMethod
 
-hasMethod vérifie que la classe contient une méthode donnée.
+##hasMethod## vérifie que la classe contient une méthode donnée.
 
 [[[php
 $this
@@ -1710,7 +1710,7 @@ $this
 
 ====hasNoParent
 
-hasNoParent vérifie que la classe n'hérite d'aucune classe.
+##hasNoParent## vérifie que la classe n'hérite d'aucune classe.
 
 [[[php
 $this
@@ -1728,7 +1728,7 @@ une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune 
 
 ====hasParent
 
-hasParent vérifie que la classe hérite bien d'une classe.
+##hasParent## vérifie que la classe hérite bien d'une classe.
 
 [[[php
 $this
@@ -1746,7 +1746,7 @@ une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune 
 
 ====isAbstract
 
-isAbstract vérifie que la classe est abstraite.
+##isAbstract## vérifie que la classe est abstraite.
 
 [[[php
 $this
@@ -1757,7 +1757,7 @@ $this
 
 ====isSubclassOf
 
-isSubclassOf vérifie que la classe hérite de la classe donnée.
+##isSubclassOf## vérifie que la classe hérite de la classe donnée.
 
 [[[php
 $this
@@ -1785,7 +1785,7 @@ reportez-vous à la documentation sur les [[bouchons|#Les-bouchons]] pour obteni
 
 ====wasCalled
 
-wasCalled vérifie qu'au moins une méthode du mock a été appelée au moins une fois.
+##wasCalled## vérifie qu'au moins une méthode du mock a été appelée au moins une fois.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -1800,7 +1800,7 @@ $this
 
 ====wasNotCalled
 
-wasNotCalled vérifie qu'aucune méthode du mock n'a été appelée.
+##wasNotCalled## vérifie qu'aucune méthode du mock n'a été appelée.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -1831,7 +1831,7 @@ $this
 
 =====atLeastOnce
 
-atLeastOnce vérifie que la méthode testée (voir [[call|#call]]) du mock testé a été appelée au moins une fois.
+##atLeastOnce## vérifie que la méthode testée (voir [[call|#call]]) du mock testé a été appelée au moins une fois.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -1910,7 +1910,7 @@ once, twice et thrice sont respectivement équivalents à un appel à [[exactly|
 
 =====withArguments
 
-withArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [[call|#call]]) du mock testé.
+##withArguments## permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [[call|#call]]) du mock testé.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -1925,12 +1925,12 @@ $this
 ]]]
 
 {{{info
-withArguments ne teste pas le type des arguments. Si vous souhaitez vérifier également leurs types, utilisez [[withIdenticalArguments|#withIdenticalArguments]].
+##withArguments## ne teste pas le type des arguments. Si vous souhaitez vérifier également leurs types, utilisez [[withIdenticalArguments|#withIdenticalArguments]].
 }}}
 
 =====withIdenticalArguments
 
-withIdenticalArguments permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [[call|#call]]) du mock testé.
+##withIdenticalArguments## permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir [[call|#call]]) du mock testé.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -1945,12 +1945,12 @@ $this
 ]]]
 
 {{{info
-withIdenticalArguments teste le type des arguments. Si vous ne souhaitez pas vérifier leurs types, utilisez [[withArguments|#withArguments]].
+##withIdenticalArguments## teste le type des arguments. Si vous ne souhaitez pas vérifier leurs types, utilisez [[withArguments|#withArguments]].
 }}}
 
 =====withAnyArguments
 
-withAnyArguments permet de ne pas spécifier de paramètres attendus lors de l'appel à la méthode testée (voir [[call|#call]]) du mock testé.
+##withAnyArguments## permet de ne pas spécifier de paramètres attendus lors de l'appel à la méthode testée (voir [[call|#call]]) du mock testé.
 
 Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l'exemple suivant:
 

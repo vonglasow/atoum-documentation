@@ -24,9 +24,9 @@ Vous pouvez installer atoum de plusieurs manières:
 
 ===Archive PHAR
 
-Une archive PHAR est créée automatiquement à chaque modification d'atoum.
+Une archive ??PHAR|PHp ARchive?? est créée automatiquement à chaque modification d'atoum.
 
-PHAR (**PH**P **Ar**chive) est un format d'archive d'application PHP, disponible depuis PHP 5.3.
+PHAR est un format d'archive d'application PHP, disponible depuis PHP 5.3.
 
 ====Installation
 
@@ -41,7 +41,7 @@ php -d phar.readonly=0 mageekguy.atoum.phar --update
 ]]]
 
 {{{info
-la mise à jour de d'atoum nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiler la directive ##-d phar.readonly=0##.
+La mise à jour de d'atoum nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiler la directive ##-d phar.readonly=0##.
 }}}
 
 Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l'archive:
@@ -78,21 +78,21 @@ La liste des versions présentes dans l'archive est alors affichée, la version 
 
 ====Changer la version courante
 
-Pour activer une autre version, il suffit d'utiliser l'argument --enable-version, ou -ev en version abrégé, suivi du nom de la version à utiliser:
+Pour activer une autre version, il suffit d'utiliser l'argument ##\--enable-version##, ou ##-ev## en version abrégé, suivi du nom de la version à utiliser:
 
 [[[shell
 php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
 ]]]
 
 {{{info
-la modification de la version courante nécessite la modification de l'archive PHAR. Or par  défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiler la directive ##-d phar.readonly=0##.
+La modification de la version courante nécessite la modification de l'archive PHAR. Or par  défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiler la directive ##-d phar.readonly=0##.
 }}}
 
 ====Suppression d'anciennes versions
 
 Au cours du temps, l'archive peut contenir plusieurs versions d'atoum qui ne sont plus utilisées.
 
-Pour les supprimer, il suffit d'utiliser l'argument --delete-version, ou -dv dans sa version abrégée, suivi du nom de la version à supprimer:
+Pour les supprimer, il suffit d'utiliser l'argument ##\--delete-version##, ou ##-dv## dans sa version abrégée, suivi du nom de la version à supprimer:
 
 [[[shell
 php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
@@ -100,12 +100,12 @@ php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
 
 La version est alors supprimée.
 
-{{{info
-il n'est pas possible de supprimer la version active.
+{{{warning
+Il n'est pas possible de supprimer la version active.
 }}}
 
 {{{info
-la suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiler la directive ##-d phar.readonly=0##.
+La suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiler la directive ##-d phar.readonly=0##.
 }}}
 
 
@@ -113,13 +113,13 @@ la suppression d'une version nécessite la modification de l'archive PHAR. Or pa
 
 [[Composer|http://getcomposer.org]] est un outil de gestion de dépendance en PHP.
 
-Commencer par installer composer
+Commencer par installer composer:
 
 [[[shell
 curl -s https://getcomposer.org/installer | php
 ]]]
 
-Créez, ensuite, un fichier composer.json contenant le JSON suivant:
+Créez ensuite un fichier ##composer.json## contenant le ??JSON|JavaScript Object Notation?? suivant:
 
 [[[json
 {
@@ -153,7 +153,7 @@ which atoum
 /usr/local/bin/atoum
 ]]]
 
-Des options sont disponibles pour personnaliser l'installation d'atoum : reportez-vous à [[la documentation (en)|https://github.com/atoum/atoum-installer/blob/master/README.md]] de l'installer pour obtenir plus de détails.
+Des options sont disponibles pour personnaliser l'installation d'atoum : reportez-vous à [[la documentation (en)|https://github.com/atoum/atoum-installer/blob/master/README.md]] de l'installeur pour obtenir plus de détails.
 
 ===Github
 
@@ -187,13 +187,13 @@ Toutes les instructions pour l'installation et l'utilisation d'atoum sont expliq
 
 Vous devez écrire une classe de test pour chaque classe à tester.
 
-Imaginez que vous vouliez tester la traditionnelle classe HelloWorld, alors vous devez créer la classe de test test\units\HelloWorld.
+Imaginez que vous vouliez tester la traditionnelle classe ##HelloWorld##, alors vous devez créer la classe de test ##test\units\HelloWorld##.
 
 {{{info
-atoum utilise les espaces de noms. Par exemple, pour tester la classe \Vendor\Project\HelloWorld, vous devez créer la classe \Vendor\Project\tests\units\HelloWorld.
+atoum utilise les espaces de noms. Par exemple, pour tester la classe ##\Vendor\Project\HelloWorld##, vous devez créer la classe ##\Vendor\Project\tests\units\HelloWorld##.
 }}}
 
-Voici le code de la classe HelloWorld que nous allons tester.
+Voici le code de la classe ##HelloWorld## que nous allons tester.
 
 [[[php
 <?php
@@ -280,9 +280,9 @@ Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
 ]]]
 
 
-Nous venons de tester que la méthode getHiAtoum:
+Nous venons de tester que la méthode ##getHiAtoum##:
 * retourne bien une chaîne de caractère ;
-* et que cette chaîne est bien celle attendu, c'est à dire 'Hi atoum !'.
+* et que cette chaîne est bien celle attendu, c'est à dire ##"Hi atoum !"##.
 
 Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
 
@@ -312,17 +312,17 @@ Il est alors possible de naviguer parmi les éventuelles erreurs, voir de se ren
 
 ====Installation du plug-in atoum pour VIM
 
-Si vous n'utilisez pas atoum sous la forme d'une archive PHAR, vous trouverez le fichier correspondant au plug-in, nommé atoum.vba, dans le répertoire ressources/vim.
+Si vous n'utilisez pas atoum sous la forme d'une archive PHAR, vous trouverez le fichier correspondant au plug-in, nommé ##atoum.vba##, dans le répertoire ##ressources/vim##.
 
-Dans le cas contraire, il faut demander à l'archive PHAR d'*atoum* d'extraire le fichier à l'aide de la commande suivante:
+Dans le cas contraire, il faut demander à l'archive PHAR d'atoum d'extraire le fichier à l'aide de la commande suivante:
 
 [[[shell
 php mageekguy.atoum.phar --extractRessourcesTo path/to/a/directory
 ]]]
 
-Une fois l'extraction réalisée, le fichier atoum.vba correspondant au plug-in pour VIM sera dans le répertoire path/to/a/directory/ressources/vim.
+Une fois l'extraction réalisée, le fichier ##atoum.vba## correspondant au plug-in pour VIM sera dans le répertoire ##path/to/a/directory/ressources/vim##.
 
-Une fois en possession du fichier atoum.vba, il faut l'éditer à l'aide de VIM:
+Une fois en possession du fichier ##atoum.vba##, il faut l'éditer à l'aide de VIM:
 
 [[[shell
 vim path/to/atoum.vba
@@ -344,25 +344,25 @@ Une fois dans cette configuration, la commande suivante lancera l'exécution des
 :Atoum
 ]]]
 
-Les tests se lancent alors, et une fois qu'ils sont terminés, un rapport basé sur le fichier de configuration pour atoum qui se trouve dans le répertoire ftplugin/php/atoum.vim de votre répertoire .vim est généré dans une nouvelle fenêtre.
+Les tests se lancent alors, et une fois qu'ils sont terminés, un rapport basé sur le fichier de configuration pour atoum qui se trouve dans le répertoire ##ftplugin/php/atoum.vim## de votre répertoire ##.vim## est généré dans une nouvelle fenêtre.
 
-Évidemment, vous êtes libre de lier cette commande à la combinaison de touche de votre choix, en ajoutant par exemple la ligne suivante dans votre fichier .vimrc:
+Évidemment, vous êtes libre de lier cette commande à la combinaison de touche de votre choix, en ajoutant par exemple la ligne suivante dans votre fichier ##.vimrc##:
 
 [[[vim
 nnoremap *.php :Atoum
 ]]]
 
-L'utilisation de la touche F12 de votre clavier en mode normal appellera alors la commande :Atoum.
+L'utilisation de la touche ##F12## de votre clavier en mode normal appellera alors la commande ##:Atoum##.
 
 ====Gestion des fichiers de configuration de atoum
 
-Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier .vimrc:
+Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier ##.vimrc##:
 
 [[[vim
 call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
 ]]]
 
-La fonction atoum#defineConfiguration permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire ou se trouve le fichier de tests unitaires.
+La fonction ##atoum#defineConfiguration## permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire ou se trouve le fichier de tests unitaires.
 
 Elle accepte pour cela trois arguments:
 * un chemin d'accès vers le répertoire contenant les tests unitaires ;
@@ -387,7 +387,6 @@ Pour utiliser cette fonctionnalité, vous devrez éditer votre [[fichier de conf
 
 ====macvim
 
-
 [[[php
 <?php
 use
@@ -406,7 +405,6 @@ $runner->addReport($cliReport);
 
 
 ====gvim
-
 
 [[[php
 <?php
@@ -427,9 +425,7 @@ $runner->addReport($cliReport);
 
 ====PhpStorm
 
-
 Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
-
 
 [[[php
 <?php
@@ -448,7 +444,11 @@ $cliReport
 
     // Si vous avez installé PhpStorm
     // dans un dossier différent de /Applications
-    // ->addField(new macos\phpstorm(/path/to/PhpStorm.app/Contents/MacOS/webide))
+    // ->addField(
+    //     new macos\phpstorm(
+    //         '/path/to/PhpStorm.app/Contents/MacOS/webide'
+    //     )
+    // )
 ;
 
 $runner->addReport($cliReport);
@@ -456,7 +456,6 @@ $runner->addReport($cliReport);
 
 
 Dans un environnement Unix, utilisez la configuration suivante :
-
 
 [[[php
 <?php
@@ -470,7 +469,9 @@ $cliReport = new atoum\reports\realtime\cli();
 $cliReport->addWriter($stdOutWriter);
 
 $cliReport
-    ->addField(new unix\phpstorm('/chemin/vers/PhpStorm/bin/phpstorm.sh'))
+    ->addField(
+        new unix\phpstorm('/chemin/vers/PhpStorm/bin/phpstorm.sh')
+    )
 ;
 
 $runner->addReport($cliReport);
@@ -478,7 +479,6 @@ $runner->addReport($cliReport);
 
 
 ====gedit
-
 
 [[[php
 <?php
@@ -495,4 +495,3 @@ $cliReport->addField(new unix\gedit());
 
 $runner->addReport($cliReport);
 ]]]
-
