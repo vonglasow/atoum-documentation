@@ -44,7 +44,7 @@ $this
 ]]]
 
 {{{info
-##isEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez [[isIdenticalTo|#isIdenticalTo]].
+##isEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ##[[isIdenticalTo|#isIdenticalTo]]##.
 }}}
 
 ====isIdenticalTo
