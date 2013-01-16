@@ -393,7 +393,7 @@ $this
         ->isEqualTo(3)
 
     ->sizeOf($countableObject)
-        ->isGreatherThan(0)
+        ->isGreaterThan(0)
 ;
 ]]]
 
