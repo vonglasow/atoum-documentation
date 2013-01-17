@@ -45,8 +45,7 @@ cp /chemin/vers/atoum/resources/configurations/runner/xunit.php.dist /mon/projet
 
 * Vous pouvez également copier le fichier directement [[depuis le dépôt Github|https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist]]
 
-Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conserver le rapport par défaut d'atoum et vous obtiendrez un rapport
-xUnit à la suite de chaque lancement des tests.
+Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conserver le rapport par défaut d'atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.
 
 ====Vous avez déjà un fichier de configuration
 
@@ -79,11 +78,11 @@ php mageekguy.atoum.phar -d /chemin/vers/les/tests/units -c /chemin/vers/la/conf
 ]]]
 
 {{{info
-Si vous avez nommé votre fichier de cofiguration ##.atoum.php##, atoum le chargera automatiquement. Le paramètre ##-c## est donc optionnel dans ce cas.
-Pour qu'atoum charge automatiquement ce fichier, vous devrez lancé les test à partir du dossier où se trouve le fichier ##.atoum.php## ou d'un de ses enfants.
+Si vous avez nommé votre fichier de configuration ##.atoum.php##, atoum le chargera automatiquement. Le paramètre ##-c## est donc optionnel dans ce cas.
+Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ##.atoum.php## ou d'un de ses enfants.
 }}}
 
-A la fin de l'exécution des test, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
+A la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
 
 ===Étape 3 : Lancement des tests via Jenkins (ou Hudson)
 
