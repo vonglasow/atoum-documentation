@@ -82,7 +82,7 @@ Si vous avez nommé votre fichier de configuration ##.atoum.php##, atoum le char
 Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ##.atoum.php## ou d'un de ses enfants.
 }}}
 
-A la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
+À la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
 
 ===Étape 3 : Lancement des tests via Jenkins (ou Hudson)
 
