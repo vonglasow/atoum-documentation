@@ -214,6 +214,13 @@ $this
 ;
 ]]]
 
+====isEqualTo (héritée de ##variable##)
+
+{{{info
+##isEqualTo## est une méthode héritée de l'asserter ##variable##.
+Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#isEqualTo]]
+}}}
+
 ====isTrue
 
 ##isTrue## vérifie que le booléen est strictement égal à ##true##.
