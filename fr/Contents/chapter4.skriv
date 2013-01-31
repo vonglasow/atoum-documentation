@@ -33,14 +33,14 @@ Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vo
 * Si vous utilisez l'archive Phar d'atoum :
 
 [[[shell
-php mageekguy.atoum.phar --extractRessourcesTo /tmp/atoum-src
-cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
+$ php mageekguy.atoum.phar --extractRessourcesTo /tmp/atoum-src
+$ cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
 ]]]
 
 * Si vous utilisez les sources d'atoum :
 
 [[[shell
-cp /chemin/vers/atoum/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
+$ cp /chemin/vers/atoum/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
 ]]]
 
 * Vous pouvez également copier le fichier directement [[depuis le dépôt Github|https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist]]
@@ -74,7 +74,7 @@ $xunit->addWriter($writer);
 Pour tester cette configuration, il suffit de lancer atoum en lui précisant le fichier de configuration que vous souhaitez utiliser :
 
 [[[shell
-php mageekguy.atoum.phar -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
+$ php mageekguy.atoum.phar -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
 ]]]
 
 {{{info
@@ -109,7 +109,7 @@ Il suffit tout simplement d'activer la publication des rapports au format JUnit 
 
 Une bonne pratique, lorsqu'on utilise un logiciel de gestion de versions, est de ne jamais ajouter à un dépôt du code non fonctionnel, afin de pouvoir récupérer une version propre et utilisable du code à tout moment et à n'importe quel endroit de l'historique du dépôt.
 
-Cela implique donc, entre autre, que les tests unitaires doivent passer dans leur intégralité avant que les fichiers créés ou modifiés soient ajoutés au dépôt, et en conséquence, le développeur est censé exécuter les tests unitaires avant d'intégrer son code dans le dépôt.  
+Cela implique donc, entre autre, que les tests unitaires doivent passer dans leur intégralité avant que les fichiers créés ou modifiés soient ajoutés au dépôt, et en conséquence, le développeur est censé exécuter les tests unitaires avant d'intégrer son code dans le dépôt.
 
 Cependant, dans les faits, il est très facile pour le développeur d'omettre cette étape, et votre dépôt peut donc contenir à plus ou moins brève échéance du code ne respectant  pas les contraintes imposées par les tests unitaires.
 
@@ -149,7 +149,7 @@ Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant
 l'extension ##.php## et dans des répertoires dont le chemin contient ##/Tests/Units/##. Si ce n'est pas votre cas, vous devrez modifier le script suivant votre contexte.
 
 {{{info
-dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
+Dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
 }}}
 
 
@@ -165,7 +165,7 @@ Les tests étant executés très rapidement avec atoum, on peut donc lancer l'en
 Pour être utilisable par Git, le fichier ##.git/hook/pre-commit## doit être rendu exécutable à l'aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :
 
 [[[shell
-chmod u+x `.git/hook/pre-commit`
+$ chmod u+x `.git/hook/pre-commit`
 ]]]
 
 À partir de cet instant, les tests unitaires contenus dans les répertoires dont le chemin contient ##/Tests/Units/## seront lancés automatiquement lorsque vous effectuerez la commande ##git commit##, si des fichiers ayant l'extension ##.php## ont été modifiés.
@@ -320,7 +320,7 @@ abstract class aClass extends atoum
 Attention, il était possible auparavant d'utiliser la méthode ##\mageekguy\atoum\test::setTestsSubNamespace()##, mais cette dernière est dépréciée en faveur de ##\mageekguy\atoum\test::setTestNamespace()##.
 
 
-==Utilisation avec ezPublish 
+==Utilisation avec ezPublish
 
 {{{todo
 We need help to write this section !
@@ -381,7 +381,7 @@ class Car
 ]]]
 
 {{{info
-pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au [[manuel Symfony|http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite]]. 
+Pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au [[manuel Symfony|http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite]].
 }}}
 
 Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stoqués tous les tests de ce Bundle.
@@ -435,11 +435,11 @@ abstract class Test extends atoum
 ]]]
 
 {{{info
-l'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
+L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
 }}}
 
 {{{info
-par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
 }}}
 
 ===Étape 3: écriture d'un test
@@ -478,24 +478,24 @@ Si vous utilisez Symfony 2.0:
 
 [[[shell
 # Lancement des tests d'un fichier
-php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
+$ php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
 # Lancement de tous les tests du Bundle
-php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
+$ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
 ]]]
 
 Si vous utilisez Symfony 2.1:
 
 [[[shell
 # Lancement des tests d'un fichier
-./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
+$ ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
 # Lancement de tous les tests du Bundle
-./bin/atoum -d src/Acme/DemoBundle/Tests/Units
+$ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 ]]]
 
 {{{info
-vous pouvez obtenir plus d'informations sur le [[lancement des tests|chapter3.html#Lancement-des-tests]] au chapitre 3.
+Vous pouvez obtenir plus d'informations sur le [[lancement des tests|chapter3.html#Lancement-des-tests]] au chapitre 3.
 }}}
 
 
@@ -530,7 +530,7 @@ Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez
 
 ==Installation
 
-Il existe plusieurs méthodes d'installation du plugin dans votre projet : 
+Il existe plusieurs méthodes d'installation du plugin dans votre projet :
 * installation via composer
 * installation via des submodules git
 
@@ -538,7 +538,7 @@ Il existe plusieurs méthodes d'installation du plugin dans votre projet :
 
 Ajouter ceci dans le composer.json :
 
-[[[shell
+[[[json
 "require"     : {
   "atoum/sfAtoumPlugin": "*"
 },
@@ -562,13 +562,13 @@ if (sfConfig::get('sf_environment') != 'prod')
 Il faut tout d'abord ajouter atoum en tant que submodule :
 
 [[[shell
-git submodule add git://github.com/atoum/atoum.git lib/vendor/atoum
+$ git submodule add git://github.com/atoum/atoum.git lib/vendor/atoum
 ]]]
 
 Puis ensuite ajouter le sfAtoumPlugin en tant que submodule :
 
 [[[shell
-git submodule add git://github.com/atoum/sfAtoumPlugin.git plugins/sfAtoumPlugin
+$ git submodule add git://github.com/atoum/sfAtoumPlugin.git plugins/sfAtoumPlugin
 ]]]
 
 Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
@@ -595,10 +595,10 @@ require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 La commande symfony atoum:test est disponible. Les tests peuvent alors se lancer de cette façon :
 
 [[[shell
-./symfony atoum:test
+$ ./symfony atoum:test
 ]]]
 
-Toutes les paramètres d'atoum sont disponibles. 
+Toutes les paramètres d'atoum sont disponibles.
 
 Il est donc, par exemple, possible de passer un fichier de configuration comme ceci :
 

@@ -30,7 +30,7 @@ $this
 ;
 ]]]
 
-====isEqualTo
+====isEqualTo====variableIsEqualTo
 
 ##isEqualTo## vérifie que la variable est égale à une certaine donnée.
 
@@ -44,10 +44,10 @@ $this
 ]]]
 
 {{{warning
-##isEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ##[[isIdenticalTo|#isIdenticalTo]]##.
+##isEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ##[[isIdenticalTo|#variableIsIdenticalTo]]##.
 }}}
 
-====isIdenticalTo
+====isIdenticalTo====variableIsIdenticalTo
 
 ##isIdenticalTo## vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, ##isIdenticalTo## vérifie que les données pointent sur la même instance.
 
@@ -71,7 +71,7 @@ $this
 ]]]
 
 {{{warning
-##isIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ##[[isEqualTo|#isEqualTo]]##.
+##isIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ##[[isEqualTo|#variableIsEqualTo]]##.
 }}}
 
 ====isNotCallable
@@ -97,7 +97,7 @@ $this
 ;
 ]]]
 
-====isNotEqualTo
+====isNotEqualTo====variableIsNotEqualTo
 
 ##isNotEqualTo## vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
 
@@ -116,10 +116,10 @@ $this
 ]]]
 
 {{{warning
-##isNotEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ##[[isNotIdenticalTo|#isNotIdenticalTo]]##.
+##isNotEqualTo## ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ##[[isNotIdenticalTo|#variableIsNotIdenticalTo]]##.
 }}}
 
-====isNotIdenticalTo
+====isNotIdenticalTo====variableIsNotIdenticalTo
 
 ##isNotIdenticalTo## vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine donnée.
 
@@ -145,7 +145,7 @@ $this
 ]]]
 
 {{{warning
-##isNotIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ##[[isNotEqualTo|#isNotEqualTo]]##.
+##isNotIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ##[[isNotEqualTo|#variableIsNotEqualTo]]##.
 }}}
 
 ====isNull
@@ -189,12 +189,17 @@ $this
 
 C'est l'assertion dédiée aux booléens.
 
-Elle étend ##[[variable|#variable]]##, toutes ses méthodes sont donc disponibles dans cette assertion.
-
 Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
 
 {{{info
 ##null## n'est pas considéré comme un booléen. Reportez vous au manuel PHP pour voir ce que ##[[is_bool|http://php.net/is_bool]]## considère ou non comme un booléen.
+}}}
+
+====isEqualTo====booleanIsEqualTo
+
+{{{info
+##isEqualTo## est une méthode héritée de l'asserter ##variable##.
+Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isFalse
@@ -214,11 +219,11 @@ $this
 ;
 ]]]
 
-====isEqualTo (héritée de ##variable##)
+====isIdenticalTo====boleanIsIdenticalTo
 
 {{{info
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#isEqualTo]]
+##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
+Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isTrue
@@ -2106,11 +2111,7 @@ $this
 ;
 ]]]
 
-Le langage génère en effet dans ce cas l'erreur fatale:
-
-[[[shell
-Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'
-]]]
+Le langage génère en effet dans ce cas l'erreur fatale: ##Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'##
 
 Il n'est en effet pas possible d'utiliser ##unset()## comme argument d'une fonction.
 
@@ -2246,7 +2247,7 @@ Dans ce mode, atoum commence par exécuter une première fois les tests qui lui 
 Une fois les tests terminés, si les tests ont été passé avec succès par le code, atoum se met simplement en attente :
 
 [[[shell
-php tests/units/classes/adapter.php -l
+$ php tests/units/classes/adapter.php -l
 > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
 > PHP path: /usr/local/bin/php
 > PHP version:
@@ -2273,7 +2274,7 @@ Dans le cas contraire, atoum ré-exécutera à nouveau les mêmes tests, sans qu
 Dans le cas ou le code ne passe pas les tests avec succès, c'est à dire si des assertions ne sont pas vérifiées ou si il y a eu des erreurs ou des exceptions, atoum se met également en attente:
 
 [[[shell
-php tests/units/classes/adapter.php -l
+$ php tests/units/classes/adapter.php -l
 > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
 > PHP path: /usr/local/bin/php
 > PHP version:
