@@ -8,13 +8,13 @@ atoum dispose d'un exécutable qui vous permet de lancer vos tests en ligne de c
 
 Si vous utilisez l'archive phar, elle est elle-même l'exécutable.
 
-====linux / mac
+====linux / mac====pharLinuxMac
 
 [[[shell
 $ php path/to/mageekguy.atoum.phar
 ]]]
 
-====windows
+====windows====pharWindows
 
 [[[shell
 C:\> X:\Path\To\php.exe X:\Path\To\mageekguy.atoum.phar
@@ -25,7 +25,7 @@ C:\> X:\Path\To\php.exe X:\Path\To\mageekguy.atoum.phar
 
 Si vous utilisez les sources, l'exécutable se trouve dans path/to/atoum/bin.
 
-====linux / mac
+====linux / mac====sourceLinuxMac
 
 [[[shell
 $ php path/to/bin/atoum
@@ -35,7 +35,7 @@ $ php path/to/bin/atoum
 $ ./path/to/bin/atoum
 ]]]
 
-====windows
+====windows====sourceWindows
 
 [[[shell
 C:\> X:\Path\To\php.exe X:\Path\To\bin\atoum\bin
