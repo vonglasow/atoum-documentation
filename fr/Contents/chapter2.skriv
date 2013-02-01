@@ -1104,7 +1104,7 @@ $this
     ->exception(
         function() use($myObject) {
             // ce code lève une exception: throw new \Exception;
-            $myObject->doOneThing();
+            $myObject->doOneThing('wrongParameter');
         }
     )
 ;
@@ -1123,7 +1123,7 @@ $this
     ->exception(
         function() use($myObject) {
             // ce code lève une exception: throw new \Exception('Message', 42);
-            $myObject->doOneThing();
+            $myObject->doOneThing('wrongParameter');
         }
     )
         ->hasCode(42)
@@ -1139,7 +1139,7 @@ $this
     ->exception(
         function() use($myObject) {
             // ce code lève une exception: throw new \Exception;
-            $myObject->doOneThing();
+            $myObject->doOneThing('wrongParameter');
         }
     )
         ->hasDefaultCode()
@@ -1159,7 +1159,7 @@ $this
     ->exception(
         function() use($myObject) {
             // ce code lève une exception: throw new \Exception('Message');
-            $myObject->doOneThing();
+            $myObject->doOneThing('wrongParameter');
         }
     )
         ->hasMessage('Message')     // passe
@@ -1176,21 +1176,20 @@ $this
     ->exception(
         function() use($myObject) {
             // ce code lève une exception: throw new \Exception('Message');
-            $myObject->doOneThing();
+            $myObject->doOneThing('wrongParameter');
         }
     )
         ->hasNestedException()      // échoue
 
     ->exception(
-        function() {
+        function() use($myObject) {
             try {
-                // Cette exception est levée...
-                throw new \FirstException('Message 1', 42);
+                // ce code lève une exception: throw new \FirstException('Message 1', 42);
+                $myObject->doOneThing('wrongParameter');
             }
-            // ... puis attrapée...
+            // ... l'esception est attrapée...
             catch(\FirstException $e) {
-                // ... et enfin relancée,
-                // encapsulée dans une seconde exception
+                // ... puis relancée, encapsulée dans une seconde exception
                 throw new \SecondException('Message 2', 24, $e);
             }
         }
