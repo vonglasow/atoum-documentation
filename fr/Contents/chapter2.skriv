@@ -3248,7 +3248,7 @@ $countableMock = new \mock\OneClass;
 $this->mockGenerator->unshuntParentClassCalls();
 ]]]
 
-Ici, toutes les méthodes du bouchon se comporteront comme si elle n’avait pas d’implémentation par contre elles conserveront la signature de la méthode originale. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
+Ici, toutes les méthodes du bouchon se comporteront comme si elles n’avaient pas d’implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
 
 [[[php
 $this->mockGenerator->shunt('firstMethod');
