@@ -30,7 +30,7 @@ class standards
     const standardsConst = 'standardsConst';
     const secondStandardsConst = 'secondStandardsConst';
 
-    public  $public;
+    public $public;
     protected $protected;
     private $private = array();
 
