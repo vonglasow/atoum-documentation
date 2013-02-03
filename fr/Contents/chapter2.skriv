@@ -15,8 +15,19 @@ $f = function() {
     // code
 };
 
+class foo
+{
+    public function __invoke()
+    {
+        // code
+    }
+}
+
 $this
     ->variable($f)
+        ->isCallable()  // passe
+
+    ->variable(new foo)
         ->isCallable()  // passe
 
     ->variable('\Vendor\Project\foobar')
