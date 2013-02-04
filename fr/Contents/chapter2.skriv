@@ -628,31 +628,6 @@ Pour être identifiés comme ##callable##, vos objets devront être instanciés 
 Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isCallable##|#variableIsCallable]]
 }}}
 
-====isNotCallable====objectIsNotCallable
-
-[[[php
-class foo
-{
-    public function __invoke()
-    {
-        // code
-    }
-}
-
-$this
-    ->variable(new foo)
-        ->isNotCallable()   // échoue
-
-    ->variable(new StdClass)
-        ->isNotCallable()   // passe
-;
-]]]
-
-{{{inheritance
-##isNotCallable## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotCallable##|#variableIsNotCallable]]
-}}}
-
 ====isCloneOf====objectIsCloneOf
 
 ##isCloneOf## vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
@@ -749,7 +724,30 @@ $this
 Les noms des classes et des interfaces doit être absolu et commencé par un antislash.
 }}}
 
+====isNotCallable====objectIsNotCallable
 
+[[[php
+class foo
+{
+    public function __invoke()
+    {
+        // code
+    }
+}
+
+$this
+    ->variable(new foo)
+        ->isNotCallable()   // échoue
+
+    ->variable(new StdClass)
+        ->isNotCallable()   // passe
+;
+]]]
+
+{{{inheritance
+##isNotCallable## est une méthode héritée de l'asserter ##variable##.
+Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotCallable##|#variableIsNotCallable]]
+}}}
 
 ===dateInterval
 
