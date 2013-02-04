@@ -41,6 +41,10 @@ $this
 ;
 ]]]
 
+{{{info
+Pour être identifiés comme ##callable##, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique [[##invoke## | http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke]].
+}}}
+
 ====isEqualTo====variableIsEqualTo
 
 ##isEqualTo## vérifie que la variable est égale à une certaine donnée.
@@ -96,14 +100,28 @@ $f = function() {
 $int    = 1;
 $string = 'nonExistingMethod';
 
+class foo
+{
+    public function __invoke()
+    {
+        // code
+    }
+}
+
 $this
     ->variable($f)
+        ->isNotCallable()   // échoue
+
+    ->variable(ew foo)
         ->isNotCallable()   // échoue
 
     ->variable($int)
         ->isNotCallable()   // passe
 
     ->variable($string)
+        ->isNotCallable()   // passe
+
+    ->variable(new StdClass)
         ->isNotCallable()   // passe
 ;
 ]]]
