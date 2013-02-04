@@ -196,7 +196,7 @@ require_once __DIR__ . '/mageekguy.atoum.phar';
 use mageekguy\atoum;
 
 /**
- * @namespace #\\\my\\\tests\\\#
+ * @namespace \my\tests
  */
 abstract class aClass extends atoum
 {
@@ -224,7 +224,7 @@ abstract class aClass extends atoum
 {
    public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
    {
-      $this->setTestNamespace('#\\\my\\\tests\\\#');
+      $this->setTestNamespace('\\my\\tests');
 
       parent::__construct($score, $locale, $adapter);
    }
@@ -252,7 +252,7 @@ abstract class Test extends atoum
 {
    public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
    {
-       $this->setTestNamespace('#\\\my\\\tests\\\#');
+       $this->setTestNamespace('\\my\\tests');
 
       parent::__construct($score, $locale, $adapter);
    }
