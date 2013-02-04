@@ -15,19 +15,8 @@ $f = function() {
     // code
 };
 
-class foo
-{
-    public function __invoke()
-    {
-        // code
-    }
-}
-
 $this
     ->variable($f)
-        ->isCallable()  // passe
-
-    ->variable(new foo)
         ->isCallable()  // passe
 
     ->variable('\Vendor\Project\foobar')
@@ -40,10 +29,6 @@ $this
         ->isCallable()
 ;
 ]]]
-
-{{{info
-Pour être identifiés comme ##callable##, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique [[##invoke## | http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke]].
-}}}
 
 ====isEqualTo====variableIsEqualTo
 
@@ -100,19 +85,8 @@ $f = function() {
 $int    = 1;
 $string = 'nonExistingMethod';
 
-class foo
-{
-    public function __invoke()
-    {
-        // code
-    }
-}
-
 $this
     ->variable($f)
-        ->isNotCallable()   // échoue
-
-    ->variable(ew foo)
         ->isNotCallable()   // échoue
 
     ->variable($int)
@@ -627,9 +601,56 @@ $this
 
 ====isCallable====objectIsCallable
 
+[[[php
+class foo
+{
+    public function __invoke()
+    {
+        // code
+    }
+}
+
+$this
+    ->object(new foo)
+        ->isCallable()  // passe
+
+    ->object(new StdClass)
+        ->isCallable()  // échoue
+;
+]]]
+
+{{{info
+Pour être identifiés comme ##callable##, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique [[##invoke## | http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke]].
+}}}
+
 {{{inheritance
 ##isCallable## est une méthode héritée de l'asserter ##variable##.
 Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isCallable##|#variableIsCallable]]
+}}}
+
+====isNotCallable====objectIsNotCallable
+
+[[[php
+class foo
+{
+    public function __invoke()
+    {
+        // code
+    }
+}
+
+$this
+    ->variable(new foo)
+        ->isNotCallable()   // échoue
+
+    ->variable(new StdClass)
+        ->isNotCallable()   // passe
+;
+]]]
+
+{{{inheritance
+##isNotCallable## est une méthode héritée de l'asserter ##variable##.
+Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotCallable##|#variableIsNotCallable]]
 }}}
 
 ====isCloneOf====objectIsCloneOf
