@@ -3279,7 +3279,7 @@ class SecondClass {
 }
 
 $this->mockGenerator->orphanize('__construct');
-$this->mockGeneratr->shuntParentClassCalls();
+$this->mockGenerator->shuntParentClassCalls();
 
 // Nous pouvons instancier le bouchon sans injecter ses dépendances
 $mock = new \mock\SecondClass();
@@ -3301,7 +3301,7 @@ $databaseClient->getMockController()->connect = function() {};
 $this->calling($databaseClient)->connect = function() {};
 ]]]
 
-Le ##mockController## vous permet de redéfinir *uniquement les méthodes publiques et abstraites protégées* et met à votre disposition plusieurs méthodes :
+Le ##mockController## vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
 
 [[[php
 $databaseClient = new \mock\Database\Client();
