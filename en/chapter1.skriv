@@ -18,7 +18,6 @@ You can install atoum several ways :
 * [[Using composer|#Composer]]
 * [[Using an install script|#Installer]]
 * [[Cloning github repository|#Github]]
-*  ;
 * [[Using a Symfony 2 Bundle|#Symfony-2-bundle]].
 * [[Using Zend Framework 2 component|#Using-zend-framework-2-component]]
 
@@ -348,3 +347,4 @@ If you want to know more on the plugin, you can use the embedded help in VIM tha
 
 [[[vim
 :help atoum
+]]]

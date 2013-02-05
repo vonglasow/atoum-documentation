@@ -7,7 +7,8 @@ This is the base asserter for variables, it includes the basics assertions you m
 ===isEqualTo
 
 isEqualTo verify that the tested variable is equal to a given value.
-[php]
+
+[[[php
 $a = 'a';
 
 $this->assert
@@ -20,7 +21,6 @@ $a1 = '1';
 
 $a2 = 1;
 
-]]]
  $this->assert
         ->variable($a1)
            ->isEqualTo($a2); //Will pass
@@ -59,6 +59,8 @@ $this->assert
 ===isIdenticalTo
 
 isIdenticalTo verify that the tested variables are the same (types and values). In case you are testing objects, isIdenticalTo will tell if both variables represents the same instance.
+
+[[[php
  $a1 = '1';
 
 $this->assert
