@@ -19,7 +19,7 @@ You can install atoum several ways :
 * [[Using an install script|#Installer]]
 * [[Cloning github repository|#Github]]
 * [[Using a Symfony 2 Bundle|#Symfony-2-bundle]].
-* [[Using Zend Framework 2 component|#Using-zend-framework-2-component]]
+* [[Using Zend Framework 2 component|#Using-Zend-Framework-2-component]]
 
 
 ===PHAR

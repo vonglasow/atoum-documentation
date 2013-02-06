@@ -330,7 +330,7 @@ This is the asserter dedicated to string testing.
 
 It extends the variable asserter : You can use every assertions of the variable asserter while testing a string.
 
-===isEmpty
+===isEmpty===stringIsEmpty
 
 isEmpty verify that the string is empty (no characters)
 
@@ -346,7 +346,7 @@ $this->assert
             ->isEmpty();//Will fail
 ]]]
 
-===isNotEmpty
+===isNotEmpty===stringIsNotEmpty
 
 isNotEmpty verify that the string is not empty (contains some characters)
 
@@ -417,7 +417,7 @@ This is the asserter dedicated to array testing.
 
 It extends from the variable asserter : You can use every assertions of the variable asserter while testing arrays.
 
-===hasSize
+===hasSize===arrayHasSize
 
 hasSize will verify that the tested array has a given number of element (non recursive).
 
@@ -432,7 +432,7 @@ $this->assert
         ->hasSize(7);//Will fail
 ]]]
 
-===isEmpty
+===isEmpty===arrayIsEmpty
 
 isEmpty will verify that the array is empty (does not contains any value)
 
@@ -449,9 +449,9 @@ $this->assert
         ->isEmpty();//will fail
 ]]]
 
-===isNotEmpty
+===isNotEmpty===arrayIsNotEmpty
 
-isEmpty will verify that the array is not empty (contains at least one value of any kind)
+isNotEmpty will verify that the array is not empty (contains at least one value of any kind)
 
 [[[php
 $emptyArray = array();
@@ -786,12 +786,12 @@ $this->assert
             ->isInstanceOf('\SomeChildClass');//will pass
 ]]]
 
-===hasSize
+===hasSize===objectHasSize
 
 hasSize will check the size of an object. This assertion have sense mainly if your object implements the Countable interface.
 
 
-===isEmpty
+===isEmpty===objectIsEmpty
 
 ==phpClass / class
 
