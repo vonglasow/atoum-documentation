@@ -76,7 +76,7 @@ Available versions will be shown. The one prefixed with a ##*## is active.
 
 ====Updating the current version
 
-To activate a different version of atoum, use the --enable-version (or the shorter -ev) argument with the name of the version you want to activate.
+To activate a different version of atoum, use the ##\--enable-version## (or the shorter ##-ev##) argument with the name of the version you want to activate.
 
 [[[shell
 php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
