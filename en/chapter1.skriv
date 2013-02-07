@@ -64,7 +64,7 @@ atoum won't ask you for confirmation before proceeding to the update as it is ve
 
 ====Listing available versions of atoum in it's archive
 
-To show the list of atoum's version contained in its archive, you'll use the --list-available-versions (or the shorter -lav) argument.
+To show the list of atoum's version contained in its archive, you'll use the ##\--list-available-versions## (or the shorter ##-lav##) argument.
 
 [[[shell
 php mageekguy.atoum.phar -lav
