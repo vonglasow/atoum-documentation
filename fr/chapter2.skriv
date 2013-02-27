@@ -3383,9 +3383,9 @@ Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d
 * Utilser une implémentation courte grâce aux fonctions anonymes de PHP
 * Utiliser le mot clé ##throw## pour lever une exception
 
-Si vous souhaitez que plusieurs méthodes du bouchon aie le même comportement, vous pouvez utiliser les méthodes ##methods## ou ##methodsWhichMatch##.
+Si vous souhaitez que plusieurs méthodes du bouchon aie le même comportement, vous pouvez utiliser les méthodes [[##methods##|#methods]] ou [[##methodsWhichMatch##|#methodsWhichMatch]].
 
-====methods(closure)
+====methods
 
 ##methods## vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes, le comportement doit être modifié:
 
@@ -3428,13 +3428,13 @@ $this
 ;
 ]]]
 
-Dans le cas du dernier exemple, utilisez plutôt [[##methodsWhichMatch##|#methodsWhichMatch-regexp]].
+Dans le cas du dernier exemple, utilisez plutôt [[##methodsWhichMatch##|#methodsWhichMatch]].
 
 {{{info
 La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
 }}}
 
-====methodsWhichMatch(regexp)
+====methodsWhichMatch
 
 ##methodsWhichMatch## vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument:
 
