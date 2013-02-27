@@ -2487,7 +2487,7 @@ $this
 ]]]
 
 {{{info
-Reportez-vous à la documentation sur les [[bouchons|#Les-bouchons]] pour obtenir plus d'informations sur la façon de créer et gérer les bouchons.
+Reportez-vous à la documentation sur les [[bouchons|#Les-bouchons-mock]] pour obtenir plus d'informations sur la façon de créer et gérer les bouchons.
 }}}
 
 ====call
@@ -3152,7 +3152,7 @@ Par défaut, les méthodes ##setUp()##, ##beforeTestMethod()##, ##afterTestMetho
 Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les classes de test concernées.
 
 
-==Fournisseurs de données
+==Fournisseurs de données (data provider)
 
 Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
 
@@ -3212,7 +3212,7 @@ L'isolation des tests ne sera pas utilisée dans ce contexte, ce qui veut dire q
 Un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
 }}}
 
-==Les bouchons
+==Les bouchons (mock)
 
 atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes ou inexistantes) ou d'interfaces, mais également à partir de classe abstraite. Grâce à ces bouchons, vous pourrez simuler des comportements en redéfinissant les méthodes publiques de vos classes.
 
@@ -3382,6 +3382,83 @@ Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d
 * Utiliser une valeur statique qui sera retournée par la méthode
 * Utilser une implémentation courte grâce aux fonctions anonymes de PHP
 * Utiliser le mot clé ##throw## pour lever une exception
+
+Si vous souhaitez que plusieurs méthodes du bouchon aie le même comportement, vous pouvez utiliser les méthodes ##methods## ou ##methodsWhichMatch##.
+
+====methods(closure)
+
+##methods## vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes, le comportement doit être modifié:
+
+[[[php
+// si la méthode a tel ou tel nom,
+// on redéfinit son comportement
+$this
+    ->calling($mock)
+        ->methods(
+            function($method) {
+                return in_array(
+                    $method,
+                    array(
+                        'getOneThing',
+                        'getAnOtherThing'
+                    )
+                );
+            }
+        )
+            ->return = uniqid()
+;
+
+// on redéfinit le comportement de toutes les méthodes
+$this
+    ->calling($mock)
+        ->methods()
+            ->return = null
+;
+
+// si la méthode commence par "get",
+// on redéfinit son comportement
+$this
+    ->calling($mock)
+        ->methods(
+            function($method) {
+                return substr($method, 0, 3) == 'get';
+            }
+        )
+            ->return = uniqid()
+;
+]]]
+
+Dans le cas du dernier exemple, utilisez plutôt [[##methodsWhichMatch##|#methodsWhichMatch-regexp]].
+
+{{{info
+La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
+}}}
+
+====methodsWhichMatch(regexp)
+
+##methodsWhichMatch## vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument:
+
+[[[php
+// si la méthode commence par "get",
+// on redéfinit son comportement
+$this
+    ->calling($mock)
+        ->methodsWhichMatch('/^get/')
+            ->return = uniqid()
+;
+
+// si la méthode commence par "is" (insensible à la casse),
+// on redéfinit son comportement
+$this
+    ->calling($mock)
+        ->methodsWhichMatch('/^is/i')
+            ->throw = new \exception
+;
+]]]
+
+{{{info
+##methodsWhichMatch## utilise [[##preg_match##|http://php.net/preg_match]] et les expressions rationnelles. Reportez vous au [[manuel PHP|http://php.net/pcre]] pour avoir plus d'informations sur le sujet.
+}}}
 
 ===Cas particulier du constructeur
 
