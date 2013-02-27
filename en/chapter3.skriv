@@ -42,7 +42,7 @@ C:\> X:\Path\To\php.exe X:\Path\To\bin\atoum\bin
 ]]]
 
 
-===Examples in the remainder of the Documentation 
+===Examples in the remainder of the Documentation
 
 In the following examples, the commands used to launch the tests with Atoum will be written in the form:
 
@@ -75,7 +75,7 @@ $ ./bin/atoum -d tests/units
 
 ==Filters
 
-Once you have told Atoum [[which files it must execute|#Files to execute]], you will be able to filter to will really be executed.
+Once you have told Atoum [[which files it must execute|#Files-to-execute]], you will be able to filter to will really be executed.
 
 ===By Namespace
 
@@ -86,7 +86,7 @@ $ ./bin/atoum -d tests/units -ns mageekguy\\atoum\\tests\\units\\asserters
 ]]]
 
 {{{info
-It is important to double each backslash in order to prevent the shell from interpreting them. 
+It is important to double each backslash in order to prevent the shell from interpreting them.
 }}}
 
 ===Class or method
@@ -98,7 +98,7 @@ $ ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\strin
 ]]]
 
 {{{info
-It is important to double each backslash in order to prevent the shell from interpreting them. 
+It is important to double each backslash in order to prevent the shell from interpreting them.
 }}}
 
 You can replace the class or method name by ##*## to signify ##all##.
@@ -196,7 +196,7 @@ We need help to write this section !
 
 ===Code Coverage
 
-By default, if PHP can make use of the [[Xdebug|http://xdebug.org]] extension, Atoum will indicate in command line mode the code coverage percentage for the tests just executed.  
+By default, if PHP can make use of the [[Xdebug|http://xdebug.org]] extension, Atoum will indicate in command line mode the code coverage percentage for the tests just executed.
 
 If the code coverage percentage is 100%, Atoum merely indicate it, but if it is not the case, it will display the global coverage percentage as well as that of each tested class method.
 
@@ -237,11 +237,11 @@ Once the extraction has been perfomed, you should be able to see a directory nam
 
 If you are using Atoum with a [[github repository clone|chapter1.html#Github]] or with [[composer|chapter1.html#Composer]], the models can be found in "/path/to/atoum/resources/configurations/runner.
 
-In this directory are, among other interesting things, an Atoum configuration file model named "coverage.php.dist" that you will need to copy at the location of your choosing under, for example, the name "coverage.php". 
+In this directory are, among other interesting things, an Atoum configuration file model named "coverage.php.dist" that you will need to copy at the location of your choosing under, for example, the name "coverage.php".
 
-Once the copy has been performed, modify it with you prefered editor in order to define: 
+Once the copy has been performed, modify it with you prefered editor in order to define:
 
-* the directory in wich HTML files shall be generated. 
+* the directory in wich HTML files shall be generated.
 * the URL from which the report will be accessible.
 
 
@@ -291,9 +291,9 @@ A boostrap file is not a configuration file et therefore does not the have the s
 
 In a configuration file, Atoum is configured via the $runner variable, which is itself defined in ##bootstrap## file.
 
-Moreover, both files are not included at the same time since the configuration file is included by Atoum before the tests execution but after the launching of the tests, when the ##bootstrap file, should it be defined, is the first and foremost file included by Atoum. 
+Moreover, both files are not included at the same time since the configuration file is included by Atoum before the tests execution but after the launching of the tests, when the ##bootstrap file, should it be defined, is the first and foremost file included by Atoum.
 
-Finally the ##bootstrap## can help avoid systematically loading the /scripts/runner.php file or the Atoum PHAR archive in the test classes. 
+Finally the ##bootstrap## can help avoid systematically loading the /scripts/runner.php file or the Atoum PHAR archive in the test classes.
 
 However, in this case, it won't possible to execute directly a test file via the PHP executable when using the command line.
 
@@ -454,7 +454,7 @@ $ ./bin/atoum --methods *::testMyMethod
 ]]]
 
 {{{info
-Check out the [[filter by class or method|#Class-Or-Method]] section for more information.
+Check out the [[filter by class or method|#Class-or-method]] section for more information.
 }}}
 
 ===-mcn <integer> / --max-children-number <integer>
@@ -485,7 +485,7 @@ $ ./bin/atoum --no-code-coverage-for-classes vendor\\project\\db\\mysql vendor\\
 ]]]
 
 {{{info
-It is important to double each backslash in order to prevent the shell from interpreting them. 
+It is important to double each backslash in order to prevent the shell from interpreting them.
 }}}
 
 ===-nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
@@ -498,7 +498,7 @@ $ ./bin/atoum --no-code-coverage-for-namespaces vendor\\outside\\lib1 vendor\\ou
 ]]]
 
 {{{info
-It is important to double each backslash in order to prevent the shell from interpreting them. 
+It is important to double each backslash in order to prevent the shell from interpreting them.
 }}}
 
 ===-nccid <directories> / --no-code-coverage-in-directories <directories>
@@ -520,7 +520,7 @@ $ ./bin/atoum --namespaces mageekguy\\atoum\\tests\\units\\asserters
 ]]]
 
 {{{info
-Check out the [[filter by namespace|By namespace]] section for more information.
+Check out the [[filter by namespace|#By-Namespace]] section for more information.
 }}}
 
 ===-p <file> / --php <file>

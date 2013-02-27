@@ -74,7 +74,7 @@ $this
 ##isIdenticalTo## teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ##[[isEqualTo|#variableIsEqualTo]]##.
 }}}
 
-====isNotCallable
+====isNotCallable====variableIsNotCallable
 
 ##isNotCallable## vérifie que la variable ne peut pas être appelée comme fonction.
 
