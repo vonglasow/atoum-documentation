@@ -6,7 +6,7 @@
 
 C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
 
-====isCallable====variableIsCallable
+====isCallable====variableIsCallabl
 
 ##isCallable## vérifie que la variable peut être appelée comme fonction.
 
