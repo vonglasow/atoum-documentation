@@ -3383,11 +3383,11 @@ Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d
 * Utilser une implémentation courte grâce aux fonctions anonymes de PHP
 * Utiliser le mot clé ##throw## pour lever une exception
 
-Si vous souhaitez que plusieurs méthodes du bouchon aie le même comportement, vous pouvez utiliser les méthodes [[##methods##|#methods]] ou [[##methodsWhichMatch##|#methodsWhichMatch]].
+Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes [[##methods##|#methods]] ou [[##methodsWhichMatch##|#methodsWhichMatch]].
 
 ====methods
 
-##methods## vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes, le comportement doit être modifié:
+##methods## vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes le comportement doit être modifier:
 
 [[[php
 // si la méthode a tel ou tel nom,
@@ -3428,7 +3428,7 @@ $this
 ;
 ]]]
 
-Dans le cas du dernier exemple, utilisez plutôt [[##methodsWhichMatch##|#methodsWhichMatch]].
+Dans le cas du dernier exemple, vous devriez plutôt utiliser [[##methodsWhichMatch##|#methodsWhichMatch]].
 
 {{{info
 La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
@@ -3439,19 +3439,19 @@ La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closure
 ##methodsWhichMatch## vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument:
 
 [[[php
-// si la méthode commence par "get",
+// si la méthode commence par "is",
 // on redéfinit son comportement
 $this
     ->calling($mock)
-        ->methodsWhichMatch('/^get/')
-            ->return = uniqid()
+        ->methodsWhichMatch('/^is/')
+            ->return = true
 ;
 
-// si la méthode commence par "is" (insensible à la casse),
+// si la méthode commence par "get" (insensible à la casse),
 // on redéfinit son comportement
 $this
     ->calling($mock)
-        ->methodsWhichMatch('/^is/i')
+        ->methodsWhichMatch('/^get/i')
             ->throw = new \exception
 ;
 ]]]
