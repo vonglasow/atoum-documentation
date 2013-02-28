@@ -1,0 +1,15 @@
+language: php
+php:
+  - 5.4
+before_script:
+  - git clone git://github.com/marmotz/sia.git
+  - git clone git://github.com/marmotz/LinksChecker.git
+  - composer install -d sia
+  - mkdir -p output/fr output/en
+  - ./sia/bin/sia -i fr -o output/fr -t atoum
+  - ./sia/bin/sia -i en -o output/en -t atoum
+script:
+  - ./LinksChecker/check output/fr/chapter1.html
+  - ./LinksChecker/check output/en/chapter1.html
+#notifications:
+#  irc: "irc.freenode.org##atoum"
