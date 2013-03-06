@@ -162,21 +162,21 @@ Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez clo
 
 ===Plugin symfony 1
 
-Si vous souhaitez utiliser atoum au sein d’un projet symfony 1, un plug-in existe et est disponible à l’adresse suivante : [[https://github.com/atoum/sfAtoumPlugin|https://github.com/atoum/sfAtoumPlugin]].
+Si vous souhaitez utiliser atoum au sein d’un projet symfony 1, un plug-in existe et est disponible à l’adresse suivante : [[https://github.com/atoum/sfAtoumPlugin|https://github.com/atoum/sfAtoumPlugin]].
 
-Toutes les instructions pour son installation et son utilisation se trouvent [[dans le cookbook|chapter4.html#Utilisation-avec-symfony-1.4]] ainsi que sur son site.
+Toutes les instructions pour son installation et son utilisation se trouvent [[dans le cookbook|chapter4.html#Utilisation-avec-symfony -1.4]] ainsi que sur son site.
 
 
 ===Bundle Symfony 2
 
-Si vous souhaitez utiliser atoum au sein d’un projet Symfony 2, un bundle existe et est disponible à l’adresse suivante : [[https://github.com/atoum/AtoumBundle|https://github.com/atoum/AtoumBundle]].
+Si vous souhaitez utiliser atoum au sein d’un projet Symfony 2, un bundle existe et est disponible à l’adresse suivante : [[https://github.com/atoum/AtoumBundle|https://github.com/atoum/AtoumBundle]].
 
 Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.
 
 
-===Composant Zend Framework 2
+===Composant Zend Framework 2
 
-Si vous souhaitez utiliser atoum au sein d’un projet Zend Framework 2, un composant existe et est disponible à l’adresse suivante : [[https://github.com/blanchonvincent/zend-framework-test-atoum|https://github.com/blanchonvincent/zend-framework-test-atoum]].
+Si vous souhaitez utiliser atoum au sein d’un projet Zend Framework 2, un composant existe et est disponible à l’adresse suivante : [[https://github.com/blanchonvincent/zend-framework-test-atoum|https://github.com/blanchonvincent/zend-framework-test-atoum]].
 
 Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.
 
@@ -278,23 +278,23 @@ Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
 
 Nous venons de tester que la méthode ##getHiAtoum## :
 * retourne bien une chaîne de caractère ;
-* et qu’elle est bien celle attendue, c’est à dire ##"Hi atoum !"##.
+* que cette dernière est bien égale à ##"Hi atoum !"##.
 
-Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
+Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
 
 
 ===Principes de base
 
-Avec atoum, quand vous voulez tester quelque chose :
-* spécifiez sur quoi vous voulez travailler (une variable, un objet, un tableau, une chaîne de caractères, un nombre entier, etc.);
-* indiquez dans quel état il doit être (égal à, null, contenant quelque chose, etc.).
+Lorsque vous voulez tester une valeur, vous devez :
+* indiquer le type de cette valeur (entier, décimal, tableau, chaîne de caractères, etc.) ;
+* indiquer les contraintes devant s’appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).
 
 
 ==Intégration d’atoum dans votre IDE
 
-===Sublime Text 2
+===Sublime Text 2
 
-Un [[plug-in pour SublimeText 2|https://github.com/toin0u/Sublime-atoum]] permet l’exécution des tests unitaires par atoum et la visualisation du résultat sans quitter l’éditeur.
+Un [[plug-in pour SublimeText 2|https://github.com/toin0u/Sublime-atoum]] permet l’exécution des tests unitaires par atoum et la visualisation du résultat sans quitter l’éditeur.
 
 Les informations nécessaires à son installation et à sa configuration sont disponibles [[sur le blog de son auteur|http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/]].
 
@@ -365,7 +365,7 @@ Elle accepte pour cela trois arguments :
 * un chemin d’accès vers le fichier de configuration de atoum devant être utilisé ;
 * l’extension des fichiers de tests unitaires concernés.
 
-Pour plus de détails sur l’utilisation du plug-in, une aide est disponible dans VIM via la commande suivante :
+Pour plus de détails sur l’utilisation du plug-in, une aide est disponible dans VIM à l’aide de la commande suivante :
 
 [[[vim
 :help atoum
@@ -376,7 +376,7 @@ Pour plus de détails sur l’utilisation du plug-in, une aide est disponible da
 atoum est capable d’ouvrir automatiquement les fichiers des tests en échec à la fin de l’exécution. Plusieurs éditeurs sont actuellement supportés :
 * [[macvim|#macvim]] (Mac OS X)
 * [[gvim|#gvim]] (Unix)
-* [[PhpStorm|#PhpStorm]] (Mac OS X / Unix)
+* [[PhpStorm|#PhpStorm]] (Mac OS X/Unix)
 * [[gedit|#gedit]] (Unix)
 
 Pour utiliser cette fonctionnalité, vous devrez modifier le [[fichier de configuration|chapter3.html#Fichier-de-configuration]] de atoum :
