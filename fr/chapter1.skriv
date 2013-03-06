@@ -15,7 +15,7 @@ Pour le moment, atoum n’a pas de numéro de version. Il est néanmoins d’ore
 Vous pouvez installer atoum de plusieurs manières :
 * [[en téléchargeant l’archive PHAR|#Archive-PHAR]] ;
 * [[à l’aide de composer|#Composer]] ;
-* [[en utilisant un script d’installation|#Script-d-installation]] ;
+* [[en utilisant un script d’installation|#Script-dinstallation]] ;
 * [[en clonant le dépôt github|#Github]] ;
 * [[en utilisant un plug-in symfony 1|#Plugin-symfony-1]] ;
 * [[en utilisant un bundle Symfony 2|#Bundle-Symfony-2]].
