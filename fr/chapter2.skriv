@@ -4,7 +4,7 @@
 
 ===variable
 
-C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
+C’est l’assertion de base de toutes les variables. Elle contient les tests nécessaires à n’importe quel type de variable.
 
 ====isCallable====variableIsCallable
 
@@ -49,7 +49,7 @@ $this
 
 ====isIdenticalTo====variableIsIdenticalTo
 
-##isIdenticalTo## vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, ##isIdenticalTo## vérifie que les données pointent sur la même instance.
+##isIdenticalTo## vérifie que la variable a la même valeur et le même type qu’une certaine donnée. Dans le cas d’objets, ##isIdenticalTo## vérifie que les données pointent sur la même instance.
 
 [[[php
 $a = '1';
@@ -102,7 +102,7 @@ $this
 
 ====isNotEqualTo====variableIsNotEqualTo
 
-##isNotEqualTo## vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
+##isNotEqualTo## vérifie que la variable n’a pas la même valeur qu’une certaine donnée.
 
 [[[php
 $a       = 'a';
@@ -124,9 +124,9 @@ $this
 
 ====isNotIdenticalTo====variableIsNotIdenticalTo
 
-##isNotIdenticalTo## vérifie que la variable n'a ni le même type, ni la même valeur qu'une certaine donnée.
+##isNotIdenticalTo## vérifie que la variable n’a ni le même type ni la même valeur qu’une certaine donnée.
 
-Dans le cas d'objets, ##isNotIdenticalTo## vérifie que les données ne pointent pas sur la même instance.
+Dans le cas d’objets, ##isNotIdenticalTo## vérifie que les données ne pointent pas sur la même instance.
 
 [[[php
 $a = '1';
@@ -171,7 +171,7 @@ $this
 
 ====isNotNull
 
-##isNotNull## vérifie que la variable n'est pas nulle.
+##isNotNull## vérifie que la variable n’est pas nulle.
 
 [[[php
 $emptyString = '';
@@ -190,19 +190,19 @@ $this
 
 ===boolean
 
-C'est l'assertion dédiée aux booléens.
+C’est l’assertion dédiée aux booléens.
 
-Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un booléen avec cette assertion, cela échouera.
 
 {{{info
-##null## n'est pas considéré comme un booléen. Reportez vous au manuel PHP pour voir ce que ##[[is_bool|http://php.net/is_bool]]## considère ou non comme un booléen.
+##null## n’est pas un booléen. Reportez-vous au manuel de PHP pour savoir ce que ##[[is_bool|http://php.net/is_bool]]## considère ou non comme un booléen.
 }}}
 
 ====isEqualTo====booleanIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isFalse
@@ -225,22 +225,22 @@ $this
 ====isIdenticalTo====booleanIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isNotEqualTo====booleanIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====booleanIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====isTrue
@@ -264,24 +264,24 @@ $this
 
 ===integer
 
-C'est l'assertion dédiée aux entiers.
+C’est l’assertion dédiée aux entiers.
 
-Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un entier avec cette assertion, cela échouera.
 
 {{{info
-##null## n'est pas considéré comme un entier. Reportez vous au manuel PHP pour voir ce que ##[[is_int|http://php.net/is_int]]## considère ou non comme un entier.
+##null## n’est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que ##[[is_int|http://php.net/is_int]]## considère ou non comme un entier.
 }}}
 
 ====isEqualTo====integerIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isGreaterThan====integerIsGreaterThan
 
-##isGreaterThan## vérifie que l'entier est strictement supérieur à une certaine donnée.
+##isGreaterThan## vérifie que l’entier est strictement supérieur à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -297,7 +297,7 @@ $this
 
 ====isGreaterThanOrEqualTo====integerIsGreaterThanOrEqualTo
 
-##isGreaterThanOrEqualTo## vérifie que l'entier est supérieur ou égal à une certaine donnée.
+##isGreaterThanOrEqualTo## vérifie que l’entier est supérieur ou égal à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -314,13 +314,13 @@ $this
 ====isIdenticalTo====integerIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isLessThan====integerIsLessThan
 
-##isLessThan## vérifie que l'entier est strictement inférieur à une certaine donnée.
+##isLessThan## vérifie que l’entier est strictement inférieur à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -335,7 +335,7 @@ $this
 
 ====isLessThanOrEqualTo====integerIsLessThanOrEqualTo
 
-##isLessThanOrEqualTo## vérifie que l'entier est inférieur ou égal à une certaine donnée.
+##isLessThanOrEqualTo## vérifie que l’entier est inférieur ou égal à une certaine donnée.
 
 [[[php
 $zero = 0;
@@ -352,20 +352,20 @@ $this
 ====isNotEqualTo====integerIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====integerIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====isZero====integerIsZero
 
-##isZero## vérifie que l'entier est égal à 0.
+##isZero## vérifie que l’entier est égal à 0.
 
 [[[php
 $zero    = 0;
@@ -388,74 +388,74 @@ $this
 
 ===float
 
-C'est l'assertion dédiée aux nombres décimaux.
+C’est l’assertion dédiée aux nombres décimaux.
 
-Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un nombre décimal avec cette assertion, cela échouera.
 
 {{{info
-##null## n'est pas considéré comme un nombre décimal. Reportez vous au manuel PHP pour voir ce que ##[[is_float|http://php.net/is_float]]## considère ou non comme un nombre décimal.
+##null## n’est pas un nombre décimal. Reportez-vous au manuel de PHP pour savoir ce que ##[[is_float|http://php.net/is_float]]## considère ou non comme un nombre décimal.
 }}}
 
 ====isEqualTo====floatIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isGreaterThan====floatIsGreaterThan
 
 {{{inheritance
-##isGreaterThan## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isGreaterThan##|#integerIsGreaterThan]]
+##isGreaterThan## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isGreaterThan##|#integerIsGreaterThan]]
 }}}
 
 ====isGreaterThanOrEqualTo====floatIsGreaterThanOrEqualTo
 
 {{{inheritance
-##isGreaterThanOrEqualTo## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isGreaterThanOrEqualTo##|#integerIsGreaterThanOrEqualTo]]
+##isGreaterThanOrEqualTo## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isGreaterThanOrEqualTo##|#integerIsGreaterThanOrEqualTo]]
 }}}
 
 ====isIdenticalTo====floatIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isLessThan====floatIsLessThan
 
 {{{inheritance
-##isLessThan## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isLessThan##|#integerIsLessThan]]
+##isLessThan## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isLessThan##|#integerIsLessThan]]
 }}}
 
 ====isLessThanOrEqualTo====floatIsLessThanOrEqualTo
 
 {{{inheritance
-##isLessThanOrEqualTo## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isLessThanOrEqualoo##|#integerIsLessThanOrEqualTo]]
+##isLessThanOrEqualTo## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isLessThanOrEqualoo##|#integerIsLessThanOrEqualTo]]
 }}}
 
 ====isNearlyEqualTo
 
-##isNearlyEqualTo## vérifie que le décimal est suffisament égal à une certaine donnée.
+##isNearlyEqualTo## vérifie que le nombre décimal est approximativement égal à la valeur qu’elle reçoit en argument.
 
-En effet, les nombres décimaux ont une valeur interne qui n'est pas assez précise. Essayez par exemple d'exécuter la commande suivante:
+En effet, en informatique, les nombres décimaux sont gérées d’une façon qui ne permet pas d’effectuer des comparaisons précises sans recourir à des outils spécialisés. Essayez par exemple d’exécuter la commande suivante:
 
 [[[shell
 $ php -r 'var_dump(1 - 0.97 === 0.03);'
 bool(false)
 ]]]
 
-Le résultat devrait pourtant être true.
+Le résultat devrait pourtant être ##true##.
 
 {{{info
-Pour avoir plus d'informations sur ce phénomène, reportez vous au [[manuel PHP|http://php.net/types.float]].
+Pour avoir plus d’informations sur ce phénomène, reportez-vous au [[manuel de PHP|http://php.net/types.float]].
 }}}
 
-Cette méthode cherche donc à corriger ce problème.
+Cette méthode cherche donc à minorer ce problème.
 
 [[[php
 $float = 1 - 0.97;
@@ -468,35 +468,35 @@ $this
 ]]]
 
 {{{info
-Pour avoir plus d'informations sur l'algorithme utilisé, consultez le [[floating point guide|http://www.floating-point-gui.de/errors/comparison/]].
+Pour avoir plus d’informations sur l’algorithme utilisé, consultez le [[floating point guide|http://www.floating-point-gui.de/errors/comparison/]].
 }}}
 
 ====isNotEqualTo====floatIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====floatIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====isZero====floatIsZero
 
 {{{inheritance
-##isZero## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isZero##|#integerIsZero]]
+##isZero## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isZero##|#integerIsZero]]
 }}}
 
 
 
 ===sizeOf
 
-C'est l'assertion dédiée aux tests sur la taille des tableaux et des objets implémentants l'interface ##Countable##.
+C’est l’assertion dédiée aux tests sur la taille des tableaux et des objets implémentant l’interface ##Countable##.
 
 [[[php
 $array           = array(1, 2, 3);
@@ -514,81 +514,81 @@ $this
 ====isEqualTo====sizeOfIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isGreaterThan====sizeOfIsGreaterThan
 
 {{{inheritance
-##isGreaterThan## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isGreaterThan##|#integerIsGreaterThan]]
+##isGreaterThan## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isGreaterThan##|#integerIsGreaterThan]]
 }}}
 
 ====isGreaterThanOrEqualTo====sizeOfIsGreaterThanOrEqualTo
 
 {{{inheritance
-##isGreaterThanOrEqualTo## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isGreaterThanOrEqualTo##|#integerIsGreaterThanOrEqualTo]]
+##isGreaterThanOrEqualTo## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isGreaterThanOrEqualTo##|#integerIsGreaterThanOrEqualTo]]
 }}}
 
 ====isIdenticalTo====sizeOfIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isLessThan====sizeOfIsLessThan
 
 {{{inheritance
-##isLessThan## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isLessThan##|#integerIsLessThan]]
+##isLessThan## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isLessThan##|#integerIsLessThan]]
 }}}
 
 ====isLessThanOrEqualTo====sizeOfIsLessThanOrEqualTo
 
 {{{inheritance
-##isLessThanOrEqualTo## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isLessThanOrEqualoo##|#integerIsLessThanOrEqualTo]]
+##isLessThanOrEqualTo## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isLessThanOrEqualoo##|#integerIsLessThanOrEqualTo]]
 }}}
 
 ====isNotEqualTo====sizeOfIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====sizeOfIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====isZero====sizeOfIsZero
 
 {{{inheritance
-##isZero## est une méthode héritée de l'asserter ##integer##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##integer::isZero##|#integerIsZero]]
+##isZero## est une méthode héritée de l’asserter ##integer##.
+Pour plus d’informations, reportez-vous à la documentation de [[##integer::isZero##|#integerIsZero]]
 }}}
 
 
 
 ===object
 
-C'est l'assertion dédiée aux objets.
+C’est l’assertion dédiée aux objets.
 
-Si vous essayez de tester une variable qui n'est pas un objet avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un objet avec cette assertion, cela échouera.
 
 {{{info
-##null## n'est pas considéré comme un objet. Reportez vous au manuel PHP pour voir ce que ##[[is_object|http://php.net/is_object]]## considère ou non comme un objet.
+##null## n’est pas un objet. Reportez-vous au manuel de PHP pour savoir ce que ##[[is_object|http://php.net/is_object]]## considère ou non comme un objet.
 }}}
 
 ====hasSize====objectHasSize
 
-##hasSize## vérifie la taille d'un objet qui implémente l'interface ##Countable##.
+##hasSize## vérifie la taille d’un objet qui implémente l’interface ##Countable##.
 
 [[[php
 $countableObject = new GlobIterator('*');
@@ -624,13 +624,13 @@ Pour être identifiés comme ##callable##, vos objets devront être instanciés 
 }}}
 
 {{{inheritance
-##isCallable## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isCallable##|#variableIsCallable]]
+##isCallable## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isCallable##|#variableIsCallable]]
 }}}
 
 ====isCloneOf====objectIsCloneOf
 
-##isCloneOf## vérifie qu'un objet est le clone d'un objet donné, c'est à dire que les objets sont égaux mais ne pointent pas vers la même instance.
+##isCloneOf## vérifie qu’un objet est le clone d’un objet donné, c’est-à-dire que les objets sont égaux, mais ne pointent pas vers la même instance.
 
 [[[php
 $object1 = new \StdClass;
@@ -648,12 +648,12 @@ $this
 ]]]
 
 {{{info
-Pour avoir plus de précision sur la comparaison d'objet, reportez vous au [[manuel PHP|http://php.net/language.oop5.object-comparison]].
+Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au [[manuel de PHP|http://php.net/language.oop5.object-comparison]].
 }}}
 
 ====isEmpty====objectIsEmpty
 
-##isEmpty## vérifie que la taille d'un objet implémentant l'interface ##Countable## est égale à 0.
+##isEmpty## vérifie que la taille d’un objet implémentant l’interface ##Countable## est égale à 0.
 
 [[[php
 $countableObject = new GlobIterator('atoum.php');
@@ -670,10 +670,10 @@ $this
 
 ====isInstanceOf====objectIsInstanceOf
 
-##isInstanceOf## vérifie qu'un objet est:
+##isInstanceOf## vérifie qu’un objet est :
 * une instance de la classe donnée,
 * une sous-classe de la classe donnée (abstraite ou non),
-* une instance d'une classe qui implémente l'interface donnée.
+* une instance d’une classe qui implémente l’interface donnée.
 
 [[[php
 $object = new \StdClass();
@@ -721,7 +721,7 @@ $this
 ]]]
 
 {{{info
-Les noms des classes et des interfaces doit être absolu et commencé par un antislash.
+Les noms des classes et des interfaces doivent être absolus, car les éventuelles importations d’espace de nommage ne sont pas prises en compte.
 }}}
 
 ====isNotCallable====objectIsNotCallable
@@ -745,26 +745,26 @@ $this
 ]]]
 
 {{{inheritance
-##isNotCallable## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotCallable##|#variableIsNotCallable]]
+##isNotCallable## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotCallable##|#variableIsNotCallable]]
 }}}
 
 ===dateInterval
 
-C'est l'assertion dédiée à l'objet ##[[DateInterval|http://php.net/dateinterval]]##.
+C’est l’assertion dédiée à l’objet ##[[DateInterval|http://php.net/dateinterval]]##.
 
-Si vous essayez de tester une variable qui n'est pas un objet ##DateInterval## (ou une classe qui l'étend) avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un objet ##DateInterval## (ou une classe qui l’étend) avec cette assertion, cela échouera.
 
 ====isCloneOf====dateIntervalIsCloneOf
 
 {{{inheritance
-##isCloneOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
+##isCloneOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
 ====isEqualTo====dateIntervalIsEqualTo
 
-##isEqualTo## vérifie que la durée de l'objet ##DateInterval## est égale à la durée d'un autre objet ##DateInterval##.
+##isEqualTo## vérifie que la durée de l’objet ##DateInterval## est égale à la durée d’un autre objet ##DateInterval##.
 
 [[[php
 $di = new DateInterval('P1D');
@@ -782,7 +782,7 @@ $this
 
 ====isGreaterThan====dateIntervalIsGreaterThan
 
-##isGreaterThan## vérifie que la durée de l'objet ##DateInterval## est supérieure à la durée d'un autre objet ##DateInterval##.
+##isGreaterThan## vérifie que la durée de l’objet ##DateInterval## est supérieure à la durée d’un autre objet ##DateInterval##.
 
 [[[php
 $di = new DateInterval('P2D');
@@ -800,7 +800,7 @@ $this
 
 ====isGreaterThanOrEqualTo====dateIntervalIsGreaterThanOrEqualTo
 
-##isGreaterThanOrEqualTo## vérifie que la durée de l'objet ##DateInterval## est supérieure ou égale à la durée d'un autre objet ##DateInterval##.
+##isGreaterThanOrEqualTo## vérifie que la durée de l’objet ##DateInterval## est supérieure ou égale à la durée d’un autre objet ##DateInterval##.
 
 [[[php
 $di = new DateInterval('P2D');
@@ -822,13 +822,13 @@ $this
 ====isInstanceOf====dateIntervalIsInstanceOf
 
 {{{inheritance
-##isInstanceOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+##isInstanceOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
 }}}
 
 ====isLessThan====dateIntervalIsLessThan
 
-##isLessThan## vérifie que la durée de l'objet ##DateInterval## est inférieure à la durée d'un autre objet ##DateInterval##.
+##isLessThan## vérifie que la durée de l’objet ##DateInterval## est inférieure à la durée d’un autre objet ##DateInterval##.
 
 [[[php
 $di = new DateInterval('P1D');
@@ -846,7 +846,7 @@ $this
 
 ====isLessThanOrEqualTo====dateIntervalIsLessThanOrEqualTo
 
-##isLessThanOrEqualTo## vérifie que la durée de l'objet ##DateInterval## est inférieure ou égale à la durée d'un autre objet ##DateInterval##.
+##isLessThanOrEqualTo## vérifie que la durée de l’objet ##DateInterval## est inférieure ou égale à la durée d’un autre objet ##DateInterval##.
 
 [[[php
 $di = new DateInterval('P2D');
@@ -867,7 +867,7 @@ $this
 
 ====isZero====dateIntervalIsZero
 
-##isZero## vérifie que la durée de l'objet ##DateInterval## est égale à 0.
+##isZero## vérifie que la durée de l’objet ##DateInterval## est égale à 0.
 
 [[[php
 $di1 = new DateInterval('P0D');
@@ -884,13 +884,13 @@ $this
 
 ===dateTime
 
-C'est l'assertion dédiée à l'objet ##[[DateTime|http://php.net/datetime]]##.
+C’est l’assertion dédiée à l’objet ##[[DateTime|http://php.net/datetime]]##.
 
-Si vous essayez de tester une variable qui n'est pas un objet ##DateTime## (ou une classe qui l'étend) avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un objet ##DateTime## (ou une classe qui l’étend) avec cette assertion, cela échouera.
 
 ====hasDate====dateTimeHasDate
 
-##hasDate## vérifie la partie date de l'objet ##DateTime##.
+##hasDate## vérifie la partie date de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -905,7 +905,7 @@ $this
 
 ====hasDateAndTime====dateTimeHasDateAndTime
 
-##hasDateAndTime## vérifie la date et l'horaire de l'objet ##DateTime##
+##hasDateAndTime## vérifie la date et l’horaire de l’objet ##DateTime##
 
 [[[php
 $dt = new DateTime('1981-02-13 01:02:03');
@@ -923,7 +923,7 @@ $this
 
 ====hasDay====dateTimeHasDay
 
-##hasDay## vérifie le jour de l'objet ##DateTime##.
+##hasDay## vérifie le jour de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -936,7 +936,7 @@ $this
 
 ====hasHours====dateTimeHasHours
 
-##hasHours## vérifie les heures de l'objet ##DateTime##.
+##hasHours## vérifie les heures de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -951,7 +951,7 @@ $this
 
 ====hasMinutes====dateTimeHasMinutes
 
-##hasMinutes## vérifie les minutes de l'objet ##DateTime##.
+##hasMinutes## vérifie les minutes de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -966,7 +966,7 @@ $this
 
 ====hasMonth====dateTimeHasMonth
 
-##hasMonth## vérifie le mois de l'objet ##DateTime##.
+##hasMonth## vérifie le mois de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -979,7 +979,7 @@ $this
 
 ====hasSeconds====dateTimeHasSeconds
 
-##hasSeconds## vérifie les secondes de l'objet ##DateTime##.
+##hasSeconds## vérifie les secondes de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -994,7 +994,7 @@ $this
 
 ====hasTime====dateTimeHasTime
 
-##hasTime## vérifie la partie horaire de l'objet ##DateTime##
+##hasTime## vérifie la partie horaire de l’objet ##DateTime##
 
 [[[php
 $dt = new DateTime('01:02:03');
@@ -1009,7 +1009,7 @@ $this
 
 ====hasTimezone====dateTimeHasTimezone
 
-##hasTimezone## vérifie le fuseau horaire de l'objet ##DateTime##.
+##hasTimezone## vérifie le fuseau horaire de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime();
@@ -1022,7 +1022,7 @@ $this
 
 ====hasYear====dateTimeHasYear
 
-##hasYear## vérifie l'année de l'objet ##DateTime##.
+##hasYear## vérifie l’année de l’objet ##DateTime##.
 
 [[[php
 $dt = new DateTime('1981-02-13');
@@ -1036,116 +1036,116 @@ $this
 ====isCloneOf====dateTimeIsCloneOf
 
 {{{inheritance
-##isCloneOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
+##isCloneOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
 ====isInstanceOf====dateTimeIsInstanceOf
 
 {{{inheritance
-##isInstanceOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+##isInstanceOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
 }}}
 
 
 
 ===mysqlDateTime
 
-C'est l'assertion dédiée aux objets décrivant une date MySQL et basé sur l'objet ##[[DateTime|http://php.net/datetime]]##.
+C’est l’assertion dédiée aux objets décrivant une date MySQL et basée sur l’objet ##[[DateTime|http://php.net/datetime]]##.
 
-Les dates doivent utiliser le format MySQL (et de nombreux ??SGBD|Système de gestion de base de données??), c'est à dire 'Y-m-d H:i:s' (Reportez vous à la documentation de la fonction ##[[date()|http://php.net/date]]## du manuel PHP pour connaitre la signification de ce format).
+Les dates doivent utiliser un format compatible avec MySQL et de nombreux autre ??SGBD|Système de gestion de base de données??), à savoir « Y-m-d H:i:s » (reportez-vous à la documentation de la fonction ##[[date()|http://php.net/date]]## du manuel de PHP pour plus d’information).
 
-Si vous essayez de tester une variable qui n'est pas un objet ##DateTime## (ou une classe qui l'étend) avec cette assertion, cela échouera.
+Si vous essayez de tester une variable qui n’est pas un objet ##DateTime## (ou une classe qui l’étend) avec cette assertion, cela échouera.
 
 ====hasDate====mysqlDateTimeHasDate
 
 {{{inheritance
-##hasDate## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasDate##|#dateTimeHasDate]]
+##hasDate## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasDate##|#dateTimeHasDate]]
 }}}
 
 ====hasDateAndTime====mysqlDateTimeHasDateAndTime
 
 {{{inheritance
-##hasDateAndTime## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasDateAndTime##|#dateTimeHasDateAndTime]]
+##hasDateAndTime## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasDateAndTime##|#dateTimeHasDateAndTime]]
 }}}
 
 ====hasDay====mysqlDateTimeHasDay
 
 {{{inheritance
-##hasDay## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasDay##|#dateTimeHasDay]]
+##hasDay## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasDay##|#dateTimeHasDay]]
 }}}
 
 ====hasHours====mysqlDateTimeHasHours
 
 {{{inheritance
-##hasHours## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasHours##|#dateTimeHasHours]]
+##hasHours## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasHours##|#dateTimeHasHours]]
 }}}
 
 ====hasMinutes====mysqlDateTimeHasMinutes
 
 {{{inheritance
-##hasMinutes## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasMinutes##|#dateTimeHasMinutes]]
+##hasMinutes## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasMinutes##|#dateTimeHasMinutes]]
 }}}
 
 ====hasMonth====mysqlDateTimeHasMonth
 
 {{{inheritance
-##hasMonth## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasMonth##|#dateTimeHasMonth]]
+##hasMonth## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasMonth##|#dateTimeHasMonth]]
 }}}
 
 ====hasSeconds====mysqlDateTimeHasSeconds
 
 {{{inheritance
-##hasSeconds## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasSeconds##|#dateTimeHasSeconds]]
+##hasSeconds## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasSeconds##|#dateTimeHasSeconds]]
 }}}
 
 ====hasTime====mysqlDateTimeHasTime
 
 {{{inheritance
-##hasTime## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasTime##|#dateTimeHasTime]]
+##hasTime## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasTime##|#dateTimeHasTime]]
 }}}
 
 ====hasTimezone====mysqlDateTimeHasTimezone
 
 {{{inheritance
-##hasTimezone## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasTimezone##|#dateTimeHasTimezone]]
+##hasTimezone## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasTimezone##|#dateTimeHasTimezone]]
 }}}
 
 ====hasYear====mysqlDateTimeHasYear
 
 {{{inheritance
-##hasYear## est une méthode héritée de l'asserter ##dateTime##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##dateTime::hasYear##|#dateTimeHasTimezone]]
+##hasYear## est une méthode héritée de l’asserter ##dateTime##.
+Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::hasYear##|#dateTimeHasTimezone]]
 }}}
 
 ====isCloneOf====mysqlDateTimeIsCloneOf
 
 {{{inheritance
-##isCloneOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
+##isCloneOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
 ====isInstanceOf====mysqlDateTimeIsInstanceOf
 
 {{{inheritance
-##isInstanceOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+##isInstanceOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
 }}}
 
 
 
 ===exception
 
-C'est l'assertion dédiée aux exceptions.
+C’est l’assertion dédiée aux exceptions.
 
 [[[php
 $this
@@ -1159,12 +1159,12 @@ $this
 ]]]
 
 {{{info
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
+La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au [[manuel de PHP|http://php.net/functions.anonymous]] pour avoir plus d’informations sur le sujet.
 }}}
 
 ====hasCode
 
-##hasCode## vérifie le code de l'exception.
+##hasCode## vérifie le code de l’exception.
 
 [[[php
 $this
@@ -1180,7 +1180,7 @@ $this
 
 ====hasDefaultCode
 
-##hasDefaultCode## vérifie que le code de l'exception est la valeur par défaut, c'est à dire 0.
+##hasDefaultCode## vérifie que le code de l’exception est la valeur par défaut, c’est-à-dire 0.
 
 [[[php
 $this
@@ -1200,7 +1200,7 @@ $this
 
 ====hasMessage
 
-##hasMessage## vérifie le message de l'exception.
+##hasMessage## vérifie le message de l’exception.
 
 [[[php
 $this
@@ -1217,7 +1217,7 @@ $this
 
 ====hasNestedException
 
-##hasNestedException## vérifie que l'exception contient une référence vers l'exception précédente. Si l'exception est précisée, cela va également vérifier la classe de l'exception.
+##hasNestedException## vérifie que l’exception contient une référence vers l’exception précédente. Si l’exception est précisée, cela va également vérifier la classe de l’exception.
 
 [[[php
 $this
@@ -1254,32 +1254,32 @@ $this
 ====isCloneOf====exceptionIsCloneOf
 
 {{{inheritance
-##isCloneOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
+##isCloneOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
 ====isInstanceOf====exceptionIsInstanceOf
 
 {{{inheritance
-##isInstanceOf## est une méthode héritée de l'asserter ##object##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+##isInstanceOf## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
 }}}
 
 
 
 ===array
 
-C'est l'assertion dédiée aux tableaux.
+C’est l’assertion dédiée aux tableaux.
 
 {{{info
-Le mot-clef ##array## étant réservé en PHP, il n'a pas été possible de créer une assertion ##array##. Elle s'appelle donc ##phpArray## et un alias ##array## a été créé. Vous pourrez donc rencontrer des ##->phpArray()## ou des ##->array()##.
+##array## étant un mot réservé en PHP, il n’a pas été possible de créer une assertion ##array##. Elle s’appelle donc ##phpArray## et un alias ##array## a été créé. Vous pourrez donc rencontrer des ##->phpArray()## ou des ##->array()##.
 }}}
 
-Il est conseillé d'utiliser exclusivement ##->array()##.
+Il est conseillé d’utiliser exclusivement ##->array()## afin de simplifier la lecture des tests.
 
 ====contains====arrayContains
 
-##contains## vérifie qu'un tableau contient une certaine donnée.
+##contains## vérifie qu’un tableau contient une certaine donnée.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1303,7 +1303,7 @@ $this
 
 ====containsValues
 
-##containsValues## vérifie qu'un tableau contient toutes les données fournies dans un tableau.
+##containsValues## vérifie qu’un tableau contient toutes les données fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1326,7 +1326,7 @@ $this
 
 ====hasKey
 
-##hasKey## vérifie qu'un tableau contient une certaine clef.
+##hasKey## vérifie qu’un tableau contient une certaine clef.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1358,7 +1358,7 @@ $this
 
 ====hasKeys
 
-##hasKeys## vérifie qu'un tableau contient toutes les clefs fournies dans un tableau.
+##hasKeys## vérifie qu’un tableau contient toutes les clefs fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1390,7 +1390,7 @@ $this
 
 ====hasSize====arrayHasSize
 
-##hasSize## vérifie la taille d'un tableau.
+##hasSize## vérifie la taille d’un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1403,12 +1403,12 @@ $this
 ]]]
 
 {{{info
-##hasSize## n'est pas récursif.
+##hasSize## n’est pas récursif.
 }}}
 
 ====isEmpty====arrayIsEmpty
 
-##isEmpty## vérifie qu'un tableau est vide.
+##isEmpty## vérifie qu’un tableau est vide.
 
 [[[php
 $emptyArray    = array();
@@ -1426,20 +1426,20 @@ $this
 ====isEqualTo====arrayIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isIdenticalTo====arrayIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isNotEmpty====arrayIsNotEmpty
 
-##isNotEmpty## vérifie qu'un tableau n'est pas vide.
+##isNotEmpty## vérifie qu’un tableau n’est pas vide.
 
 [[[php
 $emptyArray    = array();
@@ -1457,20 +1457,20 @@ $this
 ====isNotEqualTo====arrayIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====arrayIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====notContains====arrayNotContains
 
-##notContains## vérifie qu'un tableau ne contient pas une donnée.
+##notContains## vérifie qu’un tableau ne contient pas une donnée.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1493,7 +1493,7 @@ $this
 
 ====notContainsValues
 
-##notContainsValues## vérifie qu'un tableau ne contient aucune des données fournies dans un tableau.
+##notContainsValues## vérifie qu’un tableau ne contient aucune des données fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1516,7 +1516,7 @@ $this
 
 ====notHasKey
 
-##notHasKey## vérifie qu'un tableau ne contient pas une certaine clef.
+##notHasKey## vérifie qu’un tableau ne contient pas une certaine clef.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1548,7 +1548,7 @@ $this
 
 ====notHasKeys
 
-##notHasKeys## vérifie qu'un tableau ne contient aucune des clefs fournies dans un tableau.
+##notHasKeys## vérifie qu’un tableau ne contient aucune des clefs fournies dans un tableau.
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1580,7 +1580,7 @@ $this
 
 ====strictlyContains
 
-##strictlyContains## vérifie qu'un tableau contient une certaine donnée (même valeur et même type).
+##strictlyContains## vérifie qu’un tableau contient une certaine donnée (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1605,7 +1605,7 @@ $this
 
 ====strictlyContainsValues
 
-##strictlyContainsValues## vérifie qu'un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
+##strictlyContainsValues## vérifie qu’un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1630,7 +1630,7 @@ $this
 
 ====strictlyNotContains
 
-##strictlyNotContains## vérifie qu'un tableau ne contient pas une donnée (même valeur et même type).
+##strictlyNotContains## vérifie qu’un tableau ne contient pas une donnée (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1654,7 +1654,7 @@ $this
 
 ====strictlyNotContainsValues
 
-##strictlyNotContainsValues## vérifie qu'un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
+##strictlyNotContainsValues## vérifie qu’un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
 
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
@@ -1681,11 +1681,11 @@ $this
 
 ===string
 
-C'est l'assertion dédiée aux chaines de caractères.
+C’est l’assertion dédiée aux chaînes de caractères.
 
 ====contains====stringContains
 
-##contains## vérifie qu'une chaine de caractère contient une autre chaine de caractère donnée.
+##contains## vérifie qu’une chaîne de caractère contient une autre chaîne de caractère donnée.
 
 [[[php
 $string = 'Hello world';
@@ -1700,7 +1700,7 @@ $this
 
 ====hasLength====stringHasLength
 
-##hasLength## vérifie la taille d'une chaine de caractères.
+##hasLength## vérifie la taille d’une chaîne de caractères.
 
 [[[php
 $string = 'Hello world';
@@ -1714,7 +1714,7 @@ $this
 
 ====hasLengthGreaterThan====stringHasLengthGreaterThan
 
-##hasLengthGreaterThan## vérifie que la taille d'une chaine de caractères est plus grande qu'une valeur donnée.
+##hasLengthGreaterThan## vérifie que la taille d’une chaîne de caractères est plus grande qu’une valeur donnée.
 
 [[[php
 $string = 'Hello world';
@@ -1728,7 +1728,7 @@ $this
 
 ====hasLengthLessThan====stringHasLengthLessThan
 
-##hasLengthLessThan## vérifie que la taille d'une chaine de caractères est plus petite qu'une valeur donnée.
+##hasLengthLessThan## vérifie que la taille d’une chaîne de caractères est plus petite qu’une valeur donnée.
 
 [[[php
 $string = 'Hello world';
@@ -1742,7 +1742,7 @@ $this
 
 ====isEmpty====stringIsEmpty
 
-##isEmpty## vérifie qu'une chaine de caractères est vide.
+##isEmpty## vérifie qu’une chaîne de caractères est vide.
 
 [[[php
 $emptyString    = '';
@@ -1760,13 +1760,13 @@ $this
 ====isEqualTo====stringIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isEqualToContentsOfFile====stringIsEqualToContentsOfFile
 
-##isEqualToContentsOfFile## vérifie qu'une chaine de caractère est égale au contenu d'un fichier donné par son chemin.
+##isEqualToContentsOfFile## vérifie qu’une chaîne de caractère est égale au contenu d’un fichier donné par son chemin.
 
 [[[php
 $this
@@ -1776,19 +1776,19 @@ $this
 ]]]
 
 {{{info
-si le fichier n'existe pas, le test échoue.
+si le fichier n’existe pas, le test échoue.
 }}}
 
 ====isIdenticalTo====stringIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isNotEmpty====stringIsNotEmpty
 
-##isNotEmpty## vérifie qu'une chaine de caractères n'est pas vide.
+##isNotEmpty## vérifie qu’une chaîne de caractères n’est pas vide.
 
 [[[php
 $emptyString    = '';
@@ -1806,20 +1806,20 @@ $this
 ====isNotEqualTo====stringIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====stringIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====match====stringMatch
 
-##match## vérifie qu'une expression régulière correspond à la chaine de caractères.
+##match## vérifie qu’une expression régulière correspond à la chaîne de caractères.
 
 [[[php
 $phone = '0102030405';
@@ -1838,7 +1838,7 @@ $this
 
 ===castToString
 
-C'est l'assertion dédiée aux tests sur le transtypage d'objets en chaine de caractères.
+C’est l’assertion dédiée aux tests sur le transtypage d’objets en chaîne de caractères.
 
 [[[php
 class AtoumVersion {
@@ -1858,117 +1858,117 @@ $this
 ====contains====castToStringContains
 
 {{{inheritance
-##contains## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::contains##|#stringContains]]
+##contains## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::contains##|#stringContains]]
 }}}
 
 ====hasLength====castToStringHasLength
 
 {{{inheritance
-##hasLength## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLength##|#stringHasLength]]
+##hasLength## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLength##|#stringHasLength]]
 }}}
 
 ====hasLengthGreaterThan====castToStringHasLengthGreaterThan
 
 {{{inheritance
-##hasLengthGreaterThan## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLengthGreaterThan##|#stringHasLengthGreaterThan]]
+##hasLengthGreaterThan## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLengthGreaterThan##|#stringHasLengthGreaterThan]]
 }}}
 
 ====hasLengthLessThan====castToStringHasLengthLessThan
 
 {{{inheritance
-##hasLengthLessThan## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLengthLessThan##|#stringHasLengthLessThan]]
+##hasLengthLessThan## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLengthLessThan##|#stringHasLengthLessThan]]
 }}}
 
 ====isEmpty====castToStringIsEmpty
 
 {{{inheritance
-##isEmpty## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEmpty##|#stringIsEmpty]]
+##isEmpty## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEmpty##|#stringIsEmpty]]
 }}}
 
 ====isEqualTo====castToStringIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isEqualToContentsOfFile====castToStringIsEqualToContentsOfFile
 
 {{{inheritance
-##isEqualToContentsOfFile## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
+##isEqualToContentsOfFile## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
 }}}
 
 ====isIdenticalTo====castToStringIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isNotEmpty====castToStringIsNotEmpty
 
 {{{inheritance
-##isNotEmpty## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isNotEmpty##|#stringIsNotEmpty]]
+##isNotEmpty## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isNotEmpty##|#stringIsNotEmpty]]
 }}}
 
 ====isNotEqualTo====castToStringIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====castToStringIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====match====castToStringMatch
 
 {{{inheritance
-##match## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::match##|#stringMatch]]
+##match## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::match##|#stringMatch]]
 }}}
 
 
 
 ===hash
 
-C'est l'assertion dédiée aux tests sur les hashs (empreintes numériques).
+C’est l’assertion dédiée aux tests sur les hashs (empreintes numériques).
 
 ====isEqualTo====hashIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isEqualToContentsOfFile====hashIsEqualToContentsOfFile
 
 {{{inheritance
-##isEqualToContentsOfFile## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
+##isEqualToContentsOfFile## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
 }}}
 
 ====isIdenticalTo====hashIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isMd5
 
-##isMd5## vérifie que la chaine de caractère est au format ##md5##, c'est à dire une chaine hexadécimale de 32 caractères.
+##isMd5## vérifie que la chaîne de caractère est au format ##md5##, c’est-à-dire une chaîne hexadécimale de 32 caractères.
 
 [[[php
 $hash    = hash('md5', 'atoum');
@@ -1985,20 +1985,20 @@ $this
 ====isNotEqualTo====hashIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====hashIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====isSha1
 
-##isSha1## vérifie que la chaine de caractère est au format ##sha1##, c'est à dire une chaine hexadécimale de 40 caractères.
+##isSha1## vérifie que la chaîne de caractère est au format ##sha1##, c’est-à-dire une chaîne hexadécimale de 40 caractères.
 
 [[[php
 $hash    = hash('sha1', 'atoum');
@@ -2014,7 +2014,7 @@ $this
 
 ====isSha256
 
-##isSha256## vérifie que la chaine de caractère est au format ##sha256##, c'est à dire une chaine hexadécimale de 64 caractères.
+##isSha256## vérifie que la chaîne de caractère est au format ##sha256##, c’est-à-dire une chaîne hexadécimale de 64 caractères.
 
 [[[php
 $hash    = hash('sha256', 'atoum');
@@ -2030,7 +2030,7 @@ $this
 
 ====isSha512
 
-##isSha512## vérifie que la chaine de caractère est au format ##sha512##, c'est à dire une chaine hexadécimale de 128 caractères.
+##isSha512## vérifie que la chaîne de caractère est au format ##sha512##, c’est-à-dire une chaîne hexadécimale de 128 caractères.
 
 [[[php
 $hash    = hash('sha512', 'atoum');
@@ -2048,7 +2048,7 @@ $this
 
 ===output
 
-C'est l'assertion dédiée aux tests sur les sorties, c'est à dire tout ce qui est censé être affiché à l'écran.
+C’est l’assertion dédiée aux tests sur les sorties, c’est-à-dire tout ce qui est censé être affiché à l’écran.
 
 [[[php
 $this
@@ -2061,189 +2061,189 @@ $this
 ]]]
 
 {{{info
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
+La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au [[manuel de PHP|http://php.net/functions.anonymous]] pour avoir plus d’informations sur le sujet.
 }}}
 
 ====contains====outputContains
 
 {{{inheritance
-##contains## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::contains##|#stringContains]]
+##contains## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::contains##|#stringContains]]
 }}}
 
 ====hasLength====outputHasLength
 
 {{{inheritance
-##hasLength## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLength##|#stringHasLength]]
+##hasLength## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLength##|#stringHasLength]]
 }}}
 
 ====hasLengthGreaterThan====outputHasLengthGreaterThan
 
 {{{inheritance
-##hasLengthGreaterThan## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLengthGreaterThan##|#stringHasLengthGreaterThan]]
+##hasLengthGreaterThan## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLengthGreaterThan##|#stringHasLengthGreaterThan]]
 }}}
 
 ====hasLengthLessThan====outputHasLengthLessThan
 
 {{{inheritance
-##hasLengthLessThan## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLengthLessThan##|#stringHasLengthLessThan]]
+##hasLengthLessThan## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLengthLessThan##|#stringHasLengthLessThan]]
 }}}
 
 ====isEmpty====outputIsEmpty
 
 {{{inheritance
-##isEmpty## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEmpty##|#stringIsEmpty]]
+##isEmpty## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEmpty##|#stringIsEmpty]]
 }}}
 
 ====isEqualTo====outputIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isEqualToContentsOfFile====outputIsEqualToContentsOfFile
 
 {{{inheritance
-##isEqualToContentsOfFile## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
+##isEqualToContentsOfFile## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
 }}}
 
 ====isIdenticalTo====outputIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isNotEmpty====outputIsNotEmpty
 
 {{{inheritance
-##isNotEmpty## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isNotEmpty##|#stringIsNotEmpty]]
+##isNotEmpty## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isNotEmpty##|#stringIsNotEmpty]]
 }}}
 
 ====isNotEqualTo====outputIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====outputIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====match====outputMatch
 
 {{{inheritance
-##match## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::match##|#stringMatch]]
+##match## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::match##|#stringMatch]]
 }}}
 
 
 
 ===utf8String
 
-C'est l'assertion dédiée aux chaines de caractères UTF-8.
+C’est l’assertion dédiée aux chaînes de caractères UTF-8.
 
 {{{info
-##utf8Strings## utilise les fonctions ##mb_*## pour gérer les chaines multi-octets. Reportez vous au manuel PHP pour voir avoir plus d'information sur l'extension ##[[mbstring|http://php.net/mbstring]]##.
+##utf8Strings## utilise les fonctions ##mb_*## pour gérer les chaînes multi-octets. Reportez-vous au manuel de PHP pour avoir plus d’information sur l’extension ##[[mbstring|http://php.net/mbstring]]##.
 }}}
 
 ====contains====utf8StringContains
 
 {{{inheritance
-##contains## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::contains##|#stringContains]]
+##contains## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::contains##|#stringContains]]
 }}}
 
 ====hasLength====utf8StringHasLength
 
 {{{inheritance
-##hasLength## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLength##|#stringHasLength]]
+##hasLength## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLength##|#stringHasLength]]
 }}}
 
 ====hasLengthGreaterThan====utf8StringHasLengthGreaterThan
 
 {{{inheritance
-##hasLengthGreaterThan## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLengthGreaterThan##|#stringHasLengthGreaterThan]]
+##hasLengthGreaterThan## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLengthGreaterThan##|#stringHasLengthGreaterThan]]
 }}}
 
 ====hasLengthLessThan====utf8StringHasLengthLessThan
 
 {{{inheritance
-##hasLengthLessThan## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::hasLengthLessThan##|#stringHasLengthLessThan]]
+##hasLengthLessThan## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::hasLengthLessThan##|#stringHasLengthLessThan]]
 }}}
 
 ====isEmpty====utf8StringIsEmpty
 
 {{{inheritance
-##isEmpty## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEmpty##|#stringIsEmpty]]
+##isEmpty## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEmpty##|#stringIsEmpty]]
 }}}
 
 ====isEqualTo====utf8StringIsEqualTo
 
 {{{inheritance
-##isEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
 }}}
 
 ====isEqualToContentsOfFile====utf8StringIsEqualToContentsOfFile
 
 {{{inheritance
-##isEqualToContentsOfFile## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
+##isEqualToContentsOfFile## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isEqualToContentsOfFile##|#stringIsEqualToContentsOfFile]]
 }}}
 
 ====isIdenticalTo====utf8StringIsIdenticalTo
 
 {{{inheritance
-##isIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
 ====isNotEmpty====utf8StringIsNotEmpty
 
 {{{inheritance
-##isNotEmpty## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::isNotEmpty##|#stringIsNotEmpty]]
+##isNotEmpty## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::isNotEmpty##|#stringIsNotEmpty]]
 }}}
 
 ====isNotEqualTo====utf8StringIsNotEqualTo
 
 {{{inheritance
-##isNotEqualTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
 }}}
 
 ====isNotIdenticalTo====utf8StringIsNotIdenticalTo
 
 {{{inheritance
-##isNotIdenticalTo## est une méthode héritée de l'asserter ##variable##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
 ====match====utf8StringMatch
 
 {{{inheritance
-##match## est une méthode héritée de l'asserter ##string##.
-Pour plus d'informations, rendez-vous sur la documentation de [[##string::match##|#stringMatch]]
+##match## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::match##|#stringMatch]]
 }}}
 
 {{{info
-Pensez à bien ajouter ##u## comme option de recherche dans votre expression régulière. Reportez vous au [[manuel PHP|http://php.net/reference.pcre.pattern.modifiers]] pour avoir plus d'informations sur le sujet.
+Pensez à bien ajouter ##u## comme option de recherche dans votre expression régulière. Reportez-vous au [[manuel de PHP|http://php.net/reference.pcre.pattern.modifiers]] pour avoir plus d’informations sur le sujet.
 }}}
 
 [[[php
@@ -2259,9 +2259,9 @@ $this
 
 ===afterDestructionOf
 
-C'est l'assertion dédiée à la destruction des objets.
+C’est l’assertion dédiée à la destruction des objets.
 
-Cette assertion ne fait que prendre un objet, vérifier que la méthode ##\__destruct()## est bien définie puis l'appelle.
+Cette assertion ne fait que prendre un objet, vérifier que la méthode ##\__destruct()## est bien définie puis l’appelle.
 
 Si ##\__destruct()## existe bien et si son appel se passe sans erreur ni exception, alors le test passe.
 
@@ -2276,7 +2276,7 @@ $this
 
 ===error
 
-C'est l'assertion dédiée aux erreurs.
+C’est l’assertion dédiée aux erreurs.
 
 [[[php
 $this
@@ -2291,16 +2291,16 @@ $this
 ]]]
 
 {{{info
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
+La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au [[manuel de PHP|http://php.net/functions.anonymous]] pour avoir plus d’informations sur le sujet.
 }}}
 
 {{{warning
-Les types d'erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
+Les types d’erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
 }}}
 
 ====exists
 
-##exists## vérifie qu'une erreur a été levée lors de l'exécution du code précédent.
+##exists## vérifie qu’une erreur a été levée lors de l’exécution du code précédent.
 
 [[[php
 $this
@@ -2324,7 +2324,7 @@ $this
 
 ====notExists
 
-##notExists## vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
+##notExists## vérifie qu’aucune erreur n’a été levée lors de l’exécution du code précédent.
 
 [[[php
 $this
@@ -2348,7 +2348,7 @@ $this
 
 ====withType
 
-##withType## vérifie le type de l'erreur levée.
+##withType## vérifie le type de l’erreur levée.
 
 [[[php
 $this
@@ -2367,7 +2367,7 @@ $this
 
 ===class
 
-C'est l'assertion dédiée aux classes.
+C’est l’assertion dédiée aux classes.
 
 [[[php
 $object = new \StdClass;
@@ -2380,10 +2380,10 @@ $this
 ]]]
 
 {{{info
-Le mot-clef ##class## étant réservé en PHP, il n'a pas été possible de créer une assertion ##class##. Elle s'appelle donc ##phpClass## et un alias ##class## a été créé. Vous pourrez donc rencontrer des ##->phpClass()## ou des ##->class()##.
+Le mot-clef ##class## étant réservé en PHP, il n’a pas été possible de créer une assertion ##class##. Elle s’appelle donc ##phpClass## et un alias ##class## a été créé. Vous pourrez donc rencontrer des ##->phpClass()## ou des ##->class()##.
 }}}
 
-Il est conseillé d'utiliser exclusivement ##->class()##.
+Il est conseillé d’utiliser exclusivement ##->class()##.
 
 ====hasInterface
 
@@ -2415,7 +2415,7 @@ $this
 
 ====hasNoParent
 
-##hasNoParent## vérifie que la classe n'hérite d'aucune classe.
+##hasNoParent## vérifie que la classe n’hérite d’aucune classe.
 
 [[[php
 $this
@@ -2428,12 +2428,12 @@ $this
 ]]]
 
 {{{warning
-Une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe. ##hasNoParent## ne vérifie pas les interfaces, uniquement les classes héritées.
+Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ##hasNoParent## ne vérifie pas les interfaces, uniquement les classes héritées.
 }}}
 
 ====hasParent
 
-##hasParent## vérifie que la classe hérite bien d'une classe.
+##hasParent## vérifie que la classe hérite bien d’une classe.
 
 [[[php
 $this
@@ -2446,7 +2446,7 @@ $this
 ]]]
 
 {{{warning
-Une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe. ##hasParent## ne vérifie pas les interfaces, uniquement les classes héritées.
+Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ##hasParent## ne vérifie pas les interfaces, uniquement les classes héritées.
 }}}
 
 ====isAbstract
@@ -2476,7 +2476,7 @@ $this
 
 ===mock
 
-C'est l'assertion dédiée aux bouchons.
+C’est l’assertion dédiée aux bouchons.
 
 [[[php
 $mock = new \mock\MyClass;
@@ -2487,7 +2487,7 @@ $this
 ]]]
 
 {{{info
-Reportez-vous à la documentation sur les [[bouchons|#Les-bouchons-mock]] pour obtenir plus d'informations sur la façon de créer et gérer les bouchons.
+Reportez-vous à la documentation sur les [[bouchons|#Les-bouchons-mock]] pour obtenir plus d’informations sur la façon de créer et gérer les bouchons.
 }}}
 
 ====call
@@ -2540,7 +2540,7 @@ $this
 
 =====never
 
-##never## vérifie que la méthode testée (voir ##[[call|#call]]##) du mock testé n'a jamais été appelée.
+##never## vérifie que la méthode testée (voir ##[[call|#call]]##) du mock testé n’a jamais été appelée.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -2560,7 +2560,7 @@ $this
 
 =====once/twice/thrice
 
-Ces assertions vérifient que la méthode testée (voir ##[[call|#call]]##) du mock testé a été appelée exactement :
+Ces assertions vérifient que la méthode testée (voir ##[[call|#call]]##) du mock testé a été appelée exactement :
 * une fois (once)
 * deux fois (twice)
 * trois fois (thrice)
@@ -2587,9 +2587,9 @@ $this
 
 =====withAnyArguments
 
-##withAnyArguments## permet de ne pas spécifier de paramètres attendus lors de l'appel à la méthode testée (voir ##[[call|#call]]##) du mock testé.
+##withAnyArguments## permet de ne pas spécifier les arguments attendus lors de l’appel à la méthode testée (voir ##[[call|#call]]##) du mock testé.
 
-Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l'exemple suivant:
+Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l’exemple suivant :
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -2607,7 +2607,7 @@ $this
 
 =====withArguments
 
-##withArguments## permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir ##[[call|#call]]##) du mock testé.
+##withArguments## permet de spécifier les paramètres attendus lors de l’appel à la méthode testée (voir ##[[call|#call]]##) du mock testé.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -2627,7 +2627,7 @@ $this
 
 =====withIdenticalArguments
 
-##withIdenticalArguments## permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir ##[[call|#call]]##) du mock testé.
+##withIdenticalArguments## permet de spécifier les paramètres attendus lors de l’appel à la méthode testée (voir ##[[call|#call]]##) du mock testé.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -2647,7 +2647,7 @@ $this
 
 ====wasCalled
 
-##wasCalled## vérifie qu'au moins une méthode du mock a été appelée au moins une fois.
+##wasCalled## vérifie qu’au moins une méthode du mock a été appelée au moins une fois.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -2662,7 +2662,7 @@ $this
 
 ====wasNotCalled
 
-##wasNotCalled## vérifie qu'aucune méthode du mock n'a été appelée.
+##wasNotCalled## vérifie qu’aucune méthode du mock n’a été appelée.
 
 [[[php
 $mock = new \mock\MyFirstClass;
@@ -2678,10 +2678,10 @@ $this
 
 ===stream
 
-C'est l'assertion dédiée aux stream.
+C’est l’assertion dédiée aux stream.
 
 {{{todo
-Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'hésitez pas à compléter cette partie !
+Malheureusement, je n’ai aucune espèce d’idée de son fonctionnement, alors n’hésitez pas à compléter cette partie !
 }}}
 
 ====isRead
@@ -2697,13 +2697,13 @@ We need help to write this section !
 }}}
 
 
-==Aide à l'écriture
+==Aide à l’écriture
 
-Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières, et l'une d'elle est d'utiliser des mots-clefs tels que ##if##, ##and## ou bien encore ##then##, ##when## ou ##assert##.
+Il est possible d’écrire des tests unitaires avec atoum de plusieurs manières, et l’une d’elle est d’utiliser des mots-clefs tels que ##if##, ##and## ou bien encore ##then##, ##when## ou ##assert##.
 
 ===if, and, then
 
-L'utilisation de ces mots clefs est très intuitive:
+L’utilisation de ces mots-clefs est très intuitive :
 
 [[[php
 $this
@@ -2718,13 +2718,13 @@ $this
 ;
 ]]]
 
-Il est important de noter ces mots-clefs n'apporte rien techniquement ou fonctionnellement parlant, car ils n'ont pas d'autres but que de faciliter la compréhension du test et donc sa maintenance en y ajoutant de la sémantique compréhensible facilement par l'Humain et plus particulièrement un développeur.
+Il est important de noter ces mots-clefs n’apporte rien techniquement ou fonctionnellement parlant, car ils n’ont pas d’autre but que de faciliter la compréhension du test et donc sa maintenance en y ajoutant de la sémantique compréhensible facilement par l’Humain et plus particulièrement un développeur.
 
-Ainsi, ##if## et ##and## permettent de définir les pré-conditions nécessaires pour que les assertions qui suivent le mot-clef ##then## passent avec succès.
+Ainsi, ##if## et ##and## permettent de définir les conditions préalables pour que les assertions qui suivent le mot-clef ##then## passent avec succès.
 
-Cependant, il n'y a pas de grammaire régissant l'ordre d'utilisation de ces mots-clefs et aucune vérification syntaxique n'est effectuée par atoum.
+Cependant, il n’y a pas de grammaire régissant l’ordre d’utilisation de ces mots-clefs et aucune vérification syntaxique n’est effectuée par atoum.
 
-En conséquence, il est de la responsabilité du développeur de les utiliser de façon à ce que le test soit signifiant, même s'il est par exemple tout à fait possible d'écrire le test de la manière suivante:
+En conséquence, il est de la responsabilité du développeur de les utiliser de façon à ce que le test soit signifiant, même s’il est par exemple tout à fait possible d’écrire le test de la manière suivante :
 
 [[[php
 $this
@@ -2739,9 +2739,9 @@ $this
 ;
 ]]]
 
-Pour les mêmes raisons, l'utilisation de ##then## est facultative.
+Pour les mêmes raisons, l’utilisation de ##then## est facultative.
 
-Il est également important de noter qu'il est tout à fait possible d'écrire le même test en n'utilisant aucun mot-clef:
+Il est également important de noter qu’il est tout à fait possible d’écrire le même test en n’utilisant aucun mot-clef :
 
 [[[php
 $computer = new computer();
@@ -2756,13 +2756,13 @@ $this
 ;
 ]]]
 
-Le test ne sera pas plus lent ou plus rapide à exécuter et il n'y a aucun avantage à utiliser une notation plutôt qu'une autre, l'important étant d'en choisir une et de s'y tenir pour faciliter la maintenance des tests (la problématique est exactement la même que celle des conventions de codage).
+Le test ne sera pas plus lent ou plus rapide à exécuter et il n’y a aucun avantage à utiliser une notation ou une autre, l’important étant d’en choisir une et de s’y tenir pour faciliter la maintenance des tests (la problématique est exactement la même que celle des conventions de codage).
 
 ===when
 
-En plus de ##if##, ##and## et ##then##, il existe également d'autres mots-clefs.
+En plus de ##if##, ##and## et ##then##, il existe également d’autres mots-clefs.
 
-L'un d'entre eux est ##when##. Il dispose d'une fonctionnalité spécifique introduite pour contourner le fait qu'il est illégale d'écrire en PHP le code suivant:
+L’un d’entre eux est ##when##. Il dispose d’une fonctionnalité spécifique introduite pour contourner le fait qu’il est illégal d’écrire en PHP le code suivant :
 
 [[[php
 $this
@@ -2774,11 +2774,11 @@ $this
 ;
 ]]]
 
-Le langage génère en effet dans ce cas l'erreur fatale: ##Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'##
+Le langage génère en effet dans ce cas l’erreur fatale : ##Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting »)'##
 
-Il n'est en effet pas possible d'utiliser ##unset()## comme argument d'une fonction.
+Il est en effet impossible d’utiliser ##unset()## comme argument d’une fonction.
 
-Pour résoudre ce problème, le mot-clef ##when## est capable d'interpréter l'éventuelle fonction anonyme qui lui est passée en argument, ce qui permet d'écrire le test précédent de la manière suivante:
+Pour résoudre ce problème, le mot-clef ##when## est capable d’interpréter l’éventuelle fonction anonyme qui lui est passée en argument, ce qui permet d’écrire le test précédent de la manière suivante :
 
 [[[php
 $this
@@ -2794,13 +2794,13 @@ $this
 ;
 ]]]
 
-Bien évidemment, si ##when## ne reçoit pas de fonction anonyme en argument, il se comporte exactement comme if, and et then, à savoir qu'il ne fait absolument rien fonctionnellement parlant.
+Bien évidemment, si ##when## ne reçoit pas de fonction anonyme en argument, il se comporte exactement comme if, and et then, à savoir qu’il ne fait absolument rien fonctionnellement parlant.
 
 ===assert
 
 Enfin, il existe le mot-clef ##assert## qui a également un fonctionnement un peu particulier.
 
-Pour illustrer son fonctionnement, le test suivant va être utilisé:
+Pour illustrer son fonctionnement, le test suivant va être utilisé :
 
 [[[php
 $this
@@ -2820,10 +2820,10 @@ $this
 ;
 ]]]
 
-Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin d'intercaler un ou plusieurs nouveaux appels à bar::doOtherThing() entre les deux appels déjà effectués, il sera obligé de mettre à jour en conséquence la valeur de l'argument passé à exactly().
+Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin d’intercaler un ou plusieurs nouveaux appels à bar::doOtherThing() entre les deux appels déjà effectués, il sera obligé de mettre à jour en conséquence la valeur de l’argument passé à exactly().
 
-Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes:
-* soit en utilisant $mock->getMockController()->resetCalls() ;
+Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes :
+* soit en utilisant $mock->getMockController()->resetCalls() ;
 * soit en utilisant $this->resetMock($mock).
 
 [[[php
@@ -2854,11 +2854,11 @@ $this
 ;
 ]]]
 
-Ces méthodes effacent la mémoire du contrôleur, il est donc possible d'écrire l'assertion suivante comme si le bouchon n'avait jamais été utilisé.
+Ces méthodes effacent la mémoire du contrôleur, il est donc possible d’écrire l’assertion suivante comme si le bouchon n’avait jamais été utilisé.
 
-Le mot-clef ##assert## permet de se passer de l'appel explicite à ##resetCalls()## et de plus il provoque l'effacement de la mémoire de l'ensemble des adaptateurs et des contrôleurs de bouchon définis au moment de son utilisation.
+Le mot-clef ##assert## permet de se passer de l’appel explicite à ##resetCalls()## et de plus il provoque l’effacement de la mémoire de l’ensemble des adaptateurs et des contrôleurs de bouchon définis au moment de son utilisation.
 
-Grâce à lui, il est donc possible d'écrire le test précédent d'une façon plus simple et plus lisible, d'autant qu'il est possible de passer une chaîne de caractère à assert afin d'expliquer le rôle des assertions suivantes:
+Grâce à lui, il est donc possible d’écrire le test précédent d’une façon plus simple et plus lisible, d’autant qu’il est possible de passer une chaîne de caractère à assert afin d’expliquer le rôle des assertions suivantes :
 
 [[[php
 $this
@@ -2880,34 +2880,34 @@ $this
 ;
 ]]]
 
-La chaîne de caractères sera de plus reprise dans les messages générés par atoum si l'une des assertions ne passent pas avec succès.
+La chaîne de caractères sera de plus reprise dans les messages générés par atoum si l’une des assertions ne passe pas avec succès.
 
 
 ==Le mode loop
 
-Lorsqu'un développeur fait du développement piloté par les tests, il travaille de la manière suivante:
+Lorsqu’un développeur fait du développement piloté par les tests, il travaille de la manière suivante :
 
-# il commence par créer le test correspondant à ce qu'il veut développer ;
-# il exécute le test qu'il vient de créer ;
-# il écrit le code permettant au test de passer avec succès ;
-# il modifie ou complète son test et repart à l'étape 2.
+# il commence par créer le test correspondant à ce qu’il veut développer ;
+# il exécute le test qu’il vient de créer ;
+# il écrit le code permettant au test de passer avec succès ;
+# il modifie ou complète son test et repars à l’étape 2.
 
-Concrètement, cela signifie qu'il doit:
-* créer son code dans son éditeur favori ;
-* quitter son éditeur pour utiliser une console afin d'exécuter son test ;
-* revenir à son éditeur pour écrire le code permettant au test de passer avec succès ;
-* revenir à la console afin de relancer l'exécution de son test ;
-* revenir à son éditeur afin de modifier ou compléter son test ;
+Concrètement, cela signifie qu’il doit :
+* créer son code dans son éditeur favori ;
+* quitter son éditeur pour utiliser une console afin d’exécuter son test ;
+* revenir à son éditeur pour écrire le code permettant au test de passer avec succès ;
+* revenir à la console afin de relancer l’exécution de son test ;
+* revenir à son éditeur afin de modifier ou compléter son test ;
 
-Il y a donc bien un cycle qui se répétera tant que la fonctionnalité n'aura pas été développé dans son intégralité.
+Il y a donc bien un cycle qui se répétera tant que la fonctionnalité n’aura pas été développée dans son intégralité.
 
-Cependant, ce cycle est complexe et impose de nombreux allers-retours entre plusieurs logiciels, ainsi que la saisie récurrente d'une même commande dans le terminal afin de lancer l'exécution des tests unitaires.
+Cependant, ce cycle est complexe et impose de nombreux allers-retours entre plusieurs logiciels, ainsi que la saisie récurrente d’une même commande dans le terminal afin de lancer l’exécution des tests unitaires.
 
 atoum propose le mode ##loop## disponible via les arguments ##-l## ou ##\--loop##, qui permet au développeur de ne pas avoir à relancer manuellement les tests et permet donc de fluidifier le processus de développement.
 
 Dans ce mode, atoum commence par exécuter une première fois les tests qui lui sont demandés.
 
-Une fois les tests terminés, si les tests ont été passé avec succès par le code, atoum se met simplement en attente :
+Une fois les tests terminés, si les tests ont été passés avec succès par le code, atoum se met simplement en attente :
 
 [[[shell
 $ php tests/units/classes/adapter.php -l
@@ -2932,9 +2932,9 @@ Press <Enter> to reexecute, press any other key to stop...
 
 Si le développeur presse une autre touche que ##Enter##, atoum se terminera.
 
-Dans le cas contraire, atoum ré-exécutera à nouveau les mêmes tests, sans que le développeur n'ait à faire une autre action.
+Dans le cas contraire, atoum réexécutera à nouveau les mêmes tests, sans aucune autre action de la part du développeur.
 
-Dans le cas ou le code ne passe pas les tests avec succès, c'est à dire si des assertions ne sont pas vérifiées ou si il y a eu des erreurs ou des exceptions, atoum se met également en attente:
+Dans le cas où le code ne passe pas les tests avec succès, c’est-à-dire si des assertions ne sont pas vérifiées ou s’il y a eu des erreurs ou des exceptions, atoum se met également en attente :
 
 [[[shell
 $ php tests/units/classes/adapter.php -l
@@ -2964,37 +2964,37 @@ In file /Users/fch/Atoum/tests/units/classes/adapter.php on line 17, mageekguy\a
 Press <Enter> to reexecute, press any other key to stop...
 ]]]
 
-Tout comme dans le cas ou tout s'est bien passé, si le développeur presse une autre touche que ##Enter##, atoum se terminera.
+Tout comme dans le cas ou tout s’est bien passé, si le développeur presse une autre touche que ##Enter##, atoum se terminera.
 
-Cependant, s'il presse la touche ##Enter##, au lieu de rejouer les mêmes tests comme dans le cas ou les tests ont été passés avec succès, atoum n'exécutera que les tests en échec, au lieu de les rejouer dans leur intégralité.
+Cependant, s’il presse la touche ##Enter##, au lieu de rejouer les mêmes tests comme dans le cas où les tests ont été passés avec succès, atoum n’exécutera que les tests en échec, au lieu de les rejouer dans leur intégralité.
 
 Le développeur pourra alors dépiler les problèmes et rejouer les tests en erreur autant de fois que nécessaire simplement en appuyant sur ##Enter##.
 
-De plus, une fois que tous les tests en échec passeront à nouveau avec succès, atoum exécutera automatiquement la totalité de la suite de tests afin de détecter les éventuelles régressions introduite par la ou les corrections effectuées par le développeur.
+De plus, une fois que tous les tests en échec passeront à nouveau avec succès, atoum exécutera automatiquement la totalité de la suite de tests afin de détecter les éventuelles régressions introduites par la ou les corrections effectuées par le développeur.
 
 Bien évidemment, le mode ##loop## ne prend en compte que [[le ou les fichiers de tests unitaires lancés|chapter3.html#Fichiers-a-executer]] par atoum.
 
 
 ==Le mode debug
 
-Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
+Parfois, un test ne passe pas et il est difficile d’en découvrir la raison.
 
-Dans ce cas, l'une des techniques possibles pour remédier au problème est de tracer le comportement du code concerné, soit directement au cœur de la classe testée à l'aide de fonctions du type de ##var_dump()## ou ##print_r()##, soit au niveau du test unitaire.
+Dans ce cas, l’une des techniques possibles pour remédier au problème est de tracer le comportement du code concerné, soit directement au cœur de la classe testée à l’aide de fonctions du type de ##var_dump()## ou ##print_r()##, soit au niveau du test unitaire.
 
-Et il se trouve que atoum dispose d'un certain nombre d'outils pour faciliter la tâche du développeur dans ce dernier contexte.
+Et il se trouve que atoum dispose d’un certain nombre d’outils pour faciliter la tâche du développeur dans ce dernier contexte.
 
-Ces outils ne sont cependant actif que lorsque atoum est exécuté à l'aide de l'argument ##\--debug##, afin que l'exécution des tests unitaires ne soit pas perturbée par les instructions relatives au déboggage hors de ce contexte.
+Ces outils ne sont cependant actif que lorsque atoum est exécuté à l’aide de l’argument ##\--debug##, afin que l’exécution des tests unitaires ne soit pas perturbée par les instructions relatives au débogage hors de ce contexte.
 
-Lorsque l'argument ##\--debug## est utilisé, trois méthodes peuvent être activée:
-* ##dump()## qui permet de connaître le contenu d'une variable ;
-* ##stop()## qui permet d'arrêter l'exécution d'un test ;
-* ##executeOnFailure()## qui permet de définir une fonction anonyme qui ne sera exécutée qu'en cas d'échec d'une assertion.
+Lorsque l’argument ##\--debug## est utilisé, trois méthodes peuvent être activée :
+* ##dump()## qui permet de connaître le contenu d’une variable ;
+* ##stop()## qui permet d’arrêter l’exécution d’un test ;
+* ##executeOnFailure()## qui permet de définir une fonction anonyme qui ne sera exécutée qu’en cas d’échec d’une assertion.
 
-Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caractérise atoum.
+Ces trois méthodes s’intègrent parfaitement dans l’interface fluide qui caractérise atoum.
 
 ===dump
 
-La méthode ##dump()## peut s'utiliser de la manière suivante:
+La méthode ##dump()## peut s’utiliser de la manière suivante :
 
 [[[php
 $this
@@ -3006,9 +3006,9 @@ $this
 ;
 ]]]
 
-Lors de l'exécution du test, le retour de la méthode ##foo::getBar()## sera affiché sur la sortie standard.
+Lors de l’exécution du test, le retour de la méthode ##foo::getBar()## sera affiché sur la sortie standard.
 
-Il est également possible de passer plusieurs arguments à ##dump()##, de la manière suivante:
+Il est également possible de passer plusieurs arguments à ##dump()##, de la manière suivante :
 
 [[[php
 $this
@@ -3022,7 +3022,7 @@ $this
 
 ===stop
 
-L'utilisation de la méthode ##stop()## est également très simple:
+L’utilisation de la méthode ##stop()## est également très simple :
 
 [[[php
 $this
@@ -3040,7 +3040,7 @@ $this
 
 La méthode ##executeOnFailure()## est très puissante et tout aussi simple à utiliser.
 
-Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l'une des assertions composant le test n'est pas vérifiée. Elle s'utilise de la manière suivante:
+Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l’une des assertions composant le test n’est pas vérifiée. Elle s’utilise de la manière suivante :
 
 [[[php
 $this
@@ -3058,25 +3058,25 @@ $this
 ;
 ]]]
 
-Dans l'exemple précédent, contrairement à ##dump()## qui provoque systématiquement l'affichage sur la sortie standard le contenu des variables qui lui sont passées en argument, la fonction anonyme passée en argument ne provoquera l'affichage du contenu de la variable ##foo## que si l'une des assertions suivantes est en échec.
+Dans l’exemple précédent, contrairement à ##dump()## qui provoque systématiquement l’affichage sur la sortie standard le contenu des variables qui lui sont passées en argument, la fonction anonyme passée en argument ne provoquera l’affichage du contenu de la variable ##foo## que si l’une des assertions suivantes est en échec.
 
-Bien évidement, il est possible de faire appel plusieurs fois à ##executeOnFailure()## dans une même méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas d'échec du test.
+Bien évidemment, il est possible de faire appel plusieurs fois à ##executeOnFailure()## dans une même méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas d’échec du test.
 
-==Les méthodes d'initialisation
+==Les méthodes d’initialisation
 
-Lorsqu'il exécute les méthodes de test d'une classe, atoum suit le processus suivant:
-# il exécute la méthode ##setUp()## de la classe de test ;
-# il lance un sous-processus PHP pour exécuter chaque méthode de test ;
-# dans le sous-processus PHP, avant d'exécuter la méthode de test, il exécute la méthode ##beforeTestMethod()## de la classe de test ;
-# dans le sous-processus PHP, il exécute la méthode de test ;
-# dans le sous-processus PHP, il exécute la méthode ##afterTestMethod()## de la classe de test ;
+Lorsqu’il exécute les méthodes de test d’une classe, atoum suit le processus suivant :
+# il exécute la méthode ##setUp()## de la classe de test ;
+# il lance un sous-processus PHP pour exécuter chaque méthode de test ;
+# dans le sous-processus PHP, avant d’exécuter la méthode de test, il exécute la méthode ##beforeTestMethod()## de la classe de test ;
+# dans le sous-processus PHP, il exécute la méthode de test ;
+# dans le sous-processus PHP, il exécute la méthode ##afterTestMethod()## de la classe de test ;
 # une fois le sous-processus PHP terminé, il exécute la méthode ##tearDown()## de la classe de test.
 
-Les méthodes ##setUp()## et ##tearDown()## permettent donc respectivement d'initialiser et de nettoyer l'environnement de test pour l'ensemble des méthodes de test de la classe exécutée, à la différence des méthodes ##beforeTestMethod()## et ##afterTestMethod()##.
+Les méthodes ##setUp()## et ##tearDown()## permettent donc respectivement d’initialiser et de nettoyer l’environnement de test pour l’ensemble des méthodes de test de la classe exécutée, à la différence des méthodes ##beforeTestMethod()## et ##afterTestMethod()##.
 
-Ces deux méthodes permettent en effet respectivement d'initialiser et de nettoyer l'environnement d'exécution des tests individuellement pour chacune des méthodes de test de la classe, puisqu'elles sont exécutées dans le même sous-processus, au contraire de ##setUp()## et ##tearDown()##.
+Ces deux méthodes permettent en effet respectivement d’initialiser et de nettoyer l’environnement d’exécution des tests individuellement pour chacune des méthodes de test de la classe, puisqu’elles sont exécutées dans le même sous-processus, au contraire de ##setUp()## et ##tearDown()##.
 
-C'est d'ailleurs la raison pour laquelle les méthodes ##beforeTestMethod()## et ##afterTestMethod()## acceptent comme argument le nom de la méthode de test exécutée, afin de pouvoir ajuster les traitements en conséquence.
+C’est d’ailleurs la raison pour laquelle les méthodes ##beforeTestMethod()## et ##afterTestMethod()## acceptent comme argument le nom de la méthode de test exécutée, afin de pouvoir ajuster les traitements en conséquence.
 
 [[[php
 <?php
@@ -3149,16 +3149,16 @@ class bankAccount extends atoum
 
 Par défaut, les méthodes ##setUp()##, ##beforeTestMethod()##, ##afterTestMethod()## et ##tearDown()## ne font absolument rien.
 
-Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les classes de test concernées.
+Il est donc de la responsabilité du programmeur de les surcharger lorsque c’est nécessaire dans les classes de test concerné.
 
 
 ==Fournisseurs de données (data provider)
 
 Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
 
-Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
+Un fournisseur de données est une méthode d’une classe de test chargée de générer des arguments pour une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
 
-La définition du fournisseur de données qui doit être utilisé par une méthode de test se fait grâce à l'annotation ##@dataProvider## appliquée à la méthode de test concernée, de la manière suivante:
+La définition du fournisseur de données qui doit être utilisé par une méthode de test se fait grâce à l’annotation ##@dataProvider## appliquée à la méthode de test concernée, de la manière suivante :
 
 [[[php
 class calculator extends atoum
@@ -3180,9 +3180,9 @@ class calculator extends atoum
 }
 ]]]
 
-Évidemment, il ne faut pas oublier de définir, au niveau de la méthode de test, les arguments correspondant à ceux qui seront retournés par le fournisseur de données. Si ce n'est pas le cas, atoum générera une erreur lors de l'exécution des tests.
+Évidemment, il ne faut pas oublier de définir, au niveau de la méthode de test, les arguments correspondant à ceux qui seront retournés par le fournisseur de données. Si ce n’est pas le cas, atoum générera une erreur lors de l’exécution des tests.
 
-Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspondante:
+Une fois l’annotation définie, il n’y a plus qu’à créer la méthode correspondante :
 
 [[[php
 class calculator extends atoum
@@ -3202,10 +3202,10 @@ class calculator extends atoum
 }
 ]]]
 
-Lors de l'exécution des tests, atoum appellera la méthode de test ##testSum()## successivement avec les arguments ##(1, 1)##, ##(1, 2)##, ##(-1, 1)## et ##(-1, 2)## renvoyés par la méthode ##sumDataProvider()##.
+Lors de l’exécution des tests, atoum appellera la méthode de test ##testSum()## successivement avec les arguments ##(1, 1)##, ##(1, 2)##, ##(-1, 1)## et ##(-1, 2)## renvoyés par la méthode ##sumDataProvider()##.
 
 {{{warning
-L'isolation des tests ne sera pas utilisée dans ce contexte, ce qui veut dire que chacun des appels successifs à la méthode ##testSum()## sera réalisé dans le même processus PHP.
+L’isolation des tests ne sera pas utilisée dans ce contexte, ce qui veut dire que chacun des appels successifs à la méthode ##testSum()## sera réalisé dans le même processus PHP.
 }}}
 
 {{{info
@@ -3214,11 +3214,11 @@ Un fournisseur de données peut au choix retourner un tableau ou bien un itérat
 
 ==Les bouchons (mock)
 
-atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes ou inexistantes) ou d'interfaces, mais également à partir de classe abstraite. Grâce à ces bouchons, vous pourrez simuler des comportements en redéfinissant les méthodes publiques de vos classes.
+atoum dispose d’un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes ou inexistantes) ou d’interfaces, mais également à partir de classe abstraite. Grâce à ces bouchons, vous pourrez simuler des comportements en redéfinissant les méthodes publiques de vos classes.
 
 ===Générer un bouchon
 
-Il y a plusieurs manière de créer un bouchon à partir d'une interface ou d'une classe (abstraite ou non).
+Il y a plusieurs manières de créer un bouchon à partir d’une interface ou d’une classe (abstraite ou non).
 
 La plus simple est de créer un objet dont le nom absolu est préfixé par ##\mock##:
 
@@ -3239,7 +3239,7 @@ $anonymousMock = new \mock\My\Unknown\Class;
 
 ===Le générateur de bouchon
 
-atoum s'appuie sur un composant spécialisé pour générer les bouchons : le ##mockGenerator##. Vous avez accès à ce dernier dans vos tests afin de modifier la procédure de génération des mocks.
+atoum s’appuie sur un composant spécialisé pour générer les bouchons : le ##mockGenerator##. Vous avez accès à ce dernier dans vos tests afin de modifier la procédure de génération des mocks.
 
 Par défaut, les bouchons seront générés dans le namespace ##mock## et se comporteront exactement de la même manière que les instances de la classe originale (le bouchon hérite directement de la classe originale).
 
@@ -3247,9 +3247,9 @@ Par défaut, les bouchons seront générés dans le namespace ##mock## et se com
 
 Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le ##mockGenerator##.
 
-Sa méthode ##generate## prend 3 paramètres:
-* le nom de l'interface ou de la classe à bouchonner ;
-* le nouvel espace de nom, optionnel ;
+Sa méthode ##generate## prend 3 paramètres :
+* le nom de l’interface ou de la classe à bouchonner ;
+* le nouvel espace de nom, optionnel ;
 * le nouveau nom de la classe, optionnel.
 
 [[[php
@@ -3271,7 +3271,7 @@ $stdObject     = new \mock\OneClass;
 ]]]
 
 {{{info
-Si vous n'utilisez que le premier argument et ne changer ni l'espace de nom, ni le nom de la classe, alors c'est équivalent à la première solution.
+Si vous n’utilisez que le premier argument et ne changez ni l’espace de nommage ni le nom de la classe, alors la première solution est équivalente.
 }}}
 
 [[[php
@@ -3287,7 +3287,7 @@ $countableMock = new \mock\Countable;
 
 Un bouchon hérite directement de la classe à partir de laquelle il a été généré, ses méthodes se comportent donc exactement de la même manière.
 
-Dans certains cas, il peut être utile de shunter les appels aux méthodes parents afin que leur code ne soit plus exécuté. Le ##mockGenerator## met à votre disposition plusieurs méthodes pour y parvenir :
+Dans certains cas, il peut être utile de shunter les appels aux méthodes parents afin que leur code ne soit plus exécuté. Le ##mockGenerator## met à votre disposition plusieurs méthodes pour y parvenir :
 
 [[[php
 $this->mockGenerator->shuntParentClassCalls();
@@ -3296,7 +3296,7 @@ $countableMock = new \mock\OneClass;
 $this->mockGenerator->unshuntParentClassCalls();
 ]]]
 
-Ici, toutes les méthodes du bouchon se comporteront comme si elles n’avaient pas d’implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
+Ici, toutes les méthodes du bouchon se comporteront comme si elles n’avaient pas d’implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
 
 [[[php
 $this->mockGenerator->shunt('firstMethod');
@@ -3307,7 +3307,7 @@ $countableMock = new \mock\OneClass;
 
 ====Rendre une méthode orpheline
 
-Il peut parfois être intéressant de rendre une méthode orpheline, c'est-à-dire, lui donner une signature et une implémentation vide. Cela peut être particulièrement utile pour générer des bouchons sans avoir à instancier toutes leurs dépendances.
+Il peut parfois être intéressant de rendre une méthode orpheline, c’est-à-dire, lui donner une signature et une implémentation vide. Cela peut être particulièrement utile pour générer des bouchons sans avoir à instancier toutes leurs dépendances.
 
 [[[php
 class FirstClass {
@@ -3335,11 +3335,11 @@ $mock = new \mock\SecondClass();
 $object = new FirstClass($mock);
 ]]]
 
-===Modifier le comportement d'un bouchon
+===Modifier le comportement d’un bouchon
 
 Une fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
 
-Pour cela, il faut passer par son contrôleur en utilisant l'une des méthodes suivantes :
+Pour cela, il faut passer par son contrôleur en utilisant l’une des méthodes suivantes :
 
 [[[php
 $databaseClient = new \mock\Database\Client();
@@ -3349,7 +3349,7 @@ $databaseClient->getMockController()->connect = function() {};
 $this->calling($databaseClient)->connect = function() {};
 ]]]
 
-Le ##mockController## vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
+Le ##mockController## vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
 
 [[[php
 $databaseClient = new \mock\Database\Client();
@@ -3378,16 +3378,16 @@ $databaseClient->getMockController()->query = function(Query $query) use($result
 $databaseClient->getMockController()->connect->throw = new \Database\Client\Exception();
 ]]]
 
-Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d'obtenir le comportement souhaité :
+Comme vous pouvez le voir, il est possible d’utiliser plusieurs méthodes afin d’obtenir le comportement souhaité :
 * Utiliser une valeur statique qui sera retournée par la méthode
 * Utilser une implémentation courte grâce aux fonctions anonymes de PHP
-* Utiliser le mot clé ##throw## pour lever une exception
+* Utiliser le mot-clef ##throw## pour lever une exception
 
 Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes [[##methods##|#methods]] ou [[##methodsWhichMatch##|#methodsWhichMatch]].
 
 ====methods
 
-##methods## vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes le comportement doit être modifier:
+##methods## vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes le comportement doit être modifié :
 
 [[[php
 // si la méthode a tel ou tel nom,
@@ -3431,12 +3431,12 @@ $this
 Dans le cas du dernier exemple, vous devriez plutôt utiliser [[##methodsWhichMatch##|#methodsWhichMatch]].
 
 {{{info
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez vous au [[manuel PHP|http://php.net/functions.anonymous]] pour avoir plus d'informations sur le sujet.
+La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au [[manuel de PHP|http://php.net/functions.anonymous]] pour avoir plus d’informations sur le sujet.
 }}}
 
 ====methodsWhichMatch
 
-##methodsWhichMatch## vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument:
+##methodsWhichMatch## vous permet de définir les méthodes où le comportement doit être modifié grâce à l’expression rationnelle passée en argument :
 
 [[[php
 // si la méthode commence par "is",
@@ -3457,15 +3457,15 @@ $this
 ]]]
 
 {{{info
-##methodsWhichMatch## utilise [[##preg_match##|http://php.net/preg_match]] et les expressions rationnelles. Reportez vous au [[manuel PHP|http://php.net/pcre]] pour avoir plus d'informations sur le sujet.
+##methodsWhichMatch## utilise [[##preg_match##|http://php.net/preg_match]] et les expressions rationnelles. Reportez-vous au [[manuel de PHP|http://php.net/pcre]] pour avoir plus d’informations sur le sujet.
 }}}
 
 ===Cas particulier du constructeur
 
-Pour bouchonner le constructeur d'une classe, il faut:
-* créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
-* définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
-* injecter le contrôleur lors de l'instanciation du bouchon.
+Pour bouchonner le constructeur d’une classe, il faut :
+* créer une instance de la classe \atoum\mock\controller avant d’appeler le constructeur du bouchon ;
+* définir via ce contrôleur le comportement du constructeur du bouchon à l’aide d’une fonction anonyme ;
+* injecter le contrôleur lors de l’instanciation du bouchon.
 
 [[[php
 $controller = new \atoum\mock\controller();
@@ -3475,12 +3475,12 @@ $databaseClient = new \mock\Database\Client($controller);
 ]]]
 
 {{{info
-Dans l'exemple ci-dessus, le constructeur de la classe ##\Database\Client## n'a aucun argument, nous injectons directement le contrôleur. Dans le cas d'un constructeur ayant des paramètres, il faudra passer le contrôleur en dernier argument, après tous les arguments requis et optionnels.
+Dans l’exemple ci-dessus, le constructeur de la classe ##\Database\Client## n’a aucun argument, nous injectons directement le contrôleur. Dans le cas d’un constructeur ayant des paramètres, il faudra passer le contrôleur en dernier argument, après tous les arguments requis et optionnels.
 }}}
 
 ===Tester un bouchon
 
-atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
+atoum vous permet de vérifier qu’un bouchon a été utilisé correctement.
 
 [[[php
 $databaseClient = new \mock\Database\Client();
@@ -3502,5 +3502,5 @@ $this
 ]]]
 
 {{{info
-Reportez-vous à la documentation sur l'assertion ##[[mock|#mock]]## pour obtenir plus d'informations sur les tests des bouchons.
+Reportez-vous à la documentation sur l’assertion ##[[mock|#mock]]## pour obtenir plus d’informations sur les tests des bouchons.
 }}}
