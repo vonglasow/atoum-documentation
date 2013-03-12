@@ -8,7 +8,8 @@ before_script:
   - mkdir -p output/fr output/en
   - ./sia/bin/sia -i fr -o output/fr -t atoum
   - ./sia/bin/sia -i en -o output/en -t atoum
-  - echo 'xdebug.max_nesting_level=9999' >> ~/.phpenv/versions/$(phpenv version-name)/etc/xdebug.ini
+  - export ADDITIONAL_PATH=`php -i | grep -F --color=never 'Scan this dir for additional .ini files'`
+  - echo 'xdebug.max_nesting_level=9999' >> ${ADDITIONAL_PATH:42}/xdebug.ini
 script: ./LinksChecker/check output/fr/chapter1.html && ./LinksChecker/check output/en/chapter1.html
 notifications:
   irc: "irc.freenode.org##atoum"
