@@ -271,7 +271,7 @@ One the tests have been executed, Atoum will generate the code coverage report i
 The calculation of the code coverage percentage as well as the corresponding reporting can significally slow down the tests execution. It can therefore be interesting to not systematically make use of the conrresponding configuration file or to temporarily deactivate them using the -ncc option.
 }}}
 
-==Fichier de bootstrap
+==Bootstrap file
 
 Atoum can use a ##bootstrap## file which will be executed before each test method thus allowing the initialization of the tests execution environment.
 
@@ -627,9 +627,3 @@ $ ./bin/atoum --version
 
 atoum version DEVELOPMENT by Frédéric Hardy (/path/to/atoum)
 ]]]
-
-==Exit
-
-{{{todo
-We need help to write this section !
-}}}

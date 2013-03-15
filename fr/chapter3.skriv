@@ -626,9 +626,3 @@ $ ./bin/atoum --version
 
 atoum version DEVELOPMENT by Frédéric Hardy (/path/to/atoum)
 ]]]
-
-==Sortie
-
-{{{todo
-We need help to write this section !
-}}}
