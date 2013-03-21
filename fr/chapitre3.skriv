@@ -194,6 +194,72 @@ Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOn
 We need help to write this section !
 }}}
 
+===Notifications
+
+====Growl
+
+[[[php
+<?php
+$images = '/path/to/atoum/resources/images/logo';
+
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\image\growl();
+$notifier
+    ->setSuccessImage($images . DIRECTORY_SEPARATOR . 'success.png')
+    ->setFailureImage($images . DIRECTORY_SEPARATOR . 'failure.png')
+;
+
+$report = $script->AddDefaultReport();
+$report->addField($notifier, array(atoum\runner::runStop));
+]]]
+
+====Mac OS X Notification Center
+
+[[[php
+<?php
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\terminal();
+
+$report = $script->AddDefaultReport();
+$report->addField($notifier, array(atoum\runner::runStop));
+]]]
+
+Sous OS X, vous avez la possibilité de définir une commande qui sera exécutée lorsque l'utilisateur cliquera sur la notification.
+
+[[[php
+<?php
+$coverageField = new atoum\report\fields\runner\coverage\html(
+    'Code coverage',
+    $path = sys_get_temp_dir() . '/coverage_' . time()
+);
+$coverageField->setRootUrl('file://' . $path);
+
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\terminal();
+$notifier->setCallbackCommand('open 'file://' . $path . '/index.html);
+
+$report = $script->AddDefaultReport();
+$report
+    ->addField($coverage, array(atoum\runner::runStop))
+    ->addField($notifier, array(atoum\runner::runStop))
+;
+]]]
+
+L'exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l'utilisateur clique sur la notification.
+
+====Libnotify
+
+[[[php
+<?php
+$images = '/path/to/atoum/resources/images/logo';
+
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\image\libnotify();
+$notifier
+    ->setSuccessImage($images . DIRECTORY_SEPARATOR . 'success.png')
+    ->setFailureImage($images . DIRECTORY_SEPARATOR . 'failure.png')
+;
+
+$report = $script->AddDefaultReport();
+$report->addField($notifier, array(atoum\runner::runStop));
+]]]
+
 ===Couverture du code
 
 Par défaut, si PHP dispose de l'extension [[Xdebug|http://xdebug.org]], atoum indique en ligne de commande le taux de couverture du code par les tests venant d'être exécutés.

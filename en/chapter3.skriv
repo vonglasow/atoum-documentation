@@ -194,6 +194,72 @@ In that last case, the tests classes having been tagged with thisIsOneTag or wit
 We need help to write this section !
 }}}
 
+===Notifications
+
+====Growl
+
+[[[php
+<?php
+$images = '/path/to/atoum/resources/images/logo';
+
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\image\growl();
+$notifier
+    ->setSuccessImage($images . DIRECTORY_SEPARATOR . 'success.png')
+    ->setFailureImage($images . DIRECTORY_SEPARATOR . 'failure.png')
+;
+
+$report = $script->AddDefaultReport();
+$report->addField($notifier, array(atoum\runner::runStop));
+]]]
+
+====Mac OS X Notification Center
+
+[[[php
+<?php
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\terminal();
+
+$report = $script->AddDefaultReport();
+$report->addField($notifier, array(atoum\runner::runStop));
+]]]
+
+On OS X, you can define a command to be executed when the user clicks on the notification.
+
+[[[php
+<?php
+$coverageField = new atoum\report\fields\runner\coverage\html(
+    'Code coverage',
+    $path = sys_get_temp_dir() . '/coverage_' . time()
+);
+$coverageField->setRootUrl('file://' . $path);
+
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\terminal();
+$notifier->setCallbackCommand('open 'file://' . $path . '/index.html);
+
+$report = $script->AddDefaultReport();
+$report
+    ->addField($coverage, array(atoum\runner::runStop))
+    ->addField($notifier, array(atoum\runner::runStop))
+;
+]]]
+
+the example above shows how to automatically open the code coverage report when the user clicks on the notification.
+
+====Libnotify
+
+[[[php
+<?php
+$images = '/path/to/atoum/resources/images/logo';
+
+$notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\image\libnotify();
+$notifier
+    ->setSuccessImage($images . DIRECTORY_SEPARATOR . 'success.png')
+    ->setFailureImage($images . DIRECTORY_SEPARATOR . 'failure.png')
+;
+
+$report = $script->AddDefaultReport();
+$report->addField($notifier, array(atoum\runner::runStop));
+]]]
+
 ===Code Coverage
 
 By default, if PHP can make use of the [[Xdebug|http://xdebug.org]] extension, Atoum will indicate in command line mode the code coverage percentage for the tests just executed.
