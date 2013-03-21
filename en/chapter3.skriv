@@ -226,11 +226,11 @@ On OS X, you can define a command to be executed when the user clicks on the not
 
 [[[php
 <?php
-$coverageField = new atoum\report\fields\runner\coverage\html(
+$coverage = new atoum\report\fields\runner\coverage\html(
     'Code coverage',
     $path = sys_get_temp_dir() . '/coverage_' . time()
 );
-$coverageField->setRootUrl('file://' . $path);
+$coverage->setRootUrl('file://' . $path);
 
 $notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\terminal();
 $notifier->setCallbackCommand('open 'file://' . $path . '/index.html);
@@ -242,7 +242,7 @@ $report
 ;
 ]]]
 
-the example above shows how to automatically open the code coverage report when the user clicks on the notification.
+The example above shows how to automatically open the code coverage report when the user clicks on the notification.
 
 ====Libnotify
 

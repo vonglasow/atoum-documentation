@@ -226,11 +226,11 @@ Sous OS X, vous avez la possibilité de définir une commande qui sera exécuté
 
 [[[php
 <?php
-$coverageField = new atoum\report\fields\runner\coverage\html(
+$coverage = new atoum\report\fields\runner\coverage\html(
     'Code coverage',
     $path = sys_get_temp_dir() . '/coverage_' . time()
 );
-$coverageField->setRootUrl('file://' . $path);
+$coverage->setRootUrl('file://' . $path);
 
 $notifier = new \mageekguy\atoum\report\fields\runner\result\notifier\terminal();
 $notifier->setCallbackCommand('open 'file://' . $path . '/index.html);
