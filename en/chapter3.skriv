@@ -273,6 +273,8 @@ The calculation of the code coverage percentage as well as the corresponding rep
 
 ===Notifications
 
+atoum is able to warn you when the tests are performed using several notification system: [[Growl|#Growl]], [[Notification Center|#OSXNotificationCenter]], [[Libnotify|#Libnotify]].
+
 ====Growl
 
 [[[php
@@ -289,7 +291,7 @@ $report = $script->AddDefaultReport();
 $report->addField($notifier, array(atoum\runner::runStop));
 ]]]
 
-====Mac OS X Notification Center
+====Mac OS X Notification Center====OSXNotificationCenter
 
 [[[php
 <?php

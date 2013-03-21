@@ -274,6 +274,8 @@ Le calcul du taux de couverture du code par les tests ainsi que la génération 
 
 ===Notifications
 
+atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : [[Growl|#Growl]], [[Notification Center|#OSXNotificationCenter]], [[Libnotify|#Libnotify]].
+
 ====Growl
 
 [[[php
@@ -290,7 +292,7 @@ $report = $script->AddDefaultReport();
 $report->addField($notifier, array(atoum\runner::runStop));
 ]]]
 
-====Mac OS X Notification Center
+====Mac OS X Notification Center====OSXNotificationCenter
 
 [[[php
 <?php
