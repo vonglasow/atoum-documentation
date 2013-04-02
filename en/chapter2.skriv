@@ -14,9 +14,11 @@ $a = 'a';
 $this->assert
         ->variable($a)
            ->isEqualTo('a');//Will pass
+]]]
 
 isEqualTo won't verify the type of the variables, only the value itself.
 
+[[[php
 $a1 = '1';
 
 $a2 = 1;
@@ -46,9 +48,11 @@ $this->assert
 $this->assert
         ->variable($a)
            ->isNotEqualTo('b');//Will pass
+]]]
 
 As isEqualTo, isNotEqualTo won't check the type of the variables.
 
+[[[php
 $a1 = '1';
 
 $this->assert
