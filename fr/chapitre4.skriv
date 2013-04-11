@@ -329,15 +329,15 @@ We need help to write this section !
 
 ==Utilisation avec Symfony 2
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle [[JediAtoumBundle|chapter1.html#Bundle-Symfony-2]].
+Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle [[JediAtoumBundle|chapitre1.html#Bundle-Symfony-2]].
 
 Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
 
 ===Étape 1: installation d'atoum
 
-Si vous utilisez Symfony 2.0, [[téléchargez l'archive PHAR|chapter1.html#Archive-PHAR]] et placez-la dans le répertoire vendor qui est à la racine de votre projet.
+Si vous utilisez Symfony 2.0, [[téléchargez l'archive PHAR|chapitre1.html#Archive-PHAR]] et placez-la dans le répertoire vendor qui est à la racine de votre projet.
 
-Si vous utilisez Symfony 2.1, [[ajoutez atoum dans votre fichier composer.json|chapter1.html#Composer]].
+Si vous utilisez Symfony 2.1, [[ajoutez atoum dans votre fichier composer.json|chapitre1.html#Composer]].
 
 ===Étape 2: création de la classe de test
 
@@ -495,7 +495,7 @@ $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 ]]]
 
 {{{info
-Vous pouvez obtenir plus d'informations sur le [[lancement des tests|chapter3.html#Lancement-des-tests]] au chapitre 3.
+Vous pouvez obtenir plus d'informations sur le [[lancement des tests|chapitre3.html#Lancement-des-tests]] au chapitre 3.
 }}}
 
 

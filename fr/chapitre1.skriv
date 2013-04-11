@@ -164,7 +164,7 @@ Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez clo
 
 Si vous souhaitez utiliser atoum au sein d’un projet symfony 1, un plug-in existe et est disponible à l’adresse suivante : [[https://github.com/atoum/sfAtoumPlugin|https://github.com/atoum/sfAtoumPlugin]].
 
-Toutes les instructions pour son installation et son utilisation se trouvent [[dans le cookbook|chapter4.html#Utilisation-avec-symfony -1.4]] ainsi que sur son site.
+Toutes les instructions pour son installation et son utilisation se trouvent [[dans le cookbook|chapitre4.html#Utilisation-avec-symfony -1.4]] ainsi que sur son site.
 
 
 ===Bundle Symfony 2
@@ -379,7 +379,7 @@ atoum est capable d’ouvrir automatiquement les fichiers des tests en échec à
 * [[PhpStorm|#PhpStorm]] (Mac OS X/Unix)
 * [[gedit|#gedit]] (Unix)
 
-Pour utiliser cette fonctionnalité, vous devrez modifier le [[fichier de configuration|chapter3.html#Fichier-de-configuration]] de atoum :
+Pour utiliser cette fonctionnalité, vous devrez modifier le [[fichier de configuration|chapitre3.html#Fichier-de-configuration]] de atoum :
 
 ====macvim
 

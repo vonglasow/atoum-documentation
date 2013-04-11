@@ -50,7 +50,7 @@ Dans les exemples suivants, les commandes pour lancer les tests avec atoum seron
 $ ./bin/atoum
 ]]]
 
-C'est exactement la commande que vous pourriez utiliser si vous avez [[installé atoum avec composer|chapter1.html#Composer]] sous Linux.
+C'est exactement la commande que vous pourriez utiliser si vous avez [[installé atoum avec composer|chapitre1.html#Composer]] sous Linux.
 
 
 
@@ -239,7 +239,7 @@ php mageekguy.atoum.phar -er /path/to/destination/directory
 
 Une fois l'extraction effectuée, vous devriez avoir dans le répertoire /path/to/destination/directory un répertoire nommé resources/configurations/runner.
 
-Dans le cas ou vous utilisez atoum avec un ([[clone du dépôt github|chapter1.html#Github]] ou avec [[composer|chapter1.html#Composer]], les modèles se trouvent dans /path/to/atoum/resources/configurations/runner
+Dans le cas ou vous utilisez atoum avec un ([[clone du dépôt github|chapitre1.html#Github]] ou avec [[composer|chapitre1.html#Composer]], les modèles se trouvent dans /path/to/atoum/resources/configurations/runner
 
 Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration pour atoum nommé coverage.php.dist qu'il vous faudra copier à l'emplacement de votre choix, par exemple sous le nom coverage.php.
 
@@ -370,7 +370,7 @@ $ ./bin/atoum --debug
 ]]]
 
 {{{info
-Reportez-vous à la section sur le [[mode debug|chapter2.html#Le-mode-debug]] pour avoir plus d'informations.
+Reportez-vous à la section sur le [[mode debug|chapitre2.html#Le-mode-debug]] pour avoir plus d'informations.
 }}}
 
 ===-drt <string> / --default-report-title <string>
@@ -432,7 +432,7 @@ $ ./bin/atoum --loop
 ]]]
 
 {{{info
-Reportez-vous à la section sur le [[mode loop|chapter2.html#Le-mode-loop]] pour avoir plus d'informations.
+Reportez-vous à la section sur le [[mode loop|chapitre2.html#Le-mode-loop]] pour avoir plus d'informations.
 }}}
 
 ===-m <class::method> / --methods <class::methods>

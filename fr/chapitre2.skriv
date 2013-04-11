@@ -2972,7 +2972,7 @@ Le développeur pourra alors dépiler les problèmes et rejouer les tests en err
 
 De plus, une fois que tous les tests en échec passeront à nouveau avec succès, atoum exécutera automatiquement la totalité de la suite de tests afin de détecter les éventuelles régressions introduites par la ou les corrections effectuées par le développeur.
 
-Bien évidemment, le mode ##loop## ne prend en compte que [[le ou les fichiers de tests unitaires lancés|chapter3.html#Fichiers-a-executer]] par atoum.
+Bien évidemment, le mode ##loop## ne prend en compte que [[le ou les fichiers de tests unitaires lancés|chapitre3.html#Fichiers-a-executer]] par atoum.
 
 
 ==Le mode debug
