@@ -1265,6 +1265,22 @@ Pour plus d’informations, reportez-vous à la documentation de [[##object::isC
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
 }}}
 
+====message
+
+##message## vous permet de récupérer un asserter de type ##[[string|#string]]## contenant le message de l'exception testée.
+
+[[[php
+$this
+    ->exception(
+        function() {
+            throw new \Exception('My custom message to test');
+        }
+    )
+        ->message
+            ->contains('message')
+;
+]]]
+
 
 
 ===array
@@ -1578,6 +1594,20 @@ $this
 ##notHasKeys## ne teste pas le type des clefs.
 }}}
 
+====size
+
+##size## vous permet de récupérer un asserter de type ##[[integer|#integer]]## contenant la taille du tableau testé.
+
+[[[php
+$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+
+$this
+    ->array($fibonacci)
+        ->size
+            ->isGreaterThan(5)
+;
+]]]
+
 ====strictlyContains
 
 ##strictlyContains## vérifie qu’un tableau contient une certaine donnée (même valeur et même type).
@@ -1816,6 +1846,20 @@ Pour plus d’informations, reportez-vous à la documentation de [[##variable::i
 ##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
 Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
+
+====length
+
+##length## vous permet de récupérer un asserter de type ##[[integer|#integer]]## contenant la taille de la chaîne de caractères testée.
+
+[[[php
+$string = 'atoum'
+
+$this
+    ->string($string)
+        ->length
+            ->isGreaterThanOrEqualTo(5)
+;
+]]]
 
 ====match====stringMatch
 
