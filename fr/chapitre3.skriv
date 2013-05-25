@@ -278,6 +278,16 @@ atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisa
 
 ====Growl
 
+Cette fonctionnalité nécessite la présence de l'exécutable ##growlnotify##. Pour vérifier s'il est disponible, utilisez la commande suivante :
+
+[[[shell
+$ which growlnotify && echo $?
+/chemin/vers/growlnotify
+0
+]]]
+
+Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
+
 [[[php
 <?php
 $images = '/path/to/atoum/resources/images/logo';
@@ -293,6 +303,20 @@ $report->addField($notifier, array(atoum\runner::runStop));
 ]]]
 
 ====Mac OS X Notification Center====OSXNotificationCenter
+
+Cette fonctionnalité nécessite la présence de l'exécutable ##terminal-notifier##. Pour vérifier s'il est disponible, utilisez la commande suivante :
+
+[[[shell
+$ which terminal-notifier && echo $?
+/chemin/vers/terminal-notifier
+0
+]]]
+
+{{{info
+Rendez-vous sur [[la page Github du projet|https://github.com/alloy/terminal-notifier]] pour obtenir plus d'information sur l'installation de ##terminal-notifier##.
+}}}
+
+Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 
 [[[php
 <?php
@@ -325,6 +349,16 @@ $report
 L'exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l'utilisateur clique sur la notification.
 
 ====Libnotify
+
+Cette fonctionnalité nécessite la présence de l'exécutable ##notify-send##. Pour vérifier s'il est disponible, utilisez la commande suivante :
+
+[[[shell
+$ which notify-send && echo $?
+/chemin/vers/notify-send
+0
+]]]
+
+Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 
 [[[php
 <?php
