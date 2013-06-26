@@ -1484,6 +1484,28 @@ Pour plus d’informations, reportez-vous à la documentation de [[##variable::i
 Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
 }}}
 
+====keys
+
+##keys## vous permet de récupérer un asserter de type ##[[array|#array]]## contenant les clefs du tableau testé.
+
+[[[php
+$atoum = array(
+    'name'  => 'atoum',
+    'owner' => 'mageekguy',
+);
+
+$this
+    ->array($atoum)
+        ->keys
+            ->isEqualTo(
+                array(
+                    'name',
+                    'owner',
+                )
+            )
+;
+]]]
+
 ====notContains====arrayNotContains
 
 ##notContains## vérifie qu’un tableau ne contient pas une donnée.
@@ -1537,8 +1559,8 @@ $this
 [[[php
 $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 $atoum     = array(
-    'name'        => 'atoum',
-    'owner'       => 'mageekguy',
+    'name'  => 'atoum',
+    'owner' => 'mageekguy',
 );
 
 $this
