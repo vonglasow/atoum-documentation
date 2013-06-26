@@ -3399,16 +3399,16 @@ Le ##mockController## vous permet de redéfinir **uniquement les méthodes publi
 $databaseClient = new \mock\Database\Client();
 
 // redéfinie la méthode connect : elle retournera toujours true
-$databaseClient->getMockController()->connect = true;
+$this->calling($databaseClient)->connect = true;
 
 // redéfinie la méthode select
-$databaseClient->getMockController()->select = function() {
+$this->calling($databaseClient)->select = function() {
     return array();
 };
 
 // redéfinie la méthode query avec des arguments
 $result = array();
-$databaseClient->getMockController()->query = function(Query $query) use($result) {
+$this->calling($databaseClient)->query = function(Query $query) use($result) {
     switch($query->type) {
         case Query::SELECT:
             return $result
@@ -3419,13 +3419,33 @@ $databaseClient->getMockController()->query = function(Query $query) use($result
 };
 
 // la méthode connect lèvera une exception
-$databaseClient->getMockController()->connect->throw = new \Database\Client\Exception();
+$this->calling($databaseClient)->connect->throw = new \Database\Client\Exception();
 ]]]
 
 Comme vous pouvez le voir, il est possible d’utiliser plusieurs méthodes afin d’obtenir le comportement souhaité :
 * Utiliser une valeur statique qui sera retournée par la méthode
 * Utilser une implémentation courte grâce aux fonctions anonymes de PHP
 * Utiliser le mot-clef ##throw## pour lever une exception
+
+Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'appel:
+
+[[[php
+// défaut
+$this->calling($databaseClient)->count = rand(0, 10);
+// équivalent à
+$this->calling($databaseClient)->count[0] = rand(0, 10);
+
+// 1er appel
+$this->calling($databaseClient)->count[1] = 13;
+
+// 3ème appel
+$this->calling($databaseClient)->count[3] = 42;
+]]]
+
+* Le premier appel retournera 13.
+* Le second aura le comportement par défaut, c'est à dire un nombre aléatoire.
+* Le troisième appel retournera 42.
+* Tous les appels suivants auront le comportement par défaut, c'est à dire des nombres aléatoires.
 
 Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes [[##methods##|#methods]] ou [[##methodsWhichMatch##|#methodsWhichMatch]].
 
@@ -3470,6 +3490,7 @@ $this
         )
             ->return = uniqid()
 ;
+
 ]]]
 
 Dans le cas du dernier exemple, vous devriez plutôt utiliser [[##methodsWhichMatch##|#methodsWhichMatch]].
