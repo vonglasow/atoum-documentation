@@ -3,7 +3,7 @@
 ==What is atoum ?
 
 
-atoum is a unit test framework, similar to PHPUnit or SimpleTest, however:
+Atoum is a unit test framework, similar to PHPUnit or SimpleTest, however:
 
 * It is more modern and makes use of the latest PHP features.
 * It is simpler to use and master.
@@ -19,8 +19,8 @@ You can install atoum several ways :
 * [[Using composer|#Composer]]
 * [[Using an install script|#Installer]]
 * [[Cloning the github repository|#Github]]
-* [[Using a Symfony2 Bundle|#Symfony-2-bundle]].
-* [[Using a Zend Framework 2 component|#Using-Zend-Framework-2-component]]
+* [[Using a Symfony2 Bundle|#Symfony2-bundle]].
+* [[Using a Zend Framework 2 component|#Zend-Framework-2-component]]
 
 
 ===PHAR
@@ -267,7 +267,7 @@ All tests passed. You're done, your code is rock solid !
 
 ===Rule of Thumb
 
-The basics when you're testing things using atoum are the following :
+The basics when you’re testing things using atoum are the following :
 *    Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
 *    Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).
 
