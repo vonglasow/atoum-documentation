@@ -2833,7 +2833,7 @@ L’un d’entre eux est ##when##. Il dispose d’une fonctionnalité spécifiqu
 [[[php
 $this
     ->if($object = new object($valueAtKey0 = uniqid()))
-    ->and(unset($array[0]))
+    ->and(unset($object[0]))
     ->then
         ->sizeOf($object)
             ->isZero()
