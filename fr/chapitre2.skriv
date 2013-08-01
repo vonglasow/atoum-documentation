@@ -1750,22 +1750,6 @@ $this
 ;
 ]]]
 
-====notContains====stringNotContains
-
-##notContains## vérifie qu’une chaîne de caractère ne contient pas une autre chaîne de caractère donnée.
-
-[[[php
-$string = 'Hello world';
-
-$this
-    ->string($string)
-        ->notContains('php')   // passe
-        ->notContains(';')     // passe
-        ->notContains('ll')    // échoue
-        ->notContains(' ')     // échoue
-;
-]]]
-
 ====hasLength====stringHasLength
 
 ##hasLength## vérifie la taille d’une chaîne de caractères.
@@ -1916,6 +1900,22 @@ $this
 ;
 ]]]
 
+====notContains====stringNotContains
+
+##notContains## vérifie qu’une chaîne de caractère ne contient pas une autre chaîne de caractère donnée.
+
+[[[php
+$string = 'Hello world';
+
+$this
+    ->string($string)
+        ->notContains('php')   // passe
+        ->notContains(';')     // passe
+        ->notContains('ll')    // échoue
+        ->notContains(' ')     // échoue
+;
+]]]
+
 
 
 ===castToString
@@ -2041,13 +2041,6 @@ C’est l’assertion dédiée aux tests sur les hashs (empreintes numériques).
 Pour plus d’informations, reportez-vous à la documentation de [[##string::contains##|#stringContains]]
 }}}
 
-====notContains====hashNotContains
-
-{{{inheritance
-##notContains## est une méthode héritée de l’asserter ##string##.
-Pour plus d’informations, reportez-vous à la documentation de [[##string::notContains##|#stringNotContains]]
-}}}
-
 ====isEqualTo====hashIsEqualTo
 
 {{{inheritance
@@ -2147,6 +2140,13 @@ $this
 ;
 ]]]
 
+====notContains====hashNotContains
+
+{{{inheritance
+##notContains## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::notContains##|#stringNotContains]]
+}}}
+
 
 
 ===output
@@ -2172,13 +2172,6 @@ La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closure
 {{{inheritance
 ##contains## est une méthode héritée de l’asserter ##string##.
 Pour plus d’informations, reportez-vous à la documentation de [[##string::contains##|#stringContains]]
-}}}
-
-====notContains====outputNotContains
-
-{{{inheritance
-##notContains## est une méthode héritée de l’asserter ##string##.
-Pour plus d’informations, reportez-vous à la documentation de [[##string::notContains##|#stringNotContains]]
 }}}
 
 ====hasLength====outputHasLength
@@ -2258,6 +2251,13 @@ Pour plus d’informations, reportez-vous à la documentation de [[##variable::i
 Pour plus d’informations, reportez-vous à la documentation de [[##string::match##|#stringMatch]]
 }}}
 
+====notContains====outputNotContains
+
+{{{inheritance
+##notContains## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::notContains##|#stringNotContains]]
+}}}
+
 
 
 ===utf8String
@@ -2273,13 +2273,6 @@ C’est l’assertion dédiée aux chaînes de caractères UTF-8.
 {{{inheritance
 ##contains## est une méthode héritée de l’asserter ##string##.
 Pour plus d’informations, reportez-vous à la documentation de [[##string::contains##|#stringContains]]
-}}}
-
-====notContains====utf8StringNotContains
-
-{{{inheritance
-##notContains## est une méthode héritée de l’asserter ##string##.
-Pour plus d’informations, reportez-vous à la documentation de [[##string::notContains##|#stringNotContains]]
 }}}
 
 ====hasLength====utf8StringHasLength
@@ -2371,6 +2364,13 @@ $this
         ->match("#^Aujourd'hui.*VDM$#u")
 ;
 ]]]
+
+====notContains====utf8StringNotContains
+
+{{{inheritance
+##notContains## est une méthode héritée de l’asserter ##string##.
+Pour plus d’informations, reportez-vous à la documentation de [[##string::notContains##|#stringNotContains]]
+}}}
 
 
 
