@@ -233,7 +233,7 @@ Pour plus d’informations, reportez-vous à la documentation de [[##variable::i
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====booleanIsNotIdenticalTo
@@ -353,7 +353,7 @@ $this
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====integerIsNotIdenticalTo
@@ -668,6 +668,34 @@ $this
 ##isEmpty## est équivalent à ##hasSize(0)##.
 }}}
 
+====isEqualTo====objectIsEqualTo
+
+##isEqualTo## vérifie qu’un objet est égal à un autre.
+Deux objets sont considérés égaux lorsqu’ils ont les mêmes attributs et valeurs, et qu’ils sont des instances de la même classe.
+
+{{{info
+Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au [[manuel de PHP|http://php.net/language.oop5.object-comparison]].
+}}}
+
+{{{inheritance
+##isEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isEqualTo##|#variableIsEqualTo]]
+}}}
+
+====isIdenticalTo====objectIsIdenticalTo
+
+##isIdenticalTo## vérifie que deux objets sont identiques.
+Deux objets sont considérés identiques lorsqu’ils font référence à la même instance de la même classe.
+
+{{{info
+Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au [[manuel de PHP|http://php.net/language.oop5.object-comparison]].
+}}}
+
+{{{inheritance
+##isIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
+}}}
+
 ====isInstanceOf====objectIsInstanceOf
 
 ##isInstanceOf## vérifie qu’un objet est :
@@ -749,6 +777,34 @@ $this
 Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotCallable##|#variableIsNotCallable]]
 }}}
 
+====isNotEqualTo====objectIsNotEqualTo
+
+##isEqualTo## vérifie qu’un objet n’est pas égal à un autre.
+Deux objets sont considérés égaux lorsqu’ils ont les mêmes attributs et valeurs, et qu’ils sont des instances de la même classe.
+
+{{{info
+Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au [[manuel de PHP|http://php.net/language.oop5.object-comparison]].
+}}}
+
+{{{inheritance
+##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
+}}}
+
+====isNotIdenticalTo====objectIsNotIdenticalTo
+
+##isIdenticalTo## vérifie que deux objets ne sont pas identiques.
+Deux objets sont considérés identiques lorsqu’ils font référence à la même instance de la même classe.
+
+{{{info
+Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au [[manuel de PHP|http://php.net/language.oop5.object-comparison]].
+}}}
+
+{{{inheritance
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##variable##.
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotIdenticalTo##|#variableIsNotIdenticalTo]]
+}}}
+
 ===dateInterval
 
 C’est l’assertion dédiée à l’objet ##[[DateInterval|http://php.net/dateinterval]]##.
@@ -819,6 +875,13 @@ $this
 ;
 ]]]
 
+====isIdenticalTo====dateIntervalIsIdenticalTo
+
+{{{inheritance
+##isIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isIdenticalTo##|#objectIsIdenticalTo]]
+}}}
+
 ====isInstanceOf====dateIntervalIsInstanceOf
 
 {{{inheritance
@@ -864,6 +927,20 @@ $this
         )
 ;
 ]]]
+
+====isNotEqualTo====dateIntervalIsNotEqualTo
+
+{{{inheritance
+##isNotEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotEqualTo##|#objectIsNotEqualTo]]
+}}}
+
+====isNotIdenticalTo====dateIntervalIsNotIdenticalTo
+
+{{{inheritance
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotIdenticalTo##|#objectIsNotIdenticalTo]]
+}}}
 
 ====isZero====dateIntervalIsZero
 
@@ -1040,11 +1117,39 @@ $this
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
+====isEqualTo====dateTimeIsEqualTo
+
+{{{inheritance
+##isEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isEqualTo##|#objectIsEqualTo]]
+}}}
+
+====isIdenticalTo====datTimeIsIdenticalTo
+
+{{{inheritance
+##isIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isIdenticalTo##|#objectIsIdenticalTo]]
+}}}
+
 ====isInstanceOf====dateTimeIsInstanceOf
 
 {{{inheritance
 ##isInstanceOf## est une méthode héritée de l’asserter ##object##.
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+}}}
+
+====isNotEqualTo====dateTimeIsNotEqualTo
+
+{{{inheritance
+##isNotEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotEqualTo##|#objectIsNotEqualTo]]
+}}}
+
+====isNotIdenticalTo====dateTimeIsNotIdenticalTo
+
+{{{inheritance
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotIdenticalTo##|#objectIsNotIdenticalTo]]
 }}}
 
 
@@ -1134,11 +1239,39 @@ Pour plus d’informations, reportez-vous à la documentation de [[##dateTime::h
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
+====isEqualTo====mysqlDateTimeIsEqualTo
+
+{{{inheritance
+##isEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isEqualTo##|#objectIsEqualTo]]
+}}}
+
+====isIdenticalTo====mysqlDateTimeIsIdenticalTo
+
+{{{inheritance
+##isIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isIdenticalTo##|#objectIsIdenticalTo]]
+}}}
+
 ====isInstanceOf====mysqlDateTimeIsInstanceOf
 
 {{{inheritance
 ##isInstanceOf## est une méthode héritée de l’asserter ##object##.
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+}}}
+
+====isNotEqualTo====mysqlDateTimeIsNotEqualTo
+
+{{{inheritance
+##isNotEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotEqualTo##|#objectIsNotEqualTo]]
+}}}
+
+====isNotIdenticalTo====mysqlDateTimeIsNotIdenticalTo
+
+{{{inheritance
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotIdenticalTo##|#objectIsNotIdenticalTo]]
 }}}
 
 
@@ -1258,11 +1391,39 @@ $this
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isCloneOf##|#objectIsCloneOf]]
 }}}
 
+====isEqualTo====exceptionIsEqualTo
+
+{{{inheritance
+##isEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isEqualTo##|#objectIsEqualTo]]
+}}}
+
+====isIdenticalTo====exceptionIsIdenticalTo
+
+{{{inheritance
+##isIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isIdenticalTo##|#objectIsIdenticalTo]]
+}}}
+
 ====isInstanceOf====exceptionIsInstanceOf
 
 {{{inheritance
 ##isInstanceOf## est une méthode héritée de l’asserter ##object##.
 Pour plus d’informations, reportez-vous à la documentation de [[##object::isInstanceOf##|#objectIsInstanceOf]]
+}}}
+
+====isNotEqualTo====exceptionIsNotEqualTo
+
+{{{inheritance
+##isNotEqualTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotEqualTo##|#objectIsNotEqualTo]]
+}}}
+
+====isNotIdenticalTo====exceptionIsNotIdenticalTo
+
+{{{inheritance
+##isNotIdenticalTo## est une méthode héritée de l’asserter ##object##.
+Pour plus d’informations, reportez-vous à la documentation de [[##object::isNotIdenticalTo##|#objectIsNotIdenticalTo]]
 }}}
 
 ====message
@@ -1453,7 +1614,7 @@ Pour plus d’informations, reportez-vous à la documentation de [[##variable::i
 Pour plus d’informations, reportez-vous à la documentation de [[##variable::isIdenticalTo##|#variableIsIdenticalTo]]
 }}}
 
-====isNotEmpty====arrayIsNotEmpty
+====isNotE  mpty====arrayIsNotEmpty
 
 ##isNotEmpty## vérifie qu’un tableau n’est pas vide.
 
@@ -1474,7 +1635,7 @@ $this
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====arrayIsNotIdenticalTo
@@ -1859,7 +2020,7 @@ $this
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====stringIsNotIdenticalTo
@@ -2011,7 +2172,7 @@ Pour plus d’informations, reportez-vous à la documentation de [[##string::isN
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====castToStringIsNotIdenticalTo
@@ -2082,7 +2243,7 @@ $this
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====hashIsNotIdenticalTo
@@ -2234,7 +2395,7 @@ Pour plus d’informations, reportez-vous à la documentation de [[##string::isN
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====outputIsNotIdenticalTo
@@ -2335,7 +2496,7 @@ Pour plus d’informations, reportez-vous à la documentation de [[##string::isN
 
 {{{inheritance
 ##isNotEqualTo## est une méthode héritée de l’asserter ##variable##.
-Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#booleanIsIdenticalTo]]
+Pour plus d’informations, reportez-vous à la documentation de [[##variable::isNotEqualTo##|#variableIsNotEqualTo]]
 }}}
 
 ====isNotIdenticalTo====utf8StringIsNotIdenticalTo
