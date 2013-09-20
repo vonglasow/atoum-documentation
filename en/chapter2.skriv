@@ -3159,3 +3159,5 @@ $this
 ]]]
 
 The string will be used by atoum in atoum generated messages if one of the assertions fail.
+
+==Mocks
