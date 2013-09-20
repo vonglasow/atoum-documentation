@@ -1449,7 +1449,7 @@ $this
 This is the asserter for arrays.
 
 {{{info
-##array## being a PHP reserved keyword, it was not possible to create an ##array## asserter class. That's why its name is actually ##phpArray##. You may encounter some ##->phpArray()## ou des ##->array()##.
+##array## being a PHP reserved keyword, it was not possible to create an ##array## asserter class. That's why its name is actually ##phpArray##. You may encounter some ##->phpArray()## or des ##->array()##.
 }}}
 
 It is advised to only use ##->array()## to simplify test reading.
@@ -2975,9 +2975,9 @@ We need help to write this section !
 }}}
 
 
-==Aide à l’écriture
+==Writing help
 
-There are several ways to write unit tests with atoum, and one of them is to use keywords like ##if##, ##and## or ##then##, ##when## ou ##assert##.
+There are several ways to write unit tests with atoum, and one of them is to use keywords like ##if##, ##and## or ##then##, ##when## or ##assert##.
 
 ===if, and, then
 
