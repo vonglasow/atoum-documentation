@@ -117,7 +117,7 @@ $ ./bin/atoum -d tests/units -m *::testContains
 
 ===Tags
 
-Just as numerous tools such as [[Behat|http://behat.rg]], Atoum allows you to tag your unit tests and to execute only those with (a) specific tag(s)
+Just as numerous tools such as [[Behat|http://behat.org]], Atoum allows you to tag your unit tests and to execute only those with (a) specific tag(s)
 
 In order for this to happen, one must begin by defining (a) tag(s) for (a) class(es) of unit tests.
 
