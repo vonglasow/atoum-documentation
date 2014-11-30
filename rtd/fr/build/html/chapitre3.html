@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Lancement des tests &mdash; atoum 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="atoum 1.0.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">atoum 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="lancement-des-tests">
+<span id="id1"></span><h1>Lancement des tests<a class="headerlink" href="#lancement-des-tests" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="executable">
+<span id="id2"></span><h2>Exécutable<a class="headerlink" href="#executable" title="Permalink to this headline">¶</a></h2>
+<p>atoum dispose d&#8217;un exécutable qui vous permet de lancer vos tests en ligne de commande.</p>
+<div class="section" id="avec-l-archive-phar">
+<span id="id3"></span><h3>Avec l&#8217;archive phar<a class="headerlink" href="#avec-l-archive-phar" title="Permalink to this headline">¶</a></h3>
+<p>Si vous utilisez l&#8217;archive phar, elle est elle-même l&#8217;exécutable.</p>
+<div class="section" id="linux-mac-pharlinuxmac">
+<span id="id4"></span><h4>linux / mac====pharLinuxMac<a class="headerlink" href="#linux-mac-pharlinuxmac" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php path/to/mageekguy.atoum.phar
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-pharwindows">
+<span id="id5"></span><h4>windows====pharWindows<a class="headerlink" href="#windows-pharwindows" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell"><div class="highlight"><pre>C:<span class="se">\&gt;</span> X:<span class="se">\P</span>ath<span class="se">\T</span>o<span class="se">\p</span>hp.exe X:<span class="se">\P</span>ath<span class="se">\T</span>o<span class="se">\m</span>ageekguy.atoum.phar
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="avec-les-sources">
+<span id="id6"></span><h3>Avec les sources<a class="headerlink" href="#avec-les-sources" title="Permalink to this headline">¶</a></h3>
+<p>Si vous utilisez les sources, l&#8217;exécutable se trouve dans path/to/atoum/bin.</p>
+<div class="section" id="linux-mac-sourcelinuxmac">
+<span id="id7"></span><h4>linux / mac====sourceLinuxMac<a class="headerlink" href="#linux-mac-sourcelinuxmac" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php path/to/bin/atoum
+
+<span class="c"># OU #</span>
+
+<span class="nv">$ </span>./path/to/bin/atoum
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-sourcewindows">
+<span id="id8"></span><h4>windows====sourceWindows<a class="headerlink" href="#windows-sourcewindows" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-shell"><div class="highlight"><pre>C:<span class="se">\&gt;</span> X:<span class="se">\P</span>ath<span class="se">\T</span>o<span class="se">\p</span>hp.exe X:<span class="se">\P</span>ath<span class="se">\T</span>o<span class="se">\b</span>in<span class="se">\a</span>toum<span class="se">\b</span>in
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exemples-dans-le-reste-de-la-documentation">
+<span id="id9"></span><h3>Exemples dans le reste de la documentation<a class="headerlink" href="#exemples-dans-le-reste-de-la-documentation" title="Permalink to this headline">¶</a></h3>
+<p>Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrit avec la forme suivante:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum
+</pre></div>
+</div>
+<p>C&#8217;est exactement la commande que vous pourriez utiliser si vous avez <a class="reference external" href="chapitre1.html#Composer">installé atoum avec composer</a> sous Linux.</p>
+</div>
+</div>
+<div class="section" id="fichiers-a-executer">
+<span id="id10"></span><h2>Fichiers à exécuter<a class="headerlink" href="#fichiers-a-executer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="par-fichiers">
+<span id="id11"></span><h3>Par fichiers<a class="headerlink" href="#par-fichiers" title="Permalink to this headline">¶</a></h3>
+<p>Pour lancer les tests d&#8217;un fichier, il vous suffit d&#8217;utiliser l&#8217;option -f ou &#8211;files.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -f tests/units/MyTest.php
+</pre></div>
+</div>
+</div>
+<div class="section" id="par-repertoires">
+<span id="id12"></span><h3>Par répertoires<a class="headerlink" href="#par-repertoires" title="Permalink to this headline">¶</a></h3>
+<p>Pour lancer les tests d&#8217;un répertoire, il vous suffit d&#8217;utiliser l&#8217;option -d ou &#8211;directories.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="filtres">
+<span id="id13"></span><h2>Filtres<a class="headerlink" href="#filtres" title="Permalink to this headline">¶</a></h2>
+<p>Une fois que vous avez préciser à atoum <a class="reference internal" href="#fichiers-a-executer"><em>quels fichiers exécuter</em></a>, vous pouvez filtrer ce qui sera réellement exécuter.</p>
+<div class="section" id="par-espace-de-noms">
+<span id="id14"></span><h3>Par espace de noms<a class="headerlink" href="#par-espace-de-noms" title="Permalink to this headline">¶</a></h3>
+<p>Pour filtrer sur l&#8217;espace de noms, c&#8217;est à dire n&#8217;exécuter que les tests d&#8217;un espace de noms donné, il vous suffit d&#8217;utiliser l&#8217;option -ns ou &#8211;namespaces.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units -ns mageekguy<span class="se">\\</span>atoum<span class="se">\\</span>tests<span class="se">\\</span>units<span class="se">\\</span>asserters
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est important de doubler chaque backslash pour éviter qu&#8217;ils soient interprétés par le shell.</p>
+</div>
+</div>
+<div class="section" id="une-classe-ou-une-methode">
+<span id="id15"></span><h3>Une classe ou une méthode<a class="headerlink" href="#une-classe-ou-une-methode" title="Permalink to this headline">¶</a></h3>
+<p>Pour filtrer sur la classe ou une méthode, c&#8217;est à dire n&#8217;exécuter que les tests d&#8217;une classe ou d&#8217;une méthode donnée, il vous suffit d&#8217;utiliser l&#8217;option -m ou &#8211;methods.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units -m mageekguy<span class="se">\\</span>atoum<span class="se">\\</span>tests<span class="se">\\</span>units<span class="se">\\</span>asserters<span class="se">\\</span>string::testContains
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est important de doubler chaque backslash pour éviter qu&#8217;ils soient interprétés par le shell.</p>
+</div>
+<p>Vous pouvez remplacer le nom de la classe ou de la méthode par <tt class="docutils literal"><span class="pre">*</span></tt> pour signifier <tt class="docutils literal"><span class="pre">tous</span></tt>.</p>
+<p>Si vous remplacez le nom de la méthode par <tt class="docutils literal"><span class="pre">*</span></tt>, cela revient à dire que vous filtrez par classe.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units -m mageekguy<span class="se">\\</span>atoum<span class="se">\\</span>tests<span class="se">\\</span>units<span class="se">\\</span>asserters<span class="se">\\</span>string::*
+</pre></div>
+</div>
+<p>Si vous remplacez le nom de la class par <tt class="docutils literal"><span class="pre">*</span></tt>, cela revient à dire que vous filtrez par méthode.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units -m *::testContains
+</pre></div>
+</div>
+</div>
+<div class="section" id="tags">
+<span id="id16"></span><h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<p>Tout comme de nombreux outils dont <a class="reference external" href="http://behat.org">Behat</a>, atoum vous permet de tagger vos tests unitaires et de n&#8217;exécuter que ceux ayant un ou plusieurs tags spécifiques.</p>
+<p>Pour cela, il faut commencer par définir un ou plusieurs tags pour une ou plusieurs classes de tests unitaires.</p>
+<p>Cela se fait très simplement grâce aux annotations et à la balise &#64;tags:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">vendor\project\tests\units</span><span class="p">;</span>
+
+<span class="k">require_once</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/mageekguy.atoum.phar&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">mageekguy\atoum</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @tags thisIsOneTag thisIsTwoTag thisIsThreeTag</span>
+<span class="sd"> */</span>
+<span class="k">class</span> <span class="nc">foo</span> <span class="k">extends</span> <span class="nx">atoum\test</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testBar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>De la même manière, il est également possible de tagger les méthodes de test.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Les tags définis au niveau d&#8217;une méthode prennent le pas sur ceux définis au niveau de la classe.</p>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">namespace</span> <span class="nx">vendor\project\tests\units</span><span class="p">;</span>
+
+<span class="k">require_once</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/mageekguy.atoum.phar&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">mageekguy\atoum</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">foo</span> <span class="k">extends</span> <span class="nx">atoum\test</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * @tags thisIsOneMethodTag thisIsTwoMethodTag thisIsThreeMethodTag</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testBar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="o">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Une fois les tags nécessaires définis, il n&#8217;y a plus qu&#8217;à exécuter les tests avec le ou les tags adéquates à l&#8217;aide de l&#8217;option &#8211;tags, ou -t dans sa version courte:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units -t thisIsOneTag
+</pre></div>
+</div>
+<p>Attention, cette instruction n&#8217;a de sens que s&#8217;il y a une ou plusieurs classes de tests unitaires et qu&#8217;au moins l&#8217;une d&#8217;entres elles porte le tag spécifié. Dans le cas contraire, aucun test ne sera exécuté.</p>
+<p>Il est possible de définir plusieurs tags:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units -t thisIsOneTag thisIsThreeTag
+</pre></div>
+</div>
+<p>Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOneTag, soit avec thisIsThreeTag, seront les seules à être exécutées.</p>
+</div>
+</div>
+<div class="section" id="fichier-de-configuration">
+<span id="id17"></span><h2>Fichier de configuration<a class="headerlink" href="#fichier-de-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We need help to write this section !</p>
+</div>
+<div class="section" id="couverture-du-code">
+<span id="id18"></span><h3>Couverture du code<a class="headerlink" href="#couverture-du-code" title="Permalink to this headline">¶</a></h3>
+<p>Par défaut, si PHP dispose de l&#8217;extension <a class="reference external" href="http://xdebug.org">Xdebug</a>, atoum indique en ligne de commande le taux de couverture du code par les tests venant d&#8217;être exécutés.</p>
+<p>Si le taux de couverture est de 100%, atoum se contente de l&#8217;indiquer. Mais dans le cas contraire, il affiche le taux de couverture globale ainsi que celui de chaque méthode de la classe testée sous la forme la forme d&#8217;un pourcentage.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php tests/units/classes/template.php
+&gt; atoum version DEVELOPMENT by Frederic Hardy <span class="o">(</span>/Users/fch/Atoum<span class="o">)</span>
+&gt; PHP path: /usr/local/bin/php
+&gt; PHP version:
+.. _php-5-3-8--cli---built--sep-21-2011-23-14-37:
+
+&gt; PHP 5.3.8 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built: Sep <span class="m">21</span> <span class="m">2011</span> 23:14:37<span class="o">)</span>
+<span class="o">===============================================</span>
+.. _copyright--c--1997-2011-the-php-group:
+
+&gt; Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2011 The PHP <span class="nv">Group</span>
+<span class="o">=======================================</span>
+.. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
+
+&gt; Zend Engine v2.3.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2011 Zend <span class="nv">Technologies</span>
+<span class="o">===============================================================</span>
+.. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
+
+&gt;     with Xdebug v2.1.1, Copyright <span class="o">(</span>c<span class="o">)</span> 2002-2011, by Derick <span class="nv">Rethans</span>
+<span class="o">====================================================================</span>
+&gt; mageekguy<span class="se">\a</span>toum<span class="se">\t</span>ests<span class="se">\u</span>nits<span class="se">\t</span>emplate...
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSS_________________________________<span class="o">][</span>27/27<span class="o">]</span>
+.. _test-duration--15-63-seconds:
+
+&gt; Test duration: 15.63 seconds.
+<span class="o">===============================</span>
+.. _memory-usage--8-25-mb:
+
+&gt; Memory usage: 8.25 Mb.
+<span class="o">========================</span>
+&gt; Total <span class="nb">test </span>duration: 15.63 seconds.
+&gt; Total <span class="nb">test </span>memory usage: 8.25 Mb.
+&gt; Code coverage value: 92.52%
+.. _class-mageekguy-atoum-template--91-14:
+
+&gt; Class mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate: 91.14%
+<span class="o">========================================</span>
+.. _mageekguy-atoum-template--setwith----80-00:
+
+&gt; mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate::setWith<span class="o">()</span>: 80.00%
+---------------------------------------------
+.. _mageekguy-atoum-template--resetchildrendata----25-00:
+
+&gt; mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate::resetChildrenData<span class="o">()</span>: 25.00%
+-------------------------------------------------------
+.. _mageekguy-atoum-template--addtoparent----0-00:
+
+&gt; mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate::addToParent<span class="o">()</span>: 0.00%
+------------------------------------------------
+.. _mageekguy-atoum-template--unsetattribute----0-00:
+
+&gt; mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate::unsetAttribute<span class="o">()</span>: 0.00%
+---------------------------------------------------
+.. _class-mageekguy-atoum-template-data--96-43:
+
+&gt; Class mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate<span class="se">\d</span>ata: 96.43%
+<span class="o">=============================================</span>
+.. _mageekguy-atoum-template-data----tostring----0-00:
+
+&gt; mageekguy<span class="se">\a</span>toum<span class="se">\t</span>emplate<span class="se">\d</span>ata::__toString<span class="o">()</span>: 0.00%
+----------------------------------------------------
+&gt; Running duration: 2.36 seconds.
+Success <span class="o">(</span><span class="m">1</span> <span class="nb">test</span>, <span class="m">27</span> methods, <span class="m">485</span> assertions, <span class="m">0</span> error, <span class="m">0</span> exception<span class="o">)</span> !
+</pre></div>
+</div>
+<p>Il est cependant possible d&#8217;obtenir une représentation plus précise du taux de couverture du code par les tests, sous la forme d&#8217;un rapport au format HTML.</p>
+<p>Pour l&#8217;obtenir, il suffit de se baser sur les modèles de fichiers de configuration inclus dans atoum.</p>
+<p>Si vous utliser l&#8217;archive PHAR, il faut les extraire en utilisant la commande suivante:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">php mageekguy.atoum.phar -er /path/to/destination/directory</span>
+</pre></div>
+</div>
+<p>Une fois l&#8217;extraction effectuée, vous devriez avoir dans le répertoire /path/to/destination/directory un répertoire nommé resources/configurations/runner.</p>
+<p>Dans le cas ou vous utilisez atoum avec un (<a class="reference external" href="chapitre1.html#Github">clone du dépôt github</a> ou avec <a class="reference external" href="chapitre1.html#Composer">composer</a>, les modèles se trouvent dans /path/to/atoum/resources/configurations/runner</p>
+<p>Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration pour atoum nommé coverage.php.dist qu&#8217;il vous faudra copier à l&#8217;emplacement de votre choix, par exemple sous le nom coverage.php.</p>
+<p>Une fois la copie réalisée, il n&#8217;y a plus qu&#8217;à la modifier à l&#8217;aide de l&#8217;éditeur de votre choix afin de définir le répertoire dans lequel les fichiers HTML devront être générés ainsi que l&#8217;URL à partir de laquelle le rapport devra être accessible.</p>
+<p>Par exemple:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">$coverageField = new atoum\report\fields\runner\coverage\html(</span>
+<span class="x">    &#39;Code coverage de mon projet&#39;,</span>
+<span class="x">    &#39;/path/to/destination/directory&#39;</span>
+<span class="x">);</span>
+
+<span class="x">$coverageField-&gt;setRootUrl(&#39;http://url/of/web/site&#39;);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est également possible de modifier le titre du rapport à l&#8217;aide du premier argument du constructeur de la classe mageekguyatoumreportfieldsrunnercoveragehtml.</p>
+</div>
+<p>Une fois tout cela effectué, il n&#8217;y a plus qu&#8217;à utiliser le fichier de configuration lors de l&#8217;exécution des tests, de la manière suivante:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -c path/to/coverage.php -d tests/units
+</pre></div>
+</div>
+<p>Une fois les tests exécutés, atoum générera alors le rapport de couverture du code au format HTML dans le répertoire que vous aurez défini précédemment, et il sera lisible à l&#8217;aide du navigateur de votre choix.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l&#8217;exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l&#8217;aide de l&#8217;argument -ncc.</p>
+</div>
+</div>
+<div class="section" id="notifications">
+<span id="id19"></span><h3>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h3>
+<p>atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : <a class="reference internal" href="#growl"><em>Growl</em></a>, <em class="xref std std-ref">Notification Center</em>, <a class="reference internal" href="#libnotify"><em>Libnotify</em></a>.</p>
+<div class="section" id="growl">
+<span id="id20"></span><h4>Growl<a class="headerlink" href="#growl" title="Permalink to this headline">¶</a></h4>
+<p>Cette fonctionnalité nécessite la présence de l&#8217;exécutable <tt class="docutils literal"><span class="pre">growlnotify</span></tt>. Pour vérifier s&#8217;il est disponible, utilisez la commande suivante :</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>which growlnotify <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+/chemin/vers/growlnotify
+0
+</pre></div>
+</div>
+<p>Il suffit ensuite d&#8217;ajouter le code suivant à votre fichier de configuration :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$images</span> <span class="o">=</span> <span class="s1">&#39;/path/to/atoum/resources/images/logo&#39;</span><span class="p">;</span>
+
+<span class="nv">$notifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\mageekguy\atoum\report\fields\runner\result\notifier\image\growl</span><span class="p">();</span>
+<span class="nv">$notifier</span>
+    <span class="o">-&gt;</span><span class="na">setSuccessImage</span><span class="p">(</span><span class="nv">$images</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;success.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setFailureImage</span><span class="p">(</span><span class="nv">$images</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;failure.png&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+
+<span class="nv">$report</span> <span class="o">=</span> <span class="nv">$script</span><span class="o">-&gt;</span><span class="na">AddDefaultReport</span><span class="p">();</span>
+<span class="nv">$report</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$notifier</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">atoum\runner</span><span class="o">::</span><span class="na">runStop</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mac-os-x-notification-center-osxnotificationcenter">
+<span id="id21"></span><h4>Mac OS X Notification Center====OSXNotificationCenter<a class="headerlink" href="#mac-os-x-notification-center-osxnotificationcenter" title="Permalink to this headline">¶</a></h4>
+<p>Cette fonctionnalité nécessite la présence de l&#8217;exécutable <tt class="docutils literal"><span class="pre">terminal-notifier</span></tt>. Pour vérifier s&#8217;il est disponible, utilisez la commande suivante :</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>which terminal-notifier <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+/chemin/vers/terminal-notifier
+0
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Rendez-vous sur <a class="reference external" href="https://github.com/alloy/terminal-notifier">la page Github du projet</a> pour obtenir plus d&#8217;information sur l&#8217;installation de <tt class="docutils literal"><span class="pre">terminal-notifier</span></tt>.</p>
+</div>
+<p>Il suffit ensuite d&#8217;ajouter le code suivant à votre fichier de configuration :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$notifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\mageekguy\atoum\report\fields\runner\result\notifier\terminal</span><span class="p">();</span>
+
+<span class="nv">$report</span> <span class="o">=</span> <span class="nv">$script</span><span class="o">-&gt;</span><span class="na">AddDefaultReport</span><span class="p">();</span>
+<span class="nv">$report</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$notifier</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">atoum\runner</span><span class="o">::</span><span class="na">runStop</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>Sous OS X, vous avez la possibilité de définir une commande qui sera exécutée lorsque l&#8217;utilisateur cliquera sur la notification.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$coverage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\report\fields\runner\coverage\html</span><span class="p">(</span>
+    <span class="s1">&#39;Code coverage&#39;</span><span class="p">,</span>
+    <span class="nv">$path</span> <span class="o">=</span> <span class="nb">sys_get_temp_dir</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;/coverage_&#39;</span> <span class="o">.</span> <span class="nb">time</span><span class="p">()</span>
+<span class="p">);</span>
+<span class="nv">$coverage</span><span class="o">-&gt;</span><span class="na">setRootUrl</span><span class="p">(</span><span class="s1">&#39;file://&#39;</span> <span class="o">.</span> <span class="nv">$path</span><span class="p">);</span>
+
+<span class="nv">$notifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\mageekguy\atoum\report\fields\runner\result\notifier\terminal</span><span class="p">();</span>
+<span class="nv">$notifier</span><span class="o">-&gt;</span><span class="na">setCallbackCommand</span><span class="p">(</span><span class="s1">&#39;open &#39;</span><span class="nb">file</span><span class="o">://</span><span class="s1">&#39; . $path . &#39;</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">html</span><span class="p">);</span>
+
+<span class="nv">$report</span> <span class="o">=</span> <span class="nv">$script</span><span class="o">-&gt;</span><span class="na">AddDefaultReport</span><span class="p">();</span>
+<span class="nv">$report</span>
+    <span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$coverage</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">atoum\runner</span><span class="o">::</span><span class="na">runStop</span><span class="p">))</span>
+    <span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$notifier</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">atoum\runner</span><span class="o">::</span><span class="na">runStop</span><span class="p">))</span>
+<span class="p">;</span>
+</pre></div>
+</div>
+<p>L&#8217;exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l&#8217;utilisateur clique sur la notification.</p>
+</div>
+<div class="section" id="libnotify">
+<span id="id22"></span><h4>Libnotify<a class="headerlink" href="#libnotify" title="Permalink to this headline">¶</a></h4>
+<p>Cette fonctionnalité nécessite la présence de l&#8217;exécutable <tt class="docutils literal"><span class="pre">notify-send</span></tt>. Pour vérifier s&#8217;il est disponible, utilisez la commande suivante :</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>which notify-send <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$?</span>
+/chemin/vers/notify-send
+0
+</pre></div>
+</div>
+<p>Il suffit ensuite d&#8217;ajouter le code suivant à votre fichier de configuration :</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="nv">$images</span> <span class="o">=</span> <span class="s1">&#39;/path/to/atoum/resources/images/logo&#39;</span><span class="p">;</span>
+
+<span class="nv">$notifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\mageekguy\atoum\report\fields\runner\result\notifier\image\libnotify</span><span class="p">();</span>
+<span class="nv">$notifier</span>
+    <span class="o">-&gt;</span><span class="na">setSuccessImage</span><span class="p">(</span><span class="nv">$images</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;success.png&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">setFailureImage</span><span class="p">(</span><span class="nv">$images</span> <span class="o">.</span> <span class="nx">DIRECTORY_SEPARATOR</span> <span class="o">.</span> <span class="s1">&#39;failure.png&#39;</span><span class="p">)</span>
+<span class="p">;</span>
+
+<span class="nv">$report</span> <span class="o">=</span> <span class="nv">$script</span><span class="o">-&gt;</span><span class="na">AddDefaultReport</span><span class="p">();</span>
+<span class="nv">$report</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$notifier</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="nx">atoum\runner</span><span class="o">::</span><span class="na">runStop</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fichier-de-bootstrap">
+<span id="id23"></span><h2>Fichier de bootstrap<a class="headerlink" href="#fichier-de-bootstrap" title="Permalink to this headline">¶</a></h2>
+<p>atoum autorise la définition d&#8217;un fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt> qui sera exécuté avant chaque méthode de test et qui permet donc d&#8217;initialiser l&#8217;environnement d&#8217;exécution des tests.</p>
+<p>Il devient ainsi possible de définir, par exemple, une fonction d&#8217;auto-chargement de classes, de lire un fichier de configuration ou de réaliser tout autre opération nécessaires à la bonne exécution des tests.</p>
+<p>La définition de ce fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt> peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration.</p>
+<p>En ligne de commande, il faut utiliser au choix l&#8217;argument -bf ou l&#8217;argument &#8211;bootstrap-file suivi du chemin relatif ou absolu vers le fichier concerné:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -bf path/to/bootstrap/file
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Un fichier de bootstrap n&#8217;est pas un fichier de configuration et n&#8217;a donc pas les mêmes possibilités.</p>
+</div>
+<p>Dans un fichier de configuration, atoum est configurable via la variable $runner, qui n&#8217;est pas définie dans un fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt>.</p>
+<p>De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l&#8217;exécution des tests mais après le lancement des tests, alors que le fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt>, s&#8217;il est défini, est le tout premier fichier inclus par atoum proprement dit. Enfin, le fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt> peut permettre de ne pas avoir à inclure systématiquement le
+fichier scripts/runner.php ou l&#8217;archive PHAR de atoum dans les classes de test.</p>
+<p>Cependant, dans ce cas, il ne sera plus possible d&#8217;exécuter directement un fichier de test directement via l&#8217;exécutable PHP en ligne de commande.</p>
+<p>Pour cela, il suffit d&#8217;inclure dans le fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt> le fichier scripts/runner.php ou l&#8217;archive PHAR de atoum et d&#8217;exécuter systématiquement les tests en ligne de commande via scripts/runner.php ou l&#8217;archive PHAR.</p>
+<p>Le fichier de <tt class="docutils literal"><span class="pre">bootstrap</span></tt> doit donc au minimum contenir ceci:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// si l&#39;archive PHAR est utilisée :</span>
+<span class="k">require_once</span> <span class="nx">path</span><span class="o">/</span><span class="nx">to</span><span class="o">/</span><span class="nx">mageekguy</span><span class="o">.</span><span class="nx">atoum</span><span class="o">.</span><span class="nx">phar</span><span class="p">;</span>
+
+<span class="c1">// ou si les sources sont utilisés :</span>
+<span class="c1">// require_once path/atoum/scripts/runner.php</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="option-de-la-ligne-de-commande">
+<span id="id24"></span><h2>Option de la ligne de commande<a class="headerlink" href="#option-de-la-ligne-de-commande" title="Permalink to this headline">¶</a></h2>
+<p>La plupart des options existent sous 2 forme, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifférement l&#8217;une ou l&#8217;autre forme.</p>
+<p>Certaines options acceptent plusieurs valeurs :</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -f tests/units/MyFirstTest.php tests/units/MySecondTest.php
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vous ne devez mettre qu&#8217;une seule fois chaque option. Dans le cas contraire, seul le dernier est pris en compte.</p>
+</div>
+<div class="highlight-shell"><div class="highlight"><pre><span class="c"># Ne test que MySecondTest.php</span>
+<span class="nv">$ </span>./bin/atoum -f MyFirstTest.php -f MySecondTest.php
+
+<span class="c"># Ne test que MyThirdTest.php et MyFourthTest.php</span>
+<span class="nv">$ </span>./bin/atoum -f MyFirstTest.php MySecondTest.php -f MyThirdTest.php MyFourthTest.php
+</pre></div>
+</div>
+<div class="section" id="bf-file-bootstrap-file-file">
+<span id="id25"></span><h3>-bf &lt;file&gt; / &#8211;bootstrap-file &lt;file&gt;<a class="headerlink" href="#bf-file-bootstrap-file-file" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -bf /path/to/bootstrap.php
+<span class="nv">$ </span>./bin/atoum --bootstrap-file /path/to/bootstrap.php
+</pre></div>
+</div>
+</div>
+<div class="section" id="c-file-configuration-file">
+<span id="id26"></span><h3>-c &lt;file&gt; / &#8211;configuration &lt;file&gt;<a class="headerlink" href="#c-file-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le chemin vers le fichier de configuration à utiliser pour lancer les tests.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -c config/atoum.php
+<span class="nv">$ </span>./bin/atoum --configuration tests/units/conf/coverage.php
+</pre></div>
+</div>
+</div>
+<div class="section" id="d-directories-directories-directories">
+<span id="id27"></span><h3>-d &lt;directories&gt; / &#8211;directories &lt;directories&gt;<a class="headerlink" href="#d-directories-directories-directories" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le ou les répertoires de tests à lancer.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -d tests/units/db/
+<span class="nv">$ </span>./bin/atoum --directories tests/units/db/ tests/units/entities/
+</pre></div>
+</div>
+</div>
+<div class="section" id="debug">
+<span id="id28"></span><h3>&#8211;debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet d&#8217;activer le mode debug</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum --debug
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reportez-vous à la section sur le <a class="reference external" href="chapitre2.html#Le-mode-debug">mode debug</a> pour avoir plus d&#8217;informations.</p>
+</div>
+</div>
+<div class="section" id="drt-string-default-report-title-string">
+<span id="id29"></span><h3>-drt &lt;string&gt; / &#8211;default-report-title &lt;string&gt;<a class="headerlink" href="#drt-string-default-report-title-string" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le titre par défaut des rapports générés par atoum.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -drt Title
+<span class="nv">$ </span>./bin/atoum --default-report-title <span class="s2">&quot;My Title&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Si le titre comporte des espaces, il faut obligatoirement l&#8217;entourer de guillemets.</p>
+</div>
+</div>
+<div class="section" id="f-files-files-files">
+<span id="id30"></span><h3>-f &lt;files&gt; / &#8211;files &lt;files&gt;<a class="headerlink" href="#f-files-files-files" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le ou les fichiers de tests à lancer.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -f tests/units/db/mysql.php
+<span class="nv">$ </span>./bin/atoum --files tests/units/db/mysql.php tests/units/db/pgsql.php
+</pre></div>
+</div>
+</div>
+<div class="section" id="ft-force-terminal">
+<span id="id31"></span><h3>-ft / &#8211;force-terminal<a class="headerlink" href="#ft-force-terminal" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de forcer la sortie vers le terminal.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -ft
+<span class="nv">$ </span>./bin/atoum --force-terminal
+</pre></div>
+</div>
+</div>
+<div class="section" id="g-pattern-glob-pattern">
+<span id="id32"></span><h3>-g &lt;pattern&gt; / &#8211;glob &lt;pattern&gt;<a class="headerlink" href="#g-pattern-glob-pattern" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier les fichiers de tests à lancer en fonction d&#8217;un schéma.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -g ???
+<span class="nv">$ </span>./bin/atoum --glob ???
+</pre></div>
+</div>
+</div>
+<div class="section" id="h-help">
+<span id="id33"></span><h3>-h / &#8211;help<a class="headerlink" href="#h-help" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet d&#8217;afficher la liste des options disponibles.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -h
+<span class="nv">$ </span>./bin/atoum --help
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-loop">
+<span id="id34"></span><h3>-l / &#8211;loop<a class="headerlink" href="#l-loop" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet d&#8217;activer le mode loop d&#8217;atoum.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -l
+<span class="nv">$ </span>./bin/atoum --loop
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reportez-vous à la section sur le <a class="reference external" href="chapitre2.html#Le-mode-loop">mode loop</a> pour avoir plus d&#8217;informations.</p>
+</div>
+</div>
+<div class="section" id="m-class-method-methods-class-methods">
+<span id="id35"></span><h3>-m &lt;class::method&gt; / &#8211;methods &lt;class::methods&gt;<a class="headerlink" href="#m-class-method-methods-class-methods" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de filtrer les classes et les méthodes à lancer.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="c"># lance uniquement la méthode testMyMethod de la classe vendor\\project\\test\\units\\myClass</span>
+<span class="nv">$ </span>./bin/atoum -m vendor<span class="se">\\</span>project<span class="se">\\</span><span class="nb">test</span><span class="se">\\</span>units<span class="se">\\</span>myClass::testMyMethod
+<span class="nv">$ </span>./bin/atoum --methods vendor<span class="se">\\</span>project<span class="se">\\</span><span class="nb">test</span><span class="se">\\</span>units<span class="se">\\</span>myClass::testMyMethod
+
+<span class="c"># lance toutes les méthodes de test de la classe vendor\\project\\test\\units\\myClass</span>
+<span class="nv">$ </span>./bin/atoum -m vendor<span class="se">\\</span>project<span class="se">\\</span><span class="nb">test</span><span class="se">\\</span>units<span class="se">\\</span>myClass::*
+<span class="nv">$ </span>./bin/atoum --methods vendor<span class="se">\\</span>project<span class="se">\\</span><span class="nb">test</span><span class="se">\\</span>units<span class="se">\\</span>myClass::*
+
+<span class="c"># lance uniquement les méthodes testMyMethod de toutes les classes de test</span>
+<span class="nv">$ </span>./bin/atoum -m *::testMyMethod
+<span class="nv">$ </span>./bin/atoum --methods *::testMyMethod
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reportez-vous à la section sur les <a class="reference internal" href="#une-classe-ou-une-methode"><em>filtres par classe ou méthode</em></a> pour avoir plus d&#8217;informations.</p>
+</div>
+</div>
+<div class="section" id="mcn-integer-max-children-number-integer">
+<span id="id36"></span><h3>-mcn &lt;integer&gt; / &#8211;max-children-number &lt;integer&gt;<a class="headerlink" href="#mcn-integer-max-children-number-integer" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de définir le nombre maximum de processus lancé pour exécuter les tests.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -mcn 5
+<span class="nv">$ </span>./bin/atoum --max-children-number 3
+</pre></div>
+</div>
+</div>
+<div class="section" id="ncc-no-code-coverage">
+<span id="id37"></span><h3>-ncc / &#8211;no-code-coverage<a class="headerlink" href="#ncc-no-code-coverage" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de désactiver la génération du rapport de la coverture de code.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -ncc
+<span class="nv">$ </span>./bin/atoum --no-code-coverage
+</pre></div>
+</div>
+</div>
+<div class="section" id="nccfc-classes-no-code-coverage-for-classes-classes">
+<span id="id38"></span><h3>-nccfc &lt;classes&gt; / &#8211;no-code-coverage-for-classes &lt;classes&gt;<a class="headerlink" href="#nccfc-classes-no-code-coverage-for-classes-classes" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de désactiver la génération du rapport de la coverture de code pour une ou plusieurs classe.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -nccfc vendor<span class="se">\\</span>project<span class="se">\\</span>db<span class="se">\\</span>mysql
+<span class="nv">$ </span>./bin/atoum --no-code-coverage-for-classes vendor<span class="se">\\</span>project<span class="se">\\</span>db<span class="se">\\</span>mysql vendor<span class="se">\\</span>project<span class="se">\\</span>db<span class="se">\\</span>pgsql
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est important de doubler chaque backslash pour éviter qu&#8217;ils soient interprétés par le shell.</p>
+</div>
+</div>
+<div class="section" id="nccfns-namespaces-no-code-coverage-for-namespaces-namespaces">
+<span id="id39"></span><h3>-nccfns &lt;namespaces&gt; / &#8211;no-code-coverage-for-namespaces &lt;namespaces&gt;<a class="headerlink" href="#nccfns-namespaces-no-code-coverage-for-namespaces-namespaces" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de désactiver la génération du rapport de la coverture de code pour un ou plusieurs espaces de noms.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -nccfns vendor<span class="se">\\</span>outside<span class="se">\\</span>lib
+<span class="nv">$ </span>./bin/atoum --no-code-coverage-for-namespaces vendor<span class="se">\\</span>outside<span class="se">\\</span>lib1 vendor<span class="se">\\</span>outside<span class="se">\\</span>lib2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il est important de doubler chaque backslash pour éviter qu&#8217;ils soient interprétés par le shell.</p>
+</div>
+</div>
+<div class="section" id="nccid-directories-no-code-coverage-in-directories-directories">
+<span id="id40"></span><h3>-nccid &lt;directories&gt; / &#8211;no-code-coverage-in-directories &lt;directories&gt;<a class="headerlink" href="#nccid-directories-no-code-coverage-in-directories-directories" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de désactiver la génération du rapport de la coverture de code pour un ou plusieurs répertoires.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -nccid /path/to/exclude
+<span class="nv">$ </span>./bin/atoum --no-code-coverage-in-directories /path/to/exclude/1 /path/to/exclude/2
+</pre></div>
+</div>
+</div>
+<div class="section" id="ns-namespaces-namespaces-namespaces">
+<span id="id41"></span><h3>-ns &lt;namespaces&gt; / &#8211;namespaces &lt;namespaces&gt;<a class="headerlink" href="#ns-namespaces-namespaces-namespaces" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de filtrer les classes et les méthodes en fonction des espaces de noms.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -ns mageekguy<span class="se">\\</span>atoum<span class="se">\\</span>tests<span class="se">\\</span>units<span class="se">\\</span>asserters
+<span class="nv">$ </span>./bin/atoum --namespaces mageekguy<span class="se">\\</span>atoum<span class="se">\\</span>tests<span class="se">\\</span>units<span class="se">\\</span>asserters
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reportez-vous à la section sur les <a class="reference internal" href="#par-espace-de-noms"><em>filtres par espace de noms</em></a> pour avoir plus d&#8217;informations.</p>
+</div>
+</div>
+<div class="section" id="p-file-php-file">
+<span id="id42"></span><h3>-p &lt;file&gt; / &#8211;php &lt;file&gt;<a class="headerlink" href="#p-file-php-file" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le chemin de l&#8217;exécutable php à utiliser pour lancer vos tests.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -p /usr/bin/php5
+<span class="nv">$ </span>./bin/atoum --php /usr/bin/php5
+</pre></div>
+</div>
+<p>Par défaut, la valeur est recherchée parmis les valeurs suivantes (dans l&#8217;ordre):</p>
+<ul class="simple">
+<li>constante PHP_BINARY</li>
+<li>variable d&#8217;environnement PHP_PEAR_PHP_BIN</li>
+<li>variable d&#8217;environnement PHPBIN</li>
+<li>constante PHP_BINDIR + &#8216;/php&#8217;</li>
+</ul>
+</div>
+<div class="section" id="sf-file-score-file-file">
+<span id="id43"></span><h3>-sf &lt;file&gt; / &#8211;score-file &lt;file&gt;<a class="headerlink" href="#sf-file-score-file-file" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le chemin vers le fichier des résultats créé par atoum.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -sf /path/to/atoum.score
+<span class="nv">$ </span>./bin/atoum --score-file /path/to/atoum.score
+</pre></div>
+</div>
+</div>
+<div class="section" id="t-tags-tags-tags">
+<span id="id44"></span><h3>-t &lt;tags&gt; / &#8211;tags &lt;tags&gt;<a class="headerlink" href="#t-tags-tags-tags" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de filtrer les classes et les méthodes à lancer en fonction des tags.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -t OneTag
+<span class="nv">$ </span>./bin/atoum --tags OneTag TwoTag
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Reportez-vous à la section sur les <a class="reference internal" href="#tags"><em>filtres par tags</em></a> pour avoir plus d&#8217;informations.</p>
+</div>
+</div>
+<div class="section" id="test-all">
+<span id="id45"></span><h3>&#8211;test-all<a class="headerlink" href="#test-all" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de lancer les tests se trouvant dans les répertoires définis dans le fichier de configuration via $script-&gt;addTestAllDirectory(&#8216;path/to/directory&#8217;).</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum --test-all
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-it">
+<span id="id46"></span><h3>&#8211;test-it<a class="headerlink" href="#test-it" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de lancer les tests unitaires d&#8217;atoum pour vérifier qu&#8217;il tourne sans problème sur votre serveur.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum --test-it
+</pre></div>
+</div>
+</div>
+<div class="section" id="tfe-extensions-test-file-extensions-extensions">
+<span id="id47"></span><h3>-tfe &lt;extensions&gt; / &#8211;test-file-extensions &lt;extensions&gt;<a class="headerlink" href="#tfe-extensions-test-file-extensions-extensions" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet de spécifier le ou les extensions des fichiers de tests à lancer.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -tfe phpt
+<span class="nv">$ </span>./bin/atoum --test-file-extensions phpt php5t
+</pre></div>
+</div>
+</div>
+<div class="section" id="ulr-use-light-report">
+<span id="id48"></span><h3>-ulr / &#8211;use-light-report<a class="headerlink" href="#ulr-use-light-report" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet d&#8217;alléger la sortie généré par atoum.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -ulr
+<span class="nv">$ </span>./bin/atoum --use-light-report
+
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span>  59/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 118/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 177/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 236/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 295/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 354/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 413/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 472/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 531/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 590/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 649/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 708/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 767/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 826/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 885/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span> 944/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span>1003/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span>1062/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS&gt;<span class="o">][</span>1121/1141<span class="o">]</span>
+<span class="o">[</span>SSSSSSSSSSSSSSSSSSSS________________________________________<span class="o">][</span>1141/1141<span class="o">]</span>
+Success <span class="o">(</span><span class="m">154</span> tests, 1141/1141 methods, <span class="m">0</span> void method, <span class="m">0</span> skipped method, <span class="m">16875</span> assertions<span class="o">)</span> !
+</pre></div>
+</div>
+</div>
+<div class="section" id="v-version">
+<span id="id49"></span><h3>-v / &#8211;version<a class="headerlink" href="#v-version" title="Permalink to this headline">¶</a></h3>
+<p>Cette option vous permet d&#8217;afficher la version courante d&#8217;atoum.</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>./bin/atoum -v
+<span class="nv">$ </span>./bin/atoum --version
+
+atoum version DEVELOPMENT by Frédéric Hardy <span class="o">(</span>/path/to/atoum<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Lancement des tests</a><ul>
+<li><a class="reference internal" href="#executable">Exécutable</a><ul>
+<li><a class="reference internal" href="#avec-l-archive-phar">Avec l&#8217;archive phar</a><ul>
+<li><a class="reference internal" href="#linux-mac-pharlinuxmac">linux / mac====pharLinuxMac</a></li>
+<li><a class="reference internal" href="#windows-pharwindows">windows====pharWindows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#avec-les-sources">Avec les sources</a><ul>
+<li><a class="reference internal" href="#linux-mac-sourcelinuxmac">linux / mac====sourceLinuxMac</a></li>
+<li><a class="reference internal" href="#windows-sourcewindows">windows====sourceWindows</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exemples-dans-le-reste-de-la-documentation">Exemples dans le reste de la documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fichiers-a-executer">Fichiers à exécuter</a><ul>
+<li><a class="reference internal" href="#par-fichiers">Par fichiers</a></li>
+<li><a class="reference internal" href="#par-repertoires">Par répertoires</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filtres">Filtres</a><ul>
+<li><a class="reference internal" href="#par-espace-de-noms">Par espace de noms</a></li>
+<li><a class="reference internal" href="#une-classe-ou-une-methode">Une classe ou une méthode</a></li>
+<li><a class="reference internal" href="#tags">Tags</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fichier-de-configuration">Fichier de configuration</a><ul>
+<li><a class="reference internal" href="#couverture-du-code">Couverture du code</a></li>
+<li><a class="reference internal" href="#notifications">Notifications</a><ul>
+<li><a class="reference internal" href="#growl">Growl</a></li>
+<li><a class="reference internal" href="#mac-os-x-notification-center-osxnotificationcenter">Mac OS X Notification Center====OSXNotificationCenter</a></li>
+<li><a class="reference internal" href="#libnotify">Libnotify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fichier-de-bootstrap">Fichier de bootstrap</a></li>
+<li><a class="reference internal" href="#option-de-la-ligne-de-commande">Option de la ligne de commande</a><ul>
+<li><a class="reference internal" href="#bf-file-bootstrap-file-file">-bf &lt;file&gt; / &#8211;bootstrap-file &lt;file&gt;</a></li>
+<li><a class="reference internal" href="#c-file-configuration-file">-c &lt;file&gt; / &#8211;configuration &lt;file&gt;</a></li>
+<li><a class="reference internal" href="#d-directories-directories-directories">-d &lt;directories&gt; / &#8211;directories &lt;directories&gt;</a></li>
+<li><a class="reference internal" href="#debug">&#8211;debug</a></li>
+<li><a class="reference internal" href="#drt-string-default-report-title-string">-drt &lt;string&gt; / &#8211;default-report-title &lt;string&gt;</a></li>
+<li><a class="reference internal" href="#f-files-files-files">-f &lt;files&gt; / &#8211;files &lt;files&gt;</a></li>
+<li><a class="reference internal" href="#ft-force-terminal">-ft / &#8211;force-terminal</a></li>
+<li><a class="reference internal" href="#g-pattern-glob-pattern">-g &lt;pattern&gt; / &#8211;glob &lt;pattern&gt;</a></li>
+<li><a class="reference internal" href="#h-help">-h / &#8211;help</a></li>
+<li><a class="reference internal" href="#l-loop">-l / &#8211;loop</a></li>
+<li><a class="reference internal" href="#m-class-method-methods-class-methods">-m &lt;class::method&gt; / &#8211;methods &lt;class::methods&gt;</a></li>
+<li><a class="reference internal" href="#mcn-integer-max-children-number-integer">-mcn &lt;integer&gt; / &#8211;max-children-number &lt;integer&gt;</a></li>
+<li><a class="reference internal" href="#ncc-no-code-coverage">-ncc / &#8211;no-code-coverage</a></li>
+<li><a class="reference internal" href="#nccfc-classes-no-code-coverage-for-classes-classes">-nccfc &lt;classes&gt; / &#8211;no-code-coverage-for-classes &lt;classes&gt;</a></li>
+<li><a class="reference internal" href="#nccfns-namespaces-no-code-coverage-for-namespaces-namespaces">-nccfns &lt;namespaces&gt; / &#8211;no-code-coverage-for-namespaces &lt;namespaces&gt;</a></li>
+<li><a class="reference internal" href="#nccid-directories-no-code-coverage-in-directories-directories">-nccid &lt;directories&gt; / &#8211;no-code-coverage-in-directories &lt;directories&gt;</a></li>
+<li><a class="reference internal" href="#ns-namespaces-namespaces-namespaces">-ns &lt;namespaces&gt; / &#8211;namespaces &lt;namespaces&gt;</a></li>
+<li><a class="reference internal" href="#p-file-php-file">-p &lt;file&gt; / &#8211;php &lt;file&gt;</a></li>
+<li><a class="reference internal" href="#sf-file-score-file-file">-sf &lt;file&gt; / &#8211;score-file &lt;file&gt;</a></li>
+<li><a class="reference internal" href="#t-tags-tags-tags">-t &lt;tags&gt; / &#8211;tags &lt;tags&gt;</a></li>
+<li><a class="reference internal" href="#test-all">&#8211;test-all</a></li>
+<li><a class="reference internal" href="#test-it">&#8211;test-it</a></li>
+<li><a class="reference internal" href="#tfe-extensions-test-file-extensions-extensions">-tfe &lt;extensions&gt; / &#8211;test-file-extensions &lt;extensions&gt;</a></li>
+<li><a class="reference internal" href="#ulr-use-light-report">-ulr / &#8211;use-light-report</a></li>
+<li><a class="reference internal" href="#v-version">-v / &#8211;version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chapitre3.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">atoum 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Renaud LITTOLFF.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

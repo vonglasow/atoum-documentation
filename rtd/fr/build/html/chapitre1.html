@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; atoum 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="atoum 1.0.0 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to atoum’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to atoum’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">atoum 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<span id="id1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quest-ce-que-atoum">
+<span id="qu-est-ce-que-atoum"></span><h2>Qu’est-ce que atoum ?<a class="headerlink" href="#quest-ce-que-atoum" title="Permalink to this headline">¶</a></h2>
+<p>atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais il présente quelques avantages par rapport à ces derniers&nbsp;:</p>
+<ul class="simple">
+<li>il est moderne et utilise les innovations des dernières versions de PHP (≥ 5.3) ;</li>
+<li>il est simple et facile à maitriser ;</li>
+<li>il est intuitif, sa syntaxe se veut la plus proche du langage naturel anglais.</li>
+</ul>
+</div>
+<div class="section" id="telechargement-et-installation">
+<span id="id2"></span><h2>Téléchargement et installation<a class="headerlink" href="#telechargement-et-installation" title="Permalink to this headline">¶</a></h2>
+<p>Pour le moment, atoum n’a pas de numéro de version. Il est néanmoins d’ores et déjà stable et utilisable. Si vous souhaitez l’utiliser, il vous suffit de télécharger la dernière version. Malgré les évolutions constantes d’atoum, la rétrocompatibilité est une des priorités de ses développeurs.
+Vous pouvez installer atoum de plusieurs manières&nbsp;:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#archive-phar"><em>en téléchargeant l’archive PHAR</em></a> ;</li>
+<li><a class="reference internal" href="#par-composer"><em>à l’aide de composer</em></a> ;</li>
+<li><a class="reference internal" href="#script-d-installation"><em>en utilisant un script d’installation</em></a> ;</li>
+<li><a class="reference internal" href="#github"><em>en clonant le dépôt github</em></a> ;</li>
+<li><a class="reference internal" href="#plugin-symfony-1"><em>en utilisant un plug-in symfony 1</em></a> ;</li>
+<li><a class="reference internal" href="#bundle-symfony-2"><em>en utilisant un bundle Symfony 2</em></a>.</li>
+<li><a class="reference internal" href="#composant-zend-framework-2"><em>en utilisant un composant Zend Framework 2</em></a>.</li>
+</ul>
+<div class="section" id="archive-phar">
+<span id="id3"></span><h3>Archive PHAR<a class="headerlink" href="#archive-phar" title="Permalink to this headline">¶</a></h3>
+<p>Une archive PHAR (PHp ARchive) est créée automatiquement à chaque modification d’atoum.</p>
+<p>PHAR est un format d’archive d’application PHP, disponible depuis PHP 5.3.</p>
+<div class="section" id="installation">
+<span id="id4"></span><h4>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h4>
+<p>Vous pouvez télécharger la dernière version stable d’atoum directement depuis le site officiel&nbsp;: <a class="reference external" href="http://downloads.atoum.org/nightly/mageekguy.atoum.phar">http://downloads.atoum.org/nightly/mageekguy.atoum.phar</a></p>
+</div>
+<div class="section" id="mise-a-jour">
+<span id="id5"></span><h4>Mise à jour<a class="headerlink" href="#mise-a-jour" title="Permalink to this headline">¶</a></h4>
+<p>La mise à jour de l’archive est très simple. Il vous suffit de lancer la commande suivante&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php -d phar.readonly<span class="o">=</span><span class="m">0</span> mageekguy.atoum.phar --update
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La mise à jour d’atoum nécessite la modification de l’archive PHAR. Or par défaut, la configuration de PHP ne l’autorise pas. Voilà pourquoi il faut utiliser la directive <tt class="docutils literal"><span class="pre">-d</span> <span class="pre">phar.readonly=0</span></tt>.</p>
+</div>
+<p>Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l’archive&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php -d phar.readonly<span class="o">=</span><span class="m">0</span> mageekguy.atoum.phar --update
+Checking <span class="k">if</span> a new version is available... Done !
+Update to version <span class="s1">&#39;nightly-1568-201210311708&#39;</span>... Done !
+Enable version <span class="s1">&#39;nightly-1568-201210311708&#39;</span>... Done !
+Atoum was updated to version <span class="s1">&#39;nightly-1568-201210311708&#39;</span> successfully !
+</pre></div>
+</div>
+<p>S’il n’existe pas de version plus récente, atoum s’arrêtera immédiatement&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php -d phar.readonly<span class="o">=</span><span class="m">0</span> mageekguy.atoum.phar --update
+Checking <span class="k">if</span> a new version is available... Done !
+There is no new version available !
+</pre></div>
+</div>
+<p>Atoum ne demande aucune confirmation de la part de l’utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.</p>
+</div>
+<div class="section" id="lister-les-versions-contenues-dans-larchive">
+<span id="lister-les-versions-contenues-dans-l-archive"></span><h4>Lister les versions contenues dans l’archive<a class="headerlink" href="#lister-les-versions-contenues-dans-larchive" title="Permalink to this headline">¶</a></h4>
+<p>Pour afficher les versions contenues dans l’archive au fur et à mesure des mises à jour, il faut faire appel à l’argument <tt class="docutils literal"><span class="pre">\--list-available-versions</span></tt>, ou <tt class="docutils literal"><span class="pre">-lav</span></tt> en version abrégée&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php mageekguy.atoum.phar -lavnightly-941-201201011548
+
+* nightly-1568-201210311708
+</pre></div>
+</div>
+<p>La liste des versions présentes dans l’archive est alors affichée, la version actuellement active étant précédée de <tt class="docutils literal"><span class="pre">*</span></tt>.</p>
+</div>
+<div class="section" id="changer-la-version-courante">
+<span id="id6"></span><h4>Changer la version courante<a class="headerlink" href="#changer-la-version-courante" title="Permalink to this headline">¶</a></h4>
+<p>Pour activer une autre version, il suffit d’utiliser l’argument <tt class="docutils literal"><span class="pre">\--enable-version</span></tt>, ou <tt class="docutils literal"><span class="pre">-ev</span></tt> en version abrégée, suivi du nom de la version à utiliser&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php -d phar.readonly<span class="o">=</span><span class="m">0</span> mageekguy.atoum.phar -ev DEVELOPMENT
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La modification de la version courante nécessite la modification de l’archive PHAR. Or par défaut, la configuration de php ne l’autorise pas. Voilà pourquoi il faut utiliser la directive <tt class="docutils literal"><span class="pre">-d</span> <span class="pre">phar.readonly=0</span></tt>.</p>
+</div>
+</div>
+<div class="section" id="suppression-danciennes-versions">
+<span id="suppression-d-anciennes-versions"></span><h4>Suppression d’anciennes versions<a class="headerlink" href="#suppression-danciennes-versions" title="Permalink to this headline">¶</a></h4>
+<p>Au cours du temps, l’archive peut contenir plusieurs versions d’atoum qui ne sont plus utilisées.</p>
+<p>Pour les supprimer, il suffit d’utiliser l’argument <tt class="docutils literal"><span class="pre">\--delete-version</span></tt>, ou <tt class="docutils literal"><span class="pre">-dv</span></tt> dans sa version abrégée, suivi du nom de la version à supprimer&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php -d phar.readonly<span class="o">=</span><span class="m">0</span> mageekguy.atoum.phar -dv nightly-941-201201011548
+</pre></div>
+</div>
+<p>La version est alors supprimée.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Il n’est pas possible de supprimer la version active.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">La suppression d’une version nécessite la modification de l’archive PHAR. Or par défaut, la configuration de PHP ne l’autorise pas. Voilà pourquoi il faut utiliser la directive <tt class="docutils literal"><span class="pre">-d</span> <span class="pre">phar.readonly=0</span></tt>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="par-composer">
+<span id="id7"></span><h3>Par composer<a class="headerlink" href="#par-composer" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://getcomposer.org">Composer</a> est un outil de gestion de dépendance en PHP.</p>
+<p>Commencez par installer composer&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>curl -s https://getcomposer.org/installer <span class="p">|</span> php
+</pre></div>
+</div>
+<p>Créez ensuite un fichier <tt class="docutils literal"><span class="pre">composer.json</span></tt> contenant le JSON (JavaScript Object Notation) suivant&nbsp;:</p>
+<div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;require&quot;</span> <span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;atoum/atoum&quot;</span> <span class="p">:</span> <span class="s2">&quot;dev-master&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Enfin, exécutez la commande suivante&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php composer.phar install
+</pre></div>
+</div>
+</div>
+<div class="section" id="script-dinstallation">
+<span id="script-d-installation"></span><h3>Script d’installation<a class="headerlink" href="#script-dinstallation" title="Permalink to this headline">¶</a></h3>
+<p>Vous pouvez installer atoum grâce à un <a class="reference external" href="https://github.com/atoum/atoum-installer">script</a> dédié à cette tâche&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>curl https://raw.github.com/atoum/atoum-installer/master/installer <span class="p">|</span> php -- --phar
+<span class="nv">$ </span>php mageekguy.atoum.phar -v
+atoum version nightly-xxxx-yyyymmddhhmm by Frédéric Hardy <span class="o">(</span>phar:///path/to/mageekguy.atoum.phar<span class="o">)</span>
+</pre></div>
+</div>
+<p>Vous pourrez facilement installer atoum localement (dans un projet, voir exemple précédent) ou globalement sur le système&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>curl https://raw.github.com/atoum/atoum-installer/master/installer <span class="p">|</span> sudo php -- --phar --global
+<span class="nv">$ </span>which atoum
+/usr/local/bin/atoum
+</pre></div>
+</div>
+<p>Des options sont disponibles pour personnaliser l’installation d’atoum&nbsp;: reportez-vous à <a class="reference external" href="https://github.com/atoum/atoum-installer/blob/master/README.md">la documentation (en)</a> de l’installeur pour obtenir plus de détails.</p>
+</div>
+<div class="section" id="github">
+<span id="id8"></span><h3>Github<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h3>
+<p>Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez cloner ou «&nbsp;forker&nbsp;» le dépôt github&nbsp;: <a class="reference external" href="git://github.com/atoum/atoum.git">git://github.com/atoum/atoum.git</a></p>
+</div>
+<div class="section" id="plugin-symfony-1">
+<span id="id9"></span><h3>Plugin symfony 1<a class="headerlink" href="#plugin-symfony-1" title="Permalink to this headline">¶</a></h3>
+<p>Si vous souhaitez utiliser atoum au sein d’un projet symfony&nbsp;1, un plug-in existe et est disponible à l’adresse suivante&nbsp;: <a class="reference external" href="https://github.com/atoum/sfAtoumPlugin">https://github.com/atoum/sfAtoumPlugin</a>.</p>
+<p>Toutes les instructions pour son installation et son utilisation se trouvent <a class="reference external" href="chapitre4.html#Utilisation-avec-symfony-1.4">dans le cookbook</a> ainsi que sur son site.</p>
+</div>
+<div class="section" id="bundle-symfony-2">
+<span id="id10"></span><h3>Bundle Symfony 2<a class="headerlink" href="#bundle-symfony-2" title="Permalink to this headline">¶</a></h3>
+<p>Si vous souhaitez utiliser atoum au sein d’un projet Symfony&nbsp;2, un bundle existe et est disponible à l’adresse suivante&nbsp;: <a class="reference external" href="https://github.com/atoum/AtoumBundle">https://github.com/atoum/AtoumBundle</a>.</p>
+<p>Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.</p>
+</div>
+<div class="section" id="composant-zend-framework-2">
+<span id="id11"></span><h3>Composant Zend Framework&nbsp;2<a class="headerlink" href="#composant-zend-framework-2" title="Permalink to this headline">¶</a></h3>
+<p>Si vous souhaitez utiliser atoum au sein d’un projet Zend Framework&nbsp;2, un composant existe et est disponible à l’adresse suivante&nbsp;: <a class="reference external" href="https://github.com/blanchonvincent/zend-framework-test-atoum">https://github.com/blanchonvincent/zend-framework-test-atoum</a>.</p>
+<p>Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.</p>
+</div>
+</div>
+<div class="section" id="la-philosophie-datoum">
+<span id="la-philosophie-d-atoum"></span><h2>La philosophie d’atoum<a class="headerlink" href="#la-philosophie-datoum" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exemple-simple">
+<span id="id12"></span><h3>Exemple simple<a class="headerlink" href="#exemple-simple" title="Permalink to this headline">¶</a></h3>
+<p>Vous devez écrire une classe de test pour chaque classe à tester.</p>
+<p>Imaginez que vous vouliez tester la traditionnelle classe <tt class="docutils literal"><span class="pre">HelloWorld</span></tt>, alors vous devez créer la classe de test <tt class="docutils literal"><span class="pre">test\units\HelloWorld</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">atoum utilise les espaces de noms. Par exemple, pour tester la classe <tt class="docutils literal"><span class="pre">\Vendor\Project\HelloWorld</span></tt>, vous devez créer la classe <tt class="docutils literal"><span class="pre">\Vendor\Project\tests\units\HelloWorld</span></tt>.</p>
+</div>
+<p>Voici le code de la classe <tt class="docutils literal"><span class="pre">HelloWorld</span></tt> que nous allons tester.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1"># src/Vendor/Project/HelloWorld.php</span>
+
+<span class="k">namespace</span> <span class="nx">Vendor\Project</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloWorld</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getHiAtoum</span> <span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hi atoum !&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Maintenant, voici le code de la classe de test que nous pourrions écrire.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="c1"># src/Vendor/Project/tests/units/HelloWorld.php</span>
+
+<span class="c1">// La classe de test à son propre namespace :</span>
+<span class="c1">// Le namespace de la classe à tester + &quot;tests\units&quot;</span>
+<span class="k">namespace</span> <span class="nx">Vendor\Project\tests\units</span><span class="p">;</span>
+
+<span class="c1">// Vous devez inclure la classe à tester</span>
+<span class="k">require_once</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../../HelloWorld.php&#39;</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">\atoum</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Classe de test pour \HelloWorld</span>
+
+<span class="cm"> * Remarquez qu’elle porte le même nom que la classe à tester</span>
+<span class="cm"> * et qu’elle dérive de la classe atoum</span>
+<span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">HelloWorld</span> <span class="k">extends</span> <span class="nx">atoum</span>
+<span class="p">{</span>
+    <span class="cm">/*</span>
+<span class="cm">     * Cette méthode est dédiée à la méthode getHiAtoum()</span>
+<span class="cm">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">testGetHiAtoum</span> <span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// création d’une nouvelle instance de la classe à tester</span>
+        <span class="nv">$helloToTest</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Vendor\Project\HelloWorld</span><span class="p">();</span>
+
+        <span class="nv">$this</span>
+            <span class="c1">// nous testons que la méthode getHiAtoum retourne bien</span>
+            <span class="c1">// une chaîne de caractère...</span>
+            <span class="o">-&gt;</span><span class="na">string</span><span class="p">(</span><span class="nv">$helloToTest</span><span class="o">-&gt;</span><span class="na">getHiAtoum</span><span class="p">())</span>
+                <span class="c1">// ... et que la chaîne est bien celle attendue,</span>
+                <span class="c1">// c’est-à-dire &#39;Hi atoum !&#39;</span>
+                <span class="o">-&gt;</span><span class="na">isEqualTo</span><span class="p">(</span><span class="s1">&#39;Hi atoum !&#39;</span><span class="p">)</span>
+        <span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Maintenant, lançons nos tests.
+Vous devriez voir quelque chose comme ça&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php vendor/mageekguy.atoum.phar -f src/Vendor/Project/tests/units/HelloWorld.php
+&gt; PHP path: /usr/bin/php
+&gt; PHP version:
+.. _php-5-4-7--cli---built---sep-13-2012-04-24-47:
+
+&gt; PHP 5.4.7 <span class="o">(</span>cli<span class="o">)</span> <span class="o">(</span>built : Sep <span class="m">13</span> <span class="m">2012</span> 04:24:47<span class="o">)</span>
+<span class="o">================================================</span>
+.. _copyright--c--1997-2012-the-php-group:
+
+&gt; Copyright <span class="o">(</span>c<span class="o">)</span> 1997-2012 The PHP <span class="nv">Group</span>
+<span class="o">=======================================</span>
+.. _zend-engine-v2-4-0--copyright--c--1998-2012-zend-technologies:
+
+&gt; Zend Engine v2.4.0, Copyright <span class="o">(</span>c<span class="o">)</span> 1998-2012 Zend <span class="nv">Technologies</span>
+<span class="o">===============================================================</span>
+.. _with-xdebug-v2-2-1--copyright--c--2002-2012--by-derick-rethans:
+
+&gt;     with Xdebug v2.2.1, Copyright <span class="o">(</span>c<span class="o">)</span> 2002-2012, by Derick <span class="nv">Rethans</span>
+<span class="o">====================================================================</span>
+&gt; Vendor<span class="se">\P</span>roject<span class="se">\t</span>ests<span class="se">\u</span>nits<span class="se">\H</span>elloWorld...
+<span class="o">[</span>S___________________________________________________________<span class="o">][</span>1/1<span class="o">]</span>
+.. _test-duration---0-02-second:
+
+&gt; Test duration : 0.02 second.
+<span class="o">==============================</span>
+.. _memory-usage---0-00-mb:
+
+&gt; Memory usage : 0.00 Mb.
+<span class="o">=========================</span>
+&gt; Total <span class="nb">test </span>duration: 0.02 second.
+&gt; Total <span class="nb">test </span>memory usage: 0.00 Mb.
+&gt; Code coverage value: 100.00%
+&gt; Running duration: 0.34 second.
+Success <span class="o">(</span><span class="m">1</span> <span class="nb">test</span>, 1/1 method, <span class="m">2</span> assertions, <span class="m">0</span> error, <span class="m">0</span> exception<span class="o">)</span> !
+</pre></div>
+</div>
+<p>Nous venons de tester que la méthode <tt class="docutils literal"><span class="pre">getHiAtoum</span></tt>&nbsp;:</p>
+<ul class="simple">
+<li>retourne bien une chaîne de caractère ;</li>
+<li>que cette dernière est bien égale à <tt class="docutils literal"><span class="pre">&quot;Hi</span> <span class="pre">atoum</span><span class="pre">!&quot;</span></tt>.</li>
+</ul>
+<p>Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !</p>
+</div>
+<div class="section" id="principes-de-base">
+<span id="id13"></span><h3>Principes de base<a class="headerlink" href="#principes-de-base" title="Permalink to this headline">¶</a></h3>
+<p>Lorsque vous voulez tester une valeur, vous devez&nbsp;:</p>
+<ul class="simple">
+<li>indiquer le type de cette valeur&nbsp;(entier, décimal, tableau, chaîne de caractères, etc.) ;</li>
+<li>indiquer les contraintes devant s’appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="integration-datoum-dans-votre-ide">
+<span id="integration-d-atoum-dans-votre-ide"></span><h2>Intégration d’atoum dans votre IDE<a class="headerlink" href="#integration-datoum-dans-votre-ide" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sublime-text-2">
+<span id="id14"></span><h3>Sublime Text&nbsp;2<a class="headerlink" href="#sublime-text-2" title="Permalink to this headline">¶</a></h3>
+<p>Un <a class="reference external" href="https://github.com/toin0u/Sublime-atoum">plug-in pour SublimeText&nbsp;2</a> permet l’exécution des tests unitaires par atoum et la visualisation du résultat sans quitter l’éditeur.</p>
+<p>Les informations nécessaires à son installation et à sa configuration sont disponibles <a class="reference external" href="http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/">sur le blog de son auteur</a>.</p>
+</div>
+<div class="section" id="vim">
+<span id="id15"></span><h3>VIM<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h3>
+<p>atoum est livré avec un plug-in facilitant son utilisation dans l’éditeur VIM.</p>
+<p>Il permet d’exécuter les tests sans quitter VIM et d’obtenir le rapport correspondant dans une fenêtre de l’éditeur.</p>
+<p>Il est alors possible de naviguer parmi les éventuelles erreurs, voire de se rendre à la ligne correspondant à une assertion ne passant pas à l’aide d’une simple combinaison de touches.</p>
+<div class="section" id="installation-du-plug-in-atoum-pour-vim">
+<span id="id16"></span><h4>Installation du plug-in atoum pour VIM<a class="headerlink" href="#installation-du-plug-in-atoum-pour-vim" title="Permalink to this headline">¶</a></h4>
+<p>Si vous n’utilisez pas atoum sous la forme d’une archive PHAR, vous trouverez le fichier correspondant au plug-in, nommé <tt class="docutils literal"><span class="pre">atoum.vba</span></tt>, dans le répertoire <tt class="docutils literal"><span class="pre">ressources/vim</span></tt>.</p>
+<p>Dans le cas contraire, il faut demander à l’archive PHAR d’atoum d’extraire le fichier à l’aide de la commande suivante&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>php mageekguy.atoum.phar --extractResourcesTo path/to/a/directory
+</pre></div>
+</div>
+<p>Une fois l’extraction réalisée, le fichier <tt class="docutils literal"><span class="pre">atoum.vba</span></tt> correspondant au plug-in pour VIM sera dans le répertoire <tt class="docutils literal"><span class="pre">path/to/a/directory/ressources/vim</span></tt>.</p>
+<p>Une fois en possession du fichier <tt class="docutils literal"><span class="pre">atoum.vba</span></tt>, il faut l’éditer à l’aide de VIM&nbsp;:</p>
+<div class="highlight-shell"><div class="highlight"><pre><span class="nv">$ </span>vim path/to/atoum.vba
+</pre></div>
+</div>
+<p>Il n’y a plus ensuite qu’à demander à VIM l’installation du plug-in à l’aide de la commande&nbsp;:</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span>source %
+</pre></div>
+</div>
+</div>
+<div class="section" id="utilisation-du-plug-in-atoum-pour-vim">
+<span id="id17"></span><h4>Utilisation du plug-in atoum pour VIM<a class="headerlink" href="#utilisation-du-plug-in-atoum-pour-vim" title="Permalink to this headline">¶</a></h4>
+<p>Pour utiliser le plug-in, atoum doit évidemment être installé et vous devez être en train d’éditer un fichier contenant une classe de tests unitaires basée sur atoum.</p>
+<p>Une fois dans cette configuration, la commande suivante lancera l’exécution des tests&nbsp;:</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span>Atoum
+</pre></div>
+</div>
+<p>Les tests sont alors exécutés, et une fois qu’ils sont terminés, un rapport basé sur le fichier de configuration de atoum qui se trouve dans le répertoire <tt class="docutils literal"><span class="pre">ftplugin/php/atoum.vim</span></tt> de votre répertoire <tt class="docutils literal"><span class="pre">.vim</span></tt> est généré dans une nouvelle fenêtre.</p>
+<p>Évidemment, vous êtes libre de lier cette commande à la combinaison de touches de votre choix, en ajoutant par exemple la ligne suivante dans votre fichier <tt class="docutils literal"><span class="pre">.vimrc</span></tt>&nbsp;:</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="nb">nnoremap</span> *.php <span class="p">&lt;</span>F12<span class="p">&gt;</span> :Atoum<span class="p">&lt;</span>CR<span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>L’utilisation de la touche <tt class="docutils literal"><span class="pre">F12</span></tt> de votre clavier en mode normal appellera alors la commande <tt class="docutils literal"><span class="pre">:Atoum</span></tt>.</p>
+</div>
+<div class="section" id="gestion-des-fichiers-de-configuration-de-atoum">
+<span id="id18"></span><h4>Gestion des fichiers de configuration de atoum<a class="headerlink" href="#gestion-des-fichiers-de-configuration-de-atoum" title="Permalink to this headline">¶</a></h4>
+<p>Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier <tt class="docutils literal"><span class="pre">.vimrc</span></tt>&nbsp;:</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="k">call</span> atoum#defineConfiguration<span class="p">(</span><span class="s1">&#39;/path/to/project/directory&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/atoum/configuration/file&#39;</span><span class="p">,</span> <span class="s1">&#39;.php&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La fonction <tt class="docutils literal"><span class="pre">atoum#defineConfiguration</span></tt> permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire ou se trouve le fichier de tests unitaires.
+Elle accepte pour cela trois arguments&nbsp;:</p>
+<ul class="simple">
+<li>un chemin d’accès vers le répertoire contenant les tests unitaires ;</li>
+<li>un chemin d’accès vers le fichier de configuration de atoum devant être utilisé ;</li>
+<li>l’extension des fichiers de tests unitaires concernés.</li>
+</ul>
+<p>Pour plus de détails sur l’utilisation du plug-in, une aide est disponible dans VIM à l’aide de la commande suivante&nbsp;:</p>
+<div class="highlight-vim"><div class="highlight"><pre><span class="p">:</span>help atoum
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ouvrir-automatiquement-les-tests-en-echec">
+<span id="id19"></span><h3>Ouvrir automatiquement les tests en échec<a class="headerlink" href="#ouvrir-automatiquement-les-tests-en-echec" title="Permalink to this headline">¶</a></h3>
+<p>atoum est capable d’ouvrir automatiquement les fichiers des tests en échec à la fin de l’exécution. Plusieurs éditeurs sont actuellement supportés&nbsp;:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#macvim"><em>macvim</em></a> (Mac OS X)</li>
+<li><a class="reference internal" href="#gvim"><em>gvim</em></a> (Unix)</li>
+<li><a class="reference internal" href="#phpstorm"><em>PhpStorm</em></a> (Mac OS X/Unix)</li>
+<li><a class="reference internal" href="#gedit"><em>gedit</em></a> (Unix)</li>
+</ul>
+<p>Pour utiliser cette fonctionnalité, vous devrez modifier le <a class="reference external" href="chapitre3.html#Fichier-de-configuration">fichier de configuration</a> de atoum&nbsp;:</p>
+<div class="section" id="macvim">
+<span id="id20"></span><h4>macvim<a class="headerlink" href="#macvim" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span>
+    <span class="nx">mageekguy\atoum</span><span class="p">,</span>
+    <span class="nx">mageekguy\atoum\report\fields\runner\failures\execute\macos</span>
+<span class="p">;</span>
+
+<span class="nv">$stdOutWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\writers\std\out</span><span class="p">();</span>
+<span class="nv">$cliReport</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\reports\realtime\cli</span><span class="p">();</span>
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addWriter</span><span class="p">(</span><span class="nv">$stdOutWriter</span><span class="p">);</span>
+
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="k">new</span> <span class="nx">macos\macvim</span><span class="p">());</span>
+
+<span class="nv">$runner</span><span class="o">-&gt;</span><span class="na">addReport</span><span class="p">(</span><span class="nv">$cliReport</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gvim">
+<span id="id21"></span><h4>gvim<a class="headerlink" href="#gvim" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span>
+    <span class="nx">mageekguy\atoum</span><span class="p">,</span>
+    <span class="nx">mageekguy\atoum\report\fields\runner\failures\execute\unix</span>
+<span class="p">;</span>
+
+<span class="nv">$stdOutWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\writers\std\out</span><span class="p">();</span>
+<span class="nv">$cliReport</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\reports\realtime\cli</span><span class="p">();</span>
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addWriter</span><span class="p">(</span><span class="nv">$stdOutWriter</span><span class="p">);</span>
+
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="k">new</span> <span class="nx">unix\gvim</span><span class="p">());</span>
+
+<span class="nv">$runner</span><span class="o">-&gt;</span><span class="na">addReport</span><span class="p">(</span><span class="nv">$cliReport</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="phpstorm">
+<span id="id22"></span><h4>PhpStorm<a class="headerlink" href="#phpstorm" title="Permalink to this headline">¶</a></h4>
+<p>Si vous travaillez sous Mac OS X, utilisez la configuration suivante&nbsp;:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span>
+    <span class="nx">mageekguy\atoum</span><span class="p">,</span>
+    <span class="nx">mageekguy\atoum\report\fields\runner\failures\execute\macos</span>
+<span class="p">;</span>
+
+<span class="nv">$stdOutWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\writers\std\out</span><span class="p">();</span>
+<span class="nv">$cliReport</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\reports\realtime\cli</span><span class="p">();</span>
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addWriter</span><span class="p">(</span><span class="nv">$stdOutWriter</span><span class="p">);</span>
+
+<span class="nv">$cliReport</span>
+    <span class="c1">// Si PhpStorm est installé dans /Applications</span>
+    <span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="k">new</span> <span class="nx">macos\phpstorm</span><span class="p">())</span>
+
+    <span class="c1">// Si vous avez installé PhpStorm</span>
+    <span class="c1">// dans un dossier différent de /Applications</span>
+    <span class="c1">// -&gt;addField(</span>
+    <span class="c1">//     new macos\phpstorm(</span>
+    <span class="c1">//         &#39;/path/to/PhpStorm.app/Contents/MacOS/webide&#39;</span>
+    <span class="c1">//     )</span>
+    <span class="c1">// )</span>
+<span class="p">;</span>
+
+<span class="nv">$runner</span><span class="o">-&gt;</span><span class="na">addReport</span><span class="p">(</span><span class="nv">$cliReport</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Dans un environnement Unix, utilisez la configuration suivante&nbsp;:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span>
+    <span class="nx">mageekguy\atoum</span><span class="p">,</span>
+    <span class="nx">mageekguy\atoum\report\fields\runner\failures\execute\unix</span>
+<span class="p">;</span>
+
+<span class="nv">$stdOutWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\writers\std\out</span><span class="p">();</span>
+<span class="nv">$cliReport</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\reports\realtime\cli</span><span class="p">();</span>
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addWriter</span><span class="p">(</span><span class="nv">$stdOutWriter</span><span class="p">);</span>
+
+<span class="nv">$cliReport</span>
+    <span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span>
+        <span class="k">new</span> <span class="nx">unix\phpstorm</span><span class="p">(</span><span class="s1">&#39;/chemin/vers/PhpStorm/bin/phpstorm.sh&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">;</span>
+
+<span class="nv">$runner</span><span class="o">-&gt;</span><span class="na">addReport</span><span class="p">(</span><span class="nv">$cliReport</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="gedit">
+<span id="id23"></span><h4>gedit<a class="headerlink" href="#gedit" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">use</span>
+    <span class="nx">mageekguy\atoum</span><span class="p">,</span>
+    <span class="nx">mageekguy\atoum\report\fields\runner\failures\execute\unix</span>
+<span class="p">;</span>
+
+<span class="nv">$stdOutWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\writers\std\out</span><span class="p">();</span>
+<span class="nv">$cliReport</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">atoum\reports\realtime\cli</span><span class="p">();</span>
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addWriter</span><span class="p">(</span><span class="nv">$stdOutWriter</span><span class="p">);</span>
+
+<span class="nv">$cliReport</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="k">new</span> <span class="nx">unix\gedit</span><span class="p">());</span>
+
+<span class="nv">$runner</span><span class="o">-&gt;</span><span class="na">addReport</span><span class="p">(</span><span class="nv">$cliReport</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#quest-ce-que-atoum">Qu’est-ce que atoum ?</a></li>
+<li><a class="reference internal" href="#telechargement-et-installation">Téléchargement et installation</a><ul>
+<li><a class="reference internal" href="#archive-phar">Archive PHAR</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#mise-a-jour">Mise à jour</a></li>
+<li><a class="reference internal" href="#lister-les-versions-contenues-dans-larchive">Lister les versions contenues dans l’archive</a></li>
+<li><a class="reference internal" href="#changer-la-version-courante">Changer la version courante</a></li>
+<li><a class="reference internal" href="#suppression-danciennes-versions">Suppression d’anciennes versions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#par-composer">Par composer</a></li>
+<li><a class="reference internal" href="#script-dinstallation">Script d’installation</a></li>
+<li><a class="reference internal" href="#github">Github</a></li>
+<li><a class="reference internal" href="#plugin-symfony-1">Plugin symfony 1</a></li>
+<li><a class="reference internal" href="#bundle-symfony-2">Bundle Symfony 2</a></li>
+<li><a class="reference internal" href="#composant-zend-framework-2">Composant Zend Framework&nbsp;2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#la-philosophie-datoum">La philosophie d’atoum</a><ul>
+<li><a class="reference internal" href="#exemple-simple">Exemple simple</a></li>
+<li><a class="reference internal" href="#principes-de-base">Principes de base</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration-datoum-dans-votre-ide">Intégration d’atoum dans votre IDE</a><ul>
+<li><a class="reference internal" href="#sublime-text-2">Sublime Text&nbsp;2</a></li>
+<li><a class="reference internal" href="#vim">VIM</a><ul>
+<li><a class="reference internal" href="#installation-du-plug-in-atoum-pour-vim">Installation du plug-in atoum pour VIM</a></li>
+<li><a class="reference internal" href="#utilisation-du-plug-in-atoum-pour-vim">Utilisation du plug-in atoum pour VIM</a></li>
+<li><a class="reference internal" href="#gestion-des-fichiers-de-configuration-de-atoum">Gestion des fichiers de configuration de atoum</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ouvrir-automatiquement-les-tests-en-echec">Ouvrir automatiquement les tests en échec</a><ul>
+<li><a class="reference internal" href="#macvim">macvim</a></li>
+<li><a class="reference internal" href="#gvim">gvim</a></li>
+<li><a class="reference internal" href="#phpstorm">PhpStorm</a></li>
+<li><a class="reference internal" href="#gedit">gedit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to atoum&#8217;s documentation!</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chapitre1.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to atoum’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">atoum 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Renaud LITTOLFF.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

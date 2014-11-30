@@ -1,0 +1,646 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>; &mdash; atoum 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="atoum 1.0.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">atoum 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p>=Cookbook</p>
+<p>==Test d&#8217;un singleton</p>
+<p>Pour tester si une méthode retourne bien systématiquement la même instance d&#8217;un objet, vérifiez que deux appels successifs à la méthode testée sont bien identiques.</p>
+<p>[[[php
+$this</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>-&gt;object(Singleton::getInstance())</dt>
+<dd>-&gt;isInstanceOf(&#8216;Singleton&#8217;)
+-&gt;isIdenticalTo(Singleton::getInstance())</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="id1">
+<h1>;<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>==Utilisation dans behat</p>
+<p>{{{todo
+We need help to write this section !
+([[<a class="reference external" href="https://github.com/atoum/atoum/wiki/atoum-et-Behat">https://github.com/atoum/atoum/wiki/atoum-et-Behat</a>]])
+}}}</p>
+<p>==Utilisation dans Jenkins (ou Hudson)</p>
+<p>Il est très simple d&#8217;intégrer les résultats de tests atoum à [[Jenkins|http://jenkins-ci.org/]] (ou [[Hudson|http://hudson-ci.org/]]) en tant que résultats xUnit.</p>
+<p>===Étape 1 : Ajout d&#8217;un rapport xUnit à la configuration atoum</p>
+<p>====Vous n&#8217;avez pas de fichier de configuration</p>
+<p>Si vous ne disposez pas encore d&#8217;un fichier de configuration pour atoum, nous vous recommandons d&#8217;extraire le répertoire ressources de atoum dans celui de votre choix à l&#8217;aide de la commande suivante :</p>
+<ul class="simple">
+<li>Si vous utilisez l&#8217;archive Phar d&#8217;atoum :</li>
+</ul>
+<p>[[[shell
+$ php mageekguy.atoum.phar &#8211;extractRessourcesTo /tmp/atoum-src
+$ cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
+]]]</p>
+<ul class="simple">
+<li>Si vous utilisez les sources d&#8217;atoum :</li>
+</ul>
+<p>[[[shell
+$ cp /chemin/vers/atoum/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
+]]]</p>
+<ul class="simple">
+<li>Vous pouvez également copier le fichier directement [[depuis le dépôt Github|https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist]]</li>
+</ul>
+<p>Il ne vous reste plus qu&#8217;à éditer ce fichier pour choisir l&#8217;emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l&#8217;emploi, avec lui, vous conserver le rapport par défaut d&#8217;atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.</p>
+<p>====Vous avez déjà un fichier de configuration</p>
+<p>Si vous disposez déjà d&#8217;un fichier de configuration, il vous suffit d&#8217;y ajouter les lignes suivantes :</p>
+<p>[[[php
+&lt;?php</p>
+<p>//...</p>
+<dl class="docutils">
+<dt>/*</dt>
+<dd><ul class="first simple">
+<li>Xunit report</li>
+</ul>
+<p class="last"><a href="#id2"><span class="problematic" id="id3">*</span></a>/</p>
+</dd>
+</dl>
+<p>$xunit = new atoumreportsasynchronousxunit();
+$runner-&gt;addReport($xunit);</p>
+<dl class="docutils">
+<dt>/*</dt>
+<dd><ul class="first simple">
+<li>Xunit writer</li>
+</ul>
+<p class="last"><a href="#id4"><span class="problematic" id="id5">*</span></a>/</p>
+</dd>
+</dl>
+<p>$writer = new atoumwritersfile(&#8216;/chemin/vers/le/rapport/atoum.xunit.xml&#8217;);
+$xunit-&gt;addWriter($writer);
+]]]</p>
+<p>===Étape 2 : Tester la configuration</p>
+<p>Pour tester cette configuration, il suffit de lancer atoum en lui précisant le fichier de configuration que vous souhaitez utiliser :</p>
+<p>[[[shell
+$ php mageekguy.atoum.phar -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
+]]]</p>
+<p>{{{info
+Si vous avez nommé votre fichier de configuration ##.atoum.php##, atoum le chargera automatiquement. Le paramètre ##-c## est donc optionnel dans ce cas.
+Pour qu&#8217;atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ##.atoum.php## ou d&#8217;un de ses enfants.
+}}}</p>
+<p>À la fin de l&#8217;exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.</p>
+<p>===Étape 3 : Lancement des tests via Jenkins (ou Hudson)</p>
+<p>Il existe pour cela plusieurs possibilités selon la façon dont vous construisez votre projet :</p>
+<ul class="simple">
+<li>Si vous utilisez un script, il vous suffit d&#8217;y ajouter la commande précédente.</li>
+<li>Si vous passez par un utilitaire tel que [[ant|http://ant.apache.org/]], il suffit d&#8217;ajouter une tâche de type exec à son fichier de configuration, de la manière suivante :</li>
+</ul>
+<p>[[[xml
+&lt;target name=&#8221;unitTests&#8221;&gt;</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>&lt;exec executable=&#8221;/usr/bin/php&#8221; failonerror=&#8221;yes&#8221; failifexecutionfails=&#8221;yes&#8221;&gt;</dt>
+<dd>&lt;arg line=&#8221;/path/to/mageekguy.atoum.phar -p /chemin/vers/php -d /path/to/test/folder -c /path/to/atoumConfig.php&#8221; /&gt;</dd>
+</dl>
+<p>&lt;/exec&gt;</p>
+</div></blockquote>
+<p>&lt;/target&gt;
+]]]</p>
+<p>Vous noterez l&#8217;ajout du paramètre ##-p /chemin/vers/php## qui permet d&#8217;indiquer à atoum le chemin vers le binaire PHP qu&#8217;il doit utiliser pour exécuter les tests unitaires.</p>
+<p>===Étape 4 : Publier le rapport avec Jenkins (ou Hudson)</p>
+<p>Il suffit tout simplement d&#8217;activer la publication des rapports au format JUnit ou xUnit, en fonction du plug-in que vous utilisez, en lui indiquant le chemin d&#8217;accès au fichier généré par atoum.</p>
+<p>==Hook git</p>
+<p>Une bonne pratique, lorsqu&#8217;on utilise un logiciel de gestion de versions, est de ne jamais ajouter à un dépôt du code non fonctionnel, afin de pouvoir récupérer une version propre et utilisable du code à tout moment et à n&#8217;importe quel endroit de l&#8217;historique du dépôt.</p>
+<p>Cela implique donc, entre autre, que les tests unitaires doivent passer dans leur intégralité avant que les fichiers créés ou modifiés soient ajoutés au dépôt, et en conséquence, le développeur est censé exécuter les tests unitaires avant d&#8217;intégrer son code dans le dépôt.</p>
+<p>Cependant, dans les faits, il est très facile pour le développeur d&#8217;omettre cette étape, et votre dépôt peut donc contenir à plus ou moins brève échéance du code ne respectant  pas les contraintes imposées par les tests unitaires.</p>
+<p>Heureusement, les logiciels de gestion de versions en général et Git en particulier dispose d&#8217;un mécanisme, connu sous le nom de hook de pré-commit permettant d&#8217;exécuter automatiquement des tâches lors de l&#8217;ajout de code dans un dépôt.</p>
+<p>L&#8217;installation d&#8217;un hook de pré-commit est très simple et se déroule en deux étapes.</p>
+<p>===Étape 1 : Création du script à exécuter</p>
+<p>Lors de l&#8217;ajout de code à un dépôt, Git recherche le fichier ##.git/hook/pre-commit## à la racine du dépôt et l&#8217;exécute s&#8217;il existe et qu&#8217;il dispose des droits nécessaires.</p>
+<p>Pour mettre en place le hook, il vous faut donc créer le fichier ##.git/hook/pre-commit## et y ajouter le code suivant :</p>
+<p>[[[php
+#!/usr/bin/env php
+&lt;?php</p>
+<p>$_SERVER[&#8216;_&#8217;] = &#8216;/usr/bin/php&#8217;;</p>
+<p>exec(&#8216;git diff &#8211;cached &#8211;name-only &#8211;diff-filter=ACMR | grep &#8221;.php&#8221;&#8217;, $phpFiles);</p>
+<p>if ($phpFilesNumber = sizeof($phpFiles) &gt; 0)
+{</p>
+<blockquote>
+<div><p>echo $phpFilesNumber . &#8216; PHP files staged, launch all unit test...&#8217; . PHP_EOL;</p>
+<p>foreach (new recursiveIteratorIterator(new recursiveDirectoryIterator(__DIR__ . &#8216;/../../&#8217;)) as $path =&gt; $file)
+{</p>
+<blockquote>
+<div><p>if (substr($path, -4) === &#8216;.php&#8217; &amp;&amp; strpos($path, &#8216;/Tests/Units/&#8217;) !== false)
+{</p>
+<blockquote>
+<div>require_once $path;</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h1>}<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p>Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant
+l&#8217;extension ##.php## et dans des répertoires dont le chemin contient ##/Tests/Units/##. Si ce n&#8217;est pas votre cas, vous devrez modifier le script suivant votre contexte.</p>
+<p>{{{info
+Dans l&#8217;exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
+}}}</p>
+<p>Les tests étant executés très rapidement avec atoum, on peut donc lancer l&#8217;ensemble des tests unitaires avant chaque commit avec un hook comme celui-ci :</p>
+<p>[[[php
+#!/bin/sh
+./bin/atoum -d tests/
+]]]</p>
+<p>===Étape 2 : Ajout des droits d&#8217;exécution</p>
+<p>Pour être utilisable par Git, le fichier ##.git/hook/pre-commit## doit être rendu exécutable à l&#8217;aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :</p>
+<p>[[[shell
+$ chmod u+x <cite>.git/hook/pre-commit</cite>
+]]]</p>
+<p>À partir de cet instant, les tests unitaires contenus dans les répertoires dont le chemin contient ##/Tests/Units/## seront lancés automatiquement lorsque vous effectuerez la commande ##git commit##, si des fichiers ayant l&#8217;extension ##.php## ont été modifiés.</p>
+<p>Et si d&#8217;aventure un test ne passe pas, les fichiers ne seront pas ajoutés au dépôt. Il vous faudra alors effectuer les corrections nécessaires, utiliser la commande ##git add## sur les fichiers modifiés et utiliser à nouveau ##git commit##.</p>
+<p>==Changer l&#8217;espace de nom par défaut</p>
+<p>Au début de l&#8217;exécution d&#8217;une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l&#8217;expression  régulière ###(?:^|\)tests?\units?\#i## par le caractère ##\##.</p>
+<p>Ainsi, si la classe de test porte le nom ##vendorprojecttestsunitsfoo##, il en déduira  que la classe testée porte le nom ##vendorprojectfoo##. Cependant, il peut être nécessaire que l&#8217;espace de nom des classes de test ne corresponde pas à cette expression régulière, et dans ce cas, atoum s&#8217;arrête alors avec le message d&#8217;erreur suivant :</p>
+<p>[[[shell
+==&gt; exception &#8216;mageekguyatoumexceptionsruntime&#8217; with message &#8216;Test class &#8216;projectvendormytestsfoo&#8217; is not in a namespace which match pattern &#8216;#(?:^|\)ests?\unit?s\#i&#8217;&#8217; in /path/to/unit/tests/foo.php
+]]]</p>
+<p>Il faut donc modifier l&#8217;expression régulière utilisée, et il est possible de le faire de plusieurs manières. La plus simple est de faire appel à l&#8217;annotions ##&#64;namespace## appliquée à la classe de test, de la manière suivante :</p>
+<p>[[[php
+&lt;?php</p>
+<p>namespace vendorprojectmytests;</p>
+<p>require_once __DIR__ . &#8216;/mageekguy.atoum.phar&#8217;;</p>
+<p>use mageekguyatoum;</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>&#64;namespace mytests</li>
+</ul>
+<p class="last"><a href="#id7"><span class="problematic" id="id8">*</span></a>/</p>
+</dd>
+</dl>
+<p>abstract class aClass extends atoum
+{</p>
+<blockquote>
+<div><p>public function testBar()
+{</p>
+<blockquote>
+<div>/* ... <a href="#id9"><span class="problematic" id="id10">*</span></a>/</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id11">
+<h1>}<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h1>
+<p>Cette méthode est simple et rapide à mettre en œuvre, mais elle présente l&#8217;inconvénient de devoir être répétée dans chaque classe de test, ce qui peut compliquer leur maintenance en cas de modification de leur espace de nom. L&#8217;alternative consiste à faire appel à la méthode ##mageekguyatoumtest::setTestNamespace()## dans
+le constructeur de la classe de test, de la manière suivante :</p>
+<p>[[[php
+&lt;?php</p>
+<p>namespace vendorprojectmytests;</p>
+<p>require_once __DIR__ . &#8216;/mageekguy.atoum.phar&#8217;;</p>
+<p>use mageekguyatoum;</p>
+<p>abstract class aClass extends atoum
+{</p>
+<blockquote>
+<div><p>public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
+{</p>
+<blockquote>
+<div><p>$this-&gt;setTestNamespace(&#8216;\my\tests&#8217;);</p>
+<p>parent::__construct($score, $locale, $adapter);</p>
+</div></blockquote>
+<p>}</p>
+<p>public function testBar()
+{</p>
+<blockquote>
+<div>/* ... <a href="#id12"><span class="problematic" id="id13">*</span></a>/</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id14">
+<h1>}<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
+<p>La méthode ##mageekguyatoumtest::setTestNamespace()## accepte en effet un unique argument qui doit être l&#8217;expression régulière correspondant à l&#8217;espace de nom de votre classe de test. Et pour ne pas avoir à répéter l&#8217;appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toute dans une classe abstraite de la manière suivante :</p>
+<p>[[[php
+&lt;?php</p>
+<p>namespace vendorprojectmytests;</p>
+<p>require_once __DIR__ . &#8216;/mageekguy.atoum.phar&#8217;;</p>
+<p>use mageekguyatoum;</p>
+<p>abstract class Test extends atoum
+{</p>
+<blockquote>
+<div><p>public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
+{</p>
+<blockquote>
+<div><blockquote>
+<div>$this-&gt;setTestNamespace(&#8216;\my\tests&#8217;);</div></blockquote>
+<p>parent::__construct($score, $locale, $adapter);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id15">
+<h1>}<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h1>
+<p>Ainsi, vous n&#8217;aurez plus qu&#8217;à faire dériver vos classes de tests unitaires de cette classe abstraite :</p>
+<p>[[[php
+&lt;?php</p>
+<p>namespace vendorprojectmytestsmodules;</p>
+<p>require_once __DIR__ . &#8216;/mageekguy.atoum.phar&#8217;;</p>
+<p>use mageekguyatoum;
+use vendorprojectmytests;</p>
+<p>class aModule extends testsTest
+{</p>
+<blockquote>
+<div><p>public function testDoSomething()
+{</p>
+<blockquote>
+<div>/* ... <a href="#id16"><span class="problematic" id="id17">*</span></a>/</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id18">
+<h1>}<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h1>
+<p>En cas de modification de l&#8217;espace de nommage réservé aux tests unitaires, il ne sera donc nécessaire de ne modifier que la classe abstraite.</p>
+<p>De plus, il n&#8217;est pas obligatoire d&#8217;utiliser une expression régulière, que ce soit au niveau de l&#8217;annotation ##&#64;namespace## ou de la méthode  ##mageekguyatoumtest::setTestNamespace()##, et une simple chaîne de caractères peut également fonctionner.</p>
+<p>En effet, atoum fait appel par défaut à une expression régulière afin que son utilisateur puisse utiliser par défaut un large panel d&#8217;espaces de nom sans avoir besoin de le configurer à ce niveau. Cela lui permet donc d&#8217;accepter par exemple sans configuration particulière les espaces de nom
+suivants :
+* ##testunit\##
+* ##TestUnit\##
+* ##testsunits\##
+* ##TestsUnits\##
+* ##TESTUNIT\##</p>
+<p>Cependant, en règle général, l&#8217;espace de nom utilisé pour les classes de test est fixe, et il n&#8217;est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacé par la chaîne de caractères ##mytests##, par exemple grâce à l&#8217;annotation ##&#64;namespace## :</p>
+<p>[[[php
+&lt;?php</p>
+<p>namespace vendorprojectmytests;</p>
+<p>require_once __DIR__ . &#8216;/mageekguy.atoum.phar&#8217;;</p>
+<p>use mageekguyatoum;</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>&#64;namespace mytests</li>
+</ul>
+<p class="last"><a href="#id19"><span class="problematic" id="id20">*</span></a>/</p>
+</dd>
+</dl>
+<p>abstract class aClass extends atoum
+{</p>
+<blockquote>
+<div><p>public function testBar()
+{</p>
+<blockquote>
+<div>/* ... <a href="#id21"><span class="problematic" id="id22">*</span></a>/</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id23">
+<h1>}<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h1>
+<p>Attention, il était possible auparavant d&#8217;utiliser la méthode ##mageekguyatoumtest::setTestsSubNamespace()##, mais cette dernière est dépréciée en faveur de ##mageekguyatoumtest::setTestNamespace()##.</p>
+<p>==Utilisation avec ezPublish</p>
+<p>{{{todo
+We need help to write this section !
+([[<a class="reference external" href="https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish">https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish</a>]])
+}}}</p>
+<p>==Utilisation avec Symfony 2</p>
+<p>Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle [[JediAtoumBundle|chapitre1.html#Bundle-Symfony-2]].</p>
+<p>Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.</p>
+<p>===Étape 1: installation d&#8217;atoum</p>
+<p>Si vous utilisez Symfony 2.0, [[téléchargez l&#8217;archive PHAR|chapitre1.html#Archive-PHAR]] et placez-la dans le répertoire vendor qui est à la racine de votre projet.</p>
+<p>Si vous utilisez Symfony 2.1, [[ajoutez atoum dans votre fichier composer.json|chapitre1.html#Composer]].</p>
+<p>===Étape 2: création de la classe de test</p>
+<p>Imaginons que nous voulions tester cet Entity:</p>
+<p>[[[php
+&lt;?php
+// src/Acme/DemoBundle/Entity/Car.php
+namespace AcmeDemoBundleEntity;</p>
+<p>use DoctrineORMMapping as ORM;</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>AcmeDemoBundleEntityCar</li>
+<li>&#64;ORMTable(name=&#8221;car&#8221;)</li>
+<li>&#64;ORMEntity(repositoryClass=&#8221;AcmeDemoBundleEntityCarRepository&#8221;)</li>
+</ul>
+<p class="last"><a href="#id24"><span class="problematic" id="id25">*</span></a>/</p>
+</dd>
+</dl>
+<p>class Car
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>&#64;var integer $id</li>
+<li>&#64;ORMColumn(name=&#8221;id&#8221;, type=&#8221;integer&#8221;)</li>
+<li>&#64;ORMId</li>
+<li>&#64;ORMGeneratedValue(strategy=&#8221;AUTO&#8221;)</li>
+</ul>
+<p class="last"><a href="#id26"><span class="problematic" id="id27">*</span></a>/</p>
+</dd>
+</dl>
+<p>private $id;</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>&#64;var string $name</li>
+<li>&#64;ORMColumn(name=&#8221;name&#8221;, type=&#8221;string&#8221;, length=255)</li>
+</ul>
+<p class="last"><a href="#id28"><span class="problematic" id="id29">*</span></a>/</p>
+</dd>
+</dl>
+<p>private $name;</p>
+<dl class="docutils">
+<dt>/**</dt>
+<dd><ul class="first simple">
+<li>&#64;var integer $max_speed</li>
+<li>&#64;ORMColumn(name=&#8221;max_speed&#8221;, type=&#8221;integer&#8221;)</li>
+</ul>
+<p class="last"><a href="#id30"><span class="problematic" id="id31">*</span></a>/</p>
+</dd>
+</dl>
+<p>private $max_speed;</p>
+</div></blockquote>
+</div>
+<div class="section" id="id32">
+<h1>}<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h1>
+<p>{{{info
+Pour plus d&#8217;informations sur la création d&#8217;Entity dans Symfony 2, reportez-vous au [[manuel Symfony|http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite]].
+}}}</p>
+<p>Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C&#8217;est dans ce répertoire que seront stoqués tous les tests de ce Bundle.</p>
+<p>Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.</p>
+<p>[[[php
+&lt;?php
+// src/Acme/DemoBundle/Tests/Units/Test.php
+namespace AcmeDemoBundleTestsUnits;</p>
+<p>// On inclus et active le class loader
+require_once __DIR__ . &#8216;/../../../../../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php&#8217;;</p>
+<p>$loader = new SymfonyComponentClassLoaderUniversalClassLoader();</p>
+<dl class="docutils">
+<dt>$loader-&gt;registerNamespaces(</dt>
+<dd><dl class="first docutils">
+<dt>array(</dt>
+<dd>&#8216;Symfony&#8217;         =&gt; __DIR__ . &#8216;/../../../../../vendor/symfony/src&#8217;,
+&#8216;AcmeDemoBundle&#8217; =&gt; __DIR__ . &#8216;/../../../../../src&#8217;</dd>
+</dl>
+<p class="last">)</p>
+</dd>
+</dl>
+<p>);</p>
+<p>$loader-&gt;register();</p>
+<p>use mageekguyatoum;</p>
+<p>// Pour Symfony 2.0 uniquement !
+require_once __DIR__ . &#8216;/../../../../../vendor/mageekguy.atoum.phar&#8217;;</p>
+<p>abstract class Test extends atoum
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>public function __construct(</dt>
+<dd>adapter $adapter = null,
+annotationsextractor $annotationExtractor = null,
+assertergenerator $asserterGenerator = null,
+testassertionmanager $assertionManager = null,
+closure $reflectionClassFactory = null</dd>
+</dl>
+<blockquote>
+<div><p>$this-&gt;setTestNamespace(&#8216;TestsUnits&#8217;);
+parent::__construct(</p>
+<blockquote>
+<div>$adapter,
+$annotationExtractor,
+$asserterGenerator,
+$assertionManager,
+$reflectionClassFactory</div></blockquote>
+<p>);</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id33">
+<h1>}<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h1>
+<p>{{{info
+L&#8217;inclusion de l&#8217;archive PHAR d&#8217;atoum n&#8217;est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
+}}}</p>
+<p>{{{info
+Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace(&#8216;TestsUnits&#8217;).
+}}}</p>
+<p>===Étape 3: écriture d&#8217;un test</p>
+<p>Dans le répertoire Tests/Units, il vous suffit de recréer l&#8217;arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).</p>
+<p>Créons notre fichier de test:</p>
+<p>[[[php
+&lt;?php
+// src/Acme/DemoBundle/Tests/Units/Entity/Car.php
+namespace AcmeDemoBundleTestsUnitsEntity;</p>
+<p>require_once __DIR__ . &#8216;/../Test.php&#8217;;</p>
+<p>use AcmeDemoBundleTestsUnitsTest;</p>
+<p>class Car extends Test
+{</p>
+<blockquote>
+<div><p>public function testGetName()
+{</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>$this</dt>
+<dd><p class="first">-&gt;if($car = new AcmeDemoBundleEntityCar())
+-&gt;and($car-&gt;setName(&#8216;Batmobile&#8217;))</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>-&gt;string($car-&gt;getName())</dt>
+<dd>-&gt;isEqualTo(&#8216;Batmobile&#8217;)
+-&gt;isNotEqualTo(&#8216;De Lorean&#8217;)</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+<p>;</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id34">
+<h1>}<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h1>
+<p>===Étape 4: lancement des tests</p>
+<p>Si vous utilisez Symfony 2.0:</p>
+<p>[[[shell
+# Lancement des tests d&#8217;un fichier
+$ php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php</p>
+<p># Lancement de tous les tests du Bundle
+$ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
+]]]</p>
+<p>Si vous utilisez Symfony 2.1:</p>
+<p>[[[shell
+# Lancement des tests d&#8217;un fichier
+$ ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php</p>
+<p># Lancement de tous les tests du Bundle
+$ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
+]]]</p>
+<p>{{{info
+Vous pouvez obtenir plus d&#8217;informations sur le [[lancement des tests|chapitre3.html#Lancement-des-tests]] au chapitre 3.
+}}}</p>
+<p>Dans tous les cas, voilà ce que vous devriez obtenir:</p>
+<p>[[[shell
+&gt; PHP path: /usr/bin/php
+&gt; PHP version:
+=&gt; PHP 5.3.15 with Suhosin-Patch (cli) (built: Aug 24 2012 17:45:44)
+=&gt; Copyright (c) 1997-2012 The PHP Group
+=&gt; Zend Engine v2.3.0, Copyright (c) 1998-2012 Zend Technologies
+=&gt;     with Xdebug v2.1.3, Copyright (c) 2002-2012, by Derick Rethans
+&gt; AcmeDemoBundleTestsUnitsEntityCar...
+[S___________________________________________________________][1/1]
+=&gt; Test duration: 0.01 second.
+=&gt; Memory usage: 0.50 Mb.
+&gt; Total test duration: 0.01 second.
+&gt; Total test memory usage: 0.50 Mb.
+&gt; Code coverage value: 42.86%
+=&gt; Class AcmeDemoBundleEntityCar: 42.86%
+==&gt; AcmeDemoBundleEntityCar::getId(): 0.00%
+==&gt; AcmeDemoBundleEntityCar::setMaxSpeed(): 0.00%
+==&gt; AcmeDemoBundleEntityCar::getMaxSpeed(): 0.00%
+&gt; Running duration: 0.24 second.
+Success (1 test, 1/1 method, 0 skipped method, 4 assertions) !
+]]]</p>
+<p>==Utilisation avec symfony 1.4</p>
+<p>Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l&#8217;adresse suivante:  [[<a class="reference external" href="https://github.com/atoum">https://github.com/atoum</a>/sfAtoumPlugin|https://github.com/atoum/sfAtoumPlugin]].</p>
+<p>===Installation</p>
+<p>Il existe plusieurs méthodes d&#8217;installation du plugin dans votre projet :
+* installation via composer
+* installation via des submodules git</p>
+<p>====En utilisant composer</p>
+<p>Ajouter ceci dans le composer.json :</p>
+<p>[[[json
+&#8220;require&#8221;     : {</p>
+<blockquote>
+<div>&#8220;atoum/sfAtoumPlugin&#8221;: &#8220;*&#8221;</div></blockquote>
+</div>
+<div class="section" id="id35">
+<h1>},<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h1>
+<p>Après avoir effectué un ##php composer.phar update##, le plugin devrait se trouver dans le dossier plugins et atoum dans un dossier ##vendor##.</p>
+<p>Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le chemin d&#8217;atoum.</p>
+<p>[[[php
+sfConfig::set(&#8216;sf_atoum_path&#8217;, dirname(__FILE__) . &#8216;/../vendor/atoum/atoum&#8217;);</p>
+<p>if (sfConfig::get(&#8216;sf_environment&#8217;) != &#8216;prod&#8217;)
+{</p>
+<blockquote>
+<div>$this-&gt;enablePlugins(&#8216;sfAtoumPlugin&#8217;);</div></blockquote>
+</div>
+<div class="section" id="id36">
+<h1>}<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h1>
+<p>====En utilisant des submodules git</p>
+<p>Il faut tout d&#8217;abord ajouter atoum en tant que submodule :</p>
+<p>[[[shell
+$ git submodule add git://github.com/atoum/atoum.git lib/vendor/atoum
+]]]</p>
+<p>Puis ensuite ajouter le sfAtoumPlugin en tant que submodule :</p>
+<p>[[[shell
+$ git submodule add git://github.com/atoum/sfAtoumPlugin.git plugins/sfAtoumPlugin
+]]]</p>
+<p>Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :</p>
+<p>[[[php
+if (sfConfig::get(&#8216;sf_environment&#8217;) != &#8216;prod&#8217;)
+{</p>
+<blockquote>
+<div>$this-&gt;enablePlugins(&#8216;sfAtoumPlugin&#8217;);</div></blockquote>
+</div>
+<div class="section" id="id37">
+<h1>}<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h1>
+<p>===Ecrire les tests</p>
+<p>Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :</p>
+<p>[[[php
+require_once __DIR__ . &#8216;/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php&#8217;;
+]]]</p>
+<p>===Lancer les tests</p>
+<p>La commande symfony atoum:test est disponible. Les tests peuvent alors se lancer de cette façon :</p>
+<p>[[[shell
+$ ./symfony atoum:test
+]]]</p>
+<p>Toutes les paramètres d&#8217;atoum sont disponibles.</p>
+<p>Il est donc, par exemple, possible de passer un fichier de configuration comme ceci :</p>
+<p>[[[php
+php symfony atoum:test -c config/atoum/hudson.php
+]]]</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">;</a></li>
+<li><a class="reference internal" href="#id6">}</a></li>
+<li><a class="reference internal" href="#id11">}</a></li>
+<li><a class="reference internal" href="#id14">}</a></li>
+<li><a class="reference internal" href="#id15">}</a></li>
+<li><a class="reference internal" href="#id18">}</a></li>
+<li><a class="reference internal" href="#id23">}</a></li>
+<li><a class="reference internal" href="#id32">}</a></li>
+<li><a class="reference internal" href="#id33">}</a></li>
+<li><a class="reference internal" href="#id34">}</a></li>
+<li><a class="reference internal" href="#id35">},</a></li>
+<li><a class="reference internal" href="#id36">}</a></li>
+<li><a class="reference internal" href="#id37">}</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chapitre4.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">atoum 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Renaud LITTOLFF.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
