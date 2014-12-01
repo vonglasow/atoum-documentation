@@ -1,4 +1,4 @@
-.. _introduction:
+.. _introduction-anchor:
 
 Introduction
 ============
@@ -22,16 +22,16 @@ Téléchargement et installation
 Pour le moment, atoum n’a pas de numéro de version. Il est néanmoins d’ores et déjà stable et utilisable. Si vous souhaitez l’utiliser, il vous suffit de télécharger la dernière version. Malgré les évolutions constantes d’atoum, la rétrocompatibilité est une des priorités de ses développeurs.
 Vous pouvez installer atoum de plusieurs manières :
 
-* :ref:`en téléchargeant l’archive PHAR <archive-phar>` ;
-* :ref:`à l’aide de composer <par-composer>` ;
+* :ref:`en téléchargeant l’archive PHAR <archive-p-h-a-r>` ;
+* :ref:`à l’aide de composer <composer-anchor>` ;
 * :ref:`en utilisant un script d’installation <script-d-installation>` ;
-* :ref:`en clonant le dépôt github <github>` ;
+* :ref:`en clonant le dépôt github <github-anchor>` ;
 * :ref:`en utilisant un plug-in symfony 1 <plugin-symfony-1>` ;
 * :ref:`en utilisant un bundle Symfony 2 <bundle-symfony-2>`.
 * :ref:`en utilisant un composant Zend Framework 2 <composant-zend-framework-2>`.
 
 
-.. _archive-phar:
+.. _archive-p-h-a-r:
 
 Archive PHAR
 ~~~~~~~~~~~~
@@ -40,7 +40,7 @@ Une archive PHAR (PHp ARchive) est créée automatiquement à chaque modificatio
 
 PHAR est un format d’archive d’application PHP, disponible depuis PHP 5.3.
 
-.. _installation:
+.. _installation-anchor:
 
 Installation
 ^^^^^^^^^^^^
@@ -136,10 +136,10 @@ La version est alors supprimée.
 
 
 
-.. _par-composer:
+.. _composer-anchor:
 
-Par composer
-~~~~~~~~~~~~
+Composer
+~~~~~~~~
 
 `Composer <http://getcomposer.org>`_ est un outil de gestion de dépendance en PHP.
 
@@ -188,7 +188,7 @@ Vous pourrez facilement installer atoum localement (dans un projet, voir exemple
 
 Des options sont disponibles pour personnaliser l’installation d’atoum : reportez-vous à `la documentation (en) <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ de l’installeur pour obtenir plus de détails.
 
-.. _github:
+.. _github-anchor:
 
 Github
 ~~~~~~
@@ -312,11 +312,11 @@ Vous devriez voir quelque chose comme ça :
    $ php vendor/mageekguy.atoum.phar -f src/Vendor/Project/tests/units/HelloWorld.php
    > PHP path: /usr/bin/php
    > PHP version:
-   .. _php-5-4-7--cli---built---sep-13-2012-04-24-47:
+   .. _p-h-p-5-4-7--cli---built---sep-13-2012-04-24-47:
    
    > PHP 5.4.7 (cli) (built : Sep 13 2012 04:24:47)
    ================================================
-   .. _copyright--c--1997-2012-the-php-group:
+   .. _copyright--c--1997-2012-the-p-h-p-group:
    
    > Copyright (c) 1997-2012 The PHP Group
    =======================================
@@ -362,7 +362,7 @@ Lorsque vous voulez tester une valeur, vous devez :
 * indiquer les contraintes devant s’appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).
 
 
-.. _integration-d-atoum-dans-votre-ide:
+.. _integration-d-atoum-dans-votre-i-d-e:
 
 Intégration d’atoum dans votre IDE
 ----------------------------------
@@ -376,7 +376,7 @@ Un `plug-in pour SublimeText 2 <https://github.com/toin0u/Sublime-atoum>`_ perm
 
 Les informations nécessaires à son installation et à sa configuration sont disponibles `sur le blog de son auteur <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
 
-.. _vim:
+.. _v-i-m:
 
 VIM
 ~~~
@@ -387,7 +387,7 @@ Il permet d’exécuter les tests sans quitter VIM et d’obtenir le rapport cor
 
 Il est alors possible de naviguer parmi les éventuelles erreurs, voire de se rendre à la ligne correspondant à une assertion ne passant pas à l’aide d’une simple combinaison de touches.
 
-.. _installation-du-plug-in-atoum-pour-vim:
+.. _installation-du-plug-in-atoum-pour-v-i-m:
 
 Installation du plug-in atoum pour VIM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -414,7 +414,7 @@ Il n’y a plus ensuite qu’à demander à VIM l’installation du plug-in à l
 
    :source %
 
-.. _utilisation-du-plug-in-atoum-pour-vim:
+.. _utilisation-du-plug-in-atoum-pour-v-i-m:
 
 Utilisation du plug-in atoum pour VIM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -467,14 +467,14 @@ Ouvrir automatiquement les tests en échec
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 atoum est capable d’ouvrir automatiquement les fichiers des tests en échec à la fin de l’exécution. Plusieurs éditeurs sont actuellement supportés :
 
-* :ref:`macvim <macvim>` (Mac OS X)
-* :ref:`gvim <gvim>` (Unix)
-* :ref:`PhpStorm <phpstorm>` (Mac OS X/Unix)
-* :ref:`gedit <gedit>` (Unix)
+* :ref:`macvim <macvim-anchor>` (Mac OS X)
+* :ref:`gvim <gvim-anchor>` (Unix)
+* :ref:`PhpStorm <php-storm>` (Mac OS X/Unix)
+* :ref:`gedit <gedit-anchor>` (Unix)
 
 Pour utiliser cette fonctionnalité, vous devrez modifier le `fichier de configuration <chapitre3.html#Fichier-de-configuration>`_ de atoum :
 
-.. _macvim:
+.. _macvim-anchor:
 
 macvim
 ^^^^^^
@@ -496,7 +496,7 @@ macvim
    $runner->addReport($cliReport);
 
 
-.. _gvim:
+.. _gvim-anchor:
 
 gvim
 ^^^^
@@ -518,7 +518,7 @@ gvim
    $runner->addReport($cliReport);
 
 
-.. _phpstorm:
+.. _php-storm:
 
 PhpStorm
 ^^^^^^^^
@@ -576,7 +576,7 @@ Dans un environnement Unix, utilisez la configuration suivante :
    $runner->addReport($cliReport);
 
 
-.. _gedit:
+.. _gedit-anchor:
 
 gedit
 ^^^^^

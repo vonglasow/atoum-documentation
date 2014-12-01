@@ -1,4 +1,4 @@
-.. _cookbook:
+.. _cookbook-anchor:
 
 Cookbook
 ========
@@ -10,7 +10,7 @@ Usage with symfony 1.4
 
 If you want to use atoum inside a symfony 1.4 project, the sfAtoumPlugin is available at the following adress :  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-.. _installation:
+.. _installation-anchor:
 
 Installation
 ------------

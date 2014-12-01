@@ -3,19 +3,19 @@
 Écrire ses tests
 ================
 
-.. _assertions:
+.. _assertions-anchor:
 
 Assertions
 ----------
 
-.. _variable:
+.. _variable-anchor:
 
 variable
 ~~~~~~~~
 
 C’est l’assertion de base de toutes les variables. Elle contient les tests nécessaires à n’importe quel type de variable.
 
-.. _variableIsCallable:
+.. _variable-is-callable:
 
 isCallable
 ^^^^^^^^^^
@@ -24,25 +24,25 @@ isCallable
 
 .. code-block:: php
 
-$f = function() {
-// code
-};
+   $f = function() {
+       // code
+   };
+   
+   $this
+       ->variable($f)
+           ->isCallable()  // passe
+   
+       ->variable('\Vendor\Project\foobar')
+           ->isCallable()
+   
+       ->variable(array('\Vendor\Project\Foo', 'bar'))
+           ->isCallable()
+   
+       ->variable('\Vendor\Project\Foo::bar')
+           ->isCallable()
+   ;
 
-$this
-->variable($f)
-->isCallable()  // passe
-
-->variable('\Vendor\Project\foobar')
-->isCallable()
-
-->variable(array('\Vendor\Project\Foo', 'bar'))
-->isCallable()
-
-->variable('\Vendor\Project\Foo::bar')
-->isCallable()
-;
-
-.. _variableIsEqualTo:
+.. _variable-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
@@ -51,18 +51,18 @@ isEqualTo
 
 .. code-block:: php
 
-$a = 'a';
-
-$this
-->variable($a)
-->isEqualTo('a')    // passe
-;
+   $a = 'a';
+   
+   $this
+       ->variable($a)
+           ->isEqualTo('a')    // passe
+   ;
 
 .. warning::
-``isEqualTo`` ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ``:ref:`isIdenticalTo <variableisidenticalto>```.
+   ``isEqualTo`` ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez :ref:`isIdenticalTo <variable-is-identical-to>`.
 
 
-.. _variableIsIdenticalTo:
+.. _variable-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
@@ -71,28 +71,28 @@ isIdenticalTo
 
 .. code-block:: php
 
-$a = '1';
-
-$this
-->variable($a)
-->isIdenticalTo(1)          // échoue
-;
-
-$stdClass1 = new \StdClass();
-$stdClass2 = new \StdClass();
-$stdClass3 = $stdClass1;
-
-$this
-->variable($stdClass1)
-->isIdenticalTo(stdClass3)  // passe
-->isIdenticalTo(stdClass2)  // échoue
-;
+   $a = '1';
+   
+   $this
+       ->variable($a)
+           ->isIdenticalTo(1)          // échoue
+   ;
+   
+   $stdClass1 = new \StdClass();
+   $stdClass2 = new \StdClass();
+   $stdClass3 = $stdClass1;
+   
+   $this
+       ->variable($stdClass1)
+           ->isIdenticalTo(stdClass3)  // passe
+           ->isIdenticalTo(stdClass2)  // échoue
+   ;
 
 .. warning::
-``isIdenticalTo`` teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ``:ref:`isEqualTo <variableisequalto>```.
+   ``isIdenticalTo`` teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isEqualTo <variable-is-equal-to>`.
 
 
-.. _variableIsNotCallable:
+.. _variable-is-not-callable:
 
 isNotCallable
 ^^^^^^^^^^^^^
@@ -101,27 +101,27 @@ isNotCallable
 
 .. code-block:: php
 
-$f = function() {
-// code
-};
-$int    = 1;
-$string = 'nonExistingMethod';
+   $f = function() {
+       // code
+   };
+   $int    = 1;
+   $string = 'nonExistingMethod';
+   
+   $this
+       ->variable($f)
+           ->isNotCallable()   // échoue
+   
+       ->variable($int)
+           ->isNotCallable()   // passe
+   
+       ->variable($string)
+           ->isNotCallable()   // passe
+   
+       ->variable(new StdClass)
+           ->isNotCallable()   // passe
+   ;
 
-$this
-->variable($f)
-->isNotCallable()   // échoue
-
-->variable($int)
-->isNotCallable()   // passe
-
-->variable($string)
-->isNotCallable()   // passe
-
-->variable(new StdClass)
-->isNotCallable()   // passe
-;
-
-.. _variableIsNotEqualTo:
+.. _variable-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
@@ -130,23 +130,23 @@ isNotEqualTo
 
 .. code-block:: php
 
-$a       = 'a';
-$aString = '1';
-
-$this
-->variable($a)
-->isNotEqualTo('b')     // passe
-->isNotEqualTo('a')     // échoue
-
-->variable($aString)
-->isNotEqualTo($1)      // échoue
-;
+   $a       = 'a';
+   $aString = '1';
+   
+   $this
+       ->variable($a)
+           ->isNotEqualTo('b')     // passe
+           ->isNotEqualTo('a')     // échoue
+   
+       ->variable($aString)
+           ->isNotEqualTo($1)      // échoue
+   ;
 
 .. warning::
-``isNotEqualTo`` ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez ``:ref:`isNotIdenticalTo <variableisnotidenticalto>```.
+   ``isNotEqualTo`` ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
 
 
-.. _variableIsNotIdenticalTo:
+.. _variable-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
@@ -157,28 +157,28 @@ Dans le cas d’objets, ``isNotIdenticalTo`` vérifie que les données ne pointe
 
 .. code-block:: php
 
-$a = '1';
-
-$this
-->variable($a)
-->isNotIdenticalTo(1)           // passe
-;
-
-$stdClass1 = new \StdClass();
-$stdClass2 = new \StdClass();
-$stdClass3 = $stdClass1;
-
-$this
-->variable($stdClass1)
-->isNotIdenticalTo(stdClass2)   // passe
-->isNotIdenticalTo(stdClass3)   // échoue
-;
+   $a = '1';
+   
+   $this
+       ->variable($a)
+           ->isNotIdenticalTo(1)           // passe
+   ;
+   
+   $stdClass1 = new \StdClass();
+   $stdClass2 = new \StdClass();
+   $stdClass3 = $stdClass1;
+   
+   $this
+       ->variable($stdClass1)
+           ->isNotIdenticalTo(stdClass2)   // passe
+           ->isNotIdenticalTo(stdClass3)   // échoue
+   ;
 
 .. warning::
-``isNotIdenticalTo`` teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez ``:ref:`isNotEqualTo <variableisnotequalto>```.
+   ``isNotIdenticalTo`` teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isNotEqualTo <variable-is-not-equal-to>`.
 
 
-.. _isnull:
+.. _is-null:
 
 isNull
 ^^^^^^
@@ -187,19 +187,19 @@ isNull
 
 .. code-block:: php
 
-$emptyString = '';
-$null        = null;
+   $emptyString = '';
+   $null        = null;
+   
+   $this
+       ->variable($emptyString)
+           ->isNull()              // échoue
+                                   // (c'est vide mais pas null)
+   
+       ->variable($null)
+           ->isNull()              // passe
+   ;
 
-$this
-->variable($emptyString)
-->isNull()              // échoue
-// (c'est vide mais pas null)
-
-->variable($null)
-->isNull()              // passe
-;
-
-.. _isnotnull:
+.. _is-not-null:
 
 isNotNull
 ^^^^^^^^^
@@ -208,20 +208,20 @@ isNotNull
 
 .. code-block:: php
 
-$emptyString = '';
-$null        = null;
+   $emptyString = '';
+   $null        = null;
+   
+   $this
+       ->variable($emptyString)
+           ->isNotNull()           // passe (c'est vide mais pas null)
+   
+       ->variable($null)
+           ->isNotNull()           // échoue
+   ;
 
-$this
-->variable($emptyString)
-->isNotNull()           // passe (c'est vide mais pas null)
-
-->variable($null)
-->isNotNull()           // échoue
-;
 
 
-
-.. _boolean:
+.. _boolean-anchor:
 
 boolean
 ~~~~~~~
@@ -231,20 +231,20 @@ C’est l’assertion dédiée aux booléens.
 Si vous essayez de tester une variable qui n’est pas un booléen avec cette assertion, cela échouera.
 
 .. note::
-``null`` n’est pas un booléen. Reportez-vous au manuel de PHP pour savoir ce que ```is_bool <http://php.net/is_bool>`_`` considère ou non comme un booléen.
+   ``null`` n’est pas un booléen. Reportez-vous au manuel de PHP pour savoir ce que ```is_bool <http://php.net/is_bool>`_`` considère ou non comme un booléen.
 
 
-.. _booleanIsEqualTo:
+.. _boolean-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _isfalse:
+
+.. _is-false:
 
 isFalse
 ^^^^^^^
@@ -253,48 +253,48 @@ isFalse
 
 .. code-block:: php
 
-$true  = true;
-$false = false;
+   $true  = true;
+   $false = false;
+   
+   $this
+       ->boolean($true)
+           ->isFalse()     // échoue
+   
+       ->boolean($false)
+           ->isFalse()     // passe
+   ;
 
-$this
-->boolean($true)
-->isFalse()     // échoue
-
-->boolean($false)
-->isFalse()     // passe
-;
-
-.. _booleanIsIdenticalTo:
+.. _boolean-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _booleanIsNotEqualTo:
+
+.. _boolean-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _booleanIsNotIdenticalTo:
+
+.. _boolean-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _istrue:
+
+.. _is-true:
 
 isTrue
 ^^^^^^
@@ -303,20 +303,20 @@ isTrue
 
 .. code-block:: php
 
-$true  = true;
-$false = false;
+   $true  = true;
+   $false = false;
+   
+   $this
+       ->boolean($true)
+           ->isTrue()      // passe
+   
+       ->boolean($false)
+           ->isTrue()      // échoue
+   ;
 
-$this
-->boolean($true)
-->isTrue()      // passe
-
-->boolean($false)
-->isTrue()      // échoue
-;
 
 
-
-.. _integer:
+.. _integer-anchor:
 
 integer
 ~~~~~~~
@@ -326,20 +326,20 @@ C’est l’assertion dédiée aux entiers.
 Si vous essayez de tester une variable qui n’est pas un entier avec cette assertion, cela échouera.
 
 .. note::
-``null`` n’est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que ```is_int <http://php.net/is_int>`_`` considère ou non comme un entier.
+   ``null`` n’est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que ```is_int <http://php.net/is_int>`_`` considère ou non comme un entier.
 
 
-.. _integerIsEqualTo:
+.. _integer-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _integerIsGreaterThan:
+
+.. _integer-is-greater-than:
 
 isGreaterThan
 ^^^^^^^^^^^^^
@@ -348,17 +348,17 @@ isGreaterThan
 
 .. code-block:: php
 
-$zero = 0;
+   $zero = 0;
+   
+   $this
+       ->integer($zero)
+           ->isGreaterThan(-1)     // passe
+           ->isGreaterThan('-1')   // échoue car "-1"
+                                   // n'est pas un entier
+           ->isGreaterThan(0)      // échoue
+   ;
 
-$this
-->integer($zero)
-->isGreaterThan(-1)     // passe
-->isGreaterThan('-1')   // échoue car "-1"
-// n'est pas un entier
-->isGreaterThan(0)      // échoue
-;
-
-.. _integerIsGreaterThanOrEqualTo:
+.. _integer-is-greater-than-or-equal-to:
 
 isGreaterThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -367,27 +367,27 @@ isGreaterThanOrEqualTo
 
 .. code-block:: php
 
-$zero = 0;
+   $zero = 0;
+   
+   $this
+       ->integer($zero)
+           ->isGreaterThanOrEqualTo(-1)    // passe
+           ->isGreaterThanOrEqualTo(0)     // passe
+           ->isGreaterThanOrEqualTo('-1')  // échoue car "-1"
+                                           // n'est pas un entier
+   ;
 
-$this
-->integer($zero)
-->isGreaterThanOrEqualTo(-1)    // passe
-->isGreaterThanOrEqualTo(0)     // passe
-->isGreaterThanOrEqualTo('-1')  // échoue car "-1"
-// n'est pas un entier
-;
-
-.. _integerIsIdenticalTo:
+.. _integer-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _integerIsLessThan:
+
+.. _integer-is-less-than:
 
 isLessThan
 ^^^^^^^^^^
@@ -396,16 +396,16 @@ isLessThan
 
 .. code-block:: php
 
-$zero = 0;
+   $zero = 0;
+   
+   $this
+       ->integer($zero)
+           ->isLessThan(10)    // passe
+           ->isLessThan('10')  // échoue car "10" n'est pas un entier
+           ->isLessThan(0)     // échoue
+   ;
 
-$this
-->integer($zero)
-->isLessThan(10)    // passe
-->isLessThan('10')  // échoue car "10" n'est pas un entier
-->isLessThan(0)     // échoue
-;
-
-.. _integerIsLessThanOrEqualTo:
+.. _integer-is-less-than-or-equal-to:
 
 isLessThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^
@@ -414,37 +414,37 @@ isLessThanOrEqualTo
 
 .. code-block:: php
 
-$zero = 0;
+   $zero = 0;
+   
+   $this
+       ->integer($zero)
+           ->isLessThanOrEqualTo(10)       // passe
+           ->isLessThanOrEqualTo(0)        // passe
+           ->isLessThanOrEqualTo('10')     // échoue car "10"
+                                           // n'est pas un entier
+   ;
 
-$this
-->integer($zero)
-->isLessThanOrEqualTo(10)       // passe
-->isLessThanOrEqualTo(0)        // passe
-->isLessThanOrEqualTo('10')     // échoue car "10"
-// n'est pas un entier
-;
-
-.. _integerIsNotEqualTo:
+.. _integer-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _integerIsNotIdenticalTo:
+
+.. _integer-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _integerIsZero:
+
+.. _integer-is-zero:
 
 isZero
 ^^^^^^
@@ -453,24 +453,24 @@ isZero
 
 .. code-block:: php
 
-$zero    = 0;
-$notZero = -1;
-
-$this
-->integer($zero)
-->isZero()          // passe
-
-->integer($notZero)
-->isZero()          // échoue
-;
+   $zero    = 0;
+   $notZero = -1;
+   
+   $this
+       ->integer($zero)
+           ->isZero()          // passe
+   
+       ->integer($notZero)
+           ->isZero()          // échoue
+   ;
 
 .. note::
-``isZero`` est équivalent à ``isEqualTo(0)``.
+   ``isZero`` est équivalent à ``isEqualTo(0)``.
 
 
 
 
-.. _float:
+.. _float-anchor:
 
 float
 ~~~~~
@@ -480,70 +480,70 @@ C’est l’assertion dédiée aux nombres décimaux.
 Si vous essayez de tester une variable qui n’est pas un nombre décimal avec cette assertion, cela échouera.
 
 .. note::
-``null`` n’est pas un nombre décimal. Reportez-vous au manuel de PHP pour savoir ce que ```is_float <http://php.net/is_float>`_`` considère ou non comme un nombre décimal.
+   ``null`` n’est pas un nombre décimal. Reportez-vous au manuel de PHP pour savoir ce que ```is_float <http://php.net/is_float>`_`` considère ou non comme un nombre décimal.
 
 
-.. _floatIsEqualTo:
+.. _float-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _floatIsGreaterThan:
+
+.. _float-is-greater-than:
 
 isGreaterThan
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isGreaterThan`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThan`` <integerisgreaterthan>`
-}}}
+.. tip::
+   ``isGreaterThan`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThan`` <integer-is-greater-than>`
 
-.. _floatIsGreaterThanOrEqualTo:
+
+.. _float-is-greater-than-or-equal-to:
 
 isGreaterThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isGreaterThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThanOrEqualTo`` <integerisgreaterthanorequalto>`
-}}}
+.. tip::
+   ``isGreaterThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThanOrEqualTo`` <integer-is-greater-than-or-equal-to>`
 
-.. _floatIsIdenticalTo:
+
+.. _float-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _floatIsLessThan:
+
+.. _float-is-less-than:
 
 isLessThan
 ^^^^^^^^^^
 
-{{{inheritance
-``isLessThan`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThan`` <integerislessthan>`
-}}}
+.. tip::
+   ``isLessThan`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThan`` <integer-is-less-than>`
 
-.. _floatIsLessThanOrEqualTo:
+
+.. _float-is-less-than-or-equal-to:
 
 isLessThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isLessThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThanOrEqualoo`` <integerislessthanorequalto>`
-}}}
+.. tip::
+   ``isLessThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThanOrEqualoo`` <integer-is-less-than-or-equal-to>`
 
-.. _isnearlyequalto:
+
+.. _is-nearly-equal-to:
 
 isNearlyEqualTo
 ^^^^^^^^^^^^^^^
@@ -554,64 +554,64 @@ En effet, en informatique, les nombres décimaux sont gérées d’une façon qu
 
 .. code-block:: shell
 
-$ php -r 'var_dump(1 - 0.97 === 0.03);'
-bool(false)
+   $ php -r 'var_dump(1 - 0.97 === 0.03);'
+   bool(false)
 
 Le résultat devrait pourtant être ``true``.
 
 .. note::
-Pour avoir plus d’informations sur ce phénomène, reportez-vous au `manuel de PHP <http://php.net/types.float>`_.
+   Pour avoir plus d’informations sur ce phénomène, reportez-vous au `manuel de PHP <http://php.net/types.float>`_.
 
 
 Cette méthode cherche donc à minorer ce problème.
 
 .. code-block:: php
 
-$float = 1 - 0.97;
-
-$this
-->float($float)
-->isNearlyEqualTo(0.03) // passe
-->isEqualTo(0.03)       // échoue
-;
+   $float = 1 - 0.97;
+   
+   $this
+       ->float($float)
+           ->isNearlyEqualTo(0.03) // passe
+           ->isEqualTo(0.03)       // échoue
+   ;
 
 .. note::
-Pour avoir plus d’informations sur l’algorithme utilisé, consultez le `floating point guide <http://www.floating-point-gui.de/errors/comparison/>`_.
+   Pour avoir plus d’informations sur l’algorithme utilisé, consultez le `floating point guide <http://www.floating-point-gui.de/errors/comparison/>`_.
 
 
-.. _floatIsNotEqualTo:
+.. _float-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _floatIsNotIdenticalTo:
+
+.. _float-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _floatIsZero:
+
+.. _float-is-zero:
 
 isZero
 ^^^^^^
 
-{{{inheritance
-``isZero`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isZero`` <integeriszero>`
-}}}
+.. tip::
+   ``isZero`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isZero`` <integer-is-zero>`
 
 
 
-.. _sizeof:
+
+.. _size-of:
 
 sizeOf
 ~~~~~~
@@ -620,110 +620,110 @@ C’est l’assertion dédiée aux tests sur la taille des tableaux et des objet
 
 .. code-block:: php
 
-$array           = array(1, 2, 3);
-$countableObject = new GlobIterator('*');
+   $array           = array(1, 2, 3);
+   $countableObject = new GlobIterator('*');
+   
+   $this
+       ->sizeOf($array)
+           ->isEqualTo(3)
+   
+       ->sizeOf($countableObject)
+           ->isGreaterThan(0)
+   ;
 
-$this
-->sizeOf($array)
-->isEqualTo(3)
-
-->sizeOf($countableObject)
-->isGreaterThan(0)
-;
-
-.. _sizeOfIsEqualTo:
+.. _size-of-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _sizeOfIsGreaterThan:
+
+.. _size-of-is-greater-than:
 
 isGreaterThan
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isGreaterThan`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThan`` <integerisgreaterthan>`
-}}}
+.. tip::
+   ``isGreaterThan`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThan`` <integer-is-greater-than>`
 
-.. _sizeOfIsGreaterThanOrEqualTo:
+
+.. _size-of-is-greater-than-or-equal-to:
 
 isGreaterThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isGreaterThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThanOrEqualTo`` <integerisgreaterthanorequalto>`
-}}}
+.. tip::
+   ``isGreaterThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isGreaterThanOrEqualTo`` <integer-is-greater-than-or-equal-to>`
 
-.. _sizeOfIsIdenticalTo:
+
+.. _size-of-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _sizeOfIsLessThan:
+
+.. _size-of-is-less-than:
 
 isLessThan
 ^^^^^^^^^^
 
-{{{inheritance
-``isLessThan`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThan`` <integerislessthan>`
-}}}
+.. tip::
+   ``isLessThan`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThan`` <integer-is-less-than>`
 
-.. _sizeOfIsLessThanOrEqualTo:
+
+.. _size-of-is-less-than-or-equal-to:
 
 isLessThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isLessThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThanOrEqualoo`` <integerislessthanorequalto>`
-}}}
+.. tip::
+   ``isLessThanOrEqualTo`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isLessThanOrEqualoo`` <integer-is-less-than-or-equal-to>`
 
-.. _sizeOfIsNotEqualTo:
+
+.. _size-of-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _sizeOfIsNotIdenticalTo:
+
+.. _size-of-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _sizeOfIsZero:
+
+.. _size-of-is-zero:
 
 isZero
 ^^^^^^
 
-{{{inheritance
-``isZero`` est une méthode héritée de l’asserter ``integer``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isZero`` <integeriszero>`
-}}}
+.. tip::
+   ``isZero`` est une méthode héritée de l’asserter ``integer``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```integer::isZero`` <integer-is-zero>`
 
 
 
-.. _object:
+
+.. _object-anchor:
 
 object
 ~~~~~~
@@ -733,10 +733,10 @@ C’est l’assertion dédiée aux objets.
 Si vous essayez de tester une variable qui n’est pas un objet avec cette assertion, cela échouera.
 
 .. note::
-``null`` n’est pas un objet. Reportez-vous au manuel de PHP pour savoir ce que ```is_object <http://php.net/is_object>`_`` considère ou non comme un objet.
+   ``null`` n’est pas un objet. Reportez-vous au manuel de PHP pour savoir ce que ```is_object <http://php.net/is_object>`_`` considère ou non comme un objet.
 
 
-.. _objectHasSize:
+.. _object-has-size:
 
 hasSize
 ^^^^^^^
@@ -745,46 +745,46 @@ hasSize
 
 .. code-block:: php
 
-$countableObject = new GlobIterator('*');
+   $countableObject = new GlobIterator('*');
+   
+   $this
+       ->object($countableObject)
+           ->hasSize(3)
+   ;
 
-$this
-->object($countableObject)
-->hasSize(3)
-;
-
-.. _objectIsCallable:
+.. _object-is-callable:
 
 isCallable
 ^^^^^^^^^^
 
 .. code-block:: php
 
-class foo
-{
-public function __invoke()
-{
-// code
-}
-}
-
-$this
-->object(new foo)
-->isCallable()  // passe
-
-->object(new StdClass)
-->isCallable()  // échoue
-;
+   class foo
+   {
+       public function __invoke()
+       {
+           // code
+       }
+   }
+   
+   $this
+       ->object(new foo)
+           ->isCallable()  // passe
+   
+       ->object(new StdClass)
+           ->isCallable()  // échoue
+   ;
 
 .. note::
-Pour être identifiés comme ``callable``, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique ```__invoke``  < http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_.
+   Pour être identifiés comme ``callable``, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique ```__invoke``  < http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_.
 
 
-{{{inheritance
-``isCallable`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isCallable`` <variableiscallable>`
-}}}
+.. tip::
+   ``isCallable`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isCallable`` <variable-is-callable>`
 
-.. _objectIsCloneOf:
+
+.. _object-is-clone-of:
 
 isCloneOf
 ^^^^^^^^^
@@ -793,24 +793,24 @@ isCloneOf
 
 .. code-block:: php
 
-$object1 = new \StdClass;
-$object2 = new \StdClass;
-$object3 = clone($object1);
-$object4 = new \StdClass;
-$object4->foo = 'bar';
-
-$this
-->object($object1)
-->isCloneOf($object2)   // passe
-->isCloneOf($object3)   // passe
-->isCloneOf($object4)   // échoue
-;
+   $object1 = new \StdClass;
+   $object2 = new \StdClass;
+   $object3 = clone($object1);
+   $object4 = new \StdClass;
+   $object4->foo = 'bar';
+   
+   $this
+       ->object($object1)
+           ->isCloneOf($object2)   // passe
+           ->isCloneOf($object3)   // passe
+           ->isCloneOf($object4)   // échoue
+   ;
 
 .. note::
-Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
+   Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
 
 
-.. _objectIsEmpty:
+.. _object-is-empty:
 
 isEmpty
 ^^^^^^^
@@ -819,18 +819,18 @@ isEmpty
 
 .. code-block:: php
 
-$countableObject = new GlobIterator('atoum.php');
-
-$this
-->object($countableObject)
-->isEmpty()
-;
+   $countableObject = new GlobIterator('atoum.php');
+   
+   $this
+       ->object($countableObject)
+           ->isEmpty()
+   ;
 
 .. note::
-``isEmpty`` est équivalent à ``hasSize(0)``.
+   ``isEmpty`` est équivalent à ``hasSize(0)``.
 
 
-.. _objectIsEqualTo:
+.. _object-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
@@ -839,15 +839,15 @@ isEqualTo
 Deux objets sont considérés égaux lorsqu’ils ont les mêmes attributs et valeurs, et qu’ils sont des instances de la même classe.
 
 .. note::
-Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
+   Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
 
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _objectIsIdenticalTo:
+
+.. _object-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
@@ -856,15 +856,15 @@ isIdenticalTo
 Deux objets sont considérés identiques lorsqu’ils font référence à la même instance de la même classe.
 
 .. note::
-Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
+   Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
 
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _objectIsInstanceOf:
+
+.. _object-is-instance-of:
 
 isInstanceOf
 ^^^^^^^^^^^^
@@ -876,82 +876,82 @@ isInstanceOf
 
 .. code-block:: php
 
-$object = new \StdClass();
-
-$this
-->object($object)
-->isInstanceOf('\StdClass')     // passe
-->isInstanceOf('\Iterator')     // échoue
-;
-
-
-interface FooInterface
-{
-public function foo();
-}
-
-class FooClass implements FooInterface
-{
-public function foo()
-{
-echo "foo";
-}
-}
-
-class BarClass extends FooClass
-{
-}
-
-$foo = new FooClass;
-$bar = new BarClass;
-
-$this
-->object($foo)
-->isInstanceOf('\FooClass')     // passe
-->isInstanceOf('\FooInterface') // passe
-->isInstanceOf('\BarClass')     // échoue
-->isInstanceOf('\StdClass')     // échoue
-
-->object($bar)
-->isInstanceOf('\FooClass')     // passe
-->isInstanceOf('\FooInterface') // passe
-->isInstanceOf('\BarClass')     // passe
-->isInstanceOf('\StdClass')     // échoue
-;
+   $object = new \StdClass();
+   
+   $this
+       ->object($object)
+           ->isInstanceOf('\StdClass')     // passe
+           ->isInstanceOf('\Iterator')     // échoue
+   ;
+   
+   
+   interface FooInterface
+   {
+       public function foo();
+   }
+   
+   class FooClass implements FooInterface
+   {
+       public function foo()
+       {
+           echo "foo";
+       }
+   }
+   
+   class BarClass extends FooClass
+   {
+   }
+   
+   $foo = new FooClass;
+   $bar = new BarClass;
+   
+   $this
+       ->object($foo)
+           ->isInstanceOf('\FooClass')     // passe
+           ->isInstanceOf('\FooInterface') // passe
+           ->isInstanceOf('\BarClass')     // échoue
+           ->isInstanceOf('\StdClass')     // échoue
+   
+       ->object($bar)
+           ->isInstanceOf('\FooClass')     // passe
+           ->isInstanceOf('\FooInterface') // passe
+           ->isInstanceOf('\BarClass')     // passe
+           ->isInstanceOf('\StdClass')     // échoue
+   ;
 
 .. note::
-Les noms des classes et des interfaces doivent être absolus, car les éventuelles importations d’espace de nommage ne sont pas prises en compte.
+   Les noms des classes et des interfaces doivent être absolus, car les éventuelles importations d’espace de nommage ne sont pas prises en compte.
 
 
-.. _objectIsNotCallable:
+.. _object-is-not-callable:
 
 isNotCallable
 ^^^^^^^^^^^^^
 
 .. code-block:: php
 
-class foo
-{
-public function __invoke()
-{
-// code
-}
-}
+   class foo
+   {
+       public function __invoke()
+       {
+           // code
+       }
+   }
+   
+   $this
+       ->variable(new foo)
+           ->isNotCallable()   // échoue
+   
+       ->variable(new StdClass)
+           ->isNotCallable()   // passe
+   ;
 
-$this
-->variable(new foo)
-->isNotCallable()   // échoue
+.. tip::
+   ``isNotCallable`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotCallable`` <variable-is-not-callable>`
 
-->variable(new StdClass)
-->isNotCallable()   // passe
-;
 
-{{{inheritance
-``isNotCallable`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotCallable`` <variableisnotcallable>`
-}}}
-
-.. _objectIsNotEqualTo:
+.. _object-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
@@ -960,15 +960,15 @@ isNotEqualTo
 Deux objets sont considérés égaux lorsqu’ils ont les mêmes attributs et valeurs, et qu’ils sont des instances de la même classe.
 
 .. note::
-Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
+   Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
 
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _objectIsNotIdenticalTo:
+
+.. _object-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
@@ -977,15 +977,15 @@ isNotIdenticalTo
 Deux objets sont considérés identiques lorsqu’ils font référence à la même instance de la même classe.
 
 .. note::
-Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
+   Pour avoir plus de précision sur la comparaison d’objet, reportez-vous au `manuel de PHP <http://php.net/language.oop5.object-comparison>`_.
 
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _dateinterval:
+
+.. _date-interval:
 
 dateInterval
 ~~~~~~~~~~~~
@@ -994,17 +994,17 @@ C’est l’assertion dédiée à l’objet ```DateInterval <http://php.net/date
 
 Si vous essayez de tester une variable qui n’est pas un objet ``DateInterval`` (ou une classe qui l’étend) avec cette assertion, cela échouera.
 
-.. _dateIntervalIsCloneOf:
+.. _date-interval-is-clone-of:
 
 isCloneOf
 ^^^^^^^^^
 
-{{{inheritance
-``isCloneOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <objectiscloneof>`
-}}}
+.. tip::
+   ``isCloneOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <object-is-clone-of>`
 
-.. _dateIntervalIsEqualTo:
+
+.. _date-interval-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
@@ -1013,19 +1013,19 @@ isEqualTo
 
 .. code-block:: php
 
-$di = new DateInterval('P1D');
+   $di = new DateInterval('P1D');
+   
+   $this
+       ->dateInterval($di)
+           ->isEqualTo(                // passe
+               new DateInterval('P1D')
+           )
+           ->isEqualTo(                // échoue
+               new DateInterval('P2D')
+           )
+   ;
 
-$this
-->dateInterval($di)
-->isEqualTo(                // passe
-new DateInterval('P1D')
-)
-->isEqualTo(                // échoue
-new DateInterval('P2D')
-)
-;
-
-.. _dateIntervalIsGreaterThan:
+.. _date-interval-is-greater-than:
 
 isGreaterThan
 ^^^^^^^^^^^^^
@@ -1034,19 +1034,19 @@ isGreaterThan
 
 .. code-block:: php
 
-$di = new DateInterval('P2D');
+   $di = new DateInterval('P2D');
+   
+   $this
+       ->dateInterval($di)
+           ->isGreaterThan(            // passe
+               new DateInterval('P1D')
+           )
+           ->isGreaterThan(            // échoue
+               new DateInterval('P2D')
+           )
+   ;
 
-$this
-->dateInterval($di)
-->isGreaterThan(            // passe
-new DateInterval('P1D')
-)
-->isGreaterThan(            // échoue
-new DateInterval('P2D')
-)
-;
-
-.. _dateIntervalIsGreaterThanOrEqualTo:
+.. _date-interval-is-greater-than-or-equal-to:
 
 isGreaterThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -1055,42 +1055,42 @@ isGreaterThanOrEqualTo
 
 .. code-block:: php
 
-$di = new DateInterval('P2D');
+   $di = new DateInterval('P2D');
+   
+   $this
+       ->dateInterval($di)
+           ->isGreaterThanOrEqualTo(   // passe
+               new DateInterval('P1D')
+           )
+           ->isGreaterThanOrEqualTo(   // passe
+               new DateInterval('P2D')
+           )
+           ->isGreaterThanOrEqualTo(   // échoue
+               new DateInterval('P3D')
+           )
+   ;
 
-$this
-->dateInterval($di)
-->isGreaterThanOrEqualTo(   // passe
-new DateInterval('P1D')
-)
-->isGreaterThanOrEqualTo(   // passe
-new DateInterval('P2D')
-)
-->isGreaterThanOrEqualTo(   // échoue
-new DateInterval('P3D')
-)
-;
-
-.. _dateIntervalIsIdenticalTo:
+.. _date-interval-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <objectisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <object-is-identical-to>`
 
-.. _dateIntervalIsInstanceOf:
+
+.. _date-interval-is-instance-of:
 
 isInstanceOf
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <objectisinstanceof>`
-}}}
+.. tip::
+   ``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <object-is-instance-of>`
 
-.. _dateIntervalIsLessThan:
+
+.. _date-interval-is-less-than:
 
 isLessThan
 ^^^^^^^^^^
@@ -1099,19 +1099,19 @@ isLessThan
 
 .. code-block:: php
 
-$di = new DateInterval('P1D');
+   $di = new DateInterval('P1D');
+   
+   $this
+       ->dateInterval($di)
+           ->isLessThan(               // passe
+               new DateInterval('P2D')
+           )
+           ->isLessThan(               // échoue
+               new DateInterval('P1D')
+           )
+   ;
 
-$this
-->dateInterval($di)
-->isLessThan(               // passe
-new DateInterval('P2D')
-)
-->isLessThan(               // échoue
-new DateInterval('P1D')
-)
-;
-
-.. _dateIntervalIsLessThanOrEqualTo:
+.. _date-interval-is-less-than-or-equal-to:
 
 isLessThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^
@@ -1120,42 +1120,42 @@ isLessThanOrEqualTo
 
 .. code-block:: php
 
-$di = new DateInterval('P2D');
+   $di = new DateInterval('P2D');
+   
+   $this
+       ->dateInterval($di)
+           ->isLessThanOrEqualTo(      // passe
+               new DateInterval('P3D')
+           )
+           ->isLessThanOrEqualTo(      // passe
+               new DateInterval('P2D')
+           )
+           ->isLessThanOrEqualTo(      // échoue
+               new DateInterval('P1D')
+           )
+   ;
 
-$this
-->dateInterval($di)
-->isLessThanOrEqualTo(      // passe
-new DateInterval('P3D')
-)
-->isLessThanOrEqualTo(      // passe
-new DateInterval('P2D')
-)
-->isLessThanOrEqualTo(      // échoue
-new DateInterval('P1D')
-)
-;
-
-.. _dateIntervalIsNotEqualTo:
+.. _date-interval-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <objectisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <object-is-not-equal-to>`
 
-.. _dateIntervalIsNotIdenticalTo:
+
+.. _date-interval-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <objectisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>`
 
-.. _dateIntervalIsZero:
+
+.. _date-interval-is-zero:
 
 isZero
 ^^^^^^
@@ -1164,18 +1164,18 @@ isZero
 
 .. code-block:: php
 
-$di1 = new DateInterval('P0D');
-$di2 = new DateInterval('P1D');
+   $di1 = new DateInterval('P0D');
+   $di2 = new DateInterval('P1D');
+   
+   $this
+       ->dateInterval($di1)
+           ->isZero()      // passe
+       ->dateInterval($di2)
+           ->isZero()      // échoue
+   ;
 
-$this
-->dateInterval($di1)
-->isZero()      // passe
-->dateInterval($di2)
-->isZero()      // échoue
-;
 
-
-.. _datetime:
+.. _date-time:
 
 dateTime
 ~~~~~~~~
@@ -1184,7 +1184,7 @@ C’est l’assertion dédiée à l’objet ```DateTime <http://php.net/datetime
 
 Si vous essayez de tester une variable qui n’est pas un objet ``DateTime`` (ou une classe qui l’étend) avec cette assertion, cela échouera.
 
-.. _dateTimeHasDate:
+.. _date-time-has-date:
 
 hasDate
 ^^^^^^^
@@ -1193,16 +1193,16 @@ hasDate
 
 .. code-block:: php
 
-$dt = new DateTime('1981-02-13');
+   $dt = new DateTime('1981-02-13');
+   
+   $this
+       ->dateTime($dt)
+           ->hasDate('1981', '02', '13')   // passe
+           ->hasDate('1981', '2',  '13')   // passe
+           ->hasDate(1981,   2,    13)     // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasDate('1981', '02', '13')   // passe
-->hasDate('1981', '2',  '13')   // passe
-->hasDate(1981,   2,    13)     // passe
-;
-
-.. _dateTimeHasDateAndTime:
+.. _date-time-has-date-and-time:
 
 hasDateAndTime
 ^^^^^^^^^^^^^^
@@ -1211,19 +1211,19 @@ hasDateAndTime
 
 .. code-block:: php
 
-$dt = new DateTime('1981-02-13 01:02:03');
+   $dt = new DateTime('1981-02-13 01:02:03');
+   
+   $this
+       ->dateTime($dt)
+           // passe
+           ->hasDateAndTime('1981', '02', '13', '01', '02', '03')
+           // passe
+           ->hasDateAndTime('1981', '2',  '13', '1',  '2',  '3')
+           // passe
+           ->hasDateAndTime(1981,   2,    13,   1,    2,    3)
+   ;
 
-$this
-->dateTime($dt)
-// passe
-->hasDateAndTime('1981', '02', '13', '01', '02', '03')
-// passe
-->hasDateAndTime('1981', '2',  '13', '1',  '2',  '3')
-// passe
-->hasDateAndTime(1981,   2,    13,   1,    2,    3)
-;
-
-.. _dateTimeHasDay:
+.. _date-time-has-day:
 
 hasDay
 ^^^^^^
@@ -1232,14 +1232,14 @@ hasDay
 
 .. code-block:: php
 
-$dt = new DateTime('1981-02-13');
+   $dt = new DateTime('1981-02-13');
+   
+   $this
+       ->dateTime($dt)
+           ->hasDay(13)        // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasDay(13)        // passe
-;
-
-.. _dateTimeHasHours:
+.. _date-time-has-hours:
 
 hasHours
 ^^^^^^^^
@@ -1248,16 +1248,16 @@ hasHours
 
 .. code-block:: php
 
-$dt = new DateTime('01:02:03');
+   $dt = new DateTime('01:02:03');
+   
+   $this
+       ->dateTime($dt)
+           ->hasHours('01')    // passe
+           ->hasHours('1')     // passe
+           ->hasHours(1)       // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasHours('01')    // passe
-->hasHours('1')     // passe
-->hasHours(1)       // passe
-;
-
-.. _dateTimeHasMinutes:
+.. _date-time-has-minutes:
 
 hasMinutes
 ^^^^^^^^^^
@@ -1266,16 +1266,16 @@ hasMinutes
 
 .. code-block:: php
 
-$dt = new DateTime('01:02:03');
+   $dt = new DateTime('01:02:03');
+   
+   $this
+       ->dateTime($dt)
+           ->hasMinutes('02')  // passe
+           ->hasMinutes('2')   // passe
+           ->hasMinutes(2)     // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasMinutes('02')  // passe
-->hasMinutes('2')   // passe
-->hasMinutes(2)     // passe
-;
-
-.. _dateTimeHasMonth:
+.. _date-time-has-month:
 
 hasMonth
 ^^^^^^^^
@@ -1284,14 +1284,14 @@ hasMonth
 
 .. code-block:: php
 
-$dt = new DateTime('1981-02-13');
+   $dt = new DateTime('1981-02-13');
+   
+   $this
+       ->dateTime($dt)
+           ->hasMonth(2)       // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasMonth(2)       // passe
-;
-
-.. _dateTimeHasSeconds:
+.. _date-time-has-seconds:
 
 hasSeconds
 ^^^^^^^^^^
@@ -1300,16 +1300,16 @@ hasSeconds
 
 .. code-block:: php
 
-$dt = new DateTime('01:02:03');
+   $dt = new DateTime('01:02:03');
+   
+   $this
+       ->dateTime($dt)
+           ->hasSeconds('03')    // passe
+           ->hasSeconds('3')     // passe
+           ->hasSeconds(3)       // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasSeconds('03')    // passe
-->hasSeconds('3')     // passe
-->hasSeconds(3)       // passe
-;
-
-.. _dateTimeHasTime:
+.. _date-time-has-time:
 
 hasTime
 ^^^^^^^
@@ -1318,16 +1318,16 @@ hasTime
 
 .. code-block:: php
 
-$dt = new DateTime('01:02:03');
+   $dt = new DateTime('01:02:03');
+   
+   $this
+       ->dateTime($dt)
+           ->hasTime('01', '02', '03')     // passe
+           ->hasTime('1',  '2',  '3')      // passe
+           ->hasTime(1,    2,    3)        // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasTime('01', '02', '03')     // passe
-->hasTime('1',  '2',  '3')      // passe
-->hasTime(1,    2,    3)        // passe
-;
-
-.. _dateTimeHasTimezone:
+.. _date-time-has-timezone:
 
 hasTimezone
 ^^^^^^^^^^^
@@ -1336,14 +1336,14 @@ hasTimezone
 
 .. code-block:: php
 
-$dt = new DateTime();
+   $dt = new DateTime();
+   
+   $this
+       ->dateTime($dt)
+           ->hasTimezone('Europe/Paris')
+   ;
 
-$this
-->dateTime($dt)
-->hasTimezone('Europe/Paris')
-;
-
-.. _dateTimeHasYear:
+.. _date-time-has-year:
 
 hasYear
 ^^^^^^^
@@ -1352,76 +1352,76 @@ hasYear
 
 .. code-block:: php
 
-$dt = new DateTime('1981-02-13');
+   $dt = new DateTime('1981-02-13');
+   
+   $this
+       ->dateTime($dt)
+           ->hasYear(1981)     // passe
+   ;
 
-$this
-->dateTime($dt)
-->hasYear(1981)     // passe
-;
-
-.. _dateTimeIsCloneOf:
+.. _date-time-is-clone-of:
 
 isCloneOf
 ^^^^^^^^^
 
-{{{inheritance
-``isCloneOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <objectiscloneof>`
-}}}
+.. tip::
+   ``isCloneOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <object-is-clone-of>`
 
-.. _dateTimeIsEqualTo:
+
+.. _date-time-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <objectisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <object-is-equal-to>`
 
-.. _datTimeIsIdenticalTo:
+
+.. _dat-time-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <objectisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <object-is-identical-to>`
 
-.. _dateTimeIsInstanceOf:
+
+.. _date-time-is-instance-of:
 
 isInstanceOf
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <objectisinstanceof>`
-}}}
+.. tip::
+   ``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <object-is-instance-of>`
 
-.. _dateTimeIsNotEqualTo:
+
+.. _date-time-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <objectisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <object-is-not-equal-to>`
 
-.. _dateTimeIsNotIdenticalTo:
+
+.. _date-time-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <objectisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>`
 
 
 
-.. _mysqldatetime:
+
+.. _mysql-date-time:
 
 mysqlDateTime
 ~~~~~~~~~~~~~
@@ -1432,169 +1432,169 @@ Les dates doivent utiliser un format compatible avec MySQL et de nombreux autre 
 
 Si vous essayez de tester une variable qui n’est pas un objet ``DateTime`` (ou une classe qui l’étend) avec cette assertion, cela échouera.
 
-.. _mysqlDateTimeHasDate:
+.. _mysql-date-time-has-date:
 
 hasDate
 ^^^^^^^
 
-{{{inheritance
-``hasDate`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasDate`` <datetimehasdate>`
-}}}
+.. tip::
+   ``hasDate`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasDate`` <date-time-has-date>`
 
-.. _mysqlDateTimeHasDateAndTime:
+
+.. _mysql-date-time-has-date-and-time:
 
 hasDateAndTime
 ^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasDateAndTime`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasDateAndTime`` <datetimehasdateandtime>`
-}}}
+.. tip::
+   ``hasDateAndTime`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasDateAndTime`` <date-time-has-date-and-time>`
 
-.. _mysqlDateTimeHasDay:
+
+.. _mysql-date-time-has-day:
 
 hasDay
 ^^^^^^
 
-{{{inheritance
-``hasDay`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasDay`` <datetimehasday>`
-}}}
+.. tip::
+   ``hasDay`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasDay`` <date-time-has-day>`
 
-.. _mysqlDateTimeHasHours:
+
+.. _mysql-date-time-has-hours:
 
 hasHours
 ^^^^^^^^
 
-{{{inheritance
-``hasHours`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasHours`` <datetimehashours>`
-}}}
+.. tip::
+   ``hasHours`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasHours`` <date-time-has-hours>`
 
-.. _mysqlDateTimeHasMinutes:
+
+.. _mysql-date-time-has-minutes:
 
 hasMinutes
 ^^^^^^^^^^
 
-{{{inheritance
-``hasMinutes`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasMinutes`` <datetimehasminutes>`
-}}}
+.. tip::
+   ``hasMinutes`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasMinutes`` <date-time-has-minutes>`
 
-.. _mysqlDateTimeHasMonth:
+
+.. _mysql-date-time-has-month:
 
 hasMonth
 ^^^^^^^^
 
-{{{inheritance
-``hasMonth`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasMonth`` <datetimehasmonth>`
-}}}
+.. tip::
+   ``hasMonth`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasMonth`` <date-time-has-month>`
 
-.. _mysqlDateTimeHasSeconds:
+
+.. _mysql-date-time-has-seconds:
 
 hasSeconds
 ^^^^^^^^^^
 
-{{{inheritance
-``hasSeconds`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasSeconds`` <datetimehasseconds>`
-}}}
+.. tip::
+   ``hasSeconds`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasSeconds`` <date-time-has-seconds>`
 
-.. _mysqlDateTimeHasTime:
+
+.. _mysql-date-time-has-time:
 
 hasTime
 ^^^^^^^
 
-{{{inheritance
-``hasTime`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasTime`` <datetimehastime>`
-}}}
+.. tip::
+   ``hasTime`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasTime`` <date-time-has-time>`
 
-.. _mysqlDateTimeHasTimezone:
+
+.. _mysql-date-time-has-timezone:
 
 hasTimezone
 ^^^^^^^^^^^
 
-{{{inheritance
-``hasTimezone`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasTimezone`` <datetimehastimezone>`
-}}}
+.. tip::
+   ``hasTimezone`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasTimezone`` <date-time-has-timezone>`
 
-.. _mysqlDateTimeHasYear:
+
+.. _mysql-date-time-has-year:
 
 hasYear
 ^^^^^^^
 
-{{{inheritance
-``hasYear`` est une méthode héritée de l’asserter ``dateTime``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasYear`` <datetimehastimezone>`
-}}}
+.. tip::
+   ``hasYear`` est une méthode héritée de l’asserter ``dateTime``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```dateTime::hasYear`` <date-time-has-timezone>`
 
-.. _mysqlDateTimeIsCloneOf:
+
+.. _mysql-date-time-is-clone-of:
 
 isCloneOf
 ^^^^^^^^^
 
-{{{inheritance
-``isCloneOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <objectiscloneof>`
-}}}
+.. tip::
+   ``isCloneOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <object-is-clone-of>`
 
-.. _mysqlDateTimeIsEqualTo:
+
+.. _mysql-date-time-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <objectisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <object-is-equal-to>`
 
-.. _mysqlDateTimeIsIdenticalTo:
+
+.. _mysql-date-time-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <objectisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <object-is-identical-to>`
 
-.. _mysqlDateTimeIsInstanceOf:
+
+.. _mysql-date-time-is-instance-of:
 
 isInstanceOf
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <objectisinstanceof>`
-}}}
+.. tip::
+   ``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <object-is-instance-of>`
 
-.. _mysqlDateTimeIsNotEqualTo:
+
+.. _mysql-date-time-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <objectisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <object-is-not-equal-to>`
 
-.. _mysqlDateTimeIsNotIdenticalTo:
+
+.. _mysql-date-time-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <objectisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>`
 
 
 
-.. _exception:
+
+.. _exception-anchor:
 
 exception
 ~~~~~~~~~
@@ -1603,20 +1603,20 @@ C’est l’assertion dédiée aux exceptions.
 
 .. code-block:: php
 
-$this
-->exception(
-function() use($myObject) {
-// ce code lève une exception: throw new \Exception;
-$myObject->doOneThing('wrongParameter');
-}
-)
-;
+   $this
+       ->exception(
+           function() use($myObject) {
+               // ce code lève une exception: throw new \Exception;
+               $myObject->doOneThing('wrongParameter');
+           }
+       )
+   ;
 
 .. note::
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
 
 
-.. _hascode:
+.. _has-code:
 
 hasCode
 ^^^^^^^
@@ -1625,17 +1625,17 @@ hasCode
 
 .. code-block:: php
 
-$this
-->exception(
-function() use($myObject) {
-// ce code lève une exception: throw new \Exception('Message', 42);
-$myObject->doOneThing('wrongParameter');
-}
-)
-->hasCode(42)
-;
+   $this
+       ->exception(
+           function() use($myObject) {
+               // ce code lève une exception: throw new \Exception('Message', 42);
+               $myObject->doOneThing('wrongParameter');
+           }
+       )
+           ->hasCode(42)
+   ;
 
-.. _hasdefaultcode:
+.. _has-default-code:
 
 hasDefaultCode
 ^^^^^^^^^^^^^^
@@ -1644,21 +1644,21 @@ hasDefaultCode
 
 .. code-block:: php
 
-$this
-->exception(
-function() use($myObject) {
-// ce code lève une exception: throw new \Exception;
-$myObject->doOneThing('wrongParameter');
-}
-)
-->hasDefaultCode()
-;
+   $this
+       ->exception(
+           function() use($myObject) {
+               // ce code lève une exception: throw new \Exception;
+               $myObject->doOneThing('wrongParameter');
+           }
+       )
+           ->hasDefaultCode()
+   ;
 
 .. note::
-``hasDefaultCode`` est équivalent à ``hasCode(0)``.
+   ``hasDefaultCode`` est équivalent à ``hasCode(0)``.
 
 
-.. _hasmessage:
+.. _has-message:
 
 hasMessage
 ^^^^^^^^^^
@@ -1667,18 +1667,18 @@ hasMessage
 
 .. code-block:: php
 
-$this
-->exception(
-function() use($myObject) {
-// ce code lève une exception: throw new \Exception('Message');
-$myObject->doOneThing('wrongParameter');
-}
-)
-->hasMessage('Message')     // passe
-->hasMessage('message')     // échoue
-;
+   $this
+       ->exception(
+           function() use($myObject) {
+               // ce code lève une exception: throw new \Exception('Message');
+               $myObject->doOneThing('wrongParameter');
+           }
+       )
+           ->hasMessage('Message')     // passe
+           ->hasMessage('message')     // échoue
+   ;
 
-.. _hasnestedexception:
+.. _has-nested-exception:
 
 hasNestedException
 ^^^^^^^^^^^^^^^^^^
@@ -1687,118 +1687,118 @@ hasNestedException
 
 .. code-block:: php
 
-$this
-->exception(
-function() use($myObject) {
-// ce code lève une exception: throw new \Exception('Message');
-$myObject->doOneThing('wrongParameter');
-}
-)
-->hasNestedException()      // échoue
+   $this
+       ->exception(
+           function() use($myObject) {
+               // ce code lève une exception: throw new \Exception('Message');
+               $myObject->doOneThing('wrongParameter');
+           }
+       )
+           ->hasNestedException()      // échoue
+   
+       ->exception(
+           function() use($myObject) {
+               try {
+                   // ce code lève une exception: throw new \FirstException('Message 1', 42);
+                   $myObject->doOneThing('wrongParameter');
+               }
+               // ... l'exception est attrapée...
+               catch(\FirstException $e) {
+                   // ... puis relancée, encapsulée dans une seconde exception
+                   throw new \SecondException('Message 2', 24, $e);
+               }
+           }
+       )
+           ->isInstanceOf('\FirstException')           // échoue
+           ->isInstanceOf('\SecondException')          // passe
+   
+           ->hasNestedException()                      // passe
+           ->hasNestedException(new \FirstException)   // passe
+           ->hasNestedException(new \SecondException)  // échoue
+   ;
 
-->exception(
-function() use($myObject) {
-try {
-// ce code lève une exception: throw new \FirstException('Message 1', 42);
-$myObject->doOneThing('wrongParameter');
-}
-// ... l'exception est attrapée...
-catch(\FirstException $e) {
-// ... puis relancée, encapsulée dans une seconde exception
-throw new \SecondException('Message 2', 24, $e);
-}
-}
-)
-->isInstanceOf('\FirstException')           // échoue
-->isInstanceOf('\SecondException')          // passe
-
-->hasNestedException()                      // passe
-->hasNestedException(new \FirstException)   // passe
-->hasNestedException(new \SecondException)  // échoue
-;
-
-.. _exceptionIsCloneOf:
+.. _exception-is-clone-of:
 
 isCloneOf
 ^^^^^^^^^
 
-{{{inheritance
-``isCloneOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <objectiscloneof>`
-}}}
+.. tip::
+   ``isCloneOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <object-is-clone-of>`
 
-.. _exceptionIsEqualTo:
+
+.. _exception-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <objectisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <object-is-equal-to>`
 
-.. _exceptionIsIdenticalTo:
+
+.. _exception-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <objectisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <object-is-identical-to>`
 
-.. _exceptionIsInstanceOf:
+
+.. _exception-is-instance-of:
 
 isInstanceOf
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <objectisinstanceof>`
-}}}
+.. tip::
+   ``isInstanceOf`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <object-is-instance-of>`
 
-.. _exceptionIsNotEqualTo:
+
+.. _exception-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <objectisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <object-is-not-equal-to>`
 
-.. _exceptionIsNotIdenticalTo:
+
+.. _exception-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <objectisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``object``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>`
 
-.. _message:
+
+.. _message-anchor:
 
 message
 ^^^^^^^
 
-``message`` vous permet de récupérer un asserter de type ``:ref:`string <string>``` contenant le message de l'exception testée.
+``message`` vous permet de récupérer un asserter de type :ref:`string <string-anchor>` contenant le message de l'exception testée.
 
 .. code-block:: php
 
-$this
-->exception(
-function() {
-throw new \Exception('My custom message to test');
-}
-)
-->message
-->contains('message')
-;
+   $this
+       ->exception(
+           function() {
+               throw new \Exception('My custom message to test');
+           }
+       )
+           ->message
+               ->contains('message')
+   ;
 
 
 
-.. _array:
+.. _array-anchor:
 
 array
 ~~~~~
@@ -1806,12 +1806,12 @@ array
 C’est l’assertion dédiée aux tableaux.
 
 .. note::
-``array`` étant un mot réservé en PHP, il n’a pas été possible de créer une assertion ``array``. Elle s’appelle donc ``phpArray`` et un alias ``array`` a été créé. Vous pourrez donc rencontrer des ``->phpArray()`` ou des ``->array()``.
+   ``array`` étant un mot réservé en PHP, il n’a pas été possible de créer une assertion ``array``. Elle s’appelle donc ``phpArray`` et un alias ``array`` a été créé. Vous pourrez donc rencontrer des ``->phpArray()`` ou des ``->array()``.
 
 
 Il est conseillé d’utiliser exclusivement ``->array()`` afin de simplifier la lecture des tests.
 
-.. _arrayContains:
+.. _array-contains:
 
 contains
 ^^^^^^^^
@@ -1820,25 +1820,25 @@ contains
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($fibonacci)
-->contains('1')     // passe
-->contains(1)       // passe, ne vérifie pas...
-->contains('2')     // ... le type de la donnée
-->contains(10)      // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($fibonacci)
+           ->contains('1')     // passe
+           ->contains(1)       // passe, ne vérifie pas...
+           ->contains('2')     // ... le type de la donnée
+           ->contains(10)      // échoue
+   ;
 
 .. note::
-``contains`` ne fait pas de recherche récursive.
+   ``contains`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``contains`` ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez ``:ref:`strictlyContains <strictlycontains>```.
+   ``contains`` ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyContains <strictly-contains>`.
 
 
-.. _containsvalues:
+.. _contains-values:
 
 containsValues
 ^^^^^^^^^^^^^^
@@ -1847,24 +1847,24 @@ containsValues
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($array)
-->containsValues(array(1, 2, 3))        // passe
-->containsValues(array('5', '8', '13')) // passe
-->containsValues(array(0, 1, 2))        // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($array)
+           ->containsValues(array(1, 2, 3))        // passe
+           ->containsValues(array('5', '8', '13')) // passe
+           ->containsValues(array(0, 1, 2))        // échoue
+   ;
 
 .. note::
-``containsValues`` ne fait pas de recherche récursive.
+   ``containsValues`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``containsValues`` ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez ``:ref:`strictlyContainsValues <strictlycontainsvalues>```.
+   ``containsValues`` ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyContainsValues <strictly-contains-values>`.
 
 
-.. _haskey:
+.. _has-key:
 
 hasKey
 ^^^^^^
@@ -1873,33 +1873,33 @@ hasKey
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-$atoum     = array(
-'name'        => 'atoum',
-'owner'       => 'mageekguy',
-);
-
-$this
-->array($fibonacci)
-->hasKey(0)         // passe
-->hasKey(1)         // passe
-->hasKey('1')       // passe
-->hasKey(10)        // échoue
-
-->array($atoum)
-->hasKey('name')    // passe
-->hasKey('price')   // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   $atoum     = array(
+       'name'        => 'atoum',
+       'owner'       => 'mageekguy',
+   );
+   
+   $this
+       ->array($fibonacci)
+           ->hasKey(0)         // passe
+           ->hasKey(1)         // passe
+           ->hasKey('1')       // passe
+           ->hasKey(10)        // échoue
+   
+       ->array($atoum)
+           ->hasKey('name')    // passe
+           ->hasKey('price')   // échoue
+   ;
 
 .. note::
-``hasKey`` ne fait pas de recherche récursive.
+   ``hasKey`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``hasKey`` ne teste pas le type des clefs.
+   ``hasKey`` ne teste pas le type des clefs.
 
 
-.. _haskeys:
+.. _has-keys:
 
 hasKeys
 ^^^^^^^
@@ -1908,33 +1908,33 @@ hasKeys
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-$atoum     = array(
-'name'        => 'atoum',
-'owner'       => 'mageekguy',
-);
-
-$this
-->array($fibonacci)
-->hasKeys(array(0, 2, 4))           // passe
-->hasKeys(array('0', 2))            // passe
-->hasKeys(array('4', 0, 3))         // passe
-->hasKeys(array(0, 3, 10))          // échoue
-
-->array($atoum)
-->hasKeys(array('name', 'owner'))   // passe
-->hasKeys(array('name', 'price'))   // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   $atoum     = array(
+       'name'        => 'atoum',
+       'owner'       => 'mageekguy',
+   );
+   
+   $this
+       ->array($fibonacci)
+           ->hasKeys(array(0, 2, 4))           // passe
+           ->hasKeys(array('0', 2))            // passe
+           ->hasKeys(array('4', 0, 3))         // passe
+           ->hasKeys(array(0, 3, 10))          // échoue
+   
+       ->array($atoum)
+           ->hasKeys(array('name', 'owner'))   // passe
+           ->hasKeys(array('name', 'price'))   // échoue
+   ;
 
 .. note::
-``hasKeys`` ne fait pas de recherche récursive.
+   ``hasKeys`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``hasKeys`` ne teste pas le type des clefs.
+   ``hasKeys`` ne teste pas le type des clefs.
 
 
-.. _arrayHasSize:
+.. _array-has-size:
 
 hasSize
 ^^^^^^^
@@ -1943,19 +1943,19 @@ hasSize
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($fibonacci)
-->hasSize(7)        // passe
-->hasSize(10)       // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($fibonacci)
+           ->hasSize(7)        // passe
+           ->hasSize(10)       // échoue
+   ;
 
 .. note::
-``hasSize`` n’est pas récursif.
+   ``hasSize`` n’est pas récursif.
 
 
-.. _arrayIsEmpty:
+.. _array-is-empty:
 
 isEmpty
 ^^^^^^^
@@ -1964,38 +1964,38 @@ isEmpty
 
 .. code-block:: php
 
-$emptyArray    = array();
-$nonEmptyArray = array(null, null);
+   $emptyArray    = array();
+   $nonEmptyArray = array(null, null);
+   
+   $this
+       ->array($emptyArray)
+           ->isEmpty()         // passe
+   
+       ->array($nonEmptyArray)
+           ->isEmpty()         // échoue
+   ;
 
-$this
-->array($emptyArray)
-->isEmpty()         // passe
-
-->array($nonEmptyArray)
-->isEmpty()         // échoue
-;
-
-.. _arrayIsEqualTo:
+.. _array-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _arrayIsIdenticalTo:
+
+.. _array-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _arrayIsNotEmpty:
+
+.. _array-is-not-empty:
 
 isNotEmpty
 ^^^^^^^^^^
@@ -2004,63 +2004,63 @@ isNotEmpty
 
 .. code-block:: php
 
-$emptyArray    = array();
-$nonEmptyArray = array(null, null);
+   $emptyArray    = array();
+   $nonEmptyArray = array(null, null);
+   
+   $this
+       ->array($emptyArray)
+           ->isNotEmpty()      // échoue
+   
+       ->array($nonEmptyArray)
+           ->isNotEmpty()      // passe
+   ;
 
-$this
-->array($emptyArray)
-->isNotEmpty()      // échoue
-
-->array($nonEmptyArray)
-->isNotEmpty()      // passe
-;
-
-.. _arrayIsNotEqualTo:
+.. _array-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _arrayIsNotIdenticalTo:
+
+.. _array-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _keys:
+
+.. _keys-anchor:
 
 keys
 ^^^^
 
-``keys`` vous permet de récupérer un asserter de type ``:ref:`array <array>``` contenant les clefs du tableau testé.
+``keys`` vous permet de récupérer un asserter de type :ref:`array <array-anchor>` contenant les clefs du tableau testé.
 
 .. code-block:: php
 
-$atoum = array(
-'name'  => 'atoum',
-'owner' => 'mageekguy',
-);
+   $atoum = array(
+       'name'  => 'atoum',
+       'owner' => 'mageekguy',
+   );
+   
+   $this
+       ->array($atoum)
+           ->keys
+               ->isEqualTo(
+                   array(
+                       'name',
+                       'owner',
+                   )
+               )
+   ;
 
-$this
-->array($atoum)
-->keys
-->isEqualTo(
-array(
-'name',
-'owner',
-)
-)
-;
-
-.. _arrayNotContains:
+.. _array-not-contains:
 
 notContains
 ^^^^^^^^^^^
@@ -2069,24 +2069,24 @@ notContains
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($fibonacci)
-->notContains(null)         // passe
-->notContains(1)            // échoue
-->notContains(10)           // passe
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($fibonacci)
+           ->notContains(null)         // passe
+           ->notContains(1)            // échoue
+           ->notContains(10)           // passe
+   ;
 
 .. note::
-``notContains`` ne fait pas de recherche récursive.
+   ``notContains`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``notContains`` ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez ``:ref:`strictlyNotContains <strictlynotcontains>```.
+   ``notContains`` ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyNotContains <strictly-not-contains>`.
 
 
-.. _notcontainsvalues:
+.. _not-contains-values:
 
 notContainsValues
 ^^^^^^^^^^^^^^^^^
@@ -2095,24 +2095,24 @@ notContainsValues
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($array)
-->notContainsValues(array(1, 4, 10))    // échoue
-->notContainsValues(array(4, 10, 34))   // passe
-->notContainsValues(array(1, '2', 3))   // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($array)
+           ->notContainsValues(array(1, 4, 10))    // échoue
+           ->notContainsValues(array(4, 10, 34))   // passe
+           ->notContainsValues(array(1, '2', 3))   // échoue
+   ;
 
 .. note::
-``notContainsValues`` ne fait pas de recherche récursive.
+   ``notContainsValues`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``notContainsValues`` ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez ``:ref:`strictlyNotContainsValues <strictlynotcontainsvalues>```.
+   ``notContainsValues`` ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyNotContainsValues <strictly-not-contains-values>`.
 
 
-.. _nothaskey:
+.. _not-has-key:
 
 notHasKey
 ^^^^^^^^^
@@ -2121,33 +2121,33 @@ notHasKey
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-$atoum     = array(
-'name'  => 'atoum',
-'owner' => 'mageekguy',
-);
-
-$this
-->array($fibonacci)
-->notHasKey(0)          // échoue
-->notHasKey(1)          // échoue
-->notHasKey('1')        // échoue
-->notHasKey(10)         // passe
-
-->array($atoum)
-->notHasKey('name')     // échoue
-->notHasKey('price')    // passe
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   $atoum     = array(
+       'name'  => 'atoum',
+       'owner' => 'mageekguy',
+   );
+   
+   $this
+       ->array($fibonacci)
+           ->notHasKey(0)          // échoue
+           ->notHasKey(1)          // échoue
+           ->notHasKey('1')        // échoue
+           ->notHasKey(10)         // passe
+   
+       ->array($atoum)
+           ->notHasKey('name')     // échoue
+           ->notHasKey('price')    // passe
+   ;
 
 .. note::
-``notHasKey`` ne fait pas de recherche récursive.
+   ``notHasKey`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``notHasKey`` ne teste pas le type des clefs.
+   ``notHasKey`` ne teste pas le type des clefs.
 
 
-.. _nothaskeys:
+.. _not-has-keys:
 
 notHasKeys
 ^^^^^^^^^^
@@ -2156,50 +2156,50 @@ notHasKeys
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-$atoum     = array(
-'name'        => 'atoum',
-'owner'       => 'mageekguy',
-);
-
-$this
-->array($fibonacci)
-->notHasKeys(array(0, 2, 4))            // échoue
-->notHasKeys(array('0', 2))             // échoue
-->notHasKeys(array('4', 0, 3))          // échoue
-->notHasKeys(array(10, 11, 12))         // passe
-
-->array($atoum)
-->notHasKeys(array('name', 'owner'))    // échoue
-->notHasKeys(array('foo', 'price'))     // passe
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   $atoum     = array(
+       'name'        => 'atoum',
+       'owner'       => 'mageekguy',
+   );
+   
+   $this
+       ->array($fibonacci)
+           ->notHasKeys(array(0, 2, 4))            // échoue
+           ->notHasKeys(array('0', 2))             // échoue
+           ->notHasKeys(array('4', 0, 3))          // échoue
+           ->notHasKeys(array(10, 11, 12))         // passe
+   
+       ->array($atoum)
+           ->notHasKeys(array('name', 'owner'))    // échoue
+           ->notHasKeys(array('foo', 'price'))     // passe
+   ;
 
 .. note::
-``notHasKeys`` ne fait pas de recherche récursive.
+   ``notHasKeys`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``notHasKeys`` ne teste pas le type des clefs.
+   ``notHasKeys`` ne teste pas le type des clefs.
 
 
-.. _size:
+.. _size-anchor:
 
 size
 ^^^^
 
-``size`` vous permet de récupérer un asserter de type ``:ref:`integer <integer>``` contenant la taille du tableau testé.
+``size`` vous permet de récupérer un asserter de type :ref:`integer <integer-anchor>` contenant la taille du tableau testé.
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($fibonacci)
+           ->size
+               ->isGreaterThan(5)
+   ;
 
-$this
-->array($fibonacci)
-->size
-->isGreaterThan(5)
-;
-
-.. _strictlycontains:
+.. _strictly-contains:
 
 strictlyContains
 ^^^^^^^^^^^^^^^^
@@ -2208,26 +2208,26 @@ strictlyContains
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($fibonacci)
-->strictlyContains('1')     // passe
-->strictlyContains(1)       // échoue
-->strictlyContains('2')     // échoue
-->strictlyContains(2)       // passe
-->strictlyContains(10)      // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($fibonacci)
+           ->strictlyContains('1')     // passe
+           ->strictlyContains(1)       // échoue
+           ->strictlyContains('2')     // échoue
+           ->strictlyContains(2)       // passe
+           ->strictlyContains(10)      // échoue
+   ;
 
 .. note::
-``strictlyContains`` ne fait pas de recherche récursive.
+   ``strictlyContains`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``strictlyContains`` teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez ``:ref:`contains <arraycontains>```.
+   ``strictlyContains`` teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`contains <array-contains>`.
 
 
-.. _strictlycontainsvalues:
+.. _strictly-contains-values:
 
 strictlyContainsValues
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -2236,26 +2236,26 @@ strictlyContainsValues
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($array)
-->strictlyContainsValues(array('1', 2, '3'))    // passe
-->strictlyContainsValues(array(1, 2, 3))        // échoue
-->strictlyContainsValues(array(5, '8', 13))     // passe
-->strictlyContainsValues(array('5', '8', '13')) // échoue
-->strictlyContainsValues(array(0, '1', 2))      // échoue
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($array)
+           ->strictlyContainsValues(array('1', 2, '3'))    // passe
+           ->strictlyContainsValues(array(1, 2, 3))        // échoue
+           ->strictlyContainsValues(array(5, '8', 13))     // passe
+           ->strictlyContainsValues(array('5', '8', '13')) // échoue
+           ->strictlyContainsValues(array(0, '1', 2))      // échoue
+   ;
 
 .. note::
-``strictlyContainsValues`` ne fait pas de recherche récursive.
+   ``strictlyContainsValues`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``strictlyContainsValues`` teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez ``:ref:`containsValues <containsvalues>```.
+   ``strictlyContainsValues`` teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`containsValues <contains-values>`.
 
 
-.. _strictlynotcontains:
+.. _strictly-not-contains:
 
 strictlyNotContains
 ^^^^^^^^^^^^^^^^^^^
@@ -2264,25 +2264,25 @@ strictlyNotContains
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($fibonacci)
-->strictlyNotContains(null)         // passe
-->strictlyNotContains('1')          // échoue
-->strictlyNotContains(1)            // passe
-->strictlyNotContains(10)           // passe
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($fibonacci)
+           ->strictlyNotContains(null)         // passe
+           ->strictlyNotContains('1')          // échoue
+           ->strictlyNotContains(1)            // passe
+           ->strictlyNotContains(10)           // passe
+   ;
 
 .. note::
-``strictlyNotContains`` ne fait pas de recherche récursive.
+   ``strictlyNotContains`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``strictlyNotContains`` teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez ``:ref:`notContains <arraynotcontains>```.
+   ``strictlyNotContains`` teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`notContains <array-not-contains>`.
 
 
-.. _strictlynotcontainsvalues:
+.. _strictly-not-contains-values:
 
 strictlyNotContainsValues
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2291,35 +2291,35 @@ strictlyNotContainsValues
 
 .. code-block:: php
 
-$fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-
-$this
-->array($array)
-->strictlyNotContainsValues(array('1', 4, 10))  // échoue
-->strictlyNotContainsValues(array(1, 4, 10))    // passe
-->strictlyNotContainsValues(array(4, 10, 34))   // passe
-->strictlyNotContainsValues(array('1', 2, '3')) // échoue
-->strictlyNotContainsValues(array(1, '2', 3))   // passe
-;
+   $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
+   
+   $this
+       ->array($array)
+           ->strictlyNotContainsValues(array('1', 4, 10))  // échoue
+           ->strictlyNotContainsValues(array(1, 4, 10))    // passe
+           ->strictlyNotContainsValues(array(4, 10, 34))   // passe
+           ->strictlyNotContainsValues(array('1', 2, '3')) // échoue
+           ->strictlyNotContainsValues(array(1, '2', 3))   // passe
+   ;
 
 .. note::
-``strictlyNotContainsValues`` ne fait pas de recherche récursive.
+   ``strictlyNotContainsValues`` ne fait pas de recherche récursive.
 
 
 .. warning::
-``strictlyNotContainsValues`` teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez ``:ref:`notContainsValues <notcontainsvalues>```.
+   ``strictlyNotContainsValues`` teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`notContainsValues <not-contains-values>`.
 
 
 
 
-.. _string:
+.. _string-anchor:
 
 string
 ~~~~~~
 
 C’est l’assertion dédiée aux chaînes de caractères.
 
-.. _stringContains:
+.. _string-contains:
 
 contains
 ^^^^^^^^
@@ -2328,16 +2328,16 @@ contains
 
 .. code-block:: php
 
-$string = 'Hello world';
+   $string = 'Hello world';
+   
+   $this
+       ->string($string)
+           ->contains('ll')    // passe
+           ->contains(' ')     // passe
+           ->contains('php')   // échoue
+   ;
 
-$this
-->string($string)
-->contains('ll')    // passe
-->contains(' ')     // passe
-->contains('php')   // échoue
-;
-
-.. _stringHasLength:
+.. _string-has-length:
 
 hasLength
 ^^^^^^^^^
@@ -2346,15 +2346,15 @@ hasLength
 
 .. code-block:: php
 
-$string = 'Hello world';
+   $string = 'Hello world';
+   
+   $this
+       ->string($string)
+           ->hasLength(11)     // passe
+           ->hasLength(20)     // échoue
+   ;
 
-$this
-->string($string)
-->hasLength(11)     // passe
-->hasLength(20)     // échoue
-;
-
-.. _stringHasLengthGreaterThan:
+.. _string-has-length-greater-than:
 
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
@@ -2363,15 +2363,15 @@ hasLengthGreaterThan
 
 .. code-block:: php
 
-$string = 'Hello world';
+   $string = 'Hello world';
+   
+   $this
+       ->string($string)
+           ->hasLengthGreaterThan(10)     // passe
+           ->hasLengthGreaterThan(20)     // échoue
+   ;
 
-$this
-->string($string)
-->hasLengthGreaterThan(10)     // passe
-->hasLengthGreaterThan(20)     // échoue
-;
-
-.. _stringHasLengthLessThan:
+.. _string-has-length-less-than:
 
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
@@ -2380,15 +2380,15 @@ hasLengthLessThan
 
 .. code-block:: php
 
-$string = 'Hello world';
+   $string = 'Hello world';
+   
+   $this
+       ->string($string)
+           ->hasLengthLessThan(20)     // passe
+           ->hasLengthLessThan(10)     // échoue
+   ;
 
-$this
-->string($string)
-->hasLengthLessThan(20)     // passe
-->hasLengthLessThan(10)     // échoue
-;
-
-.. _stringIsEmpty:
+.. _string-is-empty:
 
 isEmpty
 ^^^^^^^
@@ -2397,28 +2397,28 @@ isEmpty
 
 .. code-block:: php
 
-$emptyString    = '';
-$nonEmptyString = 'atoum';
+   $emptyString    = '';
+   $nonEmptyString = 'atoum';
+   
+   $this
+       ->string($emptyString)
+           ->isEmpty()             // passe
+   
+       ->string($nonEmptyString)
+           ->isEmpty()             // échoue
+   ;
 
-$this
-->string($emptyString)
-->isEmpty()             // passe
-
-->string($nonEmptyString)
-->isEmpty()             // échoue
-;
-
-.. _stringIsEqualTo:
+.. _string-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _stringIsEqualToContentsOfFile:
+
+.. _string-is-equal-to-contents-of-file:
 
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -2427,26 +2427,26 @@ isEqualToContentsOfFile
 
 .. code-block:: php
 
-$this
-->string($string)
-->isEqualToContentsOfFile('/path/to/file')
-;
+   $this
+       ->string($string)
+           ->isEqualToContentsOfFile('/path/to/file')
+   ;
 
 .. note::
-si le fichier n’existe pas, le test échoue.
+   si le fichier n’existe pas, le test échoue.
 
 
-.. _stringIsIdenticalTo:
+.. _string-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _stringIsNotEmpty:
+
+.. _string-is-not-empty:
 
 isNotEmpty
 ^^^^^^^^^^
@@ -2455,55 +2455,55 @@ isNotEmpty
 
 .. code-block:: php
 
-$emptyString    = '';
-$nonEmptyString = 'atoum';
+   $emptyString    = '';
+   $nonEmptyString = 'atoum';
+   
+   $this
+       ->string($emptyString)
+           ->isNotEmpty()          // échoue
+   
+       ->string($nonEmptyString)
+           ->isNotEmpty()          // passe
+   ;
 
-$this
-->string($emptyString)
-->isNotEmpty()          // échoue
-
-->string($nonEmptyString)
-->isNotEmpty()          // passe
-;
-
-.. _stringIsNotEqualTo:
+.. _string-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _stringIsNotIdenticalTo:
+
+.. _string-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _length:
+
+.. _length-anchor:
 
 length
 ^^^^^^
 
-``length`` vous permet de récupérer un asserter de type ``:ref:`integer <integer>``` contenant la taille de la chaîne de caractères testée.
+``length`` vous permet de récupérer un asserter de type :ref:`integer <integer-anchor>` contenant la taille de la chaîne de caractères testée.
 
 .. code-block:: php
 
-$string = 'atoum'
+   $string = 'atoum'
+   
+   $this
+       ->string($string)
+           ->length
+               ->isGreaterThanOrEqualTo(5)
+   ;
 
-$this
-->string($string)
-->length
-->isGreaterThanOrEqualTo(5)
-;
-
-.. _stringMatch:
+.. _string-match:
 
 match
 ^^^^^
@@ -2512,18 +2512,18 @@ match
 
 .. code-block:: php
 
-$phone = '0102030405';
-$vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+   $phone = '0102030405';
+   $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+   
+   $this
+       ->string($phone)
+           ->match('#^0[1-9]\d{8}$#')
+   
+       ->string($vdm)
+           ->match("#^Aujourd'hui.*VDM$#")
+   ;
 
-$this
-->string($phone)
-->match('#^0[1-9]\d{8}$#')
-
-->string($vdm)
-->match("#^Aujourd'hui.*VDM$#")
-;
-
-.. _stringNotContains:
+.. _string-not-contains:
 
 notContains
 ^^^^^^^^^^^
@@ -2532,19 +2532,19 @@ notContains
 
 .. code-block:: php
 
-$string = 'Hello world';
+   $string = 'Hello world';
+   
+   $this
+       ->string($string)
+           ->notContains('php')   // passe
+           ->notContains(';')     // passe
+           ->notContains('ll')    // échoue
+           ->notContains(' ')     // échoue
+   ;
 
-$this
-->string($string)
-->notContains('php')   // passe
-->notContains(';')     // passe
-->notContains('ll')    // échoue
-->notContains(' ')     // échoue
-;
 
 
-
-.. _casttostring:
+.. _cast-to-string:
 
 castToString
 ~~~~~~~~~~~~
@@ -2553,199 +2553,199 @@ C’est l’assertion dédiée aux tests sur le transtypage d’objets en chaîn
 
 .. code-block:: php
 
-class AtoumVersion {
-private $version = '1.0';
+   class AtoumVersion {
+       private $version = '1.0';
+   
+       public function __toString() {
+           return 'atoum v' . $this->version;
+       }
+   }
+   
+   $this
+       ->castToString(new AtoumVersion())
+           ->isEqualTo('atoum v1.0')
+   ;
 
-public function __toString() {
-return 'atoum v' . $this->version;
-}
-}
-
-$this
-->castToString(new AtoumVersion())
-->isEqualTo('atoum v1.0')
-;
-
-.. _castToStringContains:
+.. _cast-to-string-contains:
 
 contains
 ^^^^^^^^
 
-{{{inheritance
-``contains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <stringcontains>`
-}}}
+.. tip::
+   ``contains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <string-contains>`
 
-.. _castToStringNotContains:
+
+.. _cast-to-string-not-contains:
 
 notContains
 ^^^^^^^^^^^
 
-{{{inheritance
-``notContains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <stringnotcontains>`
-}}}
+.. tip::
+   ``notContains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <string-not-contains>`
 
-.. _castToStringHasLength:
+
+.. _cast-to-string-has-length:
 
 hasLength
 ^^^^^^^^^
 
-{{{inheritance
-``hasLength`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLength`` <stringhaslength>`
-}}}
+.. tip::
+   ``hasLength`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLength`` <string-has-length>`
 
-.. _castToStringHasLengthGreaterThan:
+
+.. _cast-to-string-has-length-greater-than:
 
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasLengthGreaterThan`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthGreaterThan`` <stringhaslengthgreaterthan>`
-}}}
+.. tip::
+   ``hasLengthGreaterThan`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>`
 
-.. _castToStringHasLengthLessThan:
+
+.. _cast-to-string-has-length-less-than:
 
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasLengthLessThan`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthLessThan`` <stringhaslengthlessthan>`
-}}}
+.. tip::
+   ``hasLengthLessThan`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthLessThan`` <string-has-length-less-than>`
 
-.. _castToStringIsEmpty:
+
+.. _cast-to-string-is-empty:
 
 isEmpty
 ^^^^^^^
 
-{{{inheritance
-``isEmpty`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEmpty`` <stringisempty>`
-}}}
+.. tip::
+   ``isEmpty`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEmpty`` <string-is-empty>`
 
-.. _castToStringIsEqualTo:
+
+.. _cast-to-string-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _castToStringIsEqualToContentsOfFile:
+
+.. _cast-to-string-is-equal-to-contents-of-file:
 
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>`
-}}}
+.. tip::
+   ``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>`
 
-.. _castToStringIsIdenticalTo:
+
+.. _cast-to-string-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _castToStringIsNotEmpty:
+
+.. _cast-to-string-is-not-empty:
 
 isNotEmpty
 ^^^^^^^^^^
 
-{{{inheritance
-``isNotEmpty`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isNotEmpty`` <stringisnotempty>`
-}}}
+.. tip::
+   ``isNotEmpty`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isNotEmpty`` <string-is-not-empty>`
 
-.. _castToStringIsNotEqualTo:
+
+.. _cast-to-string-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _castToStringIsNotIdenticalTo:
+
+.. _cast-to-string-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _castToStringMatch:
+
+.. _cast-to-string-match:
 
 match
 ^^^^^
 
-{{{inheritance
-``match`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::match`` <stringmatch>`
-}}}
+.. tip::
+   ``match`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::match`` <string-match>`
 
 
 
-.. _hash:
+
+.. _hash-anchor:
 
 hash
 ~~~~
 
 C’est l’assertion dédiée aux tests sur les hashs (empreintes numériques).
 
-.. _hashContains:
+.. _hash-contains:
 
 contains
 ^^^^^^^^
 
-{{{inheritance
-``contains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <stringcontains>`
-}}}
+.. tip::
+   ``contains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <string-contains>`
 
-.. _hashIsEqualTo:
+
+.. _hash-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _hashIsEqualToContentsOfFile:
+
+.. _hash-is-equal-to-contents-of-file:
 
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>`
-}}}
+.. tip::
+   ``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>`
 
-.. _hashIsIdenticalTo:
+
+.. _hash-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _ismd5:
+
+.. _is-md5:
 
 isMd5
 ^^^^^
@@ -2754,37 +2754,37 @@ isMd5
 
 .. code-block:: php
 
-$hash    = hash('md5', 'atoum');
-$notHash = 'atoum';
+   $hash    = hash('md5', 'atoum');
+   $notHash = 'atoum';
+   
+   $this
+       ->hash($hash)
+           ->isMd5()       // passe
+       ->hash($notHash)
+           ->isMd5()       // échoue
+   ;
 
-$this
-->hash($hash)
-->isMd5()       // passe
-->hash($notHash)
-->isMd5()       // échoue
-;
-
-.. _hashIsNotEqualTo:
+.. _hash-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _hashIsNotIdenticalTo:
+
+.. _hash-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _issha1:
+
+.. _is-sha1:
 
 isSha1
 ^^^^^^
@@ -2793,17 +2793,17 @@ isSha1
 
 .. code-block:: php
 
-$hash    = hash('sha1', 'atoum');
-$notHash = 'atoum';
+   $hash    = hash('sha1', 'atoum');
+   $notHash = 'atoum';
+   
+   $this
+       ->hash($hash)
+           ->isSha1()      // passe
+       ->hash($notHash)
+           ->isSha1()      // échoue
+   ;
 
-$this
-->hash($hash)
-->isSha1()      // passe
-->hash($notHash)
-->isSha1()      // échoue
-;
-
-.. _issha256:
+.. _is-sha256:
 
 isSha256
 ^^^^^^^^
@@ -2812,17 +2812,17 @@ isSha256
 
 .. code-block:: php
 
-$hash    = hash('sha256', 'atoum');
-$notHash = 'atoum';
+   $hash    = hash('sha256', 'atoum');
+   $notHash = 'atoum';
+   
+   $this
+       ->hash($hash)
+           ->isSha256()    // passe
+       ->hash($notHash)
+           ->isSha256()    // échoue
+   ;
 
-$this
-->hash($hash)
-->isSha256()    // passe
-->hash($notHash)
-->isSha256()    // échoue
-;
-
-.. _issha512:
+.. _is-sha512:
 
 isSha512
 ^^^^^^^^
@@ -2831,29 +2831,29 @@ isSha512
 
 .. code-block:: php
 
-$hash    = hash('sha512', 'atoum');
-$notHash = 'atoum';
+   $hash    = hash('sha512', 'atoum');
+   $notHash = 'atoum';
+   
+   $this
+       ->hash($hash)
+           ->isSha512()    // passe
+       ->hash($notHash)
+           ->isSha512()    // échoue
+   ;
 
-$this
-->hash($hash)
-->isSha512()    // passe
-->hash($notHash)
-->isSha512()    // échoue
-;
-
-.. _hashNotContains:
+.. _hash-not-contains:
 
 notContains
 ^^^^^^^^^^^
 
-{{{inheritance
-``notContains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <stringnotcontains>`
-}}}
+.. tip::
+   ``notContains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <string-not-contains>`
 
 
 
-.. _output:
+
+.. _output-anchor:
 
 output
 ~~~~~~
@@ -2862,151 +2862,151 @@ C’est l’assertion dédiée aux tests sur les sorties, c’est-à-dire tout c
 
 .. code-block:: php
 
-$this
-->output(
-function() {
-echo 'Hello world';
-}
-)
-;
+   $this
+       ->output(
+           function() {
+               echo 'Hello world';
+           }
+       )
+   ;
 
 .. note::
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
 
 
-.. _outputContains:
+.. _output-contains:
 
 contains
 ^^^^^^^^
 
-{{{inheritance
-``contains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <stringcontains>`
-}}}
+.. tip::
+   ``contains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <string-contains>`
 
-.. _outputHasLength:
+
+.. _output-has-length:
 
 hasLength
 ^^^^^^^^^
 
-{{{inheritance
-``hasLength`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLength`` <stringhaslength>`
-}}}
+.. tip::
+   ``hasLength`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLength`` <string-has-length>`
 
-.. _outputHasLengthGreaterThan:
+
+.. _output-has-length-greater-than:
 
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasLengthGreaterThan`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthGreaterThan`` <stringhaslengthgreaterthan>`
-}}}
+.. tip::
+   ``hasLengthGreaterThan`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>`
 
-.. _outputHasLengthLessThan:
+
+.. _output-has-length-less-than:
 
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasLengthLessThan`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthLessThan`` <stringhaslengthlessthan>`
-}}}
+.. tip::
+   ``hasLengthLessThan`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthLessThan`` <string-has-length-less-than>`
 
-.. _outputIsEmpty:
+
+.. _output-is-empty:
 
 isEmpty
 ^^^^^^^
 
-{{{inheritance
-``isEmpty`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEmpty`` <stringisempty>`
-}}}
+.. tip::
+   ``isEmpty`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEmpty`` <string-is-empty>`
 
-.. _outputIsEqualTo:
+
+.. _output-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _outputIsEqualToContentsOfFile:
+
+.. _output-is-equal-to-contents-of-file:
 
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>`
-}}}
+.. tip::
+   ``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>`
 
-.. _outputIsIdenticalTo:
+
+.. _output-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _outputIsNotEmpty:
+
+.. _output-is-not-empty:
 
 isNotEmpty
 ^^^^^^^^^^
 
-{{{inheritance
-``isNotEmpty`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isNotEmpty`` <stringisnotempty>`
-}}}
+.. tip::
+   ``isNotEmpty`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isNotEmpty`` <string-is-not-empty>`
 
-.. _outputIsNotEqualTo:
+
+.. _output-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _outputIsNotIdenticalTo:
+
+.. _output-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _outputMatch:
+
+.. _output-match:
 
 match
 ^^^^^
 
-{{{inheritance
-``match`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::match`` <stringmatch>`
-}}}
+.. tip::
+   ``match`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::match`` <string-match>`
 
-.. _outputNotContains:
+
+.. _output-not-contains:
 
 notContains
 ^^^^^^^^^^^
 
-{{{inheritance
-``notContains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <stringnotcontains>`
-}}}
+.. tip::
+   ``notContains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <string-not-contains>`
 
 
 
-.. _utf8string:
+
+.. _utf8-string:
 
 utf8String
 ~~~~~~~~~~
@@ -3014,155 +3014,155 @@ utf8String
 C’est l’assertion dédiée aux chaînes de caractères UTF-8.
 
 .. note::
-``utf8Strings`` utilise les fonctions ``mb_*`` pour gérer les chaînes multi-octets. Reportez-vous au manuel de PHP pour avoir plus d’information sur l’extension ```mbstring <http://php.net/mbstring>`_``.
+   ``utf8Strings`` utilise les fonctions ``mb_*`` pour gérer les chaînes multi-octets. Reportez-vous au manuel de PHP pour avoir plus d’information sur l’extension ```mbstring <http://php.net/mbstring>`_``.
 
 
-.. _utf8StringContains:
+.. _utf8-string-contains:
 
 contains
 ^^^^^^^^
 
-{{{inheritance
-``contains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <stringcontains>`
-}}}
+.. tip::
+   ``contains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::contains`` <string-contains>`
 
-.. _utf8StringHasLength:
+
+.. _utf8-string-has-length:
 
 hasLength
 ^^^^^^^^^
 
-{{{inheritance
-``hasLength`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLength`` <stringhaslength>`
-}}}
+.. tip::
+   ``hasLength`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLength`` <string-has-length>`
 
-.. _utf8StringHasLengthGreaterThan:
+
+.. _utf8-string-has-length-greater-than:
 
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasLengthGreaterThan`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthGreaterThan`` <stringhaslengthgreaterthan>`
-}}}
+.. tip::
+   ``hasLengthGreaterThan`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>`
 
-.. _utf8StringHasLengthLessThan:
+
+.. _utf8-string-has-length-less-than:
 
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``hasLengthLessThan`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthLessThan`` <stringhaslengthlessthan>`
-}}}
+.. tip::
+   ``hasLengthLessThan`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::hasLengthLessThan`` <string-has-length-less-than>`
 
-.. _utf8StringIsEmpty:
+
+.. _utf8-string-is-empty:
 
 isEmpty
 ^^^^^^^
 
-{{{inheritance
-``isEmpty`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEmpty`` <stringisempty>`
-}}}
+.. tip::
+   ``isEmpty`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEmpty`` <string-is-empty>`
 
-.. _utf8StringIsEqualTo:
+
+.. _utf8-string-is-equal-to:
 
 isEqualTo
 ^^^^^^^^^
 
-{{{inheritance
-``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variableisequalto>`
-}}}
+.. tip::
+   ``isEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
-.. _utf8StringIsEqualToContentsOfFile:
+
+.. _utf8-string-is-equal-to-contents-of-file:
 
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>`
-}}}
+.. tip::
+   ``isEqualToContentsOfFile`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>`
 
-.. _utf8StringIsIdenticalTo:
+
+.. _utf8-string-is-identical-to:
 
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-{{{inheritance
-``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variableisidenticalto>`
-}}}
+.. tip::
+   ``isIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
-.. _utf8StringIsNotEmpty:
+
+.. _utf8-string-is-not-empty:
 
 isNotEmpty
 ^^^^^^^^^^
 
-{{{inheritance
-``isNotEmpty`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isNotEmpty`` <stringisnotempty>`
-}}}
+.. tip::
+   ``isNotEmpty`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::isNotEmpty`` <string-is-not-empty>`
 
-.. _utf8StringIsNotEqualTo:
+
+.. _utf8-string-is-not-equal-to:
 
 isNotEqualTo
 ^^^^^^^^^^^^
 
-{{{inheritance
-``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variableisnotequalto>`
-}}}
+.. tip::
+   ``isNotEqualTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
-.. _utf8StringIsNotIdenticalTo:
+
+.. _utf8-string-is-not-identical-to:
 
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-{{{inheritance
-``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>`
-}}}
+.. tip::
+   ``isNotIdenticalTo`` est une méthode héritée de l’asserter ``variable``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
-.. _utf8StringMatch:
+
+.. _utf8-string-match:
 
 match
 ^^^^^
 
-{{{inheritance
-``match`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::match`` <stringmatch>`
-}}}
+.. tip::
+   ``match`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::match`` <string-match>`
+
 
 .. note::
-Pensez à bien ajouter ``u`` comme option de recherche dans votre expression régulière. Reportez-vous au `manuel de PHP <http://php.net/reference.pcre.pattern.modifiers>`_ pour avoir plus d’informations sur le sujet.
+   Pensez à bien ajouter ``u`` comme option de recherche dans votre expression régulière. Reportez-vous au `manuel de PHP <http://php.net/reference.pcre.pattern.modifiers>`_ pour avoir plus d’informations sur le sujet.
 
 
 .. code-block:: php
 
-$vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+   $vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+   
+   $this
+       ->utf8String($vdm)
+           ->match("#^Aujourd'hui.*VDM$#u")
+   ;
 
-$this
-->utf8String($vdm)
-->match("#^Aujourd'hui.*VDM$#u")
-;
-
-.. _utf8StringNotContains:
+.. _utf8-string-not-contains:
 
 notContains
 ^^^^^^^^^^^
 
-{{{inheritance
-``notContains`` est une méthode héritée de l’asserter ``string``.
-Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <stringnotcontains>`
-}}}
+.. tip::
+   ``notContains`` est une méthode héritée de l’asserter ``string``.
+   Pour plus d’informations, reportez-vous à la documentation de :ref:```string::notContains`` <string-not-contains>`
 
 
 
-.. _afterdestructionof:
+
+.. _after-destruction-of:
 
 afterDestructionOf
 ~~~~~~~~~~~~~~~~~~
@@ -3175,14 +3175,14 @@ Si ``__destruct()`` existe bien et si son appel se passe sans erreur ni exceptio
 
 .. code-block:: php
 
-$this
-->afterDestructionOf($objectWithDestructor)     // passe
-->afterDestructionOf($objectWithoutDestructor)  // échoue
-;
+   $this
+       ->afterDestructionOf($objectWithDestructor)     // passe
+       ->afterDestructionOf($objectWithoutDestructor)  // échoue
+   ;
 
 
 
-.. _error:
+.. _error-anchor:
 
 error
 ~~~~~
@@ -3191,25 +3191,25 @@ C’est l’assertion dédiée aux erreurs.
 
 .. code-block:: php
 
-$this
-->when(
-function() {
-trigger_error('message');
-}
-)
-->error()
-->exists() // ou notExists
-;
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+           ->error()
+               ->exists() // ou notExists
+   ;
 
 .. note::
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
 
 
 .. warning::
-Les types d’erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
+   Les types d’erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
 
 
-.. _exists:
+.. _exists-anchor:
 
 exists
 ^^^^^^
@@ -3218,25 +3218,25 @@ exists
 
 .. code-block:: php
 
-$this
-->when(
-function() {
-trigger_error('message');
-}
-)
-->error()
-->exists()      // passe
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+           ->error()
+               ->exists()      // passe
+   
+       ->when(
+           function() {
+               // code sans erreur
+           }
+       )
+           ->error()
+               ->exists()      // échoue
+   ;
 
-->when(
-function() {
-// code sans erreur
-}
-)
-->error()
-->exists()      // échoue
-;
-
-.. _notexists:
+.. _not-exists:
 
 notExists
 ^^^^^^^^^
@@ -3245,25 +3245,25 @@ notExists
 
 .. code-block:: php
 
-$this
-->when(
-function() {
-trigger_error('message');
-}
-)
-->error()
-->notExists()   // échoue
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+           ->error()
+               ->notExists()   // échoue
+   
+       ->when(
+           function() {
+               // code sans erreur
+           }
+       )
+           ->error()
+               ->notExists()   // passe
+   ;
 
-->when(
-function() {
-// code sans erreur
-}
-)
-->error()
-->notExists()   // passe
-;
-
-.. _withtype:
+.. _with-type:
 
 withType
 ^^^^^^^^
@@ -3272,20 +3272,20 @@ withType
 
 .. code-block:: php
 
-$this
-->when(
-function() {
-trigger_error('message');
-}
-)
-->error()
-->withType(E_USER_NOTICE)   // passe
-->withType(E_USER_WARNING)  // échoue
-;
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+           ->error()
+               ->withType(E_USER_NOTICE)   // passe
+               ->withType(E_USER_WARNING)  // échoue
+   ;
 
 
 
-.. _class:
+.. _class-anchor:
 
 class
 ~~~~~
@@ -3294,21 +3294,21 @@ C’est l’assertion dédiée aux classes.
 
 .. code-block:: php
 
-$object = new \StdClass;
-
-$this
-->class(get_class($object))
-
-->class('\StdClass')
-;
+   $object = new \StdClass;
+   
+   $this
+       ->class(get_class($object))
+   
+       ->class('\StdClass')
+   ;
 
 .. note::
-Le mot-clef ``class`` étant réservé en PHP, il n’a pas été possible de créer une assertion ``class``. Elle s’appelle donc ``phpClass`` et un alias ``class`` a été créé. Vous pourrez donc rencontrer des ``->phpClass()`` ou des ``->class()``.
+   Le mot-clef ``class`` étant réservé en PHP, il n’a pas été possible de créer une assertion ``class``. Elle s’appelle donc ``phpClass`` et un alias ``class`` a été créé. Vous pourrez donc rencontrer des ``->phpClass()`` ou des ``->class()``.
 
 
 Il est conseillé d’utiliser exclusivement ``->class()``.
 
-.. _hasinterface:
+.. _has-interface:
 
 hasInterface
 ^^^^^^^^^^^^
@@ -3317,15 +3317,15 @@ hasInterface
 
 .. code-block:: php
 
-$this
-->class('\ArrayIterator')
-->hasInterface('Countable')     // passe
+   $this
+       ->class('\ArrayIterator')
+           ->hasInterface('Countable')     // passe
+   
+       ->class('\StdClass')
+           ->hasInterface('Countable')     // échoue
+   ;
 
-->class('\StdClass')
-->hasInterface('Countable')     // échoue
-;
-
-.. _hasmethod:
+.. _has-method:
 
 hasMethod
 ^^^^^^^^^
@@ -3334,15 +3334,15 @@ hasMethod
 
 .. code-block:: php
 
-$this
-->class('\ArrayIterator')
-->hasMethod('count')    // passe
+   $this
+       ->class('\ArrayIterator')
+           ->hasMethod('count')    // passe
+   
+       ->class('\StdClass')
+           ->hasMethod('count')    // échoue
+   ;
 
-->class('\StdClass')
-->hasMethod('count')    // échoue
-;
-
-.. _hasnoparent:
+.. _has-no-parent:
 
 hasNoParent
 ^^^^^^^^^^^
@@ -3351,19 +3351,19 @@ hasNoParent
 
 .. code-block:: php
 
-$this
-->class('\StdClass')
-->hasNoParent()     // passe
-
-->class('\FilesystemIterator')
-->hasNoParent()     // échoue
-;
+   $this
+       ->class('\StdClass')
+           ->hasNoParent()     // passe
+   
+       ->class('\FilesystemIterator')
+           ->hasNoParent()     // échoue
+   ;
 
 .. warning::
-Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ``hasNoParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
+   Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ``hasNoParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
 
 
-.. _hasparent:
+.. _has-parent:
 
 hasParent
 ^^^^^^^^^
@@ -3372,19 +3372,19 @@ hasParent
 
 .. code-block:: php
 
-$this
-->class('\StdClass')
-->hasParent()       // échoue
-
-->class('\FilesystemIterator')
-->hasParent()       // passe
-;
+   $this
+       ->class('\StdClass')
+           ->hasParent()       // échoue
+   
+       ->class('\FilesystemIterator')
+           ->hasParent()       // passe
+   ;
 
 .. warning::
-Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ``hasParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
+   Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ``hasParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
 
 
-.. _isabstract:
+.. _is-abstract:
 
 isAbstract
 ^^^^^^^^^^
@@ -3393,12 +3393,12 @@ isAbstract
 
 .. code-block:: php
 
-$this
-->class('\StdClass')
-->isAbstract()       // échoue
-;
+   $this
+       ->class('\StdClass')
+           ->isAbstract()       // échoue
+   ;
 
-.. _issubclassof:
+.. _is-subclass-of:
 
 isSubclassOf
 ^^^^^^^^^^^^
@@ -3407,15 +3407,15 @@ isSubclassOf
 
 .. code-block:: php
 
-$this
-->class('\FilesystemIterator')
-->isSubclassOf('\DirectoryIterator')    // passe
-->isSubclassOf('\SplFileInfo')          // passe
-->isSubclassOf('\StdClass')             // échoue
-;
+   $this
+       ->class('\FilesystemIterator')
+           ->isSubclassOf('\DirectoryIterator')    // passe
+           ->isSubclassOf('\SplFileInfo')          // passe
+           ->isSubclassOf('\StdClass')             // échoue
+   ;
 
 
-.. _mock:
+.. _mock-anchor:
 
 mock
 ~~~~
@@ -3424,17 +3424,17 @@ C’est l’assertion dédiée aux bouchons.
 
 .. code-block:: php
 
-$mock = new \mock\MyClass;
-
-$this
-->mock($mock)
-;
+   $mock = new \mock\MyClass;
+   
+   $this
+       ->mock($mock)
+   ;
 
 .. note::
-Reportez-vous à la documentation sur les :ref:`bouchons <les-bouchons-mock>` pour obtenir plus d’informations sur la façon de créer et gérer les bouchons.
+   Reportez-vous à la documentation sur les :ref:`bouchons <les-bouchons-mock>` pour obtenir plus d’informations sur la façon de créer et gérer les bouchons.
 
 
-.. _call:
+.. _call-anchor:
 
 call
 ^^^^
@@ -3443,82 +3443,82 @@ call
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->once()
+   ;
 
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->once()
-;
-
-.. _atleastonce:
+.. _at-least-once:
 
 atLeastOnce
 ```````````
 
-``atLeastOnce`` vérifie que la méthode testée (voir ``:ref:`call <call>```) du mock testé a été appelée au moins une fois.
+``atLeastOnce`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé a été appelée au moins une fois.
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->atLeastOnce()
+   ;
 
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->atLeastOnce()
-;
-
-.. _exactly:
+.. _exactly-anchor:
 
 exactly
 ```````
 
-``exactly`` vérifie que la méthode testée (voir ``:ref:`call <call>```) du mock testé exactement un certain nombre de fois.
+``exactly`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé exactement un certain nombre de fois.
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->exactly(2)
+   ;
 
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->exactly(2)
-;
-
-.. _never:
+.. _never-anchor:
 
 never
 `````
 
-``never`` vérifie que la méthode testée (voir ``:ref:`call <call>```) du mock testé n’a jamais été appelée.
+``never`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé n’a jamais été appelée.
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
-
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->never()
-;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->never()
+   ;
 
 .. note::
-``never`` est équivalent à ``:ref:`exactly <exactly>`(0)``.
+   ``never`` est équivalent à ``:ref:`exactly <exactly-anchor>`(0)``.
 
 
 .. _once-twice-thrice:
 
 once/twice/thrice
 `````````````````
-Ces assertions vérifient que la méthode testée (voir ``:ref:`call <call>```) du mock testé a été appelée exactement :
+Ces assertions vérifient que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé a été appelée exactement :
 
 * une fois (once)
 * deux fois (twice)
@@ -3526,94 +3526,94 @@ Ces assertions vérifient que la méthode testée (voir ``:ref:`call <call>```) 
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
-
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->once()
-->call('mySecondMethod')
-->twice()
-->call('myThirdMethod')
-->thrice()
-;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->once()
+           ->call('mySecondMethod')
+               ->twice()
+           ->call('myThirdMethod')
+               ->thrice()
+   ;
 
 .. note::
-``once``, ``twice`` et ``thrice`` sont respectivement équivalents à un appel à ``:ref:`exactly <exactly>`(1)``, ``:ref:`exactly <exactly>`(2)`` et ``:ref:`exactly <exactly>`(3)``.
+   ``once``, ``twice`` et ``thrice`` sont respectivement équivalents à un appel à ``:ref:`exactly <exactly-anchor>`(1)``, ``:ref:`exactly <exactly-anchor>`(2)`` et ``:ref:`exactly <exactly-anchor>`(3)``.
 
 
-.. _withanyarguments:
+.. _with-any-arguments:
 
 withAnyArguments
 ````````````````
 
-``withAnyArguments`` permet de ne pas spécifier les arguments attendus lors de l’appel à la méthode testée (voir ``:ref:`call <call>```) du mock testé.
+``withAnyArguments`` permet de ne pas spécifier les arguments attendus lors de l’appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l’exemple suivant :
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->withArguments('first')     ->once()
+               ->withArguments('second')    ->once()
+               ->withAnyArguments()->exactly(2)
+   ;
 
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->withArguments('first')     ->once()
-->withArguments('second')    ->once()
-->withAnyArguments()->exactly(2)
-;
-
-.. _witharguments:
+.. _with-arguments:
 
 withArguments
 `````````````
 
-``withArguments`` permet de spécifier les paramètres attendus lors de l’appel à la méthode testée (voir ``:ref:`call <call>```) du mock testé.
+``withArguments`` permet de spécifier les paramètres attendus lors de l’appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
-
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->withArguments('first', 'second')->once()
-;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->withArguments('first', 'second')->once()
+   ;
 
 .. warning::
-``withArguments`` ne teste pas le type des arguments. Si vous souhaitez vérifier également leurs types, utilisez ``:ref:`withIdenticalArguments <withidenticalarguments>```.
+   ``withArguments`` ne teste pas le type des arguments. Si vous souhaitez vérifier également leurs types, utilisez :ref:`withIdenticalArguments <with-identical-arguments>`.
 
 
-.. _withidenticalarguments:
+.. _with-identical-arguments:
 
 withIdenticalArguments
 ``````````````````````
 
-``withIdenticalArguments`` permet de spécifier les paramètres attendus lors de l’appel à la méthode testée (voir ``:ref:`call <call>```) du mock testé.
+``withIdenticalArguments`` permet de spécifier les paramètres attendus lors de l’appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
-
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->call('myMethod')
-->withIdenticalArguments('first', 'second')->once()
-;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->call('myMethod')
+               ->withIdenticalArguments('first', 'second')->once()
+   ;
 
 .. warning::
-``withIdenticalArguments`` teste le type des arguments. Si vous ne souhaitez pas vérifier leurs types, utilisez ``:ref:`withArguments <witharguments>```.
+   ``withIdenticalArguments`` teste le type des arguments. Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withArguments <with-arguments>`.
 
 
-.. _wascalled:
+.. _was-called:
 
 wasCalled
 ^^^^^^^^^
@@ -3622,16 +3622,16 @@ wasCalled
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->wasCalled()
+   ;
 
-$this
-->object(new MySecondClass($mock))
-
-->mock($mock)
-->wasCalled()
-;
-
-.. _wasnotcalled:
+.. _was-not-called:
 
 wasNotCalled
 ^^^^^^^^^^^^
@@ -3640,17 +3640,17 @@ wasNotCalled
 
 .. code-block:: php
 
-$mock = new \mock\MyFirstClass;
+   $mock = new \mock\MyFirstClass;
+   
+   $this
+       ->object(new MySecondClass($mock))
+   
+       ->mock($mock)
+           ->wasNotCalled()
+   ;
 
-$this
-->object(new MySecondClass($mock))
 
-->mock($mock)
-->wasNotCalled()
-;
-
-
-.. _stream:
+.. _stream-anchor:
 
 stream
 ~~~~~~
@@ -3658,25 +3658,25 @@ stream
 C’est l’assertion dédiée aux stream.
 
 .. todo::
-Malheureusement, je n’ai aucune espèce d’idée de son fonctionnement, alors n’hésitez pas à compléter cette partie !
+   Malheureusement, je n’ai aucune espèce d’idée de son fonctionnement, alors n’hésitez pas à compléter cette partie !
 
 
-.. _isread:
+.. _is-read:
 
 isRead
 ^^^^^^
 
 .. todo::
-We need help to write this section !
+   We need help to write this section !
 
 
-.. _iswrite:
+.. _is-write:
 
 isWrite
 ^^^^^^^
 
 .. todo::
-We need help to write this section !
+   We need help to write this section !
 
 
 
@@ -3696,16 +3696,16 @@ L’utilisation de ces mots-clefs est très intuitive :
 
 .. code-block:: php
 
-$this
-->if($computer = new computer()))
-->and($computer->setFirstOperand(2))
-->and($computer->setSecondOperand(2))
-->then
-->object($computer->add())
-->isIdenticalTo($computer)
-->integer($computer->getResult())
-->isEqualTo(4)
-;
+   $this
+       ->if($computer = new computer()))
+       ->and($computer->setFirstOperand(2))
+       ->and($computer->setSecondOperand(2))
+       ->then
+           ->object($computer->add())
+               ->isIdenticalTo($computer)
+           ->integer($computer->getResult())
+               ->isEqualTo(4)
+   ;
 
 Il est important de noter ces mots-clefs n’apporte rien techniquement ou fonctionnellement parlant, car ils n’ont pas d’autre but que de faciliter la compréhension du test et donc sa maintenance en y ajoutant de la sémantique compréhensible facilement par l’Humain et plus particulièrement un développeur.
 
@@ -3717,16 +3717,16 @@ En conséquence, il est de la responsabilité du développeur de les utiliser de
 
 .. code-block:: php
 
-$this
-->and($computer = new computer()))
-->and($computer->setFirstOperand(2))
-->then
-->if($computer->setSecondOperand(2))
-->object($computer->add())
-->isIdenticalTo($computer)
-->integer($computer->getResult())
-->isEqualTo(4)
-;
+   $this
+       ->and($computer = new computer()))
+       ->and($computer->setFirstOperand(2))
+       ->then
+       ->if($computer->setSecondOperand(2))
+           ->object($computer->add())
+               ->isIdenticalTo($computer)
+           ->integer($computer->getResult())
+               ->isEqualTo(4)
+   ;
 
 Pour les mêmes raisons, l’utilisation de ``then`` est facultative.
 
@@ -3734,20 +3734,20 @@ Il est également important de noter qu’il est tout à fait possible d’écri
 
 .. code-block:: php
 
-$computer = new computer();
-$computer->setFirstOperand(2);
-$computer->setSecondOperand(2);
-
-$this
-->object($computer->add())
-->isIdenticalTo($computer)
-->integer($computer->getResult())
-->isEqualTo(4)
-;
+   $computer = new computer();
+   $computer->setFirstOperand(2);
+   $computer->setSecondOperand(2);
+   
+   $this
+       ->object($computer->add())
+           ->isIdenticalTo($computer)
+       ->integer($computer->getResult())
+           ->isEqualTo(4)
+   ;
 
 Le test ne sera pas plus lent ou plus rapide à exécuter et il n’y a aucun avantage à utiliser une notation ou une autre, l’important étant d’en choisir une et de s’y tenir pour faciliter la maintenance des tests (la problématique est exactement la même que celle des conventions de codage).
 
-.. _when:
+.. _when-anchor:
 
 when
 ~~~~
@@ -3758,13 +3758,13 @@ L’un d’entre eux est ``when``. Il dispose d’une fonctionnalité spécifiqu
 
 .. code-block:: php
 
-$this
-->if($object = new object($valueAtKey0 = uniqid()))
-->and(unset($object[0]))
-->then
-->sizeOf($object)
-->isZero()
-;
+   $this
+       ->if($object = new object($valueAtKey0 = uniqid()))
+       ->and(unset($object[0]))
+       ->then
+           ->sizeOf($object)
+               ->isZero()
+   ;
 
 Le langage génère en effet dans ce cas l’erreur fatale : ``Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting »)'``
 
@@ -3774,21 +3774,21 @@ Pour résoudre ce problème, le mot-clef ``when`` est capable d’interpréter l
 
 .. code-block:: php
 
-$this
-->if($object = new object($valueAtKey0 = uniqid()))
-->when(
-function() use ($object) {
-unset($object[0]);
-}
-)
-->then
-->sizeOf($object)
-->isZero()
-;
+   $this
+       ->if($object = new object($valueAtKey0 = uniqid()))
+       ->when(
+           function() use ($object) {
+               unset($object[0]);
+           }
+       )
+       ->then
+         ->sizeOf($object)
+           ->isZero()
+   ;
 
 Bien évidemment, si ``when`` ne reçoit pas de fonction anonyme en argument, il se comporte exactement comme if, and et then, à savoir qu’il ne fait absolument rien fonctionnellement parlant.
 
-.. _assert:
+.. _assert-anchor:
 
 assert
 ~~~~~~
@@ -3799,21 +3799,21 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé :
 
 .. code-block:: php
 
-$this
-->if($foo = new \mock\foo())
-->and($bar = new bar($foo))
-->and($bar->doSomething())
-->then
-->mock($foo)
-->call('doOtherThing')
-->once()
-
-->if($bar->setValue(uniqid())
-->then
-->mock($foo)
-->call('doOtherThing')
-->exactly(2)
-;
+   $this
+       ->if($foo = new \mock\foo())
+       ->and($bar = new bar($foo))
+       ->and($bar->doSomething())
+       ->then
+           ->mock($foo)
+               ->call('doOtherThing')
+                   ->once()
+   
+       ->if($bar->setValue(uniqid())
+       ->then
+           ->mock($foo)
+               ->call('doOtherThing')
+                   ->exactly(2)
+   ;
 
 Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin d’intercaler un ou plusieurs nouveaux appels à bar::doOtherThing() entre les deux appels déjà effectués, il sera obligé de mettre à jour en conséquence la valeur de l’argument passé à exactly().
 Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes :
@@ -3823,31 +3823,31 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
 
 .. code-block:: php
 
-$this
-->if($foo = new \mock\foo())
-->and($bar = new bar($foo))
-->and($bar->doSomething())
-->then
-->mock($foo)
-->call('doOtherThing')
-->once()
-
-// 1ère manière
-->if($foo->getMockController()->resetCalls())
-->and($bar->setValue(uniqid())
-->then
-->mock($foo)
-->call('doOtherThing')
-->once()
-
-// 2ème manière
-->if($this->resetMock($foo))
-->and($bar->setValue(uniqid())
-->then
-->mock($foo)
-->call('doOtherThing')
-->once()
-;
+   $this
+       ->if($foo = new \mock\foo())
+       ->and($bar = new bar($foo))
+       ->and($bar->doSomething())
+       ->then
+           ->mock($foo)
+               ->call('doOtherThing')
+                   ->once()
+   
+       // 1ère manière
+       ->if($foo->getMockController()->resetCalls())
+       ->and($bar->setValue(uniqid())
+       ->then
+           ->mock($foo)
+               ->call('doOtherThing')
+                   ->once()
+   
+       // 2ème manière
+       ->if($this->resetMock($foo))
+       ->and($bar->setValue(uniqid())
+       ->then
+           ->mock($foo)
+               ->call('doOtherThing')
+                   ->once()
+   ;
 
 Ces méthodes effacent la mémoire du contrôleur, il est donc possible d’écrire l’assertion suivante comme si le bouchon n’avait jamais été utilisé.
 
@@ -3857,23 +3857,23 @@ Grâce à lui, il est donc possible d’écrire le test précédent d’une faç
 
 .. code-block:: php
 
-$this
-->assert('Foo est vide')
-->if($foo = new \mock\foo())
-->and($bar = new bar($foo))
-->and($bar->doSomething())
-->then
-->mock($foo)
-->call('doOtherThing')
-->once()
-
-->assert('Foo a une valeur')
-->if($bar->setValue(uniqid())
-->then
-->mock($foo)
-->call('doOtherThing')
-->once()
-;
+   $this
+       ->assert('Foo est vide')
+           ->if($foo = new \mock\foo())
+           ->and($bar = new bar($foo))
+           ->and($bar->doSomething())
+           ->then
+               ->mock($foo)
+                   ->call('doOtherThing')
+                       ->once()
+   
+       ->assert('Foo a une valeur')
+           ->if($bar->setValue(uniqid())
+           ->then
+               ->mock($foo)
+                   ->call('doOtherThing')
+                       ->once()
+   ;
 
 La chaîne de caractères sera de plus reprise dans les messages générés par atoum si l’une des assertions ne passe pas avec succès.
 
@@ -3909,42 +3909,42 @@ Une fois les tests terminés, si les tests ont été passés avec succès par le
 
 .. code-block:: shell
 
-$ php tests/units/classes/adapter.php -l
-> atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
-> PHP path: /usr/local/bin/php
-> PHP version:
-.. _php-5-3-8--cli---built--sep-21-2011-23-14-37:
-
-> PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
-===============================================
-.. _copyright--c--1997-2011-the-php-group:
-
-> Copyright (c) 1997-2011 The PHP Group
-=======================================
-.. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
-
-> Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
-===============================================================
-.. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
-
->     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
-====================================================================
-> mageekguy\atoum\tests\units\adapter...
-[S___________________________________________________________][1/1]
-.. _test-duration--0-02-second:
-
-> Test duration: 0.02 second.
-=============================
-.. _memory-usage--0-25-mb:
-
-> Memory usage: 0.25 Mb.
-========================
-> Total test duration: 0.02 second.
-> Total test memory usage: 0.25 Mb.
-> Code coverage value: 100.00%
-> Running duration: 0.16 second.
-Success (1 test, 0 method, 2 assertions, 0 error, 0 exception) !
-Press <Enter> to reexecute, press any other key to stop...
+   $ php tests/units/classes/adapter.php -l
+   > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
+   > PHP path: /usr/local/bin/php
+   > PHP version:
+   .. _p-h-p-5-3-8--cli---built--sep-21-2011-23-14-37:
+   
+   > PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
+   ===============================================
+   .. _copyright--c--1997-2011-the-p-h-p-group:
+   
+   > Copyright (c) 1997-2011 The PHP Group
+   =======================================
+   .. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
+   
+   > Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+   ===============================================================
+   .. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
+   
+   >     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
+   ====================================================================
+   > mageekguy\atoum\tests\units\adapter...
+   [S___________________________________________________________][1/1]
+   .. _test-duration--0-02-second:
+   
+   > Test duration: 0.02 second.
+   =============================
+   .. _memory-usage--0-25-mb:
+   
+   > Memory usage: 0.25 Mb.
+   ========================
+   > Total test duration: 0.02 second.
+   > Total test memory usage: 0.25 Mb.
+   > Code coverage value: 100.00%
+   > Running duration: 0.16 second.
+   Success (1 test, 0 method, 2 assertions, 0 error, 0 exception) !
+   Press <Enter> to reexecute, press any other key to stop...
 
 Si le développeur presse une autre touche que ``Enter``, atoum se terminera.
 
@@ -3954,52 +3954,52 @@ Dans le cas où le code ne passe pas les tests avec succès, c’est-à-dire si 
 
 .. code-block:: shell
 
-$ php tests/units/classes/adapter.php -l
-> atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
-> PHP path: /usr/local/bin/php
-> PHP version:
-.. _php-5-3-8--cli---built--sep-21-2011-23-14-37:
-
-> PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
-===============================================
-.. _copyright--c--1997-2011-the-php-group:
-
-> Copyright (c) 1997-2011 The PHP Group
-=======================================
-.. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
-
-> Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
-===============================================================
-.. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
-
->     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
-====================================================================
-> mageekguy\atoum\tests\units\adapter...
-[F___________________________________________________________][1/1]
-.. _test-duration--0-00-second:
-
-> Test duration: 0.00 second.
-=============================
-.. _memory-usage--0-00-mb:
-
-> Memory usage: 0.00 Mb.
-========================
-> Total test duration: 0.00 second.
-> Total test memory usage: 0.00 Mb.
-> Running duration: 0.17 second.
-Failure (1 test, 0 method, 1 failure, 0 error, 0 exception) !
-> There is 1 failure:
-.. _mageekguy-atoum-tests-units-adapter--test--call:
-
-> mageekguy\atoum\tests\units\adapter::test__call():
-====================================================
-In file /Users/fch/Atoum/tests/units/classes/adapter.php on line 17, mageekguy\atoum\asserters\string::isEqualTo() failed: strings are not equals
--Reference
-+Data
-@@ -1 +1 @@
--string(13) "4ea0354cd717c"
-+string(32) "19798c230d5462b3bdae194f364feffa"
-Press <Enter> to reexecute, press any other key to stop...
+   $ php tests/units/classes/adapter.php -l
+   > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
+   > PHP path: /usr/local/bin/php
+   > PHP version:
+   .. _p-h-p-5-3-8--cli---built--sep-21-2011-23-14-37:
+   
+   > PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
+   ===============================================
+   .. _copyright--c--1997-2011-the-p-h-p-group:
+   
+   > Copyright (c) 1997-2011 The PHP Group
+   =======================================
+   .. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
+   
+   > Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
+   ===============================================================
+   .. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
+   
+   >     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
+   ====================================================================
+   > mageekguy\atoum\tests\units\adapter...
+   [F___________________________________________________________][1/1]
+   .. _test-duration--0-00-second:
+   
+   > Test duration: 0.00 second.
+   =============================
+   .. _memory-usage--0-00-mb:
+   
+   > Memory usage: 0.00 Mb.
+   ========================
+   > Total test duration: 0.00 second.
+   > Total test memory usage: 0.00 Mb.
+   > Running duration: 0.17 second.
+   Failure (1 test, 0 method, 1 failure, 0 error, 0 exception) !
+   > There is 1 failure:
+   .. _mageekguy-atoum-tests-units-adapter--test--call:
+   
+   > mageekguy\atoum\tests\units\adapter::test__call():
+   ====================================================
+   In file /Users/fch/Atoum/tests/units/classes/adapter.php on line 17, mageekguy\atoum\asserters\string::isEqualTo() failed: strings are not equals
+   -Reference
+   +Data
+   @@ -1 +1 @@
+   -string(13) "4ea0354cd717c"
+   +string(32) "19798c230d5462b3bdae194f364feffa"
+   Press <Enter> to reexecute, press any other key to stop...
 
 Tout comme dans le cas ou tout s’est bien passé, si le développeur presse une autre touche que ``Enter``, atoum se terminera.
 
@@ -4032,7 +4032,7 @@ Lorsque l’argument ``--debug`` est utilisé, trois méthodes peuvent être act
 
 Ces trois méthodes s’intègrent parfaitement dans l’interface fluide qui caractérise atoum.
 
-.. _dump:
+.. _dump-anchor:
 
 dump
 ~~~~
@@ -4041,13 +4041,13 @@ La méthode ``dump()`` peut s’utiliser de la manière suivante :
 
 .. code-block:: php
 
-$this
-->if($foo = new foo())
-->then
-->object($foo->setBar($bar = new bar()))
-->isIdenticalTo($foo)
-->dump($foo->getBar())
-;
+   $this
+       ->if($foo = new foo())
+       ->then
+           ->object($foo->setBar($bar = new bar()))
+               ->isIdenticalTo($foo)
+           ->dump($foo->getBar())
+   ;
 
 Lors de l’exécution du test, le retour de la méthode ``foo::getBar()`` sera affiché sur la sortie standard.
 
@@ -4055,15 +4055,15 @@ Il est également possible de passer plusieurs arguments à ``dump()``, de la ma
 
 .. code-block:: php
 
-$this
-->if($foo = new foo())
-->then
-->object($foo->setBar($bar = new bar()))
-->isIdenticalTo($foo)
-->dump($foo->getBar(), $bar)
-;
+   $this
+       ->if($foo = new foo())
+       ->then
+           ->object($foo->setBar($bar = new bar()))
+               ->isIdenticalTo($foo)
+           ->dump($foo->getBar(), $bar)
+   ;
 
-.. _stop:
+.. _stop-anchor:
 
 stop
 ~~~~
@@ -4072,17 +4072,17 @@ L’utilisation de la méthode ``stop()`` est également très simple :
 
 .. code-block:: php
 
-$this
-->if($foo = new foo())
-->then
-->object($foo->setBar($bar = new bar()))
-->isIdenticalTo($foo)
-->stop() // le test s'arrêtera ici si --debug est utilisé
-->object($foo->getBar())
-->isIdenticalTo($bar)
-;
+   $this
+       ->if($foo = new foo())
+       ->then
+           ->object($foo->setBar($bar = new bar()))
+               ->isIdenticalTo($foo)
+           ->stop() // le test s'arrêtera ici si --debug est utilisé
+           ->object($foo->getBar())
+               ->isIdenticalTo($bar)
+   ;
 
-.. _executeonfailure:
+.. _execute-on-failure:
 
 executeOnFailure
 ~~~~~~~~~~~~~~~~
@@ -4093,19 +4093,19 @@ Elle prend en effet en argument une fonction anonyme qui sera exécutée si et s
 
 .. code-block:: php
 
-$this
-->if($foo = new foo())
-->executeOnFailure(
-function() use ($foo) {
-var_dump($foo);
-}
-)
-->then
-->object($foo->setBar($bar = new bar()))
-->isIdenticalTo($foo)
-->object($foo->getBar())
-->isIdenticalTo($bar)
-;
+   $this
+       ->if($foo = new foo())
+       ->executeOnFailure(
+           function() use ($foo) {
+               var_dump($foo);
+           }
+       )
+       ->then
+           ->object($foo->setBar($bar = new bar()))
+               ->isIdenticalTo($foo)
+           ->object($foo->getBar())
+               ->isIdenticalTo($bar)
+   ;
 
 Dans l’exemple précédent, contrairement à ``dump()`` qui provoque systématiquement l’affichage sur la sortie standard le contenu des variables qui lui sont passées en argument, la fonction anonyme passée en argument ne provoquera l’affichage du contenu de la variable ``foo`` que si l’une des assertions suivantes est en échec.
 
@@ -4132,72 +4132,72 @@ C’est d’ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`
 
 .. code-block:: php
 
-<?php
-namespace vendor\project\tests\units;
-
-use
-mageekguy\atoum,
-vendor\project
-;
-
-require __DIR__ . '/mageekguy.atoum.phar';
-
-class bankAccount extends atoum
-{
-public function setUp()
-{
-// Exécutée *avant l'ensemble* des méthodes de test.
-// Initialisation globale.
-}
-
-public function beforeTestMethod($method)
-{
-// Exécutée *avant chaque* méthode de test.
-
-switch ($method)
-{
-case 'testGetOwner':
-// Initialisation pour testGetOwner().
-break;
-
-case 'testGetOperations':
-// Initialisation pour testGetOperations().
-break;
-}
-}
-
-public function testGetOwner()
-{
-...
-}
-
-public function testGetOperations()
-{
-...
-}
-
-public function afterTestMethod($method)
-{
-// Exécutée *après chaque* méthode de test.
-
-switch ($method)
-{
-case 'testGetOwner':
-// Nettoyage pour testGetOwner().
-break;
-
-case 'testGetOperations':
-// Nettoyage pour testGetOperations().
-break;
-}
-}
-
-public function tearDown()
-{
-// Exécutée après l'ensemble des méthodes de test.
-// Nettoyage global.
-}
-}
+   <?php
+   namespace vendor\project\tests\units;
+   
+   use
+       mageekguy\atoum,
+       vendor\project
+   ;
+   
+   require __DIR__ . '/mageekguy.atoum.phar';
+   
+   class bankAccount extends atoum
+   {
+       public function setUp()
+       {
+           // Exécutée *avant l'ensemble* des méthodes de test.
+           // Initialisation globale.
+       }
+   
+       public function beforeTestMethod($method)
+       {
+           // Exécutée *avant chaque* méthode de test.
+   
+           switch ($method)
+           {
+               case 'testGetOwner':
+                   // Initialisation pour testGetOwner().
+               break;
+   
+               case 'testGetOperations':
+                   // Initialisation pour testGetOperations().
+               break;
+           }
+       }
+   
+       public function testGetOwner()
+       {
+           ...
+       }
+   
+       public function testGetOperations()
+       {
+           ...
+       }
+   
+       public function afterTestMethod($method)
+       {
+           // Exécutée *après chaque* méthode de test.
+   
+           switch ($method)
+           {
+               case 'testGetOwner':
+                   // Nettoyage pour testGetOwner().
+               break;
+   
+               case 'testGetOperations':
+                   // Nettoyage pour testGetOperations().
+               break;
+           }
+       }
+   
+       public function tearDown()
+       {
+           // Exécutée après l'ensemble des méthodes de test.
+           // Nettoyage global.
+       }
+   }
 
 Par défaut, les méthodes ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` et ``tearDown()`` ne font absolument rien.
 
@@ -4217,23 +4217,23 @@ La définition du fournisseur de données qui doit être utilisé par une métho
 
 .. code-block:: php
 
-class calculator extends atoum
-{
-/**
-* @dataProvider sumDataProvider
-*/
-// Veillez à définir le bon nombre d'arguments
-public function testSum($a, $b)
-{
-$this
-->if($calculator = new project\calculator())
-->then
-->integer($calculator->sum($a, $b))->isEqualTo($a + $b)
-;
-}
-
-...
-}
+   class calculator extends atoum
+   {
+       /**
+        * @dataProvider sumDataProvider
+        */
+       // Veillez à définir le bon nombre d'arguments
+       public function testSum($a, $b)
+       {
+           $this
+               ->if($calculator = new project\calculator())
+               ->then
+                   ->integer($calculator->sum($a, $b))->isEqualTo($a + $b)
+           ;
+       }
+   
+       ...
+   }
 
 Évidemment, il ne faut pas oublier de définir, au niveau de la méthode de test, les arguments correspondant à ceux qui seront retournés par le fournisseur de données. Si ce n’est pas le cas, atoum générera une erreur lors de l’exécution des tests.
 
@@ -4241,30 +4241,30 @@ Une fois l’annotation définie, il n’y a plus qu’à créer la méthode cor
 
 .. code-block:: php
 
-class calculator extends atoum
-{
-...
-
-// Fournisseur de données de testSum().
-public function sumDataProvider()
-{
-return array(
-array( 1, 1),
-array( 1, 2),
-array(-1, 1),
-array(-1, 2),
-);
-}
-}
+   class calculator extends atoum
+   {
+       ...
+   
+       // Fournisseur de données de testSum().
+       public function sumDataProvider()
+       {
+           return array(
+               array( 1, 1),
+               array( 1, 2),
+               array(-1, 1),
+               array(-1, 2),
+           );
+       }
+   }
 
 Lors de l’exécution des tests, atoum appellera la méthode de test ``testSum()`` successivement avec les arguments ``(1, 1)``, ``(1, 2)``, ``(-1, 1)`` et ``(-1, 2)`` renvoyés par la méthode ``sumDataProvider()``.
 
 .. warning::
-L’isolation des tests ne sera pas utilisée dans ce contexte, ce qui veut dire que chacun des appels successifs à la méthode ``testSum()`` sera réalisé dans le même processus PHP.
+   L’isolation des tests ne sera pas utilisée dans ce contexte, ce qui veut dire que chacun des appels successifs à la méthode ``testSum()`` sera réalisé dans le même processus PHP.
 
 
 .. note::
-Un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
+   Un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
 
 
 .. _les-bouchons--mock:
@@ -4285,18 +4285,18 @@ La plus simple est de créer un objet dont le nom absolu est préfixé par ``moc
 
 .. code-block:: php
 
-// création d'un bouchon de l'interface \Countable
-$countableMock = new \mock\Countable;
-
-// création d'un bouchon de la classe abstraite
-// \Vendor\Project\AbstractClass
-$vendorAppMock = new \mock\Vendor\Project\AbstractClass;
-
-// création d'un bouchon de la classe \StdClass
-$stdObject     = new \mock\StdClass;
-
-// création d'un bouchon à partir d'une classe inexistante
-$anonymousMock = new \mock\My\Unknown\Class;
+   // création d'un bouchon de l'interface \Countable
+   $countableMock = new \mock\Countable;
+   
+   // création d'un bouchon de la classe abstraite
+   // \Vendor\Project\AbstractClass
+   $vendorAppMock = new \mock\Vendor\Project\AbstractClass;
+   
+   // création d'un bouchon de la classe \StdClass
+   $stdObject     = new \mock\StdClass;
+   
+   // création d'un bouchon à partir d'une classe inexistante
+   $anonymousMock = new \mock\My\Unknown\Class;
 
 .. _le-generateur-de-bouchon:
 
@@ -4321,34 +4321,34 @@ Sa méthode ``generate`` prend 3 paramètres :
 
 .. code-block:: php
 
-// création d'un bouchon de l'interface \Countable vers \MyMock\Countable
-// on ne change que l'espace de nom
-$this->mockGenerator->generate('\Countable', '\MyMock');
-$countableMock = new \myMock\Countable;
-
-// création d'un bouchon de la classe abstraite
-// \Vendor\Project\AbstractClass vers \MyMock\AClass
-// on change l'espace de nom et le nom de la classe
-$this->mockGenerator->generate('\Vendor\Project\AbstractClass', '\MyMock', 'AClass');
-$vendorAppMock = new \myMock\AClass;
-
-// création d'un bouchon de la classe \StdClass vers \mock\OneClass
-// on ne change que le nom de la classe
-$this->mockGenerator->generate('\StdClass', null, 'OneClass');
-$stdObject     = new \mock\OneClass;
+   // création d'un bouchon de l'interface \Countable vers \MyMock\Countable
+   // on ne change que l'espace de nom
+   $this->mockGenerator->generate('\Countable', '\MyMock');
+   $countableMock = new \myMock\Countable;
+   
+   // création d'un bouchon de la classe abstraite
+   // \Vendor\Project\AbstractClass vers \MyMock\AClass
+   // on change l'espace de nom et le nom de la classe
+   $this->mockGenerator->generate('\Vendor\Project\AbstractClass', '\MyMock', 'AClass');
+   $vendorAppMock = new \myMock\AClass;
+   
+   // création d'un bouchon de la classe \StdClass vers \mock\OneClass
+   // on ne change que le nom de la classe
+   $this->mockGenerator->generate('\StdClass', null, 'OneClass');
+   $stdObject     = new \mock\OneClass;
 
 .. note::
-Si vous n’utilisez que le premier argument et ne changez ni l’espace de nommage ni le nom de la classe, alors la première solution est équivalente.
+   Si vous n’utilisez que le premier argument et ne changez ni l’espace de nommage ni le nom de la classe, alors la première solution est équivalente.
 
 
 .. code-block:: php
 
-$countableMock = new \mock\Countable;
-
-// est équivalent à:
-
-$this->mockGenerator->generate('\Countable');   // inutile
-$countableMock = new \mock\Countable;
+   $countableMock = new \mock\Countable;
+   
+   // est équivalent à:
+   
+   $this->mockGenerator->generate('\Countable');   // inutile
+   $countableMock = new \mock\Countable;
 
 .. _shunter-les-appels-aux-methodes-parentes:
 
@@ -4361,19 +4361,19 @@ Dans certains cas, il peut être utile de shunter les appels aux méthodes paren
 
 .. code-block:: php
 
-$this->mockGenerator->shuntParentClassCalls();
-// le bouchon ne fera pas appel à la classe parente
-$countableMock = new \mock\OneClass;
-$this->mockGenerator->unshuntParentClassCalls();
+   $this->mockGenerator->shuntParentClassCalls();
+   // le bouchon ne fera pas appel à la classe parente
+   $countableMock = new \mock\OneClass;
+   $this->mockGenerator->unshuntParentClassCalls();
 
 Ici, toutes les méthodes du bouchon se comporteront comme si elles n’avaient pas d’implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
 
 .. code-block:: php
 
-$this->mockGenerator->shunt('firstMethod');
-$this->mockGenerator->shunt('secondMethod');
-// le bouchon ne fera pas appel à la classe parente pour les méthodes firstMethod et secondMethod
-$countableMock = new \mock\OneClass;
+   $this->mockGenerator->shunt('firstMethod');
+   $this->mockGenerator->shunt('secondMethod');
+   // le bouchon ne fera pas appel à la classe parente pour les méthodes firstMethod et secondMethod
+   $countableMock = new \mock\OneClass;
 
 .. _rendre-une-methode-orpheline:
 
@@ -4384,29 +4384,29 @@ Il peut parfois être intéressant de rendre une méthode orpheline, c’est-à-
 
 .. code-block:: php
 
-class FirstClass {
-protected $dep;
-
-public function __construct(SecondClass $dep) {
-$this->dep = $dep;
-}
-}
-
-class SecondClass {
-protected $deps;
-
-public function __construct(ThirdClass $a, FourthClass $b) {
-$this->deps = array($a, $b);
-}
-}
-
-$this->mockGenerator->orphanize('__construct');
-$this->mockGenerator->shuntParentClassCalls();
-
-// Nous pouvons instancier le bouchon sans injecter ses dépendances
-$mock = new \mock\SecondClass();
-
-$object = new FirstClass($mock);
+   class FirstClass {
+       protected $dep;
+   
+       public function __construct(SecondClass $dep) {
+           $this->dep = $dep;
+       }
+   }
+   
+   class SecondClass {
+       protected $deps;
+   
+       public function __construct(ThirdClass $a, FourthClass $b) {
+           $this->deps = array($a, $b);
+       }
+   }
+   
+   $this->mockGenerator->orphanize('__construct');
+   $this->mockGenerator->shuntParentClassCalls();
+   
+   // Nous pouvons instancier le bouchon sans injecter ses dépendances
+   $mock = new \mock\SecondClass();
+   
+   $object = new FirstClass($mock);
 
 .. _modifier-le-comportement-d-un-bouchon:
 
@@ -4419,40 +4419,40 @@ Pour cela, il faut passer par son contrôleur en utilisant l’une des méthodes
 
 .. code-block:: php
 
-$databaseClient = new \mock\Database\Client();
-
-$databaseClient->getMockController()->connect = function() {};
-// Équivalent à
-$this->calling($databaseClient)->connect = function() {};
+   $databaseClient = new \mock\Database\Client();
+   
+   $databaseClient->getMockController()->connect = function() {};
+   // Équivalent à
+   $this->calling($databaseClient)->connect = function() {};
 
 Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
 
 .. code-block:: php
 
-$databaseClient = new \mock\Database\Client();
-
-// redéfinie la méthode connect : elle retournera toujours true
-$this->calling($databaseClient)->connect = true;
-
-// redéfinie la méthode select
-$this->calling($databaseClient)->select = function() {
-return array();
-};
-
-// redéfinie la méthode query avec des arguments
-$result = array();
-$this->calling($databaseClient)->query = function(Query $query) use($result) {
-switch($query->type) {
-case Query::SELECT:
-return $result
-
-default;
-return null;
-}
-};
-
-// la méthode connect lèvera une exception
-$this->calling($databaseClient)->connect->throw = new \Database\Client\Exception();
+   $databaseClient = new \mock\Database\Client();
+   
+   // redéfinie la méthode connect : elle retournera toujours true
+   $this->calling($databaseClient)->connect = true;
+   
+   // redéfinie la méthode select
+   $this->calling($databaseClient)->select = function() {
+       return array();
+   };
+   
+   // redéfinie la méthode query avec des arguments
+   $result = array();
+   $this->calling($databaseClient)->query = function(Query $query) use($result) {
+       switch($query->type) {
+           case Query::SELECT:
+               return $result
+   
+           default;
+               return null;
+       }
+   };
+   
+   // la méthode connect lèvera une exception
+   $this->calling($databaseClient)->connect->throw = new \Database\Client\Exception();
 Comme vous pouvez le voir, il est possible d’utiliser plusieurs méthodes afin d’obtenir le comportement souhaité :
 
 * Utiliser une valeur statique qui sera retournée par la méthode
@@ -4463,25 +4463,25 @@ Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'app
 
 .. code-block:: php
 
-// défaut
-$this->calling($databaseClient)->count = rand(0, 10);
-// équivalent à
-$this->calling($databaseClient)->count[0] = rand(0, 10);
-
-// 1er appel
-$this->calling($databaseClient)->count[1] = 13;
-
-// 3ème appel
-$this->calling($databaseClient)->count[3] = 42;
+   // défaut
+   $this->calling($databaseClient)->count = rand(0, 10);
+   // équivalent à
+   $this->calling($databaseClient)->count[0] = rand(0, 10);
+   
+   // 1er appel
+   $this->calling($databaseClient)->count[1] = 13;
+   
+   // 3ème appel
+   $this->calling($databaseClient)->count[3] = 42;
 * Le premier appel retournera 13.
 
 * Le second aura le comportement par défaut, c'est à dire un nombre aléatoire.
 * Le troisième appel retournera 42.
 * Tous les appels suivants auront le comportement par défaut, c'est à dire des nombres aléatoires.
 
-Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes :ref:```methods`` <methods>` ou :ref:```methodsWhichMatch`` <methodswhichmatch>`.
+Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes :ref:```methods`` <methods-anchor>` ou :ref:```methodsWhichMatch`` <methods-which-match>`.
 
-.. _methods:
+.. _methods-anchor:
 
 methods
 ^^^^^^^
@@ -4490,51 +4490,51 @@ methods
 
 .. code-block:: php
 
-// si la méthode a tel ou tel nom,
-// on redéfinit son comportement
-$this
-->calling($mock)
-->methods(
-function($method) {
-return in_array(
-$method,
-array(
-'getOneThing',
-'getAnOtherThing'
-)
-);
-}
-)
-->return = uniqid()
-;
+   // si la méthode a tel ou tel nom,
+   // on redéfinit son comportement
+   $this
+       ->calling($mock)
+           ->methods(
+               function($method) {
+                   return in_array(
+                       $method,
+                       array(
+                           'getOneThing',
+                           'getAnOtherThing'
+                       )
+                   );
+               }
+           )
+               ->return = uniqid()
+   ;
+   
+   // on redéfinit le comportement de toutes les méthodes
+   $this
+       ->calling($mock)
+           ->methods()
+               ->return = null
+   ;
+   
+   // si la méthode commence par "get",
+   // on redéfinit son comportement
+   $this
+       ->calling($mock)
+           ->methods(
+               function($method) {
+                   return substr($method, 0, 3) == 'get';
+               }
+           )
+               ->return = uniqid()
+   ;
+   
 
-// on redéfinit le comportement de toutes les méthodes
-$this
-->calling($mock)
-->methods()
-->return = null
-;
-
-// si la méthode commence par "get",
-// on redéfinit son comportement
-$this
-->calling($mock)
-->methods(
-function($method) {
-return substr($method, 0, 3) == 'get';
-}
-)
-->return = uniqid()
-;
-
-
-Dans le cas du dernier exemple, vous devriez plutôt utiliser :ref:```methodsWhichMatch`` <methodswhichmatch>`.
+Dans le cas du dernier exemple, vous devriez plutôt utiliser :ref:```methodsWhichMatch`` <methods-which-match>`.
 
 .. note::
-La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d’informations sur le sujet.
 
 
-.. _methodswhichmatch:
+.. _methods-which-match:
 
 methodsWhichMatch
 ^^^^^^^^^^^^^^^^^
@@ -4543,24 +4543,24 @@ methodsWhichMatch
 
 .. code-block:: php
 
-// si la méthode commence par "is",
-// on redéfinit son comportement
-$this
-->calling($mock)
-->methodsWhichMatch('/^is/')
-->return = true
-;
-
-// si la méthode commence par "get" (insensible à la casse),
-// on redéfinit son comportement
-$this
-->calling($mock)
-->methodsWhichMatch('/^get/i')
-->throw = new \exception
-;
+   // si la méthode commence par "is",
+   // on redéfinit son comportement
+   $this
+       ->calling($mock)
+           ->methodsWhichMatch('/^is/')
+               ->return = true
+   ;
+   
+   // si la méthode commence par "get" (insensible à la casse),
+   // on redéfinit son comportement
+   $this
+       ->calling($mock)
+           ->methodsWhichMatch('/^get/i')
+               ->throw = new \exception
+   ;
 
 .. note::
-``methodsWhichMatch`` utilise ```preg_match`` <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`_ pour avoir plus d’informations sur le sujet.
+   ``methodsWhichMatch`` utilise ```preg_match`` <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`_ pour avoir plus d’informations sur le sujet.
 
 
 .. _cas-particulier-du-constructeur:
@@ -4575,13 +4575,13 @@ Pour bouchonner le constructeur d’une classe, il faut :
 
 .. code-block:: php
 
-$controller = new \atoum\mock\controller();
-$controller->__construct = function() {};
-
-$databaseClient = new \mock\Database\Client($controller);
+   $controller = new \atoum\mock\controller();
+   $controller->__construct = function() {};
+   
+   $databaseClient = new \mock\Database\Client($controller);
 
 .. note::
-Dans l’exemple ci-dessus, le constructeur de la classe ``Database\Client`` n’a aucun argument, nous injectons directement le contrôleur. Dans le cas d’un constructeur ayant des paramètres, il faudra passer le contrôleur en dernier argument, après tous les arguments requis et optionnels.
+   Dans l’exemple ci-dessus, le constructeur de la classe ``Database\Client`` n’a aucun argument, nous injectons directement le contrôleur. Dans le cas d’un constructeur ayant des paramètres, il faudra passer le contrôleur en dernier argument, après tous les arguments requis et optionnels.
 
 
 .. _tester-un-bouchon:
@@ -4593,23 +4593,23 @@ atoum vous permet de vérifier qu’un bouchon a été utilisé correctement.
 
 .. code-block:: php
 
-$databaseClient = new \mock\Database\Client();
-$databaseClient->getMockController()->connect = function() {};
-$databaseClient->getMockController()->query   = array();
-
-$bankAccount = new \Vendor\Project\Bank\Account();
-$this
-// utilisation du bouchon via un autre objet
-->array($bankAccount->getOperation($databaseClient))
-->isEmpty()
-
-// test du bouchon
-->mock($databaseClient)
-->call('query')
-->once()        // vérifie que la méthode query
-// n'a été appelé qu'une seule fois
-;
+   $databaseClient = new \mock\Database\Client();
+   $databaseClient->getMockController()->connect = function() {};
+   $databaseClient->getMockController()->query   = array();
+   
+   $bankAccount = new \Vendor\Project\Bank\Account();
+   $this
+       // utilisation du bouchon via un autre objet
+       ->array($bankAccount->getOperation($databaseClient))
+           ->isEmpty()
+   
+       // test du bouchon
+       ->mock($databaseClient)
+           ->call('query')
+               ->once()        // vérifie que la méthode query
+                               // n'a été appelé qu'une seule fois
+   ;
 
 .. note::
-Reportez-vous à la documentation sur l’assertion ``:ref:`mock <mock>``` pour obtenir plus d’informations sur les tests des bouchons.
+   Reportez-vous à la documentation sur l’assertion :ref:`mock <mock-anchor>` pour obtenir plus d’informations sur les tests des bouchons.
 

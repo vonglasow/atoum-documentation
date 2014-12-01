@@ -14,7 +14,7 @@
                     "/^$prefix([^=].*)$prefix([^=].*)\$/m",
                     function($matches) use($sign) {
                         return
-                            '.. _' . $matches[2] . ":\n\n" .
+                            '.. _' . camelCaseToDashCase($matches[2]) . ":\n\n" .
                             $matches[1] . "\n" .
                             str_repeat($sign, strlen(iconv('UTF-8', 'ASCII//TRANSLIT', $matches[1])))
                         ;
@@ -25,16 +25,18 @@
                 $content = preg_replace_callback(
                     "/^$prefix([^=].*)\$/m",
                     function($matches) use($sign) {
-                        $ascii = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT', $matches[1]));
+                        $ascii = iconv('UTF-8', 'ASCII//TRANSLIT', $matches[1]);
 
                         return
-                            '.. _' . trim(
-                                preg_replace(
-                                    '/[^a-zA-Z0-9]/',
-                                    '-',
-                                    $ascii
-                                ),
-                                '-'
+                            '.. _' . camelCaseToDashCase(
+                                trim(
+                                    preg_replace(
+                                        '/[^a-zA-Z0-9]/',
+                                        '-',
+                                        $ascii
+                                    ),
+                                    '-'
+                                )
                             ) . ":\n\n" .
                             $matches[1] . "\n" .
                             str_repeat($sign, strlen($ascii))
@@ -56,7 +58,7 @@
             $content = preg_replace_callback(
                 '/\[\[(.*)\|#(.*)\]\]/U',
                 function($matches) {
-                    return ':ref:`' . $matches[1] . ' <' . strtolower($matches[2]) . '>`';
+                    return ':ref:`' . $matches[1] . ' <' . camelCaseToDashCase($matches[2]) . '>`';
                 },
                 $content
             );
@@ -69,6 +71,7 @@
             $content = preg_replace('/\?\?(.*)\|(.*)\?\?/U', '$1 ($2)', $content);
 
             # CODES
+            $content = preg_replace('/##(:ref:`.*`)##/U', '$1', $content);
             $content = preg_replace('/##[\\\\]*([^\\\\].*)##/U', '``$1``', $content);
             $content = preg_replace_callback(
                 '/\[\[\[(.*)\n(.*)\n\]\]\]/sU',
@@ -92,7 +95,7 @@
             # INFOS
             $replaceNotes = function($content, $from, $to) {
                 $content = preg_replace_callback(
-                    "/\{\{\{$from\n(.*)\n\}\}\}/",
+                    "/\{\{\{$from\n(.*)\n\}\}\}/sU",
                     function($matches) use($to) {
                         $matches[1] = explode("\n", $matches[1]);
 
@@ -116,8 +119,22 @@
             $content = $replaceNotes($content, 'info', 'note');
             $content = $replaceNotes($content, 'warning', 'warning');
             $content = $replaceNotes($content, 'todo', 'todo');
+            $content = $replaceNotes($content, 'inheritance', 'tip');
 
             $filename = basename($skrivFile, '.skriv');
             file_put_contents($rtdDirectory . '/' . $language . '/source/' . $filename . '.rst', $content);
         }
+    }
+
+
+    # FUNCTIONS
+    function camelCaseToDashCase($string) {
+        $string = preg_replace('/(?<=\\w)(?=[A-Z])/', '-$1', $string);
+        $string = strtolower($string);
+
+        if (strpos($string, '-') === false) {
+            $string .= '-anchor';
+        }
+
+        return $string;
     }

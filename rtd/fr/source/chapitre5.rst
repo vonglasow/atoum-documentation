@@ -1,4 +1,4 @@
-.. _participer:
+.. _participer-anchor:
 
 Participer
 ==========

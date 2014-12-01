@@ -3,7 +3,7 @@
 Lancement des tests
 ===================
 
-.. _executable:
+.. _executable-anchor:
 
 Exécutable
 ----------
@@ -17,7 +17,7 @@ Avec l'archive phar
 
 Si vous utilisez l'archive phar, elle est elle-même l'exécutable.
 
-.. _pharLinuxMac:
+.. _phar-linux-mac:
 
 linux / mac
 ^^^^^^^^^^^
@@ -26,7 +26,7 @@ linux / mac
 
    $ php path/to/mageekguy.atoum.phar
 
-.. _pharWindows:
+.. _phar-windows:
 
 windows
 ^^^^^^^
@@ -43,7 +43,7 @@ Avec les sources
 
 Si vous utilisez les sources, l'exécutable se trouve dans path/to/atoum/bin.
 
-.. _sourceLinuxMac:
+.. _source-linux-mac:
 
 linux / mac
 ^^^^^^^^^^^
@@ -56,7 +56,7 @@ linux / mac
    
    $ ./path/to/bin/atoum
 
-.. _sourceWindows:
+.. _source-windows:
 
 windows
 ^^^^^^^
@@ -110,7 +110,7 @@ Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou
    $ ./bin/atoum -d tests/units
 
 
-.. _filtres:
+.. _filtres-anchor:
 
 Filtres
 -------
@@ -161,7 +161,7 @@ Si vous remplacez le nom de la class par ``*``, cela revient à dire que vous fi
 
    $ ./bin/atoum -d tests/units -m *::testContains
 
-.. _tags:
+.. _tags-anchor:
 
 Tags
 ~~~~
@@ -260,11 +260,11 @@ Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans
    > atoum version DEVELOPMENT by Frederic Hardy (/Users/fch/Atoum)
    > PHP path: /usr/local/bin/php
    > PHP version:
-   .. _php-5-3-8--cli---built--sep-21-2011-23-14-37:
+   .. _p-h-p-5-3-8--cli---built--sep-21-2011-23-14-37:
    
    > PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
    ===============================================
-   .. _copyright--c--1997-2011-the-php-group:
+   .. _copyright--c--1997-2011-the-p-h-p-group:
    
    > Copyright (c) 1997-2011 The PHP Group
    =======================================
@@ -293,19 +293,19 @@ Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans
    
    > Class mageekguy\atoum\template: 91.14%
    ========================================
-   .. _mageekguy-atoum-template--setwith----80-00:
+   .. _mageekguy-atoum-template--set-with----80-00:
    
    > mageekguy\atoum\template::setWith(): 80.00%
    ---------------------------------------------
-   .. _mageekguy-atoum-template--resetchildrendata----25-00:
+   .. _mageekguy-atoum-template--reset-children-data----25-00:
    
    > mageekguy\atoum\template::resetChildrenData(): 25.00%
    -------------------------------------------------------
-   .. _mageekguy-atoum-template--addtoparent----0-00:
+   .. _mageekguy-atoum-template--add-to-parent----0-00:
    
    > mageekguy\atoum\template::addToParent(): 0.00%
    ------------------------------------------------
-   .. _mageekguy-atoum-template--unsetattribute----0-00:
+   .. _mageekguy-atoum-template--unset-attribute----0-00:
    
    > mageekguy\atoum\template::unsetAttribute(): 0.00%
    ---------------------------------------------------
@@ -313,7 +313,7 @@ Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans
    
    > Class mageekguy\atoum\template\data: 96.43%
    =============================================
-   .. _mageekguy-atoum-template-data----tostring----0-00:
+   .. _mageekguy-atoum-template-data----to-string----0-00:
    
    > mageekguy\atoum\template\data::__toString(): 0.00%
    ----------------------------------------------------
@@ -365,14 +365,14 @@ Une fois les tests exécutés, atoum générera alors le rapport de couverture d
    Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l'exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
 
 
-.. _notifications:
+.. _notifications-anchor:
 
 Notifications
 ~~~~~~~~~~~~~
 
-atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : :ref:`Growl <growl>`, :ref:`Notification Center <osxnotificationcenter>`, :ref:`Libnotify <libnotify>`.
+atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : :ref:`Growl <growl-anchor>`, :ref:`Notification Center <o-s-x-notification-center>`, :ref:`Libnotify <libnotify-anchor>`.
 
-.. _growl:
+.. _growl-anchor:
 
 Growl
 ^^^^^
@@ -401,7 +401,7 @@ Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
 
-.. _OSXNotificationCenter:
+.. _o-s-x-notification-center:
 
 Mac OS X Notification Center
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -450,7 +450,7 @@ Sous OS X, vous avez la possibilité de définir une commande qui sera exécuté
 
 L'exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l'utilisateur clique sur la notification.
 
-.. _libnotify:
+.. _libnotify-anchor:
 
 Libnotify
 ^^^^^^^^^
@@ -583,7 +583,7 @@ Cette option vous permet de spécifier le ou les répertoires de tests à lancer
    $ ./bin/atoum -d tests/units/db/
    $ ./bin/atoum --directories tests/units/db/ tests/units/entities/
 
-.. _debug:
+.. _debug-anchor:
 
 --debug
 ~~~~~~~
@@ -830,7 +830,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer en fo
    $ ./bin/atoum --tags OneTag TwoTag
 
 .. note::
-   Reportez-vous à la section sur les :ref:`filtres par tags <tags>` pour avoir plus d'informations.
+   Reportez-vous à la section sur les :ref:`filtres par tags <tags-anchor>` pour avoir plus d'informations.
 
 
 .. _test-all:

@@ -1,4 +1,4 @@
-.. _cookbook:
+.. _cookbook-anchor:
 
 Cookbook
 ========
@@ -24,10 +24,10 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
 Utilisation dans behat
 ----------------------
 
-{{{todo
-We need help to write this section !
-([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
-}}}
+.. todo::
+   We need help to write this section !
+   ([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
+
 
 .. _utilisation-dans-jenkins--ou-hudson:
 
@@ -36,7 +36,7 @@ Utilisation dans Jenkins (ou Hudson)
 
 Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http://jenkins-ci.org/>`_ (ou `Hudson <http://hudson-ci.org/>`_) en tant que résultats xUnit.
 
-.. _etape-1---ajout-d-un-rapport-xunit-a-la-configuration-atoum:
+.. _etape-1---ajout-d-un-rapport-x-unit-a-la-configuration-atoum:
 
 Étape 1 : Ajout d'un rapport xUnit à la configuration atoum
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,10 +101,10 @@ Pour tester cette configuration, il suffit de lancer atoum en lui précisant le 
 
    $ php mageekguy.atoum.phar -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
 
-{{{info
-Si vous avez nommé votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement. Le paramètre ``-c`` est donc optionnel dans ce cas.
-Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ``.atoum.php`` ou d'un de ses enfants.
-}}}
+.. note::
+   Si vous avez nommé votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement. Le paramètre ``-c`` est donc optionnel dans ce cas.
+   Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ``.atoum.php`` ou d'un de ses enfants.
+
 
 À la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
 
@@ -365,15 +365,15 @@ Cependant, en règle général, l'espace de nom utilisé pour les classes de tes
 Attention, il était possible auparavant d'utiliser la méthode ``mageekguy\atoum\test::setTestsSubNamespace()``, mais cette dernière est dépréciée en faveur de ``mageekguy\atoum\test::setTestNamespace()``.
 
 
-.. _utilisation-avec-ezpublish:
+.. _utilisation-avec-ez-publish:
 
 Utilisation avec ezPublish
 --------------------------
 
-{{{todo
-We need help to write this section !
-([[https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish]])
-}}}
+.. todo::
+   We need help to write this section !
+   ([[https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish]])
+
 
 .. _utilisation-avec-symfony-2:
 
@@ -568,11 +568,11 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 
    > PHP path: /usr/bin/php
    > PHP version:
-   .. _php-5-3-15-with-suhosin-patch--cli---built--aug-24-2012-17-45-44:
+   .. _p-h-p-5-3-15-with-suhosin-patch--cli---built--aug-24-2012-17-45-44:
    
    > PHP 5.3.15 with Suhosin-Patch (cli) (built: Aug 24 2012 17:45:44)
    ===================================================================
-   .. _copyright--c--1997-2012-the-php-group:
+   .. _copyright--c--1997-2012-the-p-h-p-group:
    
    > Copyright (c) 1997-2012 The PHP Group
    =======================================
@@ -597,19 +597,19 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
    > Total test duration: 0.01 second.
    > Total test memory usage: 0.50 Mb.
    > Code coverage value: 42.86%
-   .. _class-acme-demobundle-entity-car--42-86:
+   .. _class-acme-demo-bundle-entity-car--42-86:
    
    > Class Acme\DemoBundle\Entity\Car: 42.86%
    ==========================================
-   .. _acme-demobundle-entity-car--getid----0-00:
+   .. _acme-demo-bundle-entity-car--get-id----0-00:
    
    > Acme\DemoBundle\Entity\Car::getId(): 0.00%
    --------------------------------------------
-   .. _acme-demobundle-entity-car--setmaxspeed----0-00:
+   .. _acme-demo-bundle-entity-car--set-max-speed----0-00:
    
    > Acme\DemoBundle\Entity\Car::setMaxSpeed(): 0.00%
    --------------------------------------------------
-   .. _acme-demobundle-entity-car--getmaxspeed----0-00:
+   .. _acme-demo-bundle-entity-car--get-max-speed----0-00:
    
    > Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%
    --------------------------------------------------
@@ -624,7 +624,7 @@ Utilisation avec symfony 1.4
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-.. _installation:
+.. _installation-anchor:
 
 Installation
 ~~~~~~~~~~~~

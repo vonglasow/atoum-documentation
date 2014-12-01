@@ -1,4 +1,4 @@
-.. _introduction:
+.. _introduction-anchor:
 
 Introduction
 ============
@@ -24,29 +24,29 @@ Download & Install
 For now, atoum is not tagged with a version number. If you want to use atoum, just download the last stable version. atoum aims to provide backward compatibility anyway.
 You can install atoum several ways :
 
-* :ref:`As a PHAR archive <phar>`
-* :ref:`Using composer <composer>`
-* :ref:`Using an install script <installer>`
-* :ref:`Cloning the github repository <github>`
+* :ref:`As a PHAR archive <p-h-a-r>`
+* :ref:`Using composer <composer-anchor>`
+* :ref:`Using an install script <installer-anchor>`
+* :ref:`Cloning the github repository <github-anchor>`
 * :ref:`Using a Symfony2 Bundle <symfony2-bundle>`.
 * :ref:`Using a Zend Framework 2 component <zend-framework-2-component>`
 
 
-.. _phar:
+.. _p-h-a-r:
 
 PHAR
 ~~~~
 
 atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5.3.
 
-.. _installation:
+.. _installation-anchor:
 
 Installation
 ^^^^^^^^^^^^
 
 You can download the latest stable version of atoum directly from the official website : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
 
-.. _updating:
+.. _updating-anchor:
 
 Updating
 ^^^^^^^^
@@ -132,7 +132,7 @@ The version will be removed.
    Removing a version of atoum needs PHP to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
 
 
-.. _composer:
+.. _composer-anchor:
 
 Composer
 ~~~~~~~~
@@ -161,7 +161,7 @@ Finally execute :
 
    php composer.phar install
 
-.. _installer:
+.. _installer-anchor:
 
 Installer
 ~~~~~~~~~
@@ -184,7 +184,7 @@ This script lets you install atoum locally (in a project, see the previous examp
 
 Options are available and let you tweak the installation process : see the `documentation <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ for more details.
 
-.. _github:
+.. _github-anchor:
 
 Github
 ~~~~~~
@@ -296,11 +296,11 @@ You will see something like this
    > atoum version nightly-941-201201011548 by Frédéric Hardy (phar:///home/documentation/projects/tests/atoum/mageekguy.atoum.phar/1)
    > PHP path: /usr/bin/php5
    > PHP version:
-   .. _php-5-3-6-13ubuntu3-3-with-suhosin-patch--cli---built--dec-13-2011-18-37-10:
+   .. _p-h-p-5-3-6-13ubuntu3-3-with-suhosin-patch--cli---built--dec-13-2011-18-37-10:
    
    > PHP 5.3.6-13ubuntu3.3 with Suhosin-Patch (cli) (built: Dec 13 2011 18:37:10)
    ==============================================================================
-   .. _copyright--c--1997-2011-the-php-group:
+   .. _copyright--c--1997-2011-the-p-h-p-group:
    
    > Copyright (c) 1997-2011 The PHP Group
    =======================================
@@ -343,7 +343,7 @@ The basics when you’re testing things using atoum are the following :
 *    Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
 *    Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).
 
-.. _using-atoum-with-your-favorite-ide:
+.. _using-atoum-with-your-favorite-i-d-e:
 
 Using atoum with your favorite IDE
 ----------------------------------
@@ -357,7 +357,7 @@ A `SublimeText 2 plugin <https://github.com/toin0u/Sublime-atoum>`_ enables you 
 
 Required instructions to install the plugin are available here `the author's blog <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
 
-.. _vim:
+.. _v-i-m:
 
 VIM
 ---
@@ -368,7 +368,7 @@ It enables you to launch tests without leaving VIM, and to get the matching repo
 
 You can navigate through potential errors, directly going to the line where assertions failed thanks to matching key strokes.
 
-.. _installing-the-vim-plugin:
+.. _installing-the-v-i-m-plugin:
 
 Installing the VIM plugin
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -393,7 +393,7 @@ And ask VIM to install the plugin with
 
    :source %
 
-.. _using-atoum-and-vim:
+.. _using-atoum-and-v-i-m:
 
 Using atoum and VIM
 ~~~~~~~~~~~~~~~~~~~

@@ -1,4 +1,4 @@
-.. _citations:
+.. _citations-anchor:
 
 Citations
 =========
