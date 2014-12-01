@@ -8,8 +8,9 @@ Participer
 Comment participer
 ------------------
 
-.. note::
+.. todo::
    We need help to write this section !
+
 
 .. _convention-de-codage:
 

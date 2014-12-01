@@ -188,6 +188,7 @@ l'extension ``.php`` et dans des répertoires dont le chemin contient ``/Tests/U
    Dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
 
 
+
 Les tests étant executés très rapidement avec atoum, on peut donc lancer l'ensemble des tests unitaires avant chaque commit avec un hook comme celui-ci :
 
 .. code-block:: php
@@ -439,6 +440,7 @@ Imaginons que nous voulions tester cet Entity:
 .. note::
    Pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au `manuel Symfony <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
 
+
 Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stoqués tous les tests de ce Bundle.
 
 Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.
@@ -492,8 +494,10 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 .. note::
    L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
 
+
 .. note::
    Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+
 
 .. _etape-3--ecriture-d-un-test:
 
@@ -555,6 +559,7 @@ Si vous utilisez Symfony 2.1:
 
 .. note::
    Vous pouvez obtenir plus d'informations sur le `lancement des tests <chapitre3.html#Lancement-des-tests>`_ au chapitre 3.
+
 
 
 Dans tous les cas, voilà ce que vous devriez obtenir:

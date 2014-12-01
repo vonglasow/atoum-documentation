@@ -61,6 +61,7 @@ La mise à jour de l’archive est très simple. Il vous suffit de lancer la com
 .. note::
    La mise à jour d’atoum nécessite la modification de l’archive PHAR. Or par défaut, la configuration de PHP ne l’autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
+
 Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l’archive :
 
 .. code-block:: shell
@@ -91,7 +92,7 @@ Pour afficher les versions contenues dans l’archive au fur et à mesure des mi
 .. code-block:: shell
 
    $ php mageekguy.atoum.phar -lavnightly-941-201201011548
-
+   
    * nightly-1568-201210311708
 
 La liste des versions présentes dans l’archive est alors affichée, la version actuellement active étant précédée de ``*``.
@@ -110,6 +111,7 @@ Pour activer une autre version, il suffit d’utiliser l’argument ``--enable-v
 .. note::
    La modification de la version courante nécessite la modification de l’archive PHAR. Or par défaut, la configuration de php ne l’autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
+
 .. _suppression-d-anciennes-versions:
 
 Suppression d’anciennes versions
@@ -125,11 +127,13 @@ Pour les supprimer, il suffit d’utiliser l’argument ``--delete-version``, ou
 
 La version est alors supprimée.
 
-.. note::
+.. warning::
    Il n’est pas possible de supprimer la version active.
+
 
 .. note::
    La suppression d’une version nécessite la modification de l’archive PHAR. Or par défaut, la configuration de PHP ne l’autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+
 
 
 .. _par-composer:
@@ -239,15 +243,16 @@ Imaginez que vous vouliez tester la traditionnelle classe ``HelloWorld``, alors 
 .. note::
    atoum utilise les espaces de noms. Par exemple, pour tester la classe ``Vendor\Project\HelloWorld``, vous devez créer la classe ``Vendor\Project\tests\units\HelloWorld``.
 
+
 Voici le code de la classe ``HelloWorld`` que nous allons tester.
 
 .. code-block:: php
 
    <?php
    # src/Vendor/Project/HelloWorld.php
-
+   
    namespace Vendor\Project;
-
+   
    class HelloWorld
    {
        public function getHiAtoum ()
@@ -262,19 +267,19 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
 
    <?php
    # src/Vendor/Project/tests/units/HelloWorld.php
-
+   
    // La classe de test à son propre namespace :
    // Le namespace de la classe à tester + "tests\units"
    namespace Vendor\Project\tests\units;
-
+   
    // Vous devez inclure la classe à tester
    require_once __DIR__ . '/../../HelloWorld.php';
-
+   
    use \atoum;
-
+   
    /*
     * Classe de test pour \HelloWorld
-
+   
     * Remarquez qu’elle porte le même nom que la classe à tester
     * et qu’elle dérive de la classe atoum
     */
@@ -287,7 +292,7 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
        {
            // création d’une nouvelle instance de la classe à tester
            $helloToTest = new \Vendor\Project\HelloWorld();
-
+   
            $this
                // nous testons que la méthode getHiAtoum retourne bien
                // une chaîne de caractère...
@@ -308,29 +313,29 @@ Vous devriez voir quelque chose comme ça :
    > PHP path: /usr/bin/php
    > PHP version:
    .. _php-5-4-7--cli---built---sep-13-2012-04-24-47:
-
+   
    > PHP 5.4.7 (cli) (built : Sep 13 2012 04:24:47)
    ================================================
    .. _copyright--c--1997-2012-the-php-group:
-
+   
    > Copyright (c) 1997-2012 The PHP Group
    =======================================
    .. _zend-engine-v2-4-0--copyright--c--1998-2012-zend-technologies:
-
+   
    > Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
    ===============================================================
    .. _with-xdebug-v2-2-1--copyright--c--2002-2012--by-derick-rethans:
-
+   
    >     with Xdebug v2.2.1, Copyright (c) 2002-2012, by Derick Rethans
    ====================================================================
    > Vendor\Project\tests\units\HelloWorld...
    [S___________________________________________________________][1/1]
    .. _test-duration---0-02-second:
-
+   
    > Test duration : 0.02 second.
    ==============================
    .. _memory-usage---0-00-mb:
-
+   
    > Memory usage : 0.00 Mb.
    =========================
    > Total test duration: 0.02 second.
@@ -339,7 +344,7 @@ Vous devriez voir quelque chose comme ça :
    > Running duration: 0.34 second.
    Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
 
-Nous venons de tester que la méthode ``getHiAtoum`` :
+Nous venons de tester que la méthode ``getHiAtoum`` :
 
 * retourne bien une chaîne de caractère ;
 * que cette dernière est bien égale à ``"Hi atoum !"``.
@@ -481,13 +486,13 @@ macvim
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\macos
    ;
-
+   
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-
+   
    $cliReport->addField(new macos\macvim());
-
+   
    $runner->addReport($cliReport);
 
 
@@ -503,13 +508,13 @@ gvim
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\unix
    ;
-
+   
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-
+   
    $cliReport->addField(new unix\gvim());
-
+   
    $runner->addReport($cliReport);
 
 
@@ -527,15 +532,15 @@ Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\macos
    ;
-
+   
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-
+   
    $cliReport
        // Si PhpStorm est installé dans /Applications
        ->addField(new macos\phpstorm())
-
+   
        // Si vous avez installé PhpStorm
        // dans un dossier différent de /Applications
        // ->addField(
@@ -544,7 +549,7 @@ Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
        //     )
        // )
    ;
-
+   
    $runner->addReport($cliReport);
 
 
@@ -557,17 +562,17 @@ Dans un environnement Unix, utilisez la configuration suivante :
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\unix
    ;
-
+   
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-
+   
    $cliReport
        ->addField(
            new unix\phpstorm('/chemin/vers/PhpStorm/bin/phpstorm.sh')
        )
    ;
-
+   
    $runner->addReport($cliReport);
 
 
@@ -583,11 +588,11 @@ gedit
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\unix
    ;
-
+   
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-
+   
    $cliReport->addField(new unix\gedit());
-
+   
    $runner->addReport($cliReport);

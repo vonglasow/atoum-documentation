@@ -17,19 +17,19 @@ Avec l'archive phar
 
 Si vous utilisez l'archive phar, elle est elle-même l'exécutable.
 
-.. _linux---mac----pharlinuxmac:
+.. _pharLinuxMac:
 
-linux / mac====pharLinuxMac
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+linux / mac
+^^^^^^^^^^^
 
 .. code-block:: shell
 
    $ php path/to/mageekguy.atoum.phar
 
-.. _windows----pharwindows:
+.. _pharWindows:
 
-windows====pharWindows
-^^^^^^^^^^^^^^^^^^^^^^
+windows
+^^^^^^^
 
 .. code-block:: shell
 
@@ -43,10 +43,10 @@ Avec les sources
 
 Si vous utilisez les sources, l'exécutable se trouve dans path/to/atoum/bin.
 
-.. _linux---mac----sourcelinuxmac:
+.. _sourceLinuxMac:
 
-linux / mac====sourceLinuxMac
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+linux / mac
+^^^^^^^^^^^
 
 .. code-block:: shell
 
@@ -56,10 +56,10 @@ linux / mac====sourceLinuxMac
    
    $ ./path/to/bin/atoum
 
-.. _windows----sourcewindows:
+.. _sourceWindows:
 
-windows====sourceWindows
-^^^^^^^^^^^^^^^^^^^^^^^^
+windows
+^^^^^^^
 
 .. code-block:: shell
 
@@ -131,6 +131,7 @@ Pour filtrer sur l'espace de noms, c'est à dire n'exécuter que les tests d'un 
 .. note::
    Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
 
+
 .. _une-classe-ou-une-methode:
 
 Une classe ou une méthode
@@ -144,6 +145,7 @@ Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les te
 
 .. note::
    Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+
 
 Vous pouvez remplacer le nom de la classe ou de la méthode par ``*`` pour signifier ``tous``.
 
@@ -196,6 +198,7 @@ De la même manière, il est également possible de tagger les méthodes de test
 .. note::
    Les tags définis au niveau d'une méthode prennent le pas sur ceux définis au niveau de la classe.
 
+
 .. code-block:: php
 
    <?php
@@ -238,8 +241,9 @@ Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOn
 Fichier de configuration
 ------------------------
 
-.. note::
+.. todo::
    We need help to write this section !
+
 
 .. _couverture-du-code:
 
@@ -348,6 +352,7 @@ Par exemple:
 .. note::
    Il est également possible de modifier le titre du rapport à l'aide du premier argument du constructeur de la classe mageekguy\atoum\report\fields\runner\coverage\html.
 
+
 Une fois tout cela effectué, il n'y a plus qu'à utiliser le fichier de configuration lors de l'exécution des tests, de la manière suivante:
 
 .. code-block:: shell
@@ -358,6 +363,7 @@ Une fois les tests exécutés, atoum générera alors le rapport de couverture d
 
 .. note::
    Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l'exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
+
 
 .. _notifications:
 
@@ -395,10 +401,10 @@ Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
 
-.. _mac-os-x-notification-center----osxnotificationcenter:
+.. _OSXNotificationCenter:
 
-Mac OS X Notification Center====OSXNotificationCenter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Mac OS X Notification Center
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Cette fonctionnalité nécessite la présence de l'exécutable ``terminal-notifier``. Pour vérifier s'il est disponible, utilisez la commande suivante :
 
@@ -410,6 +416,7 @@ Cette fonctionnalité nécessite la présence de l'exécutable ``terminal-notifi
 
 .. note::
    Rendez-vous sur `la page Github du projet <https://github.com/alloy/terminal-notifier>`_ pour obtenir plus d'information sur l'installation de ``terminal-notifier``.
+
 
 Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 
@@ -492,6 +499,7 @@ En ligne de commande, il faut utiliser au choix l'argument -bf ou l'argument --b
 .. note::
    Un fichier de bootstrap n'est pas un fichier de configuration et n'a donc pas les mêmes possibilités.
 
+
 Dans un fichier de configuration, atoum est configurable via la variable $runner, qui n'est pas définie dans un fichier de ``bootstrap``.
 
 De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l'exécution des tests mais après le lancement des tests, alors que le fichier de ``bootstrap``, s'il est défini, est le tout premier fichier inclus par atoum proprement dit. Enfin, le fichier de ``bootstrap`` peut permettre de ne pas avoir à inclure systématiquement le
@@ -529,6 +537,7 @@ Certaines options acceptent plusieurs valeurs :
 
 .. note::
    Vous ne devez mettre qu'une seule fois chaque option. Dans le cas contraire, seul le dernier est pris en compte.
+
 
 .. code-block:: shell
 
@@ -588,6 +597,7 @@ Cette option vous permet d'activer le mode debug
 .. note::
    Reportez-vous à la section sur le `mode debug <chapitre2.html#Le-mode-debug>`_ pour avoir plus d'informations.
 
+
 .. _drt--string------default-report-title--string:
 
 -drt <string> / --default-report-title <string>
@@ -602,6 +612,7 @@ Cette option vous permet de spécifier le titre par défaut des rapports génér
 
 .. note::
    Si le titre comporte des espaces, il faut obligatoirement l'entourer de guillemets.
+
 
 .. _f--files------files--files:
 
@@ -666,6 +677,7 @@ Cette option vous permet d'activer le mode loop d'atoum.
 .. note::
    Reportez-vous à la section sur le `mode loop <chapitre2.html#Le-mode-loop>`_ pour avoir plus d'informations.
 
+
 .. _m--class--method------methods--class--methods:
 
 -m <class::method> / --methods <class::methods>
@@ -689,6 +701,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer.
 
 .. note::
    Reportez-vous à la section sur les :ref:`filtres par classe ou méthode <une-classe-ou-une-methode>` pour avoir plus d'informations.
+
 
 .. _mcn--integer------max-children-number--integer:
 
@@ -729,6 +742,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 .. note::
    Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
 
+
 .. _nccfns--namespaces------no-code-coverage-for-namespaces--namespaces:
 
 -nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
@@ -743,6 +757,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 
 .. note::
    Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+
 
 .. _nccid--directories------no-code-coverage-in-directories--directories:
 
@@ -770,6 +785,7 @@ Cette option vous permet de filtrer les classes et les méthodes en fonction des
 
 .. note::
    Reportez-vous à la section sur les :ref:`filtres par espace de noms <par-espace-de-noms>` pour avoir plus d'informations.
+
 
 .. _p--file------php--file:
 
@@ -815,6 +831,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer en fo
 
 .. note::
    Reportez-vous à la section sur les :ref:`filtres par tags <tags>` pour avoir plus d'informations.
+
 
 .. _test-all:
 

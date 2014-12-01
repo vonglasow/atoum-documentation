@@ -15,10 +15,10 @@ variable
 
 The base asserter for all variables. It contains all the tests you would need for any kind of variable.
 
-.. _iscallable----variableiscallable:
+.. _variableIsCallable:
 
-isCallable====variableIsCallable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCallable
+^^^^^^^^^^
 
 ``isCallable`` checks that the variable call be called like a function
 
@@ -42,10 +42,10 @@ isCallable====variableIsCallable
            ->isCallable()
    ;
 
-.. _isequalto----variableisequalto:
+.. _variableIsEqualTo:
 
-isEqualTo====variableIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 ``isEqualTo`` checks that the variable is equal to an expected value
 
@@ -58,13 +58,14 @@ isEqualTo====variableIsEqualTo
            ->isEqualTo('a')    // passes
    ;
 
-.. note::
+.. warning::
    ``isEqualTo`` does not check the variable type. If you want to also check the type, use ``:ref:`isIdenticalTo <variableisidenticalto>```.
 
-.. _isidenticalto----variableisidenticalto:
 
-isIdenticalTo====variableIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _variableIsIdenticalTo:
+
+isIdenticalTo
+^^^^^^^^^^^^^
 
 ``isIdenticalTo`` checks that the variable is equal to the expected value, and also checks that the types are the same. With objects, ``isIdenticalTo`` checks that both values are references to the same object
 
@@ -87,13 +88,14 @@ isIdenticalTo====variableIsIdenticalTo
            ->isIdenticalTo(stdClass2)  // fails
    ;
 
-.. note::
+.. warning::
    ``isIdenticalTo`` checks the variable type. If you do not want to check the type, use``:ref:`isEqualTo <variableisequalto>```.
 
-.. _isnotcallable----variableisnotcallable:
 
-isNotCallable====variableIsNotCallable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _variableIsNotCallable:
+
+isNotCallable
+^^^^^^^^^^^^^
 
 ``isNotCallable`` checks the variable cannot be called like a function.
 
@@ -119,10 +121,10 @@ isNotCallable====variableIsNotCallable
            ->isNotCallable()   // passes
    ;
 
-.. _isnotequalto----variableisnotequalto:
+.. _variableIsNotEqualTo:
 
-isNotEqualTo====variableIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 ``isNotEqualTo`` checks that the variable is not the same as the given value
 
@@ -140,13 +142,14 @@ isNotEqualTo====variableIsNotEqualTo
            ->isNotEqualTo($1)      // fails
    ;
 
-.. note::
+.. warning::
    ``isNotEqualTo`` does not check the variable type. If you also want to check the type, use ``:ref:`isNotIdenticalTo <variableisnotidenticalto>```.
 
-.. _isnotidenticalto----variableisnotidenticalto:
 
-isNotIdenticalTo====variableIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _variableIsNotIdenticalTo:
+
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 ``isNotIdenticalTo`` checks that the variable has neither the same type nor the same value as the given value
 
@@ -171,8 +174,9 @@ With objects, ``isNotIdenticalTo`` checks that both values do not reference the 
            ->isNotIdenticalTo(stdClass3)   // fails
    ;
 
-.. note::
+.. warning::
    ``isNotIdenticalTo`` checks the variable type. If you do not want to check the variable type, use ``:ref:`isNotEqualTo <variableisnotequalto>```.
+
 
 .. _isnull:
 
@@ -229,10 +233,11 @@ The check will fail if you pass a non boolean value.
 .. note::
    ``null`` is not a boolean. You can read the PHP manual to know what ```is_bool <http://php.net/is_bool>`_`` considers a boolean or not.
 
-.. _isequalto----booleanisequalto:
 
-isEqualTo====booleanIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _booleanIsEqualTo:
+
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
@@ -259,30 +264,30 @@ isFalse
            ->isFalse()     // passes
    ;
 
-.. _isidenticalto----booleanisidenticalto:
+.. _booleanIsIdenticalTo:
 
-isIdenticalTo====booleanIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isnotequalto----booleanisnotequalto:
+.. _booleanIsNotEqualTo:
 
-isNotEqualTo====booleanIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----booleanisnotidenticalto:
+.. _booleanIsNotIdenticalTo:
 
-isNotIdenticalTo====booleanIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
@@ -323,20 +328,21 @@ The check will fail if pass a non integer value.
 .. note::
    ``null`` is not an integer. You can read the PHP manual to know what ```is_int <http://php.net/is_int>`_`` considers an integer or not.
 
-.. _isequalto----integerisequalto:
 
-isEqualTo====integerIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _integerIsEqualTo:
+
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isgreaterthan----integerisgreaterthan:
+.. _integerIsGreaterThan:
 
-isGreaterThan====integerIsGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThan
+^^^^^^^^^^^^^
 
 ``isGreaterThan`` checks that the integer is strictly greater then the given value.
 
@@ -352,10 +358,10 @@ isGreaterThan====integerIsGreaterThan
            ->isGreaterThan(0)      // fails
    ;
 
-.. _isgreaterthanorequalto----integerisgreaterthanorequalto:
+.. _integerIsGreaterThanOrEqualTo:
 
-isGreaterThanOrEqualTo====integerIsGreaterThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^^^^
 
 ``isGreaterThanOrEqualTo`` checks that the integer is greater or equal to the given value.
 
@@ -371,20 +377,20 @@ isGreaterThanOrEqualTo====integerIsGreaterThanOrEqualTo
                                            // is not an integer (string)
    ;
 
-.. _isidenticalto----integerisidenticalto:
+.. _integerIsIdenticalTo:
 
-isIdenticalTo====integerIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _islessthan----integerislessthan:
+.. _integerIsLessThan:
 
-isLessThan====integerIsLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThan
+^^^^^^^^^^
 
 ``isLessThan`` checks that the integer is strictly lower than the given value.
 
@@ -399,10 +405,10 @@ isLessThan====integerIsLessThan
            ->isLessThan(0)     // fails
    ;
 
-.. _islessthanorequalto----integerislessthanorequalto:
+.. _integerIsLessThanOrEqualTo:
 
-isLessThanOrEqualTo====integerIsLessThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^
 
 ``isLessThanOrEqualTo`` checks that the integer is less or equal than the given value.
 
@@ -418,30 +424,30 @@ isLessThanOrEqualTo====integerIsLessThanOrEqualTo
                                            // is not an integer
    ;
 
-.. _isnotequalto----integerisnotequalto:
+.. _integerIsNotEqualTo:
 
-isNotEqualTo====integerIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----integerisnotidenticalto:
+.. _integerIsNotIdenticalTo:
 
-isNotIdenticalTo====integerIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>` documentation
 }}}
 
-.. _iszero----integeriszero:
+.. _integerIsZero:
 
-isZero====integerIsZero
-^^^^^^^^^^^^^^^^^^^^^^^
+isZero
+^^^^^^
 
 ``isZero`` checks that the integer is equal to 0.
 
@@ -463,6 +469,7 @@ isZero====integerIsZero
 
 
 
+
 .. _float:
 
 float
@@ -475,60 +482,61 @@ The check will fail if you pass a non float value.
 .. note::
    ``null`` is not a float. Read the PHP manual to know what ```is_float <http://php.net/is_float>`_`` considers a float or not.
 
-.. _isequalto----floatisequalto:
 
-isEqualTo====floatIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _floatIsEqualTo:
+
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isgreaterthan----floatisgreaterthan:
+.. _floatIsGreaterThan:
 
-isGreaterThan====floatIsGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThan
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isGreaterThan`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isGreaterThan`` <integerisgreaterthan>` documentation
 }}}
 
-.. _isgreaterthanorequalto----floatisgreaterthanorequalto:
+.. _floatIsGreaterThanOrEqualTo:
 
-isGreaterThanOrEqualTo====floatIsGreaterThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isGreaterThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isGreaterThanOrEqualTo`` <integerisgreaterthanorequalto>` documentation
 }}}
 
-.. _isidenticalto----floatisidenticalto:
+.. _floatIsIdenticalTo:
 
-isIdenticalTo====floatIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _islessthan----floatislessthan:
+.. _floatIsLessThan:
 
-isLessThan====floatIsLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThan
+^^^^^^^^^^
 
 {{{inheritance
 ``isLessThan`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isLessThan`` <integerislessthan>` documentation
 }}}
 
-.. _islessthanorequalto----floatislessthanorequalto:
+.. _floatIsLessThanOrEqualTo:
 
-isLessThanOrEqualTo====floatIsLessThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isLessThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
@@ -554,6 +562,7 @@ The result should be ``true`` though.
 .. note::
    For more information about this behavior, read `the PHP manual <http://php.net/types.float>`_
 
+
 This method tries to avoid this issue.
 
 .. code-block:: php
@@ -569,30 +578,31 @@ This method tries to avoid this issue.
 .. note::
    For more information about the algorithm used, read the `floating point guide <http://www.floating-point-gui.de/errors/comparison/>`_.
 
-.. _isnotequalto----floatisnotequalto:
 
-isNotEqualTo====floatIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _floatIsNotEqualTo:
+
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----floatisnotidenticalto:
+.. _floatIsNotIdenticalTo:
 
-isNotIdenticalTo====floatIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>` documentation
 }}}
 
-.. _iszero----floatiszero:
+.. _floatIsZero:
 
-isZero====floatIsZero
-^^^^^^^^^^^^^^^^^^^^^
+isZero
+^^^^^^
 
 {{{inheritance
 ``isZero`` is an inherited method from the ``integer`` asserter.
@@ -621,90 +631,90 @@ This is the asserter for array sizes and objects that implements the ``Countable
            ->isGreaterThan(0)
    ;
 
-.. _isequalto----sizeofisequalto:
+.. _sizeOfIsEqualTo:
 
-isEqualTo====sizeOfIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isgreaterthan----sizeofisgreaterthan:
+.. _sizeOfIsGreaterThan:
 
-isGreaterThan====sizeOfIsGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThan
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isGreaterThan`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isGreaterThan`` <integerisgreaterthan>` documentation
 }}}
 
-.. _isgreaterthanorequalto----sizeofisgreaterthanorequalto:
+.. _sizeOfIsGreaterThanOrEqualTo:
 
-isGreaterThanOrEqualTo====sizeOfIsGreaterThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isGreaterThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isGreaterThanOrEqualTo`` <integerisgreaterthanorequalto>` documentation
 }}}
 
-.. _isidenticalto----sizeofisidenticalto:
+.. _sizeOfIsIdenticalTo:
 
-isIdenticalTo====sizeOfIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _islessthan----sizeofislessthan:
+.. _sizeOfIsLessThan:
 
-isLessThan====sizeOfIsLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThan
+^^^^^^^^^^
 
 {{{inheritance
 ``isLessThan`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isLessThan`` <integerislessthan>` documentation
 }}}
 
-.. _islessthanorequalto----sizeofislessthanorequalto:
+.. _sizeOfIsLessThanOrEqualTo:
 
-isLessThanOrEqualTo====sizeOfIsLessThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isLessThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
 For more information, you can read the :ref:```integer::isLessThanOrEqualoo`` <integerislessthanorequalto>` documentation
 }}}
 
-.. _isnotequalto----sizeofisnotequalto:
+.. _sizeOfIsNotEqualTo:
 
-isNotEqualTo====sizeOfIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----sizeofisnotidenticalto:
+.. _sizeOfIsNotIdenticalTo:
 
-isNotIdenticalTo====sizeOfIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>` documentation
 }}}
 
-.. _iszero----sizeofiszero:
+.. _sizeOfIsZero:
 
-isZero====sizeOfIsZero
-^^^^^^^^^^^^^^^^^^^^^^
+isZero
+^^^^^^
 
 {{{inheritance
 ``isZero`` is an inherited method from the ``integer`` asserter.
@@ -725,10 +735,11 @@ The check will fail if you pass a non object.
 .. note::
    ``null`` is not an object. Read the PHP manual to know what ```is_object <http://php.net/is_object>`_`` considers an object or not.
 
-.. _hassize----objecthassize:
 
-hasSize====objectHasSize
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. _objectHasSize:
+
+hasSize
+^^^^^^^
 
 ``hasSize`` checks the size of objects that implement the ``Countable`` interface.
 
@@ -741,10 +752,10 @@ hasSize====objectHasSize
            ->hasSize(3)
    ;
 
-.. _iscallable----objectiscallable:
+.. _objectIsCallable:
 
-isCallable====objectIsCallable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCallable
+^^^^^^^^^^
 
 .. code-block:: php
 
@@ -767,15 +778,16 @@ isCallable====objectIsCallable
 .. note::
    To be ``callable``, your objects must be instantiated from classes that implement the ```__invoke``  < http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_ magic method.
 
+
 {{{inheritance
 ``isCallable`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isCallable`` <variableiscallable>` documentation
 }}}
 
-.. _iscloneof----objectiscloneof:
+.. _objectIsCloneOf:
 
-isCloneOf====objectIsCloneOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCloneOf
+^^^^^^^^^
 
 ``isCloneOf`` checks that the object is the clone of the given object, that is to say the objects are equal, but are not the same instance.
 
@@ -797,10 +809,11 @@ isCloneOf====objectIsCloneOf
 .. note::
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
-.. _isempty----objectisempty:
 
-isEmpty====objectIsEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. _objectIsEmpty:
+
+isEmpty
+^^^^^^^
 
 ``isEmpty`` checks that the size of an object that implements the ``Countable`` interface is equal to 0.
 
@@ -816,10 +829,11 @@ isEmpty====objectIsEmpty
 .. note::
    ``isEmpty`` is equivalent to ``hasSize(0)``.
 
-.. _isequalto----objectisequalto:
 
-isEqualTo====objectIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _objectIsEqualTo:
+
+isEqualTo
+^^^^^^^^^
 
 ``isEqualTo`` checks that the object is equal to the given object.
 Two objects are considered equal when they have the same attributes and attributes values, and that they are instances of the same class.
@@ -827,15 +841,16 @@ Two objects are considered equal when they have the same attributes and attribut
 .. note::
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
+
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isidenticalto----objectisidenticalto:
+.. _objectIsIdenticalTo:
 
-isIdenticalTo====objectIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 ``isIdenticalTo`` checks that the objects are identical.
 Two objects are considered identical when they are references to the same instance of the same class.
@@ -843,15 +858,16 @@ Two objects are considered identical when they are references to the same instan
 .. note::
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
+
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isinstanceof----objectisinstanceof:
+.. _objectIsInstanceOf:
 
-isInstanceOf====objectIsInstanceOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isInstanceOf
+^^^^^^^^^^^^
 ``isInstanceOf`` checks that an object isÂ :
 
 * an instance of the given class,
@@ -906,10 +922,11 @@ isInstanceOf====objectIsInstanceOf
 .. note::
    Classes and interfaces names have to be absolute, because namespace import are not taken into account.
 
-.. _isnotcallable----objectisnotcallable:
 
-isNotCallable====objectIsNotCallable
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _objectIsNotCallable:
+
+isNotCallable
+^^^^^^^^^^^^^
 
 .. code-block:: php
 
@@ -934,10 +951,10 @@ isNotCallable====objectIsNotCallable
 For more information, you can read the :ref:```variable::isNotCallable`` <variableisnotcallable>` documentation
 }}}
 
-.. _isnotequalto----objectisnotequalto:
+.. _objectIsNotEqualTo:
 
-isNotEqualTo====objectIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 ``isEqualTo`` checks that the object is not equal to the given object.
 Two objects are considered equal when they have the same attributes and attributes values, and that they are instances of the same class.
@@ -945,21 +962,23 @@ Two objects are considered equal when they have the same attributes and attribut
 .. note::
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
+
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----objectisnotidenticalto:
+.. _objectIsNotIdenticalTo:
 
-isNotIdenticalTo====objectIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 ``isIdenticalTo`` checks that the object is not identical to the given object.
 Two objects are considered identical when they are references to the same instance of the same class.
 
 .. note::
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
+
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
@@ -975,20 +994,20 @@ This is the asserter for the ```DateInterval <http://php.net/dateinterval>`_`` o
 
 The check will fail if you pass a value that is not a ``DateInterval`` instance (or an instance of a class that extends it).
 
-.. _iscloneof----dateintervaliscloneof:
+.. _dateIntervalIsCloneOf:
 
-isCloneOf====dateIntervalIsCloneOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCloneOf
+^^^^^^^^^
 
 {{{inheritance
 ``isCloneOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isCloneOf`` <objectiscloneof>` documentation
 }}}
 
-.. _isequalto----dateintervalisequalto:
+.. _dateIntervalIsEqualTo:
 
-isEqualTo====dateIntervalIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 ``isEqualTo`` checks that the duration of the ``DateInterval`` object is equal to the duration of the given ``DateInterval`` object.
 
@@ -1006,10 +1025,10 @@ isEqualTo====dateIntervalIsEqualTo
            )
    ;
 
-.. _isgreaterthan----dateintervalisgreaterthan:
+.. _dateIntervalIsGreaterThan:
 
-isGreaterThan====dateIntervalIsGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThan
+^^^^^^^^^^^^^
 
 ``isGreaterThan`` checks that the duration of the ``DateInterval`` object is greater than the duration of the given ``DateInterval`` object.
 
@@ -1027,10 +1046,10 @@ isGreaterThan====dateIntervalIsGreaterThan
            )
    ;
 
-.. _isgreaterthanorequalto----dateintervalisgreaterthanorequalto:
+.. _dateIntervalIsGreaterThanOrEqualTo:
 
-isGreaterThanOrEqualTo====dateIntervalIsGreaterThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isGreaterThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^^^^
 
 ``isGreaterThanOrEqualTo`` checks that the duration of the ``DateInterval`` object is greater or equal to the duration of the given ``DateInterval`` object.
 
@@ -1051,30 +1070,30 @@ isGreaterThanOrEqualTo====dateIntervalIsGreaterThanOrEqualTo
            )
    ;
 
-.. _isidenticalto----dateintervalisidenticalto:
+.. _dateIntervalIsIdenticalTo:
 
-isIdenticalTo====dateIntervalIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isIdenticalTo`` <objectisidenticalto>` documentation
 }}}
 
-.. _isinstanceof----dateintervalisinstanceof:
+.. _dateIntervalIsInstanceOf:
 
-isInstanceOf====dateIntervalIsInstanceOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isInstanceOf
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isInstanceOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isInstanceOf`` <objectisinstanceof>` documentation
 }}}
 
-.. _islessthan----dateintervalislessthan:
+.. _dateIntervalIsLessThan:
 
-isLessThan====dateIntervalIsLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThan
+^^^^^^^^^^
 
 ``isLessThan`` checks that the duration of the ``DateInterval`` object is less than the duration of the given ``DateInterval`` object.
 
@@ -1092,10 +1111,10 @@ isLessThan====dateIntervalIsLessThan
            )
    ;
 
-.. _islessthanorequalto----dateintervalislessthanorequalto:
+.. _dateIntervalIsLessThanOrEqualTo:
 
-isLessThanOrEqualTo====dateIntervalIsLessThanOrEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isLessThanOrEqualTo
+^^^^^^^^^^^^^^^^^^^
 
 ``isLessThanOrEqualTo`` checks that the duration of the ``DateInterval`` object is less or equal than the duration of the given ``DateInterval`` object.
 
@@ -1116,30 +1135,30 @@ isLessThanOrEqualTo====dateIntervalIsLessThanOrEqualTo
            )
    ;
 
-.. _isnotequalto----dateintervalisnotequalto:
+.. _dateIntervalIsNotEqualTo:
 
-isNotEqualTo====dateIntervalIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isNotEqualTo`` <objectisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----dateintervalisnotidenticalto:
+.. _dateIntervalIsNotIdenticalTo:
 
-isNotIdenticalTo====dateIntervalIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isNotIdenticalTo`` <objectisnotidenticalto>` documentation
 }}}
 
-.. _iszero----dateintervaliszero:
+.. _dateIntervalIsZero:
 
-isZero====dateIntervalIsZero
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isZero
+^^^^^^
 
 ``isZero`` checks that the duration of the ``DateInterval`` is equal to 0.
 
@@ -1165,10 +1184,10 @@ This is the asserter for the ```DateTime <http://php.net/datetime>`_`` object.
 
 The check will fail if you pass a value that is not an instance of ``DateTime`` (or an instance of a class that extends it).
 
-.. _hasdate----datetimehasdate:
+.. _dateTimeHasDate:
 
-hasDate====dateTimeHasDate
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasDate
+^^^^^^^
 
 ``hasDate`` checks the date part of the ``DateTime`` object.
 
@@ -1183,10 +1202,10 @@ hasDate====dateTimeHasDate
            ->hasDate(1981,   2,    13)     // passes
    ;
 
-.. _hasdateandtime----datetimehasdateandtime:
+.. _dateTimeHasDateAndTime:
 
-hasDateAndTime====dateTimeHasDateAndTime
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasDateAndTime
+^^^^^^^^^^^^^^
 
 ``hasDateAndTime`` check the date and time of the ``DateTime`` object.
 
@@ -1204,10 +1223,10 @@ hasDateAndTime====dateTimeHasDateAndTime
            ->hasDateAndTime(1981,   2,    13,   1,    2,    3)
    ;
 
-.. _hasday----datetimehasday:
+.. _dateTimeHasDay:
 
-hasDay====dateTimeHasDay
-^^^^^^^^^^^^^^^^^^^^^^^^
+hasDay
+^^^^^^
 
 ``hasDay`` checks the day of the ``DateTime`` object.
 
@@ -1220,10 +1239,10 @@ hasDay====dateTimeHasDay
            ->hasDay(13)        // passes
    ;
 
-.. _hashours----datetimehashours:
+.. _dateTimeHasHours:
 
-hasHours====dateTimeHasHours
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasHours
+^^^^^^^^
 
 ``hasHours`` checks the hours of the ``DateTime`` object.
 
@@ -1238,10 +1257,10 @@ hasHours====dateTimeHasHours
            ->hasHours(1)       // passes
    ;
 
-.. _hasminutes----datetimehasminutes:
+.. _dateTimeHasMinutes:
 
-hasMinutes====dateTimeHasMinutes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasMinutes
+^^^^^^^^^^
 
 ``hasMinutes`` checks the minutes of the ``DateTime`` object.
 
@@ -1256,10 +1275,10 @@ hasMinutes====dateTimeHasMinutes
            ->hasMinutes(2)     // passes
    ;
 
-.. _hasmonth----datetimehasmonth:
+.. _dateTimeHasMonth:
 
-hasMonth====dateTimeHasMonth
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasMonth
+^^^^^^^^
 
 ``hasMonth`` checks the month of the ``DateTime`` object.
 
@@ -1272,10 +1291,10 @@ hasMonth====dateTimeHasMonth
            ->hasMonth(2)       // passes
    ;
 
-.. _hasseconds----datetimehasseconds:
+.. _dateTimeHasSeconds:
 
-hasSeconds====dateTimeHasSeconds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasSeconds
+^^^^^^^^^^
 
 ``hasSeconds`` checks the seconds of the ``DateTime`` object.
 
@@ -1290,10 +1309,10 @@ hasSeconds====dateTimeHasSeconds
            ->hasSeconds(3)       // passes
    ;
 
-.. _hastime----datetimehastime:
+.. _dateTimeHasTime:
 
-hasTime====dateTimeHasTime
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasTime
+^^^^^^^
 
 ``hasTime`` checks the time part of the ``DateTime`` object.
 
@@ -1308,10 +1327,10 @@ hasTime====dateTimeHasTime
            ->hasTime(1,    2,    3)        // passes
    ;
 
-.. _hastimezone----datetimehastimezone:
+.. _dateTimeHasTimezone:
 
-hasTimezone====dateTimeHasTimezone
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasTimezone
+^^^^^^^^^^^
 
 ``hasTimezone`` checks the timezone of the ``DateTime`` object.
 
@@ -1324,10 +1343,10 @@ hasTimezone====dateTimeHasTimezone
            ->hasTimezone('Europe/Paris')
    ;
 
-.. _hasyear----datetimehasyear:
+.. _dateTimeHasYear:
 
-hasYear====dateTimeHasYear
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasYear
+^^^^^^^
 
 ``hasYear`` checks the year of the ``DateTime`` object.
 
@@ -1340,60 +1359,60 @@ hasYear====dateTimeHasYear
            ->hasYear(1981)     // passes
    ;
 
-.. _iscloneof----datetimeiscloneof:
+.. _dateTimeIsCloneOf:
 
-isCloneOf====dateTimeIsCloneOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCloneOf
+^^^^^^^^^
 
 {{{inheritance
 ``isCloneOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isCloneOf`` <objectiscloneof>` documentation
 }}}
 
-.. _isequalto----datetimeisequalto:
+.. _dateTimeIsEqualTo:
 
-isEqualTo====dateTimeIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isEqualTo`` <objectisequalto>` documentation
 }}}
 
-.. _isidenticalto----dattimeisidenticalto:
+.. _datTimeIsIdenticalTo:
 
-isIdenticalTo====datTimeIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isIdenticalTo`` <objectisidenticalto>` documentation
 }}}
 
-.. _isinstanceof----datetimeisinstanceof:
+.. _dateTimeIsInstanceOf:
 
-isInstanceOf====dateTimeIsInstanceOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isInstanceOf
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isInstanceOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isInstanceOf`` <objectisinstanceof>` documentation
 }}}
 
-.. _isnotequalto----datetimeisnotequalto:
+.. _dateTimeIsNotEqualTo:
 
-isNotEqualTo====dateTimeIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isNotEqualTo`` <objectisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----datetimeisnotidenticalto:
+.. _dateTimeIsNotIdenticalTo:
 
-isNotIdenticalTo====dateTimeIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
@@ -1413,160 +1432,160 @@ The date must use a format compatible with MySQL and other DBMS, in particular Â
 
 The check will fail if you pass a value that is not a ``DateTime`` object (or an instance of a class that extends it).
 
-.. _hasdate----mysqldatetimehasdate:
+.. _mysqlDateTimeHasDate:
 
-hasDate====mysqlDateTimeHasDate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasDate
+^^^^^^^
 
 {{{inheritance
 ``hasDate`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasDate`` <datetimehasdate>` documentation
 }}}
 
-.. _hasdateandtime----mysqldatetimehasdateandtime:
+.. _mysqlDateTimeHasDateAndTime:
 
-hasDateAndTime====mysqlDateTimeHasDateAndTime
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasDateAndTime
+^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasDateAndTime`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasDateAndTime`` <datetimehasdateandtime>` documentation
 }}}
 
-.. _hasday----mysqldatetimehasday:
+.. _mysqlDateTimeHasDay:
 
-hasDay====mysqlDateTimeHasDay
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasDay
+^^^^^^
 
 {{{inheritance
 ``hasDay`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasDay`` <datetimehasday>` documentation
 }}}
 
-.. _hashours----mysqldatetimehashours:
+.. _mysqlDateTimeHasHours:
 
-hasHours====mysqlDateTimeHasHours
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasHours
+^^^^^^^^
 
 {{{inheritance
 ``hasHours`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasHours`` <datetimehashours>` documentation
 }}}
 
-.. _hasminutes----mysqldatetimehasminutes:
+.. _mysqlDateTimeHasMinutes:
 
-hasMinutes====mysqlDateTimeHasMinutes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasMinutes
+^^^^^^^^^^
 
 {{{inheritance
 ``hasMinutes`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasMinutes`` <datetimehasminutes>` documentation
 }}}
 
-.. _hasmonth----mysqldatetimehasmonth:
+.. _mysqlDateTimeHasMonth:
 
-hasMonth====mysqlDateTimeHasMonth
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasMonth
+^^^^^^^^
 
 {{{inheritance
 ``hasMonth`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasMonth`` <datetimehasmonth>` documentation
 }}}
 
-.. _hasseconds----mysqldatetimehasseconds:
+.. _mysqlDateTimeHasSeconds:
 
-hasSeconds====mysqlDateTimeHasSeconds
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasSeconds
+^^^^^^^^^^
 
 {{{inheritance
 ``hasSeconds`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasSeconds`` <datetimehasseconds>` documentation
 }}}
 
-.. _hastime----mysqldatetimehastime:
+.. _mysqlDateTimeHasTime:
 
-hasTime====mysqlDateTimeHasTime
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasTime
+^^^^^^^
 
 {{{inheritance
 ``hasTime`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasTime`` <datetimehastime>` documentation
 }}}
 
-.. _hastimezone----mysqldatetimehastimezone:
+.. _mysqlDateTimeHasTimezone:
 
-hasTimezone====mysqlDateTimeHasTimezone
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasTimezone
+^^^^^^^^^^^
 
 {{{inheritance
 ``hasTimezone`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasTimezone`` <datetimehastimezone>` documentation
 }}}
 
-.. _hasyear----mysqldatetimehasyear:
+.. _mysqlDateTimeHasYear:
 
-hasYear====mysqlDateTimeHasYear
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasYear
+^^^^^^^
 
 {{{inheritance
 ``hasYear`` is an inherited method from the ``dateTime`` asserter.
 For more information, you can read the :ref:```dateTime::hasYear`` <datetimehastimezone>` documentation
 }}}
 
-.. _iscloneof----mysqldatetimeiscloneof:
+.. _mysqlDateTimeIsCloneOf:
 
-isCloneOf====mysqlDateTimeIsCloneOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCloneOf
+^^^^^^^^^
 
 {{{inheritance
 ``isCloneOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isCloneOf`` <objectiscloneof>` documentation
 }}}
 
-.. _isequalto----mysqldatetimeisequalto:
+.. _mysqlDateTimeIsEqualTo:
 
-isEqualTo====mysqlDateTimeIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isEqualTo`` <objectisequalto>` documentation
 }}}
 
-.. _isidenticalto----mysqldatetimeisidenticalto:
+.. _mysqlDateTimeIsIdenticalTo:
 
-isIdenticalTo====mysqlDateTimeIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isIdenticalTo`` <objectisidenticalto>` documentation
 }}}
 
-.. _isinstanceof----mysqldatetimeisinstanceof:
+.. _mysqlDateTimeIsInstanceOf:
 
-isInstanceOf====mysqlDateTimeIsInstanceOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isInstanceOf
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isInstanceOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isInstanceOf`` <objectisinstanceof>` documentation
 }}}
 
-.. _isnotequalto----mysqldatetimeisnotequalto:
+.. _mysqlDateTimeIsNotEqualTo:
 
-isNotEqualTo====mysqlDateTimeIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isNotEqualTo`` <objectisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----mysqldatetimeisnotidenticalto:
+.. _mysqlDateTimeIsNotIdenticalTo:
 
-isNotIdenticalTo====mysqlDateTimeIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
@@ -1595,6 +1614,7 @@ This is the asserter for exceptions.
 
 .. note::
    The syntax use anonymous functions (also named closures) introduced in PHP 5.3. For more information read `the PHP manual <http://php.net/functions.anonymous>`_.
+
 
 .. _hascode:
 
@@ -1636,6 +1656,7 @@ hasDefaultCode
 
 .. note::
    ``hasDefaultCode`` is equivalent to ``hasCode(0)``.
+
 
 .. _hasmessage:
 
@@ -1696,60 +1717,60 @@ hasNestedException
            ->hasNestedException(new \SecondException)  // fails
    ;
 
-.. _iscloneof----exceptioniscloneof:
+.. _exceptionIsCloneOf:
 
-isCloneOf====exceptionIsCloneOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isCloneOf
+^^^^^^^^^
 
 {{{inheritance
 ``isCloneOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isCloneOf`` <objectiscloneof>` documentation
 }}}
 
-.. _isequalto----exceptionisequalto:
+.. _exceptionIsEqualTo:
 
-isEqualTo====exceptionIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isEqualTo`` <objectisequalto>` documentation
 }}}
 
-.. _isidenticalto----exceptionisidenticalto:
+.. _exceptionIsIdenticalTo:
 
-isIdenticalTo====exceptionIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isIdenticalTo`` <objectisidenticalto>` documentation
 }}}
 
-.. _isinstanceof----exceptionisinstanceof:
+.. _exceptionIsInstanceOf:
 
-isInstanceOf====exceptionIsInstanceOf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isInstanceOf
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isInstanceOf`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isInstanceOf`` <objectisinstanceof>` documentation
 }}}
 
-.. _isnotequalto----exceptionisnotequalto:
+.. _exceptionIsNotEqualTo:
 
-isNotEqualTo====exceptionIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
 For more information, you can read the :ref:```object::isNotEqualTo`` <objectisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----exceptionisnotidenticalto:
+.. _exceptionIsNotIdenticalTo:
 
-isNotIdenticalTo====exceptionIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
@@ -1787,12 +1808,13 @@ This is the asserter for arrays.
 .. note::
    ``array`` being a PHP reserved keyword, it was not possible to create an ``array`` asserter class. That's why its name is actually ``phpArray``. You may encounter some ``->phpArray()`` or des ``->array()``.
 
+
 It is advised to only use ``->array()`` to simplify test reading.
 
-.. _contains----arraycontains:
+.. _arrayContains:
 
-contains====arrayContains
-^^^^^^^^^^^^^^^^^^^^^^^^^
+contains
+^^^^^^^^
 
 ``contains`` checks that an array contains the given value.
 
@@ -1811,8 +1833,10 @@ contains====arrayContains
 .. note::
    ``contains`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``contains`` does not check the type. If you want to check the type, use ``:ref:`strictlyContains <strictlycontains>```.
+
 
 .. _containsvalues:
 
@@ -1835,8 +1859,10 @@ containsValues
 .. note::
    ``containsValues`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``containsValues`` does not check the type. If you want to check the type, use ``:ref:`strictlyContainsValues <strictlycontainsvalues>```.
+
 
 .. _haskey:
 
@@ -1868,8 +1894,10 @@ hasKey
 .. note::
    ``hasKey`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``hasKey`` does not check the type..
+
 
 .. _haskeys:
 
@@ -1901,13 +1929,15 @@ hasKeys
 .. note::
    ``hasKeys`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``hasKeys`` does not check the type.
 
-.. _hassize----arrayhassize:
 
-hasSize====arrayHasSize
-^^^^^^^^^^^^^^^^^^^^^^^
+.. _arrayHasSize:
+
+hasSize
+^^^^^^^
 
 ``hasSize`` checks the array size.
 
@@ -1924,10 +1954,11 @@ hasSize====arrayHasSize
 .. note::
    ``hasSize`` is not recursive.
 
-.. _isempty----arrayisempty:
 
-isEmpty====arrayIsEmpty
-^^^^^^^^^^^^^^^^^^^^^^^
+.. _arrayIsEmpty:
+
+isEmpty
+^^^^^^^
 
 ``isEmpty`` checks that the array is empty.
 
@@ -1944,30 +1975,30 @@ isEmpty====arrayIsEmpty
            ->isEmpty()         // fails
    ;
 
-.. _isequalto----arrayisequalto:
+.. _arrayIsEqualTo:
 
-isEqualTo====arrayIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isidenticalto----arrayisidenticalto:
+.. _arrayIsIdenticalTo:
 
-isIdenticalTo====arrayIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isnotempty----arrayisnotempty:
+.. _arrayIsNotEmpty:
 
-isNotEmpty====arrayIsNotEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEmpty
+^^^^^^^^^^
 
 ``isNotEmpty`` checks that an array is not empty.
 
@@ -1984,20 +2015,20 @@ isNotEmpty====arrayIsNotEmpty
            ->isNotEmpty()      // passes
    ;
 
-.. _isnotequalto----arrayisnotequalto:
+.. _arrayIsNotEqualTo:
 
-isNotEqualTo====arrayIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----arrayisnotidenticalto:
+.. _arrayIsNotIdenticalTo:
 
-isNotIdenticalTo====arrayIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
@@ -2029,10 +2060,10 @@ keys
                )
    ;
 
-.. _notcontains----arraynotcontains:
+.. _arrayNotContains:
 
-notContains====arrayNotContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+notContains
+^^^^^^^^^^^
 
 ``notContains`` checks that an array does not contains the given value.
 
@@ -2050,8 +2081,10 @@ notContains====arrayNotContains
 .. note::
    ``notContains`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``notContains`` does not check the type. If you want to also check the type, use ``:ref:`strictlyNotContains <strictlynotcontains>```.
+
 
 .. _notcontainsvalues:
 
@@ -2074,8 +2107,10 @@ notContainsValues
 .. note::
    ``notContainsValues`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``notContainsValues`` does not check the type. If you want to also check the type, use ``:ref:`strictlyNotContainsValues <strictlynotcontainsvalues>```.
+
 
 .. _nothaskey:
 
@@ -2107,8 +2142,10 @@ notHasKey
 .. note::
    ``notHasKey`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``notHasKey`` does not check the type.
+
 
 .. _nothaskeys:
 
@@ -2140,8 +2177,10 @@ notHasKeys
 .. note::
    ``notHasKeys`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``notHasKeys`` does not check the type.
+
 
 .. _size:
 
@@ -2183,8 +2222,10 @@ strictlyContains
 .. note::
    ``strictlyContains`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``strictlyContains`` checks the type. If you do not want to check the type, use ``:ref:`contains <arraycontains>```.
+
 
 .. _strictlycontainsvalues:
 
@@ -2209,8 +2250,10 @@ strictlyContainsValues
 .. note::
    ``strictlyContainsValues`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``strictlyContainsValues`` checks the type. If you do not want to check the type, use ``:ref:`containsValues <containsvalues>```.
+
 
 .. _strictlynotcontains:
 
@@ -2234,8 +2277,10 @@ strictlyNotContains
 .. note::
    ``strictlyNotContains`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``strictlyNotContains`` checks the type. If you do not want to check the type, use ``:ref:`notContains <arraynotcontains>```.
+
 
 .. _strictlynotcontainsvalues:
 
@@ -2260,8 +2305,10 @@ strictlyNotContainsValues
 .. note::
    ``strictlyNotContainsValues`` does not search recursively.
 
-.. note::
+
+.. warning::
    ``strictlyNotContainsValues`` checks the type. If you do not want to check the type, use ``:ref:`notContainsValues <notcontainsvalues>```.
+
 
 
 
@@ -2272,10 +2319,10 @@ string
 
 This is the asserter for strings.
 
-.. _contains----stringcontains:
+.. _stringContains:
 
-contains====stringContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+contains
+^^^^^^^^
 
 ``contains`` checks that the string contains the given string.
 
@@ -2290,10 +2337,10 @@ contains====stringContains
            ->contains('php')   // fails
    ;
 
-.. _haslength----stringhaslength:
+.. _stringHasLength:
 
-hasLength====stringHasLength
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLength
+^^^^^^^^^
 
 ``hasLength`` checks the string length.
 
@@ -2307,10 +2354,10 @@ hasLength====stringHasLength
            ->hasLength(20)     // fails
    ;
 
-.. _haslengthgreaterthan----stringhaslengthgreaterthan:
+.. _stringHasLengthGreaterThan:
 
-hasLengthGreaterThan====stringHasLengthGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthGreaterThan
+^^^^^^^^^^^^^^^^^^^^
 
 ``hasLengthGreaterThan`` checks that the string length is greater than the given value.
 
@@ -2324,10 +2371,10 @@ hasLengthGreaterThan====stringHasLengthGreaterThan
            ->hasLengthGreaterThan(20)     // fails
    ;
 
-.. _haslengthlessthan----stringhaslengthlessthan:
+.. _stringHasLengthLessThan:
 
-hasLengthLessThan====stringHasLengthLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthLessThan
+^^^^^^^^^^^^^^^^^
 
 ``hasLengthLessThan`` checks that the string length is less than the given value.
 
@@ -2341,10 +2388,10 @@ hasLengthLessThan====stringHasLengthLessThan
            ->hasLengthLessThan(10)     // fails
    ;
 
-.. _isempty----stringisempty:
+.. _stringIsEmpty:
 
-isEmpty====stringIsEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^
+isEmpty
+^^^^^^^
 
 ``isEmpty`` checks that the string is empty.
 
@@ -2361,20 +2408,20 @@ isEmpty====stringIsEmpty
            ->isEmpty()             // fails
    ;
 
-.. _isequalto----stringisequalto:
+.. _stringIsEqualTo:
 
-isEqualTo====stringIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isequaltocontentsoffile----stringisequaltocontentsoffile:
+.. _stringIsEqualToContentsOfFile:
 
-isEqualToContentsOfFile====stringIsEqualToContentsOfFile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualToContentsOfFile
+^^^^^^^^^^^^^^^^^^^^^^^
 
 ``isEqualToContentsOfFile`` checks that the string is equal to the content of the given file path.
 
@@ -2388,20 +2435,21 @@ isEqualToContentsOfFile====stringIsEqualToContentsOfFile
 .. note::
    The test fails if the file does not exist.
 
-.. _isidenticalto----stringisidenticalto:
 
-isIdenticalTo====stringIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _stringIsIdenticalTo:
+
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isnotempty----stringisnotempty:
+.. _stringIsNotEmpty:
 
-isNotEmpty====stringIsNotEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEmpty
+^^^^^^^^^^
 
 ``isNotEmpty`` checks that the string is not empty.
 
@@ -2418,20 +2466,20 @@ isNotEmpty====stringIsNotEmpty
            ->isNotEmpty()          // passes
    ;
 
-.. _isnotequalto----stringisnotequalto:
+.. _stringIsNotEqualTo:
 
-isNotEqualTo====stringIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----stringisnotidenticalto:
+.. _stringIsNotIdenticalTo:
 
-isNotIdenticalTo====stringIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
@@ -2455,10 +2503,10 @@ length
                ->isGreaterThanOrEqualTo(5)
    ;
 
-.. _match----stringmatch:
+.. _stringMatch:
 
-match====stringMatch
-^^^^^^^^^^^^^^^^^^^^
+match
+^^^^^
 
 ``match`` checks that the string matches a regular expression.
 
@@ -2475,10 +2523,10 @@ match====stringMatch
            ->match("#^Aujourd'hui.*VDM$#")
    ;
 
-.. _notcontains----stringnotcontains:
+.. _stringNotContains:
 
-notContains====stringNotContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+notContains
+^^^^^^^^^^^
 
 ``notContains`` checks that the string does not contain the given string.
 
@@ -2518,130 +2566,130 @@ This is the asserter for casting objects to sting.
            ->isEqualTo('atoum v1.0')
    ;
 
-.. _contains----casttostringcontains:
+.. _castToStringContains:
 
-contains====castToStringContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+contains
+^^^^^^^^
 
 {{{inheritance
 ``contains`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::contains`` <stringcontains>` documentation
 }}}
 
-.. _notcontains----casttostringnotcontains:
+.. _castToStringNotContains:
 
-notContains====castToStringNotContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+notContains
+^^^^^^^^^^^
 
 {{{inheritance
 ``notContains`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::notContains`` <stringnotcontains>` documentation
 }}}
 
-.. _haslength----casttostringhaslength:
+.. _castToStringHasLength:
 
-hasLength====castToStringHasLength
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLength
+^^^^^^^^^
 
 {{{inheritance
 ``hasLength`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLength`` <stringhaslength>` documentation
 }}}
 
-.. _haslengthgreaterthan----casttostringhaslengthgreaterthan:
+.. _castToStringHasLengthGreaterThan:
 
-hasLengthGreaterThan====castToStringHasLengthGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthGreaterThan
+^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLengthGreaterThan`` <stringhaslengthgreaterthan>` documentation
 }}}
 
-.. _haslengthlessthan----casttostringhaslengthlessthan:
+.. _castToStringHasLengthLessThan:
 
-hasLengthLessThan====castToStringHasLengthLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthLessThan
+^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLengthLessThan`` <stringhaslengthlessthan>` documentation
 }}}
 
-.. _isempty----casttostringisempty:
+.. _castToStringIsEmpty:
 
-isEmpty====castToStringIsEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEmpty
+^^^^^^^
 
 {{{inheritance
 ``isEmpty`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEmpty`` <stringisempty>` documentation
 }}}
 
-.. _isequalto----casttostringisequalto:
+.. _castToStringIsEqualTo:
 
-isEqualTo====castToStringIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isequaltocontentsoffile----casttostringisequaltocontentsoffile:
+.. _castToStringIsEqualToContentsOfFile:
 
-isEqualToContentsOfFile====castToStringIsEqualToContentsOfFile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualToContentsOfFile
+^^^^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>` documentation
 }}}
 
-.. _isidenticalto----casttostringisidenticalto:
+.. _castToStringIsIdenticalTo:
 
-isIdenticalTo====castToStringIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isnotempty----casttostringisnotempty:
+.. _castToStringIsNotEmpty:
 
-isNotEmpty====castToStringIsNotEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEmpty
+^^^^^^^^^^
 
 {{{inheritance
 ``isNotEmpty`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isNotEmpty`` <stringisnotempty>` documentation
 }}}
 
-.. _isnotequalto----casttostringisnotequalto:
+.. _castToStringIsNotEqualTo:
 
-isNotEqualTo====castToStringIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----casttostringisnotidenticalto:
+.. _castToStringIsNotIdenticalTo:
 
-isNotIdenticalTo====castToStringIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>` documentation
 }}}
 
-.. _match----casttostringmatch:
+.. _castToStringMatch:
 
-match====castToStringMatch
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+match
+^^^^^
 
 {{{inheritance
 ``match`` is an inherited method from the ``string`` asserter.
@@ -2657,40 +2705,40 @@ hash
 
 This is the asserter for hashes.
 
-.. _contains----hashcontains:
+.. _hashContains:
 
-contains====hashContains
-^^^^^^^^^^^^^^^^^^^^^^^^
+contains
+^^^^^^^^
 
 {{{inheritance
 ``contains`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::contains`` <stringcontains>` documentation
 }}}
 
-.. _isequalto----hashisequalto:
+.. _hashIsEqualTo:
 
-isEqualTo====hashIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isequaltocontentsoffile----hashisequaltocontentsoffile:
+.. _hashIsEqualToContentsOfFile:
 
-isEqualToContentsOfFile====hashIsEqualToContentsOfFile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualToContentsOfFile
+^^^^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>` documentation
 }}}
 
-.. _isidenticalto----hashisidenticalto:
+.. _hashIsIdenticalTo:
 
-isIdenticalTo====hashIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
@@ -2716,20 +2764,20 @@ isMd5
            ->isMd5()       // fails
    ;
 
-.. _isnotequalto----hashisnotequalto:
+.. _hashIsNotEqualTo:
 
-isNotEqualTo====hashIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----hashisnotidenticalto:
+.. _hashIsNotIdenticalTo:
 
-isNotIdenticalTo====hashIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
@@ -2793,10 +2841,10 @@ isSha512
            ->isSha512()    // fails
    ;
 
-.. _notcontains----hashnotcontains:
+.. _hashNotContains:
 
-notContains====hashNotContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+notContains
+^^^^^^^^^^^
 
 {{{inheritance
 ``notContains`` is an inherited method from the ``string`` asserter.
@@ -2825,130 +2873,131 @@ This is the asserter for output streams, that is supposed to be displayed on the
 .. note::
    The syntax use anonymous functions (also named closures) introduced in PHP 5.3. For more information read `the PHP manual <http://php.net/functions.anonymous>`_.
 
-.. _contains----outputcontains:
 
-contains====outputContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _outputContains:
+
+contains
+^^^^^^^^
 
 {{{inheritance
 ``contains`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::contains`` <stringcontains>` documentation
 }}}
 
-.. _haslength----outputhaslength:
+.. _outputHasLength:
 
-hasLength====outputHasLength
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLength
+^^^^^^^^^
 
 {{{inheritance
 ``hasLength`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLength`` <stringhaslength>` documentation
 }}}
 
-.. _haslengthgreaterthan----outputhaslengthgreaterthan:
+.. _outputHasLengthGreaterThan:
 
-hasLengthGreaterThan====outputHasLengthGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthGreaterThan
+^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLengthGreaterThan`` <stringhaslengthgreaterthan>` documentation
 }}}
 
-.. _haslengthlessthan----outputhaslengthlessthan:
+.. _outputHasLengthLessThan:
 
-hasLengthLessThan====outputHasLengthLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthLessThan
+^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLengthLessThan`` <stringhaslengthlessthan>` documentation
 }}}
 
-.. _isempty----outputisempty:
+.. _outputIsEmpty:
 
-isEmpty====outputIsEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^
+isEmpty
+^^^^^^^
 
 {{{inheritance
 ``isEmpty`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEmpty`` <stringisempty>` documentation
 }}}
 
-.. _isequalto----outputisequalto:
+.. _outputIsEqualTo:
 
-isEqualTo====outputIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isequaltocontentsoffile----outputisequaltocontentsoffile:
+.. _outputIsEqualToContentsOfFile:
 
-isEqualToContentsOfFile====outputIsEqualToContentsOfFile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualToContentsOfFile
+^^^^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>` documentation
 }}}
 
-.. _isidenticalto----outputisidenticalto:
+.. _outputIsIdenticalTo:
 
-isIdenticalTo====outputIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isnotempty----outputisnotempty:
+.. _outputIsNotEmpty:
 
-isNotEmpty====outputIsNotEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEmpty
+^^^^^^^^^^
 
 {{{inheritance
 ``isNotEmpty`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isNotEmpty`` <stringisnotempty>` documentation
 }}}
 
-.. _isnotequalto----outputisnotequalto:
+.. _outputIsNotEqualTo:
 
-isNotEqualTo====outputIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----outputisnotidenticalto:
+.. _outputIsNotIdenticalTo:
 
-isNotIdenticalTo====outputIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>` documentation
 }}}
 
-.. _match----outputmatch:
+.. _outputMatch:
 
-match====outputMatch
-^^^^^^^^^^^^^^^^^^^^
+match
+^^^^^
 
 {{{inheritance
 ``match`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::match`` <stringmatch>` documentation
 }}}
 
-.. _notcontains----outputnotcontains:
+.. _outputNotContains:
 
-notContains====outputNotContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+notContains
+^^^^^^^^^^^
 
 {{{inheritance
 ``notContains`` is an inherited method from the ``string`` asserter.
@@ -2967,120 +3016,121 @@ This is the asserter for UTF-8 strings.
 .. note::
    ``utf8Strings`` uses the ``mb_*`` functions to handle multi-bytes strings. Read the PHP manual for more information about the extension ```mbstring <http://php.net/mbstring>`_``.
 
-.. _contains----utf8stringcontains:
 
-contains====utf8StringContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _utf8StringContains:
+
+contains
+^^^^^^^^
 
 {{{inheritance
 ``contains`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::contains`` <stringcontains>` documentation
 }}}
 
-.. _haslength----utf8stringhaslength:
+.. _utf8StringHasLength:
 
-hasLength====utf8StringHasLength
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLength
+^^^^^^^^^
 
 {{{inheritance
 ``hasLength`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLength`` <stringhaslength>` documentation
 }}}
 
-.. _haslengthgreaterthan----utf8stringhaslengthgreaterthan:
+.. _utf8StringHasLengthGreaterThan:
 
-hasLengthGreaterThan====utf8StringHasLengthGreaterThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthGreaterThan
+^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLengthGreaterThan`` <stringhaslengthgreaterthan>` documentation
 }}}
 
-.. _haslengthlessthan----utf8stringhaslengthlessthan:
+.. _utf8StringHasLengthLessThan:
 
-hasLengthLessThan====utf8StringHasLengthLessThan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hasLengthLessThan
+^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::hasLengthLessThan`` <stringhaslengthlessthan>` documentation
 }}}
 
-.. _isempty----utf8stringisempty:
+.. _utf8StringIsEmpty:
 
-isEmpty====utf8StringIsEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEmpty
+^^^^^^^
 
 {{{inheritance
 ``isEmpty`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEmpty`` <stringisempty>` documentation
 }}}
 
-.. _isequalto----utf8stringisequalto:
+.. _utf8StringIsEqualTo:
 
-isEqualTo====utf8StringIsEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualTo
+^^^^^^^^^
 
 {{{inheritance
 ``isEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isEqualTo`` <variableisequalto>` documentation
 }}}
 
-.. _isequaltocontentsoffile----utf8stringisequaltocontentsoffile:
+.. _utf8StringIsEqualToContentsOfFile:
 
-isEqualToContentsOfFile====utf8StringIsEqualToContentsOfFile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isEqualToContentsOfFile
+^^^^^^^^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <stringisequaltocontentsoffile>` documentation
 }}}
 
-.. _isidenticalto----utf8stringisidenticalto:
+.. _utf8StringIsIdenticalTo:
 
-isIdenticalTo====utf8StringIsIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isIdenticalTo
+^^^^^^^^^^^^^
 
 {{{inheritance
 ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isIdenticalTo`` <variableisidenticalto>` documentation
 }}}
 
-.. _isnotempty----utf8stringisnotempty:
+.. _utf8StringIsNotEmpty:
 
-isNotEmpty====utf8StringIsNotEmpty
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEmpty
+^^^^^^^^^^
 
 {{{inheritance
 ``isNotEmpty`` is an inherited method from the ``string`` asserter.
 For more information, you can read the :ref:```string::isNotEmpty`` <stringisnotempty>` documentation
 }}}
 
-.. _isnotequalto----utf8stringisnotequalto:
+.. _utf8StringIsNotEqualTo:
 
-isNotEqualTo====utf8StringIsNotEqualTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotEqualTo
+^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotEqualTo`` <variableisnotequalto>` documentation
 }}}
 
-.. _isnotidenticalto----utf8stringisnotidenticalto:
+.. _utf8StringIsNotIdenticalTo:
 
-isNotIdenticalTo====utf8StringIsNotIdenticalTo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+isNotIdenticalTo
+^^^^^^^^^^^^^^^^
 
 {{{inheritance
 ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
 For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variableisnotidenticalto>` documentation
 }}}
 
-.. _match----utf8stringmatch:
+.. _utf8StringMatch:
 
-match====utf8StringMatch
-^^^^^^^^^^^^^^^^^^^^^^^^
+match
+^^^^^
 
 {{{inheritance
 ``match`` is an inherited method from the ``string`` asserter.
@@ -3089,6 +3139,7 @@ For more information, you can read the :ref:```string::match`` <stringmatch>` do
 
 .. note::
    Don't forget to add the ``u`` to your regular expression. For more information read the `PHP manual <http://php.net/reference.pcre.pattern.modifiers>`_.
+
 
 .. code-block:: php
 
@@ -3099,10 +3150,10 @@ For more information, you can read the :ref:```string::match`` <stringmatch>` do
            ->match("#^Aujourd'hui.*VDM$#u")
    ;
 
-.. _notcontains----utf8stringnotcontains:
+.. _utf8StringNotContains:
 
-notContains====utf8StringNotContains
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+notContains
+^^^^^^^^^^^
 
 {{{inheritance
 ``notContains`` is an inherited method from the ``string`` asserter.
@@ -3153,8 +3204,10 @@ This is the asserter for errors.
 .. note::
    The syntax use anonymous functions (also named closures) introduced in PHP 5.3. For more information read `the PHP manual <http://php.net/functions.anonymous>`_.
 
-.. note::
+
+.. warning::
    The errors types E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING along with most of the E_STRICT can't be handled by this function.
+
 
 .. _exists:
 
@@ -3252,6 +3305,7 @@ This is the asserter for classes.
 .. note::
    ``class`` being a reserved PHP keyword, it wasn't possible to create a ``class`` asserter. It is actually named ``phpClass`` and a ``class`` alias has been added. You may encounter ``->phpClass()`` or ``->class()``.
 
+
 It is advised to only use ``->class()``.
 
 .. _hasinterface:
@@ -3305,8 +3359,9 @@ hasNoParent
            ->hasNoParent()     // fails
    ;
 
-.. note::
+.. warning::
    A class can implements one or more interface while not inheriting from any class. ``hasNoParent`` does not check implementd interfaces, only inherited classes.
+
 
 .. _hasparent:
 
@@ -3325,8 +3380,9 @@ hasParent
            ->hasParent()       // passes
    ;
 
-.. note::
+.. warning::
    A class can implements one or more interface while not inheriting from any class. ``hasParent`` does not check implementd interfaces, only inherited classes.
+
 
 .. _isabstract:
 
@@ -3377,6 +3433,7 @@ This is the asserter for mocks.
 .. note::
    For more information on how to create mocks see :ref:`Mocks <mocks>`;
 
+
 .. _call:
 
 call
@@ -3396,7 +3453,10 @@ call
                ->once()
    ;
 
-=====atLeastOnce
+.. _atleastonce:
+
+atLeastOnce
+```````````
 
 ``atLeastOnce`` check that the tested method (see ``:ref:`call <call>```) has been called at least once.
 
@@ -3412,7 +3472,10 @@ call
                ->atLeastOnce()
    ;
 
-=====exactly
+.. _exactly:
+
+exactly
+```````
 
 ``exactly`` check that the tested method (see ``:ref:`call <call>```) has been called a specific number of times.
 
@@ -3428,7 +3491,10 @@ call
                ->exactly(2)
    ;
 
-=====never
+.. _never:
+
+never
+`````
 
 ``never`` check that the tested method (see ``:ref:`call <call>```) has never been called.
 
@@ -3447,7 +3513,11 @@ call
 .. note::
    ``never`` is equivalent to ``:ref:`exactly <exactly>`(0)``.
 
-=====once/twice/thrice
+
+.. _once-twice-thrice:
+
+once/twice/thrice
+`````````````````
 This asserters check that the tested method (see ``:ref:`call <call>```) has been called exactly:
 
 * once
@@ -3473,7 +3543,11 @@ This asserters check that the tested method (see ``:ref:`call <call>```) has bee
 .. note::
    ``once``, ``twice`` et ``thrice`` are respectively equivalent to ``:ref:`exactly <exactly>`(1)``, ``:ref:`exactly <exactly>`(2)`` et ``:ref:`exactly <exactly>`(3)``.
 
-=====withAnyArguments
+
+.. _withanyarguments:
+
+withAnyArguments
+````````````````
 
 ``withAnyArguments`` let you not specify the expected argument when the tested method is called (see ``:ref:`call <call>```).
 
@@ -3493,7 +3567,10 @@ This is especially useful to reset arguments, like this example:
                ->withAnyArguments()->exactly(2)
    ;
 
-=====withArguments
+.. _witharguments:
+
+withArguments
+`````````````
 
 ``withArguments`` let you specify the expected arguments that tested method should receive when called (see ``:ref:`call <call>```).
 
@@ -3509,10 +3586,14 @@ This is especially useful to reset arguments, like this example:
                ->withArguments('first', 'second')->once()
    ;
 
-.. note::
+.. warning::
    ``withArguments`` does not check the arguments type. If you also want to check the type, use ``:ref:`withIdenticalArguments <withidenticalarguments>```.
 
-=====withIdenticalArguments
+
+.. _withidenticalarguments:
+
+withIdenticalArguments
+``````````````````````
 
 ``withIdenticalArguments`` let you specify the expected arguments that tested method should receive when called (see ``:ref:`call <call>```).
 
@@ -3528,8 +3609,9 @@ This is especially useful to reset arguments, like this example:
                ->withIdenticalArguments('first', 'second')->once()
    ;
 
-.. note::
+.. warning::
    ``withIdenticalArguments`` checks the arguments type. If you do not want to check the type, use ``:ref:`withArguments <witharguments>```.
+
 
 .. _wascalled:
 
@@ -3575,24 +3657,27 @@ stream
 
 This is the asserter for streams.
 
-.. note::
+.. todo::
    Unfortunately, I do not know how it works, feel free to contribute!
+
 
 .. _isread:
 
 isRead
 ^^^^^^
 
-.. note::
+.. todo::
    We need help to write this section !
+
 
 .. _iswrite:
 
 isWrite
 ^^^^^^^
 
-.. note::
+.. todo::
    We need help to write this section !
+
 
 
 .. _writing-help:

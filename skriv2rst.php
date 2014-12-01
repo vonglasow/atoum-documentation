@@ -10,7 +10,19 @@
 
             # TITLES
             $replaceTitle = function($content, $prefix, $sign) {
-                return preg_replace_callback(
+                $content = preg_replace_callback(
+                    "/^$prefix([^=].*)$prefix([^=].*)\$/m",
+                    function($matches) use($sign) {
+                        return
+                            '.. _' . $matches[2] . ":\n\n" .
+                            $matches[1] . "\n" .
+                            str_repeat($sign, strlen(iconv('UTF-8', 'ASCII//TRANSLIT', $matches[1])))
+                        ;
+                    },
+                    $content
+                );
+
+                $content = preg_replace_callback(
                     "/^$prefix([^=].*)\$/m",
                     function($matches) use($sign) {
                         $ascii = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT', $matches[1]));
@@ -30,12 +42,15 @@
                     },
                     $content
                 );
+
+                return $content;
             };
 
             $content = $replaceTitle($content, '=', '=');
             $content = $replaceTitle($content, '==', '-');
             $content = $replaceTitle($content, '===', '~');
             $content = $replaceTitle($content, '====', '^');
+            $content = $replaceTitle($content, '=====', '`');
 
             # LINKS
             $content = preg_replace_callback(
@@ -75,24 +90,32 @@
             );
 
             # INFOS
-            $content = preg_replace_callback(
-                '/\{\{\{(.*)\n(.*)\n\}\}\}/',
-                function($matches) {
-                    $matches[2] = explode("\n", $matches[2]);
+            $replaceNotes = function($content, $from, $to) {
+                $content = preg_replace_callback(
+                    "/\{\{\{$from\n(.*)\n\}\}\}/",
+                    function($matches) use($to) {
+                        $matches[1] = explode("\n", $matches[1]);
 
-                    foreach (array_keys($matches[2]) as $line) {
-                        $matches[2][$line] = '   ' . $matches[2][$line];
-                    }
+                        foreach (array_keys($matches[1]) as $line) {
+                            $matches[1][$line] = '   ' . $matches[1][$line];
+                        }
 
-                    $matches[2] = implode("\n", $matches[2]);
+                        $matches[1] = implode("\n", $matches[1]);
 
-                    return
-                        '.. note::' . "\n" .
-                        $matches[2]
-                    ;
-                },
-                $content
-            );
+                        return
+                            ".. $to::" . "\n" .
+                            $matches[1] . "\n"
+                        ;
+                    },
+                    $content
+                );
+
+                return $content;
+            };
+
+            $content = $replaceNotes($content, 'info', 'note');
+            $content = $replaceNotes($content, 'warning', 'warning');
+            $content = $replaceNotes($content, 'todo', 'todo');
 
             $filename = basename($skrivFile, '.skriv');
             file_put_contents($rtdDirectory . '/' . $language . '/source/' . $filename . '.rst', $content);

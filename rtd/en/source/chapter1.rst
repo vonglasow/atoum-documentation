@@ -60,6 +60,7 @@ Updating atoum's PHAR is easy thanks to its command line tools :
 .. note::
    To update atoum, PHP needs to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
 
+
 If a newer version of atoum exists, it will be downloaded and installed in the archive itself :
 
 .. code-block:: shell
@@ -109,6 +110,7 @@ To activate a different version of atoum, use the ``--enable-version`` (or the s
 .. note::
    Updating the current version of atoum needs PHP to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
 
+
 .. _removing-older-versions:
 
 Removing older versions
@@ -125,8 +127,10 @@ The version will be removed.
 .. note::
    You cannot remove the active version.
 
+
 .. note::
    Removing a version of atoum needs PHP to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
+
 
 .. _composer:
 
