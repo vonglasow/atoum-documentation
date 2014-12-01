@@ -119,7 +119,7 @@
             $content = $replaceNotes($content, 'info', 'note');
             $content = $replaceNotes($content, 'warning', 'warning');
             $content = $replaceNotes($content, 'todo', 'todo');
-            $content = $replaceNotes($content, 'inheritance', 'tip');
+            $content = $replaceNotes($content, 'inheritance', 'hint');
 
             $filename = basename($skrivFile, '.skriv');
             file_put_contents($rtdDirectory . '/' . $language . '/source/' . $filename . '.rst', $content);

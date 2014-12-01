@@ -239,7 +239,7 @@ The check will fail if you pass a non boolean value.
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -269,7 +269,7 @@ isFalse
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -279,7 +279,7 @@ isIdenticalTo
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -289,7 +289,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -334,7 +334,7 @@ The check will fail if pass a non integer value.
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -382,7 +382,7 @@ isGreaterThanOrEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -429,7 +429,7 @@ isLessThanOrEqualTo
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -439,7 +439,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -488,7 +488,7 @@ The check will fail if you pass a non float value.
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -498,7 +498,7 @@ isEqualTo
 isGreaterThan
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isGreaterThan`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isGreaterThan`` <integer-is-greater-than>` documentation
 
@@ -508,7 +508,7 @@ isGreaterThan
 isGreaterThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isGreaterThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isGreaterThanOrEqualTo`` <integer-is-greater-than-or-equal-to>` documentation
 
@@ -518,7 +518,7 @@ isGreaterThanOrEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -528,7 +528,7 @@ isIdenticalTo
 isLessThan
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isLessThan`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isLessThan`` <integer-is-less-than>` documentation
 
@@ -538,7 +538,7 @@ isLessThan
 isLessThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isLessThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isLessThanOrEqualoo`` <integer-is-less-than-or-equal-to>` documentation
 
@@ -584,7 +584,7 @@ This method tries to avoid this issue.
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -594,7 +594,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -604,7 +604,7 @@ isNotIdenticalTo
 isZero
 ^^^^^^
 
-.. tip::
+.. hint::
    ``isZero`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isZero`` <integer-is-zero>` documentation
 
@@ -636,7 +636,7 @@ This is the asserter for array sizes and objects that implements the ``Countable
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -646,7 +646,7 @@ isEqualTo
 isGreaterThan
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isGreaterThan`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isGreaterThan`` <integer-is-greater-than>` documentation
 
@@ -656,7 +656,7 @@ isGreaterThan
 isGreaterThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isGreaterThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isGreaterThanOrEqualTo`` <integer-is-greater-than-or-equal-to>` documentation
 
@@ -666,7 +666,7 @@ isGreaterThanOrEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -676,7 +676,7 @@ isIdenticalTo
 isLessThan
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isLessThan`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isLessThan`` <integer-is-less-than>` documentation
 
@@ -686,7 +686,7 @@ isLessThan
 isLessThanOrEqualTo
 ^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isLessThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isLessThanOrEqualoo`` <integer-is-less-than-or-equal-to>` documentation
 
@@ -696,7 +696,7 @@ isLessThanOrEqualTo
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -706,7 +706,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -716,7 +716,7 @@ isNotIdenticalTo
 isZero
 ^^^^^^
 
-.. tip::
+.. hint::
    ``isZero`` is an inherited method from the ``integer`` asserter.
    For more information, you can read the :ref:```integer::isZero`` <integer-is-zero>` documentation
 
@@ -779,7 +779,7 @@ isCallable
    To be ``callable``, your objects must be instantiated from classes that implement the ```__invoke``  < http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_ magic method.
 
 
-.. tip::
+.. hint::
    ``isCallable`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isCallable`` <variable-is-callable>` documentation
 
@@ -842,7 +842,7 @@ Two objects are considered equal when they have the same attributes and attribut
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -859,7 +859,7 @@ Two objects are considered identical when they are references to the same instan
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -946,7 +946,7 @@ isNotCallable
            ->isNotCallable()   // passes
    ;
 
-.. tip::
+.. hint::
    ``isNotCallable`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotCallable`` <variable-is-not-callable>` documentation
 
@@ -963,7 +963,7 @@ Two objects are considered equal when they have the same attributes and attribut
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -980,7 +980,7 @@ Two objects are considered identical when they are references to the same instan
    For more information on object comparison, read `the PHP manual <http://php.net/language.oop5.object-comparison>`_.
 
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -999,7 +999,7 @@ The check will fail if you pass a value that is not a ``DateInterval`` instance 
 isCloneOf
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
 
@@ -1075,7 +1075,7 @@ isGreaterThanOrEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
 
@@ -1085,7 +1085,7 @@ isIdenticalTo
 isInstanceOf
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
 
@@ -1140,7 +1140,7 @@ isLessThanOrEqualTo
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
 
@@ -1150,7 +1150,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
 
@@ -1364,7 +1364,7 @@ hasYear
 isCloneOf
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
 
@@ -1374,7 +1374,7 @@ isCloneOf
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isEqualTo`` <object-is-equal-to>` documentation
 
@@ -1384,7 +1384,7 @@ isEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
 
@@ -1394,7 +1394,7 @@ isIdenticalTo
 isInstanceOf
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
 
@@ -1404,7 +1404,7 @@ isInstanceOf
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
 
@@ -1414,7 +1414,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
 
@@ -1437,7 +1437,7 @@ The check will fail if you pass a value that is not a ``DateTime`` object (or an
 hasDate
 ^^^^^^^
 
-.. tip::
+.. hint::
    ``hasDate`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasDate`` <date-time-has-date>` documentation
 
@@ -1447,7 +1447,7 @@ hasDate
 hasDateAndTime
 ^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasDateAndTime`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasDateAndTime`` <date-time-has-date-and-time>` documentation
 
@@ -1457,7 +1457,7 @@ hasDateAndTime
 hasDay
 ^^^^^^
 
-.. tip::
+.. hint::
    ``hasDay`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasDay`` <date-time-has-day>` documentation
 
@@ -1467,7 +1467,7 @@ hasDay
 hasHours
 ^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasHours`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasHours`` <date-time-has-hours>` documentation
 
@@ -1477,7 +1477,7 @@ hasHours
 hasMinutes
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasMinutes`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasMinutes`` <date-time-has-minutes>` documentation
 
@@ -1487,7 +1487,7 @@ hasMinutes
 hasMonth
 ^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasMonth`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasMonth`` <date-time-has-month>` documentation
 
@@ -1497,7 +1497,7 @@ hasMonth
 hasSeconds
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasSeconds`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasSeconds`` <date-time-has-seconds>` documentation
 
@@ -1507,7 +1507,7 @@ hasSeconds
 hasTime
 ^^^^^^^
 
-.. tip::
+.. hint::
    ``hasTime`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasTime`` <date-time-has-time>` documentation
 
@@ -1517,7 +1517,7 @@ hasTime
 hasTimezone
 ^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasTimezone`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasTimezone`` <date-time-has-timezone>` documentation
 
@@ -1527,7 +1527,7 @@ hasTimezone
 hasYear
 ^^^^^^^
 
-.. tip::
+.. hint::
    ``hasYear`` is an inherited method from the ``dateTime`` asserter.
    For more information, you can read the :ref:```dateTime::hasYear`` <date-time-has-timezone>` documentation
 
@@ -1537,7 +1537,7 @@ hasYear
 isCloneOf
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
 
@@ -1547,7 +1547,7 @@ isCloneOf
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isEqualTo`` <object-is-equal-to>` documentation
 
@@ -1557,7 +1557,7 @@ isEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
 
@@ -1567,7 +1567,7 @@ isIdenticalTo
 isInstanceOf
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
 
@@ -1577,7 +1577,7 @@ isInstanceOf
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
 
@@ -1587,7 +1587,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
 
@@ -1722,7 +1722,7 @@ hasNestedException
 isCloneOf
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
 
@@ -1732,7 +1732,7 @@ isCloneOf
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isEqualTo`` <object-is-equal-to>` documentation
 
@@ -1742,7 +1742,7 @@ isEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
 
@@ -1752,7 +1752,7 @@ isIdenticalTo
 isInstanceOf
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
 
@@ -1762,7 +1762,7 @@ isInstanceOf
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
 
@@ -1772,7 +1772,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
    For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
 
@@ -1980,7 +1980,7 @@ isEmpty
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -1990,7 +1990,7 @@ isEqualTo
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -2020,7 +2020,7 @@ isNotEmpty
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -2030,7 +2030,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -2413,7 +2413,7 @@ isEmpty
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -2441,7 +2441,7 @@ isEqualToContentsOfFile
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -2471,7 +2471,7 @@ isNotEmpty
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -2481,7 +2481,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -2571,7 +2571,7 @@ This is the asserter for casting objects to sting.
 contains
 ^^^^^^^^
 
-.. tip::
+.. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
 
@@ -2581,7 +2581,7 @@ contains
 notContains
 ^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
 
@@ -2591,7 +2591,7 @@ notContains
 hasLength
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLength`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLength`` <string-has-length>` documentation
 
@@ -2601,7 +2601,7 @@ hasLength
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>` documentation
 
@@ -2611,7 +2611,7 @@ hasLengthGreaterThan
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLengthLessThan`` <string-has-length-less-than>` documentation
 
@@ -2621,7 +2621,7 @@ hasLengthLessThan
 isEmpty
 ^^^^^^^
 
-.. tip::
+.. hint::
    ``isEmpty`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEmpty`` <string-is-empty>` documentation
 
@@ -2631,7 +2631,7 @@ isEmpty
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -2641,7 +2641,7 @@ isEqualTo
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
 
@@ -2651,7 +2651,7 @@ isEqualToContentsOfFile
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -2661,7 +2661,7 @@ isIdenticalTo
 isNotEmpty
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEmpty`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isNotEmpty`` <string-is-not-empty>` documentation
 
@@ -2671,7 +2671,7 @@ isNotEmpty
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -2681,7 +2681,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -2691,7 +2691,7 @@ isNotIdenticalTo
 match
 ^^^^^
 
-.. tip::
+.. hint::
    ``match`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::match`` <string-match>` documentation
 
@@ -2710,7 +2710,7 @@ This is the asserter for hashes.
 contains
 ^^^^^^^^
 
-.. tip::
+.. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
 
@@ -2720,7 +2720,7 @@ contains
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -2730,7 +2730,7 @@ isEqualTo
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
 
@@ -2740,7 +2740,7 @@ isEqualToContentsOfFile
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -2769,7 +2769,7 @@ isMd5
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -2779,7 +2779,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -2846,7 +2846,7 @@ isSha512
 notContains
 ^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
 
@@ -2879,7 +2879,7 @@ This is the asserter for output streams, that is supposed to be displayed on the
 contains
 ^^^^^^^^
 
-.. tip::
+.. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
 
@@ -2889,7 +2889,7 @@ contains
 hasLength
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLength`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLength`` <string-has-length>` documentation
 
@@ -2899,7 +2899,7 @@ hasLength
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>` documentation
 
@@ -2909,7 +2909,7 @@ hasLengthGreaterThan
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLengthLessThan`` <string-has-length-less-than>` documentation
 
@@ -2919,7 +2919,7 @@ hasLengthLessThan
 isEmpty
 ^^^^^^^
 
-.. tip::
+.. hint::
    ``isEmpty`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEmpty`` <string-is-empty>` documentation
 
@@ -2929,7 +2929,7 @@ isEmpty
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -2939,7 +2939,7 @@ isEqualTo
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
 
@@ -2949,7 +2949,7 @@ isEqualToContentsOfFile
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -2959,7 +2959,7 @@ isIdenticalTo
 isNotEmpty
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEmpty`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isNotEmpty`` <string-is-not-empty>` documentation
 
@@ -2969,7 +2969,7 @@ isNotEmpty
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -2979,7 +2979,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -2989,7 +2989,7 @@ isNotIdenticalTo
 match
 ^^^^^
 
-.. tip::
+.. hint::
    ``match`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::match`` <string-match>` documentation
 
@@ -2999,7 +2999,7 @@ match
 notContains
 ^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
 
@@ -3022,7 +3022,7 @@ This is the asserter for UTF-8 strings.
 contains
 ^^^^^^^^
 
-.. tip::
+.. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
 
@@ -3032,7 +3032,7 @@ contains
 hasLength
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLength`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLength`` <string-has-length>` documentation
 
@@ -3042,7 +3042,7 @@ hasLength
 hasLengthGreaterThan
 ^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>` documentation
 
@@ -3052,7 +3052,7 @@ hasLengthGreaterThan
 hasLengthLessThan
 ^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::hasLengthLessThan`` <string-has-length-less-than>` documentation
 
@@ -3062,7 +3062,7 @@ hasLengthLessThan
 isEmpty
 ^^^^^^^
 
-.. tip::
+.. hint::
    ``isEmpty`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEmpty`` <string-is-empty>` documentation
 
@@ -3072,7 +3072,7 @@ isEmpty
 isEqualTo
 ^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
 
@@ -3082,7 +3082,7 @@ isEqualTo
 isEqualToContentsOfFile
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
 
@@ -3092,7 +3092,7 @@ isEqualToContentsOfFile
 isIdenticalTo
 ^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
 
@@ -3102,7 +3102,7 @@ isIdenticalTo
 isNotEmpty
 ^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEmpty`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::isNotEmpty`` <string-is-not-empty>` documentation
 
@@ -3112,7 +3112,7 @@ isNotEmpty
 isNotEqualTo
 ^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
 
@@ -3122,7 +3122,7 @@ isNotEqualTo
 isNotIdenticalTo
 ^^^^^^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
    For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
 
@@ -3132,7 +3132,7 @@ isNotIdenticalTo
 match
 ^^^^^
 
-.. tip::
+.. hint::
    ``match`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::match`` <string-match>` documentation
 
@@ -3155,7 +3155,7 @@ match
 notContains
 ^^^^^^^^^^^
 
-.. tip::
+.. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
    For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
 
