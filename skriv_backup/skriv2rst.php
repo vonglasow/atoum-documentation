@@ -70,6 +70,10 @@
             # ACRONYMS
             $content = preg_replace('/\?\?(.*)\|(.*)\?\?/U', '$1 ($2)', $content);
 
+            # QUOTES
+            $content = preg_replace("/>(.*)\n>\n>##(.*)##/", ".. epigraph::\n\n   $1\n\n   -- $2", $content);
+            $content = str_replace("\\#", '#', $content);
+
             # CODES
             $content = preg_replace('/##(:ref:`.*`)##/U', '$1', $content);
             $content = preg_replace('/##[\\\\]*([^\\\\].*)##/U', '``$1``', $content);
@@ -118,7 +122,7 @@
 
             $content = $replaceNotes($content, 'info', 'note');
             $content = $replaceNotes($content, 'warning', 'warning');
-            $content = $replaceNotes($content, 'todo', 'todo');
+            $content = $replaceNotes($content, 'todo', 'important');
             $content = $replaceNotes($content, 'inheritance', 'hint');
 
             $filename = basename($skrivFile, '.skriv');

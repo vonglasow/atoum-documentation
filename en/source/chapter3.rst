@@ -1,21 +1,21 @@
-.. _lancement-des-tests:
+.. _launching-tests:
 
-Lancement des tests
-===================
+Launching tests
+===============
 
 .. _executable-anchor:
 
-Exécutable
+Executable
 ----------
 
-atoum dispose d'un exécutable qui vous permet de lancer vos tests en ligne de commande.
+Atoum has an executable that allow you to launch your tests from the command line.
 
-.. _avec-l-archive-phar:
+.. _using-the-phar-archive:
 
-Avec l'archive phar
-~~~~~~~~~~~~~~~~~~~
+Using the phar archive
+~~~~~~~~~~~~~~~~~~~~~~
 
-Si vous utilisez l'archive phar, elle est elle-même l'exécutable.
+If you are using the phar archive, then the archive is itself the executable.
 
 .. _phar-linux-mac:
 
@@ -36,12 +36,12 @@ windows
    C:\> X:\Path\To\php.exe X:\Path\To\mageekguy.atoum.phar
 
 
-.. _avec-les-sources:
+.. _using-the-source:
 
-Avec les sources
+Using the source
 ~~~~~~~~~~~~~~~~
 
-Si vous utilisez les sources, l'exécutable se trouve dans path/to/atoum/bin.
+If you are using the source, the executable is located in path/to/atoum/bin.
 
 .. _source-linux-mac:
 
@@ -66,96 +66,95 @@ windows
    C:\> X:\Path\To\php.exe X:\Path\To\bin\atoum\bin
 
 
-.. _exemples-dans-le-reste-de-la-documentation:
+.. _examples-in-the-remainder-of-the-documentation:
 
-Exemples dans le reste de la documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Examples in the remainder of the Documentation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrit avec la forme suivante:
+In the following examples, the commands used to launch the tests with Atoum will be written in the form:
 
 .. code-block:: shell
 
    $ ./bin/atoum
 
-C'est exactement la commande que vous pourriez utiliser si vous avez `installé atoum avec composer <chapitre1.html#Composer>`_ sous Linux.
+This is the exact command you would use if you have `installed Atoum with composer <chapter1.html#Composer>`_ under Linux
 
 
+.. _files-to-execute:
 
-.. _fichiers-a-executer:
+Files to execute
+----------------
 
-Fichiers à exécuter
--------------------
+.. _by-file:
 
-.. _par-fichiers:
+By File
+~~~~~~~
 
-Par fichiers
-~~~~~~~~~~~~
-
-Pour lancer les tests d'un fichier, il vous suffit d'utiliser l'option -f ou --files.
+In order to launch tests on a file, you only need to use the -f or --files option.
 
 .. code-block:: shell
 
    $ ./bin/atoum -f tests/units/MyTest.php
 
 
-.. _par-repertoires:
+.. _by-directory:
 
-Par répertoires
-~~~~~~~~~~~~~~~
+By Directory
+~~~~~~~~~~~~
 
-Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou --directories.
+In order to launch tests on a directory, you only need to use the -d or --directories option.
 
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units
 
 
-.. _filtres-anchor:
+.. _filters-anchor:
 
-Filtres
+Filters
 -------
 
-Une fois que vous avez préciser à atoum :ref:`quels fichiers exécuter <fichiers-a-executer>`, vous pouvez filtrer ce qui sera réellement exécuter.
+Once you have told Atoum :ref:`which files it must execute <files-to-execute>`, you will be able to filter to will really be executed.
 
-.. _par-espace-de-noms:
+.. _by-namespace:
 
-Par espace de noms
-~~~~~~~~~~~~~~~~~~
+By Namespace
+~~~~~~~~~~~~
 
-Pour filtrer sur l'espace de noms, c'est à dire n'exécuter que les tests d'un espace de noms donné, il vous suffit d'utiliser l'option -ns ou --namespaces.
+In order to filter on a namespace, that is to execute the tests solely on a given namespace, you only need need to use the -ns or --namespace option.
 
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units -ns mageekguy\\atoum\\tests\\units\\asserters
 
 .. note::
-   Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+   It is important to double each backslash in order to prevent the shell from interpreting them.
 
 
-.. _une-classe-ou-une-methode:
+.. _class-or-method:
 
-Une classe ou une méthode
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Class or method
+~~~~~~~~~~~~~~~
 
-Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les tests d'une classe ou d'une méthode donnée, il vous suffit d'utiliser l'option -m ou --methods.
+In order to filter on a class or a method, that is to executre only the tests of a particular class or method, you need only to use the -m or --methods options.
 
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\string::testContains
 
 .. note::
-   Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+   It is important to double each backslash in order to prevent the shell from interpreting them.
 
 
-Vous pouvez remplacer le nom de la classe ou de la méthode par ``*`` pour signifier ``tous``.
+You can replace the class or method name by ``*`` to signify ``all``.
 
-Si vous remplacez le nom de la méthode par ``*``, cela revient à dire que vous filtrez par classe.
+If you replace the method name by ``*``, it reslults in filtering by class.
 
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\string::*
 
-Si vous remplacez le nom de la class par ``*``, cela revient à dire que vous filtrez par méthode.
+If you replace the class name by ``**``, it results in filtering by methods.
 
 .. code-block:: shell
 
@@ -166,11 +165,11 @@ Si vous remplacez le nom de la class par ``*``, cela revient à dire que vous fi
 Tags
 ~~~~
 
-Tout comme de nombreux outils dont `Behat <http://behat.org>`_, atoum vous permet de tagger vos tests unitaires et de n'exécuter que ceux ayant un ou plusieurs tags spécifiques.
+Just as numerous tools such as `Behat <http://behat.org>`_, Atoum allows you to tag your unit tests and to execute only those with (a) specific tag(s)
 
-Pour cela, il faut commencer par définir un ou plusieurs tags pour une ou plusieurs classes de tests unitaires.
+In order for this to happen, one must begin by defining (a) tag(s) for (a) class(es) of unit tests.
 
-Cela se fait très simplement grâce aux annotations et à la balise @tags:
+It can easily be done thanks to the annotation or the anchor @tags:
 
 .. code-block:: php
 
@@ -193,10 +192,11 @@ Cela se fait très simplement grâce aux annotations et à la balise @tags:
        }
    }
 
-De la même manière, il est également possible de tagger les méthodes de test.
+
+It is also possible to tag test methods.
 
 .. note::
-   Les tags définis au niveau d'une méthode prennent le pas sur ceux définis au niveau de la classe.
+   Tags defined at method level overtake those defined at class level.
 
 
 .. code-block:: php
@@ -220,39 +220,39 @@ De la même manière, il est également possible de tagger les méthodes de test
        }
    }
 
-Une fois les tags nécessaires définis, il n'y a plus qu'à exécuter les tests avec le ou les tags adéquates à l'aide de l'option --tags, ou -t dans sa version courte:
+Once the necessary tags have been defined, tests can be executed with or without the required tags by using the option --tags or -t for its shorthand version.
 
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units -t thisIsOneTag
 
-Attention, cette instruction n'a de sens que s'il y a une ou plusieurs classes de tests unitaires et qu'au moins l'une d'entres elles porte le tag spécifié. Dans le cas contraire, aucun test ne sera exécuté.
+Warning, this instruction only makes sense if there is one or more class of unit tests and if at least one of them is tagged with the specified tag. In the opposite case, no test will be performed.
 
-Il est possible de définir plusieurs tags:
+It is possible to define several tags:
 
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units -t thisIsOneTag thisIsThreeTag
 
-Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOneTag, soit avec thisIsThreeTag, seront les seules à être exécutées.
+In that last case, the tests classes having been tagged with thisIsOneTag or with thisIsThreeTag will be the only one executed.
 
-.. _fichier-de-configuration:
+.. _configuration-files:
 
-Fichier de configuration
-------------------------
+Configuration files
+-------------------
 
-.. todo::
+.. important::
    We need help to write this section !
 
 
-.. _couverture-du-code:
+.. _code-coverage:
 
-Couverture du code
-~~~~~~~~~~~~~~~~~~
+Code Coverage
+~~~~~~~~~~~~~
 
-Par défaut, si PHP dispose de l'extension `Xdebug <http://xdebug.org>`_, atoum indique en ligne de commande le taux de couverture du code par les tests venant d'être exécutés.
+By default, if PHP can make use of the `Xdebug <http://xdebug.org>`_ extension, Atoum will indicate in command line mode the code coverage percentage for the tests just executed.
 
-Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans le cas contraire, il affiche le taux de couverture globale ainsi que celui de chaque méthode de la classe testée sous la forme la forme d'un pourcentage.
+If the code coverage percentage is 100%, Atoum merely indicate it, but if it is not the case, it will display the global coverage percentage as well as that of each tested class method.
 
 .. code-block:: shell
 
@@ -320,25 +320,25 @@ Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans
    > Running duration: 2.36 seconds.
    Success (1 test, 27 methods, 485 assertions, 0 error, 0 exception) !
 
-Il est cependant possible d'obtenir une représentation plus précise du taux de couverture du code par les tests, sous la forme d'un rapport au format HTML.
-
-Pour l'obtenir, il suffit de se baser sur les modèles de fichiers de configuration inclus dans atoum.
-
-Si vous utliser l'archive PHAR, il faut les extraire en utilisant la commande suivante:
+It is however possible to obtain a more precise representation of the code coverage percentage by the tests in the form of an HTML report. In order to obtain it, one only needs to base it on the configuration files models included in Atoum. If you are using the PHAR archive, it must be extracted by using the following command:
 
 .. code-block:: php
 
    php mageekguy.atoum.phar -er /path/to/destination/directory
 
-Une fois l'extraction effectuée, vous devriez avoir dans le répertoire /path/to/destination/directory un répertoire nommé resources/configurations/runner.
+Once the extraction has been perfomed, you should be able to see a directory named "resources/configuration.runner" in the directory "/path/to/destination/directory".
 
-Dans le cas ou vous utilisez atoum avec un (`clone du dépôt github <chapitre1.html#Github>`_ ou avec `composer <chapitre1.html#Composer>`_, les modèles se trouvent dans /path/to/atoum/resources/configurations/runner
+If you are using Atoum with a `github repository clone <chapter1.html#Github>`_ or with `composer <chapter1.html#Composer>`_, the models can be found in "/path/to/atoum/resources/configurations/runner.
 
-Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration pour atoum nommé coverage.php.dist qu'il vous faudra copier à l'emplacement de votre choix, par exemple sous le nom coverage.php.
+In this directory are, among other interesting things, an Atoum configuration file model named "coverage.php.dist" that you will need to copy at the location of your choosing under, for example, the name "coverage.php".
 
-Une fois la copie réalisée, il n'y a plus qu'à la modifier à l'aide de l'éditeur de votre choix afin de définir le répertoire dans lequel les fichiers HTML devront être générés ainsi que l'URL à partir de laquelle le rapport devra être accessible.
+Once the copy has been performed, modify it with you prefered editor in order to define:
+* the directory in wich HTML files shall be generated.
 
-Par exemple:
+* the URL from which the report will be accessible.
+
+
+For example:
 
 .. code-block:: php
 
@@ -350,19 +350,18 @@ Par exemple:
    $coverageField->setRootUrl('http://url/of/web/site');
 
 .. note::
-   Il est également possible de modifier le titre du rapport à l'aide du premier argument du constructeur de la classe mageekguy\atoum\report\fields\runner\coverage\html.
+   It is also possible to modify the report title using the first argument of the "mageekguy\atoum\report\fields\runner\coverage\html" class's constructor.
 
 
-Une fois tout cela effectué, il n'y a plus qu'à utiliser le fichier de configuration lors de l'exécution des tests, de la manière suivante:
+Once this is all done, the configuration file can be used at tests execution time as follows:
 
 .. code-block:: shell
 
    $ ./bin/atoum -c path/to/coverage.php -d tests/units
-
-Une fois les tests exécutés, atoum générera alors le rapport de couverture du code au format HTML dans le répertoire que vous aurez défini précédemment, et il sera lisible à l'aide du navigateur de votre choix.
+One the tests have been executed, Atoum will generate the code coverage report in HTML format in the directory previously defined. It then will be readable using your favorite browser.
 
 .. note::
-   Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l'exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
+   The calculation of the code coverage percentage as well as the corresponding reporting can significally slow down the tests execution. It can therefore be interesting to not systematically make use of the conrresponding configuration file or to temporarily deactivate them using the -ncc option.
 
 
 .. _notifications-anchor:
@@ -370,22 +369,22 @@ Une fois les tests exécutés, atoum générera alors le rapport de couverture d
 Notifications
 ~~~~~~~~~~~~~
 
-atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : :ref:`Growl <growl-anchor>`, :ref:`Notification Center <o-s-x-notification-center>`, :ref:`Libnotify <libnotify-anchor>`.
+atoum is able to warn you when the tests are performed using several notification system: :ref:`Growl <growl-anchor>`, :ref:`Notification Center <o-s-x-notification-center>`, :ref:`Libnotify <libnotify-anchor>`.
 
 .. _growl-anchor:
 
 Growl
 ^^^^^
 
-Cette fonctionnalité nécessite la présence de l'exécutable ``growlnotify``. Pour vérifier s'il est disponible, utilisez la commande suivante :
+This feature uses the ``growlnotify`` utility. To check if the command is available, run:
 
 .. code-block:: shell
 
    $ which growlnotify && echo $?
-   /chemin/vers/growlnotify
+   /path/to/growlnotify
    0
 
-Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
+Then you will have to add the following lines to your configuration file:
 
 .. code-block:: php
 
@@ -406,19 +405,19 @@ Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 Mac OS X Notification Center
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Cette fonctionnalité nécessite la présence de l'exécutable ``terminal-notifier``. Pour vérifier s'il est disponible, utilisez la commande suivante :
+This feature uses the ``terminal-notifier`` utility. To check if the command is available, run:
 
 .. code-block:: shell
 
    $ which terminal-notifier && echo $?
-   /chemin/vers/terminal-notifier
+   /path/to/terminal-notifier
    0
 
 .. note::
-   Rendez-vous sur `la page Github du projet <https://github.com/alloy/terminal-notifier>`_ pour obtenir plus d'information sur l'installation de ``terminal-notifier``.
+   Visit `the project's Github page <https://github.com/alloy/terminal-notifier>`_ to get more information on ``terminal-notifier``.
 
 
-Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
+Then you will have to add the following lines to your configuration file:
 
 .. code-block:: php
 
@@ -428,7 +427,7 @@ Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
 
-Sous OS X, vous avez la possibilité de définir une commande qui sera exécutée lorsque l'utilisateur cliquera sur la notification.
+On OS X, you can define a command to be executed when the user clicks on the notification.
 
 .. code-block:: php
 
@@ -448,22 +447,22 @@ Sous OS X, vous avez la possibilité de définir une commande qui sera exécuté
        ->addField($notifier, array(atoum\runner::runStop))
    ;
 
-L'exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l'utilisateur clique sur la notification.
+The example above shows how to automatically open the code coverage report when the user clicks on the notification.
 
 .. _libnotify-anchor:
 
 Libnotify
 ^^^^^^^^^
 
-Cette fonctionnalité nécessite la présence de l'exécutable ``notify-send``. Pour vérifier s'il est disponible, utilisez la commande suivante :
+This feature uses the ``notify-send`` utility. To check if the command is available, run:
 
 .. code-block:: shell
 
    $ which notify-send && echo $?
-   /chemin/vers/notify-send
+   /path/to/notify-send
    0
 
-Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
+Then you will have to add the following lines to your configuration file:
 
 .. code-block:: php
 
@@ -479,56 +478,57 @@ Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
 
-.. _fichier-de-bootstrap:
+.. _bootstrap-file:
 
-Fichier de bootstrap
---------------------
+Bootstrap file
+--------------
 
-atoum autorise la définition d'un fichier de ``bootstrap`` qui sera exécuté avant chaque méthode de test et qui permet donc d'initialiser l'environnement d'exécution des tests.
+Atoum can use a ``bootstrap`` file which will be executed before each test method thus allowing the initialization of the tests execution environment.
 
-Il devient ainsi possible de définir, par exemple, une fonction d'auto-chargement de classes, de lire un fichier de configuration ou de réaliser tout autre opération nécessaires à la bonne exécution des tests.
+Using it makes it possible for example to define a class autoloading function, to read a configuration file or to perform any other operation necessary to the proper tests execution.
 
-La définition de ce fichier de ``bootstrap`` peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration.
+The ``bootstrap`` file definition can be done in 2 differents manners, either by using the command line or via a configuration file
 
-En ligne de commande, il faut utiliser au choix l'argument -bf ou l'argument --bootstrap-file suivi du chemin relatif ou absolu vers le fichier concerné:
+When using the command line, the -bf or the --bootstrap-file option followed by the relative or absolute path to the bootstrap file intended to be used.
 
 .. code-block:: shell
 
    $ ./bin/atoum -bf path/to/bootstrap/file
 
 .. note::
-   Un fichier de bootstrap n'est pas un fichier de configuration et n'a donc pas les mêmes possibilités.
+   A boostrap file is not a configuration file et therefore does not the have the same capabilities.
 
 
-Dans un fichier de configuration, atoum est configurable via la variable $runner, qui n'est pas définie dans un fichier de ``bootstrap``.
+In a configuration file, Atoum is configured via the $runner variable, which is itself defined in ``bootstrap`` file.
 
-De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l'exécution des tests mais après le lancement des tests, alors que le fichier de ``bootstrap``, s'il est défini, est le tout premier fichier inclus par atoum proprement dit. Enfin, le fichier de ``bootstrap`` peut permettre de ne pas avoir à inclure systématiquement le
-fichier scripts/runner.php ou l'archive PHAR de atoum dans les classes de test.
+Moreover, both files are not included at the same time since the configuration file is included by Atoum before the tests execution but after the launching of the tests, when the ##bootstrap file, should it be defined, is the first and foremost file included by Atoum.
 
-Cependant, dans ce cas, il ne sera plus possible d'exécuter directement un fichier de test directement via l'exécutable PHP en ligne de commande.
+Finally the ``bootstrap`` can help avoid systematically loading the /scripts/runner.php file or the Atoum PHAR archive in the test classes.
 
-Pour cela, il suffit d'inclure dans le fichier de ``bootstrap`` le fichier scripts/runner.php ou l'archive PHAR de atoum et d'exécuter systématiquement les tests en ligne de commande via scripts/runner.php ou l'archive PHAR.
+However, in this case, it won't possible to execute directly a test file via the PHP executable when using the command line.
 
-Le fichier de ``bootstrap`` doit donc au minimum contenir ceci:
+In order to do this, one must include the scripts/runner.php or the Atoum PHAR archive in the ``bootstrap`` file and systematically execute the tests using the command line via scripts/runner/.php ou the PHAR archive.
+
+The ``bootstrap`` file must at mininum contain this:
 
 .. code-block:: php
 
    <?php
    
-   // si l'archive PHAR est utilisée :
+   // if the PHAR archive is used:
    require_once path/to/mageekguy.atoum.phar;
    
-   // ou si les sources sont utilisés :
+   // or if the source is used:
    // require_once path/atoum/scripts/runner.php
 
-.. _option-de-la-ligne-de-commande:
+.. _command-line-options:
 
-Option de la ligne de commande
-------------------------------
+Command line options
+--------------------
 
-La plupart des options existent sous 2 forme, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifférement l'une ou l'autre forme.
+Most of the options exist come in 2 flavours, the short version (1 to 6 characters) and the more explicit long version. Both flavours do the exact same thing and you can use them indifferently.
 
-Certaines options acceptent plusieurs valeurs :
+Certain options can accept multiple values:
 
 .. code-block:: shell
 
@@ -536,15 +536,15 @@ Certaines options acceptent plusieurs valeurs :
 
 
 .. note::
-   Vous ne devez mettre qu'une seule fois chaque option. Dans le cas contraire, seul le dernier est pris en compte.
+   You must use each option only once, if you do not only the repeated option will be taken into account and all others will be discarded.
 
 
 .. code-block:: shell
 
-   # Ne test que MySecondTest.php
+   # Only tests "MySecondTest.php"
    $ ./bin/atoum -f MyFirstTest.php -f MySecondTest.php
    
-   # Ne test que MyThirdTest.php et MyFourthTest.php
+   # Only tests "MyThirdTest.php" and "MyFourthTest.php"
    $ ./bin/atoum -f MyFirstTest.php MySecondTest.php -f MyThirdTest.php MyFourthTest.php
 
 .. _bf--file------bootstrap-file--file:
@@ -552,7 +552,7 @@ Certaines options acceptent plusieurs valeurs :
 -bf <file> / --bootstrap-file <file>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.
+Specifies to the path to the bootstrap file.
 
 .. code-block:: shell
 
@@ -564,7 +564,7 @@ Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.
 -c <file> / --configuration <file>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le chemin vers le fichier de configuration à utiliser pour lancer les tests.
+Specifies which configuration to use to launch the tests.
 
 .. code-block:: shell
 
@@ -576,7 +576,7 @@ Cette option vous permet de spécifier le chemin vers le fichier de configuratio
 -d <directories> / --directories <directories>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le ou les répertoires de tests à lancer.
+Specifies one or more directories containing tests to be launched.
 
 .. code-block:: shell
 
@@ -588,14 +588,14 @@ Cette option vous permet de spécifier le ou les répertoires de tests à lancer
 --debug
 ~~~~~~~
 
-Cette option vous permet d'activer le mode debug
+Turns debug mode on
 
 .. code-block:: shell
 
    $ ./bin/atoum --debug
 
 .. note::
-   Reportez-vous à la section sur le `mode debug <chapitre2.html#Le-mode-debug>`_ pour avoir plus d'informations.
+   Check out `debug mode <chapter2.html#Debug-mode>`_ section for more information.
 
 
 .. _drt--string------default-report-title--string:
@@ -603,7 +603,7 @@ Cette option vous permet d'activer le mode debug
 -drt <string> / --default-report-title <string>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le titre par défaut des rapports générés par atoum.
+Specifies the title used in reports generated by Atoum.
 
 .. code-block:: shell
 
@@ -611,7 +611,7 @@ Cette option vous permet de spécifier le titre par défaut des rapports génér
    $ ./bin/atoum --default-report-title "My Title"
 
 .. note::
-   Si le titre comporte des espaces, il faut obligatoirement l'entourer de guillemets.
+   If the title contains spaces, it must be enclosed in double quotes.
 
 
 .. _f--files------files--files:
@@ -619,7 +619,7 @@ Cette option vous permet de spécifier le titre par défaut des rapports génér
 -f <files> / --files <files>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le ou les fichiers de tests à lancer.
+Specifies tests files to launch.
 
 .. code-block:: shell
 
@@ -631,7 +631,7 @@ Cette option vous permet de spécifier le ou les fichiers de tests à lancer.
 -ft / --force-terminal
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de forcer la sortie vers le terminal.
+Forces output to stdout.
 
 .. code-block:: shell
 
@@ -643,7 +643,7 @@ Cette option vous permet de forcer la sortie vers le terminal.
 -g <pattern> / --glob <pattern>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier les fichiers de tests à lancer en fonction d'un schéma.
+Filters tests files to launch by pattern(s).
 
 .. code-block:: shell
 
@@ -655,7 +655,7 @@ Cette option vous permet de spécifier les fichiers de tests à lancer en foncti
 -h / --help
 ~~~~~~~~~~~
 
-Cette option vous permet d'afficher la liste des options disponibles.
+Lists the available options.
 
 .. code-block:: shell
 
@@ -667,7 +667,7 @@ Cette option vous permet d'afficher la liste des options disponibles.
 -l / --loop
 ~~~~~~~~~~~
 
-Cette option vous permet d'activer le mode loop d'atoum.
+Activates Atoum's loop mode.
 
 .. code-block:: shell
 
@@ -675,7 +675,7 @@ Cette option vous permet d'activer le mode loop d'atoum.
    $ ./bin/atoum --loop
 
 .. note::
-   Reportez-vous à la section sur le `mode loop <chapitre2.html#Le-mode-loop>`_ pour avoir plus d'informations.
+   Check out the `loop mode <chapter2.html#loop-mode>`_ section for more information.
 
 
 .. _m--class--method------methods--class--methods:
@@ -683,24 +683,24 @@ Cette option vous permet d'activer le mode loop d'atoum.
 -m <class::method> / --methods <class::methods>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de filtrer les classes et les méthodes à lancer.
+Filters classes and methods to launch.
 
 .. code-block:: shell
 
-   # lance uniquement la méthode testMyMethod de la classe vendor\\project\\test\\units\\myClass
+   # Launches only the method "testMyMethod" of class "vendor\\project\\test\\units\\myClass"
    $ ./bin/atoum -m vendor\\project\\test\\units\\myClass::testMyMethod
    $ ./bin/atoum --methods vendor\\project\\test\\units\\myClass::testMyMethod
    
-   # lance toutes les méthodes de test de la classe vendor\\project\\test\\units\\myClass
+   # Launches all the test methods on class "vendor\\project\\test\\units\\myClass"
    $ ./bin/atoum -m vendor\\project\\test\\units\\myClass::*
    $ ./bin/atoum --methods vendor\\project\\test\\units\\myClass::*
    
-   # lance uniquement les méthodes testMyMethod de toutes les classes de test
+   # Launches only the method "testMyMethod" of all test classes
    $ ./bin/atoum -m *::testMyMethod
    $ ./bin/atoum --methods *::testMyMethod
 
 .. note::
-   Reportez-vous à la section sur les :ref:`filtres par classe ou méthode <une-classe-ou-une-methode>` pour avoir plus d'informations.
+   Check out the :ref:`filter by class or method <class-or-method>` section for more information.
 
 
 .. _mcn--integer------max-children-number--integer:
@@ -708,7 +708,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer.
 -mcn <integer> / --max-children-number <integer>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de définir le nombre maximum de processus lancé pour exécuter les tests.
+Defines the maximum number of simulaneous processes launched to execute tests.
 
 .. code-block:: shell
 
@@ -720,7 +720,7 @@ Cette option vous permet de définir le nombre maximum de processus lancé pour 
 -ncc / --no-code-coverage
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code.
+Deactivates the code coverage reporting.
 
 .. code-block:: shell
 
@@ -732,7 +732,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -nccfc <classes> / --no-code-coverage-for-classes <classes>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code pour une ou plusieurs classe.
+Deactivates code coverage reporting for one or more classes.
 
 .. code-block:: shell
 
@@ -740,7 +740,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
    $ ./bin/atoum --no-code-coverage-for-classes vendor\\project\\db\\mysql vendor\\project\\db\\pgsql
 
 .. note::
-   Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+   It is important to double each backslash in order to prevent the shell from interpreting them.
 
 
 .. _nccfns--namespaces------no-code-coverage-for-namespaces--namespaces:
@@ -748,7 +748,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code pour un ou plusieurs espaces de noms.
+Deactivates code coverage reporting for one or more namespaces.
 
 .. code-block:: shell
 
@@ -756,7 +756,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
    $ ./bin/atoum --no-code-coverage-for-namespaces vendor\\outside\\lib1 vendor\\outside\\lib2
 
 .. note::
-   Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
+   It is important to double each backslash in order to prevent the shell from interpreting them.
 
 
 .. _nccid--directories------no-code-coverage-in-directories--directories:
@@ -764,7 +764,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -nccid <directories> / --no-code-coverage-in-directories <directories>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code pour un ou plusieurs répertoires.
+Deactivates code coverage reporting for one or more directories.
 
 .. code-block:: shell
 
@@ -776,7 +776,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -ns <namespaces> / --namespaces <namespaces>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de filtrer les classes et les méthodes en fonction des espaces de noms.
+Filters the class(es) and method(s) by namespace(s).
 
 .. code-block:: shell
 
@@ -784,7 +784,7 @@ Cette option vous permet de filtrer les classes et les méthodes en fonction des
    $ ./bin/atoum --namespaces mageekguy\\atoum\\tests\\units\\asserters
 
 .. note::
-   Reportez-vous à la section sur les :ref:`filtres par espace de noms <par-espace-de-noms>` pour avoir plus d'informations.
+   Check out the :ref:`filter by namespace <by-namespace>` section for more information.
 
 
 .. _p--file------php--file:
@@ -792,25 +792,26 @@ Cette option vous permet de filtrer les classes et les méthodes en fonction des
 -p <file> / --php <file>
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le chemin de l'exécutable php à utiliser pour lancer vos tests.
+Specifies the path to the php executable used to launch the test(s).
 
 .. code-block:: shell
 
    $ ./bin/atoum -p /usr/bin/php5
    $ ./bin/atoum --php /usr/bin/php5
-Par défaut, la valeur est recherchée parmis les valeurs suivantes (dans l'ordre):
 
-* constante PHP_BINARY
-* variable d'environnement PHP_PEAR_PHP_BIN
-* variable d'environnement PHPBIN
-* constante PHP_BINDIR + '/php'
+By default the seeked value is looked up among the following values (in that order):
+* PHP_BINARY constant.
+
+* PHP_PEAR_PHP_BIN environment variable.
+* PHPBON environment variable.
+* PHP_BINDIR + '/php' constant.
 
 .. _sf--file------score-file--file:
 
 -sf <file> / --score-file <file>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le chemin vers le fichier des résultats créé par atoum.
+specifies a path to the score file generated by Atoum.
 
 .. code-block:: shell
 
@@ -822,7 +823,7 @@ Cette option vous permet de spécifier le chemin vers le fichier des résultats 
 -t <tags> / --tags <tags>
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de filtrer les classes et les méthodes à lancer en fonction des tags.
+Filters class(es) and method(s) to launch by tag.
 
 .. code-block:: shell
 
@@ -830,7 +831,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer en fo
    $ ./bin/atoum --tags OneTag TwoTag
 
 .. note::
-   Reportez-vous à la section sur les :ref:`filtres par tags <tags-anchor>` pour avoir plus d'informations.
+   Check out the [filter by tag|#Tags]] section for more information.
 
 
 .. _test-all:
@@ -838,7 +839,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer en fo
 --test-all
 ~~~~~~~~~~
 
-Cette option vous permet de lancer les tests se trouvant dans les répertoires définis dans le fichier de configuration via $script->addTestAllDirectory('path/to/directory').
+Launches the tests found in the directories defined in the configuration file via $script->addTestAllDirectory('path/to/directory').
 
 .. code-block:: shell
 
@@ -849,7 +850,7 @@ Cette option vous permet de lancer les tests se trouvant dans les répertoires d
 --test-it
 ~~~~~~~~~
 
-Cette option vous permet de lancer les tests unitaires d'atoum pour vérifier qu'il tourne sans problème sur votre serveur.
+Launches the Atoum unit tests in order to verify that they can execute properly on your machine.
 
 .. code-block:: shell
 
@@ -860,7 +861,7 @@ Cette option vous permet de lancer les tests unitaires d'atoum pour vérifier qu
 -tfe <extensions> / --test-file-extensions <extensions>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet de spécifier le ou les extensions des fichiers de tests à lancer.
+Specifies the extension(s) of the test files to launch.
 
 .. code-block:: shell
 
@@ -872,7 +873,7 @@ Cette option vous permet de spécifier le ou les extensions des fichiers de test
 -ulr / --use-light-report
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Cette option vous permet d'alléger la sortie généré par atoum.
+Ligthens the report output generated by Atoum.
 
 .. code-block:: shell
 
@@ -906,7 +907,7 @@ Cette option vous permet d'alléger la sortie généré par atoum.
 -v / --version
 ~~~~~~~~~~~~~~
 
-Cette option vous permet d'afficher la version courante d'atoum.
+This option displays the current version of Atoum.
 
 .. code-block:: shell
 

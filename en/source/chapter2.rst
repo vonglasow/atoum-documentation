@@ -3657,7 +3657,7 @@ stream
 
 This is the asserter for streams.
 
-.. todo::
+.. important::
    Unfortunately, I do not know how it works, feel free to contribute!
 
 
@@ -3666,7 +3666,7 @@ This is the asserter for streams.
 isRead
 ^^^^^^
 
-.. todo::
+.. important::
    We need help to write this section !
 
 
@@ -3675,7 +3675,7 @@ isRead
 isWrite
 ^^^^^^^
 
-.. todo::
+.. important::
    We need help to write this section !
 
 

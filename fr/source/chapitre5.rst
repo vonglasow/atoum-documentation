@@ -8,7 +8,7 @@ Participer
 Comment participer
 ------------------
 
-.. todo::
+.. important::
    We need help to write this section !
 
 

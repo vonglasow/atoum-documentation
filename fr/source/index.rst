@@ -17,13 +17,3 @@ Contents:
    chapitre4
    chapitre5
    chapitre6
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-

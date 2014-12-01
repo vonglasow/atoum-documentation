@@ -3657,7 +3657,7 @@ stream
 
 C’est l’assertion dédiée aux stream.
 
-.. todo::
+.. important::
    Malheureusement, je n’ai aucune espèce d’idée de son fonctionnement, alors n’hésitez pas à compléter cette partie !
 
 
@@ -3666,7 +3666,7 @@ C’est l’assertion dédiée aux stream.
 isRead
 ^^^^^^
 
-.. todo::
+.. important::
    We need help to write this section !
 
 
@@ -3675,7 +3675,7 @@ isRead
 isWrite
 ^^^^^^^
 
-.. todo::
+.. important::
    We need help to write this section !
 
 

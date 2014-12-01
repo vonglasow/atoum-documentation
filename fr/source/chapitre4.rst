@@ -24,7 +24,7 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
 Utilisation dans behat
 ----------------------
 
-.. todo::
+.. important::
    We need help to write this section !
    ([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
 
@@ -217,7 +217,7 @@ Et si d'aventure un test ne passe pas, les fichiers ne seront pas ajoutés au d�
 Changer l'espace de nom par défaut
 ----------------------------------
 
-Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\\#i`` par le caractère ##\\##.
+Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\#i`` par le caractère ##\##.
 
 Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il en déduira  que la classe testée porte le nom ``vendor\project\foo``. Cependant, il peut être nécessaire que l'espace de nom des classes de test ne corresponde pas à cette expression régulière, et dans ce cas, atoum s'arrête alors avec le message d'erreur suivant :
 
@@ -225,7 +225,7 @@ Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il 
 
    .. _exception--mageekguy-atoum-exceptions-runtime--with-message--test-class--project-vendor-my-tests-foo--is-not-in-a-namespace-which-match-pattern-----------ests---unit-s---i---in--path-to-unit-tests-foo-php:
    
-   > exception 'mageekguy\atoum\exceptions\runtime' with message 'Test class 'project\vendor\my\tests\foo' is not in a namespace which match pattern '#(?:^|\\)ests?\\unit?s\\#i'' in /path/to/unit/tests/foo.php
+   > exception 'mageekguy\atoum\exceptions\runtime' with message 'Test class 'project\vendor\my\tests\foo' is not in a namespace which match pattern '#(?:^|\\)ests?\\unit?s\#i'' in /path/to/unit/tests/foo.php
    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -333,11 +333,11 @@ De plus, il n'est pas obligatoire d'utiliser une expression régulière, que ce 
 
 En effet, atoum fait appel par défaut à une expression régulière afin que son utilisateur puisse utiliser par défaut un large panel d'espaces de nom sans avoir besoin de le configurer à ce niveau. Cela lui permet donc d'accepter par exemple sans configuration particulière les espaces de nomsuivants :
 
-* ``test\unit\\``
-* ``Test\Unit\\``
-* ``tests\units\\``
-* ``Tests\Units\\``
-* ``TEST\UNIT\\``
+* ``test\unit\``
+* ``Test\Unit\``
+* ``tests\units\``
+* ``Tests\Units\``
+* ``TEST\UNIT\``
 
 Cependant, en règle général, l'espace de nom utilisé pour les classes de test est fixe, et il n'est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacé par la chaîne de caractères ``my\tests``, par exemple grâce à l'annotation ``@namespace`` :
 
@@ -370,7 +370,7 @@ Attention, il était possible auparavant d'utiliser la méthode ``mageekguy\atou
 Utilisation avec ezPublish
 --------------------------
 
-.. todo::
+.. important::
    We need help to write this section !
    ([[https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish]])
 
