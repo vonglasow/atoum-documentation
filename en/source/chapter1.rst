@@ -9,11 +9,11 @@ What is atoum ?
 ---------------
 
 
-atoum is a unit test framework, similar to PHPUnit or SimpleTest, however:
-* It is more modern and makes use of PHP's latest features.
+atoum is a unit test framework, like PHPUnit or SimpleTest. Though, we believe it has an edge on its counterparts thanks to :
 
-* It is simpler to use and master.
-* It is more intuitive and its syntax is as close as possible to the English natural language
+* Its more modern approach and its use of PHP's latest features.
+* Its simplicity and fast learning curve.
+* Its fluent interface, making the tests as readable as the english natural langage
 
 
 .. _download---install:
