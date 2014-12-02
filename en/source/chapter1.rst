@@ -21,8 +21,11 @@ atoum is a unit test framework, like PHPUnit or SimpleTest. Though, we believe i
 Download & Install
 ------------------
 
-For now, atoum is not tagged with a version number. If you want to use atoum, just download the last stable version. atoum aims to provide backward compatibility anyway.
-You can install atoum several ways :
+As of today, atoum doesn't have any version number. However, it is both usable and stable. If you're willing to use it, 
+download the latest stable build. Even though atoum continuously benefits from new features, backward compatibility is one 
+of the main priority of the developers. 
+
+There are several ways to install atoum :
 
 * :ref:`As a PHAR archive <p-h-a-r>`
 * :ref:`Using composer <composer-anchor>`
