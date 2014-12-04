@@ -239,7 +239,7 @@ Citations
 
 .. epigraph::
 
-   Yes ! enfin du php ≥ 5.3 pour nos piles techniques, on va pouvoir enfin tout #atoum iser !
+   Yes ! enfin du php >= 5.3 pour nos piles techniques, on va pouvoir enfin tout #atoum iser !
 
    -- `@gorghoa <https://twitter.com/gorghoa/status/274173974508863488>`_ sur twitter
 

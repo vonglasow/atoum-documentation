@@ -8,25 +8,44 @@
 
     try {
         # Check for sphinx-build
-        if (command("which $SPHINXBUILD") !== 0) {
-            throw new Exception(
-                "The $SPHINXBUILD command was not found. " .
-                "Make sure you have Sphinx installed, then set the \$SPHINXBUILD variable to point to the full path of the $SPHINXBUILD executable. " .
-                "Alternatively you can add the directory with the executable to your PATH. " .
-                "If you don't have Sphinx installed, grab it from http://sphinx-doc.org/"
-            );
-        }
+        checkExecutable(
+            $SPHINXBUILD,
+            "The $SPHINXBUILD command was not found. " .
+            "Make sure you have Sphinx installed, then set the \$SPHINXBUILD variable to point to the full path of the $SPHINXBUILD executable. " .
+            "Alternatively you can add the directory with the executable to your PATH. " .
+            "If you don't have Sphinx installed, grab it from http://sphinx-doc.org/"
+        );
 
         # Internal variables.
         $SOURCEDIR     = __DIR__ . '/' . $SOURCEDIR;
         $BUILDDIR      = __DIR__ . '/' . $BUILDDIR;
-        $ALLSPHINXOPTS = "-d $BUILDDIR/doctrees -D latex_paper_size=a4 $SPHINXOPTS";
+        $ALLSPHINXOPTS = "-D latex_paper_size=a4 $SPHINXOPTS";
 
         # function to manage languages
-        $generateByLang = function($closure) use ($SPHINXBUILD, $ALLSPHINXOPTS, $SOURCEDIR) {
-            foreach (glob(__DIR__ . "/$SOURCEDIR/*") as $lang) {
-                writeln($lang);
+        $generateByLang = function($type, $format = null, $callback = null) use ($SPHINXBUILD, $ALLSPHINXOPTS, $SOURCEDIR, $BUILDDIR) {
+            $format = $format ?: $type;
+
+            foreach (glob($SOURCEDIR . '/*') as $path) {
+                $lang = basename($path);
+
+                createDirectory("$BUILDDIR/$lang/doctrees");
+                createDirectory("$BUILDDIR/$lang/$format");
+
+                command("$SPHINXBUILD -b $type -d $BUILDDIR/$lang/doctrees $ALLSPHINXOPTS $SOURCEDIR/$lang $BUILDDIR/$lang/$format");
+
+                if ($callback) {
+                    $callback($SPHINXBUILD, $ALLSPHINXOPTS, "$SOURCEDIR/$lang", "$BUILDDIR/$lang");
+                }
+
+                writeln();
+                writeln("Build for language \"$lang\" finished.");
+                writeln("Documentation was generated in format \"$format\" in $BUILDDIR.");
+                writeln();
             }
+
+            writeln("Build finished.");
+            writeln("Documentation was generated in format \"$format\" in $BUILDDIR.");
+            writeln();
         };
 
         # get command
@@ -37,7 +56,7 @@
             	writeln("Please use 'make <target>' where <target> is one of");
             	writeln("  html       to make standalone HTML files");
             	writeln("  epub       to make an epub");
-            	writeln("  latexpdf   to make LaTeX files and run them through pdflatex");
+            	writeln("  pdf        to make a pdf");
             	writeln("  text       to make text files");
             	writeln("  linkcheck  to check all external links for integrity");
             break;
@@ -47,47 +66,70 @@
             break;
 
             case 'html':
-                $generateByLang(
-                    function() {
-                        command("$SPHINXBUILD -b html $ALLSPHINXOPTS $(BUILDDIR)/html");
-                    }
-                );
-            	writeln();
-            	writeln("Build finished. The HTML pages are in $(BUILDDIR)/html.");
+                $generateByLang('html');
             break;
 
-            // epub:
-            // 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
-            // 	writeln();
-            // 	writeln("Build finished. The epub file is in $(BUILDDIR)/epub.");
+            case 'epub':
+                $generateByLang('epub');
+            break;
 
-            // latexpdf:
-            // 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
-            // 	writeln("Running LaTeX files through pdflatex...");
-            // 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
-            // 	writeln("pdflatex finished; the PDF files are in $(BUILDDIR)/latex.");
+            case 'pdf':
+                checkExecutable(
+                    'pdflatex',
+                    "The pdflatex command was not found."
+                );
 
-            // text:
-            // 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
-            // 	writeln();
-            // 	writeln("Build finished. The text files are in $(BUILDDIR)/text.");
+                $generateByLang(
+                    'latex',
+                    'pdf',
+                    function($SPHINXBUILD, $ALLSPHINXOPTS, $SOURCEDIR, $BUILDDIR) {
+                        command("make -C $BUILDDIR/pdf all-pdf");
+                    }
+                );
+            break;
 
-            // linkcheck:
-            // 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
-            // 	writeln();
-            // 	writeln("Link check complete; look for any errors in the above output " \);
-            // 	      "or in $(BUILDDIR)/linkcheck/output.txt."
+            case 'text':
+                $generateByLang('text');
+            break;
+
+            case 'linkcheck':
+                $generateByLang(
+                    'linkcheck',
+                    null,
+                    function($SPHINXBUILD, $ALLSPHINXOPTS, $SOURCEDIR, $BUILDDIR) {
+                    	writeln();
+                    	writeln("Link check complete; look for any errors in the above output or in $BUILDDIR/linkcheck/output.txt.");
+                    }
+                );
+            break;
+
+            default:
+                throw new Exception("undefined $command command.");
         }
     } catch (Exception $e) {
         writeln('Error: ' . $e->getMessage());
     }
 
-    function writeln($text) {
+    function writeln($text = '') {
         echo "$text\n";
     }
 
     function command($command) {
-        exec($command, $output, $returnValue);
+        writeln("> $command");
+        passthru($command, $returnValue);
+        writeln();
 
         return $returnValue;
+    }
+
+    function createDirectory($path) {
+        if (!file_exists($path)) {
+            mkdir($path, 0755, true);
+        }
+    }
+
+    function checkExecutable($executable, $errorMessage) {
+        if (command("which $executable") !== 0) {
+            throw new Exception($errorMessage);
+        }
     }

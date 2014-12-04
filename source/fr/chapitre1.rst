@@ -5,12 +5,12 @@ Introduction
 
 .. _qu-est-ce-que-atoum:
 
-Qu’est-ce que atoum ?
+Qu’est-ce que atoum ?
 ---------------------
 atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais il présente quelques avantages par rapport à ces derniers :
 
-* il est moderne et utilise les innovations des dernières versions de PHP (≥ 5.3) ;
-* il est simple et facile à maitriser ;
+* il est moderne et utilise les innovations des dernières versions de PHP (>= 5.3) ;
+* il est simple et facile à maitriser ;
 * il est intuitif, sa syntaxe se veut la plus proche du langage naturel anglais.
 
 
@@ -22,11 +22,11 @@ Téléchargement et installation
 Pour le moment, atoum n’a pas de numéro de version. Il est néanmoins d’ores et déjà stable et utilisable. Si vous souhaitez l’utiliser, il vous suffit de télécharger la dernière version. Malgré les évolutions constantes d’atoum, la rétrocompatibilité est une des priorités de ses développeurs.
 Vous pouvez installer atoum de plusieurs manières :
 
-* :ref:`en téléchargeant l’archive PHAR <archive-p-h-a-r>` ;
-* :ref:`à l’aide de composer <composer-anchor>` ;
-* :ref:`en utilisant un script d’installation <script-d-installation>` ;
-* :ref:`en clonant le dépôt github <github-anchor>` ;
-* :ref:`en utilisant un plug-in symfony 1 <plugin-symfony-1>` ;
+* :ref:`en téléchargeant l’archive PHAR <archive-p-h-a-r>` ;
+* :ref:`à l’aide de composer <composer-anchor>` ;
+* :ref:`en utilisant un script d’installation <script-d-installation>` ;
+* :ref:`en clonant le dépôt github <github-anchor>` ;
+* :ref:`en utilisant un plug-in symfony 1 <plugin-symfony-1>` ;
 * :ref:`en utilisant un bundle Symfony 2 <bundle-symfony-2>`.
 * :ref:`en utilisant un composant Zend Framework 2 <composant-zend-framework-2>`.
 
@@ -92,7 +92,7 @@ Pour afficher les versions contenues dans l’archive au fur et à mesure des mi
 .. code-block:: shell
 
    $ php mageekguy.atoum.phar -lavnightly-941-201201011548
-   
+
    * nightly-1568-201210311708
 
 La liste des versions présentes dans l’archive est alors affichée, la version actuellement active étant précédée de ``*``.
@@ -250,9 +250,9 @@ Voici le code de la classe ``HelloWorld`` que nous allons tester.
 
    <?php
    # src/Vendor/Project/HelloWorld.php
-   
+
    namespace Vendor\Project;
-   
+
    class HelloWorld
    {
        public function getHiAtoum ()
@@ -267,19 +267,19 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
 
    <?php
    # src/Vendor/Project/tests/units/HelloWorld.php
-   
+
    // La classe de test à son propre namespace :
    // Le namespace de la classe à tester + "tests\units"
    namespace Vendor\Project\tests\units;
-   
+
    // Vous devez inclure la classe à tester
    require_once __DIR__ . '/../../HelloWorld.php';
-   
+
    use \atoum;
-   
+
    /*
     * Classe de test pour \HelloWorld
-   
+
     * Remarquez qu’elle porte le même nom que la classe à tester
     * et qu’elle dérive de la classe atoum
     */
@@ -292,7 +292,7 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
        {
            // création d’une nouvelle instance de la classe à tester
            $helloToTest = new \Vendor\Project\HelloWorld();
-   
+
            $this
                // nous testons que la méthode getHiAtoum retourne bien
                // une chaîne de caractère...
@@ -313,29 +313,29 @@ Vous devriez voir quelque chose comme ça :
    > PHP path: /usr/bin/php
    > PHP version:
    .. _p-h-p-5-4-7--cli---built---sep-13-2012-04-24-47:
-   
+
    > PHP 5.4.7 (cli) (built : Sep 13 2012 04:24:47)
    ================================================
    .. _copyright--c--1997-2012-the-p-h-p-group:
-   
+
    > Copyright (c) 1997-2012 The PHP Group
    =======================================
    .. _zend-engine-v2-4-0--copyright--c--1998-2012-zend-technologies:
-   
+
    > Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
    ===============================================================
    .. _with-xdebug-v2-2-1--copyright--c--2002-2012--by-derick-rethans:
-   
+
    >     with Xdebug v2.2.1, Copyright (c) 2002-2012, by Derick Rethans
    ====================================================================
    > Vendor\Project\tests\units\HelloWorld...
    [S___________________________________________________________][1/1]
    .. _test-duration---0-02-second:
-   
+
    > Test duration : 0.02 second.
    ==============================
    .. _memory-usage---0-00-mb:
-   
+
    > Memory usage : 0.00 Mb.
    =========================
    > Total test duration: 0.02 second.
@@ -346,10 +346,10 @@ Vous devriez voir quelque chose comme ça :
 
 Nous venons de tester que la méthode ``getHiAtoum`` :
 
-* retourne bien une chaîne de caractère ;
-* que cette dernière est bien égale à ``"Hi atoum !"``.
+* retourne bien une chaîne de caractère ;
+* que cette dernière est bien égale à ``"Hi atoum !"``.
 
-Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
+Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
 
 
 .. _principes-de-base:
@@ -358,7 +358,7 @@ Principes de base
 ~~~~~~~~~~~~~~~~~
 Lorsque vous voulez tester une valeur, vous devez :
 
-* indiquer le type de cette valeur (entier, décimal, tableau, chaîne de caractères, etc.) ;
+* indiquer le type de cette valeur (entier, décimal, tableau, chaîne de caractères, etc.) ;
 * indiquer les contraintes devant s’appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).
 
 
@@ -451,8 +451,8 @@ Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la
 La fonction ``atoum#defineConfiguration`` permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire ou se trouve le fichier de tests unitaires.
 Elle accepte pour cela trois arguments :
 
-* un chemin d’accès vers le répertoire contenant les tests unitaires ;
-* un chemin d’accès vers le fichier de configuration de atoum devant être utilisé ;
+* un chemin d’accès vers le répertoire contenant les tests unitaires ;
+* un chemin d’accès vers le fichier de configuration de atoum devant être utilisé ;
 * l’extension des fichiers de tests unitaires concernés.
 
 Pour plus de détails sur l’utilisation du plug-in, une aide est disponible dans VIM à l’aide de la commande suivante :
@@ -486,13 +486,13 @@ macvim
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\macos
    ;
-   
+
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-   
+
    $cliReport->addField(new macos\macvim());
-   
+
    $runner->addReport($cliReport);
 
 
@@ -508,13 +508,13 @@ gvim
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\unix
    ;
-   
+
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-   
+
    $cliReport->addField(new unix\gvim());
-   
+
    $runner->addReport($cliReport);
 
 
@@ -532,15 +532,15 @@ Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\macos
    ;
-   
+
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-   
+
    $cliReport
        // Si PhpStorm est installé dans /Applications
        ->addField(new macos\phpstorm())
-   
+
        // Si vous avez installé PhpStorm
        // dans un dossier différent de /Applications
        // ->addField(
@@ -549,7 +549,7 @@ Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
        //     )
        // )
    ;
-   
+
    $runner->addReport($cliReport);
 
 
@@ -562,17 +562,17 @@ Dans un environnement Unix, utilisez la configuration suivante :
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\unix
    ;
-   
+
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-   
+
    $cliReport
        ->addField(
            new unix\phpstorm('/chemin/vers/PhpStorm/bin/phpstorm.sh')
        )
    ;
-   
+
    $runner->addReport($cliReport);
 
 
@@ -588,11 +588,11 @@ gedit
        mageekguy\atoum,
        mageekguy\atoum\report\fields\runner\failures\execute\unix
    ;
-   
+
    $stdOutWriter = new atoum\writers\std\out();
    $cliReport = new atoum\reports\realtime\cli();
    $cliReport->addWriter($stdOutWriter);
-   
+
    $cliReport->addField(new unix\gedit());
-   
+
    $runner->addReport($cliReport);

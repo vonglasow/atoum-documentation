@@ -27,17 +27,17 @@ isCallable
    $f = function() {
        // code
    };
-   
+
    $this
        ->variable($f)
            ->isCallable()  // passes
-   
+
        ->variable('\Vendor\Project\foobar')
            ->isCallable()
-   
+
        ->variable(array('\Vendor\Project\Foo', 'bar'))
            ->isCallable()
-   
+
        ->variable('\Vendor\Project\Foo::bar')
            ->isCallable()
    ;
@@ -52,7 +52,7 @@ isEqualTo
 .. code-block:: php
 
    $a = 'a';
-   
+
    $this
        ->variable($a)
            ->isEqualTo('a')    // passes
@@ -72,16 +72,16 @@ isIdenticalTo
 .. code-block:: php
 
    $a = '1';
-   
+
    $this
        ->variable($a)
            ->isIdenticalTo(1)          // fails
    ;
-   
+
    $stdClass1 = new \StdClass();
    $stdClass2 = new \StdClass();
    $stdClass3 = $stdClass1;
-   
+
    $this
        ->variable($stdClass1)
            ->isIdenticalTo(stdClass3)  // passes
@@ -89,7 +89,7 @@ isIdenticalTo
    ;
 
 .. warning::
-   ``isIdenticalTo`` checks the variable type. If you do not want to check the type, use:ref:`isEqualTo <variable-is-equal-to>`.
+   ``isIdenticalTo`` checks the variable type. If you do not want to check the type, use :ref:`isEqualTo <variable-is-equal-to>`.
 
 
 .. _variable-is-not-callable:
@@ -106,17 +106,17 @@ isNotCallable
    };
    $int    = 1;
    $string = 'nonExistingMethod';
-   
+
    $this
        ->variable($f)
            ->isNotCallable()   // fails
-   
+
        ->variable($int)
            ->isNotCallable()   // passes
-   
+
        ->variable($string)
            ->isNotCallable()   // passes
-   
+
        ->variable(new StdClass)
            ->isNotCallable()   // passes
    ;
@@ -132,12 +132,12 @@ isNotEqualTo
 
    $a       = 'a';
    $aString = '1';
-   
+
    $this
        ->variable($a)
            ->isNotEqualTo('b')     // passes
            ->isNotEqualTo('a')     // fails
-   
+
        ->variable($aString)
            ->isNotEqualTo($1)      // fails
    ;
@@ -158,16 +158,16 @@ With objects, ``isNotIdenticalTo`` checks that both values do not reference the 
 .. code-block:: php
 
    $a = '1';
-   
+
    $this
        ->variable($a)
            ->isNotIdenticalTo(1)           // passes
    ;
-   
+
    $stdClass1 = new \StdClass();
    $stdClass2 = new \StdClass();
    $stdClass3 = $stdClass1;
-   
+
    $this
        ->variable($stdClass1)
            ->isNotIdenticalTo(stdClass2)   // passes
@@ -189,12 +189,12 @@ isNull
 
    $emptyString = '';
    $null        = null;
-   
+
    $this
        ->variable($emptyString)
            ->isNull()              // fails
                                    // (it is empty but not null)
-   
+
        ->variable($null)
            ->isNull()              // passes
    ;
@@ -210,11 +210,11 @@ isNotNull
 
    $emptyString = '';
    $null        = null;
-   
+
    $this
        ->variable($emptyString)
            ->isNotNull()           // passe (it is empty but not null)
-   
+
        ->variable($null)
            ->isNotNull()           // fails
    ;
@@ -231,7 +231,7 @@ This is the asserter for booleans.
 The check will fail if you pass a non boolean value.
 
 .. note::
-   ``null`` is not a boolean. You can read the PHP manual to know what ```is_bool <http://php.net/is_bool>`_`` considers a boolean or not.
+   ``null`` is not a boolean. You can read the PHP manual to know what `is_bool <http://php.net/is_bool>`_ considers a boolean or not.
 
 
 .. _boolean-is-equal-to:
@@ -241,7 +241,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _is-false:
@@ -255,11 +255,11 @@ isFalse
 
    $true  = true;
    $false = false;
-   
+
    $this
        ->boolean($true)
            ->isFalse()     // fails
-   
+
        ->boolean($false)
            ->isFalse()     // passes
    ;
@@ -271,7 +271,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _boolean-is-not-equal-to:
@@ -281,7 +281,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _boolean-is-not-identical-to:
@@ -291,7 +291,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _is-true:
@@ -305,11 +305,11 @@ isTrue
 
    $true  = true;
    $false = false;
-   
+
    $this
        ->boolean($true)
            ->isTrue()      // passes
-   
+
        ->boolean($false)
            ->isTrue()      // fails
    ;
@@ -326,7 +326,7 @@ This is the asserter for integers.
 The check will fail if pass a non integer value.
 
 .. note::
-   ``null`` is not an integer. You can read the PHP manual to know what ```is_int <http://php.net/is_int>`_`` considers an integer or not.
+   ``null`` is not an integer. You can read the PHP manual to know what `is_int <http://php.net/is_int>`_ considers an integer or not.
 
 
 .. _integer-is-equal-to:
@@ -336,7 +336,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _integer-is-greater-than:
@@ -349,7 +349,7 @@ isGreaterThan
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isGreaterThan(-1)     // passes
@@ -368,7 +368,7 @@ isGreaterThanOrEqualTo
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isGreaterThanOrEqualTo(-1)    // passes
@@ -384,7 +384,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _integer-is-less-than:
@@ -397,7 +397,7 @@ isLessThan
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isLessThan(10)    // passes
@@ -415,7 +415,7 @@ isLessThanOrEqualTo
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isLessThanOrEqualTo(10)       // passes
@@ -431,7 +431,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _integer-is-not-identical-to:
@@ -441,7 +441,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _integer-is-zero:
@@ -455,11 +455,11 @@ isZero
 
    $zero    = 0;
    $notZero = -1;
-   
+
    $this
        ->integer($zero)
            ->isZero()          // passes
-   
+
        ->integer($notZero)
            ->isZero()          // fails
    ;
@@ -480,7 +480,7 @@ This is the asserter for floats.
 The check will fail if you pass a non float value.
 
 .. note::
-   ``null`` is not a float. Read the PHP manual to know what ```is_float <http://php.net/is_float>`_`` considers a float or not.
+   ``null`` is not a float. Read the PHP manual to know what `is_float <http://php.net/is_float>`_ considers a float or not.
 
 
 .. _float-is-equal-to:
@@ -490,7 +490,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _float-is-greater-than:
@@ -500,7 +500,7 @@ isGreaterThan
 
 .. hint::
    ``isGreaterThan`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isGreaterThan`` <integer-is-greater-than>` documentation
+   For more information, you can read the :ref:`integer::isGreaterThan <integer-is-greater-than>` documentation
 
 
 .. _float-is-greater-than-or-equal-to:
@@ -510,7 +510,7 @@ isGreaterThanOrEqualTo
 
 .. hint::
    ``isGreaterThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isGreaterThanOrEqualTo`` <integer-is-greater-than-or-equal-to>` documentation
+   For more information, you can read the :ref:`integer::isGreaterThanOrEqualTo <integer-is-greater-than-or-equal-to>` documentation
 
 
 .. _float-is-identical-to:
@@ -520,7 +520,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _float-is-less-than:
@@ -530,7 +530,7 @@ isLessThan
 
 .. hint::
    ``isLessThan`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isLessThan`` <integer-is-less-than>` documentation
+   For more information, you can read the :ref:`integer::isLessThan <integer-is-less-than>` documentation
 
 
 .. _float-is-less-than-or-equal-to:
@@ -540,7 +540,7 @@ isLessThanOrEqualTo
 
 .. hint::
    ``isLessThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isLessThanOrEqualoo`` <integer-is-less-than-or-equal-to>` documentation
+   For more information, you can read the :ref:`integer::isLessThanOrEqualoo <integer-is-less-than-or-equal-to>` documentation
 
 
 .. _is-nearly-equal-to:
@@ -568,7 +568,7 @@ This method tries to avoid this issue.
 .. code-block:: php
 
    $float = 1 - 0.97;
-   
+
    $this
        ->float($float)
            ->isNearlyEqualTo(0.03) // passes
@@ -586,7 +586,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _float-is-not-identical-to:
@@ -596,7 +596,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _float-is-zero:
@@ -606,7 +606,7 @@ isZero
 
 .. hint::
    ``isZero`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isZero`` <integer-is-zero>` documentation
+   For more information, you can read the :ref:`integer::isZero <integer-is-zero>` documentation
 
 
 
@@ -622,11 +622,11 @@ This is the asserter for array sizes and objects that implements the ``Countable
 
    $array           = array(1, 2, 3);
    $countableObject = new GlobIterator('*');
-   
+
    $this
        ->sizeOf($array)
            ->isEqualTo(3)
-   
+
        ->sizeOf($countableObject)
            ->isGreaterThan(0)
    ;
@@ -638,7 +638,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _size-of-is-greater-than:
@@ -648,7 +648,7 @@ isGreaterThan
 
 .. hint::
    ``isGreaterThan`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isGreaterThan`` <integer-is-greater-than>` documentation
+   For more information, you can read the :ref:`integer::isGreaterThan <integer-is-greater-than>` documentation
 
 
 .. _size-of-is-greater-than-or-equal-to:
@@ -658,7 +658,7 @@ isGreaterThanOrEqualTo
 
 .. hint::
    ``isGreaterThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isGreaterThanOrEqualTo`` <integer-is-greater-than-or-equal-to>` documentation
+   For more information, you can read the :ref:`integer::isGreaterThanOrEqualTo <integer-is-greater-than-or-equal-to>` documentation
 
 
 .. _size-of-is-identical-to:
@@ -668,7 +668,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _size-of-is-less-than:
@@ -678,7 +678,7 @@ isLessThan
 
 .. hint::
    ``isLessThan`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isLessThan`` <integer-is-less-than>` documentation
+   For more information, you can read the :ref:`integer::isLessThan <integer-is-less-than>` documentation
 
 
 .. _size-of-is-less-than-or-equal-to:
@@ -688,7 +688,7 @@ isLessThanOrEqualTo
 
 .. hint::
    ``isLessThanOrEqualTo`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isLessThanOrEqualoo`` <integer-is-less-than-or-equal-to>` documentation
+   For more information, you can read the :ref:`integer::isLessThanOrEqualoo <integer-is-less-than-or-equal-to>` documentation
 
 
 .. _size-of-is-not-equal-to:
@@ -698,7 +698,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _size-of-is-not-identical-to:
@@ -708,7 +708,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _size-of-is-zero:
@@ -718,7 +718,7 @@ isZero
 
 .. hint::
    ``isZero`` is an inherited method from the ``integer`` asserter.
-   For more information, you can read the :ref:```integer::isZero`` <integer-is-zero>` documentation
+   For more information, you can read the :ref:`integer::isZero <integer-is-zero>` documentation
 
 
 
@@ -733,7 +733,7 @@ This is the asserter for objects.
 The check will fail if you pass a non object.
 
 .. note::
-   ``null`` is not an object. Read the PHP manual to know what ```is_object <http://php.net/is_object>`_`` considers an object or not.
+   ``null`` is not an object. Read the PHP manual to know what `is_object <http://php.net/is_object>`_ considers an object or not.
 
 
 .. _object-has-size:
@@ -746,7 +746,7 @@ hasSize
 .. code-block:: php
 
    $countableObject = new GlobIterator('*');
-   
+
    $this
        ->object($countableObject)
            ->hasSize(3)
@@ -766,22 +766,22 @@ isCallable
            // code
        }
    }
-   
+
    $this
        ->object(new foo)
            ->isCallable()  // passes
-   
+
        ->object(new StdClass)
            ->isCallable()  // fails
    ;
 
 .. note::
-   To be ``callable``, your objects must be instantiated from classes that implement the ```__invoke``  < http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_ magic method.
+   To be ``callable``, your objects must be instantiated from classes that implement the `__invoke <http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_ magic method.
 
 
 .. hint::
    ``isCallable`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isCallable`` <variable-is-callable>` documentation
+   For more information, you can read the :ref:`variable::isCallable <variable-is-callable>` documentation
 
 
 .. _object-is-clone-of:
@@ -798,7 +798,7 @@ isCloneOf
    $object3 = clone($object1);
    $object4 = new \StdClass;
    $object4->foo = 'bar';
-   
+
    $this
        ->object($object1)
            ->isCloneOf($object2)   // passes
@@ -820,7 +820,7 @@ isEmpty
 .. code-block:: php
 
    $countableObject = new GlobIterator('atoum.php');
-   
+
    $this
        ->object($countableObject)
            ->isEmpty()
@@ -844,7 +844,7 @@ Two objects are considered equal when they have the same attributes and attribut
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _object-is-identical-to:
@@ -861,7 +861,7 @@ Two objects are considered identical when they are references to the same instan
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _object-is-instance-of:
@@ -877,19 +877,19 @@ isInstanceOf
 .. code-block:: php
 
    $object = new \StdClass();
-   
+
    $this
        ->object($object)
            ->isInstanceOf('\StdClass')     // passes
            ->isInstanceOf('\Iterator')     // fails
    ;
-   
-   
+
+
    interface FooInterface
    {
        public function foo();
    }
-   
+
    class FooClass implements FooInterface
    {
        public function foo()
@@ -897,21 +897,21 @@ isInstanceOf
            echo "foo";
        }
    }
-   
+
    class BarClass extends FooClass
    {
    }
-   
+
    $foo = new FooClass;
    $bar = new BarClass;
-   
+
    $this
        ->object($foo)
            ->isInstanceOf('\FooClass')     // passes
            ->isInstanceOf('\FooInterface') // passes
            ->isInstanceOf('\BarClass')     // fails
            ->isInstanceOf('\StdClass')     // fails
-   
+
        ->object($bar)
            ->isInstanceOf('\FooClass')     // passes
            ->isInstanceOf('\FooInterface') // passes
@@ -937,18 +937,18 @@ isNotCallable
            // code
        }
    }
-   
+
    $this
        ->variable(new foo)
            ->isNotCallable()   // fails
-   
+
        ->variable(new StdClass)
            ->isNotCallable()   // passes
    ;
 
 .. hint::
    ``isNotCallable`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotCallable`` <variable-is-not-callable>` documentation
+   For more information, you can read the :ref:`variable::isNotCallable <variable-is-not-callable>` documentation
 
 
 .. _object-is-not-equal-to:
@@ -965,7 +965,7 @@ Two objects are considered equal when they have the same attributes and attribut
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _object-is-not-identical-to:
@@ -982,7 +982,7 @@ Two objects are considered identical when they are references to the same instan
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _date-interval:
@@ -990,7 +990,7 @@ Two objects are considered identical when they are references to the same instan
 dateInterval
 ~~~~~~~~~~~~
 
-This is the asserter for the ```DateInterval <http://php.net/dateinterval>`_`` object.
+This is the asserter for the `DateInterval <http://php.net/dateinterval>`_ object.
 
 The check will fail if you pass a value that is not a ``DateInterval`` instance (or an instance of a class that extends it).
 
@@ -1001,7 +1001,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
+   For more information, you can read the :ref:`object::isCloneOf <object-is-clone-of>` documentation
 
 
 .. _date-interval-is-equal-to:
@@ -1014,7 +1014,7 @@ isEqualTo
 .. code-block:: php
 
    $di = new DateInterval('P1D');
-   
+
    $this
        ->dateInterval($di)
            ->isEqualTo(                // passes
@@ -1035,7 +1035,7 @@ isGreaterThan
 .. code-block:: php
 
    $di = new DateInterval('P2D');
-   
+
    $this
        ->dateInterval($di)
            ->isGreaterThan(            // passes
@@ -1056,7 +1056,7 @@ isGreaterThanOrEqualTo
 .. code-block:: php
 
    $di = new DateInterval('P2D');
-   
+
    $this
        ->dateInterval($di)
            ->isGreaterThanOrEqualTo(   // passes
@@ -1077,7 +1077,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
+   For more information, you can read the :ref:`object::isIdenticalTo <object-is-identical-to>` documentation
 
 
 .. _date-interval-is-instance-of:
@@ -1087,7 +1087,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
+   For more information, you can read the :ref:`object::isInstanceOf <object-is-instance-of>` documentation
 
 
 .. _date-interval-is-less-than:
@@ -1100,7 +1100,7 @@ isLessThan
 .. code-block:: php
 
    $di = new DateInterval('P1D');
-   
+
    $this
        ->dateInterval($di)
            ->isLessThan(               // passes
@@ -1121,7 +1121,7 @@ isLessThanOrEqualTo
 .. code-block:: php
 
    $di = new DateInterval('P2D');
-   
+
    $this
        ->dateInterval($di)
            ->isLessThanOrEqualTo(      // passes
@@ -1142,7 +1142,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`object::isNotEqualTo <object-is-not-equal-to>` documentation
 
 
 .. _date-interval-is-not-identical-to:
@@ -1152,7 +1152,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`object::isNotIdenticalTo <object-is-not-identical-to>` documentation
 
 
 .. _date-interval-is-zero:
@@ -1166,7 +1166,7 @@ isZero
 
    $di1 = new DateInterval('P0D');
    $di2 = new DateInterval('P1D');
-   
+
    $this
        ->dateInterval($di1)
            ->isZero()      // passes
@@ -1180,7 +1180,7 @@ isZero
 dateTime
 ~~~~~~~~
 
-This is the asserter for the ```DateTime <http://php.net/datetime>`_`` object.
+This is the asserter for the `DateTime <http://php.net/datetime>`_ object.
 
 The check will fail if you pass a value that is not an instance of ``DateTime`` (or an instance of a class that extends it).
 
@@ -1194,7 +1194,7 @@ hasDate
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasDate('1981', '02', '13')   // passes
@@ -1212,7 +1212,7 @@ hasDateAndTime
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13 01:02:03');
-   
+
    $this
        ->dateTime($dt)
            // passes
@@ -1233,7 +1233,7 @@ hasDay
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasDay(13)        // passes
@@ -1249,7 +1249,7 @@ hasHours
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasHours('01')    // passes
@@ -1267,7 +1267,7 @@ hasMinutes
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasMinutes('02')  // passes
@@ -1285,7 +1285,7 @@ hasMonth
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasMonth(2)       // passes
@@ -1301,7 +1301,7 @@ hasSeconds
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasSeconds('03')    // passes
@@ -1319,7 +1319,7 @@ hasTime
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasTime('01', '02', '03')     // passes
@@ -1337,7 +1337,7 @@ hasTimezone
 .. code-block:: php
 
    $dt = new DateTime();
-   
+
    $this
        ->dateTime($dt)
            ->hasTimezone('Europe/Paris')
@@ -1353,7 +1353,7 @@ hasYear
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasYear(1981)     // passes
@@ -1366,7 +1366,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
+   For more information, you can read the :ref:`object::isCloneOf <object-is-clone-of>` documentation
 
 
 .. _date-time-is-equal-to:
@@ -1376,7 +1376,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isEqualTo`` <object-is-equal-to>` documentation
+   For more information, you can read the :ref:`object::isEqualTo <object-is-equal-to>` documentation
 
 
 .. _dat-time-is-identical-to:
@@ -1386,7 +1386,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
+   For more information, you can read the :ref:`object::isIdenticalTo <object-is-identical-to>` documentation
 
 
 .. _date-time-is-instance-of:
@@ -1396,7 +1396,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
+   For more information, you can read the :ref:`object::isInstanceOf <object-is-instance-of>` documentation
 
 
 .. _date-time-is-not-equal-to:
@@ -1406,7 +1406,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`object::isNotEqualTo <object-is-not-equal-to>` documentation
 
 
 .. _date-time-is-not-identical-to:
@@ -1416,7 +1416,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`object::isNotIdenticalTo <object-is-not-identical-to>` documentation
 
 
 
@@ -1426,9 +1426,9 @@ isNotIdenticalTo
 mysqlDateTime
 ~~~~~~~~~~~~~
 
-This is the asserter for objects representing a MySQL date, based on the ```DateTime <http://php.net/datetime>`_`` object.
+This is the asserter for objects representing a MySQL date, based on the `DateTime <http://php.net/datetime>`_ object.
 
-The date must use a format compatible with MySQL and other DBMS, in particular « Y-m-d H:i:s » (for more information read the ```date() <http://php.net/date>`_`` function document on the PHP manual).
+The date must use a format compatible with MySQL and other DBMS, in particular « Y-m-d H:i:s » (for more information read the `date() <http://php.net/date>`_ function document on the PHP manual).
 
 The check will fail if you pass a value that is not a ``DateTime`` object (or an instance of a class that extends it).
 
@@ -1439,7 +1439,7 @@ hasDate
 
 .. hint::
    ``hasDate`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasDate`` <date-time-has-date>` documentation
+   For more information, you can read the :ref:`dateTime::hasDate <date-time-has-date>` documentation
 
 
 .. _mysql-date-time-has-date-and-time:
@@ -1449,7 +1449,7 @@ hasDateAndTime
 
 .. hint::
    ``hasDateAndTime`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasDateAndTime`` <date-time-has-date-and-time>` documentation
+   For more information, you can read the :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>` documentation
 
 
 .. _mysql-date-time-has-day:
@@ -1459,7 +1459,7 @@ hasDay
 
 .. hint::
    ``hasDay`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasDay`` <date-time-has-day>` documentation
+   For more information, you can read the :ref:`dateTime::hasDay <date-time-has-day>` documentation
 
 
 .. _mysql-date-time-has-hours:
@@ -1469,7 +1469,7 @@ hasHours
 
 .. hint::
    ``hasHours`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasHours`` <date-time-has-hours>` documentation
+   For more information, you can read the :ref:`dateTime::hasHours <date-time-has-hours>` documentation
 
 
 .. _mysql-date-time-has-minutes:
@@ -1479,7 +1479,7 @@ hasMinutes
 
 .. hint::
    ``hasMinutes`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasMinutes`` <date-time-has-minutes>` documentation
+   For more information, you can read the :ref:`dateTime::hasMinutes <date-time-has-minutes>` documentation
 
 
 .. _mysql-date-time-has-month:
@@ -1489,7 +1489,7 @@ hasMonth
 
 .. hint::
    ``hasMonth`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasMonth`` <date-time-has-month>` documentation
+   For more information, you can read the :ref:`dateTime::hasMonth <date-time-has-month>` documentation
 
 
 .. _mysql-date-time-has-seconds:
@@ -1499,7 +1499,7 @@ hasSeconds
 
 .. hint::
    ``hasSeconds`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasSeconds`` <date-time-has-seconds>` documentation
+   For more information, you can read the :ref:`dateTime::hasSeconds <date-time-has-seconds>` documentation
 
 
 .. _mysql-date-time-has-time:
@@ -1509,7 +1509,7 @@ hasTime
 
 .. hint::
    ``hasTime`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasTime`` <date-time-has-time>` documentation
+   For more information, you can read the :ref:`dateTime::hasTime <date-time-has-time>` documentation
 
 
 .. _mysql-date-time-has-timezone:
@@ -1519,7 +1519,7 @@ hasTimezone
 
 .. hint::
    ``hasTimezone`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasTimezone`` <date-time-has-timezone>` documentation
+   For more information, you can read the :ref:`dateTime::hasTimezone <date-time-has-timezone>` documentation
 
 
 .. _mysql-date-time-has-year:
@@ -1529,7 +1529,7 @@ hasYear
 
 .. hint::
    ``hasYear`` is an inherited method from the ``dateTime`` asserter.
-   For more information, you can read the :ref:```dateTime::hasYear`` <date-time-has-timezone>` documentation
+   For more information, you can read the :ref:`dateTime::hasYear <date-time-has-timezone>` documentation
 
 
 .. _mysql-date-time-is-clone-of:
@@ -1539,7 +1539,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
+   For more information, you can read the :ref:`object::isCloneOf <object-is-clone-of>` documentation
 
 
 .. _mysql-date-time-is-equal-to:
@@ -1549,7 +1549,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isEqualTo`` <object-is-equal-to>` documentation
+   For more information, you can read the :ref:`object::isEqualTo <object-is-equal-to>` documentation
 
 
 .. _mysql-date-time-is-identical-to:
@@ -1559,7 +1559,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
+   For more information, you can read the :ref:`object::isIdenticalTo <object-is-identical-to>` documentation
 
 
 .. _mysql-date-time-is-instance-of:
@@ -1569,7 +1569,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
+   For more information, you can read the :ref:`object::isInstanceOf <object-is-instance-of>` documentation
 
 
 .. _mysql-date-time-is-not-equal-to:
@@ -1579,7 +1579,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`object::isNotEqualTo <object-is-not-equal-to>` documentation
 
 
 .. _mysql-date-time-is-not-identical-to:
@@ -1589,7 +1589,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`object::isNotIdenticalTo <object-is-not-identical-to>` documentation
 
 
 
@@ -1695,7 +1695,7 @@ hasNestedException
            }
        )
            ->hasNestedException()      // fails
-   
+
        ->exception(
            function() use($myObject) {
                try {
@@ -1711,7 +1711,7 @@ hasNestedException
        )
            ->isInstanceOf('\FirstException')           // fails
            ->isInstanceOf('\SecondException')          // passes
-   
+
            ->hasNestedException()                      // passes
            ->hasNestedException(new \FirstException)   // passes
            ->hasNestedException(new \SecondException)  // fails
@@ -1724,7 +1724,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isCloneOf`` <object-is-clone-of>` documentation
+   For more information, you can read the :ref:`object::isCloneOf <object-is-clone-of>` documentation
 
 
 .. _exception-is-equal-to:
@@ -1734,7 +1734,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isEqualTo`` <object-is-equal-to>` documentation
+   For more information, you can read the :ref:`object::isEqualTo <object-is-equal-to>` documentation
 
 
 .. _exception-is-identical-to:
@@ -1744,7 +1744,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isIdenticalTo`` <object-is-identical-to>` documentation
+   For more information, you can read the :ref:`object::isIdenticalTo <object-is-identical-to>` documentation
 
 
 .. _exception-is-instance-of:
@@ -1754,7 +1754,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isInstanceOf`` <object-is-instance-of>` documentation
+   For more information, you can read the :ref:`object::isInstanceOf <object-is-instance-of>` documentation
 
 
 .. _exception-is-not-equal-to:
@@ -1764,7 +1764,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotEqualTo`` <object-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`object::isNotEqualTo <object-is-not-equal-to>` documentation
 
 
 .. _exception-is-not-identical-to:
@@ -1774,7 +1774,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``object`` asserter.
-   For more information, you can read the :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`object::isNotIdenticalTo <object-is-not-identical-to>` documentation
 
 
 .. _message-anchor:
@@ -1821,7 +1821,7 @@ contains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->contains('1')     // passes
@@ -1848,7 +1848,7 @@ containsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->containsValues(array(1, 2, 3))        // passes
@@ -1878,14 +1878,14 @@ hasKey
        'name'        => 'atoum',
        'owner'       => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->hasKey(0)         // passes
            ->hasKey(1)         // passes
            ->hasKey('1')       // passes
            ->hasKey(10)        // fails
-   
+
        ->array($atoum)
            ->hasKey('name')    // passes
            ->hasKey('price')   // fails
@@ -1913,14 +1913,14 @@ hasKeys
        'name'        => 'atoum',
        'owner'       => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->hasKeys(array(0, 2, 4))           // passes
            ->hasKeys(array('0', 2))            // passes
            ->hasKeys(array('4', 0, 3))         // passes
            ->hasKeys(array(0, 3, 10))          // fails
-   
+
        ->array($atoum)
            ->hasKeys(array('name', 'owner'))   // passes
            ->hasKeys(array('name', 'price'))   // fails
@@ -1944,7 +1944,7 @@ hasSize
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->hasSize(7)        // passes
@@ -1966,11 +1966,11 @@ isEmpty
 
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
-   
+
    $this
        ->array($emptyArray)
            ->isEmpty()         // passes
-   
+
        ->array($nonEmptyArray)
            ->isEmpty()         // fails
    ;
@@ -1982,7 +1982,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _array-is-identical-to:
@@ -1992,7 +1992,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _array-is-not-empty:
@@ -2006,11 +2006,11 @@ isNotEmpty
 
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
-   
+
    $this
        ->array($emptyArray)
            ->isNotEmpty()      // fails
-   
+
        ->array($nonEmptyArray)
            ->isNotEmpty()      // passes
    ;
@@ -2022,7 +2022,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _array-is-not-identical-to:
@@ -2032,7 +2032,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _keys-anchor:
@@ -2048,7 +2048,7 @@ keys
        'name'  => 'atoum',
        'owner' => 'mageekguy',
    );
-   
+
    $this
        ->array($atoum)
            ->keys
@@ -2070,7 +2070,7 @@ notContains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->notContains(null)         // passes
@@ -2096,7 +2096,7 @@ notContainsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->notContainsValues(array(1, 4, 10))    // fails
@@ -2126,14 +2126,14 @@ notHasKey
        'name'  => 'atoum',
        'owner' => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->notHasKey(0)          // fails
            ->notHasKey(1)          // fails
            ->notHasKey('1')        // fails
            ->notHasKey(10)         // passes
-   
+
        ->array($atoum)
            ->notHasKey('name')     // fails
            ->notHasKey('price')    // passes
@@ -2161,14 +2161,14 @@ notHasKeys
        'name'        => 'atoum',
        'owner'       => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->notHasKeys(array(0, 2, 4))            // fails
            ->notHasKeys(array('0', 2))             // fails
            ->notHasKeys(array('4', 0, 3))          // fails
            ->notHasKeys(array(10, 11, 12))         // passes
-   
+
        ->array($atoum)
            ->notHasKeys(array('name', 'owner'))    // fails
            ->notHasKeys(array('foo', 'price'))     // passes
@@ -2192,7 +2192,7 @@ size
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->size
@@ -2209,7 +2209,7 @@ strictlyContains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->strictlyContains('1')     // passes
@@ -2237,7 +2237,7 @@ strictlyContainsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->strictlyContainsValues(array('1', 2, '3'))    // passes
@@ -2265,7 +2265,7 @@ strictlyNotContains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->strictlyNotContains(null)         // passes
@@ -2292,7 +2292,7 @@ strictlyNotContainsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->strictlyNotContainsValues(array('1', 4, 10))  // fails
@@ -2329,7 +2329,7 @@ contains
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->contains('ll')    // passes
@@ -2347,7 +2347,7 @@ hasLength
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->hasLength(11)     // passes
@@ -2364,7 +2364,7 @@ hasLengthGreaterThan
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->hasLengthGreaterThan(10)     // passes
@@ -2381,7 +2381,7 @@ hasLengthLessThan
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->hasLengthLessThan(20)     // passes
@@ -2399,11 +2399,11 @@ isEmpty
 
    $emptyString    = '';
    $nonEmptyString = 'atoum';
-   
+
    $this
        ->string($emptyString)
            ->isEmpty()             // passes
-   
+
        ->string($nonEmptyString)
            ->isEmpty()             // fails
    ;
@@ -2415,7 +2415,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _string-is-equal-to-contents-of-file:
@@ -2443,7 +2443,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _string-is-not-empty:
@@ -2457,11 +2457,11 @@ isNotEmpty
 
    $emptyString    = '';
    $nonEmptyString = 'atoum';
-   
+
    $this
        ->string($emptyString)
            ->isNotEmpty()          // fails
-   
+
        ->string($nonEmptyString)
            ->isNotEmpty()          // passes
    ;
@@ -2473,7 +2473,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _string-is-not-identical-to:
@@ -2483,7 +2483,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _length-anchor:
@@ -2496,7 +2496,7 @@ length
 .. code-block:: php
 
    $string = 'atoum'
-   
+
    $this
        ->string($string)
            ->length
@@ -2514,11 +2514,11 @@ match
 
    $phone = '0102030405';
    $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
-   
+
    $this
        ->string($phone)
            ->match('#^0[1-9]\d{8}$#')
-   
+
        ->string($vdm)
            ->match("#^Aujourd'hui.*VDM$#")
    ;
@@ -2533,7 +2533,7 @@ notContains
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->notContains('php')   // passes
@@ -2555,12 +2555,12 @@ This is the asserter for casting objects to sting.
 
    class AtoumVersion {
        private $version = '1.0';
-   
+
        public function __toString() {
            return 'atoum v' . $this->version;
        }
    }
-   
+
    $this
        ->castToString(new AtoumVersion())
            ->isEqualTo('atoum v1.0')
@@ -2573,7 +2573,7 @@ contains
 
 .. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
+   For more information, you can read the :ref:`string::contains <string-contains>` documentation
 
 
 .. _cast-to-string-not-contains:
@@ -2583,7 +2583,7 @@ notContains
 
 .. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
+   For more information, you can read the :ref:`string::notContains <string-not-contains>` documentation
 
 
 .. _cast-to-string-has-length:
@@ -2593,7 +2593,7 @@ hasLength
 
 .. hint::
    ``hasLength`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLength`` <string-has-length>` documentation
+   For more information, you can read the :ref:`string::hasLength <string-has-length>` documentation
 
 
 .. _cast-to-string-has-length-greater-than:
@@ -2603,7 +2603,7 @@ hasLengthGreaterThan
 
 .. hint::
    ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>` documentation
+   For more information, you can read the :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>` documentation
 
 
 .. _cast-to-string-has-length-less-than:
@@ -2613,7 +2613,7 @@ hasLengthLessThan
 
 .. hint::
    ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLengthLessThan`` <string-has-length-less-than>` documentation
+   For more information, you can read the :ref:`string::hasLengthLessThan <string-has-length-less-than>` documentation
 
 
 .. _cast-to-string-is-empty:
@@ -2623,7 +2623,7 @@ isEmpty
 
 .. hint::
    ``isEmpty`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEmpty`` <string-is-empty>` documentation
+   For more information, you can read the :ref:`string::isEmpty <string-is-empty>` documentation
 
 
 .. _cast-to-string-is-equal-to:
@@ -2633,7 +2633,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _cast-to-string-is-equal-to-contents-of-file:
@@ -2643,7 +2643,7 @@ isEqualToContentsOfFile
 
 .. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
+   For more information, you can read the :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>` documentation
 
 
 .. _cast-to-string-is-identical-to:
@@ -2653,7 +2653,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _cast-to-string-is-not-empty:
@@ -2663,7 +2663,7 @@ isNotEmpty
 
 .. hint::
    ``isNotEmpty`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isNotEmpty`` <string-is-not-empty>` documentation
+   For more information, you can read the :ref:`string::isNotEmpty <string-is-not-empty>` documentation
 
 
 .. _cast-to-string-is-not-equal-to:
@@ -2673,7 +2673,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _cast-to-string-is-not-identical-to:
@@ -2683,7 +2683,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _cast-to-string-match:
@@ -2693,7 +2693,7 @@ match
 
 .. hint::
    ``match`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::match`` <string-match>` documentation
+   For more information, you can read the :ref:`string::match <string-match>` documentation
 
 
 
@@ -2712,7 +2712,7 @@ contains
 
 .. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
+   For more information, you can read the :ref:`string::contains <string-contains>` documentation
 
 
 .. _hash-is-equal-to:
@@ -2722,7 +2722,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _hash-is-equal-to-contents-of-file:
@@ -2732,7 +2732,7 @@ isEqualToContentsOfFile
 
 .. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
+   For more information, you can read the :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>` documentation
 
 
 .. _hash-is-identical-to:
@@ -2742,7 +2742,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _is-md5:
@@ -2756,7 +2756,7 @@ isMd5
 
    $hash    = hash('md5', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isMd5()       // passes
@@ -2771,7 +2771,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _hash-is-not-identical-to:
@@ -2781,7 +2781,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _is-sha1:
@@ -2795,7 +2795,7 @@ isSha1
 
    $hash    = hash('sha1', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isSha1()      // passes
@@ -2814,7 +2814,7 @@ isSha256
 
    $hash    = hash('sha256', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isSha256()    // passes
@@ -2833,7 +2833,7 @@ isSha512
 
    $hash    = hash('sha512', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isSha512()    // passes
@@ -2848,7 +2848,7 @@ notContains
 
 .. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
+   For more information, you can read the :ref:`string::notContains <string-not-contains>` documentation
 
 
 
@@ -2881,7 +2881,7 @@ contains
 
 .. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
+   For more information, you can read the :ref:`string::contains <string-contains>` documentation
 
 
 .. _output-has-length:
@@ -2891,7 +2891,7 @@ hasLength
 
 .. hint::
    ``hasLength`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLength`` <string-has-length>` documentation
+   For more information, you can read the :ref:`string::hasLength <string-has-length>` documentation
 
 
 .. _output-has-length-greater-than:
@@ -2901,7 +2901,7 @@ hasLengthGreaterThan
 
 .. hint::
    ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>` documentation
+   For more information, you can read the :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>` documentation
 
 
 .. _output-has-length-less-than:
@@ -2911,7 +2911,7 @@ hasLengthLessThan
 
 .. hint::
    ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLengthLessThan`` <string-has-length-less-than>` documentation
+   For more information, you can read the :ref:`string::hasLengthLessThan <string-has-length-less-than>` documentation
 
 
 .. _output-is-empty:
@@ -2921,7 +2921,7 @@ isEmpty
 
 .. hint::
    ``isEmpty`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEmpty`` <string-is-empty>` documentation
+   For more information, you can read the :ref:`string::isEmpty <string-is-empty>` documentation
 
 
 .. _output-is-equal-to:
@@ -2931,7 +2931,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _output-is-equal-to-contents-of-file:
@@ -2941,7 +2941,7 @@ isEqualToContentsOfFile
 
 .. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
+   For more information, you can read the :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>` documentation
 
 
 .. _output-is-identical-to:
@@ -2951,7 +2951,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _output-is-not-empty:
@@ -2961,7 +2961,7 @@ isNotEmpty
 
 .. hint::
    ``isNotEmpty`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isNotEmpty`` <string-is-not-empty>` documentation
+   For more information, you can read the :ref:`string::isNotEmpty <string-is-not-empty>` documentation
 
 
 .. _output-is-not-equal-to:
@@ -2971,7 +2971,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _output-is-not-identical-to:
@@ -2981,7 +2981,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _output-match:
@@ -2991,7 +2991,7 @@ match
 
 .. hint::
    ``match`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::match`` <string-match>` documentation
+   For more information, you can read the :ref:`string::match <string-match>` documentation
 
 
 .. _output-not-contains:
@@ -3001,7 +3001,7 @@ notContains
 
 .. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
+   For more information, you can read the :ref:`string::notContains <string-not-contains>` documentation
 
 
 
@@ -3014,7 +3014,7 @@ utf8String
 This is the asserter for UTF-8 strings.
 
 .. note::
-   ``utf8Strings`` uses the ``mb_*`` functions to handle multi-bytes strings. Read the PHP manual for more information about the extension ```mbstring <http://php.net/mbstring>`_``.
+   ``utf8Strings`` uses the ``mb_*`` functions to handle multi-bytes strings. Read the PHP manual for more information about the extension `mbstring <http://php.net/mbstring>`_.
 
 
 .. _utf8-string-contains:
@@ -3024,7 +3024,7 @@ contains
 
 .. hint::
    ``contains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::contains`` <string-contains>` documentation
+   For more information, you can read the :ref:`string::contains <string-contains>` documentation
 
 
 .. _utf8-string-has-length:
@@ -3034,7 +3034,7 @@ hasLength
 
 .. hint::
    ``hasLength`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLength`` <string-has-length>` documentation
+   For more information, you can read the :ref:`string::hasLength <string-has-length>` documentation
 
 
 .. _utf8-string-has-length-greater-than:
@@ -3044,7 +3044,7 @@ hasLengthGreaterThan
 
 .. hint::
    ``hasLengthGreaterThan`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLengthGreaterThan`` <string-has-length-greater-than>` documentation
+   For more information, you can read the :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>` documentation
 
 
 .. _utf8-string-has-length-less-than:
@@ -3054,7 +3054,7 @@ hasLengthLessThan
 
 .. hint::
    ``hasLengthLessThan`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::hasLengthLessThan`` <string-has-length-less-than>` documentation
+   For more information, you can read the :ref:`string::hasLengthLessThan <string-has-length-less-than>` documentation
 
 
 .. _utf8-string-is-empty:
@@ -3064,7 +3064,7 @@ isEmpty
 
 .. hint::
    ``isEmpty`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEmpty`` <string-is-empty>` documentation
+   For more information, you can read the :ref:`string::isEmpty <string-is-empty>` documentation
 
 
 .. _utf8-string-is-equal-to:
@@ -3074,7 +3074,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isEqualTo`` <variable-is-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isEqualTo <variable-is-equal-to>` documentation
 
 
 .. _utf8-string-is-equal-to-contents-of-file:
@@ -3084,7 +3084,7 @@ isEqualToContentsOfFile
 
 .. hint::
    ``isEqualToContentsOfFile`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>` documentation
+   For more information, you can read the :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>` documentation
 
 
 .. _utf8-string-is-identical-to:
@@ -3094,7 +3094,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isIdenticalTo`` <variable-is-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isIdenticalTo <variable-is-identical-to>` documentation
 
 
 .. _utf8-string-is-not-empty:
@@ -3104,7 +3104,7 @@ isNotEmpty
 
 .. hint::
    ``isNotEmpty`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::isNotEmpty`` <string-is-not-empty>` documentation
+   For more information, you can read the :ref:`string::isNotEmpty <string-is-not-empty>` documentation
 
 
 .. _utf8-string-is-not-equal-to:
@@ -3114,7 +3114,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>` documentation
+   For more information, you can read the :ref:`variable::isNotEqualTo <variable-is-not-equal-to>` documentation
 
 
 .. _utf8-string-is-not-identical-to:
@@ -3124,7 +3124,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from the ``variable`` asserter.
-   For more information, you can read the :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>` documentation
+   For more information, you can read the :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>` documentation
 
 
 .. _utf8-string-match:
@@ -3134,7 +3134,7 @@ match
 
 .. hint::
    ``match`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::match`` <string-match>` documentation
+   For more information, you can read the :ref:`string::match <string-match>` documentation
 
 
 .. note::
@@ -3144,7 +3144,7 @@ match
 .. code-block:: php
 
    $vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
-   
+
    $this
        ->utf8String($vdm)
            ->match("#^Aujourd'hui.*VDM$#u")
@@ -3157,7 +3157,7 @@ notContains
 
 .. hint::
    ``notContains`` is an inherited method from the ``string`` asserter.
-   For more information, you can read the :ref:```string::notContains`` <string-not-contains>` documentation
+   For more information, you can read the :ref:`string::notContains <string-not-contains>` documentation
 
 
 
@@ -3226,7 +3226,7 @@ exists
        )
            ->error()
                ->exists()      // passes
-   
+
        ->when(
            function() {
                // code sans erreur
@@ -3253,7 +3253,7 @@ notExists
        )
            ->error()
                ->notExists()   // fails
-   
+
        ->when(
            function() {
                // no error there
@@ -3295,10 +3295,10 @@ This is the asserter for classes.
 .. code-block:: php
 
    $object = new \StdClass;
-   
+
    $this
        ->class(get_class($object))
-   
+
        ->class('\StdClass')
    ;
 
@@ -3320,7 +3320,7 @@ hasInterface
    $this
        ->class('\ArrayIterator')
            ->hasInterface('Countable')     // passes
-   
+
        ->class('\StdClass')
            ->hasInterface('Countable')     // fails
    ;
@@ -3337,7 +3337,7 @@ hasMethod
    $this
        ->class('\ArrayIterator')
            ->hasMethod('count')    // passes
-   
+
        ->class('\StdClass')
            ->hasMethod('count')    // fails
    ;
@@ -3354,7 +3354,7 @@ hasNoParent
    $this
        ->class('\StdClass')
            ->hasNoParent()     // passes
-   
+
        ->class('\FilesystemIterator')
            ->hasNoParent()     // fails
    ;
@@ -3375,7 +3375,7 @@ hasParent
    $this
        ->class('\StdClass')
            ->hasParent()       // fails
-   
+
        ->class('\FilesystemIterator')
            ->hasParent()       // passes
    ;
@@ -3425,7 +3425,7 @@ This is the asserter for mocks.
 .. code-block:: php
 
    $mock = new \mock\MyClass;
-   
+
    $this
        ->mock($mock)
    ;
@@ -3444,10 +3444,10 @@ call
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->once()
@@ -3463,10 +3463,10 @@ atLeastOnce
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->atLeastOnce()
@@ -3482,10 +3482,10 @@ exactly
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->exactly(2)
@@ -3501,17 +3501,17 @@ never
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->never()
    ;
 
 .. note::
-   ``never`` is equivalent to ``:ref:`exactly <exactly-anchor>`(0)``.
+   ``never`` is equivalent to :ref:`exactly <exactly-anchor>` (0).
 
 
 .. _once-twice-thrice:
@@ -3527,10 +3527,10 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) has 
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->once()
@@ -3541,7 +3541,7 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) has 
    ;
 
 .. note::
-   ``once``, ``twice`` et ``thrice`` are respectively equivalent to ``:ref:`exactly <exactly-anchor>`(1)``, ``:ref:`exactly <exactly-anchor>`(2)`` et ``:ref:`exactly <exactly-anchor>`(3)``.
+   ``once``, ``twice`` et ``thrice`` are respectively equivalent to :ref:`exactly <exactly-anchor>` (1), :ref:`exactly <exactly-anchor>` (2) et :ref:`exactly <exactly-anchor>` (3).
 
 
 .. _with-any-arguments:
@@ -3556,10 +3556,10 @@ This is especially useful to reset arguments, like this example:
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->withArguments('first')     ->once()
@@ -3577,10 +3577,10 @@ withArguments
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->withArguments('first', 'second')->once()
@@ -3600,10 +3600,10 @@ withIdenticalArguments
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->withIdenticalArguments('first', 'second')->once()
@@ -3623,10 +3623,10 @@ wasCalled
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->wasCalled()
    ;
@@ -3641,10 +3641,10 @@ wasNotCalled
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->wasNotCalled()
    ;
@@ -3737,7 +3737,7 @@ It is also important to note that it is possible to write the same test without 
    $computer = new computer();
    $computer->setFirstOperand(2);
    $computer->setSecondOperand(2);
-   
+
    $this
        ->object($computer->add())
            ->isIdenticalTo($computer)
@@ -3807,7 +3807,7 @@ The following test will be used to illustrate its usage:
            ->mock($foo)
                ->call('doOtherThing')
                    ->once()
-   
+
        ->if($bar->setValue(uniqid())
        ->then
            ->mock($foo)
@@ -3818,7 +3818,7 @@ The following test will be used to illustrate its usage:
 This test has a drawback maintenance wise, because if the developer wants to add one or more new calls to bar::doOtherThing() between the two existing calls, he will have to update the value given to exactly().
 To fix this issue, you can reset a mock using 2 ways:
 
-* using $mock->getMockController()->resetCalls() ;
+* using ``$mock->getMockController()->resetCalls()`` ;
 * using utilisant $this->resetMock($mock).
 
 .. code-block:: php
@@ -3831,7 +3831,7 @@ To fix this issue, you can reset a mock using 2 ways:
            ->mock($foo)
                ->call('doOtherThing')
                    ->once()
-   
+
        // 1st way
        ->if($foo->getMockController()->resetCalls())
        ->and($bar->setValue(uniqid())
@@ -3839,7 +3839,7 @@ To fix this issue, you can reset a mock using 2 ways:
            ->mock($foo)
                ->call('doOtherThing')
                    ->once()
-   
+
        // 2nd way
        ->if($this->resetMock($foo))
        ->and($bar->setValue(uniqid())
@@ -3866,7 +3866,7 @@ Thanks to this feature, it is possible to write the previous test in a more read
                ->mock($foo)
                    ->call('doOtherThing')
                        ->once()
-   
+
        ->assert('Foo a une valeur')
            ->if($bar->setValue(uniqid())
            ->then

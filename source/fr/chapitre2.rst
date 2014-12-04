@@ -27,17 +27,17 @@ isCallable
    $f = function() {
        // code
    };
-   
+
    $this
        ->variable($f)
            ->isCallable()  // passe
-   
+
        ->variable('\Vendor\Project\foobar')
            ->isCallable()
-   
+
        ->variable(array('\Vendor\Project\Foo', 'bar'))
            ->isCallable()
-   
+
        ->variable('\Vendor\Project\Foo::bar')
            ->isCallable()
    ;
@@ -52,7 +52,7 @@ isEqualTo
 .. code-block:: php
 
    $a = 'a';
-   
+
    $this
        ->variable($a)
            ->isEqualTo('a')    // passe
@@ -72,16 +72,16 @@ isIdenticalTo
 .. code-block:: php
 
    $a = '1';
-   
+
    $this
        ->variable($a)
            ->isIdenticalTo(1)          // échoue
    ;
-   
+
    $stdClass1 = new \StdClass();
    $stdClass2 = new \StdClass();
    $stdClass3 = $stdClass1;
-   
+
    $this
        ->variable($stdClass1)
            ->isIdenticalTo(stdClass3)  // passe
@@ -106,17 +106,17 @@ isNotCallable
    };
    $int    = 1;
    $string = 'nonExistingMethod';
-   
+
    $this
        ->variable($f)
            ->isNotCallable()   // échoue
-   
+
        ->variable($int)
            ->isNotCallable()   // passe
-   
+
        ->variable($string)
            ->isNotCallable()   // passe
-   
+
        ->variable(new StdClass)
            ->isNotCallable()   // passe
    ;
@@ -132,12 +132,12 @@ isNotEqualTo
 
    $a       = 'a';
    $aString = '1';
-   
+
    $this
        ->variable($a)
            ->isNotEqualTo('b')     // passe
            ->isNotEqualTo('a')     // échoue
-   
+
        ->variable($aString)
            ->isNotEqualTo($1)      // échoue
    ;
@@ -158,16 +158,16 @@ Dans le cas d’objets, ``isNotIdenticalTo`` vérifie que les données ne pointe
 .. code-block:: php
 
    $a = '1';
-   
+
    $this
        ->variable($a)
            ->isNotIdenticalTo(1)           // passe
    ;
-   
+
    $stdClass1 = new \StdClass();
    $stdClass2 = new \StdClass();
    $stdClass3 = $stdClass1;
-   
+
    $this
        ->variable($stdClass1)
            ->isNotIdenticalTo(stdClass2)   // passe
@@ -189,12 +189,12 @@ isNull
 
    $emptyString = '';
    $null        = null;
-   
+
    $this
        ->variable($emptyString)
            ->isNull()              // échoue
                                    // (c'est vide mais pas null)
-   
+
        ->variable($null)
            ->isNull()              // passe
    ;
@@ -210,11 +210,11 @@ isNotNull
 
    $emptyString = '';
    $null        = null;
-   
+
    $this
        ->variable($emptyString)
            ->isNotNull()           // passe (c'est vide mais pas null)
-   
+
        ->variable($null)
            ->isNotNull()           // échoue
    ;
@@ -255,11 +255,11 @@ isFalse
 
    $true  = true;
    $false = false;
-   
+
    $this
        ->boolean($true)
            ->isFalse()     // échoue
-   
+
        ->boolean($false)
            ->isFalse()     // passe
    ;
@@ -305,11 +305,11 @@ isTrue
 
    $true  = true;
    $false = false;
-   
+
    $this
        ->boolean($true)
            ->isTrue()      // passe
-   
+
        ->boolean($false)
            ->isTrue()      // échoue
    ;
@@ -349,7 +349,7 @@ isGreaterThan
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isGreaterThan(-1)     // passe
@@ -368,7 +368,7 @@ isGreaterThanOrEqualTo
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isGreaterThanOrEqualTo(-1)    // passe
@@ -397,7 +397,7 @@ isLessThan
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isLessThan(10)    // passe
@@ -415,7 +415,7 @@ isLessThanOrEqualTo
 .. code-block:: php
 
    $zero = 0;
-   
+
    $this
        ->integer($zero)
            ->isLessThanOrEqualTo(10)       // passe
@@ -455,11 +455,11 @@ isZero
 
    $zero    = 0;
    $notZero = -1;
-   
+
    $this
        ->integer($zero)
            ->isZero()          // passe
-   
+
        ->integer($notZero)
            ->isZero()          // échoue
    ;
@@ -568,7 +568,7 @@ Cette méthode cherche donc à minorer ce problème.
 .. code-block:: php
 
    $float = 1 - 0.97;
-   
+
    $this
        ->float($float)
            ->isNearlyEqualTo(0.03) // passe
@@ -622,11 +622,11 @@ C’est l’assertion dédiée aux tests sur la taille des tableaux et des objet
 
    $array           = array(1, 2, 3);
    $countableObject = new GlobIterator('*');
-   
+
    $this
        ->sizeOf($array)
            ->isEqualTo(3)
-   
+
        ->sizeOf($countableObject)
            ->isGreaterThan(0)
    ;
@@ -746,7 +746,7 @@ hasSize
 .. code-block:: php
 
    $countableObject = new GlobIterator('*');
-   
+
    $this
        ->object($countableObject)
            ->hasSize(3)
@@ -766,11 +766,11 @@ isCallable
            // code
        }
    }
-   
+
    $this
        ->object(new foo)
            ->isCallable()  // passe
-   
+
        ->object(new StdClass)
            ->isCallable()  // échoue
    ;
@@ -798,7 +798,7 @@ isCloneOf
    $object3 = clone($object1);
    $object4 = new \StdClass;
    $object4->foo = 'bar';
-   
+
    $this
        ->object($object1)
            ->isCloneOf($object2)   // passe
@@ -820,7 +820,7 @@ isEmpty
 .. code-block:: php
 
    $countableObject = new GlobIterator('atoum.php');
-   
+
    $this
        ->object($countableObject)
            ->isEmpty()
@@ -877,19 +877,19 @@ isInstanceOf
 .. code-block:: php
 
    $object = new \StdClass();
-   
+
    $this
        ->object($object)
            ->isInstanceOf('\StdClass')     // passe
            ->isInstanceOf('\Iterator')     // échoue
    ;
-   
-   
+
+
    interface FooInterface
    {
        public function foo();
    }
-   
+
    class FooClass implements FooInterface
    {
        public function foo()
@@ -897,21 +897,21 @@ isInstanceOf
            echo "foo";
        }
    }
-   
+
    class BarClass extends FooClass
    {
    }
-   
+
    $foo = new FooClass;
    $bar = new BarClass;
-   
+
    $this
        ->object($foo)
            ->isInstanceOf('\FooClass')     // passe
            ->isInstanceOf('\FooInterface') // passe
            ->isInstanceOf('\BarClass')     // échoue
            ->isInstanceOf('\StdClass')     // échoue
-   
+
        ->object($bar)
            ->isInstanceOf('\FooClass')     // passe
            ->isInstanceOf('\FooInterface') // passe
@@ -937,11 +937,11 @@ isNotCallable
            // code
        }
    }
-   
+
    $this
        ->variable(new foo)
            ->isNotCallable()   // échoue
-   
+
        ->variable(new StdClass)
            ->isNotCallable()   // passe
    ;
@@ -1014,7 +1014,7 @@ isEqualTo
 .. code-block:: php
 
    $di = new DateInterval('P1D');
-   
+
    $this
        ->dateInterval($di)
            ->isEqualTo(                // passe
@@ -1035,7 +1035,7 @@ isGreaterThan
 .. code-block:: php
 
    $di = new DateInterval('P2D');
-   
+
    $this
        ->dateInterval($di)
            ->isGreaterThan(            // passe
@@ -1056,7 +1056,7 @@ isGreaterThanOrEqualTo
 .. code-block:: php
 
    $di = new DateInterval('P2D');
-   
+
    $this
        ->dateInterval($di)
            ->isGreaterThanOrEqualTo(   // passe
@@ -1100,7 +1100,7 @@ isLessThan
 .. code-block:: php
 
    $di = new DateInterval('P1D');
-   
+
    $this
        ->dateInterval($di)
            ->isLessThan(               // passe
@@ -1121,7 +1121,7 @@ isLessThanOrEqualTo
 .. code-block:: php
 
    $di = new DateInterval('P2D');
-   
+
    $this
        ->dateInterval($di)
            ->isLessThanOrEqualTo(      // passe
@@ -1166,7 +1166,7 @@ isZero
 
    $di1 = new DateInterval('P0D');
    $di2 = new DateInterval('P1D');
-   
+
    $this
        ->dateInterval($di1)
            ->isZero()      // passe
@@ -1194,7 +1194,7 @@ hasDate
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasDate('1981', '02', '13')   // passe
@@ -1212,7 +1212,7 @@ hasDateAndTime
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13 01:02:03');
-   
+
    $this
        ->dateTime($dt)
            // passe
@@ -1233,7 +1233,7 @@ hasDay
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasDay(13)        // passe
@@ -1249,7 +1249,7 @@ hasHours
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasHours('01')    // passe
@@ -1267,7 +1267,7 @@ hasMinutes
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasMinutes('02')  // passe
@@ -1285,7 +1285,7 @@ hasMonth
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasMonth(2)       // passe
@@ -1301,7 +1301,7 @@ hasSeconds
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasSeconds('03')    // passe
@@ -1319,7 +1319,7 @@ hasTime
 .. code-block:: php
 
    $dt = new DateTime('01:02:03');
-   
+
    $this
        ->dateTime($dt)
            ->hasTime('01', '02', '03')     // passe
@@ -1337,7 +1337,7 @@ hasTimezone
 .. code-block:: php
 
    $dt = new DateTime();
-   
+
    $this
        ->dateTime($dt)
            ->hasTimezone('Europe/Paris')
@@ -1353,7 +1353,7 @@ hasYear
 .. code-block:: php
 
    $dt = new DateTime('1981-02-13');
-   
+
    $this
        ->dateTime($dt)
            ->hasYear(1981)     // passe
@@ -1695,7 +1695,7 @@ hasNestedException
            }
        )
            ->hasNestedException()      // échoue
-   
+
        ->exception(
            function() use($myObject) {
                try {
@@ -1711,7 +1711,7 @@ hasNestedException
        )
            ->isInstanceOf('\FirstException')           // échoue
            ->isInstanceOf('\SecondException')          // passe
-   
+
            ->hasNestedException()                      // passe
            ->hasNestedException(new \FirstException)   // passe
            ->hasNestedException(new \SecondException)  // échoue
@@ -1821,7 +1821,7 @@ contains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->contains('1')     // passe
@@ -1848,7 +1848,7 @@ containsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->containsValues(array(1, 2, 3))        // passe
@@ -1878,14 +1878,14 @@ hasKey
        'name'        => 'atoum',
        'owner'       => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->hasKey(0)         // passe
            ->hasKey(1)         // passe
            ->hasKey('1')       // passe
            ->hasKey(10)        // échoue
-   
+
        ->array($atoum)
            ->hasKey('name')    // passe
            ->hasKey('price')   // échoue
@@ -1913,14 +1913,14 @@ hasKeys
        'name'        => 'atoum',
        'owner'       => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->hasKeys(array(0, 2, 4))           // passe
            ->hasKeys(array('0', 2))            // passe
            ->hasKeys(array('4', 0, 3))         // passe
            ->hasKeys(array(0, 3, 10))          // échoue
-   
+
        ->array($atoum)
            ->hasKeys(array('name', 'owner'))   // passe
            ->hasKeys(array('name', 'price'))   // échoue
@@ -1944,7 +1944,7 @@ hasSize
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->hasSize(7)        // passe
@@ -1966,11 +1966,11 @@ isEmpty
 
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
-   
+
    $this
        ->array($emptyArray)
            ->isEmpty()         // passe
-   
+
        ->array($nonEmptyArray)
            ->isEmpty()         // échoue
    ;
@@ -2006,11 +2006,11 @@ isNotEmpty
 
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
-   
+
    $this
        ->array($emptyArray)
            ->isNotEmpty()      // échoue
-   
+
        ->array($nonEmptyArray)
            ->isNotEmpty()      // passe
    ;
@@ -2048,7 +2048,7 @@ keys
        'name'  => 'atoum',
        'owner' => 'mageekguy',
    );
-   
+
    $this
        ->array($atoum)
            ->keys
@@ -2070,7 +2070,7 @@ notContains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->notContains(null)         // passe
@@ -2096,7 +2096,7 @@ notContainsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->notContainsValues(array(1, 4, 10))    // échoue
@@ -2126,14 +2126,14 @@ notHasKey
        'name'  => 'atoum',
        'owner' => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->notHasKey(0)          // échoue
            ->notHasKey(1)          // échoue
            ->notHasKey('1')        // échoue
            ->notHasKey(10)         // passe
-   
+
        ->array($atoum)
            ->notHasKey('name')     // échoue
            ->notHasKey('price')    // passe
@@ -2161,14 +2161,14 @@ notHasKeys
        'name'        => 'atoum',
        'owner'       => 'mageekguy',
    );
-   
+
    $this
        ->array($fibonacci)
            ->notHasKeys(array(0, 2, 4))            // échoue
            ->notHasKeys(array('0', 2))             // échoue
            ->notHasKeys(array('4', 0, 3))          // échoue
            ->notHasKeys(array(10, 11, 12))         // passe
-   
+
        ->array($atoum)
            ->notHasKeys(array('name', 'owner'))    // échoue
            ->notHasKeys(array('foo', 'price'))     // passe
@@ -2192,7 +2192,7 @@ size
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->size
@@ -2209,7 +2209,7 @@ strictlyContains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->strictlyContains('1')     // passe
@@ -2237,7 +2237,7 @@ strictlyContainsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->strictlyContainsValues(array('1', 2, '3'))    // passe
@@ -2265,7 +2265,7 @@ strictlyNotContains
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($fibonacci)
            ->strictlyNotContains(null)         // passe
@@ -2292,7 +2292,7 @@ strictlyNotContainsValues
 .. code-block:: php
 
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
-   
+
    $this
        ->array($array)
            ->strictlyNotContainsValues(array('1', 4, 10))  // échoue
@@ -2329,7 +2329,7 @@ contains
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->contains('ll')    // passe
@@ -2347,7 +2347,7 @@ hasLength
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->hasLength(11)     // passe
@@ -2364,7 +2364,7 @@ hasLengthGreaterThan
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->hasLengthGreaterThan(10)     // passe
@@ -2381,7 +2381,7 @@ hasLengthLessThan
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->hasLengthLessThan(20)     // passe
@@ -2399,11 +2399,11 @@ isEmpty
 
    $emptyString    = '';
    $nonEmptyString = 'atoum';
-   
+
    $this
        ->string($emptyString)
            ->isEmpty()             // passe
-   
+
        ->string($nonEmptyString)
            ->isEmpty()             // échoue
    ;
@@ -2457,11 +2457,11 @@ isNotEmpty
 
    $emptyString    = '';
    $nonEmptyString = 'atoum';
-   
+
    $this
        ->string($emptyString)
            ->isNotEmpty()          // échoue
-   
+
        ->string($nonEmptyString)
            ->isNotEmpty()          // passe
    ;
@@ -2496,7 +2496,7 @@ length
 .. code-block:: php
 
    $string = 'atoum'
-   
+
    $this
        ->string($string)
            ->length
@@ -2514,11 +2514,11 @@ match
 
    $phone = '0102030405';
    $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
-   
+
    $this
        ->string($phone)
            ->match('#^0[1-9]\d{8}$#')
-   
+
        ->string($vdm)
            ->match("#^Aujourd'hui.*VDM$#")
    ;
@@ -2533,7 +2533,7 @@ notContains
 .. code-block:: php
 
    $string = 'Hello world';
-   
+
    $this
        ->string($string)
            ->notContains('php')   // passe
@@ -2555,12 +2555,12 @@ C’est l’assertion dédiée aux tests sur le transtypage d’objets en chaîn
 
    class AtoumVersion {
        private $version = '1.0';
-   
+
        public function __toString() {
            return 'atoum v' . $this->version;
        }
    }
-   
+
    $this
        ->castToString(new AtoumVersion())
            ->isEqualTo('atoum v1.0')
@@ -2756,7 +2756,7 @@ isMd5
 
    $hash    = hash('md5', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isMd5()       // passe
@@ -2795,7 +2795,7 @@ isSha1
 
    $hash    = hash('sha1', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isSha1()      // passe
@@ -2814,7 +2814,7 @@ isSha256
 
    $hash    = hash('sha256', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isSha256()    // passe
@@ -2833,7 +2833,7 @@ isSha512
 
    $hash    = hash('sha512', 'atoum');
    $notHash = 'atoum';
-   
+
    $this
        ->hash($hash)
            ->isSha512()    // passe
@@ -3144,7 +3144,7 @@ match
 .. code-block:: php
 
    $vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
-   
+
    $this
        ->utf8String($vdm)
            ->match("#^Aujourd'hui.*VDM$#u")
@@ -3226,7 +3226,7 @@ exists
        )
            ->error()
                ->exists()      // passe
-   
+
        ->when(
            function() {
                // code sans erreur
@@ -3253,7 +3253,7 @@ notExists
        )
            ->error()
                ->notExists()   // échoue
-   
+
        ->when(
            function() {
                // code sans erreur
@@ -3295,10 +3295,10 @@ C’est l’assertion dédiée aux classes.
 .. code-block:: php
 
    $object = new \StdClass;
-   
+
    $this
        ->class(get_class($object))
-   
+
        ->class('\StdClass')
    ;
 
@@ -3320,7 +3320,7 @@ hasInterface
    $this
        ->class('\ArrayIterator')
            ->hasInterface('Countable')     // passe
-   
+
        ->class('\StdClass')
            ->hasInterface('Countable')     // échoue
    ;
@@ -3337,7 +3337,7 @@ hasMethod
    $this
        ->class('\ArrayIterator')
            ->hasMethod('count')    // passe
-   
+
        ->class('\StdClass')
            ->hasMethod('count')    // échoue
    ;
@@ -3354,7 +3354,7 @@ hasNoParent
    $this
        ->class('\StdClass')
            ->hasNoParent()     // passe
-   
+
        ->class('\FilesystemIterator')
            ->hasNoParent()     // échoue
    ;
@@ -3375,7 +3375,7 @@ hasParent
    $this
        ->class('\StdClass')
            ->hasParent()       // échoue
-   
+
        ->class('\FilesystemIterator')
            ->hasParent()       // passe
    ;
@@ -3425,7 +3425,7 @@ C’est l’assertion dédiée aux bouchons.
 .. code-block:: php
 
    $mock = new \mock\MyClass;
-   
+
    $this
        ->mock($mock)
    ;
@@ -3444,10 +3444,10 @@ call
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->once()
@@ -3463,10 +3463,10 @@ atLeastOnce
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->atLeastOnce()
@@ -3482,10 +3482,10 @@ exactly
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->exactly(2)
@@ -3501,10 +3501,10 @@ never
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->never()
@@ -3527,10 +3527,10 @@ Ces assertions vérifient que la méthode testée (voir :ref:`call <call-anchor>
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->once()
@@ -3556,10 +3556,10 @@ Cette méthode est surtout utile pour remettre à zéro les arguments, comme dan
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->withArguments('first')     ->once()
@@ -3577,10 +3577,10 @@ withArguments
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->withArguments('first', 'second')->once()
@@ -3600,10 +3600,10 @@ withIdenticalArguments
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->call('myMethod')
                ->withIdenticalArguments('first', 'second')->once()
@@ -3623,10 +3623,10 @@ wasCalled
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->wasCalled()
    ;
@@ -3641,10 +3641,10 @@ wasNotCalled
 .. code-block:: php
 
    $mock = new \mock\MyFirstClass;
-   
+
    $this
        ->object(new MySecondClass($mock))
-   
+
        ->mock($mock)
            ->wasNotCalled()
    ;
@@ -3658,7 +3658,7 @@ stream
 C’est l’assertion dédiée aux stream.
 
 .. important::
-   Malheureusement, je n’ai aucune espèce d’idée de son fonctionnement, alors n’hésitez pas à compléter cette partie !
+   Malheureusement, je n’ai aucune espèce d’idée de son fonctionnement, alors n’hésitez pas à compléter cette partie !
 
 
 .. _is-read:
@@ -3737,7 +3737,7 @@ Il est également important de noter qu’il est tout à fait possible d’écri
    $computer = new computer();
    $computer->setFirstOperand(2);
    $computer->setSecondOperand(2);
-   
+
    $this
        ->object($computer->add())
            ->isIdenticalTo($computer)
@@ -3807,7 +3807,7 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé :
            ->mock($foo)
                ->call('doOtherThing')
                    ->once()
-   
+
        ->if($bar->setValue(uniqid())
        ->then
            ->mock($foo)
@@ -3818,7 +3818,7 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé :
 Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin d’intercaler un ou plusieurs nouveaux appels à bar::doOtherThing() entre les deux appels déjà effectués, il sera obligé de mettre à jour en conséquence la valeur de l’argument passé à exactly().
 Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes :
 
-* soit en utilisant $mock->getMockController()->resetCalls() ;
+* soit en utilisant $mock->getMockController()->resetCalls() ;
 * soit en utilisant $this->resetMock($mock).
 
 .. code-block:: php
@@ -3831,7 +3831,7 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
            ->mock($foo)
                ->call('doOtherThing')
                    ->once()
-   
+
        // 1ère manière
        ->if($foo->getMockController()->resetCalls())
        ->and($bar->setValue(uniqid())
@@ -3839,7 +3839,7 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
            ->mock($foo)
                ->call('doOtherThing')
                    ->once()
-   
+
        // 2ème manière
        ->if($this->resetMock($foo))
        ->and($bar->setValue(uniqid())
@@ -3866,7 +3866,7 @@ Grâce à lui, il est donc possible d’écrire le test précédent d’une faç
                ->mock($foo)
                    ->call('doOtherThing')
                        ->once()
-   
+
        ->assert('Foo a une valeur')
            ->if($bar->setValue(uniqid())
            ->then
@@ -3885,17 +3885,17 @@ Le mode loop
 
 Lorsqu’un développeur fait du développement piloté par les tests, il travaille de la manière suivante :
 
-# il commence par créer le test correspondant à ce qu’il veut développer ;
-# il exécute le test qu’il vient de créer ;
-# il écrit le code permettant au test de passer avec succès ;
+# il commence par créer le test correspondant à ce qu’il veut développer ;
+# il exécute le test qu’il vient de créer ;
+# il écrit le code permettant au test de passer avec succès ;
 # il modifie ou complète son test et repars à l’étape 2.
 Concrètement, cela signifie qu’il doit :
 
-* créer son code dans son éditeur favori ;
-* quitter son éditeur pour utiliser une console afin d’exécuter son test ;
-* revenir à son éditeur pour écrire le code permettant au test de passer avec succès ;
-* revenir à la console afin de relancer l’exécution de son test ;
-* revenir à son éditeur afin de modifier ou compléter son test ;
+* créer son code dans son éditeur favori ;
+* quitter son éditeur pour utiliser une console afin d’exécuter son test ;
+* revenir à son éditeur pour écrire le code permettant au test de passer avec succès ;
+* revenir à la console afin de relancer l’exécution de son test ;
+* revenir à son éditeur afin de modifier ou compléter son test ;
 
 Il y a donc bien un cycle qui se répétera tant que la fonctionnalité n’aura pas été développée dans son intégralité.
 
@@ -3914,29 +3914,29 @@ Une fois les tests terminés, si les tests ont été passés avec succès par le
    > PHP path: /usr/local/bin/php
    > PHP version:
    .. _p-h-p-5-3-8--cli---built--sep-21-2011-23-14-37:
-   
+
    > PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
    ===============================================
    .. _copyright--c--1997-2011-the-p-h-p-group:
-   
+
    > Copyright (c) 1997-2011 The PHP Group
    =======================================
    .. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
-   
+
    > Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
    ===============================================================
    .. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
-   
+
    >     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
    ====================================================================
    > mageekguy\atoum\tests\units\adapter...
    [S___________________________________________________________][1/1]
    .. _test-duration--0-02-second:
-   
+
    > Test duration: 0.02 second.
    =============================
    .. _memory-usage--0-25-mb:
-   
+
    > Memory usage: 0.25 Mb.
    ========================
    > Total test duration: 0.02 second.
@@ -3959,29 +3959,29 @@ Dans le cas où le code ne passe pas les tests avec succès, c’est-à-dire si 
    > PHP path: /usr/local/bin/php
    > PHP version:
    .. _p-h-p-5-3-8--cli---built--sep-21-2011-23-14-37:
-   
+
    > PHP 5.3.8 (cli) (built: Sep 21 2011 23:14:37)
    ===============================================
    .. _copyright--c--1997-2011-the-p-h-p-group:
-   
+
    > Copyright (c) 1997-2011 The PHP Group
    =======================================
    .. _zend-engine-v2-3-0--copyright--c--1998-2011-zend-technologies:
-   
+
    > Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
    ===============================================================
    .. _with-xdebug-v2-1-1--copyright--c--2002-2011--by-derick-rethans:
-   
+
    >     with Xdebug v2.1.1, Copyright (c) 2002-2011, by Derick Rethans
    ====================================================================
    > mageekguy\atoum\tests\units\adapter...
    [F___________________________________________________________][1/1]
    .. _test-duration--0-00-second:
-   
+
    > Test duration: 0.00 second.
    =============================
    .. _memory-usage--0-00-mb:
-   
+
    > Memory usage: 0.00 Mb.
    ========================
    > Total test duration: 0.00 second.
@@ -3990,7 +3990,7 @@ Dans le cas où le code ne passe pas les tests avec succès, c’est-à-dire si 
    Failure (1 test, 0 method, 1 failure, 0 error, 0 exception) !
    > There is 1 failure:
    .. _mageekguy-atoum-tests-units-adapter--test--call:
-   
+
    > mageekguy\atoum\tests\units\adapter::test__call():
    ====================================================
    In file /Users/fch/Atoum/tests/units/classes/adapter.php on line 17, mageekguy\atoum\asserters\string::isEqualTo() failed: strings are not equals
@@ -4026,8 +4026,8 @@ Et il se trouve que atoum dispose d’un certain nombre d’outils pour facilite
 Ces outils ne sont cependant actif que lorsque atoum est exécuté à l’aide de l’argument ``--debug``, afin que l’exécution des tests unitaires ne soit pas perturbée par les instructions relatives au débogage hors de ce contexte.
 Lorsque l’argument ``--debug`` est utilisé, trois méthodes peuvent être activée :
 
-* ``dump()`` qui permet de connaître le contenu d’une variable ;
-* ``stop()`` qui permet d’arrêter l’exécution d’un test ;
+* ``dump()`` qui permet de connaître le contenu d’une variable ;
+* ``stop()`` qui permet d’arrêter l’exécution d’un test ;
 * ``executeOnFailure()`` qui permet de définir une fonction anonyme qui ne sera exécutée qu’en cas d’échec d’une assertion.
 
 Ces trois méthodes s’intègrent parfaitement dans l’interface fluide qui caractérise atoum.
@@ -4117,11 +4117,11 @@ Les méthodes d’initialisation
 -----------------------------
 
 Lorsqu’il exécute les méthodes de test d’une classe, atoum suit le processus suivant :
-# il exécute la méthode ``setUp()`` de la classe de test ;
-# il lance un sous-processus PHP pour exécuter chaque méthode de test ;
-# dans le sous-processus PHP, avant d’exécuter la méthode de test, il exécute la méthode ``beforeTestMethod()`` de la classe de test ;
-# dans le sous-processus PHP, il exécute la méthode de test ;
-# dans le sous-processus PHP, il exécute la méthode ``afterTestMethod()`` de la classe de test ;
+# il exécute la méthode ``setUp()`` de la classe de test ;
+# il lance un sous-processus PHP pour exécuter chaque méthode de test ;
+# dans le sous-processus PHP, avant d’exécuter la méthode de test, il exécute la méthode ``beforeTestMethod()`` de la classe de test ;
+# dans le sous-processus PHP, il exécute la méthode de test ;
+# dans le sous-processus PHP, il exécute la méthode ``afterTestMethod()`` de la classe de test ;
 # une fois le sous-processus PHP terminé, il exécute la méthode ``tearDown()`` de la classe de test.
 
 Les méthodes ``setUp()`` et ``tearDown()`` permettent donc respectivement d’initialiser et de nettoyer l’environnement de test pour l’ensemble des méthodes de test de la classe exécutée, à la différence des méthodes ``beforeTestMethod()`` et ``afterTestMethod()``.
@@ -4134,14 +4134,14 @@ C’est d’ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`
 
    <?php
    namespace vendor\project\tests\units;
-   
+
    use
        mageekguy\atoum,
        vendor\project
    ;
-   
+
    require __DIR__ . '/mageekguy.atoum.phar';
-   
+
    class bankAccount extends atoum
    {
        public function setUp()
@@ -4149,49 +4149,49 @@ C’est d’ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`
            // Exécutée *avant l'ensemble* des méthodes de test.
            // Initialisation globale.
        }
-   
+
        public function beforeTestMethod($method)
        {
            // Exécutée *avant chaque* méthode de test.
-   
+
            switch ($method)
            {
                case 'testGetOwner':
                    // Initialisation pour testGetOwner().
                break;
-   
+
                case 'testGetOperations':
                    // Initialisation pour testGetOperations().
                break;
            }
        }
-   
+
        public function testGetOwner()
        {
            ...
        }
-   
+
        public function testGetOperations()
        {
            ...
        }
-   
+
        public function afterTestMethod($method)
        {
            // Exécutée *après chaque* méthode de test.
-   
+
            switch ($method)
            {
                case 'testGetOwner':
                    // Nettoyage pour testGetOwner().
                break;
-   
+
                case 'testGetOperations':
                    // Nettoyage pour testGetOperations().
                break;
            }
        }
-   
+
        public function tearDown()
        {
            // Exécutée après l'ensemble des méthodes de test.
@@ -4231,7 +4231,7 @@ La définition du fournisseur de données qui doit être utilisé par une métho
                    ->integer($calculator->sum($a, $b))->isEqualTo($a + $b)
            ;
        }
-   
+
        ...
    }
 
@@ -4244,7 +4244,7 @@ Une fois l’annotation définie, il n’y a plus qu’à créer la méthode cor
    class calculator extends atoum
    {
        ...
-   
+
        // Fournisseur de données de testSum().
        public function sumDataProvider()
        {
@@ -4287,14 +4287,14 @@ La plus simple est de créer un objet dont le nom absolu est préfixé par ``moc
 
    // création d'un bouchon de l'interface \Countable
    $countableMock = new \mock\Countable;
-   
+
    // création d'un bouchon de la classe abstraite
    // \Vendor\Project\AbstractClass
    $vendorAppMock = new \mock\Vendor\Project\AbstractClass;
-   
+
    // création d'un bouchon de la classe \StdClass
    $stdObject     = new \mock\StdClass;
-   
+
    // création d'un bouchon à partir d'une classe inexistante
    $anonymousMock = new \mock\My\Unknown\Class;
 
@@ -4315,8 +4315,8 @@ Changer le nom de la classe
 Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le ``mockGenerator``.
 Sa méthode ``generate`` prend 3 paramètres :
 
-* le nom de l’interface ou de la classe à bouchonner ;
-* le nouvel espace de nom, optionnel ;
+* le nom de l’interface ou de la classe à bouchonner ;
+* le nouvel espace de nom, optionnel ;
 * le nouveau nom de la classe, optionnel.
 
 .. code-block:: php
@@ -4325,13 +4325,13 @@ Sa méthode ``generate`` prend 3 paramètres :
    // on ne change que l'espace de nom
    $this->mockGenerator->generate('\Countable', '\MyMock');
    $countableMock = new \myMock\Countable;
-   
+
    // création d'un bouchon de la classe abstraite
    // \Vendor\Project\AbstractClass vers \MyMock\AClass
    // on change l'espace de nom et le nom de la classe
    $this->mockGenerator->generate('\Vendor\Project\AbstractClass', '\MyMock', 'AClass');
    $vendorAppMock = new \myMock\AClass;
-   
+
    // création d'un bouchon de la classe \StdClass vers \mock\OneClass
    // on ne change que le nom de la classe
    $this->mockGenerator->generate('\StdClass', null, 'OneClass');
@@ -4344,9 +4344,9 @@ Sa méthode ``generate`` prend 3 paramètres :
 .. code-block:: php
 
    $countableMock = new \mock\Countable;
-   
+
    // est équivalent à:
-   
+
    $this->mockGenerator->generate('\Countable');   // inutile
    $countableMock = new \mock\Countable;
 
@@ -4386,26 +4386,26 @@ Il peut parfois être intéressant de rendre une méthode orpheline, c’est-à-
 
    class FirstClass {
        protected $dep;
-   
+
        public function __construct(SecondClass $dep) {
            $this->dep = $dep;
        }
    }
-   
+
    class SecondClass {
        protected $deps;
-   
+
        public function __construct(ThirdClass $a, FourthClass $b) {
            $this->deps = array($a, $b);
        }
    }
-   
+
    $this->mockGenerator->orphanize('__construct');
    $this->mockGenerator->shuntParentClassCalls();
-   
+
    // Nous pouvons instancier le bouchon sans injecter ses dépendances
    $mock = new \mock\SecondClass();
-   
+
    $object = new FirstClass($mock);
 
 .. _modifier-le-comportement-d-un-bouchon:
@@ -4420,7 +4420,7 @@ Pour cela, il faut passer par son contrôleur en utilisant l’une des méthodes
 .. code-block:: php
 
    $databaseClient = new \mock\Database\Client();
-   
+
    $databaseClient->getMockController()->connect = function() {};
    // Équivalent à
    $this->calling($databaseClient)->connect = function() {};
@@ -4430,27 +4430,27 @@ Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publi
 .. code-block:: php
 
    $databaseClient = new \mock\Database\Client();
-   
+
    // redéfinie la méthode connect : elle retournera toujours true
    $this->calling($databaseClient)->connect = true;
-   
+
    // redéfinie la méthode select
    $this->calling($databaseClient)->select = function() {
        return array();
    };
-   
+
    // redéfinie la méthode query avec des arguments
    $result = array();
    $this->calling($databaseClient)->query = function(Query $query) use($result) {
        switch($query->type) {
            case Query::SELECT:
                return $result
-   
+
            default;
                return null;
        }
    };
-   
+
    // la méthode connect lèvera une exception
    $this->calling($databaseClient)->connect->throw = new \Database\Client\Exception();
 Comme vous pouvez le voir, il est possible d’utiliser plusieurs méthodes afin d’obtenir le comportement souhaité :
@@ -4467,10 +4467,10 @@ Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'app
    $this->calling($databaseClient)->count = rand(0, 10);
    // équivalent à
    $this->calling($databaseClient)->count[0] = rand(0, 10);
-   
+
    // 1er appel
    $this->calling($databaseClient)->count[1] = 13;
-   
+
    // 3ème appel
    $this->calling($databaseClient)->count[3] = 42;
 * Le premier appel retournera 13.
@@ -4507,14 +4507,14 @@ methods
            )
                ->return = uniqid()
    ;
-   
+
    // on redéfinit le comportement de toutes les méthodes
    $this
        ->calling($mock)
            ->methods()
                ->return = null
    ;
-   
+
    // si la méthode commence par "get",
    // on redéfinit son comportement
    $this
@@ -4526,7 +4526,7 @@ methods
            )
                ->return = uniqid()
    ;
-   
+
 
 Dans le cas du dernier exemple, vous devriez plutôt utiliser :ref:```methodsWhichMatch`` <methods-which-match>`.
 
@@ -4550,7 +4550,7 @@ methodsWhichMatch
            ->methodsWhichMatch('/^is/')
                ->return = true
    ;
-   
+
    // si la méthode commence par "get" (insensible à la casse),
    // on redéfinit son comportement
    $this
@@ -4569,15 +4569,15 @@ Cas particulier du constructeur
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Pour bouchonner le constructeur d’une classe, il faut :
 
-* créer une instance de la classe \atoum\mock\controller avant d’appeler le constructeur du bouchon ;
-* définir via ce contrôleur le comportement du constructeur du bouchon à l’aide d’une fonction anonyme ;
+* créer une instance de la classe \atoum\mock\controller avant d’appeler le constructeur du bouchon ;
+* définir via ce contrôleur le comportement du constructeur du bouchon à l’aide d’une fonction anonyme ;
 * injecter le contrôleur lors de l’instanciation du bouchon.
 
 .. code-block:: php
 
    $controller = new \atoum\mock\controller();
    $controller->__construct = function() {};
-   
+
    $databaseClient = new \mock\Database\Client($controller);
 
 .. note::
@@ -4596,13 +4596,13 @@ atoum vous permet de vérifier qu’un bouchon a été utilisé correctement.
    $databaseClient = new \mock\Database\Client();
    $databaseClient->getMockController()->connect = function() {};
    $databaseClient->getMockController()->query   = array();
-   
+
    $bankAccount = new \Vendor\Project\Bank\Account();
    $this
        // utilisation du bouchon via un autre objet
        ->array($bankAccount->getOperation($databaseClient))
            ->isEmpty()
-   
+
        // test du bouchon
        ->mock($databaseClient)
            ->call('query')
