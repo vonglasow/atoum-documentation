@@ -1,0 +1,93 @@
+#! /bin/env php
+<?php
+	# You can set these variables from the command line.
+	$SPHINXOPTS  = '';
+	$SPHINXBUILD = 'sphinx-build';
+	$SOURCEDIR   = 'source';
+	$BUILDDIR    = 'build';
+
+    try {
+        # Check for sphinx-build
+        if (command("which $SPHINXBUILD") !== 0) {
+            throw new Exception(
+                "The $SPHINXBUILD command was not found. " .
+                "Make sure you have Sphinx installed, then set the \$SPHINXBUILD variable to point to the full path of the $SPHINXBUILD executable. " .
+                "Alternatively you can add the directory with the executable to your PATH. " .
+                "If you don't have Sphinx installed, grab it from http://sphinx-doc.org/"
+            );
+        }
+
+        # Internal variables.
+        $SOURCEDIR     = __DIR__ . '/' . $SOURCEDIR;
+        $BUILDDIR      = __DIR__ . '/' . $BUILDDIR;
+        $ALLSPHINXOPTS = "-d $BUILDDIR/doctrees -D latex_paper_size=a4 $SPHINXOPTS";
+
+        # function to manage languages
+        $generateByLang = function($closure) use ($SPHINXBUILD, $ALLSPHINXOPTS, $SOURCEDIR) {
+            foreach (glob(__DIR__ . "/$SOURCEDIR/*") as $lang) {
+                writeln($lang);
+            }
+        };
+
+        # get command
+        $command = isset($argv[1]) ? $argv[1] : 'help';
+
+        switch ($command) {
+            case 'help':
+            	writeln("Please use 'make <target>' where <target> is one of");
+            	writeln("  html       to make standalone HTML files");
+            	writeln("  epub       to make an epub");
+            	writeln("  latexpdf   to make LaTeX files and run them through pdflatex");
+            	writeln("  text       to make text files");
+            	writeln("  linkcheck  to check all external links for integrity");
+            break;
+
+            case 'clean':
+            	command("rm -rf $BUILDDIR/*");
+            break;
+
+            case 'html':
+                $generateByLang(
+                    function() {
+                        command("$SPHINXBUILD -b html $ALLSPHINXOPTS $(BUILDDIR)/html");
+                    }
+                );
+            	writeln();
+            	writeln("Build finished. The HTML pages are in $(BUILDDIR)/html.");
+            break;
+
+            // epub:
+            // 	$(SPHINXBUILD) -b epub $(ALLSPHINXOPTS) $(BUILDDIR)/epub
+            // 	writeln();
+            // 	writeln("Build finished. The epub file is in $(BUILDDIR)/epub.");
+
+            // latexpdf:
+            // 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
+            // 	writeln("Running LaTeX files through pdflatex...");
+            // 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
+            // 	writeln("pdflatex finished; the PDF files are in $(BUILDDIR)/latex.");
+
+            // text:
+            // 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
+            // 	writeln();
+            // 	writeln("Build finished. The text files are in $(BUILDDIR)/text.");
+
+            // linkcheck:
+            // 	$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
+            // 	writeln();
+            // 	writeln("Link check complete; look for any errors in the above output " \);
+            // 	      "or in $(BUILDDIR)/linkcheck/output.txt."
+        }
+    } catch (Exception $e) {
+        writeln('Error: ' . $e->getMessage());
+    }
+
+    function writeln($text) {
+        echo "$text\n";
+    }
+
+    function command($command) {
+        exec($command, $output, $returnValue);
+
+        return $returnValue;
+    }
