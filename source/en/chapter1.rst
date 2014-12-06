@@ -9,11 +9,11 @@ What is atoum ?
 ---------------
 
 
-Atoum is a unit test framework, similar to PHPUnit or SimpleTest, however:
-* It is more modern and makes use of PHP's latest features.
+atoum is a unit test framework, like PHPUnit or SimpleTest. Though, we believe it has an edge on its counterparts thanks to :
 
-* It is simpler to use and master.
-* It is more intuitive and its syntax is as close as possible to the English natural language
+* Its more modern approach and its use of PHP's latest features.
+* Its simplicity and fast learning curve.
+* Its fluent interface, making the tests as readable as the english natural langage
 
 
 .. _download---install:
@@ -21,8 +21,11 @@ Atoum is a unit test framework, similar to PHPUnit or SimpleTest, however:
 Download & Install
 ------------------
 
-For now, atoum is not tagged with a version number. If you want to use atoum, just download the last stable version. atoum aims to provide backward compatibility anyway.
-You can install atoum several ways :
+As of today, atoum doesn't have any version number. However, it is both usable and stable. If you're willing to use it, 
+download the latest stable build. Even though atoum continuously benefits from new features, backward compatibility is one 
+of the main priority of the developers. 
+
+There are several ways to install atoum :
 
 * :ref:`As a PHAR archive <p-h-a-r>`
 * :ref:`Using composer <composer-anchor>`
