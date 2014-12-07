@@ -12,6 +12,7 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
 
 .. code-block:: php
 
+   <?php
    $this
        ->object(\Singleton::getInstance())
            ->isInstanceOf('Singleton')
@@ -75,15 +76,15 @@ Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajoute
 .. code-block:: php
 
    <?php
-   
+
    //...
-   
+
    /*
     * Xunit report
     */
    $xunit = new atoum\reports\asynchronous\xunit();
    $runner->addReport($xunit);
-   
+
    /*
     * Xunit writer
     */
@@ -161,17 +162,18 @@ Pour mettre en place le hook, il vous faut donc créer le fichier ``.git/hook/pr
 
 .. code-block:: php
 
+   <?php
    #!/usr/bin/env php
    <?php
-   
+
    $_SERVER['_'] = '/usr/bin/php';
-   
+
    exec('git diff --cached --name-only --diff-filter=ACMR | grep ".php"', $phpFiles);
-   
+
    if ($phpFilesNumber = sizeof($phpFiles) > 0)
    {
       echo $phpFilesNumber . ' PHP files staged, launch all unit test...' . PHP_EOL;
-   
+
       foreach (new \recursiveIteratorIterator(new \recursiveDirectoryIterator(__DIR__ . '/../../')) as $path => $file)
       {
         if (substr($path, -4) === '.php' && strpos($path, '/Tests/Units/') !== false)
@@ -193,6 +195,7 @@ Les tests étant executés très rapidement avec atoum, on peut donc lancer l'en
 
 .. code-block:: php
 
+   <?php
    #!/bin/sh
    ./bin/atoum -d tests/
 
@@ -224,7 +227,7 @@ Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il 
 .. code-block:: shell
 
    .. _exception--mageekguy-atoum-exceptions-runtime--with-message--test-class--project-vendor-my-tests-foo--is-not-in-a-namespace-which-match-pattern-----------ests---unit-s---i---in--path-to-unit-tests-foo-php:
-   
+
    > exception 'mageekguy\atoum\exceptions\runtime' with message 'Test class 'project\vendor\my\tests\foo' is not in a namespace which match pattern '#(?:^|\\)ests?\\unit?s\#i'' in /path/to/unit/tests/foo.php
    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -234,13 +237,13 @@ Il faut donc modifier l'expression régulière utilisée, et il est possible de 
 .. code-block:: php
 
    <?php
-   
+
    namespace vendor\project\my\tests;
-   
+
    require_once __DIR__ . '/mageekguy.atoum.phar';
-   
+
    use mageekguy\atoum;
-   
+
    /**
     * @namespace \my\tests
     */
@@ -259,22 +262,22 @@ le constructeur de la classe de test, de la manière suivante :
 .. code-block:: php
 
    <?php
-   
+
    namespace vendor\project\my\tests;
-   
+
    require_once __DIR__ . '/mageekguy.atoum.phar';
-   
+
    use mageekguy\atoum;
-   
+
    abstract class aClass extends atoum
    {
       public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
       {
          $this->setTestNamespace('\\my\\tests');
-   
+
          parent::__construct($score, $locale, $adapter);
       }
-   
+
       public function testBar()
       {
          /* ... */
@@ -287,19 +290,19 @@ La méthode ``mageekguy\atoum\test::setTestNamespace()`` accepte en effet un uni
 .. code-block:: php
 
    <?php
-   
+
    namespace vendor\project\my\tests;
-   
+
    require_once __DIR__ . '/mageekguy.atoum.phar';
-   
+
    use mageekguy\atoum;
-   
+
    abstract class Test extends atoum
    {
       public function __construct(score $score = null, locale $locale = null, adapter $adapter = null)
       {
           $this->setTestNamespace('\\my\\tests');
-   
+
          parent::__construct($score, $locale, $adapter);
       }
    }
@@ -310,14 +313,14 @@ Ainsi, vous n'aurez plus qu'à faire dériver vos classes de tests unitaires de 
 .. code-block:: php
 
    <?php
-   
+
    namespace vendor\project\my\tests\modules;
-   
+
    require_once __DIR__ . '/mageekguy.atoum.phar';
-   
+
    use mageekguy\atoum;
    use vendor\project\my\tests;
-   
+
    class aModule extends tests\Test
    {
       public function testDoSomething()
@@ -344,13 +347,13 @@ Cependant, en règle général, l'espace de nom utilisé pour les classes de tes
 .. code-block:: php
 
    <?php
-   
+
    namespace vendor\project\my\tests;
-   
+
    require_once __DIR__ . '/mageekguy.atoum.phar';
-   
+
    use mageekguy\atoum;
-   
+
    /**
     * @namespace \my\tests\
     */
@@ -405,9 +408,9 @@ Imaginons que nous voulions tester cet Entity:
    <?php
    // src/Acme/DemoBundle/Entity/Car.php
    namespace Acme\DemoBundle\Entity;
-   
+
    use Doctrine\ORM\Mapping as ORM;
-   
+
    /**
     * Acme\DemoBundle\Entity\Car
     * @ORM\Table(name="car")
@@ -422,18 +425,18 @@ Imaginons que nous voulions tester cet Entity:
         * @ORM\GeneratedValue(strategy="AUTO")
         */
        private $id;
-   
+
        /**
         * @var string $name
         * @ORM\Column(name="name", type="string", length=255)
         */
        private $name;
-   
+
        /**
         * @var integer $max_speed
         * @ORM\Column(name="max_speed", type="integer")
         */
-   
+
        private $max_speed;
    }
 
@@ -450,26 +453,26 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
    <?php
    // src/Acme/DemoBundle/Tests/Units/Test.php
    namespace Acme\DemoBundle\Tests\Units;
-   
+
    // On inclus et active le class loader
    require_once __DIR__ . '/../../../../../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
-   
+
    $loader = new \Symfony\Component\ClassLoader\UniversalClassLoader();
-   
+
    $loader->registerNamespaces(
        array(
            'Symfony'         => __DIR__ . '/../../../../../vendor/symfony/src',
            'Acme\DemoBundle' => __DIR__ . '/../../../../../src'
        )
    );
-   
+
    $loader->register();
-   
+
    use mageekguy\atoum;
-   
+
    // Pour Symfony 2.0 uniquement !
    require_once __DIR__ . '/../../../../../vendor/mageekguy.atoum.phar';
-   
+
    abstract class Test extends atoum
    {
        public function __construct(
@@ -513,11 +516,11 @@ Créons notre fichier de test:
    <?php
    // src/Acme/DemoBundle/Tests/Units/Entity/Car.php
    namespace Acme\DemoBundle\Tests\Units\Entity;
-   
+
    require_once __DIR__ . '/../Test.php';
-   
+
    use Acme\DemoBundle\Tests\Units\Test;
-   
+
    class Car extends Test
    {
        public function testGetName()
@@ -543,7 +546,7 @@ Si vous utilisez Symfony 2.0:
 
    # Lancement des tests d'un fichier
    $ php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
-   
+
    # Lancement de tous les tests du Bundle
    $ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
 
@@ -553,7 +556,7 @@ Si vous utilisez Symfony 2.1:
 
    # Lancement des tests d'un fichier
    $ ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
-   
+
    # Lancement de tous les tests du Bundle
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
@@ -569,48 +572,48 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
    > PHP path: /usr/bin/php
    > PHP version:
    .. _p-h-p-5-3-15-with-suhosin-patch--cli---built--aug-24-2012-17-45-44:
-   
+
    > PHP 5.3.15 with Suhosin-Patch (cli) (built: Aug 24 2012 17:45:44)
    ===================================================================
    .. _copyright--c--1997-2012-the-p-h-p-group:
-   
+
    > Copyright (c) 1997-2012 The PHP Group
    =======================================
    .. _zend-engine-v2-3-0--copyright--c--1998-2012-zend-technologies:
-   
+
    > Zend Engine v2.3.0, Copyright (c) 1998-2012 Zend Technologies
    ===============================================================
    .. _with-xdebug-v2-1-3--copyright--c--2002-2012--by-derick-rethans:
-   
+
    >     with Xdebug v2.1.3, Copyright (c) 2002-2012, by Derick Rethans
    ====================================================================
    > Acme\DemoBundle\Tests\Units\Entity\Car...
    [S___________________________________________________________][1/1]
    .. _test-duration--0-01-second:
-   
+
    > Test duration: 0.01 second.
    =============================
    .. _memory-usage--0-50-mb:
-   
+
    > Memory usage: 0.50 Mb.
    ========================
    > Total test duration: 0.01 second.
    > Total test memory usage: 0.50 Mb.
    > Code coverage value: 42.86%
    .. _class-acme-demo-bundle-entity-car--42-86:
-   
+
    > Class Acme\DemoBundle\Entity\Car: 42.86%
    ==========================================
    .. _acme-demo-bundle-entity-car--get-id----0-00:
-   
+
    > Acme\DemoBundle\Entity\Car::getId(): 0.00%
    --------------------------------------------
    .. _acme-demo-bundle-entity-car--set-max-speed----0-00:
-   
+
    > Acme\DemoBundle\Entity\Car::setMaxSpeed(): 0.00%
    --------------------------------------------------
    .. _acme-demo-bundle-entity-car--get-max-speed----0-00:
-   
+
    > Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%
    --------------------------------------------------
    > Running duration: 0.24 second.
@@ -652,8 +655,9 @@ Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le ch
 
 .. code-block:: php
 
+   <?php
    sfConfig::set('sf_atoum_path', dirname(__FILE__) . '/../vendor/atoum/atoum');
-   
+
    if (sfConfig::get('sf_environment') != 'prod')
    {
      $this->enablePlugins('sfAtoumPlugin');
@@ -680,6 +684,7 @@ Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
 
 .. code-block:: php
 
+   <?php
    if (sfConfig::get('sf_environment') != 'prod')
    {
      $this->enablePlugins('sfAtoumPlugin');
@@ -695,6 +700,7 @@ Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
 
 .. code-block:: php
 
+   <?php
    require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 
 
@@ -715,6 +721,7 @@ Il est donc, par exemple, possible de passer un fichier de configuration comme c
 
 .. code-block:: php
 
+   <?php
    php symfony atoum:test -c config/atoum/hudson.php
 
 

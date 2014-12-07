@@ -39,7 +39,7 @@
 
                 writeln();
                 writeln("Build for language \"$lang\" finished.");
-                writeln("Documentation was generated in format \"$format\" in $BUILDDIR.");
+                writeln("Documentation was generated in format \"$format\" in $BUILDDIR/$lang.");
                 writeln();
             }
 

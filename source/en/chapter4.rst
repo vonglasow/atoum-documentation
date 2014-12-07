@@ -38,8 +38,9 @@ Then in your ProjectConfiguration file you have to activate the plugin and defin
 
 .. code-block:: php
 
+   <?php
    sfConfig::set('sf_atoum_path', dirname(__FILE__) . '/../vendor/atoum/atoum');
-   
+
    if (sfConfig::get('sf_environment') != 'prod')
    {
      $this->enablePlugins('sfAtoumPlugin');
@@ -66,6 +67,7 @@ Add the plugin in your ProjectConfiguration file
 
 .. code-block:: php
 
+   <?php
    if (sfConfig::get('sf_environment') != 'prod')
    {
      $this->enablePlugins('sfAtoumPlugin');
@@ -81,6 +83,7 @@ Tests must include the bootstrap :
 
 .. code-block:: php
 
+   <?php
    require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 
 
@@ -100,5 +103,6 @@ You can pass a configuration any atoum configuration, so for example, you can pa
 
 .. code-block:: php
 
+   <?php
    php symfony atoum:test -c config/atoum/hudson.php
 

@@ -284,3 +284,9 @@ Citations
    J’avoue que je trouve cet outil 1000 fois plus pratique que PHPUnit, que ce soit en terme de temps d’installation ou en terme d’utilisation
 
    -- `Gérald Croes <http://www.croes.org/gerald/blog/testez-votre-code-avec-atoum/558/>`_ sur son blog
+
+.. epigraph::
+
+   Lire des tests atoum, c'est un peu comme lire une histoire.
+
+   -- Marmotz sur ##atoum

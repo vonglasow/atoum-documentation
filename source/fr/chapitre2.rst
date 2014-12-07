@@ -24,6 +24,7 @@ isCallable
 
 .. code-block:: php
 
+   <?php
    $f = function() {
        // code
    };
@@ -51,6 +52,7 @@ isEqualTo
 
 .. code-block:: php
 
+   <?php
    $a = 'a';
 
    $this
@@ -58,8 +60,10 @@ isEqualTo
            ->isEqualTo('a')    // passe
    ;
 
+
 .. warning::
-   ``isEqualTo`` ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez :ref:`isIdenticalTo <variable-is-identical-to>`.
+   | ``isEqualTo`` ne teste pas le type de la variable.
+   | Si vous souhaitez vérifier également son type, utilisez :ref:`isIdenticalTo <variable-is-identical-to>`.
 
 
 .. _variable-is-identical-to:
@@ -71,6 +75,7 @@ isIdenticalTo
 
 .. code-block:: php
 
+   <?php
    $a = '1';
 
    $this
@@ -89,7 +94,8 @@ isIdenticalTo
    ;
 
 .. warning::
-   ``isIdenticalTo`` teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isEqualTo <variable-is-equal-to>`.
+   | ``isIdenticalTo`` teste le type de la variable.
+   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isEqualTo <variable-is-equal-to>`.
 
 
 .. _variable-is-not-callable:
@@ -101,6 +107,7 @@ isNotCallable
 
 .. code-block:: php
 
+   <?php
    $f = function() {
        // code
    };
@@ -130,6 +137,7 @@ isNotEqualTo
 
 .. code-block:: php
 
+   <?php
    $a       = 'a';
    $aString = '1';
 
@@ -143,7 +151,8 @@ isNotEqualTo
    ;
 
 .. warning::
-   ``isNotEqualTo`` ne teste pas le type de la variable. Si vous souhaitez vérifier également son type, utilisez :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
+   | ``isNotEqualTo`` ne teste pas le type de la variable.
+   | Si vous souhaitez vérifier également son type, utilisez :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
 
 
 .. _variable-is-not-identical-to:
@@ -157,6 +166,7 @@ Dans le cas d’objets, ``isNotIdenticalTo`` vérifie que les données ne pointe
 
 .. code-block:: php
 
+   <?php
    $a = '1';
 
    $this
@@ -175,7 +185,8 @@ Dans le cas d’objets, ``isNotIdenticalTo`` vérifie que les données ne pointe
    ;
 
 .. warning::
-   ``isNotIdenticalTo`` teste le type de la variable. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isNotEqualTo <variable-is-not-equal-to>`.
+   | ``isNotIdenticalTo`` teste le type de la variable.
+   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isNotEqualTo <variable-is-not-equal-to>`.
 
 
 .. _is-null:
@@ -187,6 +198,7 @@ isNull
 
 .. code-block:: php
 
+   <?php
    $emptyString = '';
    $null        = null;
 
@@ -208,6 +220,7 @@ isNotNull
 
 .. code-block:: php
 
+   <?php
    $emptyString = '';
    $null        = null;
 
@@ -253,6 +266,7 @@ isFalse
 
 .. code-block:: php
 
+   <?php
    $true  = true;
    $false = false;
 
@@ -303,6 +317,7 @@ isTrue
 
 .. code-block:: php
 
+   <?php
    $true  = true;
    $false = false;
 
@@ -348,6 +363,7 @@ isGreaterThan
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -367,6 +383,7 @@ isGreaterThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -396,6 +413,7 @@ isLessThan
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -414,6 +432,7 @@ isLessThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -453,6 +472,7 @@ isZero
 
 .. code-block:: php
 
+   <?php
    $zero    = 0;
    $notZero = -1;
 
@@ -567,6 +587,7 @@ Cette méthode cherche donc à minorer ce problème.
 
 .. code-block:: php
 
+   <?php
    $float = 1 - 0.97;
 
    $this
@@ -620,6 +641,7 @@ C’est l’assertion dédiée aux tests sur la taille des tableaux et des objet
 
 .. code-block:: php
 
+   <?php
    $array           = array(1, 2, 3);
    $countableObject = new GlobIterator('*');
 
@@ -745,6 +767,7 @@ hasSize
 
 .. code-block:: php
 
+   <?php
    $countableObject = new GlobIterator('*');
 
    $this
@@ -759,6 +782,7 @@ isCallable
 
 .. code-block:: php
 
+   <?php
    class foo
    {
        public function __invoke()
@@ -793,6 +817,7 @@ isCloneOf
 
 .. code-block:: php
 
+   <?php
    $object1 = new \StdClass;
    $object2 = new \StdClass;
    $object3 = clone($object1);
@@ -819,6 +844,7 @@ isEmpty
 
 .. code-block:: php
 
+   <?php
    $countableObject = new GlobIterator('atoum.php');
 
    $this
@@ -876,6 +902,7 @@ isInstanceOf
 
 .. code-block:: php
 
+   <?php
    $object = new \StdClass();
 
    $this
@@ -930,6 +957,7 @@ isNotCallable
 
 .. code-block:: php
 
+   <?php
    class foo
    {
        public function __invoke()
@@ -1013,6 +1041,7 @@ isEqualTo
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P1D');
 
    $this
@@ -1034,6 +1063,7 @@ isGreaterThan
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P2D');
 
    $this
@@ -1055,6 +1085,7 @@ isGreaterThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P2D');
 
    $this
@@ -1099,6 +1130,7 @@ isLessThan
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P1D');
 
    $this
@@ -1120,6 +1152,7 @@ isLessThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P2D');
 
    $this
@@ -1164,6 +1197,7 @@ isZero
 
 .. code-block:: php
 
+   <?php
    $di1 = new DateInterval('P0D');
    $di2 = new DateInterval('P1D');
 
@@ -1193,6 +1227,7 @@ hasDate
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1211,6 +1246,7 @@ hasDateAndTime
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13 01:02:03');
 
    $this
@@ -1232,6 +1268,7 @@ hasDay
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1248,6 +1285,7 @@ hasHours
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1266,6 +1304,7 @@ hasMinutes
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1284,6 +1323,7 @@ hasMonth
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1300,6 +1340,7 @@ hasSeconds
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1318,6 +1359,7 @@ hasTime
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1336,6 +1378,7 @@ hasTimezone
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime();
 
    $this
@@ -1352,6 +1395,7 @@ hasYear
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1603,6 +1647,7 @@ C’est l’assertion dédiée aux exceptions.
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1625,6 +1670,7 @@ hasCode
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1644,6 +1690,7 @@ hasDefaultCode
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1667,6 +1714,7 @@ hasMessage
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1687,6 +1735,7 @@ hasNestedException
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1786,6 +1835,7 @@ message
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() {
@@ -1820,6 +1870,7 @@ contains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -1835,7 +1886,8 @@ contains
 
 
 .. warning::
-   ``contains`` ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyContains <strictly-contains>`.
+   | ``contains`` ne teste pas le type de la donnée.
+   | Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyContains <strictly-contains>`.
 
 
 .. _contains-values:
@@ -1847,6 +1899,7 @@ containsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -1861,7 +1914,8 @@ containsValues
 
 
 .. warning::
-   ``containsValues`` ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyContainsValues <strictly-contains-values>`.
+   | ``containsValues`` ne teste pas le type des données.
+   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyContainsValues <strictly-contains-values>`.
 
 
 .. _has-key:
@@ -1873,6 +1927,7 @@ hasKey
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'        => 'atoum',
@@ -1908,6 +1963,7 @@ hasKeys
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'        => 'atoum',
@@ -1943,6 +1999,7 @@ hasSize
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -1964,6 +2021,7 @@ isEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
 
@@ -2004,6 +2062,7 @@ isNotEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
 
@@ -2044,6 +2103,7 @@ keys
 
 .. code-block:: php
 
+   <?php
    $atoum = array(
        'name'  => 'atoum',
        'owner' => 'mageekguy',
@@ -2069,6 +2129,7 @@ notContains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2083,7 +2144,8 @@ notContains
 
 
 .. warning::
-   ``notContains`` ne teste pas le type de la donnée. Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyNotContains <strictly-not-contains>`.
+   | ``notContains`` ne teste pas le type de la donnée.
+   | Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyNotContains <strictly-not-contains>`.
 
 
 .. _not-contains-values:
@@ -2095,6 +2157,7 @@ notContainsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2109,7 +2172,8 @@ notContainsValues
 
 
 .. warning::
-   ``notContainsValues`` ne teste pas le type des données. Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyNotContainsValues <strictly-not-contains-values>`.
+   | ``notContainsValues`` ne teste pas le type des données.
+   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyNotContainsValues <strictly-not-contains-values>`.
 
 
 .. _not-has-key:
@@ -2121,6 +2185,7 @@ notHasKey
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'  => 'atoum',
@@ -2156,6 +2221,7 @@ notHasKeys
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'        => 'atoum',
@@ -2191,6 +2257,7 @@ size
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2208,6 +2275,7 @@ strictlyContains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2224,7 +2292,8 @@ strictlyContains
 
 
 .. warning::
-   ``strictlyContains`` teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`contains <array-contains>`.
+   | ``strictlyContains`` teste le type de la donnée.
+   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`contains <array-contains>`.
 
 
 .. _strictly-contains-values:
@@ -2236,6 +2305,7 @@ strictlyContainsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2252,7 +2322,8 @@ strictlyContainsValues
 
 
 .. warning::
-   ``strictlyContainsValues`` teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`containsValues <contains-values>`.
+   | ``strictlyContainsValues`` teste le type des données.
+   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`containsValues <contains-values>`.
 
 
 .. _strictly-not-contains:
@@ -2264,6 +2335,7 @@ strictlyNotContains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2279,7 +2351,8 @@ strictlyNotContains
 
 
 .. warning::
-   ``strictlyNotContains`` teste le type de la donnée. Si vous ne souhaitez pas vérifier son type, utilisez :ref:`notContains <array-not-contains>`.
+   | ``strictlyNotContains`` teste le type de la donnée.
+   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`notContains <array-not-contains>`.
 
 
 .. _strictly-not-contains-values:
@@ -2291,6 +2364,7 @@ strictlyNotContainsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2307,7 +2381,8 @@ strictlyNotContainsValues
 
 
 .. warning::
-   ``strictlyNotContainsValues`` teste le type des données. Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`notContainsValues <not-contains-values>`.
+   | ``strictlyNotContainsValues`` teste le type des données.
+   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`notContainsValues <not-contains-values>`.
 
 
 
@@ -2328,6 +2403,7 @@ contains
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2346,6 +2422,7 @@ hasLength
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2363,6 +2440,7 @@ hasLengthGreaterThan
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2380,6 +2458,7 @@ hasLengthLessThan
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2397,6 +2476,7 @@ isEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyString    = '';
    $nonEmptyString = 'atoum';
 
@@ -2427,6 +2507,7 @@ isEqualToContentsOfFile
 
 .. code-block:: php
 
+   <?php
    $this
        ->string($string)
            ->isEqualToContentsOfFile('/path/to/file')
@@ -2455,6 +2536,7 @@ isNotEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyString    = '';
    $nonEmptyString = 'atoum';
 
@@ -2495,6 +2577,7 @@ length
 
 .. code-block:: php
 
+   <?php
    $string = 'atoum'
 
    $this
@@ -2512,6 +2595,7 @@ match
 
 .. code-block:: php
 
+   <?php
    $phone = '0102030405';
    $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
 
@@ -2532,6 +2616,7 @@ notContains
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2553,6 +2638,7 @@ C’est l’assertion dédiée aux tests sur le transtypage d’objets en chaîn
 
 .. code-block:: php
 
+   <?php
    class AtoumVersion {
        private $version = '1.0';
 
@@ -2754,6 +2840,7 @@ isMd5
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('md5', 'atoum');
    $notHash = 'atoum';
 
@@ -2793,6 +2880,7 @@ isSha1
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('sha1', 'atoum');
    $notHash = 'atoum';
 
@@ -2812,6 +2900,7 @@ isSha256
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('sha256', 'atoum');
    $notHash = 'atoum';
 
@@ -2831,6 +2920,7 @@ isSha512
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('sha512', 'atoum');
    $notHash = 'atoum';
 
@@ -2862,6 +2952,7 @@ C’est l’assertion dédiée aux tests sur les sorties, c’est-à-dire tout c
 
 .. code-block:: php
 
+   <?php
    $this
        ->output(
            function() {
@@ -3143,6 +3234,7 @@ match
 
 .. code-block:: php
 
+   <?php
    $vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
 
    $this
@@ -3175,6 +3267,7 @@ Si ``__destruct()`` existe bien et si son appel se passe sans erreur ni exceptio
 
 .. code-block:: php
 
+   <?php
    $this
        ->afterDestructionOf($objectWithDestructor)     // passe
        ->afterDestructionOf($objectWithoutDestructor)  // échoue
@@ -3191,6 +3284,7 @@ C’est l’assertion dédiée aux erreurs.
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3218,6 +3312,7 @@ exists
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3245,6 +3340,7 @@ notExists
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3272,6 +3368,7 @@ withType
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3294,6 +3391,7 @@ C’est l’assertion dédiée aux classes.
 
 .. code-block:: php
 
+   <?php
    $object = new \StdClass;
 
    $this
@@ -3317,6 +3415,7 @@ hasInterface
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\ArrayIterator')
            ->hasInterface('Countable')     // passe
@@ -3334,6 +3433,7 @@ hasMethod
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\ArrayIterator')
            ->hasMethod('count')    // passe
@@ -3351,6 +3451,7 @@ hasNoParent
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\StdClass')
            ->hasNoParent()     // passe
@@ -3360,7 +3461,8 @@ hasNoParent
    ;
 
 .. warning::
-   Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ``hasNoParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
+   | Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe.
+   | ``hasNoParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
 
 
 .. _has-parent:
@@ -3372,6 +3474,7 @@ hasParent
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\StdClass')
            ->hasParent()       // échoue
@@ -3381,7 +3484,8 @@ hasParent
    ;
 
 .. warning::
-   Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe. ``hasParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
+   | Une classe peut implémenter une ou plusieurs interfaces et n’hériter d’aucune classe.
+   | ``hasParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
 
 
 .. _is-abstract:
@@ -3393,6 +3497,7 @@ isAbstract
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\StdClass')
            ->isAbstract()       // échoue
@@ -3407,6 +3512,7 @@ isSubclassOf
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\FilesystemIterator')
            ->isSubclassOf('\DirectoryIterator')    // passe
@@ -3424,6 +3530,7 @@ C’est l’assertion dédiée aux bouchons.
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyClass;
 
    $this
@@ -3443,6 +3550,7 @@ call
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3462,6 +3570,7 @@ atLeastOnce
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3481,6 +3590,7 @@ exactly
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3500,6 +3610,7 @@ never
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3526,6 +3637,7 @@ Ces assertions vérifient que la méthode testée (voir :ref:`call <call-anchor>
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3555,6 +3667,7 @@ Cette méthode est surtout utile pour remettre à zéro les arguments, comme dan
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3576,6 +3689,7 @@ withArguments
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3587,7 +3701,8 @@ withArguments
    ;
 
 .. warning::
-   ``withArguments`` ne teste pas le type des arguments. Si vous souhaitez vérifier également leurs types, utilisez :ref:`withIdenticalArguments <with-identical-arguments>`.
+   | ``withArguments`` ne teste pas le type des arguments.
+   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`withIdenticalArguments <with-identical-arguments>`.
 
 
 .. _with-identical-arguments:
@@ -3599,6 +3714,7 @@ withIdenticalArguments
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3610,7 +3726,8 @@ withIdenticalArguments
    ;
 
 .. warning::
-   ``withIdenticalArguments`` teste le type des arguments. Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withArguments <with-arguments>`.
+   | ``withIdenticalArguments`` teste le type des arguments.
+   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withArguments <with-arguments>`.
 
 
 .. _was-called:
@@ -3622,6 +3739,7 @@ wasCalled
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3640,6 +3758,7 @@ wasNotCalled
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3696,6 +3815,7 @@ L’utilisation de ces mots-clefs est très intuitive :
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($computer = new computer()))
        ->and($computer->setFirstOperand(2))
@@ -3717,6 +3837,7 @@ En conséquence, il est de la responsabilité du développeur de les utiliser de
 
 .. code-block:: php
 
+   <?php
    $this
        ->and($computer = new computer()))
        ->and($computer->setFirstOperand(2))
@@ -3734,6 +3855,7 @@ Il est également important de noter qu’il est tout à fait possible d’écri
 
 .. code-block:: php
 
+   <?php
    $computer = new computer();
    $computer->setFirstOperand(2);
    $computer->setSecondOperand(2);
@@ -3758,6 +3880,7 @@ L’un d’entre eux est ``when``. Il dispose d’une fonctionnalité spécifiqu
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($object = new object($valueAtKey0 = uniqid()))
        ->and(unset($object[0]))
@@ -3774,6 +3897,7 @@ Pour résoudre ce problème, le mot-clef ``when`` est capable d’interpréter l
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($object = new object($valueAtKey0 = uniqid()))
        ->when(
@@ -3799,6 +3923,7 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé :
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new \mock\foo())
        ->and($bar = new bar($foo))
@@ -3823,6 +3948,7 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new \mock\foo())
        ->and($bar = new bar($foo))
@@ -3857,6 +3983,7 @@ Grâce à lui, il est donc possible d’écrire le test précédent d’une faç
 
 .. code-block:: php
 
+   <?php
    $this
        ->assert('Foo est vide')
            ->if($foo = new \mock\foo())
@@ -4041,6 +4168,7 @@ La méthode ``dump()`` peut s’utiliser de la manière suivante :
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new foo())
        ->then
@@ -4055,6 +4183,7 @@ Il est également possible de passer plusieurs arguments à ``dump()``, de la ma
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new foo())
        ->then
@@ -4072,6 +4201,7 @@ L’utilisation de la méthode ``stop()`` est également très simple :
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new foo())
        ->then
@@ -4093,6 +4223,7 @@ Elle prend en effet en argument une fonction anonyme qui sera exécutée si et s
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new foo())
        ->executeOnFailure(
@@ -4217,6 +4348,7 @@ La définition du fournisseur de données qui doit être utilisé par une métho
 
 .. code-block:: php
 
+   <?php
    class calculator extends atoum
    {
        /**
@@ -4241,6 +4373,7 @@ Une fois l’annotation définie, il n’y a plus qu’à créer la méthode cor
 
 .. code-block:: php
 
+   <?php
    class calculator extends atoum
    {
        ...
@@ -4285,6 +4418,7 @@ La plus simple est de créer un objet dont le nom absolu est préfixé par ``moc
 
 .. code-block:: php
 
+   <?php
    // création d'un bouchon de l'interface \Countable
    $countableMock = new \mock\Countable;
 
@@ -4321,6 +4455,7 @@ Sa méthode ``generate`` prend 3 paramètres :
 
 .. code-block:: php
 
+   <?php
    // création d'un bouchon de l'interface \Countable vers \MyMock\Countable
    // on ne change que l'espace de nom
    $this->mockGenerator->generate('\Countable', '\MyMock');
@@ -4343,6 +4478,7 @@ Sa méthode ``generate`` prend 3 paramètres :
 
 .. code-block:: php
 
+   <?php
    $countableMock = new \mock\Countable;
 
    // est équivalent à:
@@ -4361,6 +4497,7 @@ Dans certains cas, il peut être utile de shunter les appels aux méthodes paren
 
 .. code-block:: php
 
+   <?php
    $this->mockGenerator->shuntParentClassCalls();
    // le bouchon ne fera pas appel à la classe parente
    $countableMock = new \mock\OneClass;
@@ -4370,6 +4507,7 @@ Ici, toutes les méthodes du bouchon se comporteront comme si elles n’avaient 
 
 .. code-block:: php
 
+   <?php
    $this->mockGenerator->shunt('firstMethod');
    $this->mockGenerator->shunt('secondMethod');
    // le bouchon ne fera pas appel à la classe parente pour les méthodes firstMethod et secondMethod
@@ -4384,6 +4522,7 @@ Il peut parfois être intéressant de rendre une méthode orpheline, c’est-à-
 
 .. code-block:: php
 
+   <?php
    class FirstClass {
        protected $dep;
 
@@ -4419,6 +4558,7 @@ Pour cela, il faut passer par son contrôleur en utilisant l’une des méthodes
 
 .. code-block:: php
 
+   <?php
    $databaseClient = new \mock\Database\Client();
 
    $databaseClient->getMockController()->connect = function() {};
@@ -4429,6 +4569,7 @@ Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publi
 
 .. code-block:: php
 
+   <?php
    $databaseClient = new \mock\Database\Client();
 
    // redéfinie la méthode connect : elle retournera toujours true
@@ -4463,6 +4604,7 @@ Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'app
 
 .. code-block:: php
 
+   <?php
    // défaut
    $this->calling($databaseClient)->count = rand(0, 10);
    // équivalent à
@@ -4490,6 +4632,7 @@ methods
 
 .. code-block:: php
 
+   <?php
    // si la méthode a tel ou tel nom,
    // on redéfinit son comportement
    $this
@@ -4543,6 +4686,7 @@ methodsWhichMatch
 
 .. code-block:: php
 
+   <?php
    // si la méthode commence par "is",
    // on redéfinit son comportement
    $this
@@ -4575,6 +4719,7 @@ Pour bouchonner le constructeur d’une classe, il faut :
 
 .. code-block:: php
 
+   <?php
    $controller = new \atoum\mock\controller();
    $controller->__construct = function() {};
 
@@ -4593,6 +4738,7 @@ atoum vous permet de vérifier qu’un bouchon a été utilisé correctement.
 
 .. code-block:: php
 
+   <?php
    $databaseClient = new \mock\Database\Client();
    $databaseClient->getMockController()->connect = function() {};
    $databaseClient->getMockController()->query   = array();

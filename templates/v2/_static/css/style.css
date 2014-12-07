@@ -1,0 +1,33 @@
+﻿@import url(theme.css);
+
+.wy-alert.wy-alert-neutral a, .rst-content .wy-alert-neutral.note a, .rst-content .wy-alert-neutral.attention a, .rst-content .wy-alert-neutral.caution a, .rst-content .wy-alert-neutral.danger a, .rst-content .wy-alert-neutral.error a, .rst-content .wy-alert-neutral.hint a, .rst-content .wy-alert-neutral.important a, .rst-content .wy-alert-neutral.tip a, .rst-content .wy-alert-neutral.warning a, .rst-content .wy-alert-neutral.seealso a, .rst-content .wy-alert-neutral.admonition-todo a,
+.btn-link,
+.wy-inline-validate.wy-inline-validate-info .wy-input-context,
+.wy-menu-vertical header,
+a,
+.wy-text-info,
+.wy-nav .wy-menu-vertical header,
+.rst-versions a,
+.rst-content a tt,
+.rst-content dl:not(.docutils) dt {
+    color: #3d91e7;
+}
+.wy-tray-container li.wy-tray-item-info,
+.wy-dropdown-menu>dd>a:hover,
+.wy-dropdown.wy-dropdown-bubble .wy-dropdown-menu a:hover,
+.wy-side-nav-search,
+.wy-nav-top {
+    background: #3d91e7;
+}
+.btn-info,
+.wy-menu-vertical a:active,
+.wy-side-nav-search img,
+.wy-nav .wy-menu-vertical a:hover,
+.wy-nav-top img {
+    background-color: #3d91e7 !important;
+}
+.wy-menu-vertical li.on a:hover, .wy-menu-vertical li.current>a:hover,
+.wy-menu-vertical li.current a:hover {
+    background: #74bff9;
+    color: white;
+}

@@ -24,6 +24,7 @@ isCallable
 
 .. code-block:: php
 
+   <?php
    $f = function() {
        // code
    };
@@ -51,6 +52,7 @@ isEqualTo
 
 .. code-block:: php
 
+   <?php
    $a = 'a';
 
    $this
@@ -71,6 +73,7 @@ isIdenticalTo
 
 .. code-block:: php
 
+   <?php
    $a = '1';
 
    $this
@@ -101,6 +104,7 @@ isNotCallable
 
 .. code-block:: php
 
+   <?php
    $f = function() {
        // code
    };
@@ -130,6 +134,7 @@ isNotEqualTo
 
 .. code-block:: php
 
+   <?php
    $a       = 'a';
    $aString = '1';
 
@@ -157,6 +162,7 @@ With objects, ``isNotIdenticalTo`` checks that both values do not reference the 
 
 .. code-block:: php
 
+   <?php
    $a = '1';
 
    $this
@@ -187,6 +193,7 @@ isNull
 
 .. code-block:: php
 
+   <?php
    $emptyString = '';
    $null        = null;
 
@@ -208,6 +215,7 @@ isNotNull
 
 .. code-block:: php
 
+   <?php
    $emptyString = '';
    $null        = null;
 
@@ -253,6 +261,7 @@ isFalse
 
 .. code-block:: php
 
+   <?php
    $true  = true;
    $false = false;
 
@@ -303,6 +312,7 @@ isTrue
 
 .. code-block:: php
 
+   <?php
    $true  = true;
    $false = false;
 
@@ -348,6 +358,7 @@ isGreaterThan
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -367,6 +378,7 @@ isGreaterThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -396,6 +408,7 @@ isLessThan
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -414,6 +427,7 @@ isLessThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $zero = 0;
 
    $this
@@ -453,6 +467,7 @@ isZero
 
 .. code-block:: php
 
+   <?php
    $zero    = 0;
    $notZero = -1;
 
@@ -567,6 +582,7 @@ This method tries to avoid this issue.
 
 .. code-block:: php
 
+   <?php
    $float = 1 - 0.97;
 
    $this
@@ -620,6 +636,7 @@ This is the asserter for array sizes and objects that implements the ``Countable
 
 .. code-block:: php
 
+   <?php
    $array           = array(1, 2, 3);
    $countableObject = new GlobIterator('*');
 
@@ -745,6 +762,7 @@ hasSize
 
 .. code-block:: php
 
+   <?php
    $countableObject = new GlobIterator('*');
 
    $this
@@ -759,6 +777,7 @@ isCallable
 
 .. code-block:: php
 
+   <?php
    class foo
    {
        public function __invoke()
@@ -793,6 +812,7 @@ isCloneOf
 
 .. code-block:: php
 
+   <?php
    $object1 = new \StdClass;
    $object2 = new \StdClass;
    $object3 = clone($object1);
@@ -819,6 +839,7 @@ isEmpty
 
 .. code-block:: php
 
+   <?php
    $countableObject = new GlobIterator('atoum.php');
 
    $this
@@ -876,6 +897,7 @@ isInstanceOf
 
 .. code-block:: php
 
+   <?php
    $object = new \StdClass();
 
    $this
@@ -930,6 +952,7 @@ isNotCallable
 
 .. code-block:: php
 
+   <?php
    class foo
    {
        public function __invoke()
@@ -1013,6 +1036,7 @@ isEqualTo
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P1D');
 
    $this
@@ -1034,6 +1058,7 @@ isGreaterThan
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P2D');
 
    $this
@@ -1055,6 +1080,7 @@ isGreaterThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P2D');
 
    $this
@@ -1099,6 +1125,7 @@ isLessThan
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P1D');
 
    $this
@@ -1120,6 +1147,7 @@ isLessThanOrEqualTo
 
 .. code-block:: php
 
+   <?php
    $di = new DateInterval('P2D');
 
    $this
@@ -1164,6 +1192,7 @@ isZero
 
 .. code-block:: php
 
+   <?php
    $di1 = new DateInterval('P0D');
    $di2 = new DateInterval('P1D');
 
@@ -1193,6 +1222,7 @@ hasDate
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1211,6 +1241,7 @@ hasDateAndTime
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13 01:02:03');
 
    $this
@@ -1232,6 +1263,7 @@ hasDay
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1248,6 +1280,7 @@ hasHours
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1266,6 +1299,7 @@ hasMinutes
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1284,6 +1318,7 @@ hasMonth
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1300,6 +1335,7 @@ hasSeconds
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1318,6 +1354,7 @@ hasTime
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('01:02:03');
 
    $this
@@ -1336,6 +1373,7 @@ hasTimezone
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime();
 
    $this
@@ -1352,6 +1390,7 @@ hasYear
 
 .. code-block:: php
 
+   <?php
    $dt = new DateTime('1981-02-13');
 
    $this
@@ -1603,6 +1642,7 @@ This is the asserter for exceptions.
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1625,6 +1665,7 @@ hasCode
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1644,6 +1685,7 @@ hasDefaultCode
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1667,6 +1709,7 @@ hasMessage
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1687,6 +1730,7 @@ hasNestedException
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() use($myObject) {
@@ -1786,6 +1830,7 @@ message
 
 .. code-block:: php
 
+   <?php
    $this
        ->exception(
            function() {
@@ -1820,6 +1865,7 @@ contains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -1847,6 +1893,7 @@ containsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -1873,6 +1920,7 @@ hasKey
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'        => 'atoum',
@@ -1908,6 +1956,7 @@ hasKeys
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'        => 'atoum',
@@ -1943,6 +1992,7 @@ hasSize
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -1964,6 +2014,7 @@ isEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
 
@@ -2004,6 +2055,7 @@ isNotEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyArray    = array();
    $nonEmptyArray = array(null, null);
 
@@ -2044,6 +2096,7 @@ keys
 
 .. code-block:: php
 
+   <?php
    $atoum = array(
        'name'  => 'atoum',
        'owner' => 'mageekguy',
@@ -2069,6 +2122,7 @@ notContains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2095,6 +2149,7 @@ notContainsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2121,6 +2176,7 @@ notHasKey
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'  => 'atoum',
@@ -2156,6 +2212,7 @@ notHasKeys
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
    $atoum     = array(
        'name'        => 'atoum',
@@ -2191,6 +2248,7 @@ size
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2208,6 +2266,7 @@ strictlyContains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2236,6 +2295,7 @@ strictlyContainsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2264,6 +2324,7 @@ strictlyNotContains
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2291,6 +2352,7 @@ strictlyNotContainsValues
 
 .. code-block:: php
 
+   <?php
    $fibonacci = array('1', 2, '3', 5, '8', 13, '21');
 
    $this
@@ -2328,6 +2390,7 @@ contains
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2346,6 +2409,7 @@ hasLength
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2363,6 +2427,7 @@ hasLengthGreaterThan
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2380,6 +2445,7 @@ hasLengthLessThan
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2397,6 +2463,7 @@ isEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyString    = '';
    $nonEmptyString = 'atoum';
 
@@ -2427,6 +2494,7 @@ isEqualToContentsOfFile
 
 .. code-block:: php
 
+   <?php
    $this
        ->string($string)
            ->isEqualToContentsOfFile('/path/to/file')
@@ -2455,6 +2523,7 @@ isNotEmpty
 
 .. code-block:: php
 
+   <?php
    $emptyString    = '';
    $nonEmptyString = 'atoum';
 
@@ -2495,6 +2564,7 @@ length
 
 .. code-block:: php
 
+   <?php
    $string = 'atoum'
 
    $this
@@ -2512,6 +2582,7 @@ match
 
 .. code-block:: php
 
+   <?php
    $phone = '0102030405';
    $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
 
@@ -2532,6 +2603,7 @@ notContains
 
 .. code-block:: php
 
+   <?php
    $string = 'Hello world';
 
    $this
@@ -2553,6 +2625,7 @@ This is the asserter for casting objects to sting.
 
 .. code-block:: php
 
+   <?php
    class AtoumVersion {
        private $version = '1.0';
 
@@ -2754,6 +2827,7 @@ isMd5
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('md5', 'atoum');
    $notHash = 'atoum';
 
@@ -2793,6 +2867,7 @@ isSha1
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('sha1', 'atoum');
    $notHash = 'atoum';
 
@@ -2812,6 +2887,7 @@ isSha256
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('sha256', 'atoum');
    $notHash = 'atoum';
 
@@ -2831,6 +2907,7 @@ isSha512
 
 .. code-block:: php
 
+   <?php
    $hash    = hash('sha512', 'atoum');
    $notHash = 'atoum';
 
@@ -2862,6 +2939,7 @@ This is the asserter for output streams, that is supposed to be displayed on the
 
 .. code-block:: php
 
+   <?php
    $this
        ->output(
            function() {
@@ -3143,6 +3221,7 @@ match
 
 .. code-block:: php
 
+   <?php
    $vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
 
    $this
@@ -3175,6 +3254,7 @@ If ``__destruct()`` exists and calling does not raise any error or exception, th
 
 .. code-block:: php
 
+   <?php
    $this
        ->afterDestructionOf($objectWithDestructor)     // passes
        ->afterDestructionOf($objectWithoutDestructor)  // fails
@@ -3191,6 +3271,7 @@ This is the asserter for errors.
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3218,6 +3299,7 @@ exists
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3245,6 +3327,7 @@ notExists
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3272,6 +3355,7 @@ withType
 
 .. code-block:: php
 
+   <?php
    $this
        ->when(
            function() {
@@ -3294,6 +3378,7 @@ This is the asserter for classes.
 
 .. code-block:: php
 
+   <?php
    $object = new \StdClass;
 
    $this
@@ -3317,6 +3402,7 @@ hasInterface
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\ArrayIterator')
            ->hasInterface('Countable')     // passes
@@ -3334,6 +3420,7 @@ hasMethod
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\ArrayIterator')
            ->hasMethod('count')    // passes
@@ -3351,6 +3438,7 @@ hasNoParent
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\StdClass')
            ->hasNoParent()     // passes
@@ -3372,6 +3460,7 @@ hasParent
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\StdClass')
            ->hasParent()       // fails
@@ -3393,6 +3482,7 @@ isAbstract
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\StdClass')
            ->isAbstract()       // fails
@@ -3407,6 +3497,7 @@ isSubclassOf
 
 .. code-block:: php
 
+   <?php
    $this
        ->class('\FilesystemIterator')
            ->isSubclassOf('\DirectoryIterator')    // passes
@@ -3424,6 +3515,7 @@ This is the asserter for mocks.
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyClass;
 
    $this
@@ -3443,6 +3535,7 @@ call
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3462,6 +3555,7 @@ atLeastOnce
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3481,6 +3575,7 @@ exactly
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3500,6 +3595,7 @@ never
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3526,6 +3622,7 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) has 
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3555,6 +3652,7 @@ This is especially useful to reset arguments, like this example:
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3576,6 +3674,7 @@ withArguments
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3599,6 +3698,7 @@ withIdenticalArguments
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3622,6 +3722,7 @@ wasCalled
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3640,6 +3741,7 @@ wasNotCalled
 
 .. code-block:: php
 
+   <?php
    $mock = new \mock\MyFirstClass;
 
    $this
@@ -3696,6 +3798,7 @@ Usage of this keywords is really intuitive:
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($computer = new computer()))
        ->and($computer->setFirstOperand(2))
@@ -3717,6 +3820,7 @@ It is the developer responsibility to use them wisely, though it is possible to 
 
 .. code-block:: php
 
+   <?php
    $this
        ->and($computer = new computer()))
        ->and($computer->setFirstOperand(2))
@@ -3734,6 +3838,7 @@ It is also important to note that it is possible to write the same test without 
 
 .. code-block:: php
 
+   <?php
    $computer = new computer();
    $computer->setFirstOperand(2);
    $computer->setSecondOperand(2);
@@ -3758,6 +3863,7 @@ One of them is ``when``. It adds a feature to get around the fact that it is for
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($object = new object($valueAtKey0 = uniqid()))
        ->and(unset($object[0]))
@@ -3774,6 +3880,7 @@ To fix this problem the ``when`` keyword is capable of evaluating the anonymous 
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($object = new object($valueAtKey0 = uniqid()))
        ->when(
@@ -3799,6 +3906,7 @@ The following test will be used to illustrate its usage:
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new \mock\foo())
        ->and($bar = new bar($foo))
@@ -3823,6 +3931,7 @@ To fix this issue, you can reset a mock using 2 ways:
 
 .. code-block:: php
 
+   <?php
    $this
        ->if($foo = new \mock\foo())
        ->and($bar = new bar($foo))
@@ -3857,6 +3966,7 @@ Thanks to this feature, it is possible to write the previous test in a more read
 
 .. code-block:: php
 
+   <?php
    $this
        ->assert('Foo est vide')
            ->if($foo = new \mock\foo())
