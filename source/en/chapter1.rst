@@ -436,8 +436,6 @@ atoum is able to automatically open failing tests after suite has run. Here are 
 
 To use this feature you will have to edit your `configuration file <chapter3.html#configuration-files>`_:
 
-.. _macvim-anchor:
-
 macvim
 ^^^^^^
 
@@ -457,9 +455,6 @@ macvim
 
    $runner->addReport($cliReport);
 
-
-.. _gvim-anchor:
-
 gvim
 ^^^^
 
@@ -478,9 +473,6 @@ gvim
    $cliReport->addField(new unix\gvim());
 
    $runner->addReport($cliReport);
-
-
-.. _php-storm:
 
 PhpStorm
 ^^^^^^^^
@@ -535,8 +527,6 @@ On Unix, use the following configuration:
    ;
 
    $runner->addReport($cliReport);
-
-.. _gedit-anchor:
 
 gedit
 ^^^^^

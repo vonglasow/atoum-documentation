@@ -3993,8 +3993,6 @@ Thanks to this feature, it is possible to write the previous test in a more read
 
 The string will be used by atoum in atoum generated messages if one of the assertions fails.
 
-.. _the-loop-mode:
-
 The loop mode
 ------------
 
@@ -4022,7 +4020,7 @@ atoum provides a loop mode available using the ``-l`` or ``--loop`` arguments on
 
 Once test have run, if they are all passing, atoum will stay in pause:
 
-. code-block:: shell
+.. code-block:: shell
 
    $ php tests/units/classes/adapter.php -l
    > atoum version DEVELOPMENT by Frédéric Hardy (/Users/fch/Atoum)
@@ -4085,8 +4083,6 @@ When everything get back to green, atoum will restart the whole test suite ensur
 
 Of course, the loop mode will only run `the selected test files <chapter3.html#files-to-execute>`_ par atoum.
 
-.. _the-debug-mode:
-
 The debug mode
 -------------
 
@@ -4137,8 +4133,6 @@ You can also pass multiple arguments to the ``dump()`` method:
            ->dump($foo->getBar(), $bar)
    ;
 
-.. _stop-anchor:
-
 stop
 ~~~~
 
@@ -4156,8 +4150,6 @@ The ``stop()``method is also easy to use:
            ->object($foo->getBar())
                ->isIdenticalTo($bar)
    ;
-
-.. _execute-on-failure:
 
 executeOnFailure
 ~~~~~~~~~~~~~~~~
