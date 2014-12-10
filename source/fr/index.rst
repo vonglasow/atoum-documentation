@@ -11,15 +11,16 @@ atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais 
 * il est moderne et utilise les innovations des dernières versions de PHP (>= 5.3) ;
 * il est simple et facile à maitriser ;
 * il est intuitif, sa syntaxe se veut la plus proche du langage naturel anglais ;
-* malgré les évolutions constantes d’atoum, la rétrocompatibilité est une des priorités de ses développeurs.
+* malgré les évolutions constantes d'atoum, la rétrocompatibilité est une des priorités de ses développeurs.
 
 .. toctree::
    :maxdepth: 2
 
    demarrage
    ide
+   lancement_des_tests
+   option_cli
    chapitre2
-   chapitre3
    chapitre4
    chapitre5
    chapitre6

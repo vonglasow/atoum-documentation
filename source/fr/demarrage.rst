@@ -4,47 +4,47 @@ Démarrer avec atoum
 Installation
 ************
 
-Si vous souhaitez l’utiliser, il vous suffit de télécharger la dernière version.
+Si vous souhaitez l'utiliser, il vous suffit de télécharger la dernière version.
 
 Vous pouvez installer atoum de plusieurs manières :
 
-* :ref:`en téléchargeant l’archive PHAR <archive-phar>` ;
-* :ref:`à l’aide de composer <composer>` ;
-* :ref:`en utilisant un script d’installation <script-dinstallation>` ;
-* :ref:`en clonant le dépôt github <github>` ;
-* :ref:`en utilisant un plug-in symfony 1 <plugin-symfony-1>` ;
-* :ref:`en utilisant un bundle Symfony 2 <bundle-symfony-2>` ;
-* :ref:`en utilisant un composant Zend Framework 2 <composant-zend-framework-2>`.
+* en téléchargeant l'`archive PHAR`_ ;
+* à l'aide de `Composer`_ ;
+* en utilisant un `Script d'installation`_ ;
+* en clonant le dépôt `Github`_ ;
+* en utilisant un `plugin symfony 1`_ ;
+* en utilisant un `bundle Symfony 2`_ ;
+* en utilisant un `composant Zend Framework 2`_.
 
 
 Archive PHAR
 ============
 
-Une archive PHAR (PHp ARchive) est créée automatiquement à chaque modification d’atoum.
+Une archive PHAR (PHp ARchive) est créée automatiquement à chaque modification d'atoum.
 
-PHAR est un format d’archive d’application PHP, disponible depuis PHP 5.3.
+PHAR est un format d'archive d'application PHP, disponible depuis PHP 5.3.
 
 
 Installation
 ------------
 
-Vous pouvez télécharger la dernière version stable d’atoum directement depuis le site officiel : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
+Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
 
 
 Mise à jour
 -----------
 
-La mise à jour de l’archive est très simple. Il vous suffit de lancer la commande suivante :
+La mise à jour de l'archive est très simple. Il vous suffit de lancer la commande suivante :
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar --update
 
 .. note::
-   La mise à jour d’atoum nécessite la modification de l’archive PHAR. Or par défaut, la configuration de PHP ne l’autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+   La mise à jour d'atoum nécessite la modification de l'archive PHAR. Or par défaut, la configuration de PHP ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
 
-Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l’archive :
+Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l'archive :
 
 .. code-block:: shell
 
@@ -54,7 +54,7 @@ Si une version plus récente existe, elle sera alors téléchargée automatiquem
    Enable version 'nightly-2416-201402121146'... Done !
    Atoum was updated to version 'nightly-2416-201402121146' successfully !
 
-S’il n’existe pas de version plus récente, atoum s’arrêtera immédiatement :
+S'il n'existe pas de version plus récente, atoum s'arrêtera immédiatement :
 
 .. code-block:: shell
 
@@ -62,12 +62,12 @@ S’il n’existe pas de version plus récente, atoum s’arrêtera immédiateme
    Checking if a new version is available... Done !
    There is no new version available !
 
-Atoum ne demande aucune confirmation de la part de l’utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.
+Atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.
 
-Lister les versions contenues dans l’archive
+Lister les versions contenues dans l'archive
 --------------------------------------------
 
-Pour afficher les versions contenues dans l’archive au fur et à mesure des mises à jour, il faut faire appel à l’argument ``--list-available-versions``, ou ``-lav`` en version abrégée :
+Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jour, il faut faire appel à l'argument ``--list-available-versions``, ou ``-lav`` en version abrégée :
 
 .. code-block:: shell
 
@@ -76,27 +76,27 @@ Pour afficher les versions contenues dans l’archive au fur et à mesure des mi
      nightly-1568-201210311708
    * nightly-2416-201402121146
 
-La liste des versions présentes dans l’archive est alors affichée, la version actuellement active étant précédée de ``*``.
+La liste des versions présentes dans l'archive est alors affichée, la version actuellement active étant précédée de ``*``.
 
 Changer la version courante
 ---------------------------
 
-Pour activer une autre version, il suffit d’utiliser l’argument ``--enable-version``, ou ``-ev`` en version abrégée, suivi du nom de la version à utiliser :
+Pour activer une autre version, il suffit d'utiliser l'argument ``--enable-version``, ou ``-ev`` en version abrégée, suivi du nom de la version à utiliser :
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
 
 .. note::
-   La modification de la version courante nécessite la modification de l’archive PHAR. Or par défaut, la configuration de php ne l’autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+   La modification de la version courante nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
 
-Suppression d’anciennes versions
+Suppression d'anciennes versions
 --------------------------------
 
-Au cours du temps, l’archive peut contenir plusieurs versions d’atoum qui ne sont plus utilisées.
+Au cours du temps, l'archive peut contenir plusieurs versions d'atoum qui ne sont plus utilisées.
 
-Pour les supprimer, il suffit d’utiliser l’argument ``--delete-version``, ou ``-dv`` dans sa version abrégée, suivi du nom de la version à supprimer :
+Pour les supprimer, il suffit d'utiliser l'argument ``--delete-version``, ou ``-dv`` dans sa version abrégée, suivi du nom de la version à supprimer :
 
 .. code-block:: shell
 
@@ -105,11 +105,13 @@ Pour les supprimer, il suffit d’utiliser l’argument ``--delete-version``, ou
 La version est alors supprimée.
 
 .. warning::
-   Il n’est pas possible de supprimer la version active.
+   Il n'est pas possible de supprimer la version active.
 
 .. note::
-   La suppression d’une version nécessite la modification de l’archive PHAR. Or par défaut, la configuration de PHP ne l’autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+   La suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de PHP ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
+
+.. _installation-par-composer:
 
 Composer
 ========
@@ -139,7 +141,7 @@ Enfin, exécutez la commande suivante :
    $ php composer.phar install
 
 
-Script d’installation
+Script d'installation
 =====================
 
 Vous pouvez installer atoum grâce à un `script <https://github.com/atoum/atoum-installer>`_ dédié à cette tâche :
@@ -158,8 +160,10 @@ Vous pourrez facilement installer atoum localement (dans un projet, voir exemple
    $ which atoum
    /usr/local/bin/atoum
 
-Des options sont disponibles pour personnaliser l’installation d’atoum : reportez-vous à `la documentation (en) <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ de l’installeur pour obtenir plus de détails.
+Des options sont disponibles pour personnaliser l'installation d'atoum : reportez-vous à `la documentation (en) <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ de l'installeur pour obtenir plus de détails.
 
+
+.. _installation-par-github:
 
 Github
 ======
@@ -170,28 +174,28 @@ Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez clo
 Plugin symfony 1
 ================
 
-Pour utiliser atoum au sein d’un projet symfony 1, un plug-in existe et est disponible à l’adresse suivante : `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+Pour utiliser atoum au sein d'un projet symfony 1, un plug-in existe et est disponible à l'adresse suivante : `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-1-4` ainsi que sur son site.
+Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-1-4` ainsi que sur la page github.
 
 
 Bundle Symfony 2
 ================
 
-Pour utiliser atoum au sein d’un projet Symfony 2, un bundle existe et est disponible à l’adresse suivante : `https://github.com/atoum/AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
+Pour utiliser atoum au sein d'un projet Symfony 2, le bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_ est disponible.
 
-Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.
+Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-2` ainsi que sur la page github.
 
 
 Composant Zend Framework 2
 ==========================
 
-Si vous souhaitez utiliser atoum au sein d’un projet Zend Framework 2, un composant existe et est disponible à l’adresse suivante : `https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+Si vous souhaitez utiliser atoum au sein d'un projet Zend Framework 2, un composant existe et est disponible à l'adresse suivante : `https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
 
 Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.
 
 
-La philosophie d’atoum
+La philosophie d'atoum
 **********************
 
 Exemple simple
@@ -241,8 +245,8 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
    /*
     * Classe de test pour Vendor\Project\HelloWorld
     *
-    * Remarquez qu’elle porte le même nom que la classe à tester
-    * et qu’elle dérive de la classe atoum
+    * Remarquez qu'elle porte le même nom que la classe à tester
+    * et qu'elle dérive de la classe atoum
     */
    class HelloWorld extends atoum
    {
@@ -252,14 +256,14 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
        public function testGetHiAtoum ()
        {
            $this
-               // création d’une nouvelle instance de la classe à tester
+               // création d'une nouvelle instance de la classe à tester
                ->given($this->newTestedInstance)
 
                // nous testons que la méthode getHiAtoum retourne bien
                // une chaîne de caractère...
                ->string($this->testedInstance->getHiAtoum())
                    // ... et que la chaîne est bien celle attendue,
-                   // c’est-à-dire 'Hi atoum !'
+                   // c'est-à-dire 'Hi atoum !'
                    ->isEqualTo('Hi atoum !')
            ;
        }
@@ -300,4 +304,4 @@ Principes de base
 Lorsque vous voulez tester une valeur, vous devez :
 
 * indiquer le type de cette valeur (entier, décimal, tableau, chaîne de caractères, etc.) ;
-* indiquer les contraintes devant s’appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).
+* indiquer les contraintes devant s'appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).

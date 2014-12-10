@@ -383,7 +383,7 @@ Utilisation avec ezPublish
 Utilisation avec Symfony 2
 --------------------------
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `JediAtoumBundle <chapitre1.html#Bundle-Symfony-2>`_.
+Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
 Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
 

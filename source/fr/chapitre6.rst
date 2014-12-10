@@ -68,7 +68,7 @@ Citations
 
 .. epigraph::
 
-   Atoum est vraiment un plaisir à utiliser de par sa simplicité et sa légèreté donc n’hésitez pas à l’essayer car l’essayer, c’est l’adopter !
+   Atoum est vraiment un plaisir à utiliser de par sa simplicité et sa légèreté donc n'hésitez pas à l'essayer car l'essayer, c'est l'adopter !
 
    -- `Joris <http://blog.eexit.net/php-projet-silex-tdd-pour-le-code-metier>`_ sur son blog
 
@@ -263,7 +263,7 @@ Citations
 
 .. epigraph::
 
-   à la place de #PHPUnit je ne peux que conseiller l’excellent #atoum
+   à la place de #PHPUnit je ne peux que conseiller l'excellent #atoum
 
    -- `@b_thuillier <https://twitter.com/b_thuillier/status/304336496188604416>`_ sur twitter
 
@@ -281,7 +281,7 @@ Citations
 
 .. epigraph::
 
-   J’avoue que je trouve cet outil 1000 fois plus pratique que PHPUnit, que ce soit en terme de temps d’installation ou en terme d’utilisation
+   J'avoue que je trouve cet outil 1000 fois plus pratique que PHPUnit, que ce soit en terme de temps d'installation ou en terme d'utilisation
 
    -- `Gérald Croes <http://www.croes.org/gerald/blog/testez-votre-code-avec-atoum/558/>`_ sur son blog
 
