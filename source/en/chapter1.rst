@@ -40,31 +40,33 @@ There are several ways to install atoum :
 PHAR
 ~~~~
 
-atoum is distributed as a PHAR archive, an archive format dedicated to PHP, available since PHP 5.3.
+A PHAR (PHp ARchive) is automatically built along each atoum's source code update.
+
+PHAR is an archive format for PHP applications, available since PHP 5.3. 
 
 .. _installation-anchor:
 
 Installation
 ^^^^^^^^^^^^
 
-You can download the latest stable version of atoum directly from the official website : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
+You can download the latest stable version of atoum from the official website : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
 
 .. _updating-anchor:
 
 Updating
 ^^^^^^^^
 
-Updating atoum's PHAR is easy thanks to its command line tools :
+Updating atoum's PHAR is a cinch thanks to its command line tools :
 
 .. code-block:: shell
 
    php -d phar.readonly=0 mageekguy.atoum.phar --update
 
 .. note::
-   To update atoum, PHP needs to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
+   The atoum's update process needs to alter the PHAR file. 
+   By default, PHP comes with this feature disabled, hence the ``-d phar.readonly=0`` argument.
 
-
-If a newer version of atoum exists, it will be downloaded and installed in the archive itself :
+If a newer version exists it will be downloaded and installed in the archive itself :
 
 .. code-block:: shell
 
@@ -82,14 +84,14 @@ If no newer version is available, atoum will just stop without doing anything.
    Checking if a new version is available... Done !
    There is no new version available !
 
-atoum won't ask you for confirmation before proceeding with the update as it is very easy to go back to a previous version.
+atoum won't ask any confirmation before proceeding with the update as you can easily go back to a previous version.
 
 .. _listing-available-versions-present-in-atoum-s-archive:
 
-Listing available versions present in atoum's archive
+Listing available versions from the atoum's archive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To show the list of versions contained in its archive, you'll use the ``--list-available-versions`` (or the shorter ``-lav``) argument.
+To show the list of versions contained in the archive, use the ``--list-available-versions`` (or the shorter ``-lav``) argument.
 
 .. code-block:: shell
 
@@ -97,43 +99,45 @@ To show the list of versions contained in its archive, you'll use the ``--list-a
    
    * nightly-1568-201210311708
 
-Available versions will be shown. The one prefixed with a ``*`` is active.
+Available versions will be shown, the current active one being prefixed with ``*``.
 
 .. _updating-the-current-version:
 
-Updating the current version
+Choosing the current version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To activate a different version of atoum, use the ``--enable-version`` (or the shorter ``-ev``) argument with the name of the version you want to activate.
+To set the active version of atoum, use the ``--enable-version`` (or the shorter ``-ev``) argument followed by the name of the version you want to use by default.
 
 .. code-block:: shell
 
    php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
 
 .. note::
-   Updating the current version of atoum needs PHP to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
-
-
+   Setting the active version of atoum needs PHP to be able to alter the PHAR file. 
+   By default, PHP comes with this feature disabled, hence the ``-d phar.readonly=0`` argument.
+   
 .. _removing-older-versions:
 
-Removing older versions
+Deleting older versions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to remove a version of atoum from the archive, use the --delete-version (or shorter -dv) argument followed by the name of the version you want to remove.
+Over time, the archive may contain several unused atoum's versions.
+
+To delete a sepecific version of atoum, use the --delete-version (or shorter -dv) argument followed by the name of the version you want to delete.
 
 .. code-block:: shell
 
    php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
 
-The version will be removed.
+The version has now been removed.
 
 .. note::
-   You cannot remove the active version.
-
+   You cannot remove the currently active version.
 
 .. note::
-   Removing a version of atoum needs PHP to be able to update PHAR archives, which is disabled by default, this is why you have to specify the option ``-d phar.readonly=0``.
-
+   
+   To delete a version from the archive, PHP needs to alter the PHAR file. 
+   By default, PHP comes with this feature disabled, hence the ``-d phar.readonly=0`` argument.
 
 .. _composer-anchor:
 
@@ -148,7 +152,7 @@ Start by downloading and installing Composer
 
    curl -s https://getcomposer.org/installer | php
 
-Then, create a composer.json file at the root of your project, containing
+Then, create a composer.json file at the root of your project, containing the following text
 
 .. code-block:: json
 
@@ -169,7 +173,7 @@ Finally execute :
 Installer
 ~~~~~~~~~
 
-You will also be able to install atoum with its dedicated `script <https://github.com/atoum/atoum-installer>`_:
+You will also be able to install atoum using its dedicated `script <https://github.com/atoum/atoum-installer>`_:
 
 .. code-block:: shell
 
@@ -177,7 +181,7 @@ You will also be able to install atoum with its dedicated `script <https://githu
    php mageekguy.atoum.phar -v
    atoum version nightly-xxxx-yyyymmddhhmm by Frédéric Hardy (phar:///path/to/mageekguy.atoum.phar)
 
-This script lets you install atoum locally (in a project, see the previous example) or as a system-wide utility:
+This script lets you install atoum locally (in a project, see the previous example) or system-wide :
 
 .. code-block:: shell
 
@@ -185,7 +189,7 @@ This script lets you install atoum locally (in a project, see the previous examp
    which atoum
    /usr/local/bin/atoum
 
-Options are available and let you tweak the installation process : see the `documentation <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ for more details.
+Options are available for you to you to customize your installation of atoum : see the `documentation <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ for details.
 
 .. _github-anchor:
 
@@ -199,27 +203,27 @@ If you want to use atoum directly from its sources, you can clone or fork its gi
 Symfony 1 plugin
 ~~~~~~~~~~~~~~~~
 
-If you want to use atoum in a symfony 1 project, you can do so thanks to the `sfAtoumPlugin plugin <https://github.com/atoum/sfAtoumPlugin>`_
+If you want to use atoum in a Symfony 1 project, you can use the `sfAtoumPlugin plugin <https://github.com/atoum/sfAtoumPlugin>`_
 
-Install instructions are available on the project's page.
+Installation instructions along with usage examples are available in the cookbook and its website.
 
 .. _symfony2-bundle:
 
 Symfony2 bundle
 ~~~~~~~~~~~~~~~
 
-If you want to use atoum in a Symfony2 project, you can do so thanks to the `atoum Bundle <https://github.com/atoum/AtoumBundle>`_.
+If you want to use atoum in a Symfony2 project, a bundle is available at `<https://github.com/atoum/AtoumBundle>`_.
 
-Install instructions are available on the project's page.
+Installation and usage instructions are available on the project's page.
 
 .. _zend-framework-2-component:
 
 Zend Framework 2 component
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A library is available to use atoum with Zend Framework 2. Documentation and examples are available at the following address : `https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+If you want to use atoum in a Zend Framework 2 project, a component is available at `https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
 
-You'll find every install instructions there.
+Installation and usage instructions are available on the project's home page.
 
 .. _a-quick-overview-of-atoum-s-philosophy:
 
@@ -228,22 +232,25 @@ A quick overview of atoum's philosophy
 
 .. _very-basic-example:
 
-Very basic example
+Basic example
 ~~~~~~~~~~~~~~~~~~
 
-atoum wants you to write a test class for each class you want to test. As an example, if you want to test the famous HelloTheWorld class, you'll have to write the test\units\HelloTheWorld test class.
+You have to write a test class per class.
 
-NOTE : atoum is, of course, namespaces aware. As an example, to test the Hello\The\World class, you'll write the \Hello\The\tests\units\World class.
+So if you want to test the infamous HelloWorld class, you have to write the test\units\HelloWorld test class.
 
-Here is the code of your HelloTheWorld class that we'll be using as a first example. This class will be located in PROJECT_PATH/classes/HelloTheWorld.php
+NOTE : atoum takes namespaces into account. If you want to test the Vendor\Project\HelloWorld class, you have to write the \Vendor\Project\tests\units\HelloWorld class.
+
+Following is the code of your HelloWorld class we're going to test.
 
 .. code-block:: php
 
    <?php
-   /**
-    * The class to be tested
-    */
-   class HelloTheWorld
+   # src/Vendor/Project/HelloWorld.php
+   
+   namespace Vendor\Project;
+   
+   class HelloWorld
    {
        public function getHiAtoum ()
        {
@@ -251,42 +258,49 @@ Here is the code of your HelloTheWorld class that we'll be using as a first exam
        }
    }
 
-Now, let's write our first test class. This class will be located in PROJECT_PATH/tests/HelloTheWorld.php
+Now, here is a sample of what the test class code could look like :
 
 .. code-block:: php
 
    <?php
-   //Your test classes are in a dedicated namespace
-   namespace tests\units;
-   
-   //You have to include your tested class
-   require_once __DIR__.'/../classes/HelloTheWorld.php';
-   
-   //You now include atoum, using its phar archive
-   require_once __DIR__.'/atoum/mageekguy.atoum.phar';
-   
-   use \mageekguy\atoum;
-   
-   /**
-    * Test class for \HelloTheWorld
-    * Test classes extend from atoum\test
+   # src/Vendor/Project/tests/units/HelloWorld.php
+
+   // The test class has its own namespace :
+   // [tested class namespace] + "tests\units"
+   namespace Vendor\Project\tests\units;
+
+   // You must include the tested class
+   require_once __DIR__ . '/../../HelloWorld.php';
+
+   use \atoum;
+
+   /*
+    * Test class for \HelloWorld
+
+    * Notice that it has the same name as the tested class
+    * and that it extends the atoum class 
     */
-   class HelloTheWorld extends atoum\test
+   class HelloWorld extends atoum
    {
+       /*
+        * This method tests getHiAtoum()
+        */
        public function testGetHiAtoum ()
        {
-           //new instance of the tested class
-           $helloToTest = new \HelloTheWorld();
-   
-           $this->assert
-                       //we expect the getHiAtoum method to return a string
-                       ->string($helloToTest->getHiAtoum())
-                       //and the string should be Hi atoum !
-                       ->isEqualTo('Hi atoum !');
+           // instantiation of new tested class
+           $helloToTest = new \Vendor\Project\HelloWorld();
+
+           $this
+               // we assert that the getHiAtoum method returns a String
+               ->string($helloToTest->getHiAtoum())
+                   // ... et we expect the String to be 'Hi atoum !'
+                   ->isEqualTo('Hi atoum !')
+           ;
        }
    }
 
-Now, let's launch the tests
+Now, let's launch the tests suite.
+You whould see something like :
 
 .. code-block:: shell
 
@@ -296,37 +310,40 @@ You will see something like this
 
 .. code-block:: shell
 
-   > atoum version nightly-941-201201011548 by Frédéric Hardy (phar:///home/documentation/projects/tests/atoum/mageekguy.atoum.phar/1)
-   > PHP path: /usr/bin/php5
+   .. code-block:: shell
+
+   $ php vendor/mageekguy.atoum.phar -f src/Vendor/Project/tests/units/HelloWorld.php
+   > PHP path: /usr/bin/php
    > PHP version:
-   > PHP 5.3.6-13ubuntu3.3 with Suhosin-Patch (cli) (built: Dec 13 2011 18:37:10)
-   > Copyright (c) 1997-2011 The PHP Group
-   > Zend Engine v2.3.0, Copyright (c) 1998-2011 Zend Technologies
-   >     with Xdebug v2.1.2, Copyright (c) 2002-2011, by Derick Rethans
-   > tests\units\HelloTheWorld...
+   > PHP 5.4.7 (cli) (built : Sep 13 2012 04:24:47)
+   > Copyright (c) 1997-2012 The PHP Group
+   > Zend Engine v2.4.0, Copyright (c) 1998-2012 Zend Technologies
+   >     with Xdebug v2.2.1, Copyright (c) 2002-2012, by Derick Rethans
+   > Vendor\Project\tests\units\HelloWorld...
    [S___________________________________________________________][1/1]
-   > Test duration: 0.01 second.
-   > Memory usage: 0.00 Mb.
-   > Total test duration: 0.01 second.
+   > Test duration : 0.02 second.
+   > Memory usage : 0.00 Mb.
+   > Total test duration: 0.02 second.
    > Total test memory usage: 0.00 Mb.
    > Code coverage value: 100.00%
-   > Running duration: 0.16 second.
+   > Running duration: 0.34 second.
    Success (1 test, 1/1 method, 2 assertions, 0 error, 0 exception) !
+
 We've just tested that the getHiAtoum method :
 
 * returns a string;
-* and that this string is the expected 'Hi atoum !' string.
+* ... that  is equal to 'Hi atoum !'.
 
-All tests passed. You're done, your code is rock solid !
+All tests have passed. There you are, your code is rock solid thanks to atoum !
 
 .. _rule-of-thumb:
 
 Rule of Thumb
 ~~~~~~~~~~~~~
-The basics when you’re testing things using atoum are the following :
+When you want to test a value you have to : 
 
-* Tell atoum what you want to work on (a variable, an object, a string, an integer, …)
-* Tell atoum the state the element is expected to be in (is equal to, is null, exists, …).
+* indicate the type of this value (integer, float, array, string, …)
+* indicate what you are expecting the value to be (equal to, null, containing a substring, ...).
 
 .. _using-atoum-with-your-favorite-i-d-e:
 
@@ -338,20 +355,20 @@ Using atoum with your favorite IDE
 Sublime Text 2
 ~~~~~~~~~~~~~~
 
-A `SublimeText 2 plugin <https://github.com/toin0u/Sublime-atoum>`_ enables you to launch tests and see the results directly in the editor.
+A `SublimeText 2 plugin <https://github.com/toin0u/Sublime-atoum>`_ enables you to launch tests and see their results from within the editor.
 
-Required instructions to install the plugin are available here `the author's blog <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
+Installation instructions are available at `its author's blog <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
 
 .. _v-i-m:
 
 VIM
 ~~~
 
-atoum is bundled with a plugin dedicated to VIM.
+atoum is bundled with a VIM plugin.
 
-It enables you to launch tests without leaving VIM, and to get the matching report in the editor's screen.
+It enables you to launch tests suites without leaving the editor and shows you the tests report in the editor's screen.
 
-You can navigate through potential errors, directly going to the line where assertions failed thanks to matching key strokes.
+You can then navigate through errors and go straight to the line where assertions have failed using a key stroke.
 
 .. _installing-the-v-i-m-plugin:
 
