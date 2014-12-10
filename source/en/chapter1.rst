@@ -66,7 +66,7 @@ Updating atoum's PHAR is a cinch thanks to its command line tools :
    The atoum's update process needs to alter the PHAR file. 
    By default, PHP comes with this feature disabled, hence the ``-d phar.readonly=0`` argument.
 
-If a newer version exists it will be downloaded and installed in the archive itself :
+If a new version exists it will be downloaded and installed in the archive itself :
 
 .. code-block:: shell
 
@@ -76,7 +76,7 @@ If a newer version exists it will be downloaded and installed in the archive its
    Enable version 'nightly-1568-201210311708'... Done !
    Atoum has been updated from version 'old-version' to 'nightly-1568-201210311708' successfully !
 
-If no newer version is available, atoum will just stop without doing anything.
+If there are no new versions available, atoum stops and nothing happens.
 
 .. code-block:: shell
 
