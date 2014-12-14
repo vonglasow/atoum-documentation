@@ -62,6 +62,8 @@ Dans les exemples suivants, les commandes pour lancer les tests avec atoum seron
 C'est exactement la commande que vous pourriez utiliser si vous avez :ref:`installation-par-composer` sous Linux.
 
 
+.. _fichiers-a-executer:
+
 Fichiers à exécuter
 *******************
 
@@ -215,8 +217,7 @@ Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOn
 Fichier de configuration
 ************************
 
-.. important::
-   We need help to write this section !
+Si vous nommez votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement si ce fichier se trouve dans le répertoire courant. Le paramètre ``-c`` est donc optionnel dans ce cas.
 
 
 Couverture du code
