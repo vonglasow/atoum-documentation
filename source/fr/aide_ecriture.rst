@@ -431,7 +431,7 @@ Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFa
 Les méthodes d'initialisation
 *****************************
 
-Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (concurrent) :
+Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (``concurrent``) :
 
 #. appel de la méthode ``setUp()`` de la classe de test ;
 #. lancement d'un sous-processus PHP pour exécuter **chaque méthode** de test ;
