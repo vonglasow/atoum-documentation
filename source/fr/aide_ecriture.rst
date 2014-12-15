@@ -530,7 +530,9 @@ Pour vous aider à tester efficacement vos classes, atoum met à votre dispositi
 
 Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
 
-La définition du fournisseur de données qui doit être utilisé par une méthode de test se fait grâce à l'annotation ``@dataProvider`` appliquée à la méthode de test concernée, de la manière suivante :
+Si une méthode de test ``testFoo`` prend des arguments et qu'aucune annotation relative à un fournisseur de données n'est définie, atoum cherchera automatiquement la méthode protected ``testFooDataProvider``.
+
+Vous pouvez néanmoins définir manuellement le nom de la méthode du fournisseur de données grâce à l'annotation ``@dataProvider`` appliquée à la méthode de test concernée, de la manière suivante :
 
 .. code-block:: php
 
@@ -554,7 +556,7 @@ La définition du fournisseur de données qui doit être utilisé par une métho
 
 Évidemment, il ne faut pas oublier de définir, au niveau de la méthode de test, les arguments correspondant à ceux qui seront retournés par le fournisseur de données. Si ce n'est pas le cas, atoum générera une erreur lors de l'exécution des tests.
 
-Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspondante :
+La méthode du fournisseur de données est une simple méthode protected qui retourne un tableau ou un itérateur contenant des données :
 
 .. code-block:: php
 
@@ -564,7 +566,7 @@ Une fois l'annotation définie, il n'y a plus qu'à créer la méthode correspon
        ...
 
        // Fournisseur de données de testSum().
-       public function sumDataProvider()
+       protected function sumDataProvider()
        {
            return array(
                array( 1, 1),
@@ -580,9 +582,6 @@ Lors de l'exécution des tests, atoum appellera la méthode de test ``testSum()`
 .. warning::
    L'isolation des tests ne sera pas utilisée dans ce contexte, ce qui veut dire que chacun des appels successifs à la méthode ``testSum()`` sera réalisé dans le même processus PHP.
 
-
-.. note::
-   Un fournisseur de données peut au choix retourner un tableau ou bien un itérateur.
 
 
 .. _les-bouchons-mock:
