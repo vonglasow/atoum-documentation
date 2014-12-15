@@ -341,7 +341,6 @@ Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caract
 
 dump
 ====
-
 La méthode ``dump()`` peut s'utiliser de la manière suivante :
 
 .. code-block:: php
@@ -370,6 +369,8 @@ Il est également possible de passer plusieurs arguments à ``dump()``, de la ma
            ->dump($foo->getBar(), $bar)
    ;
 
+.. important::
+   La méthode ``dump`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
 stop
 ====
@@ -390,6 +391,9 @@ L'utilisation de la méthode ``stop()`` est également très simple :
    ;
 
 Si ``--debug`` est utilisé, les 2 dernières lignes ne seront pas exécutées.
+
+.. important::
+   La méthode ``stop`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
 
 executeOnFailure
@@ -420,11 +424,14 @@ Dans l'exemple précédent, contrairement à ``dump()`` qui provoque systématiq
 
 Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFailure()`` dans une même méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas d'échec du test.
 
+.. important::
+   La méthode ``executeOnFailure`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
+
 
 Les méthodes d'initialisation
 *****************************
 
-Voici le processus, lorsque atoum exécute les méthodes de test d'une classe :
+Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (concurrent) :
 
 #. appel de la méthode ``setUp()`` de la classe de test ;
 #. lancement d'un sous-processus PHP pour exécuter **chaque méthode** de test ;
@@ -432,6 +439,9 @@ Voici le processus, lorsque atoum exécute les méthodes de test d'une classe :
 #. dans le sous-processus PHP, appel de la méthode de test ;
 #. dans le sous-processus PHP, appel de la méthode ``afterTestMethod()`` de la classe de test ;
 #. une fois le sous-processus PHP terminé, appel de la méthode ``tearDown()`` de la classe de test.
+
+.. note::
+   Pour plus d'informations sur les moteurs d'exécution des tests d'atoum, vous pouvez lire le paragraphe sur l'annotation `@engine`_.
 
 Les méthodes ``setUp()`` et ``tearDown()`` permettent donc respectivement d'initialiser et de nettoyer l'environnement de test pour l'ensemble des méthodes de test de la classe exécutée.
 
@@ -930,3 +940,29 @@ atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
 .. note::
    Reportez-vous à la documentation sur l'assertion :ref:`mock-asserter` pour obtenir plus d'informations sur les tests des bouchons.
 
+
+Les annotations
+***************
+
+@dataProvider
+=============
+
+.. important::
+   We need help to write this section !
+
+@engine
+=======
+
+.. important::
+   We need help to write this section !
+
+.. <mageekguy> par défaut atoum exécute chaque méthode de test dans un sous-processus php séparée, et en parallèle
+   <mageekguy> mais ça n'a rien d'obligatoire
+   <mageekguy> nativement, tu peux lui dire d'exécuter les tests avec son moteur par défaut (donc, concurrent, que j'ai décrits ci-dessus)
+   <mageekguy> ou alors avec isolate, qui exécute dans un sous-processus mais séquentiellement
+   <mageekguy> ou alors inline, donc tout dans le même processus PHP
+   <mageekguy> (à la PHPUnit par défaut, en clair)
+   <mageekguy> inline est très très rapide mais il n'y alors plus d'isolation des tests
+   <mageekguy> isolate apporte l'isolation mais est très lent, et sert à que dalle de mon point de vue (c'est pour moi juste un poc)
+   <mageekguy> concurrent est le meilleur compromis entre l'isolation et les perf
+   <mageekguy> tout ça se commande à l'aide de l'annotation @engine sur la classe ou sur une méthode spécifique
