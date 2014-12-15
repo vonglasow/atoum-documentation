@@ -20,7 +20,8 @@ atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais 
    ide
    lancement_des_tests
    option_cli
-   chapitre2
-   chapitre4
-   chapitre5
-   chapitre6
+   aide_ecriture
+   assertions
+   cookbook
+   participer
+   citations

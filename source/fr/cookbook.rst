@@ -1,12 +1,9 @@
-.. _cookbook-anchor:
-
 Cookbook
-========
+########
 
-.. _test-d-un-singleton:
 
 Test d'un singleton
--------------------
+*******************
 
 Pour tester si une méthode retourne bien systématiquement la même instance d'un objet, vérifiez que deux appels successifs à la méthode testée sont bien identiques.
 
@@ -20,32 +17,25 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
    ;
 
 
-.. _utilisation-dans-behat:
-
 Utilisation dans behat
-----------------------
+**********************
 
 .. important::
    We need help to write this section !
    ([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
 
 
-.. _utilisation-dans-jenkins--ou-hudson:
-
 Utilisation dans Jenkins (ou Hudson)
-------------------------------------
+************************************
 
 Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http://jenkins-ci.org/>`_ (ou `Hudson <http://hudson-ci.org/>`_) en tant que résultats xUnit.
 
-.. _etape-1---ajout-d-un-rapport-x-unit-a-la-configuration-atoum:
 
 Étape 1 : Ajout d'un rapport xUnit à la configuration atoum
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================================================
 
-.. _vous-n-avez-pas-de-fichier-de-configuration:
-
-Vous n'avez pas de fichier de configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Si vous n'avez pas de fichier de configuration
+----------------------------------------------
 
 Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vous recommandons d'extraire le répertoire ressources de atoum dans celui de votre choix à l'aide de la commande suivante :
 
@@ -64,12 +54,11 @@ Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vo
 
 * Vous pouvez également copier le fichier directement `depuis le dépôt Github <https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist>`_
 
-Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conserver le rapport par défaut d'atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.
+Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conservez le rapport par défaut d'atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.
 
-.. _vous-avez-deja-un-fichier-de-configuration:
 
-Vous avez déjà un fichier de configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Si vous avez déjà un fichier de configuration
+---------------------------------------------
 
 Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajouter les lignes suivantes :
 
@@ -91,32 +80,29 @@ Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajoute
    $writer = new atoum\writers\file('/chemin/vers/le/rapport/atoum.xunit.xml');
    $xunit->addWriter($writer);
 
-.. _etape-2---tester-la-configuration:
 
 Étape 2 : Tester la configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=================================
 
 Pour tester cette configuration, il suffit de lancer atoum en lui précisant le fichier de configuration que vous souhaitez utiliser :
 
 .. code-block:: shell
 
-   $ php mageekguy.atoum.phar -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
+   $ ./bin/atoum -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
 
 .. note::
    Si vous avez nommé votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement. Le paramètre ``-c`` est donc optionnel dans ce cas.
    Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ``.atoum.php`` ou d'un de ses enfants.
 
-
 À la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
 
-.. _etape-3---lancement-des-tests-via-jenkins--ou-hudson:
 
 Étape 3 : Lancement des tests via Jenkins (ou Hudson)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================================
 
 Il existe pour cela plusieurs possibilités selon la façon dont vous construisez votre projet :
-* Si vous utilisez un script, il vous suffit d'y ajouter la commande précédente.
 
+* Si vous utilisez un script, il vous suffit d'y ajouter la commande précédente.
 * Si vous passez par un utilitaire tel que `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche de type exec à son fichier de configuration, de la manière suivante :
 
 .. code-block:: xml
@@ -129,17 +115,15 @@ Il existe pour cela plusieurs possibilités selon la façon dont vous construise
 
 Vous noterez l'ajout du paramètre ``-p /chemin/vers/php`` qui permet d'indiquer à atoum le chemin vers le binaire PHP qu'il doit utiliser pour exécuter les tests unitaires.
 
-.. _etape-4---publier-le-rapport-avec-jenkins--ou-hudson:
 
 Étape 4 : Publier le rapport avec Jenkins (ou Hudson)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================================
 
 Il suffit tout simplement d'activer la publication des rapports au format JUnit ou xUnit, en fonction du plug-in que vous utilisez, en lui indiquant le chemin d'accès au fichier généré par atoum.
 
-.. _hook-git:
 
 Hook git
---------
+********
 
 Une bonne pratique, lorsqu'on utilise un logiciel de gestion de versions, est de ne jamais ajouter à un dépôt du code non fonctionnel, afin de pouvoir récupérer une version propre et utilisable du code à tout moment et à n'importe quel endroit de l'historique du dépôt.
 
@@ -151,10 +135,9 @@ Heureusement, les logiciels de gestion de versions en général et Git en partic
 
 L'installation d'un hook de pré-commit est très simple et se déroule en deux étapes.
 
-.. _etape-1---creation-du-script-a-executer:
 
 Étape 1 : Création du script à exécuter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 Lors de l'ajout de code à un dépôt, Git recherche le fichier ``.git/hook/pre-commit`` à la racine du dépôt et l'exécute s'il existe et qu'il dispose des droits nécessaires.
 
@@ -183,13 +166,10 @@ Pour mettre en place le hook, il vous faut donc créer le fichier ``.git/hook/pr
       }
    }
 
-Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant
-l'extension ``.php`` et dans des répertoires dont le chemin contient ``/Tests/Units/``. Si ce n'est pas votre cas, vous devrez modifier le script suivant votre contexte.
+Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant l'extension ``.php`` et dans des répertoires dont le chemin contient ``/Tests/Units/``. Si ce n'est pas votre cas, vous devrez modifier le script suivant votre contexte.
 
 .. note::
    Dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
-
-
 
 Les tests étant executés très rapidement avec atoum, on peut donc lancer l'ensemble des tests unitaires avant chaque commit avec un hook comme celui-ci :
 
@@ -199,10 +179,9 @@ Les tests étant executés très rapidement avec atoum, on peut donc lancer l'en
    #!/bin/sh
    ./bin/atoum -d tests/
 
-.. _etape-2---ajout-des-droits-d-execution:
 
 Étape 2 : Ajout des droits d'exécution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+======================================
 
 Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être rendu exécutable à l'aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :
 
@@ -215,21 +194,18 @@ Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être re
 Et si d'aventure un test ne passe pas, les fichiers ne seront pas ajoutés au dépôt. Il vous faudra alors effectuer les corrections nécessaires, utiliser la commande ``git add`` sur les fichiers modifiés et utiliser à nouveau ``git commit``.
 
 
-.. _changer-l-espace-de-nom-par-defaut:
 
 Changer l'espace de nom par défaut
-----------------------------------
+**********************************
 
-Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\#i`` par le caractère ##\##.
+Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\#i`` par le caractère  ``\``.
 
 Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il en déduira  que la classe testée porte le nom ``vendor\project\foo``. Cependant, il peut être nécessaire que l'espace de nom des classes de test ne corresponde pas à cette expression régulière, et dans ce cas, atoum s'arrête alors avec le message d'erreur suivant :
 
 .. code-block:: shell
 
-   .. _exception--mageekguy-atoum-exceptions-runtime--with-message--test-class--project-vendor-my-tests-foo--is-not-in-a-namespace-which-match-pattern-----------ests---unit-s---i---in--path-to-unit-tests-foo-php:
-
    > exception 'mageekguy\atoum\exceptions\runtime' with message 'Test class 'project\vendor\my\tests\foo' is not in a namespace which match pattern '#(?:^|\\)ests?\\unit?s\#i'' in /path/to/unit/tests/foo.php
-   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 Il faut donc modifier l'expression régulière utilisée, et il est possible de le faire de plusieurs manières. La plus simple est de faire appel à l'annotions ``@namespace`` appliquée à la classe de test, de la manière suivante :
@@ -256,7 +232,7 @@ Il faut donc modifier l'expression régulière utilisée, et il est possible de 
    }
 
 
-Cette méthode est simple et rapide à mettre en œuvre, mais elle présente l'inconvénient de devoir être répétée dans chaque classe de test, ce qui peut compliquer leur maintenance en cas de modification de leur espace de nom. L'alternative consiste à faire appel à la méthode ``mageekguy\atoum\test::setTestNamespace()`` dans
+Cette méthode est simple et rapide à mettre en œuvre, mais elle présente l'inconvénient de devoir être répétée dans chaque classe de test, ce qui peut compliquer leur maintenance en cas de modification de leur espace de nom. L'alternative consiste à faire appel à la méthode ``atoum\test::setTestNamespace()`` dans
 le constructeur de la classe de test, de la manière suivante :
 
 .. code-block:: php
@@ -285,7 +261,7 @@ le constructeur de la classe de test, de la manière suivante :
    }
 
 
-La méthode ``mageekguy\atoum\test::setTestNamespace()`` accepte en effet un unique argument qui doit être l'expression régulière correspondant à l'espace de nom de votre classe de test. Et pour ne pas avoir à répéter l'appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toute dans une classe abstraite de la manière suivante :
+La méthode ``atoum\test::setTestNamespace()`` accepte en effet un unique argument qui doit être l'expression régulière correspondant à l'espace de nom de votre classe de test. Et pour ne pas avoir à répéter l'appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toute dans une classe abstraite de la manière suivante :
 
 .. code-block:: php
 
@@ -332,7 +308,7 @@ Ainsi, vous n'aurez plus qu'à faire dériver vos classes de tests unitaires de 
 
 En cas de modification de l'espace de nommage réservé aux tests unitaires, il ne sera donc nécessaire de ne modifier que la classe abstraite.
 
-De plus, il n'est pas obligatoire d'utiliser une expression régulière, que ce soit au niveau de l'annotation ``@namespace`` ou de la méthode  ``mageekguy\atoum\test::setTestNamespace()``, et une simple chaîne de caractères peut également fonctionner.
+De plus, il n'est pas obligatoire d'utiliser une expression régulière, que ce soit au niveau de l'annotation ``@namespace`` ou de la méthode  ``atoum\test::setTestNamespace()``, et une simple chaîne de caractères peut également fonctionner.
 
 En effet, atoum fait appel par défaut à une expression régulière afin que son utilisateur puisse utiliser par défaut un large panel d'espaces de nom sans avoir besoin de le configurer à ce niveau. Cela lui permet donc d'accepter par exemple sans configuration particulière les espaces de nomsuivants :
 
@@ -365,13 +341,9 @@ Cependant, en règle général, l'espace de nom utilisé pour les classes de tes
       }
    }
 
-Attention, il était possible auparavant d'utiliser la méthode ``mageekguy\atoum\test::setTestsSubNamespace()``, mais cette dernière est dépréciée en faveur de ``mageekguy\atoum\test::setTestNamespace()``.
-
-
-.. _utilisation-avec-ez-publish:
 
 Utilisation avec ezPublish
---------------------------
+**************************
 
 .. important::
    We need help to write this section !
@@ -381,25 +353,23 @@ Utilisation avec ezPublish
 .. _utilisation-avec-symfony-2:
 
 Utilisation avec Symfony 2
---------------------------
+**************************
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
 Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
 
-.. _etape-1--installation-d-atoum:
 
 Étape 1: installation d'atoum
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=============================
 
 Si vous utilisez Symfony 2.0, `téléchargez l'archive PHAR <chapitre1.html#Archive-PHAR>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
 
-Si vous utilisez Symfony 2.1, `ajoutez atoum dans votre fichier composer.json <chapitre1.html#Composer>`_.
+Si vous utilisez Symfony 2.1+, `ajoutez atoum dans votre fichier composer.json <chapitre1.html#Composer>`_.
 
-.. _etape-2--creation-de-la-classe-de-test:
 
 Étape 2: création de la classe de test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+======================================
 
 Imaginons que nous voulions tester cet Entity:
 
@@ -495,17 +465,15 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
    }
 
 .. note::
-   L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1
+   L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1+.
 
 
 .. note::
    Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
 
 
-.. _etape-3--ecriture-d-un-test:
-
 Étape 3: écriture d'un test
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===========================
 
 Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
@@ -535,10 +503,9 @@ Créons notre fichier de test:
        }
    }
 
-.. _etape-4--lancement-des-tests:
 
 Étape 4: lancement des tests
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================
 
 Si vous utilisez Symfony 2.0:
 
@@ -550,7 +517,7 @@ Si vous utilisez Symfony 2.0:
    # Lancement de tous les tests du Bundle
    $ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
 
-Si vous utilisez Symfony 2.1:
+Si vous utilisez Symfony 2.1+:
 
 .. code-block:: shell
 
@@ -564,56 +531,35 @@ Si vous utilisez Symfony 2.1:
    Vous pouvez obtenir plus d'informations sur le `lancement des tests <chapitre3.html#Lancement-des-tests>`_ au chapitre 3.
 
 
-
 Dans tous les cas, voilà ce que vous devriez obtenir:
 
 .. code-block:: shell
 
    > PHP path: /usr/bin/php
    > PHP version:
-   .. _p-h-p-5-3-15-with-suhosin-patch--cli---built--aug-24-2012-17-45-44:
-
    > PHP 5.3.15 with Suhosin-Patch (cli) (built: Aug 24 2012 17:45:44)
    ===================================================================
-   .. _copyright--c--1997-2012-the-p-h-p-group:
-
    > Copyright (c) 1997-2012 The PHP Group
    =======================================
-   .. _zend-engine-v2-3-0--copyright--c--1998-2012-zend-technologies:
-
    > Zend Engine v2.3.0, Copyright (c) 1998-2012 Zend Technologies
    ===============================================================
-   .. _with-xdebug-v2-1-3--copyright--c--2002-2012--by-derick-rethans:
-
    >     with Xdebug v2.1.3, Copyright (c) 2002-2012, by Derick Rethans
    ====================================================================
    > Acme\DemoBundle\Tests\Units\Entity\Car...
    [S___________________________________________________________][1/1]
-   .. _test-duration--0-01-second:
-
    > Test duration: 0.01 second.
    =============================
-   .. _memory-usage--0-50-mb:
-
    > Memory usage: 0.50 Mb.
    ========================
    > Total test duration: 0.01 second.
    > Total test memory usage: 0.50 Mb.
    > Code coverage value: 42.86%
-   .. _class-acme-demo-bundle-entity-car--42-86:
-
    > Class Acme\DemoBundle\Entity\Car: 42.86%
    ==========================================
-   .. _acme-demo-bundle-entity-car--get-id----0-00:
-
    > Acme\DemoBundle\Entity\Car::getId(): 0.00%
    --------------------------------------------
-   .. _acme-demo-bundle-entity-car--set-max-speed----0-00:
-
    > Acme\DemoBundle\Entity\Car::setMaxSpeed(): 0.00%
    --------------------------------------------------
-   .. _acme-demo-bundle-entity-car--get-max-speed----0-00:
-
    > Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%
    --------------------------------------------------
    > Running duration: 0.24 second.
@@ -623,23 +569,22 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 .. _utilisation-avec-symfony-1-4:
 
 Utilisation avec symfony 1.4
-----------------------------
+****************************
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-.. _installation-anchor:
 
 Installation
-~~~~~~~~~~~~
+============
+
 Il existe plusieurs méthodes d'installation du plugin dans votre projet :
 
 * installation via composer
 * installation via des submodules git
 
-.. _en-utilisant-composer:
 
 En utilisant composer
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 Ajouter ceci dans le composer.json :
 
@@ -663,10 +608,9 @@ Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le ch
      $this->enablePlugins('sfAtoumPlugin');
    }
 
-.. _en-utilisant-des-submodules-git:
 
 En utilisant des submodules git
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 Il faut tout d'abord ajouter atoum en tant que submodule :
 
@@ -691,10 +635,8 @@ Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
    }
 
 
-.. _ecrire-les-tests:
-
 Ecrire les tests
-~~~~~~~~~~~~~~~~
+================
 
 Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
 
@@ -704,10 +646,8 @@ Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
    require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 
 
-.. _lancer-les-tests:
-
 Lancer les tests
-~~~~~~~~~~~~~~~~
+================
 
 La commande symfony atoum:test est disponible. Les tests peuvent alors se lancer de cette façon :
 

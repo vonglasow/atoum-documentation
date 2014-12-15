@@ -1,9 +1,6 @@
-.. _participer-anchor:
-
 Participer
 ==========
 
-.. _comment-participer:
 
 Comment participer
 ------------------
@@ -27,48 +24,48 @@ L'exemple ci-dessous n'a aucun sens mais il permet de présenter plus en détail
 .. code-block:: php
 
    <?php
-   
+
    namespace mageekguy\atoum\coding;
-   
+
    use
        mageekguy\atoum,
        type\hinting
    ;
-   
+
    class standards
    {
        const standardsConst = 'standardsConst';
        const secondStandardsConst = 'secondStandardsConst';
-   
+
        public $public;
        protected $protected;
        private $private = array();
-   
+
        public function publicFunction($parameter, hinting\class $optional = null)
        {
            $this->public = trim((string) $parameter);
            $this->protected = $optional ?: new hinting\class();
-   
+
            if (($variable = $this->protectedFunction()) === null)
            {
                throw new atoum\exception();
            }
-   
+
            $flag = 0;
            switch ($variable)
            {
                case self::standardsConst:
                    $flag = 1;
                    break;
-   
+
                case self::standardsConst:
                    $flag = 2;
                    break;
-   
+
                default:
                    return null;
            }
-   
+
            if ($flag < 2)
            {
                return false;
@@ -78,7 +75,7 @@ L'exemple ci-dessous n'a aucun sens mais il permet de présenter plus en détail
                return true;
            }
        }
-   
+
        protected function protectedFunction()
        {
            try
@@ -90,31 +87,31 @@ L'exemple ci-dessous n'a aucun sens mais il permet de présenter plus en détail
                throw new atoum\exception\runtime();
            }
        }
-   
+
        private function privateFunction()
        {
            $array = $this->private;
-   
+
            return function(array $param) use ($array) {
                return array_merge($param, $array);
            };
        }
    }
-   
+
 
 Voici également un exemple de test unitaire :
 
 .. code-block:: php
 
    <?php
-   
+
    namespace tests\units\mageekguy\atoum\coding;
-   
+
    use
        mageekguy\atoum,
        mageekguy\atoum\coding\standards as testedClass
    ;
-   
+
    class standards extends atoum\test
    {
        public function testPublicFunction()
@@ -136,4 +133,4 @@ Voici également un exemple de test unitaire :
            ;
        }
    }
-   
+
