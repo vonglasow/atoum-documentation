@@ -52,15 +52,6 @@
         $command = isset($argv[1]) ? $argv[1] : 'help';
 
         switch ($command) {
-            case 'help':
-            	writeln("Please use 'make <target>' where <target> is one of");
-            	writeln("  html       to make standalone HTML files");
-            	writeln("  epub       to make an epub");
-            	writeln("  pdf        to make a pdf");
-            	writeln("  text       to make text files");
-            	writeln("  linkcheck  to check all external links for integrity");
-            break;
-
             case 'clean':
             	command("rm -rf $BUILDDIR/*");
             break;
@@ -105,6 +96,14 @@
 
             default:
                 throw new Exception("undefined $command command.");
+            case 'help':
+                writeln("Please use 'make <target>' where <target> is one of");
+                writeln("  html       to make standalone HTML files");
+                writeln("  epub       to make an epub");
+                writeln("  pdf        to make a pdf");
+                writeln("  text       to make text files");
+                writeln("  linkcheck  to check all external links for integrity");
+            break;
         }
     } catch (Exception $e) {
         writeln('Error: ' . $e->getMessage());
@@ -114,10 +113,15 @@
         echo "$text\n";
     }
 
-    function command($command) {
-        writeln("> $command");
-        passthru($command, $returnValue);
-        writeln();
+    function command($command, $display = true) {
+        if ($display) {
+            writeln("> $command");
+            passthru($command, $returnValue);
+            writeln();
+        } else {
+            $output = array();
+            exec($command, $output, $returnValue);
+        }
 
         return $returnValue;
     }
@@ -129,7 +133,7 @@
     }
 
     function checkExecutable($executable, $errorMessage) {
-        if (command("which $executable") !== 0) {
+        if (command("which $executable", false) !== 0) {
             throw new Exception($errorMessage);
         }
     }
