@@ -1,7 +1,7 @@
 Option de la ligne de commande
 ##############################
 
-La plupart des options existent sous 2 forme, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifférement l'une ou l'autre forme.
+La plupart des options existent sous 2 formes, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifférement l'une ou l'autre forme.
 
 Certaines options acceptent plusieurs valeurs :
 
@@ -11,7 +11,7 @@ Certaines options acceptent plusieurs valeurs :
 
 
 .. note::
-   Vous ne devez mettre qu'une seule fois chaque option. Dans le cas contraire, seul le dernier est pris en compte.
+   Vous ne devez mettre qu'une seule fois chaque option. Dans le cas contraire, seule la dernière est prise en compte.
 
 
 .. code-block:: shell
