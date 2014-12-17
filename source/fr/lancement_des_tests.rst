@@ -258,7 +258,7 @@ Il est cependant possible d'obtenir une représentation plus précise du taux de
 
 Pour l'obtenir, il suffit de se baser sur les modèles de fichiers de configuration inclus dans atoum.
 
-Si vous utliser l'archive PHAR, il faut les extraire en utilisant la commande suivante:
+Si vous utlisez l'archive PHAR, il faut les extraire en utilisant la commande suivante:
 
 .. code-block:: php
 
@@ -266,7 +266,7 @@ Si vous utliser l'archive PHAR, il faut les extraire en utilisant la commande su
 
 Une fois l'extraction effectuée, vous devriez avoir dans le répertoire /path/to/destination/directory un répertoire nommé resources/configurations/runner.
 
-Dans le cas où vous utilisez atoum en ayant cloné le dépôt :ref:`installation-par-github` ou l'ayant installer via :ref:`installation-par-composer`, les modèles se trouvent dans ``/path/to/atoum/resources/configurations/runner``
+Dans le cas où vous utilisez atoum en ayant cloné le dépôt :ref:`installation-par-github` ou l'ayant installé via :ref:`installation-par-composer`, les modèles se trouvent dans ``/path/to/atoum/resources/configurations/runner``
 
 Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration pour atoum nommé ``coverage.php.dist`` qu'il vous faudra copier à l'emplacement de votre choix. Renommez le ``coverage.php``.
 
@@ -293,7 +293,7 @@ Une fois tout cela effectué, il n'y a plus qu'à utiliser le fichier de configu
 
    $ ./bin/atoum -c path/to/coverage.php -d tests/units
 
-Une fois les tests exécutés, atoum générera alors le rapport de couverture du code au format HTML dans le répertoire que vous aurez défini précédemment, et il sera lisible à l'aide du navigateur de votre choix.
+Une fois les tests exécutés, atoum génèrera alors le rapport de couverture du code au format HTML dans le répertoire que vous aurez défini précédemment, et il sera lisible à l'aide du navigateur de votre choix.
 
 .. note::
    Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l'exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
@@ -416,7 +416,7 @@ Fichier de bootstrap
 
 atoum autorise la définition d'un fichier de ``bootstrap`` qui sera exécuté avant chaque méthode de test et qui permet donc d'initialiser l'environnement d'exécution des tests.
 
-Il devient ainsi possible de définir, par exemple, une fonction d'auto-chargement de classes, de lire un fichier de configuration ou de réaliser tout autre opération nécessaires à la bonne exécution des tests.
+Il devient ainsi possible de définir, par exemple, une fonction d'auto-chargement de classes, de lire un fichier de configuration ou de réaliser toute autre opération nécessaire à la bonne exécution des tests.
 
 La définition de ce fichier de ``bootstrap`` peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration.
 
