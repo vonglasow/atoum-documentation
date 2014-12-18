@@ -96,12 +96,12 @@ Ouvrir automatiquement les tests en échec
 
 atoum est capable d'ouvrir automatiquement les fichiers des tests en échec à la fin de l'exécution. Plusieurs éditeurs sont actuellement supportés :
 
-* :ref:`macvim <macvim-anchor>` (Mac OS X)
-* :ref:`gvim <gvim-anchor>` (Unix)
-* :ref:`PhpStorm <php-storm>` (Mac OS X/Unix)
-* :ref:`gedit <gedit-anchor>` (Unix)
+* `macvim`_ (Mac OS X)
+* `gvim`_ (Unix)
+* `PhpStorm`_ (Mac OS X/Unix)
+* `gedit`_ (Unix)
 
-Pour utiliser cette fonctionnalité, vous devrez modifier le `fichier de configuration <chapitre3.html#fichier-de-configuration>`_ de atoum :
+Pour utiliser cette fonctionnalité, vous devrez modifier le :ref:`fichier de configuration <fichier-de-configuration>` de atoum :
 
 
 macvim

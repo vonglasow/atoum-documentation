@@ -17,6 +17,8 @@ Vous pouvez installer atoum de plusieurs manières :
 * en utilisant un `composant Zend Framework 2`_.
 
 
+.. _archive-phar:
+
 Archive PHAR
 ============
 
