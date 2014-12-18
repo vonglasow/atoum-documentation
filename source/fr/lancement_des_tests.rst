@@ -1,3 +1,5 @@
+.. _lancement-des-tests:
+
 Lancement des tests
 ###################
 
@@ -213,6 +215,8 @@ Il est possible de définir plusieurs tags:
 
 Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOneTag, soit avec thisIsThreeTag, seront les seules à être exécutées.
 
+
+.. _fichier-de-configuration:
 
 Fichier de configuration
 ************************
