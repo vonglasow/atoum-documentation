@@ -5,7 +5,7 @@
 We use crowdin (https://crowdin.com/project/atoum-documentation) and his client (https://crowdin.com/page/cli-tool)
 
 ### Usage
-To send file the french file:
+To send file:
 
 	crowdin-cli upload source
 
@@ -19,7 +19,13 @@ To download the translations:
 
 	php builddoc
 
+Or you can also use
+
+	./builddoc
+
 ### Requirements
 
 * Having sphinx installed (see http://sphinx-doc.org/)
 * Having php cli available
+* Having crowdin-cli installed
+
