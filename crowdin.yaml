@@ -222,3 +222,8 @@ files:
     source      : '/source/fr/ide.rst'
     dest        : '/source/fr/ide.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/fr/having_fun_with_atoum.rst'
+    dest        : '/source/fr/having_fun_with_atoum.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
