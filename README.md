@@ -21,4 +21,5 @@ To download the translations:
 
 ### Requirements
 
-Having sphinx installed (see http://sphinx-doc.org/)
+* Having sphinx installed (see http://sphinx-doc.org/)
+* Having php cli available
