@@ -1,2 +1,4 @@
 /build
 /tests/vendor
+.idea
+atlassian-ide-plugin.xml
