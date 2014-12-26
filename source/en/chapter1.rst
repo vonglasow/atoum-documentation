@@ -168,29 +168,6 @@ Finally execute :
 
    php composer.phar install
 
-.. _installer-anchor:
-
-Installer
-~~~~~~~~~
-
-You will also be able to install atoum using its dedicated `script <https://github.com/atoum/atoum-installer>`_:
-
-.. code-block:: shell
-
-   curl https://raw.github.com/atoum/atoum-installer/master/installer | php -- --phar
-   php mageekguy.atoum.phar -v
-   atoum version nightly-xxxx-yyyymmddhhmm by Frédéric Hardy (phar:///path/to/mageekguy.atoum.phar)
-
-This script lets you install atoum locally (in a project, see the previous example) or system-wide :
-
-.. code-block:: shell
-
-   curl https://raw.github.com/atoum/atoum-installer/master/installer | sudo php -- --phar --global
-   which atoum
-   /usr/local/bin/atoum
-
-Options are available for you to you to customize your installation of atoum : see the `documentation <https://github.com/atoum/atoum-installer/blob/master/README.md>`_ for details.
-
 .. _github-anchor:
 
 Github
