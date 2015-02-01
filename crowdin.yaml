@@ -224,6 +224,6 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/fr/having_fun_with_atoum.rst'
-    dest        : '/source/fr/having_fun_with_atoum.txt'
+    source      : '/source/fr/amusons_nous_avec_atoum.rst'
+    dest        : '/source/fr/amusons_nous_avec_atoum.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
