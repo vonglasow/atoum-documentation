@@ -5,7 +5,7 @@
 We use crowdin (https://crowdin.com/project/atoum-documentation) and his client (https://crowdin.com/page/cli-tool)
 
 ### Usage
-To send file:
+To send files:
 
 	crowdin-cli upload source
 
@@ -25,7 +25,7 @@ Or you can also use
 
 ### Requirements
 
-* Having sphinx installed (see http://sphinx-doc.org/)
+* Having sphinx installed (see http://sphinx-doc.org/install.html)
 * Having php cli available
 * Having crowdin-cli installed
 
