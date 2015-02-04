@@ -16,16 +16,25 @@ files:
     source      : '/source/fr/participer.rst'
     dest        : '/source/fr/participer.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: contribute
 
   -
     source      : '/source/fr/demarrage.rst'
     dest        : '/source/fr/demarrage.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: starting
 
   -
     source      : '/source/fr/aide_ecriture.rst'
     dest        : '/source/fr/aide_ecriture.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: written_help
 
   -
     source      : '/source/fr/assertions.rst'
@@ -207,11 +216,17 @@ files:
     source      : '/source/fr/citations.rst'
     dest        : '/source/fr/citations.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: quotes
 
   -
     source      : '/source/fr/lancement_des_tests.rst'
     dest        : '/source/fr/lancement_des_tests.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: test_launch
 
   -
     source      : '/source/fr/option_cli.rst'
@@ -227,3 +242,6 @@ files:
     source      : '/source/fr/amusons_nous_avec_atoum.rst'
     dest        : '/source/fr/amusons_nous_avec_atoum.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: having_fun_with_atoum
