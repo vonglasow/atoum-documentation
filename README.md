@@ -13,6 +13,9 @@ To download the translations:
 
 	crowdin-cli download
 
+## Translate pages
+You can directly edit page (but don't forget to upload them on crowdin after the translation) or you can use the interface of crowdin directly. The second options is easier and more clear for everyone.
+
 ## Adding new pages
 
 1. Create the page, in french (french is the reference) or at least create an issue to ask someone do it
