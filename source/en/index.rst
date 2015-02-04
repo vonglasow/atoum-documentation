@@ -1,28 +1,28 @@
 .. Documentation reST http://rest-sphinx-memo.readthedocs.org/en/latest/ReST.html
-   Dans reST, les headers doivent être soulignées par =*-^"~`:.'# et l'ordre n'a pas d'importance.
-   Néanmoins, dans la doc atoum, voici l'ordre retenu: #, *, =, -, ", ^, `, :, ., '
-   Si vous avez plus de 4 niveaux, penser à découper votre fichier en plusieurs fichiers.
+   In reST, the headers should be highlighted by = *-^ ' ~':.'"# and the order does not matter.
+   Nevertheless, in the doc atoum, here's the selected order: #, *, =,-, ', ^, ',:,., ' "
+   If you have more than 4 levels, split your file into multiple files.
 
-Qu'est-ce qu'atoum ?
+What is atoum?
 ====================
 
-atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais il présente quelques avantages par rapport à ces derniers :
+atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few advantages over these:
 
-* il est moderne et utilise les innovations des dernières versions de PHP (>= 5.3) ;
-* il est simple et facile à maitriser ;
-* il est intuitif, sa syntaxe se veut la plus proche du langage naturel anglais ;
-* malgré les évolutions constantes d'atoum, la rétrocompatibilité est une des priorités de ses développeurs.
+* It's modern and uses the innovations of the latest PHP's version (>= 5.3);
+* It is simple and easy to learn;
+* It is intuitive, its syntax is to be as close to the English natural language;
+* despite the constant changes of atoum, backward compatibility is one of the priorities of its developers.
 
 .. toctree::
    :maxdepth: 2
 
-   demarrage
+   starting
    ide
-   lancement_des_tests
+   test_launch
    option_cli
-   aide_ecriture
-   assertions
+   written_help
+   asserters
    cookbook
-   participer
-   amusons_nous_avec_atoum
-   citations
+   contribute
+   having_fun_with_atoum
+   quotes
