@@ -15,7 +15,7 @@ To download the translations:
 
 ## Adding new pages
 
-1. Create the page, in french (french is the reference) or at lease create an issue to ask someone do it
+1. Create the page, in french (french is the reference) or at least create an issue to ask someone do it
 1. This page must have a name related to his content and should be named in the spoken language
 1. In *source/LANGUAGE/index.rst* file create the link to your new page
 1. In *crowdin.yaml* file create the information about this page, to be ready to translate
