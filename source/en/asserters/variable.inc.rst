@@ -3,14 +3,14 @@
 variable
 ********
 
-C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
+It's the basic assertion of all variables. It contains the necessary tests for any type of variable.
 
 .. _variable-is-callable:
 
 isCallable
 ==========
 
-``isCallable`` vérifie que la variable peut être appelée comme fonction.
+``isCallable`` verifies that the variable can be called as a function.
 
 .. code-block:: php
 
@@ -21,7 +21,7 @@ isCallable
 
    $this
        ->variable($f)
-           ->isCallable()  // passe
+           ->isCallable()  // succeed
 
        ->variable('\Vendor\Project\foobar')
            ->isCallable()
@@ -38,7 +38,7 @@ isCallable
 isEqualTo
 =========
 
-``isEqualTo`` vérifie que la variable est égale à une certaine donnée.
+``isEqualTo`` verifies that the variable is equal to a given data.
 
 .. code-block:: php
 

@@ -3,10 +3,10 @@
 stream
 ******
 
-C'est l'assertion dédiée aux stream.
+This is the assertion dedicated to the stream.
 
 .. important::
-   Malheureusement, je n'ai aucune espèce d'idée de son fonctionnement, alors n'hésitez pas à compléter cette partie !
+   TODO - This doc need to be writen!
 
 
 .. _is-read:

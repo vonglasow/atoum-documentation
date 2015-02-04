@@ -3,16 +3,16 @@
 afterDestructionOf
 ******************
 
-C'est l'assertion dédiée à la destruction des objets.
+It's the assertion that is dedicated to object's destruction.
 
-Cette assertion ne fait que prendre un objet, vérifier que la méthode ``__destruct()`` est bien définie puis l'appelle.
+This assertion verify that the given object is valid and check that the ``__destruct()`` method is well-defined then invokes it.
 
-Si ``__destruct()`` existe bien et si son appel se passe sans erreur ni exception, alors le test passe.
+If ``__destruct()`` exists and if his call goes without any error or exception, then the test succeed.
 
 .. code-block:: php
 
    <?php
    $this
-       ->afterDestructionOf($objectWithDestructor)     // passe
-       ->afterDestructionOf($objectWithoutDestructor)  // échoue
+       ->afterDestructionOf($objectWithDestructor)     // succeed
+       ->afterDestructionOf($objectWithoutDestructor)  // fails
    ;

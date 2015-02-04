@@ -1,4 +1,4 @@
-Assertions
+Asserters
 ##########
 
 .. include:: assertions/afterDestructionOf.inc.rst
