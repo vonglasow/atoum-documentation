@@ -940,9 +940,9 @@ atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
    Reportez-vous à la documentation sur l'assertion :ref:`mock-asserter` pour obtenir plus d'informations sur les tests des bouchons.
 
 
-La simulation du fonctionnement des fonctions natives de PHP
-************************************************************
-Atoum permet de facilement simuler le fonctionnement des fonctions natives de PHP.
+Le bouchonnage (mock) des fonctions natives de PHP
+**************************************************
+atoum permet de très facilement simuler le comportement des fonctions natives de PHP.
 
 .. code-block:: php
 
@@ -965,11 +965,23 @@ Atoum permet de facilement simuler le fonctionnement des fonctions natives de PH
    ;
 
 .. important::
-   On ne peut pas mettre de \ devant les fonctions a simulé car Atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP
+   On ne peut pas mettre de \ devant les fonctions a simulé car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
    
 .. important::
-   il ne faut pas que la fonction dont on souhaite simuler le fonctionnement soit appelée avant la simulation
+   Pour la meme raison, si une fonction native a déjà été appelée son bouchonnage sera sans effet.
 
+.. code-block:: php
+
+   <?php
+   
+   $this
+      ->given($this->newTestedInstance())
+      ->exception(function() { $this->testedInstance->loadConfigFile(); }) //la fonction file_exists est appelée avant son bouchonnage
+         
+      ->if($this->function->file_exists = true ) // le bouchonnage ne pourra pas prendre la place de la fonction native file_exists
+      ->object($this->testedInstance->loadConfigFile()) 
+         ->isTestedInstance()
+   ;
 
 Les annotations
 ***************
