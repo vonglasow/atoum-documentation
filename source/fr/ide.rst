@@ -77,7 +77,7 @@ Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la
 
    call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
 
-La fonction ``atoum#defineConfiguration`` permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire ou se trouve le fichier de tests unitaires.
+La fonction ``atoum#defineConfiguration`` permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire où se trouve le fichier de tests unitaires.
 Elle accepte pour cela trois arguments :
 
 * un chemin d'accès vers le répertoire contenant les tests unitaires ;
