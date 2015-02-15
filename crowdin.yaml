@@ -13,6 +13,11 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
+    source      : '/source/fr/extensions.rst'
+    dest        : '/source/fr/extensions.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
     source      : '/source/fr/participer.rst'
     dest        : '/source/fr/participer.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
