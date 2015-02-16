@@ -1,107 +1,107 @@
-Intégration d'atoum dans votre IDE
+Integration of atoum in your IDE
 ##################################
 
 
 Sublime Text 2
 **************
 
-Un `plug-in pour SublimeText 2 <https://github.com/toin0u/Sublime-atoum>`_ permet l'exécution des tests unitaires par atoum et la visualisation du résultat sans quitter l'éditeur.
+A `plug-in for SublimeText 2 <https://github.com/toin0u/Sublime-atoum>`_ allows the execution of unit tests by atoum and the visualization of the result without leaving the editor.
 
-Les informations nécessaires à son installation et à sa configuration sont disponibles `sur le blog de son auteur <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
+The information necessary for it's installation and it's configuration are available `on the blog's author <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
 
 
 VIM
 ***
 
-atoum est livré avec un plug-in facilitant son utilisation dans l'éditeur VIM.
+atoum comes with a plug-in facilitates its use in VIM.
 
-Il permet d'exécuter les tests sans quitter VIM et d'obtenir le rapport correspondant dans une fenêtre de l'éditeur.
+It allows to run tests without leaving VIM and obtaining the report in a separate window.
 
-Il est alors possible de naviguer parmi les éventuelles erreurs, voire de se rendre à la ligne correspondant à une assertion ne passant pas à l'aide d'une simple combinaison de touches.
+It's possible to navigate among errors, or even to go to the line in the editor with an assertion from failed test with a simple combination of keys.
 
 
-Installation du plug-in atoum pour VIM
+Installation of the plug-in atoum for VIM
 ======================================
 
-Vous trouverez le fichier correspondant au plug-in, nommé ``atoum.vmb``, dans le répertoire ``resources/vim``.
+You will find the file corresponding to the plug-in, named ``atoum.vmb``, in the directory named ``resources/vim``.
 
-Si vous utilisez l'archive PHAR, il faut extraire le fichier à l'aide de la commande suivante :
+If you are using the PHAR archive, you must extract the file with the following command:
 
 .. code-block:: shell
 
    $ php mageekguy.atoum.phar --extractResourcesTo path/to/a/directory
 
-Une fois l'extraction réalisée, le fichier ``atoum.vmb`` correspondant au plug-in pour VIM sera dans le répertoire ``path/to/a/directory/resources/vim``.
+Once the extraction is performed, the file ``atoum.vmb`` corresponding to the plug-in for VIM will stand in the directory ``path/to/a/directory/resources/vim``.
 
-Une fois en possession du fichier ``atoum.vmb``, il faut l'éditer à l'aide de VIM :
+Once in possession of the ``atoum.vmb`` file, it's required to edit with VIM:
 
 .. code-block:: shell
 
    $ vim path/to/atoum.vmb
 
-Il n'y a plus ensuite qu'à demander à VIM l'installation du plug-in à l'aide de la commande :
+It's now reuired to ask to VIM the installation of the plug-in by using the command:
 
 .. code-block:: vim
 
    :source %
 
 
-Utilisation du plug-in atoum pour VIM
+Use of the plug-in atoum for VIM
 =====================================
 
-Pour utiliser le plug-in, atoum doit évidemment être installé et vous devez être en train d'éditer un fichier contenant une classe de tests unitaires basée sur atoum.
+To use the plug-in, atoum must obviously be installed and you must be editing a file containing a class of unit tests based on atoum.
 
-Une fois dans cette configuration, la commande suivante lancera l'exécution des tests :
+Once in this configuration, the following command will launch the execution of tests:
 
 .. code-block:: vim
 
    :Atoum
 
-Les tests sont alors exécutés, et une fois qu'ils sont terminés, un rapport basé sur le fichier de configuration de atoum qui se trouve dans le répertoire ``ftplugin/php/atoum.vim`` de votre répertoire ``.vim`` est généré dans une nouvelle fenêtre.
+The the tests are executed, and once they are finished, a report based on the configuration of atoum file located in the directory ``ftplugin/php/atoum.vim`` in your ``.vim`` directory is generated in a new window.
 
-Évidemment, vous êtes libre de lier cette commande à la combinaison de touches de votre choix, en ajoutant par exemple la ligne suivante dans votre fichier ``.vimrc`` :
+Of course, you are free to bind this command to the combination of keys of your choice, for example adding the following line in your ``.vimrc`` file:
 
 .. code-block:: vim
 
    nnoremap *.php <F12> :Atoum<CR>
 
-L'utilisation de la touche ``F12`` de votre clavier en mode normal appellera alors la commande ``:Atoum``.
+The use of the key ``F12`` on your keyboard in normal mode will call the command ``:Atoum``.
 
 
-Gestion des fichiers de configuration de atoum
+File's configuration management of atoum
 ==============================================
 
-Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier ``.vimrc`` :
+You can specify another configuration file for atoum by adding the following line to your ``.vimrc`` file:
 
 .. code-block:: vim
 
    call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
 
-La fonction ``atoum#defineConfiguration`` permet en effet de définir le fichier de configuration à utiliser en fonction du répertoire ou se trouve le fichier de tests unitaires.
-Elle accepte pour cela trois arguments :
+Indeed the function ``atoum#defineConfiguration`` permit to defined the configuration's file to use based on the directory where the unit tests file resides.
+It accepts three arguments:
 
-* un chemin d'accès vers le répertoire contenant les tests unitaires ;
-* un chemin d'accès vers le fichier de configuration de atoum devant être utilisé ;
-* l'extension des fichiers de tests unitaires concernés.
+* a path to the directory containing the unit tests;
+* a path to the configuration's file of atoum to be used;
+* the extension's file of relevant unit test.
 
-Pour plus de détails sur l'utilisation du plug-in, une aide est disponible dans VIM à l'aide de la commande suivante :
+For more details on the use of plug-in, help is available in VIM with the following command:
 
 .. code-block:: vim
 
    :help atoum
 
 
-Ouvrir automatiquement les tests en échec
+Automatically open failed tests
 *****************************************
 
-atoum est capable d'ouvrir automatiquement les fichiers des tests en échec à la fin de l'exécution. Plusieurs éditeurs sont actuellement supportés :
+atoum is able to automatically open files from failed tests at the end of they executions. Several editors are currently supported:
 
 * `macvim`_ (Mac OS X)
 * `gvim`_ (Unix)
 * `PhpStorm`_ (Mac OS X/Unix)
 * `gedit`_ (Unix)
 
-Pour utiliser cette fonctionnalité, vous devrez modifier le :ref:`fichier de configuration <fichier-de-configuration>` de atoum :
+To use this feature, you need to change the :ref:`configuration file <fichier-de-configuration>` of atoum:
 
 
 macvim
@@ -147,7 +147,7 @@ gvim
 PhpStorm
 ========
 
-Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
+If you are under Mac OS X, use the following configuration:
 
 .. code-block:: php
 
@@ -162,11 +162,11 @@ Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
    $cliReport->addWriter($stdOutWriter);
 
    $cliReport
-       // Si PhpStorm est installé dans /Applications
+       // If PhpStorm is installed in /Applications
        ->addField(new macos\phpstorm())
 
-       // Si vous avez installé PhpStorm
-       // dans un dossier différent de /Applications
+       // If you have installed PhpStorm
+       // in another directory than /Applications
        // ->addField(
        //     new macos\phpstorm(
        //         '/path/to/PhpStorm.app/Contents/MacOS/webide'
@@ -177,7 +177,7 @@ Si vous travaillez sous Mac OS X, utilisez la configuration suivante :
    $runner->addReport($cliReport);
 
 
-Dans un environnement Unix, utilisez la configuration suivante :
+In a Unix environment, use the following configuration:
 
 .. code-block:: php
 
@@ -193,7 +193,7 @@ Dans un environnement Unix, utilisez la configuration suivante :
 
    $cliReport
        ->addField(
-           new unix\phpstorm('/chemin/vers/PhpStorm/bin/phpstorm.sh')
+           new unix\phpstorm('/path/to/PhpStorm/bin/phpstorm.sh')
        )
    ;
 

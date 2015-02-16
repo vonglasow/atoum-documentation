@@ -77,7 +77,7 @@ isNotIdenticalTo
 isTrue
 ======
 
-``isTrue`` verifies that the boolean is strictly equal to ``true``.
+``isTrue`` vérifie que le booléen est strictement égal à ``true``.
 
 .. code-block:: php
 

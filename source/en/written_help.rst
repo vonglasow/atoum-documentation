@@ -1,13 +1,13 @@
-Aide à l'écriture
+Writing help
 #################
 
-Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières, et l'une d'elle est d'utiliser des mots-clefs tels que ``given``, ``if``, ``and`` ou bien encore ``then``, ``when`` ou ``assert`` qui permettent de mieux organiser et de rendre plus lisible les tests.
+There are several ways to write unit test with atoum, one of them is to use keywords like ``given``, ``if``, ``and`` or  ``then``, ``when`` or ``assert`` so you can structure the tests, making them more readable.
 
 
-``given``, ``if``, ``and`` et ``then``
+``given``, ``if``, ``and`` and ``then``
 **************************************
 
-L'utilisation de ces mots-clefs est très intuitive :
+You can use these keywords intuitively:
 
 .. code-block:: php
 
@@ -26,13 +26,13 @@ L'utilisation de ces mots-clefs est très intuitive :
                ->isEqualTo(4)
    ;
 
-Il est important de noter que ces mots-clefs n'apportent rien techniquement ou fonctionnellement parlant, car ils n'ont pas d'autre but que de faciliter la compréhension du test et donc sa maintenance en y ajoutant de la sémantique compréhensible facilement par l'humain et plus particulièrement un développeur.
+It's important to note that these keywords don't have any another purpose than giving the test a more readable form. They don't supplement the test with any technical effect. The only goal here is to help the reader, human or more specificaly developper, to understand what's happening in the test.
 
-Ainsi, ``given``, ``if`` et ``and`` permettent de définir les conditions préalables pour que les assertions qui suivent le mot-clef ``then`` passent avec succès.
+Thus, ``given``, ``if`` and ``and`` specify the prerequisites assertions that follows the keyword ``then`` pass.
 
-Cependant, il n'y a pas de grammaire régissant l'ordre d'utilisation de ces mots-clefs et aucune vérification syntaxique n'est effectuée par atoum.
+However, no grammar is ruling the order nor the syntax of these keywords in atoum.
 
-En conséquence, il est de la responsabilité du développeur de les utiliser de façon à ce que le test soit lisible, même s'il est par exemple tout à fait possible d'écrire le test de la manière suivante :
+As a result, the developer has to use the keywords wisely in order to make the test as readable as possible, even if it's possible to write the like the following:
 
 .. code-block:: php
 
@@ -48,9 +48,9 @@ En conséquence, il est de la responsabilité du développeur de les utiliser de
                ->isEqualTo(4)
    ;
 
-Pour les mêmes raisons, l'utilisation de ``then`` est facultative.
+For the same reason, the use of ``then`` is also optional.
 
-Il est également important de noter qu'il est tout à fait possible d'écrire le même test en n'utilisant aucun mot-clef :
+It's also important to note that you can write the exact same test without using any of the previous keywords:
 
 .. code-block:: php
 
@@ -66,15 +66,15 @@ Il est également important de noter qu'il est tout à fait possible d'écrire l
            ->isEqualTo(4)
    ;
 
-Le test ne sera pas plus lent ou plus rapide à exécuter et il n'y a aucun avantage à utiliser une notation ou une autre, l'important étant d'en choisir une et de s'y tenir pour faciliter la maintenance des tests (la problématique est exactement la même que celle des conventions de codage).
+The test will not be slower or faster to run and there is no advantage to use one notation or another, the important thing is to choose one and stick to it. In this way it will facilitate maintenance of the tests (the problem is exactly the same as coding conventions).
 
 
 when
 ****
 
-En plus de ``given``, ``if``, ``and`` et ``then``, il existe également d'autres mots-clefs.
+In addition to ``given``, ``if``, ``and`` and ``then``, there are also other keywords.
 
-L'un d'entre eux est ``when``. Il dispose d'une fonctionnalité spécifique introduite pour contourner le fait qu'il est illégal d'écrire en PHP le code suivant :
+One of them is ``when``. It has a specific feature introduced to work around that it is illegal to write the following PHP code:
 
 .. code-block:: php
 
@@ -87,11 +87,11 @@ L'un d'entre eux est ``when``. Il dispose d'une fonctionnalité spécifique intr
                ->isZero()
    ;
 
-Le langage génère en effet dans ce cas l'erreur fatale : ``Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'``
+Indeed, the language generate in this case a fatal error: ``Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'``
 
-Il est en effet impossible d'utiliser ``unset()`` comme argument d'une fonction.
+It is impossible to use ``unset()`` as an argument of a function.
 
-Pour résoudre ce problème, le mot-clef ``when`` est capable d'interpréter l'éventuelle fonction anonyme qui lui est passée en argument, ce qui permet d'écrire le test précédent de la manière suivante :
+To resolve this problem, the keyword ``when`` is able to interpret the possible anonymous function that is passed as an argument, allowing us to write the previous test in the following way:
 
 .. code-block:: php
 
@@ -108,15 +108,15 @@ Pour résoudre ce problème, le mot-clef ``when`` est capable d'interpréter l'�
            ->isZero()
    ;
 
-Bien évidemment, si ``when`` ne reçoit pas de fonction anonyme en argument, il se comporte exactement comme ``given``, ``if``, ``and`` et ``then``, à savoir qu'il ne fait absolument rien fonctionnellement parlant.
+Of course, if ``when`` doesn't received an anonymous function as an argument, it behaves exactly as ``given``, ``if``, ``and`` and ``then``, namely that it does absolutely nothing functionally speaking.
 
 
 assert
 ******
 
-Enfin, il existe le mot-clef ``assert`` qui a également un fonctionnement un peu particulier.
+Finally, there is the keyword ``assert`` which also has a somewhat unusual operation.
 
-Pour illustrer son fonctionnement, le test suivant va être utilisé :
+To illustrate its operation, the following test will be used:
 
 .. code-block:: php
 
@@ -137,11 +137,11 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé :
                    ->exactly(2)
    ;
 
-Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin d'intercaler un ou plusieurs nouveaux appels à bar::doOtherThing() entre les deux appels déjà effectués, il sera obligé de mettre à jour en conséquence la valeur de l'argument passé à exactly().
-Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes :
+The previous test has a disadvantage in terms of maintenance, because if the developer needs to add one or more new calls to bar::doOtherThing() betweenthe  two calls already made, it will have to update the value of the argument passed to exactly().
+To resolve this problem, you can reset a mock in 2 different ways:
 
-* soit en utilisant $mock->getMockController()->resetCalls() ;
-* soit en utilisant $this->resetMock($mock).
+* either by using $mock->getMockController()->resetCalls();
+* or by using $this->resetMock($mock).
 
 .. code-block:: php
 
@@ -155,7 +155,7 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
                ->call('doOtherThing')
                    ->once()
 
-       // 1ère manière
+       // first way
        ->given($foo->getMockController()->resetCalls())
        ->if($bar->setValue(uniqid())
        ->then
@@ -163,7 +163,7 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
                ->call('doOtherThing')
                    ->once()
 
-       // 2ème manière
+       // 2nd way
        ->given($this->resetMock($foo))
        ->if($bar->setValue(uniqid())
        ->then
@@ -172,7 +172,7 @@ Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 mani�
                    ->once()
    ;
 
-Ces méthodes effacent la mémoire du contrôleur, il est donc possible d'écrire l'assertion suivante comme si le bouchon n'avait jamais été utilisé.
+These methods erase the memory of the controller, so it's now possible to write the next assertion like if the mock was never used.
 
 Le mot-clef ``assert`` permet de se passer de l'appel explicite à ``resetCalls()`` ou ``resetMock`` et de plus il provoque l'effacement de la mémoire de l'ensemble des adaptateurs et des contrôleurs de mock définis au moment de son utilisation.
 

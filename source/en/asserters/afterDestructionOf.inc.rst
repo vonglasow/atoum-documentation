@@ -3,11 +3,11 @@
 afterDestructionOf
 ******************
 
-It's the assertion that is dedicated to object's destruction.
+It's the assertion that is dedicated to object destruction.
 
-This assertion verify that the given object is valid and check that the ``__destruct()`` method is well-defined then invokes it.
+This assertion verifies that the given object is valid and check if ``__destruct()`` method is defined and then invokes it.
 
-If ``__destruct()`` exists and if his call goes without any error or exception, then the test succeed.
+If ``__destruct()`` exists and is executed without any error or exception then the test succeeds.
 
 .. code-block:: php
 

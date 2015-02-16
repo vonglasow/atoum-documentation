@@ -1,9 +1,9 @@
-Option de la ligne de commande
+Command line options
 ##############################
 
-La plupart des options existent sous 2 formes, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifférement l'une ou l'autre forme.
+Most options exist in 2 forms, a short from 1 to 6 characters and a long more explicit. These two forms do strictly the same thing. You can use indifferently the both form.
 
-Certaines options acceptent plusieurs valeurs :
+Some options accept multiple values:
 
 .. code-block:: shell
 
@@ -11,22 +11,22 @@ Certaines options acceptent plusieurs valeurs :
 
 
 .. note::
-   Vous ne devez mettre qu'une seule fois chaque option. Dans le cas contraire, seule la dernière est prise en compte.
+   You must use once only each option. Otherwise, only the last one is take.
 
 
 .. code-block:: shell
 
-   # Ne test que MySecondTest.php
+   # Only test MySecondTest.php
    $ ./bin/atoum -f MyFirstTest.php -f MySecondTest.php
 
-   # Ne test que MyThirdTest.php et MyFourthTest.php
+   # Only test MyThirdTest.php and MyFourthTest.php
    $ ./bin/atoum -f MyFirstTest.php MySecondTest.php -f MyThirdTest.php MyFourthTest.php
 
 
 -bf <file> / --bootstrap-file <file>
 ************************************
 
-Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.
+This option allows you to specify the path to the bootstrap file.
 
 .. code-block:: shell
 
@@ -37,7 +37,7 @@ Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.
 -c <file> / --configuration <file>
 **********************************
 
-Cette option vous permet de spécifier le chemin vers le fichier de configuration à utiliser pour lancer les tests.
+This option allows you to specify the path to the configuration file used for running the tests.
 
 .. code-block:: shell
 
@@ -48,7 +48,7 @@ Cette option vous permet de spécifier le chemin vers le fichier de configuratio
 -d <directories> / --directories <directories>
 **********************************************
 
-Cette option vous permet de spécifier le ou les répertoires de tests à lancer.
+This option allows you to specify the directorie(s) of tests to run.
 
 .. code-block:: shell
 
@@ -59,14 +59,14 @@ Cette option vous permet de spécifier le ou les répertoires de tests à lancer
 --debug
 *******
 
-Cette option vous permet d'activer le mode debug
+This option allows you to enable debug mode
 
 .. code-block:: shell
 
    $ ./bin/atoum --debug
 
 .. note::
-   Reportez-vous à la section sur le :ref:`le-mode-debug`_ pour avoir plus d'informations.
+   Refer to the section on the :ref:`le-mode-debug`_ for more information.
 
 
 -drt <string> / --default-report-title <string>
