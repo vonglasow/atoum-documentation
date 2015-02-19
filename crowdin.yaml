@@ -31,7 +31,7 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
       file_name:
-        en: starting
+        en: getting_started
 
   -
     source      : '/source/fr/aide_ecriture.rst'
@@ -231,7 +231,7 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
       file_name:
-        en: test_launch
+        en: launch_test
 
   -
     source      : '/source/fr/option_cli.rst'
