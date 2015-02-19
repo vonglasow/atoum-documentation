@@ -1,52 +1,52 @@
-Démarrer avec atoum
+Start with atoum
 ###################
 
 Installation
 ************
 
-Si vous souhaitez l'utiliser, il vous suffit de télécharger la dernière version.
+If you want to iuse it, simply download the latest version.
 
-Vous pouvez installer atoum de plusieurs manières :
+You can install atom from several ways:
 
-* en téléchargeant l'`archive PHAR`_ ;
-* à l'aide de `Composer`_ ;
-* en utilisant un `Script d'installation`_ ;
-* en clonant le dépôt `Github`_ ;
-* en utilisant un `plugin symfony 1`_ ;
-* en utilisant un `bundle Symfony 2`_ ;
-* en utilisant un `composant Zend Framework 2`_.
+* by downloading the `PHAR archive`_ ;
+* with `composer`_;
+* using the `installation script`_;
+* by cloning the `Github`_ repository;
+* using the `symfony 1 plugin`_;
+* using the `symfony 2 bundle`_;
+* using the `Zend Framework 2 component`_.
 
 
 .. _archive-phar:
 
-Archive PHAR
+PHAR archive
 ============
 
-Une archive PHAR (PHp ARchive) est créée automatiquement à chaque modification d'atoum.
+A PHAR (PHp ARchive) is created automatically on each modification of atoum.
 
-PHAR est un format d'archive d'application PHP, disponible depuis PHP 5.3.
+PHAR is an archive format for PHP application. Availaible since PHP 5.3.
 
 
 Installation
 ------------
 
-Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
+You can download the latest stable version of atoum directly from the official website: `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
 
 
-Mise à jour
+Update
 -----------
 
-La mise à jour de l'archive est très simple. Il vous suffit de lancer la commande suivante :
+The update of the archive is very simple. Just run the following command:
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar --update
 
 .. note::
-   La mise à jour d'atoum nécessite la modification de l'archive PHAR. Or par défaut, la configuration de PHP ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+   The update of atoum requires the modification of the PHAR archive. However, by default, the configuration of PHP desn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
 
 
-Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l'archive :
+If a newer version exists then it will be downloaded automatically and installed in the archive:
 
 .. code-block:: shell
 
@@ -56,7 +56,7 @@ Si une version plus récente existe, elle sera alors téléchargée automatiquem
    Enable version 'nightly-2416-201402121146'... Done !
    Atoum was updated to version 'nightly-2416-201402121146' successfully !
 
-S'il n'existe pas de version plus récente, atoum s'arrêtera immédiatement :
+If there is no newer version, atoum will stop immediately:
 
 .. code-block:: shell
 
@@ -64,12 +64,12 @@ S'il n'existe pas de version plus récente, atoum s'arrêtera immédiatement :
    Checking if a new version is available... Done !
    There is no new version available !
 
-Atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.
+atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.
 
-Lister les versions contenues dans l'archive
+List the versions contained in the archive
 --------------------------------------------
 
-Pour afficher les versions contenues dans l'archive au fur et à mesure des mises à jour, il faut faire appel à l'argument ``--list-available-versions``, ou ``-lav`` en version abrégée :
+To see the contained versions in archive following each updates, you need to use the argument ``--list-available-versions``, or ``-lav``:
 
 .. code-block:: shell
 
@@ -78,39 +78,39 @@ Pour afficher les versions contenues dans l'archive au fur et à mesure des mise
      nightly-1568-201210311708
    * nightly-2416-201402121146
 
-La liste des versions présentes dans l'archive est alors affichée, la version actuellement active étant précédée de ``*``.
+The list of versions in the archive is displayed, the currently active version being preceded by ``*``.
 
-Changer la version courante
+Change the current version
 ---------------------------
 
-Pour activer une autre version, il suffit d'utiliser l'argument ``--enable-version``, ou ``-ev`` en version abrégée, suivi du nom de la version à utiliser :
+To activate another version, just use the argument ``--enable-version``, or ``-ev``, followed by the name of the version to use:
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
 
 .. note::
-   La modification de la version courante nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+   The modification of the current version requires the modification of the PHAR archive. However, by default, the configuration of PHP desn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
 
 
-Suppression d'anciennes versions
+Deleting older versions
 --------------------------------
 
-Au cours du temps, l'archive peut contenir plusieurs versions d'atoum qui ne sont plus utilisées.
+Over time, the archive may contain multiple versions of atoum who are no longer used.
 
-Pour les supprimer, il suffit d'utiliser l'argument ``--delete-version``, ou ``-dv`` dans sa version abrégée, suivi du nom de la version à supprimer :
+To remove them, just use the argument ``--delete-version``, or ``-dv`` followed by the name of the version to deleted:
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
 
-La version est alors supprimée.
+The version is then removed.
 
 .. warning::
-   Il n'est pas possible de supprimer la version active.
+   It's not possible to delete the current version.
 
 .. note::
-   La suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de PHP ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
+   Deleting a version requires the modification of the PHAR archive. However, by default, the configuration of PHP desn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
 
 
 .. _installation-par-composer:
@@ -118,15 +118,15 @@ La version est alors supprimée.
 Composer
 ========
 
-`Composer <http://getcomposer.org>`_ est un outil de gestion de dépendance en PHP.
+`Composer <http://getcomposer.org>`_ is a dependency management tool in PHP.
 
-Commencez par installer composer :
+Start by installing composer:
 
 .. code-block:: shell
 
    $ curl -s https://getcomposer.org/installer | php
 
-Créez ensuite un fichier ``composer.json`` contenant le JSON (JavaScript Object Notation) suivant :
+Then create a file ``composer.json`` containing the following JSON (JavaScript Object Notation):
 
 .. code-block:: json
 
@@ -136,7 +136,7 @@ Créez ensuite un fichier ``composer.json`` contenant le JSON (JavaScript Object
        }
    }
 
-Enfin, exécutez la commande suivante :
+Finally, run the following command:
 
 .. code-block:: shell
 
@@ -148,48 +148,48 @@ Enfin, exécutez la commande suivante :
 Github
 ======
 
-Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez cloner ou « forker » le dépôt github : `git://github.com/atoum/atoum.git <git://github.com/atoum/atoum.git>`_
+If you want to use atoum directly from its sources, you can clone or « fork » the github repository: `git://github.com/atoum/atoum.git <git://github.com/atoum/atoum.git>`_
 
 
-Plugin symfony 1
+Symfony 1 plugin
 ================
 
-Pour utiliser atoum au sein d'un projet symfony 1, un plug-in existe et est disponible à l'adresse suivante : `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-1-4` ainsi que sur la page github.
+The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
 
 
-Bundle Symfony 2
+Symfony 2 bundle
 ================
 
-Pour utiliser atoum au sein d'un projet Symfony 2, le bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_ est disponible.
+To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
 
-Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-2` ainsi que sur la page github.
+The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2 as well as on the github page.
 
 
-Composant Zend Framework 2
+Zend Framework 2 component
 ==========================
 
-Si vous souhaitez utiliser atoum au sein d'un projet Zend Framework 2, un composant existe et est disponible à l'adresse suivante : `https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the following address:`https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
 
-Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.
+The instructions for installation and usage are available on this page.
 
 
-La philosophie d'atoum
+The philosophy of atoum
 **********************
 
-Exemple simple
+Simple example
 ==============
 
-Vous devez écrire une classe de test pour chaque classe à tester.
+You need to write a test class for each class to test.
 
-Imaginez que vous vouliez tester la traditionnelle classe ``HelloWorld``, alors vous devez créer la classe de test ``test\units\HelloWorld``.
+Imagine that you want to test the traditional class ``HelloWorld``, then you must create the test class ``test\units\HelloWorld``.
 
 .. note::
-   atoum utilise les espaces de noms. Par exemple, pour tester la classe ``Vendor\Project\HelloWorld``, vous devez créer la classe ``Vendor\Project\tests\units\HelloWorld``.
+   atoum use namespace. For example, to test the ``Vendor\Project\HelloWorld`` class, you must create the class ``Vendor\Project\tests\units\HelloWorld``.
 
 
-Voici le code de la classe ``HelloWorld`` que nous allons tester.
+Here is the code of the ``HelloWorld`` class that we will test.
 
 .. code-block:: php
 
@@ -206,51 +206,51 @@ Voici le code de la classe ``HelloWorld`` que nous allons tester.
        }
    }
 
-Maintenant, voici le code de la classe de test que nous pourrions écrire.
+Now, here is the code of the test class that we could write.
 
 .. code-block:: php
 
    <?php
    # src/Vendor/Project/tests/units/HelloWorld.php
 
-   // La classe de test a son propre namespace :
-   // Le namespace de la classe à tester + "tests\units"
+   // The test class has is own namespace :
+   // The namespace of the tested class + "test\units"
    namespace Vendor\Project\tests\units;
 
-   // Vous devez inclure la classe à tester
+   // You must include the tested class
    require_once __DIR__ . '/../../HelloWorld.php';
 
    use atoum;
 
    /*
-    * Classe de test pour Vendor\Project\HelloWorld
+    * Test class for Vendor\Project\HelloWorld
     *
-    * Remarquez qu'elle porte le même nom que la classe à tester
-    * et qu'elle dérive de la classe atoum
+    * Note that they had the same name that the tested class
+    * and that it derives frim the atoum class
     */
    class HelloWorld extends atoum
    {
        /*
-        * Cette méthode est dédiée à la méthode getHiAtoum()
+        * This method is dedicated to the getHiAtoum() method
         */
        public function testGetHiAtoum ()
        {
            $this
-               // création d'une nouvelle instance de la classe à tester
+               // creation of a new instance of the tested class
                ->given($this->newTestedInstance)
 
-               // nous testons que la méthode getHiAtoum retourne bien
-               // une chaîne de caractère...
+               // we test that the getHiAtoum method returns 
+               // a string...
                ->string($this->testedInstance->getHiAtoum())
-                   // ... et que la chaîne est bien celle attendue,
-                   // c'est-à-dire 'Hi atoum !'
+                   // ... and that this string is the one we want,
+                   // namely 'Hi atoum !'
                    ->isEqualTo('Hi atoum !')
            ;
        }
    }
 
-Maintenant, lançons nos tests.
-Vous devriez voir quelque chose comme ça :
+Now, launch our tests.
+You should see something like this:
 
 .. code-block:: shell
 
@@ -270,18 +270,18 @@ Vous devriez voir quelque chose comme ça :
    Success (1 test, 1/1 method, 0 void method, 0 skipped method, 2 assertions)!
 
 
-Nous venons de tester que la méthode ``getHiAtoum`` :
+We just test that the method ``getHiAtoum``:
 
-* retourne bien une chaîne de caractère ;
-* que cette dernière est bien égale à ``"Hi atoum !"``.
+* returns a string;
+* that is equals to ``"Hi atoum !"``.
 
-Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
+The tests are passed, everything is green. Here, your code is solid as a rock with atoum!
 
 
-Principes de base
+Basic principles
 =================
 
-Lorsque vous voulez tester une valeur, vous devez :
+When you want to test a value, you must:
 
-* indiquer le type de cette valeur (entier, décimal, tableau, chaîne de caractères, etc.) ;
-* indiquer les contraintes devant s'appliquer à cette valeur (égal à, nulle, contenant quelque chose, etc.).
+* indicate the type of this value (integer, decimal, array, String, etc.);
+* indicate the constraints to be applied to this value (equal to, zero containing something, etc.).
