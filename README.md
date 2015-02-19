@@ -50,3 +50,12 @@ Or you can also use
 
 ### Why crowdin?
 [Crowdin](https://crowdin.com/project/atoum-documentation) is an help to see the progression of the translation.
+
+### Does we need to translate anchor?
+Anchor in the documentation appear on this form 
+
+	.. _installation-par-composer:
+
+They must stay the same. It will be easier for other people to translate other page refereing this anchor. Otherwise, you risk some broken link.
+
+
