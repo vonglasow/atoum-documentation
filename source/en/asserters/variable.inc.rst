@@ -47,13 +47,13 @@ isEqualTo
 
    $this
        ->variable($a)
-           ->isEqualTo('a')    // passe
+           ->isEqualTo('a')    // passes
    ;
 
 
 .. warning::
-   | ``isEqualTo`` ne teste pas le type de la variable.
-   | Si vous souhaitez vérifier également son type, utilisez :ref:`isIdenticalTo <variable-is-identical-to>`.
+   | ``isEqualTo`` doesn't test the type of variable.
+   | If you want also to check the type, use :ref:`isIdenticalTo <variable-is-identical-to>`.
 
 
 .. _variable-is-identical-to:
@@ -61,7 +61,7 @@ isEqualTo
 isIdenticalTo
 =============
 
-``isIdenticalTo`` vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, ``isIdenticalTo`` vérifie que les données pointent sur la même instance.
+``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. Inthe case of an object, ``isIdenticalTo`` checks that the data is referencing the on the same instance.
 
 .. code-block:: php
 
@@ -70,7 +70,7 @@ isIdenticalTo
 
    $this
        ->variable($a)
-           ->isIdenticalTo(1)          // échoue
+           ->isIdenticalTo(1)          // fails
    ;
 
    $stdClass1 = new \StdClass();
@@ -79,13 +79,13 @@ isIdenticalTo
 
    $this
        ->variable($stdClass1)
-           ->isIdenticalTo(stdClass3)  // passe
-           ->isIdenticalTo(stdClass2)  // échoue
+           ->isIdenticalTo(stdClass3)  // passes
+           ->isIdenticalTo(stdClass2)  // fails
    ;
 
 .. warning::
-   | ``isIdenticalTo`` teste le type de la variable.
-   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isEqualTo <variable-is-equal-to>`.
+   | ``isIdenticalTo`` test the type of variable.
+   | If you doesn't want its type, use :ref:`isEqualTo <variable-is-equal-to>`.
 
 
 .. _variable-is-not-callable:
@@ -93,7 +93,7 @@ isIdenticalTo
 isNotCallable
 =============
 
-``isNotCallable`` vérifie que la variable ne peut pas être appelée comme fonction.
+``isNotCallable`` checks that the variable can't be called like a function.
 
 .. code-block:: php
 
@@ -106,16 +106,16 @@ isNotCallable
 
    $this
        ->variable($f)
-           ->isNotCallable()   // échoue
+           ->isNotCallable()   // fails
 
        ->variable($int)
-           ->isNotCallable()   // passe
+           ->isNotCallable()   // passes
 
        ->variable($string)
-           ->isNotCallable()   // passe
+           ->isNotCallable()   // passes
 
        ->variable(new StdClass)
-           ->isNotCallable()   // passe
+           ->isNotCallable()   // passes
    ;
 
 .. _variable-is-not-equal-to:
@@ -123,7 +123,7 @@ isNotCallable
 isNotEqualTo
 ============
 
-``isNotEqualTo`` vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
+``isNotEqualTo`` checks that the variable is not the same value the the given one.
 
 .. code-block:: php
 
@@ -133,11 +133,11 @@ isNotEqualTo
 
    $this
        ->variable($a)
-           ->isNotEqualTo('b')     // passe
-           ->isNotEqualTo('a')     // échoue
+           ->isNotEqualTo('b')     // passes
+           ->isNotEqualTo('a')     // fails
 
        ->variable($aString)
-           ->isNotEqualTo($1)      // échoue
+           ->isNotEqualTo($1)      // fails
    ;
 
 .. warning::

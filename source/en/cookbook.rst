@@ -2,7 +2,7 @@ Cookbook
 ########
 
 
-Test d'un singleton
+Test of a singleton
 *******************
 
 Pour tester si une méthode retourne bien systématiquement la même instance d'un objet, vérifiez que deux appels successifs à la méthode testée sont bien identiques.
@@ -17,7 +17,7 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
    ;
 
 
-Utilisation dans behat
+Use in behat
 **********************
 
 .. important::
@@ -34,7 +34,7 @@ Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http:
 Étape 1 : Ajout d'un rapport xUnit à la configuration atoum
 ===========================================================
 
-Si vous n'avez pas de fichier de configuration
+If you don't have a configuration file
 ----------------------------------------------
 
 Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vous recommandons d'extraire le répertoire ressources de atoum dans celui de votre choix à l'aide de la commande suivante :
@@ -57,7 +57,7 @@ Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vo
 Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conservez le rapport par défaut d'atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.
 
 
-Si vous avez déjà un fichier de configuration
+If you already have a configuration file
 ---------------------------------------------
 
 Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajouter les lignes suivantes :
@@ -81,10 +81,10 @@ Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajoute
    $xunit->addWriter($writer);
 
 
-Étape 2 : Tester la configuration
+Step 2: Test the configuration
 =================================
 
-Pour tester cette configuration, il suffit de lancer atoum en lui précisant le fichier de configuration que vous souhaitez utiliser :
+To test this configuration, simply run atoum specifying the configuration file you want to use:
 
 .. code-block:: shell
 
@@ -100,9 +100,9 @@ Pour tester cette configuration, il suffit de lancer atoum en lui précisant le 
 Étape 3 : Lancement des tests via Jenkins (ou Hudson)
 =====================================================
 
-Il existe pour cela plusieurs possibilités selon la façon dont vous construisez votre projet :
+There are several possibilities depending on how you build your project:
 
-* Si vous utilisez un script, il vous suffit d'y ajouter la commande précédente.
+* If you use a script, simply add the previous command.
 * Si vous passez par un utilitaire tel que `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche de type exec à son fichier de configuration, de la manière suivante :
 
 .. code-block:: xml
@@ -122,7 +122,7 @@ Vous noterez l'ajout du paramètre ``-p /chemin/vers/php`` qui permet d'indiquer
 Il suffit tout simplement d'activer la publication des rapports au format JUnit ou xUnit, en fonction du plug-in que vous utilisez, en lui indiquant le chemin d'accès au fichier généré par atoum.
 
 
-Hook git
+Git hook
 ********
 
 Une bonne pratique, lorsqu'on utilise un logiciel de gestion de versions, est de ne jamais ajouter à un dépôt du code non fonctionnel, afin de pouvoir récupérer une version propre et utilisable du code à tout moment et à n'importe quel endroit de l'historique du dépôt.
@@ -133,10 +133,10 @@ Cependant, dans les faits, il est très facile pour le développeur d'omettre ce
 
 Heureusement, les logiciels de gestion de versions en général et Git en particulier dispose d'un mécanisme, connu sous le nom de hook de pré-commit permettant d'exécuter automatiquement des tâches lors de l'ajout de code dans un dépôt.
 
-L'installation d'un hook de pré-commit est très simple et se déroule en deux étapes.
+The installation of a pre-commit hook is very simple and takes place in two stages.
 
 
-Étape 1 : Création du script à exécuter
+Step 1: Creation of the script to run
 =======================================
 
 Lors de l'ajout de code à un dépôt, Git recherche le fichier ``.git/hook/pre-commit`` à la racine du dépôt et l'exécute s'il existe et qu'il dispose des droits nécessaires.

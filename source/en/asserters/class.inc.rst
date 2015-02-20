@@ -3,7 +3,7 @@
 class
 *****
 
-C'est l'assertion dédiée aux classes.
+It's the assertion dedicated to classes.
 
 .. code-block:: php
 
@@ -17,27 +17,27 @@ C'est l'assertion dédiée aux classes.
    ;
 
 .. note::
-   Le mot-clef ``class`` étant réservé en PHP, il n'a pas été possible de créer une assertion ``class``. Elle s'appelle donc ``phpClass`` et un alias ``class`` a été créé. Vous pourrez donc rencontrer des ``->phpClass()`` ou des ``->class()``.
+   The keyword ``class`` is a reserved word in PHP, it wasn't possible to create a ``class`` asserter. It's therefore called ``phpClass`` and an alias ``class`` has been created. You can meet both ``->phpClass()`` or ``->class()``.
 
 
-Il est conseillé d'utiliser exclusivement ``->class()``.
+But it's recommended to only use ``->class()``.
 
 .. _has-interface:
 
 hasInterface
 ============
 
-``hasInterface`` vérifie que la classe implémente une interface donnée.
+``hasInterface`` checks that the class implements a given interface.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\ArrayIterator')
-           ->hasInterface('Countable')     // passe
+           ->hasInterface('Countable')     // passes
 
        ->class('\StdClass')
-           ->hasInterface('Countable')     // échoue
+           ->hasInterface('Countable')     // fails
    ;
 
 .. _has-method:
@@ -45,17 +45,17 @@ hasInterface
 hasMethod
 =========
 
-``hasMethod`` vérifie que la classe contient une méthode donnée.
+``hasMethod`` checks that the class contains a given method.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\ArrayIterator')
-           ->hasMethod('count')    // passe
+           ->hasMethod('count')    // passes
 
        ->class('\StdClass')
-           ->hasMethod('count')    // échoue
+           ->hasMethod('count')    // fails
    ;
 
 .. _has-no-parent:
@@ -63,22 +63,22 @@ hasMethod
 hasNoParent
 ===========
 
-``hasNoParent`` vérifie que la classe n'hérite d'aucune classe.
+``hasNoParent`` checks that the class doesn't  inherit from any class.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\StdClass')
-           ->hasNoParent()     // passe
+           ->hasNoParent()     // passes
 
        ->class('\FilesystemIterator')
-           ->hasNoParent()     // échoue
+           ->hasNoParent()     // fails
    ;
 
 .. warning::
-   | Une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
-   | ``hasNoParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
+   | A class can implement one or more interfaces, and inherit from no class.
+   | ``hasNoParent`` doesn't check interfaces, only the inherited classes.
 
 
 .. _has-parent:
@@ -86,22 +86,22 @@ hasNoParent
 hasParent
 =========
 
-``hasParent`` vérifie que la classe hérite bien d'une classe.
+``hasParent`` checks that the class inherits from a given class.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\StdClass')
-           ->hasParent()       // échoue
+           ->hasParent()       // fails
 
        ->class('\FilesystemIterator')
-           ->hasParent()       // passe
+           ->hasParent()       // passes
    ;
 
 .. warning::
-   | Une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
-   | ``hasParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
+   | A class can implement one or more interfaces, and inherit from no class.
+   | ``hasParent`` doesn't check interfaces, only the inherited classes.
 
 
 .. _is-abstract:
@@ -109,14 +109,14 @@ hasParent
 isAbstract
 ==========
 
-``isAbstract`` vérifie que la classe est abstraite.
+``isAbstract`` checks that the class is abstract.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\StdClass')
-           ->isAbstract()       // échoue
+           ->isAbstract()       // fails
    ;
 
 .. _is-subclass-of:
@@ -124,14 +124,14 @@ isAbstract
 isSubclassOf
 ============
 
-``isSubclassOf`` vérifie que la classe hérite de la classe donnée.
+``isSubclassOf`` checks that the class inherit from the given class.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\FilesystemIterator')
-           ->isSubclassOf('\DirectoryIterator')    // passe
-           ->isSubclassOf('\SplFileInfo')          // passe
-           ->isSubclassOf('\StdClass')             // échoue
+           ->isSubclassOf('\DirectoryIterator')    // passes
+           ->isSubclassOf('\SplFileInfo')          // passes
+           ->isSubclassOf('\StdClass')             // fails
    ;
