@@ -64,7 +64,7 @@ If there is no newer version, atoum will stop immediately:
    Checking if a new version is available... Done !
    There is no new version available !
 
-atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.
+atoum doesn't require any confirmation from the user to be upgraded, because it's very easy to get back to a previous version.
 
 List the versions contained in the archive
 --------------------------------------------
