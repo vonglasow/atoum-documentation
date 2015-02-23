@@ -174,7 +174,7 @@ To resolve this problem, you can reset a mock in 2 different ways:
 
 These methods erase the memory of the controller, so it's now possible to write the next assertion like if the mock was never used.
 
-Le mot-clef ``assert`` permet de se passer de l'appel explicite à ``resetCalls()`` ou ``resetMock`` et de plus il provoque l'effacement de la mémoire de l'ensemble des adaptateurs et des contrôleurs de mock définis au moment de son utilisation.
+The keyword ``assert`` avoids the need for explicitcall to ``resetCalls()`` or ``esetMock`` and also it 'll erase the memory of adapters and mock's controllers defined at the time of  use.
 
 Grâce à lui, il est donc possible d'écrire le test précédent d'une façon plus simple et plus lisible, d'autant qu'il est possible de passer une chaîne de caractère à assert afin d'expliquer le rôle des assertions suivantes :
 
@@ -940,16 +940,16 @@ atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
    Reportez-vous à la documentation sur l'assertion :ref:`mock-asserter` pour obtenir plus d'informations sur les tests des bouchons.
 
 
-The mocking (mock) of native PHP functions
-******************************************
-atoum allow to easyly simulate the behavious of native PHP functions.
+Le bouchonnage (mock) des fonctions natives de PHP
+**************************************************
+atoum permet de très facilement simuler le comportement des fonctions natives de PHP.
 
 .. code-block:: php
 
    <?php
    
    $this
-      ->assert('the file exist')
+      ->assert('le fichier nexiste')
          ->given($this->newTestedInstance())
          ->if($this->function->file_exists = true)
          ->then
@@ -957,7 +957,7 @@ atoum allow to easyly simulate the behavious of native PHP functions.
             ->isTestedInstance()
             ->function('file_exists')->wasCalled()->once()
 
-      ->assert('le fichier does not exist')
+      ->assert('le fichier nexiste pas')
          ->given($this->newTestedInstance())
          ->if($this->function->file_exists = false )
          ->then
@@ -965,10 +965,10 @@ atoum allow to easyly simulate the behavious of native PHP functions.
    ;
 
 .. important::
-   The \ is not allowed before any functions to simulate because atoum take the resolution mecanisme of PHP's namespace
+   On ne peut pas mettre de \ devant les fonctions a simulé car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
    
 .. important::
-   For the same reason, if a native function was already called before, his mocking will be without any effect.
+   Pour la meme raison, si une fonction native a déjà été appelée son bouchonnage sera sans effet.
 
 .. code-block:: php
 
@@ -976,14 +976,14 @@ atoum allow to easyly simulate the behavious of native PHP functions.
    
    $this
       ->given($this->newTestedInstance())
-      ->exception(function() { $this->testedInstance->loadConfigFile(); }) // the function file_exists and is called before is mocking
+      ->exception(function() { $this->testedInstance->loadConfigFile(); }) //la fonction file_exists est appelée avant son bouchonnage
          
-      ->if($this->function->file_exists = true ) // the mocking can tak the place of the native function file_exists
+      ->if($this->function->file_exists = true ) // le bouchonnage ne pourra pas prendre la place de la fonction native file_exists
       ->object($this->testedInstance->loadConfigFile()) 
          ->isTestedInstance()
    ;
 
-The annotations
+Les annotations
 ***************
 
 @dataProvider
