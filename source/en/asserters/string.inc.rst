@@ -3,14 +3,14 @@
 string
 ******
 
-C'est l'assertion dédiée aux chaînes de caractères.
+It's the assertion dedicated to the strings.
 
 .. _string-contains:
 
 contains
 ========
 
-``contains`` vérifie qu'une chaîne de caractère contient une autre chaîne de caractère donnée.
+``contains`` checks that a string contains a given string.
 
 .. code-block:: php
 
@@ -19,9 +19,9 @@ contains
 
    $this
        ->string($string)
-           ->contains('ll')    // passe
-           ->contains(' ')     // passe
-           ->contains('php')   // échoue
+           ->contains('ll')    // passes
+           ->contains(' ')     // passes
+           ->contains('php')   // fails
    ;
 
 .. _string-has-length:
@@ -29,7 +29,7 @@ contains
 hasLength
 =========
 
-``hasLength`` vérifie la taille d'une chaîne de caractères.
+``hasLength`` checks the size of the string.
 
 .. code-block:: php
 
@@ -38,8 +38,8 @@ hasLength
 
    $this
        ->string($string)
-           ->hasLength(11)     // passe
-           ->hasLength(20)     // échoue
+           ->hasLength(11)     // passes
+           ->hasLength(20)     // fails
    ;
 
 .. _string-has-length-greater-than:
@@ -47,7 +47,7 @@ hasLength
 hasLengthGreaterThan
 ====================
 
-``hasLengthGreaterThan`` vérifie que la taille d'une chaîne de caractères est plus grande qu'une valeur donnée.
+``hasLengthGreaterThan`` checks that the size of a string is grater that the given one.
 
 .. code-block:: php
 
@@ -56,8 +56,8 @@ hasLengthGreaterThan
 
    $this
        ->string($string)
-           ->hasLengthGreaterThan(10)     // passe
-           ->hasLengthGreaterThan(20)     // échoue
+           ->hasLengthGreaterThan(10)     // passes
+           ->hasLengthGreaterThan(20)     // fails
    ;
 
 .. _string-has-length-less-than:
@@ -65,7 +65,7 @@ hasLengthGreaterThan
 hasLengthLessThan
 =================
 
-``hasLengthLessThan`` vérifie que la taille d'une chaîne de caractères est plus petite qu'une valeur donnée.
+``hasLengthLessThan`` checks that the size of the string is shorter that the given one.
 
 .. code-block:: php
 
@@ -74,8 +74,8 @@ hasLengthLessThan
 
    $this
        ->string($string)
-           ->hasLengthLessThan(20)     // passe
-           ->hasLengthLessThan(10)     // échoue
+           ->hasLengthLessThan(20)     // passes
+           ->hasLengthLessThan(10)     // fails
    ;
 
 .. _string-is-empty:
@@ -83,7 +83,7 @@ hasLengthLessThan
 isEmpty
 =======
 
-``isEmpty`` vérifie qu'une chaîne de caractères est vide.
+``isEmpty`` checks that a string is empty.
 
 .. code-block:: php
 
@@ -93,10 +93,10 @@ isEmpty
 
    $this
        ->string($emptyString)
-           ->isEmpty()             // passe
+           ->isEmpty()             // passes
 
        ->string($nonEmptyString)
-           ->isEmpty()             // échoue
+           ->isEmpty()             // fails
    ;
 
 .. _string-is-equal-to:
@@ -105,8 +105,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
+   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:```variable::isEqualTo`` <variable-is-equal-to>`
 
 
 .. _string-is-equal-to-contents-of-file:
@@ -114,7 +114,7 @@ isEqualTo
 isEqualToContentsOfFile
 =======================
 
-``isEqualToContentsOfFile`` vérifie qu'une chaîne de caractère est égale au contenu d'un fichier donné par son chemin.
+``isEqualToContentsOfFile`` checks that a string is equal to the content of a file given by its path.
 
 .. code-block:: php
 
@@ -125,7 +125,7 @@ isEqualToContentsOfFile
    ;
 
 .. note::
-   si le fichier n'existe pas, le test échoue.
+   if the file doesn't exist, the test will fails.
 
 
 .. _string-is-identical-to:
@@ -134,8 +134,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
+   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
 
 
 .. _string-is-not-empty:
@@ -143,7 +143,7 @@ isIdenticalTo
 isNotEmpty
 ==========
 
-``isNotEmpty`` vérifie qu'une chaîne de caractères n'est pas vide.
+``isNotEmpty`` checks that the string is not empty.
 
 .. code-block:: php
 
@@ -153,10 +153,10 @@ isNotEmpty
 
    $this
        ->string($emptyString)
-           ->isNotEmpty()          // échoue
+           ->isNotEmpty()          // fails
 
        ->string($nonEmptyString)
-           ->isNotEmpty()          // passe
+           ->isNotEmpty()          // passes
    ;
 
 .. _string-is-not-equal-to:
@@ -165,8 +165,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
+   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
 
 
 .. _string-is-not-identical-to:
@@ -175,8 +175,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
+   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
 
 
 .. _length-anchor:
@@ -184,7 +184,7 @@ isNotIdenticalTo
 length
 ======
 
-``length`` vous permet de récupérer un asserter de type :ref:`integer <integer-anchor>` contenant la taille de la chaîne de caractères testée.
+``length`` allows you to get an asserter of type :ref:`integer <integer-anchor>` that contains the string's size.
 
 .. code-block:: php
 
@@ -202,20 +202,20 @@ length
 match
 =====
 
-``match`` vérifie qu'une expression régulière correspond à la chaîne de caractères.
+``match`` checks that a regular expression match the string.
 
 .. code-block:: php
 
    <?php
    $phone = '0102030405';
-   $vdm   = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+   $vdm   = "Today at 57 years, my father got a tatoot of a Unicorn on his shoulder. VDM";
 
    $this
        ->string($phone)
            ->match('#^0[1-9]\d{8}$#')
 
        ->string($vdm)
-           ->match("#^Aujourd'hui.*VDM$#")
+           ->match("#^Today *VDM$#")
    ;
 
 .. _string-not-contains:
@@ -223,7 +223,7 @@ match
 notContains
 ===========
 
-``notContains`` vérifie qu'une chaîne de caractère ne contient pas une autre chaîne de caractère donnée.
+``notContains`` checks that a string doesn't contains another given string.
 
 .. code-block:: php
 
@@ -232,8 +232,8 @@ notContains
 
    $this
        ->string($string)
-           ->notContains('php')   // passe
-           ->notContains(';')     // passe
-           ->notContains('ll')    // échoue
-           ->notContains(' ')     // échoue
+           ->notContains('php')   // passes
+           ->notContains(';')     // passes
+           ->notContains('ll')    // fails
+           ->notContains(' ')     // fails
    ;
