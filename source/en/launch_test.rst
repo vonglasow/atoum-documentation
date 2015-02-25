@@ -61,7 +61,7 @@ In the following examples, the commands to launch tests with atoum will be writt
 
    $ ./bin/atoum
 
-C'est exactement la commande que vous pourriez utiliser si vous avez :ref:`installation-par-composer` sous Linux.
+This is exactly the command that you might use if you had  :ref:`installation-par-composer` under Linux.
 
 
 .. _fichiers-a-executer:
@@ -145,11 +145,11 @@ If you change the name of the class by "*", that is to say that you filter by me
 Tags
 ====
 
-Tout comme de nombreux outils dont `Behat <http://behat.org>`_, atoum vous permet de tagger vos tests unitaires et de n'exécuter que ceux ayant un ou plusieurs tags spécifiques.
+Like many tools including `Behat <http://behat.org>`_, atoum allows you to tag your unit tests and run only this with one or more specific tags.
 
-Pour cela, il faut commencer par définir un ou plusieurs tags pour une ou plusieurs classes de tests unitaires.
+For this, we must start by defining one or more tags to one or several classes of unit tests.
 
-Cela se fait très simplement grâce aux annotations et à la balise @tags:
+This is easily done through annotations and the tag @tags:
 
 .. code-block:: php
 
@@ -199,7 +199,7 @@ In the same way, it is also possible to tag test methods.
        }
    }
 
-Une fois les tags nécessaires définis, il n'y a plus qu'à exécuter les tests avec le ou les tags adéquates à l'aide de l'option --tags, ou -t dans sa version courte:
+Once the necessary tags defined, just have to run the tests with the appropriate tags by using the option --tags, or -t in its short version:
 
 .. code-block:: shell
 
@@ -227,7 +227,7 @@ If you name your configuration file ``. atoum.php``, atoum will load it automati
 Code coverage
 ==================
 
-Par défaut, si PHP dispose de l'extension `Xdebug <http://xdebug.org>`_, atoum indique en ligne de commande le taux de couverture du code par les tests venant d'être exécutés.
+By default, if PHP has the extension `Xdebug <http://xdebug.org>`_, atoum indicates in command line, the rate of tests code coverage.
 
 If the coverage rate is 100%, atoum merely indicated. But otherwise, it displays the overall coverage and that of each method of the class tested in the form of a percentage.
 
@@ -272,9 +272,9 @@ Once the extraction is done, you should have in the directory/path/to/destinatio
 
 Dans le cas où vous utilisez atoum en ayant cloné le dépôt :ref:`installation-par-github` ou l'ayant installé via :ref:`installation-par-composer`, les modèles se trouvent dans ``/path/to/atoum/resources/configurations/runner``
 
-Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration pour atoum nommé ``coverage.php.dist`` qu'il vous faudra copier à l'emplacement de votre choix. Renommez le ``coverage.php``.
+In this directory, there is, among other interesting things, a template of configuration file for atoum named ``coverage.php.dist`` that you need to copy to the location of your choice. Rename the ``coverage.php``.
 
-Une fois le fichier copié, il n'y a plus qu'à le modifier à l'aide de l'éditeur de votre choix afin de définir le répertoire dans lequel les fichiers HTML devront être générés ainsi que l'URL à partir de laquelle le rapport devra être accessible.
+After copying the file, just have to change it with the editor of your choice to define the directory where the HTML files will be generated and the URL from which the report should be accessible.
 
 For exemple:
 
@@ -297,10 +297,10 @@ Once this is done, you just have to use the configuration file when running the 
 
    $ ./bin/atoum -c path/to/coverage.php -d tests/units
 
-Une fois les tests exécutés, atoum génèrera alors le rapport de couverture du code au format HTML dans le répertoire que vous aurez défini précédemment, et il sera lisible à l'aide du navigateur de votre choix.
+Once the tests run, atoum generate the code coverage report in HTML format in the directory that you set earlier, and it will be readable using the browser of your choice.
 
 .. note::
-   Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l'exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
+   The calculation of code coverage by tests as well as the generation of the corresponding report may slow significantly the performance of the tests. Then it can be interesting, not to systematically use the corresponding configuration file, or disable them temporarily using the -ncc argument.
 
 
 .. _notifications-anchor:
@@ -308,19 +308,19 @@ Une fois les tests exécutés, atoum génèrera alors le rapport de couverture d
 Notifications
 =============
 
-atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : `Growl`_, `Mac OS X Notification Center`_, `Libnotify`_.
+atoum is able to warn you when the tests are run using several notification system: `Growl`_, `Mac OS X Notification Center`_, `Libnotify`_.
 
 
 Growl
 -----
 
-Cette fonctionnalité nécessite la présence de l'exécutable ``growlnotify``. To check if it is available, use the following command:
+This feature requires the presence of the executable ``growlnotify``. To check if it is available, use the following command:
 
 .. code-block:: shell
 
    $ which growlnotify
 
-Vous aurez alors le chemin de l'exécutable ou alors le message ``growlnotify not found`` s'il n'est pas installé.
+You will have the path to the executable or the message ``growlnotify not found`` if it is not installed.
 
 Then just add the following code to your configuration file:
 
@@ -431,18 +431,18 @@ En ligne de commande, il faut utiliser au choix l'argument -bf ou l'argument --b
    $ ./bin/atoum -bf path/to/bootstrap/file
 
 .. note::
-   Un fichier de bootstrap n'est pas un fichier de configuration et n'a donc pas les mêmes possibilités.
+   A bootstrap file is not a configuration file and therefore does not have the same opportunities.
 
 
-Dans un fichier de configuration, atoum est configurable via la variable $runner, qui n'est pas définie dans un fichier de ``bootstrap``.
+In a configuration file, atoum is configurable via the $runner variable, which is not defined in a ``bootstrap`` file.
 
-De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l'exécution des tests mais après le lancement des tests, alors que le fichier de ``bootstrap``, s'il est défini, est le tout premier fichier inclus par atoum proprement dit. Enfin, le fichier de ``bootstrap`` peut permettre de ne pas avoir à inclure systématiquement le fichier scripts/runner.php ou l'archive PHAR de atoum dans les classes de test.
+De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l'exécution des tests mais après le lancement des tests, alors que le fichier de ``bootstrap``, s'il est défini, est le tout premier fichier inclus par atoum proprement dit. Finally, the ``bootstrap`` file can allow to not have to systematically include the scripts/runner.php file or atoum PHAR archive in test classes.
 
-Cependant, dans ce cas, il ne sera plus possible d'exécuter directement un fichier de test directement via l'exécutable PHP en ligne de commande.
+However, in this case, it will not be possible to directly execute a test file directly from the PHP executable in command line.
 
-Pour cela, il suffit d'inclure dans le fichier de ``bootstrap`` le fichier scripts/runner.php ou l'archive PHAR de atoum et d'exécuter systématiquement les tests en ligne de commande via scripts/runner.php ou l'archive PHAR.
+To do this, simply include in the ``bootstrap`` the file scripts/runner.php or PHAR archive of atoum and systematically execute tests by command line via scripts/runner.php or 'PHAR archive.
 
-Le fichier de ``bootstrap`` doit donc au minimum contenir ceci:
+Therefore, the "bootstrap" file must at least contain this:
 
 .. code-block:: php
 

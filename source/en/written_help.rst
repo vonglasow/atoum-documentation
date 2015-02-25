@@ -940,16 +940,16 @@ atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
    Reportez-vous à la documentation sur l'assertion :ref:`mock-asserter` pour obtenir plus d'informations sur les tests des bouchons.
 
 
-Le bouchonnage (mock) des fonctions natives de PHP
-**************************************************
-atoum permet de très facilement simuler le comportement des fonctions natives de PHP.
+The mocking (mock) of native PHP functions
+******************************************
+atoum allow to easyly simulate the behavious of native PHP functions.
 
 .. code-block:: php
 
    <?php
    
    $this
-      ->assert('le fichier nexiste')
+      ->assert('the file exist')
          ->given($this->newTestedInstance())
          ->if($this->function->file_exists = true)
          ->then
@@ -957,7 +957,7 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
             ->isTestedInstance()
             ->function('file_exists')->wasCalled()->once()
 
-      ->assert('le fichier nexiste pas')
+      ->assert('le fichier does not exist')
          ->given($this->newTestedInstance())
          ->if($this->function->file_exists = false )
          ->then
@@ -965,10 +965,10 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
    ;
 
 .. important::
-   On ne peut pas mettre de \ devant les fonctions a simulé car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
+   The \ is not allowed before any functions to simulate because atoum take the resolution mecanisme of PHP's namespace.
    
 .. important::
-   Pour la meme raison, si une fonction native a déjà été appelée son bouchonnage sera sans effet.
+   For the same reason, if a native function was already called before, his mocking will be without any effect.
 
 .. code-block:: php
 
@@ -976,14 +976,14 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
    
    $this
       ->given($this->newTestedInstance())
-      ->exception(function() { $this->testedInstance->loadConfigFile(); }) //la fonction file_exists est appelée avant son bouchonnage
+      ->exception(function() { $this->testedInstance->loadConfigFile(); }) // the function file_exists and is called before is mocking
          
-      ->if($this->function->file_exists = true ) // le bouchonnage ne pourra pas prendre la place de la fonction native file_exists
+      ->if($this->function->file_exists = true ) // the mocking can tak the place of the native function file_exists
       ->object($this->testedInstance->loadConfigFile()) 
          ->isTestedInstance()
    ;
 
-Les annotations
+The annotations
 ***************
 
 @dataProvider
