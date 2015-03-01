@@ -436,7 +436,7 @@ En ligne de commande, il faut utiliser au choix l'argument -bf ou l'argument --b
 
 In a configuration file, atoum is configurable via the $runner variable, which is not defined in a ``bootstrap`` file.
 
-De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l'exécution des tests mais après le lancement des tests, alors que le fichier de ``bootstrap``, s'il est défini, est le tout premier fichier inclus par atoum proprement dit. Finally, the ``bootstrap`` file can allow to not have to systematically include the scripts/runner.php file or atoum PHAR archive in test classes.
+Moreover, they are not included at the same time, since the configurations file is included by atoum before the tests run but after tests launch., while the ``bootstrap``, if it's define, is the first file included by atoum itself. Finally, the ``bootstrap`` file can allow to not have to systematically include the scripts/runner.php file or atoum PHAR archive in test classes.
 
 However, in this case, it will not be possible to directly execute a test file directly from the PHP executable in command line.
 
