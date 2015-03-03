@@ -25,7 +25,7 @@ Use in behat
    ([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
 
 
-Utilisation dans Jenkins (ou Hudson)
+Use inside Jenkins (or Hudson)
 ************************************
 
 Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http://jenkins-ci.org/>`_ (ou `Hudson <http://hudson-ci.org/>`_) en tant que résultats xUnit.
@@ -568,25 +568,25 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 
 .. _utilisation-avec-symfony-1-4:
 
-Utilisation avec symfony 1.4
+Use withn symfony 1.4
 ****************************
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+if you wich to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
 
 Installation
 ============
 
-Il existe plusieurs méthodes d'installation du plugin dans votre projet :
+There are several way to install this plugin in your project:
 
 * installation via composer
-* installation via des submodules git
+* installation via git submodules
 
 
-En utilisant composer
+Using composer
 ---------------------
 
-Ajouter ceci dans le composer.json :
+Ad this lines inside the composer.json file:
 
 .. code-block:: json
 
@@ -594,9 +594,9 @@ Ajouter ceci dans le composer.json :
      "atoum/sfAtoumPlugin": "*"
    },
 
-Après avoir effectué un ``php composer.phar update``, le plugin devrait se trouver dans le dossier plugins et atoum dans un dossier ``vendor``.
+After a ``php composer.phar update`` the plugin should be in the plugin folder and atoum in the ``vendor`` folder.
 
-Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le chemin d'atoum.
+Then in your ProjectConfiguration file you have to activate the plugin and define the atoum path.
 
 .. code-block:: php
 
@@ -609,22 +609,22 @@ Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le ch
    }
 
 
-En utilisant des submodules git
+Using a git submodule
 -------------------------------
 
-Il faut tout d'abord ajouter atoum en tant que submodule :
+First, install atoum as a submodule:
 
 .. code-block:: shell
 
    $ git submodule add git://github.com/atoum/atoum.git lib/vendor/atoum
 
-Puis ensuite ajouter le sfAtoumPlugin en tant que submodule :
+Then install sfAtoumPlugin as a git submodule:
 
 .. code-block:: shell
 
    $ git submodule add git://github.com/atoum/sfAtoumPlugin.git plugins/sfAtoumPlugin
 
-Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
+Finally, enable the plugin in in your ProjectConfiguration file:
 
 .. code-block:: php
 
@@ -635,10 +635,10 @@ Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
    }
 
 
-Ecrire les tests
+Write tests
 ================
 
-Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
+Tests must include the bootstrap file from the plugin:
 
 .. code-block:: php
 
@@ -646,18 +646,18 @@ Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
    require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 
 
-Lancer les tests
+Launch tests
 ================
 
-La commande symfony atoum:test est disponible. Les tests peuvent alors se lancer de cette façon :
+The symfony command atoum:test is available. The tests can then be launched in this way:
 
 .. code-block:: shell
 
    $ ./symfony atoum:test
 
-Toutes les paramètres d'atoum sont disponibles.
+All the arguments of atoum are available.
 
-Il est donc, par exemple, possible de passer un fichier de configuration comme ceci :
+It's therefore, for example, possible to give a configuration file like this:
 
 .. code-block:: php
 

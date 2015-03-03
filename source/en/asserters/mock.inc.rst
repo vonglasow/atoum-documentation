@@ -3,7 +3,7 @@
 mock
 ****
 
-C'est l'assertion dédiée aux bouchons.
+This is the asserter for mocks.
 
 .. code-block:: php
 
@@ -15,7 +15,7 @@ C'est l'assertion dédiée aux bouchons.
    ;
 
 .. note::
-   Reportez-vous à la documentation sur :ref:`les bouchons (mock) <les-bouchons-mock>` pour obtenir plus d'informations sur la façon de créer et gérer les bouchons.
+   Refer to the documentation on :ref:`mock <les-bouchons-mock>` for more information on how to create and manage mocks.
 
 
 .. _call-anchor:
@@ -23,7 +23,7 @@ C'est l'assertion dédiée aux bouchons.
 call
 ====
 
-``call`` permet de spécifier une méthode du mock à tester, son appel doit être suivi d'un appel à une méthode de vérification d'appel comme `atLeastOnce`_, `once/twice/thrice`_, `exactly`_, etc...
+``call`` let you specify which method of the mock to check, his call must be followed by a call to one of the following verification method like `atLeastOnce`_, `once/twice/thrice`_, `exactly`_, etc...
 
 .. code-block:: php
 
@@ -33,7 +33,7 @@ call
        ->given($mock = new \mock\MyFirstClass)
        ->and($object = new MySecondClass($mock))
 
-       ->if($object->methodThatCallMyMethod())  // Cela va appeler la méthode myMethod de $mock
+       ->if($object->methodThatCallMyMethod())  // This will call myMethod from $mock
        ->then
 
        ->mock($mock)
@@ -46,7 +46,7 @@ call
 atLeastOnce
 ```````````
 
-``atLeastOnce`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé a été appelée au moins une fois.
+``atLeastOnce`` check that the tested method (see :ref:`call <call-anchor>`) from the mock has been called at least once.
 
 .. code-block:: php
 
@@ -66,7 +66,7 @@ atLeastOnce
 exactly
 ```````
 
-``exactly`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé exactement un certain nombre de fois.
+``exactly`` check that the tested method (see :ref:`call <call-anchor>`) has been called a specific number of times.
 
 .. code-block:: php
 
@@ -86,7 +86,7 @@ exactly
 never
 `````
 
-``never`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé n'a jamais été appelée.
+``never`` check that the tested method (see :ref:`call <call-anchor>`) has never been called.
 
 .. code-block:: php
 
@@ -102,18 +102,18 @@ never
    ;
 
 .. note::
-   ``never`` est équivalent à ``:ref:`exactly <exactly-anchor>`(0)``.
+   ``never`` is equivalent to ``:ref:`exactly <exactly-anchor>`(0)``.
 
 
 .. _once-twice-thrice:
 
 once/twice/thrice
 `````````````````
-Ces assertions vérifient que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé a été appelée exactement :
+This asserters check that the tested method (see :ref:`call <call-anchor>`) from the tested mock has been called exactly:
 
-* une fois (once)
-* deux fois (twice)
-* trois fois (thrice)
+* once
+* twice
+* thrice
 
 .. code-block:: php
 
@@ -133,7 +133,7 @@ Ces assertions vérifient que la méthode testée (voir :ref:`call <call-anchor>
    ;
 
 .. note::
-   ``once``, ``twice`` et ``thrice`` sont respectivement équivalents à un appel à ``:ref:`exactly <exactly-anchor>`(1)``, ``:ref:`exactly <exactly-anchor>`(2)`` et ``:ref:`exactly <exactly-anchor>`(3)``.
+   ``once``, ``twice`` and ``thrice`` are respectively equivalent to ``:ref:`exactly <exactly-anchor>`(1)``, ``:ref:`exactly <exactly-anchor>`(2)`` and ``:ref:`exactly <exactly-anchor>`(3)``.
 
 
 .. _with-any-arguments:

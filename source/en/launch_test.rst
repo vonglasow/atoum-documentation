@@ -93,7 +93,7 @@ To run a test in a folder, simply use the -d option or --directories.
 Filters
 *******
 
-Une fois que vous avez préciser à atoum les `fichiers à exécuter`_, vous pouvez filtrer ce qui sera réellement exécuter.
+Once you have told to atoum :ref:`which files it must execute <files-to-execute>`, you will be able to filter what will really be executed.
 
 .. _filtres-par-namespace:
 
@@ -270,7 +270,7 @@ If you use the PHAR archive, it must retrieve them by using the following comman
 
 Once the extraction is done, you should have in the directory/path/to/destination/directory a directory called resources/configurations/runner.
 
-Dans le cas où vous utilisez atoum en ayant cloné le dépôt :ref:`installation-par-github` ou l'ayant installé via :ref:`installation-par-composer`, les modèles se trouvent dans ``/path/to/atoum/resources/configurations/runner``
+If you are using atoum with a github repository clone :ref:`installation-par-github` or with composer :ref:`installation-par-composer`, the models can be found in ``/path/to/atoum/resources/configurations/runner``
 
 In this directory, there is, among other interesting things, a template of configuration file for atoum named ``coverage.php.dist`` that you need to copy to the location of your choice. Rename the ``coverage.php``.
 
@@ -342,16 +342,16 @@ Then just add the following code to your configuration file:
 Mac OS X Notification Center
 ----------------------------
 
-Cette fonctionnalité nécessite la présence de l'exécutable ``terminal-notifier``. To check if it is available, use the following command:
+This feature uses the ``terminal-notifier`` utility. To check if it is available, use the following command:
 
 .. code-block:: shell
 
    $ which terminal-notifier
 
-Vous aurez alors le chemin de l'exécutable ou alors le message ``terminal-notifier not found`` s'il n'est pas installé.
+You will have the path to the executable or the message ``terminal-notifier not found`` if it is not installed.
 
 .. note::
-   Rendez-vous sur `la page Github du projet <https://github.com/alloy/terminal-notifier>`_ pour obtenir plus d'information sur l'installation de ``terminal-notifier``.
+   Visit `the project's Github page <https://github.com/alloy/terminal-notifier>`_ to get more information on ``terminal-notifier``.
 
 
 Then just add the following code to your configuration file:
@@ -364,7 +364,7 @@ Then just add the following code to your configuration file:
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
 
-Sous OS X, vous avez la possibilité de définir une commande qui sera exécutée lorsque l'utilisateur cliquera sur la notification.
+On OS X, you can define a command to be executed when the user clicks on the notification.
 
 .. code-block:: php
 
@@ -384,7 +384,7 @@ Sous OS X, vous avez la possibilité de définir une commande qui sera exécuté
        ->addField($notifier, array(atoum\runner::runStop))
    ;
 
-L'exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l'utilisateur clique sur la notification.
+The example above shows how to automatically open the code coverage report when the user clicks on the notification.
 
 
 Libnotify
