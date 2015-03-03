@@ -284,4 +284,4 @@ Basic principles
 When you want to test a value, you must:
 
 * indicate the type of this value (integer, decimal, array, String, etc.);
-* indicate the constraints to be applied to this value (equal to, zero containing something, etc.).
+* indicate what you are expecting the value to be (equal to, null, containing a substring, ...).
