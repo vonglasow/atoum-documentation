@@ -141,9 +141,9 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) from
 withAnyArguments
 ````````````````
 
-``withAnyArguments`` permet de ne pas spécifier les arguments attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
+``withAnyArguments`` allow to check any argument, non-specified, when we call the tested method (see :ref:`call <call-anchor>`) of the tested mock.
 
-Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l'exemple suivant :
+This method is useful to reset the arguments of the tested method, like in the following example:
 
 .. code-block:: php
 
@@ -165,7 +165,7 @@ Cette méthode est surtout utile pour remettre à zéro les arguments, comme dan
 withArguments
 `````````````
 
-``withArguments`` permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
+``withArguments`` let you specify the expected arguments that the tested method should receive when called (see :ref:`call <call-anchor>`).
 
 .. code-block:: php
 
@@ -181,8 +181,8 @@ withArguments
    ;
 
 .. warning::
-   | ``withArguments`` ne teste pas le type des arguments.
-   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`withIdenticalArguments <with-identical-arguments>`.
+   | ``withArguments`` does not check the arguments type.
+   | If you also want to check the type, use :ref:`withIdenticalArguments <with-identical-arguments>`.
 
 
 .. _with-identical-arguments:
@@ -190,7 +190,7 @@ withArguments
 withIdenticalArguments
 ``````````````````````
 
-``withIdenticalArguments`` permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
+``withIdenticalArguments`` let you specify the expected arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
 
 .. code-block:: php
 
@@ -206,8 +206,8 @@ withIdenticalArguments
    ;
 
 .. warning::
-   | ``withIdenticalArguments`` teste le type des arguments.
-   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withArguments <with-arguments>`.
+   | ``withIdenticalArguments`` checks the arguments type.
+   |  If you do not want to check the type, use :ref:`withArguments <with-arguments>`.
 
 
 .. _was-called:
@@ -215,7 +215,7 @@ withIdenticalArguments
 wasCalled
 =========
 
-``wasCalled`` vérifie qu'au moins une méthode du mock a été appelée au moins une fois.
+``wasCalled`` checks that at least one method of the mock has been called at least once.
 
 .. code-block:: php
 
@@ -234,7 +234,7 @@ wasCalled
 wasNotCalled
 ============
 
-``wasNotCalled`` vérifie qu'aucune méthode du mock n'a été appelée.
+``wasNotCalled`` checks that no method of the mock has been called.
 
 .. code-block:: php
 

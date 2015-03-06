@@ -3,7 +3,7 @@
 float
 *****
 
-C'est l'assertion dédiée aux nombres décimaux.
+It's the assertion dedicated to decimal numbers.
 
 Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
 
