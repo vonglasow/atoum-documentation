@@ -323,20 +323,20 @@ Of course, the ``loop`` mode will take only :ref:`the files with unit tests laun
 Debug mode
 *************
 
-Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
+Sometimes tests fail and it's hard to find why.
 
-Dans ce cas, l'une des techniques possibles pour remédier au problème est de tracer le comportement du code concerné, soit directement au cœur de la classe testée à l'aide d'un déboggueur ou de fonctions du type de ``var_dump()`` ou ``print_r()``, soit au niveau du test unitaire.
+In this case, one of the techniques available to solve the problem is to trace the behavior of the concerned code, or directly inside the tested class using a debuger or a functions like ``var_dump()`` or ``print_r()``, or directly inside the unit test of the class.
 
-Et il se trouve que atoum dispose d'un certain nombre d'outils pour faciliter la tâche du développeur dans ce dernier contexte.
+atoum provides some tools to help you in this process, debugging directly in unit tests.
 
-Ces outils ne sont cependant actif que lorsque atoum est exécuté à l'aide de l'argument ``--debug``, afin que l'exécution des tests unitaires ne soit pas perturbée par les instructions relatives au débogage hors de ce contexte.
-Lorsque l'argument ``--debug`` est utilisé, trois méthodes peuvent être activée :
+Those tools are only available when you run atoum and enable the debug mode using the``--debug`` command line argument, this is to avoid unexpected debug output when running in standard mode.
+When the developer enables the debug mode (``--debug``), three methods can be used:
 
-* ``dump()`` qui permet de connaître le contenu d'une variable ;
-* ``stop()`` qui permet d'arrêter l'exécution d'un test ;
-* ``executeOnFailure()`` qui permet de définir une fonction anonyme qui ne sera exécutée qu'en cas d'échec d'une assertion.
+* ``dump()`` to dump the content of a variable;
+* ``stop()`` to stop a running test;
+* ``executeOnFailure()`` to set a closure to be executed when an assertion fails.
 
-Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caractérise atoum.
+Those three method are accessible through the atoum fluent interface.
 
 
 dump
@@ -375,7 +375,7 @@ It's also possible to pass several argments to ``dump()``, as the following way:
 stop
 ====
 
-L'utilisation de la méthode ``stop()`` est également très simple :
+The ``stop()``method is also easy to use:
 
 .. code-block:: php
 
@@ -385,23 +385,23 @@ L'utilisation de la méthode ``stop()`` est également très simple :
        ->then
            ->object($foo->setBar($bar = new bar()))
                ->isIdenticalTo($foo)
-           ->stop() // le test s'arrêtera ici si --debug est utilisé
+           ->stop() // the test will stop here if --debug is used
            ->object($foo->getBar())
                ->isIdenticalTo($bar)
    ;
 
-Si ``--debug`` est utilisé, les 2 dernières lignes ne seront pas exécutées.
+If ``--debug`` is used, the last two lines will not be executed.
 
 .. important::
-   La méthode ``stop`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Ontherwise, this method will be totally ignored.
+   The ``stop`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
 
 
 executeOnFailure
 ================
 
-La méthode ``executeOnFailure()`` est très puissante et tout aussi simple à utiliser.
+The method ``executeOnFailure()`` is very powerfull and also simple to use.
 
-Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l'une des assertions composant le test n'est pas vérifiée. Elle s'utilise de la manière suivante :
+Indeed it takes a closure in argument that will be executed if one of the assertions inside the test doesn't pass. It can be used as follows:
 
 .. code-block:: php
 
@@ -420,7 +420,7 @@ Elle prend en effet en argument une fonction anonyme qui sera exécutée si et s
                ->isIdenticalTo($bar)
    ;
 
-Dans l'exemple précédent, contrairement à ``dump()`` qui provoque systématiquement l'affichage sur la sortie standard le contenu des variables qui lui sont passées en argument, la fonction anonyme passée en argument ne provoquera l'affichage du contenu de la variable ``foo`` que si l'une des assertions suivantes est en échec.
+In the previous example, unlike ``dump()`` that  systematically causing the display to standard output of the contents of the variables that are passed as argument, the anonymous function passed as an argument will cause the display of the contents of the variable ``foo`` if one of the assertions is in failure.
 
 Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFailure()`` dans une même méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas d'échec du test.
 
@@ -428,7 +428,7 @@ Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFa
    La méthode ``executeOnFailure`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Ontherwise, this method will be totally ignored.
 
 
-Les méthodes d'initialisation
+The initialization methods
 *****************************
 
 Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (``concurrent``) :

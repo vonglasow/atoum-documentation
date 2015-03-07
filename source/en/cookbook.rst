@@ -5,7 +5,7 @@ Cookbook
 Test of a singleton
 *******************
 
-Pour tester si une méthode retourne bien systématiquement la même instance d'un objet, vérifiez que deux appels successifs à la méthode testée sont bien identiques.
+To test a method that always returns the same instance of an object, checks that two calls to the tested method are the same.
 
 .. code-block:: php
 
@@ -28,39 +28,39 @@ Use in behat
 Use inside Jenkins (or Hudson)
 ************************************
 
-Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http://jenkins-ci.org/>`_ (ou `Hudson <http://hudson-ci.org/>`_) en tant que résultats xUnit.
+It's very simple to  the results of atoum to `Jenkins <http://jenkins-ci.org/>`_ (or `Hudson <http://hudson-ci.org/>`_) as xUnit results.
 
 
-Étape 1 : Ajout d'un rapport xUnit à la configuration atoum
+Step1: Add a xUnit report to the configuration of atoum
 ===========================================================
 
 If you don't have a configuration file
 ----------------------------------------------
 
-Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vous recommandons d'extraire le répertoire ressources de atoum dans celui de votre choix à l'aide de la commande suivante :
+If you don't have a configuration file for atoum yet, we recommend that you extract the directory resource of atoum in that one of your choice by using the following command:
 
-* Si vous utilisez l'archive Phar d'atoum :
+* If you are using the Parh archive of atoum:
 
 .. code-block:: shell
 
    $ php mageekguy.atoum.phar --extractRessourcesTo /tmp/atoum-src
-   $ cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
+   $ cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /my/project/atoum.php
 
-* Si vous utilisez les sources d'atoum :
+* If you are using the sources of atoum:
 
 .. code-block:: shell
 
-   $ cp /chemin/vers/atoum/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
+   $ cp /path/to/atoum/resources/configurations/runner/xunit.php.dist /my/project/.atoum.php
 
-* Vous pouvez également copier le fichier directement `depuis le dépôt Github <https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist>`_
+* You can also directly copy the files from `the Github repository <https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist>`_
 
-Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conservez le rapport par défaut d'atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.
+There is one last step, edit this file to set the path to the xUnit report where atoum will generate it. This file is ready to use, with him, you will keep the default report and gain a xUnit report for each launch of tests.
 
 
 If you already have a configuration file
 ---------------------------------------------
 
-Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajouter les lignes suivantes :
+If you already have a configuration file, simply add the following lines:
 
 .. code-block:: php
 
@@ -77,7 +77,7 @@ Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajoute
    /*
     * Xunit writer
     */
-   $writer = new atoum\writers\file('/chemin/vers/le/rapport/atoum.xunit.xml');
+   $writer = new atoum\writers\file('/path/to/the/report/atoum.xunit.xml');
    $xunit->addWriter($writer);
 
 
@@ -88,16 +88,16 @@ To test this configuration, simply run atoum specifying the configuration file y
 
 .. code-block:: shell
 
-   $ ./bin/atoum -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
+   $ ./bin/atoum -d /path/to/the/unit/tests -c /path/to/the/configuration.php
 
 .. note::
-   Si vous avez nommé votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement. Le paramètre ``-c`` est donc optionnel dans ce cas.
-   Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ``.atoum.php`` ou d'un de ses enfants.
+   If you named your configuration file  ``.atoum.php``, it will be load automatically. The ``-c`` parameter is optional in this case.
+   To elt atoum load automatically the ``.atoum.php`` file, you will need to run test from the folder where this file resides or one of his childs.
 
-À la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
+At the end of the tests, you will have the xUnit report inside the folder specified in the configuration.
 
 
-Étape 3 : Lancement des tests via Jenkins (ou Hudson)
+Step 3: Laucnhing tests via Jenklins (or Hudson)
 =====================================================
 
 There are several possibilities depending on how you build your project:
@@ -109,17 +109,17 @@ There are several possibilities depending on how you build your project:
 
    <target name="unitTests">
      <exec executable="/usr/bin/php" failonerror="yes" failifexecutionfails="yes">
-       <arg line="/path/to/mageekguy.atoum.phar -p /chemin/vers/php -d /path/to/test/folder -c /path/to/atoumConfig.php" />
+       <arg line="/path/to/mageekguy.atoum.phar -p /path/to/php -d /path/to/test/folder -c /path/to/atoumConfig.php" />
      </exec>
    </target>
 
-Vous noterez l'ajout du paramètre ``-p /chemin/vers/php`` qui permet d'indiquer à atoum le chemin vers le binaire PHP qu'il doit utiliser pour exécuter les tests unitaires.
+Notice the addition of ``-p /path/to/php`` that permit to atoum to know the path to the php binary to use to run the unit tests.
 
 
-Étape 4 : Publier le rapport avec Jenkins (ou Hudson)
+Step 4: Publish the report with Jenkins (or Hudson)
 =====================================================
 
-Il suffit tout simplement d'activer la publication des rapports au format JUnit ou xUnit, en fonction du plug-in que vous utilisez, en lui indiquant le chemin d'accès au fichier généré par atoum.
+Simply enable the publication of report with JUnit or xUnit format of the plugin you are using, specifying the path to the file generated by atoum.
 
 
 Git hook
@@ -342,7 +342,7 @@ Cependant, en règle général, l'espace de nom utilisé pour les classes de tes
    }
 
 
-Utilisation avec ezPublish
+Use with ezPublish
 **************************
 
 .. important::
@@ -352,7 +352,7 @@ Utilisation avec ezPublish
 
 .. _utilisation-avec-symfony-2:
 
-Utilisation avec Symfony 2
+Use with Symfony 2
 **************************
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
