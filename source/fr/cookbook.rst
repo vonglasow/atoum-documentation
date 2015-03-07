@@ -472,12 +472,89 @@ Utilisation avec des frameworks
 
 .. _utilisation-avec-ezpublish:
 
-Utilisation avec ezPublish
+Utilisation avec ez Publish
 __________________________
 
-.. important::
-   We need help to write this section !
-   ([[https://github.com/atoum/atoum/wiki/Utiliser-atoum-avec-eZ-publish]])
+
+Étape 1 : Installation d'atoum au sein d'eZ Publish
+===================================================
+
+Le framework eZ Publish possède déjà un répertoire dédiés aux tests, nommés logiquement tests. C'est donc dans ce répertoire que devra être placée l':ref:```archive PHAR``` <archive-phar>` de atoum. Les fichiers de tests unitaires utilisant atoum seront quand à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
+
+
+Étape 2 : Création de la classe de test de base
+===============================================
+
+Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\test*. Cependant, cette dernière ne prend pas en compte les spécificités de *eZ Publish*. Il est donc nécessaire de définir une classe de test de base, dérivée de *\mageekguy\atoum\test*, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier *tests\atoum\test.php* :
+
+.. code-block:: php
+
+	<?php
+
+	namespace ezp;
+
+	use mageekguy\atoum;
+
+	require_once __DIR__ . '/mageekguy.atoum.phar';
+
+	// Autoloading : eZ
+	require 'autoload.php';
+
+	if ( !ini_get( "date.timezone" ) )
+	{
+		date_default_timezone_set( "UTC" );
+	}
+
+	require_once( 'kernel/common/i18n.php' );
+
+	\eZContentLanguage::setCronjobMode();
+
+	/**
+	 * @abstract
+	 */
+	abstract class test extends atoum\test
+	{
+	}
+
+	?>
+
+
+
+Étape 3 : Création d'une classe de test
+======================================
+
+Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
+
+.. code-block:: php
+
+	<?php
+
+	namespace nomdeprojet\tests\units;
+
+	require_once '../test.php';
+
+	use ezp;
+
+	class cache extends ezp\test
+	{
+	   public function testClass()
+	   {
+		  $this->assert->hasMethod('__construct');
+	   }
+	}
+
+
+Étapes 4 : Exécution des tests unitaires
+========================================
+
+Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet : 
+
+.. code-block:: shell
+
+	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
+
+
+Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutorial.
 
 
 .. _utilisation-avec-symfony-2:
