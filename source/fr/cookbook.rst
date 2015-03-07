@@ -103,7 +103,7 @@ Pour tester cette configuration, il suffit de lancer atoum en lui précisant le 
 Il existe pour cela plusieurs possibilités selon la façon dont vous construisez votre projet :
 
 * Si vous utilisez un script, il vous suffit d'y ajouter la commande précédente.
-* Si vous passez par un utilitaire tel que `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche de type exec à son fichier de configuration, de la manière suivante :
+* Si vous passez par un utilitaire tel que `phing <https://www.phing.info/>` ou `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche. Dans le cas de ant, un tâche de type exec :
 
 .. code-block:: xml
 
