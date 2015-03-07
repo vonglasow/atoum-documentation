@@ -810,7 +810,7 @@ Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'app
 * Le troisième appel retournera 42.
 * Tous les appels suivants auront le comportement par défaut, c'est à dire des nombres aléatoires.
 
-Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes `methods`_ ou `methodsWhichMatch`_.
+Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes `methods`_ ou `methodsMatching`_.
 
 
 methods
@@ -859,16 +859,16 @@ methods
    ;
 
 
-Dans le cas du dernier exemple, vous devriez plutôt utiliser `methodsWhichMatch`_.
+Dans le cas du dernier exemple, vous devriez plutôt utiliser `methodsMatching`_.
 
 .. note::
    La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d'informations sur le sujet.
 
 
-methodsWhichMatch
+methodsMatching
 -----------------
 
-``methodsWhichMatch`` vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument :
+``methodsMatching`` vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument :
 
 .. code-block:: php
 
@@ -877,7 +877,7 @@ methodsWhichMatch
    // on redéfinit son comportement
    $this
        ->calling($mock)
-           ->methodsWhichMatch('/^is/')
+           ->methodsMatching('/^is/')
                ->return = true
    ;
 
@@ -885,12 +885,12 @@ methodsWhichMatch
    // on redéfinit son comportement
    $this
        ->calling($mock)
-           ->methodsWhichMatch('/^get/i')
+           ->methodsMatching('/^get/i')
                ->throw = new \exception
    ;
 
 .. note::
-   ``methodsWhichMatch`` utilise ```preg_match`` <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`_ pour avoir plus d'informations sur le sujet.
+   ``methodsMatching`` utilise `preg_match <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`_ pour avoir plus d'informations sur le sujet.
 
 
 Cas particulier du constructeur
