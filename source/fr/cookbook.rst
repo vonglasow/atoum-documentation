@@ -2,6 +2,8 @@ Cookbook
 ########
 
 
+.. _cookbook_singleton:
+
 Test d'un singleton
 *******************
 
@@ -17,6 +19,8 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
    ;
 
 
+.. _cookbook_utilisation_behat:
+
 Utilisation dans behat
 **********************
 
@@ -25,8 +29,15 @@ Utilisation dans behat
    ([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
 
 
+.. _cookbook_utilisation_ci:
+
+Utilisation dans des outils d'intégration continue (CI)
+*******************************************************
+
+.. _cookbook_utilisation_jenkins:
+
 Utilisation dans Jenkins (ou Hudson)
-************************************
+____________________________________
 
 Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http://jenkins-ci.org/>`_ (ou `Hudson <http://hudson-ci.org/>`_) en tant que résultats xUnit.
 
@@ -103,7 +114,7 @@ Pour tester cette configuration, il suffit de lancer atoum en lui précisant le 
 Il existe pour cela plusieurs possibilités selon la façon dont vous construisez votre projet :
 
 * Si vous utilisez un script, il vous suffit d'y ajouter la commande précédente.
-* Si vous passez par un utilitaire tel que `phing <https://www.phing.info/>` ou `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche. Dans le cas de ant, un tâche de type exec :
+* Si vous passez par un utilitaire tel que `phing <https://www.phing.info/>`_ ou `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche. Dans le cas de ant, un tâche de type exec :
 
 .. code-block:: xml
 
@@ -121,6 +132,37 @@ Vous noterez l'ajout du paramètre ``-p /chemin/vers/php`` qui permet d'indiquer
 
 Il suffit tout simplement d'activer la publication des rapports au format JUnit ou xUnit, en fonction du plug-in que vous utilisez, en lui indiquant le chemin d'accès au fichier généré par atoum.
 
+
+
+.. _cookbook_utilisation_travis-ci:
+
+Utilisation avec Travis-ci
+__________________________
+
+Il est assez simple d'utiliser atoum dans l'outils qu'est `Travis-CI <https://travis-ci.org>`_. En effet, l'ensemble des étapes est indiqué dans la `documentation officiel <http://docs.travis-ci.com/user/languages/php/#Working-with-atoum>`_ :
+* Créer votre fichier .travis.yml dans votre projet;
+* Ajouter y les deux lignes suivantes :
+
+.. code-block:: yml
+   before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+   script: php mageekguy.atoum.phar
+
+
+Voici un exemple de fichier `.travis.yml` dont les tests présent dans le dossier `tests` seront executer.
+.. code-block:: yml
+
+   language: php
+   php:
+     - 5.4
+     - 5.5
+     - 5.6
+
+   before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
+   script: php mageekguy.atoum.phar -d tests/
+
+
+
+.. _cookbook_hook_git:
 
 Hook git
 ********
@@ -194,6 +236,7 @@ Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être re
 Et si d'aventure un test ne passe pas, les fichiers ne seront pas ajoutés au dépôt. Il vous faudra alors effectuer les corrections nécessaires, utiliser la commande ``git add`` sur les fichiers modifiés et utiliser à nouveau ``git commit``.
 
 
+.. _cookbook_change_default-namespace:
 
 Changer l'espace de nom par défaut
 **********************************
@@ -342,8 +385,16 @@ Cependant, en règle général, l'espace de nom utilisé pour les classes de tes
    }
 
 
+.. _utilisation-avec-frameworks:
+
+Utilisation avec des frameworks
+******************************
+
+
+.. _utilisation-avec-ezpublish:
+
 Utilisation avec ezPublish
-**************************
+__________________________
 
 .. important::
    We need help to write this section !
@@ -353,7 +404,7 @@ Utilisation avec ezPublish
 .. _utilisation-avec-symfony-2:
 
 Utilisation avec Symfony 2
-**************************
+__________________________
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
@@ -569,7 +620,7 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 .. _utilisation-avec-symfony-1-4:
 
 Utilisation avec symfony 1.4
-****************************
+____________________________
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
