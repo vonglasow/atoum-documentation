@@ -24,9 +24,88 @@ Pour tester si une méthode retourne bien systématiquement la même instance d'
 Utilisation dans behat
 **********************
 
-.. important::
-   We need help to write this section !
-   ([[https://github.com/atoum/atoum/wiki/atoum-et-Behat]])
+Les *asserters* d'atoum sont très facilement utilisables hors de vos tests unitaires classiques. Il vous suffit d'importer la classe *mageekguy\atoum\asserter* en n'oubliant pas d'assurer le chargement des classes nécessaires (atoum fournit une classe d'autoload disponible dans *classes/autoloader.php*).
+L'exemple suivant illustre cette utilisation des asserters atoum à l'intérieur de vos *steps* Behat.
+
+Installation
+============
+
+Installez simplement atoum et Behat dans votre projet via pear, git clone, zip... Voici un exemple avec le gestionnaire de dépendances *Composer* :
+
+.. code-block:: json
+
+   "require-dev": {
+           "behat/behat": "2.4@stable",
+           "atoum/atoum": "dev-master",
+   }
+
+Il est évidemment nécessaire de remettre à jour vos dépendances composer en lançant la commande :
+
+.. code-block:: shell
+
+   $ php composer.phar update --dev
+
+
+Configuration
+=============
+
+Comme mentionné en introduction, il suffit d'importer la classe d'asserter et d'assurer le chargement des classes d'atoum. Pour Behat, la configuration des asserters s'effectue dans votre classe *FeatureContext.php* (située par défaut dans le répertoire */RACINE DE VOTRE PROJET/features/bootstrap/*).
+
+.. code-block:: php
+
+   <?php
+   
+   use Behat\Behat\Context\ClosuredContextInterface,
+       Behat\Behat\Context\TranslatedContextInterface,
+       Behat\Behat\Context\BehatContext,
+       Behat\Behat\Exception\PendingException,
+       Behat\Behat\Context\Step;
+   use Behat\Gherkin\Node\PyStringNode,
+       Behat\Gherkin\Node\TableNode;
+   
+   use mageekguy\atoum\asserter; // <- atoum asserter
+   
+   require_once __DIR__ . '/../../vendor/mageekguy/atoum/classes/autoloader.php'; // <- autoload
+   
+   class FeatureContext extends BehatContext
+   {
+       private $assert;
+   
+       public function __construct(array $parameters)
+       {
+           $this->assert = new asserter\generator();
+       }
+   }
+
+
+Utilisation
+===========
+
+Après ces 2 étapes particulièrement triviales, vos *steps* peuvent s'enrichir des asserters atoum :
+
+.. code-block:: php
+
+   <?php
+   
+   // ...
+   
+   class FeatureContext extends BehatContext
+   {//...
+   
+       /**
+        * @Then /^I should get a good response using my favorite "([^"]*)"$/
+        */
+       public function goodResponse($contentType)
+       {
+           $this->assert
+               ->integer($response->getStatusCode())
+                   ->isIdenticalTo(200)
+               ->string($response->getHeader('Content-Type'))
+                   ->isIdenticalTo($contentType);
+       }
+   }
+
+Encore une fois, ceci n'est qu'un exemple spécifique à Behat mais il reste valable pour tous les besoins d'utilisation des asserters d'atoum hors contexte initial.
 
 
 .. _cookbook_utilisation_ci:
