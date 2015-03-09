@@ -190,7 +190,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _array-is-identical-to:
@@ -200,7 +200,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _array-is-not-empty:
@@ -231,7 +231,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _array-is-not-identical-to:
@@ -241,7 +241,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _keys-anchor:

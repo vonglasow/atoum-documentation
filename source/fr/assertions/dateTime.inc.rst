@@ -3,7 +3,7 @@
 dateTime
 ********
 
-C'est l'assertion dédiée à l'objet ```DateTime <http://php.net/datetime>`_``.
+C'est l'assertion dédiée à l'objet `DateTime <http://php.net/datetime>`_.
 
 Si vous essayez de tester une variable qui n'est pas un objet ``DateTime`` (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
@@ -199,7 +199,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <object-is-clone-of>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _date-time-is-equal-to:
@@ -209,7 +209,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <object-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _dat-time-is-identical-to:
@@ -219,7 +219,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <object-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _date-time-is-instance-of:
@@ -229,7 +229,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <object-is-instance-of>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _date-time-is-not-equal-to:
@@ -239,7 +239,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <object-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _date-time-is-not-identical-to:
@@ -249,4 +249,4 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`

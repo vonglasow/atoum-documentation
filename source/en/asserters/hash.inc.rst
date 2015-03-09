@@ -12,7 +12,7 @@ contains
 
 .. hint::
    ``contains`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```string::contains`` <string-contains>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::contains <string-contains>`
 
 
 .. _hash-is-equal-to:
@@ -22,7 +22,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _hash-is-equal-to-contents-of-file:
@@ -32,7 +32,7 @@ isEqualToContentsOfFile
 
 .. hint::
    ``isEqualToContentsOfFile`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```string::isEqualToContentsOfFile`` <string-is-equal-to-contents-of-file>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>`
 
 
 .. _hash-is-identical-to:
@@ -42,7 +42,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _is-md5:
@@ -72,7 +72,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _hash-is-not-identical-to:
@@ -82,7 +82,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _is-sha1:
@@ -152,4 +152,4 @@ notContains
 
 .. hint::
    ``notContains`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```string::notContains`` <string-not-contains>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::notContains <string-not-contains>`

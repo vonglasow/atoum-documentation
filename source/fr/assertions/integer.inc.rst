@@ -8,7 +8,7 @@ C'est l'assertion dédiée aux entiers.
 Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
 
 .. note::
-   ``null`` n'est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que ```is_int <http://php.net/is_int>`_`` considère ou non comme un entier.
+   ``null`` n'est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que `is_int <http://php.net/is_int>`_ considère ou non comme un entier.
 
 
 .. _integer-is-equal-to:
@@ -18,7 +18,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isEqualTo`` <variable-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _integer-is-greater-than:
@@ -68,7 +68,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isIdenticalTo`` <variable-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _integer-is-less-than:
@@ -117,7 +117,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotEqualTo`` <variable-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _integer-is-not-identical-to:
@@ -127,7 +127,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```variable::isNotIdenticalTo`` <variable-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _integer-is-zero:
