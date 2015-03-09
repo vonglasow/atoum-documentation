@@ -58,4 +58,7 @@ Anchor in the documentation appear on this form
 
 They must stay the same. It will be easier for other people to translate other page refereing this anchor. Otherwise, you risk some broken link.
 
+### Where can I find the syntax for the files?
+We use the reStructuredText syntax. You can find it on the sphinx website : http://sphinx-doc.org/rest.html
+
 
