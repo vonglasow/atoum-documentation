@@ -54,7 +54,7 @@ Comme mentionné en introduction, il suffit d'importer la classe d'asserter et d
 .. code-block:: php
 
    <?php
-   
+
    use Behat\Behat\Context\ClosuredContextInterface,
        Behat\Behat\Context\TranslatedContextInterface,
        Behat\Behat\Context\BehatContext,
@@ -62,15 +62,15 @@ Comme mentionné en introduction, il suffit d'importer la classe d'asserter et d
        Behat\Behat\Context\Step;
    use Behat\Gherkin\Node\PyStringNode,
        Behat\Gherkin\Node\TableNode;
-   
+
    use mageekguy\atoum\asserter; // <- atoum asserter
-   
+
    require_once __DIR__ . '/../../vendor/mageekguy/atoum/classes/autoloader.php'; // <- autoload
-   
+
    class FeatureContext extends BehatContext
    {
        private $assert;
-   
+
        public function __construct(array $parameters)
        {
            $this->assert = new asserter\generator();
@@ -86,12 +86,12 @@ Après ces 2 étapes particulièrement triviales, vos *steps* peuvent s'enrichir
 .. code-block:: php
 
    <?php
-   
+
    // ...
-   
+
    class FeatureContext extends BehatContext
    {//...
-   
+
        /**
         * @Then /^I should get a good response using my favorite "([^"]*)"$/
         */
@@ -479,7 +479,7 @@ __________________________
 Étape 1 : Installation d'atoum au sein d'eZ Publish
 ===================================================
 
-Le framework eZ Publish possède déjà un répertoire dédiés aux tests, nommés logiquement tests. C'est donc dans ce répertoire que devra être placée l':ref:```archive PHAR``` <archive-phar>` de atoum. Les fichiers de tests unitaires utilisant atoum seront quand à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
+Le framework eZ Publish possède déjà un répertoire dédiés aux tests, nommés logiquement tests. C'est donc dans ce répertoire que devra être placée l':ref:`archive PHAR` <archive-phar>` de atoum. Les fichiers de tests unitaires utilisant atoum seront quand à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
 
 
 Étape 2 : Création de la classe de test de base
@@ -547,7 +547,7 @@ Par défaut, atoum demande à ce que les classes de tests unitaires soient dans 
 Étapes 4 : Exécution des tests unitaires
 ========================================
 
-Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet : 
+Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet :
 
 .. code-block:: shell
 

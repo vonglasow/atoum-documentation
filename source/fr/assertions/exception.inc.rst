@@ -135,7 +135,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isCloneOf`` <object-is-clone-of>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _exception-is-equal-to:
@@ -145,7 +145,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isEqualTo`` <object-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _exception-is-identical-to:
@@ -155,7 +155,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isIdenticalTo`` <object-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _exception-is-instance-of:
@@ -165,7 +165,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isInstanceOf`` <object-is-instance-of>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _exception-is-not-equal-to:
@@ -175,7 +175,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isNotEqualTo`` <object-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _exception-is-not-identical-to:
@@ -185,7 +185,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:```object::isNotIdenticalTo`` <object-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
 
 
 .. _message-anchor:
