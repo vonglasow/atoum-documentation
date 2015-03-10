@@ -1,11 +1,12 @@
 # Translation
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/iojs-ru/localized.png)](https://crowdin.com/project/iojs-ru)
 
 ## Translator informations
 
-We use crowdin (https://crowdin.com/project/atoum-documentation) and his client (https://crowdin.com/page/cli-tool)
+We use crowdin (see [crowdin project](https://crowdin.com/project/atoum-documentation)) and his [client](https://crowdin.com/page/cli-tool) to manage the translation.
 
 ### Usage
-To send files:
+To send source files:
 
 	crowdin-cli upload source
 
@@ -14,7 +15,7 @@ To download the translations:
 	crowdin-cli download
 
 ## Translate pages
-You can directly edit page (but don't forget to upload them on crowdin after the translation) or you can use the interface of crowdin directly. The second options is easier and more clear for everyone.
+You can directly edit page (but don't forget to copy them on crowdin after the translation) or you can use the interface of crowdin directly. The second options is easier and more clear for everyone.
 
 ## Adding new pages
 
@@ -42,14 +43,14 @@ Or you can also use
 
 ### Requirements
 
-* Having sphinx installed (see http://sphinx-doc.org/install.html)
+* Having [sphinx installed](http://sphinx-doc.org/install.html)
 * Having php cli available
 * Having crowdin-cli installed
 
 ## F.A.Q.
 
 ### Why crowdin?
-[Crowdin](https://crowdin.com/project/atoum-documentation) is an help to see the progression of the translation.
+[Crowdin](https://crowdin.com/project/atoum-documentation) is an help to see the progression of the translation. It's have also a good suggestion modules created both from the already translated parts and from bing translator.
 
 ### Does we need to translate anchor?
 Anchor in the documentation appear on this form 
@@ -59,6 +60,6 @@ Anchor in the documentation appear on this form
 They must stay the same. It will be easier for other people to translate other page refereing this anchor. Otherwise, you risk some broken link.
 
 ### Where can I find the syntax for the files?
-We use the reStructuredText syntax. You can find it on the sphinx website : http://sphinx-doc.org/rest.html
+We use the reStructuredText syntax. You can find it on the [sphinx website](http://sphinx-doc.org/rest.html).
 
 
