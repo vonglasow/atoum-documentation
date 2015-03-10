@@ -472,7 +472,7 @@ Use with framworks
 
 .. _utilisation-avec-ezpublish:
 
-Utilisation avec ez Publish
+Use with ezPublish
 __________________________
 
 

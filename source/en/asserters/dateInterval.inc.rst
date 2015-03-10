@@ -3,7 +3,7 @@
 dateInterval
 ************
 
-C'est l'assertion dédiée à l'objet `DateInterval <http://php.net/dateinterval>`_.
+It's the assertion dedicated to the object `DateInterval <http://php.net/dateinterval>`_.
 
 If you try to test a value that's not a ``DateInterval`` (or a child class) with this assertion it will fail.
 
@@ -14,7 +14,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is a method inherited from asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
+   For more information, refer to the documentation of  :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _date-interval-is-equal-to:
@@ -93,7 +93,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
+   For more information, refere to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _date-interval-is-instance-of:
@@ -103,7 +103,7 @@ isInstanceOf
 
 .. hint::
    ``isInstanceOf`` is a method inherited from asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
+   For more information, refer to the documentation of :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _date-interval-is-less-than:
@@ -160,7 +160,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   For more information, refer to the documentation of  :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _date-interval-is-not-identical-to:
@@ -170,7 +170,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   For more information, refer to the documentation :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
 
 
 .. _date-interval-is-zero:

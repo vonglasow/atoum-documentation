@@ -106,7 +106,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
+   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _string-is-equal-to-contents-of-file:
@@ -135,7 +135,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _string-is-not-empty:
@@ -166,7 +166,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _string-is-not-identical-to:
@@ -176,7 +176,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _length-anchor:
