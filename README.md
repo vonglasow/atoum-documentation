@@ -1,5 +1,5 @@
 # Translation
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/iojs-ru/localized.png)](https://crowdin.com/project/iojs-ru)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/atoum-documentation/localized.png)](https://crowdin.com/project/atoum-documentation)
 
 ## Translator informations
 
