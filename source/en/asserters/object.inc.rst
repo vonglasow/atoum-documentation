@@ -58,7 +58,7 @@ isCallable
 
 .. hint::
    ``isCallable`` is a method inherited from the ``variable`` asserter.
-   For more information, refere to the documentation :ref:`variable::isCallable <variable-is-callable>`
+   For more information, refer to the documentation :ref:`variable::isCallable <variable-is-callable>`
 
 
 .. _object-is-clone-of:

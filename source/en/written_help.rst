@@ -422,10 +422,10 @@ Indeed it takes a closure in argument that will be executed if one of the assert
 
 In the previous example, unlike ``dump()`` that  systematically causing the display to standard output of the contents of the variables that are passed as argument, the anonymous function passed as an argument will cause the display of the contents of the variable ``foo`` if one of the assertions is in failure.
 
-Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFailure()`` dans une même méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas d'échec du test.
+Of course, it's possible to call several times ``executeOnFailure()`` in the same test method to defined several closure to be executed if the test fails.
 
 .. important::
-   La méthode ``executeOnFailure`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Ontherwise, this method will be totally ignored.
+   The method ``executeOnFailure`` is enabled only if you run the tests with the argument ``--debug``. Ontherwise, this method will be totally ignored.
 
 
 The initialization methods
@@ -520,7 +520,7 @@ C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et
 
 Par défaut, les méthodes ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` et ``tearDown()`` ne font absolument rien.
 
-Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les classes de test concerné.
+It is therefore the responsibility of the programmer to overload when needed in the test classes concerned.
 
 
 Fournisseurs de données (data provider)
@@ -528,7 +528,7 @@ Fournisseurs de données (data provider)
 
 Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
 
-Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
+A data provider is a method in class test which generate arguments for et test method, arguments that will be used by the methode to validate assertions.
 
 Si une méthode de test ``testFoo`` prend des arguments et qu'aucune annotation relative à un fournisseur de données n'est définie, atoum cherchera automatiquement la méthode protected ``testFooDataProvider``.
 

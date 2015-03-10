@@ -10,7 +10,7 @@ Les dates doivent utiliser un format compatible avec MySQL et de nombreux autre 
 .. note::
    Reportez-vous à la documentation de la fonction `date() <http://php.net/date>`_ du manuel de PHP pour plus d'information.
 
-Si vous essayez de tester une variable qui n'est pas un objet ``DateTime`` (ou une classe qui l'étend) avec cette assertion, cela échouera.
+If you try to test a value that's not a ``DateTime`` (or a child class) with this assertion it will fail.
 
 .. _mysql-date-time-has-date:
 
@@ -118,8 +118,8 @@ isCloneOf
 =========
 
 .. hint::
-   ``isCloneOf`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
+   ``isCloneOf`` is a method inherited from asserter ``object``.
+   For more information, refer to the documentation of  :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _mysql-date-time-is-equal-to:
@@ -128,8 +128,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isEqualTo <object-is-equal-to>`
+   ``isEqualTo`` is a method inherited from ``object`` asserter.
+   For more information, refer to the documentation of  :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _mysql-date-time-is-identical-to:
@@ -138,8 +138,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
+   ``isIdenticalTo`` is an inherited method from ``object`` asserter.
+   For more information, refere to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _mysql-date-time-is-instance-of:
@@ -148,8 +148,8 @@ isInstanceOf
 ============
 
 .. hint::
-   ``isInstanceOf`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
+   ``isInstanceOf`` is a method inherited from asserter ``object``.
+   For more information, refer to the documentation of :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _mysql-date-time-is-not-equal-to:
@@ -158,8 +158,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   ``isNotEqualTo`` is a method inherited from ``object`` asserter.
+   For more information, refer to the documentation of  :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _mysql-date-time-is-not-identical-to:
@@ -168,5 +168,5 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``object``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
+   For more information, refer to the documentation :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`

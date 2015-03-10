@@ -48,7 +48,7 @@ hasLength
 
 .. hint::
    ``hasLength`` is a method herited from the ``string`` asserter.
-   For more information, refer to the documentation of ref:`string::hasLength <string-has-length>`
+   For more information, refer to the documentation of :ref:`string::hasLength <string-has-length>`
 
 
 .. _cast-to-string-has-length-greater-than:
