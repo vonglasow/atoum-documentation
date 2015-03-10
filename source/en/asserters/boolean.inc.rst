@@ -8,7 +8,7 @@ This is the assertion dedicated to the booleans.
 If you try to test a variable that is not a boolean with this assertion, this will fail.
 
 .. note::
-   ``null`` is not a boolean. Report the the PHP manual to know what `is_bool <http://php.net/is_bool>`_ considers or not to be a boolean.
+   ``null`` is not a boolean. Reportez-vous au manuel de PHP pour savoir ce que `is_bool <http://php.net/is_bool>`_ considère ou non comme un booléen.
 
 
 .. _boolean-is-equal-to:
@@ -18,7 +18,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _is-false:
@@ -49,7 +49,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _boolean-is-not-equal-to:
@@ -59,7 +59,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _boolean-is-not-identical-to:
@@ -69,7 +69,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _is-true:

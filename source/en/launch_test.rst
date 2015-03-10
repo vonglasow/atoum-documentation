@@ -390,13 +390,13 @@ The example above shows how to automatically open the code coverage report when 
 Libnotify
 ---------
 
-Cette fonctionnalité nécessite la présence de l'exécutable ``notify-send``. To check if it is available, use the following command:
+This feature requires the presence of the executable ``notify-send``. To check if it is available, use the following command:
 
 .. code-block:: shell
 
    $ which notify-send
 
-Vous aurez alors le chemin de l'exécutable ou alors le message ``notify-send not found`` s'il n'est pas installé.
+You will have the path to the executable or the message ``notify-send not found`` if it is not installed.
 
 Then just add the following code to your configuration file:
 
@@ -418,13 +418,13 @@ Then just add the following code to your configuration file:
 Bootstrap file
 ********************
 
-atoum autorise la définition d'un fichier de ``bootstrap`` qui sera exécuté avant chaque méthode de test et qui permet donc d'initialiser l'environnement d'exécution des tests.
+atoum allows the definition of a ``bootstrap`` file, which will be run before each test method and which therefore allows to initialize the test execution environment.
 
-Il devient ainsi possible de définir, par exemple, une fonction d'auto-chargement de classes, de lire un fichier de configuration ou de réaliser toute autre opération nécessaire à la bonne exécution des tests.
+This makes it possible to define, for example, an autoloading classes, read a configuration file or perform any other operation necessary for the proper performance of the tests.
 
-La définition de ce fichier de ``bootstrap`` peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration.
+The definition of this ``bootstrap`` file can be done in two different ways, either in command line, or via a configuration file.
 
-En ligne de commande, il faut utiliser au choix l'argument -bf ou l'argument --bootstrap-file suivi du chemin relatif ou absolu vers le fichier concerné:
+In command line, you should use the argument -bf or the argument --bootstrap-file followed by the absolute or relative path to the concerned file:
 
 .. code-block:: shell
 

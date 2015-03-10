@@ -520,7 +520,7 @@ C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et
 
 Par défaut, les méthodes ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` et ``tearDown()`` ne font absolument rien.
 
-Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les classes de test concerné.
+It is therefore the responsibility of the programmer to overload when needed in the test classes concerned.
 
 
 Fournisseurs de données (data provider)
@@ -528,7 +528,7 @@ Fournisseurs de données (data provider)
 
 Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
 
-Un fournisseur de données est une méthode d'une classe de test chargée de générer des arguments pour une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
+A data provider is a method in class test which generate arguments for et test method, arguments that will be used by the methode to validate assertions.
 
 Si une méthode de test ``testFoo`` prend des arguments et qu'aucune annotation relative à un fournisseur de données n'est définie, atoum cherchera automatiquement la méthode protected ``testFooDataProvider``.
 

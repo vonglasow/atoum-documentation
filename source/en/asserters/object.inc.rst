@@ -8,7 +8,7 @@ It's the assertion dedicated to objects.
 If you try to test a variable that is not an object with this assertion, this will fail.
 
 .. note::
-   ``null`` isn't an object. Refer to the PHP's manual `is_object <http://php.net/is_object>`_  to know what is considered as an object or not.
+   ``null`` isn't an object. Reportez-vous au manuel de PHP pour savoir ce que `is_object <http://php.net/is_object>`_ considère ou non comme un objet.
 
 
 .. _object-has-size:
@@ -58,7 +58,7 @@ isCallable
 
 .. hint::
    ``isCallable`` is a method inherited from the ``variable`` asserter.
-   For more information, refere to the documentation :ref:`variable::isCallable <variable-is-callable>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isCallable <variable-is-callable>`
 
 
 .. _object-is-clone-of:
@@ -123,7 +123,7 @@ Two objects are consider equals when they have the same attributes and values, a
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _object-is-identical-to:
@@ -140,7 +140,7 @@ Two objects are considered identical when they refere to the same instance of a 
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _object-is-instance-of:
@@ -232,7 +232,7 @@ isNotCallable
 
 .. hint::
    ``isNotCallable`` is a method inherited from the ``variable`` asserter.
-   For more information, refere to the documentation :ref:`variable::isNotCallable <variable-is-not-callable>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotCallable <variable-is-not-callable>`
 
 
 .. _object-is-not-equal-to:
@@ -249,7 +249,7 @@ Two objects are consider equals when they have the same attributes and values, a
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _object-is-not-identical-to:
@@ -266,4 +266,4 @@ Two objects are considered identical when they refere to the same instance of a 
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
