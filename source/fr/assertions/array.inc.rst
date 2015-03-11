@@ -12,12 +12,12 @@ C'est l'assertion dédiée aux tableaux.
 Il est conseillé d'utiliser exclusivement ``->array()`` afin de simplifier la lecture des tests.
 
 
-.. _sucre-synthaxique
+.. _sucre-syntaxique
 
-Sucre synthaxique
+Sucre syntaxique
 =================
 
-Il est a noter, qu'afin de simplifier l'écriture des tests sur les tableaux, du sucre synhtaxique est disponible. Celui-ci permet d'effectuer divers assertions directement sur les clefs du tableau testé.
+Il est à noter, qu'afin de simplifier l'écriture des tests sur les tableaux, du sucre syntaxique est disponible. Celui-ci permet d'effectuer diverses assertions directement sur les clefs du tableau testé.
 
 .. code-block:: php
 
