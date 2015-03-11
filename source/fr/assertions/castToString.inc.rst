@@ -141,11 +141,11 @@ isNotIdenticalTo
    Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
-.. _cast-to-string-match:
+.. _cast-to-string-matches:
 
-match
-=====
+matches
+=======
 
 .. hint::
-   ``match`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::match <string-match>`
+   ``matches`` est une méthode héritée de l'asserter ``string``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::matches <string-matches>`

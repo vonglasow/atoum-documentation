@@ -143,9 +143,9 @@ isNotIdenticalTo
 
 .. _cast-to-string-match:
 
-match
-=====
+matches
+=======
 
 .. hint::
-   ``match`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::match <string-match>`
+   ``matches`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::matches <string-matches>`

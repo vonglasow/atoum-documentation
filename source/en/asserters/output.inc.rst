@@ -131,14 +131,14 @@ isNotIdenticalTo
    For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
-.. _output-match:
+.. _output-matches:
 
-match
-=====
+matches
+=======
 
 .. hint::
-   ``match`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::match <string-match>`
+   ``matches`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::matches <string-matches>`
 
 
 .. _output-not-contains:
