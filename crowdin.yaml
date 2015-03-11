@@ -250,3 +250,8 @@ files:
     languages_mapping:
       file_name:
         en: having_fun_with_atoum
+
+  -
+    source      : '/source/fr/extra_ressource.rst'
+    dest        : '/source/fr/extra_ressource.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'

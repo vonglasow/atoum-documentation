@@ -1,4 +1,4 @@
-Amusons nous avec Atoum
+Amusons nous avec atoum
 #######################
 
 Rapport
