@@ -11,6 +11,31 @@ C'est l'assertion dédiée aux tableaux.
 
 Il est conseillé d'utiliser exclusivement ``->array()`` afin de simplifier la lecture des tests.
 
+
+.. _sucre-syntaxique
+
+Sucre syntaxique
+=================
+
+Il est à noter, qu'afin de simplifier l'écriture des tests sur les tableaux, du sucre syntaxique est disponible. Celui-ci permet d'effectuer diverses assertions directement sur les clefs du tableau testé.
+
+.. code-block:: php
+
+	$a = [
+		'foo' => 42,
+		'bar' => '1337' 
+	];
+
+	$this
+		->array($a)
+			->integer['foo']->isEqualTo(42)
+			->string['bar']->isEqualTo('1337')
+	;
+
+.. note::
+   Cette forme d'écriture n'est diponible qu'a partir de PHP 5.4 et supérieur.
+
+
 .. _array-contains:
 
 contains
