@@ -3,12 +3,12 @@
 mysqlDateTime
 *************
 
-C'est l'assertion dédiée aux objets décrivant une date MySQL et basée sur l'objet `DateTime <http://php.net/datetime>`_.
+It's the assertion dedicated to objects representing MySQL date and based on `DateTime <http://php.net/datetime>`_ object.
 
-Les dates doivent utiliser un format compatible avec MySQL et de nombreux autre SGBD (Système de gestion de base de données)), à savoir "Y-m-d H:i:s"
+Dates must use a format compatible with MySQL and many other DBMSS (database management system), i.e. "Y-m-d H:i:s"
 
 .. note::
-   Reportez-vous à la documentation de la fonction `date() <http://php.net/date>`_ du manuel de PHP pour plus d'information.
+   For more information, refer to the documentation of the`date() <http://php.net/date>`_ function from the PHP manual.
 
 If you try to test a value that's not a ``DateTime`` (or a child class) with this assertion it will fail.
 
@@ -18,8 +18,8 @@ hasDate
 =======
 
 .. hint::
-   ``hasDate`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasDate <date-time-has-date>`
+   ``hasDate`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasDate <date-time-has-date>`
 
 
 .. _mysql-date-time-has-date-and-time:
@@ -28,8 +28,8 @@ hasDateAndTime
 ==============
 
 .. hint::
-   ``hasDateAndTime`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>`
+   ``hasDateAndTime`` is a method inherited from the ``dateTime`` asserter.
+   For more informations, refere to the documentation of :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>`
 
 
 .. _mysql-date-time-has-day:
@@ -38,8 +38,8 @@ hasDay
 ======
 
 .. hint::
-   ``hasDay`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasDay <date-time-has-day>`
+   ``hasDay`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasDay <date-time-has-day>`
 
 
 .. _mysql-date-time-has-hours:
@@ -48,8 +48,8 @@ hasHours
 ========
 
 .. hint::
-   ``hasHours`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasHours <date-time-has-hours>`
+   ``hasHours`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasHours <date-time-has-hours>`
 
 
 .. _mysql-date-time-has-minutes:
@@ -58,8 +58,8 @@ hasMinutes
 ==========
 
 .. hint::
-   ``hasMinutes`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasMinutes <date-time-has-minutes>`
+   ``hasMinutes`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasMinutes <date-time-has-minutes>`
 
 
 .. _mysql-date-time-has-month:
@@ -68,8 +68,8 @@ hasMonth
 ========
 
 .. hint::
-   ``hasMonth`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasMonth <date-time-has-month>`
+   ``hasMonth`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasMonth <date-time-has-month>`
 
 
 .. _mysql-date-time-has-seconds:
@@ -78,8 +78,8 @@ hasSeconds
 ==========
 
 .. hint::
-   ``hasSeconds`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasSeconds <date-time-has-seconds>`
+   ``hasSeconds`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasSeconds <date-time-has-seconds>`
 
 
 .. _mysql-date-time-has-time:
@@ -88,8 +88,8 @@ hasTime
 =======
 
 .. hint::
-   ``hasTime`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasTime <date-time-has-time>`
+   ``hasTime`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasTime <date-time-has-time>`
 
 
 .. _mysql-date-time-has-timezone:
@@ -98,8 +98,8 @@ hasTimezone
 ===========
 
 .. hint::
-   ``hasTimezone`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasTimezone <date-time-has-timezone>`
+   ``hasTimezone`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasTimezone <date-time-has-timezone>`
 
 
 .. _mysql-date-time-has-year:
@@ -108,8 +108,8 @@ hasYear
 =======
 
 .. hint::
-   ``hasYear`` est une méthode héritée de l'asserter ``dateTime``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasYear <date-time-has-timezone>`
+   ``hasYear`` is a method inherited from the ``dateTime`` asserter.
+   For more information, refer to the documentation of :ref:`dateTime::hasYear <date-time-has-year>`
 
 
 .. _mysql-date-time-is-clone-of:

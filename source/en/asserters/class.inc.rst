@@ -119,6 +119,40 @@ isAbstract
            ->isAbstract()       // fails
    ;
 
+
+.. _class-is-final:
+
+isFinal
+=======
+``isFinal`` checks that the class is final.
+
+In this case, we test a non-final class (``StdClass``) :
+
+.. code-block:: php
+
+	<?php
+	$this
+		->class('\StdClass')
+			->isFinal()		// fails
+	;
+
+
+In this case, the tested class is a final one
+
+.. code-block:: php
+
+	<?php
+	$this
+		->testedClass
+			->isFinal()		// passes
+	;
+
+	$this
+		->testedClass
+			->isFinal		// passes too
+	;
+
+
 .. _is-subclass-of:
 
 isSubclassOf

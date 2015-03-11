@@ -24,13 +24,13 @@ To test a method that always returns the same instance of an object, checks that
 Use in behat
 **********************
 
-Les *asserters* d'atoum sont très facilement utilisables hors de vos tests unitaires classiques. Il vous suffit d'importer la classe *mageekguy\atoum\asserter* en n'oubliant pas d'assurer le chargement des classes nécessaires (atoum fournit une classe d'autoload disponible dans *classes/autoloader.php*).
-L'exemple suivant illustre cette utilisation des asserters atoum à l'intérieur de vos *steps* Behat.
+The *asserters* from atoum are very easy to use outside your traditional unit tests. Just import the class *mageekguy\atoum\asserter* without forgetting to load the required classes (atoum provides an autoload class available in *classes/autoloader.php*).
+The following example illustrates this usage of asserter from atoumin your Behat *steps*.
 
 Installation
 ============
 
-Installez simplement atoum et Behat dans votre projet via pear, git clone, zip... Voici un exemple avec le gestionnaire de dépendances *Composer* :
+Simply install atoum and Behat in your project via pear, git clone, zip... Here is an example with dependency manager *Composer*:
 
 .. code-block:: json
 
@@ -39,7 +39,7 @@ Installez simplement atoum et Behat dans votre projet via pear, git clone, zip..
            "atoum/atoum": "dev-master",
    }
 
-Il est évidemment nécessaire de remettre à jour vos dépendances composer en lançant la commande :
+It is obviously mandatory to update  your composer dependencies with the command:
 
 .. code-block:: shell
 
@@ -49,7 +49,7 @@ Il est évidemment nécessaire de remettre à jour vos dépendances composer en 
 Configuration
 =============
 
-Comme mentionné en introduction, il suffit d'importer la classe d'asserter et d'assurer le chargement des classes d'atoum. Pour Behat, la configuration des asserters s'effectue dans votre classe *FeatureContext.php* (située par défaut dans le répertoire */RACINE DE VOTRE PROJET/features/bootstrap/*).
+As mentioned in the introduction, just import the asserter classes from atoum and ensure that they are loaded. For Behat, the configuration of asserters are done inside the class *FeatureContext.php* (located by default in your directory */root-of-project/features/bootstrap/*).
 
 .. code-block:: php
 
@@ -78,10 +78,10 @@ Comme mentionné en introduction, il suffit d'importer la classe d'asserter et d
    }
 
 
-Utilisation
+Usage
 ===========
 
-Après ces 2 étapes particulièrement triviales, vos *steps* peuvent s'enrichir des asserters atoum :
+After these 2 particular trivial steps, your *steps* can be enriched with the atoum asserters:
 
 .. code-block:: php
 
@@ -105,7 +105,7 @@ Après ces 2 étapes particulièrement triviales, vos *steps* peuvent s'enrichir
        }
    }
 
-Encore une fois, ceci n'est qu'un exemple spécifique à Behat mais il reste valable pour tous les besoins d'utilisation des asserters d'atoum hors contexte initial.
+Once again, this is only an example specific to Behat but it remains valid for all needs of using the asserters of atoum outside the initial context.
 
 
 .. _cookbook_utilisation_ci:
@@ -529,7 +529,7 @@ Par défaut, atoum demande à ce que les classes de tests unitaires soient dans 
 
 	<?php
 
-	namespace nomdeprojet\tests\units;
+	namespace nameofproject\tests\units;
 
 	require_once '../test.php';
 
@@ -554,7 +554,7 @@ Une fois une classe de test créée, il suffit d'exécuter en ligne de commande 
 	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
 
 
-Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutorial.
+Thnaks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
 
 
 .. _utilisation-avec-symfony-2:
@@ -631,7 +631,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
    // src/Acme/DemoBundle/Tests/Units/Test.php
    namespace Acme\DemoBundle\Tests\Units;
 
-   // On inclus et active le class loader
+   // It includes the class loader and active it
    require_once __DIR__ . '/../../../../../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
    $loader = new \Symfony\Component\ClassLoader\UniversalClassLoader();
@@ -647,7 +647,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
    use mageekguy\atoum;
 
-   // Pour Symfony 2.0 uniquement !
+   // For Symfony 2.0 only !
    require_once __DIR__ . '/../../../../../vendor/mageekguy.atoum.phar';
 
    abstract class Test extends atoum
@@ -930,5 +930,5 @@ Une fois cela effectué, vous n'aurez plus qu'à exécuter vos tests pour consta
 	Success (144 tests, 1048/1048 methods, 16655 assertions, 0 error, 0 exception) !
 
 
-En cas de problèms ou simplement de doutes, n'hésitez pas à consulter la `documentation officiel <http://php.net/manual/fr/faq.build.php>`_ sur la compilation.
+In case of problems or doubt, just feel free to consult the`official documentation  <http://php.net/manual/en/faq.build.php>`_ on the compilation of PHP.
 
