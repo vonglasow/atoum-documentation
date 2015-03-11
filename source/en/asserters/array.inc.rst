@@ -11,6 +11,31 @@ It's the assertion dedicated to arrays.
 
 It's recommended to use only ``->array()`` in order to simplify the reading of tests.
 
+
+.. _sucre-syntaxique
+
+Syntactic sugar
+=================
+
+In order to simplify the writing of tests on the arrays, some syntactic sugar is available. It allows to make various assertions directly on the keys of the tested array.
+
+.. code-block:: php
+
+	$a = [
+		'foo' => 42,
+		'bar' => '1337' 
+	];
+
+	$this
+		->array($a)
+			->integer['foo']->isEqualTo(42)
+			->string['bar']->isEqualTo('1337')
+	;
+
+.. note::
+   This form of writing is available from PHP 5.4 or higher.
+
+
 .. _array-contains:
 
 contains

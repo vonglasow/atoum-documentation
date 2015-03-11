@@ -23,6 +23,7 @@ atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few adva
    written_help
    asserters
    cookbook
+   extra_ressource
    extensions
    contribute
    having_fun_with_atoum
