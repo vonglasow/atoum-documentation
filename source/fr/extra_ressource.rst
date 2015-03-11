@@ -2,7 +2,7 @@ Ressources externes
 *******************
 
 .. note::
-Cette page reprends une serie de liens externer parlant d'atoum.
+Cette page reprend une série de liens externes parlant d'atoum.
 
 
 .. _ressource_en
