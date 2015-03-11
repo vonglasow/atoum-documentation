@@ -119,14 +119,14 @@ isNotIdenticalTo
    Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
-.. _utf8-string-match:
+.. _utf8-string-matches:
 
-match
-=====
+matches
+=======
 
 .. hint::
-   ``match`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::match <string-match>`
+   ``matches`` est une méthode héritée de l'asserter ``string``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::matches <string-matches>`
 
 
 .. note::
@@ -141,7 +141,7 @@ match
 
    $this
        ->utf8String($vdm)
-           ->match("#^Aujourd'hui.*VDM$#u")
+           ->matches("#^Aujourd'hui.*VDM$#u")
    ;
 
 .. _utf8-string-not-contains:

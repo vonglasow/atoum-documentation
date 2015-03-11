@@ -197,12 +197,12 @@ length
                ->isGreaterThanOrEqualTo(5)
    ;
 
-.. _string-match:
+.. _string-matches:
 
-match
-=====
+matches
+=======
 
-``match`` checks that a regular expression match the string.
+``matches`` checks that a regular expression match the string.
 
 .. code-block:: php
 
@@ -212,10 +212,10 @@ match
 
    $this
        ->string($phone)
-           ->match('#^0[1-9]\d{8}$#')
+           ->matches('#^0[1-9]\d{8}$#')
 
        ->string($vdm)
-           ->match("#^Today *VDM$#")
+           ->matches("#^Today *VDM$#")
    ;
 
 .. _string-not-contains:
