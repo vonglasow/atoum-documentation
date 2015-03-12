@@ -176,7 +176,7 @@ The instructions for installation and usage are available on this page.
 
 
 The philosophy of atoum
-**********************
+************************
 
 Simple example
 ==============

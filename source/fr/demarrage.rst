@@ -176,7 +176,7 @@ Toutes les instructions pour son installation et son utilisation sont disponible
 
 
 La philosophie d'atoum
-**********************
+************************
 
 Exemple simple
 ==============

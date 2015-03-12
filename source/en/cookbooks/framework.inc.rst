@@ -2,7 +2,7 @@
 .. _utilisation-avec-frameworks:
 
 Use with framworks
-******************************
+********************************
 
 .. _utilisation-avec-ezpublish:
 

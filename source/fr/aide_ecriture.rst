@@ -5,7 +5,7 @@ Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières,
 
 
 ``given``, ``if``, ``and`` et ``then``
-**************************************
+****************************************
 
 L'utilisation de ces mots-clefs est très intuitive :
 
@@ -203,7 +203,7 @@ La chaîne de caractères sera de plus reprise dans les messages générés par 
 
 
 Le mode loop
-************
+**************
 
 Lorsqu'un développeur fait du développement piloté par les tests, il travaille généralement de la manière suivante :
 

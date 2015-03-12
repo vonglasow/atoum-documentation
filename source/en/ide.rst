@@ -21,7 +21,7 @@ It's possible to navigate among errors, or even to go to the line in the editor 
 
 
 Installation of the plug-in atoum for VIM
-======================================
+==========================================
 
 You will find the file corresponding to the plug-in, named ``atoum.vmb``, in the directory named ``resources/vim``.
 

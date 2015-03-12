@@ -2,7 +2,7 @@
 .. _utilisation-avec-frameworks:
 
 Utilisation avec des frameworks
-******************************
+********************************
 
 .. _utilisation-avec-ezpublish:
 

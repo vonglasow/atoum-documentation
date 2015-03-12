@@ -2,7 +2,7 @@ Ressources externes
 *******************
 
 .. note::
-Cette page reprend une série de liens externes parlant d'atoum.
+	Cette page reprend une série de liens externes parlant d'atoum.
 
 
 .. _ressource_en
@@ -10,7 +10,7 @@ Cette page reprend une série de liens externes parlant d'atoum.
 En anglais
 ===========
 
-* Une `documentation` <https://github.com/geraldcroes/atoum-s-documentation>` écrite par [Gérald Croës](http://www.croes.org/gerald/blog) (thanks man !).
+* Une `documentation <https://github.com/geraldcroes/atoum-s-documentation>` écrite par `Gérald Croës <http://www.croes.org/gerald/blog>` (thanks man !).
 * Un `billet <http://sbin.dk/2012/09/17/simple-tdd-with-atoum/>` de `@toinOu <http://twitter.com/toin0u>` pour utiliser *atoum* avec `watchr <https://github.com/mynyml/watchr>`. 
 
 .. _ressource_fr

@@ -10,7 +10,7 @@ This page contains a series of external links about atoum.
 In english
 ===========
 
-* A `documentation` <https://github.com/geraldcroes/atoum-s-documentation>` written by [Gérald Croës](http://www.croes.org/gerald/blog) (thanks man !).
+* A `documentation <https://github.com/geraldcroes/atoum-s-documentation>` written by `Gérald Croës <http://www.croes.org/gerald/blog>` (thanks man !).
 * A `blog post <http://sbin.dk/2012/09/17/simple-tdd-with-atoum/>` from `@toinOu <http://twitter.com/toin0u>` to use *atoum* with `watchr <https://github.com/mynyml/watchr>`. 
 
 .. _ressource_fr

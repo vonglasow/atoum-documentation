@@ -204,11 +204,13 @@ Il est assez simple d'utiliser atoum dans l'outils qu'est `Travis-CI <https://tr
 * Ajouter y les deux lignes suivantes :
 
 .. code-block:: yml
+
    before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
    script: php mageekguy.atoum.phar
 
 
 Voici un exemple de fichier `.travis.yml` dont les tests présent dans le dossier `tests` seront executer.
+
 .. code-block:: yml
 
    language: php
