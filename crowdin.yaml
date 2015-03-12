@@ -16,11 +16,17 @@ files:
     source      : '/source/fr/cookbooks/framework.inc.rst'
     dest        : '/source/fr/cookbooks/framework.inc.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: cookbooks/framework.inc
 
   -
     source      : '/source/fr/cookbooks/hook.inc.rst'
     dest        : '/source/fr/cookbooks/hook.inc.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: cookbooks/hook.inc
 
   -
     source      : '/source/fr/cookbooks/outils.inc.rst'
@@ -28,7 +34,7 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
       file_name:
-        en: tools.inc
+        en: cookbooks/tools.inc
 
   -
     source      : '/source/fr/cookbooks/php.inc.rst'
@@ -36,12 +42,15 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
       file_name:
-        en: receipt.inc
+        en: cookbooks/php.inc
 
   -
     source      : '/source/fr/cookbooks/recette.inc.rst'
     dest        : '/source/fr/cookbooks/recette.inc.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: cookbooks/receipt.inc
 
   -
     source      : '/source/fr/extensions.rst'
