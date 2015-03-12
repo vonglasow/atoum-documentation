@@ -660,7 +660,7 @@ Sa méthode ``generate`` prend 3 paramètres :
    Si vous n'utilisez que le premier argument et ne changez ni l'espace de nommage ni le nom de la classe, alors la première solution est équivalente, plus simple à lire et recommandée.
    
 .. note::
-   Si vous désirez connaître, pour debuger un test par exemple, la classe générée par le générateur de mock, vous pouvez effectuer un appel a ``$this->mockGenerator->getMockedClassCode()``. Cette méthode prend les même arguments que la méthode generate.
+   Vous pouvez accéder au code de la classe générée par le générateur de mock en appelant ``$this->mockGenerator->getMockedClassCode()``, afin de débugger, par exemple. Cette méthode prend les mêmes arguments que la méthode generate.
 
 .. code-block:: php
 
