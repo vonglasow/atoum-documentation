@@ -12,7 +12,7 @@ It's the assertion dedicated to arrays.
 It's recommended to use only ``->array()`` in order to simplify the reading of tests.
 
 
-.. _sucre-syntaxique
+.. _sucre-syntaxique:
 
 Syntactic sugar
 =================

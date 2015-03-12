@@ -5,7 +5,7 @@ Use in behat
 **********************
 
 The *asserters* from atoum are very easy to use outside your traditional unit tests. Just import the class *mageekguy\atoum\asserter* without forgetting to load the required classes (atoum provides an autoload class available in *classes/autoloader.php*).
-The following example illustrates this usage of asserter from atoumin your Behat *steps.
+The following example illustrates this usage of asserter from atoumin your Behat *steps*.
 
 Installation
 ============
@@ -209,7 +209,7 @@ it's simple to use atoum with a tool like `Travis-CI <https://travis-ci.org>`_. 
    script: php mageekguy.atoum.phar
 
 
-Here is an example file `.travis.yml` where the unit tests in the `tests`folder will be run.
+Here is an example file `.travis.yml` where the unit tests in the `tests` folder will be run.
 
 .. code-block:: yml
 

@@ -2,7 +2,7 @@ External resources
 *******************
 
 .. note::
-This page contains a series of external links about atoum.
+	This page contains a series of external links about atoum.
 
 
 .. _ressource_en
