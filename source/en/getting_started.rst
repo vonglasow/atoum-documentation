@@ -10,7 +10,6 @@ You can install atom from several ways:
 
 * by downloading the `PHAR archive`_ ;
 * with `composer`_;
-* using the `installation script`_;
 * by cloning the `Github`_ repository;
 * using the `symfony 1 plugin`_;
 * using the `symfony 2 bundle`_;
@@ -164,7 +163,7 @@ Symfony 2 bundle
 
 To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
 
-The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2 as well as on the github page.
+The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
 
 
 Zend Framework 2 component

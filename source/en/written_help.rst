@@ -375,7 +375,7 @@ It's also possible to pass several argments to ``dump()``, as the following way:
 stop
 ====
 
-The ``stop()``method is also easy to use:
+The ``stop()`` method is also easy to use:
 
 .. code-block:: php
 

@@ -93,7 +93,7 @@ To run a test in a folder, simply use the -d option or --directories.
 Filters
 *******
 
-Once you have told to atoum :ref:`which files it must execute <files-to-execute>`, you will be able to filter what will really be executed.
+Once you have told to atoum :ref:`which files it must execute <fichiers-a-executer>`, you will be able to filter what will really be executed.
 
 .. _filtres-par-namespace:
 
