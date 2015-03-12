@@ -93,7 +93,7 @@ Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou
 Filtres
 *******
 
-Une fois que vous avez préciser à atoum les `fichiers à exécuter`_, vous pouvez filtrer ce qui sera réellement exécuter.
+Une fois que vous avez préciser à atoum les :ref:`fichiers à exécuter <fichiers-a-executer>`, vous pouvez filtrer ce qui sera réellement exécuter.
 
 .. _filtres-par-namespace:
 

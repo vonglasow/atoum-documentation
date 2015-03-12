@@ -215,7 +215,7 @@ matches
            ->matches('#^0[1-9]\d{8}$#')
 
        ->string($vdm)
-           ->matches("#^Today *VDM$#")
+           ->matches("#^Today.*VDM$#")
    ;
 
 .. _string-not-contains:

@@ -12,7 +12,7 @@ C'est l'assertion dédiée aux tableaux.
 Il est conseillé d'utiliser exclusivement ``->array()`` afin de simplifier la lecture des tests.
 
 
-.. _sucre-syntaxique
+.. _sucre-syntaxique:
 
 Sucre syntaxique
 =================

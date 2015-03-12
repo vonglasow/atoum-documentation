@@ -126,7 +126,7 @@ matches
 
 .. hint::
    ``matches`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::matches <string-matches>`
+   For more information, refer to the documentation of :ref:`string::match <string-matches>`
 
 
 .. note::
@@ -141,7 +141,7 @@ matches
 
    $this
        ->utf8String($vdm)
-           ->matches("#^Today *VDM$#u")
+           ->matches("#^Today.*VDM$#u")
    ;
 
 .. _utf8-string-not-contains:
