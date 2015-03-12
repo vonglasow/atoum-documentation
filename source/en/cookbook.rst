@@ -6,5 +6,3 @@ Cookbook
 .. include:: cookbooks/tools.inc.rst
 .. include:: cookbooks/php.inc.rst
 .. include:: cookbooks/framework.inc.rst
-
-

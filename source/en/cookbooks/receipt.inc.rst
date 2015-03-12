@@ -90,7 +90,7 @@ La méthode ``atoum\test::setTestNamespace()`` accepte en effet un unique argume
    }
 
 
-Ainsi, vous n'aurez plus qu'à faire dériver vos classes de tests unitaires de cette classe abstraite :
+Thus, you will only have to do derive your unit test classes from this abstract class:
 
 .. code-block:: php
 
@@ -149,7 +149,6 @@ Cependant, en règle général, l'espace de nom utilisé pour les classes de tes
 
 
 
-
 .. _cookbook_singleton:
 
 Test of a singleton
@@ -165,4 +164,3 @@ To test a method that always returns the same instance of an object, checks that
            ->isInstanceOf('Singleton')
            ->isIdenticalTo(\Singleton::getInstance())
    ;
-

@@ -12,10 +12,10 @@ Cependant, dans les faits, il est très facile pour le développeur d'omettre ce
 
 Heureusement, les logiciels de gestion de versions en général et Git en particulier dispose d'un mécanisme, connu sous le nom de hook de pré-commit permettant d'exécuter automatiquement des tâches lors de l'ajout de code dans un dépôt.
 
-L'installation d'un hook de pré-commit est très simple et se déroule en deux étapes.
+The installation of a pre-commit hook is very simple and takes place in two stages.
 
 
-Étape 1 : Création du script à exécuter
+Step 1: Creation of the script to run
 =======================================
 
 Lors de l'ajout de code à un dépôt, Git recherche le fichier ``.git/hook/pre-commit`` à la racine du dépôt et l'exécute s'il existe et qu'il dispose des droits nécessaires.

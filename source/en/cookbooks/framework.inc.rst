@@ -1,25 +1,23 @@
 
-
 .. _utilisation-avec-frameworks:
 
 Use with framworks
 ******************************
 
-
 .. _utilisation-avec-ezpublish:
 
 Use with ezPublish
-__________________________
+=============================
 
 
-Étape 1 : Installation d'atoum au sein d'eZ Publish
-===================================================
+Step 1: Installation of atoum in eZ Publish
+-----------------------------------------------------
 
 Le framework eZ Publish possède déjà un répertoire dédiés aux tests, nommés logiquement tests. C'est donc dans ce répertoire que devra être placée l':ref:`archive PHAR` <archive-phar>` de atoum. Les fichiers de tests unitaires utilisant atoum seront quand à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
 
 
 Étape 2 : Création de la classe de test de base
-===============================================
+-----------------------------------------------------
 
 Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\test*. Cependant, cette dernière ne prend pas en compte les spécificités de *eZ Publish*. Il est donc nécessaire de définir une classe de test de base, dérivée de *\mageekguy\atoum\test*, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier *tests\atoum\test.php* :
 
@@ -57,7 +55,7 @@ Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\te
 
 
 Étape 3 : Création d'une classe de test
-======================================
+-----------------------------------------------------
 
 Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
 
@@ -81,7 +79,7 @@ Par défaut, atoum demande à ce que les classes de tests unitaires soient dans 
 
 
 Étapes 4 : Exécution des tests unitaires
-========================================
+-----------------------------------------------------
 
 Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet :
 
@@ -96,7 +94,7 @@ Thnaks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
 .. _utilisation-avec-symfony-2:
 
 Use with Symfony 2
-__________________________
+==============================
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
@@ -104,7 +102,7 @@ Si vous souhaitez installer et configurer atoum manuellement, voici comment fair
 
 
 Étape 1: installation d'atoum
-=============================
+-----------------------------------------------------
 
 Si vous utilisez Symfony 2.0, `téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
 
@@ -112,7 +110,7 @@ Si vous utilisez Symfony 2.1+, `ajoutez atoum dans votre fichier composer.json <
 
 
 Étape 2: création de la classe de test
-======================================
+-----------------------------------------------------
 
 Imaginons que nous voulions tester cet Entity:
 
@@ -216,7 +214,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
 
 Étape 3: écriture d'un test
-===========================
+-----------------------------------------------------
 
 Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
@@ -248,7 +246,7 @@ Créons notre fichier de test:
 
 
 Étape 4: lancement des tests
-============================
+-----------------------------------------------------
 
 Si vous utilisez Symfony 2.0:
 
@@ -312,13 +310,13 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 .. _utilisation-avec-symfony-1-4:
 
 Use withn symfony 1.4
-____________________________
+====================================
 
-if you wich to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+If you wich to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
 
 Installation
-============
+-----------------------------------------------------
 
 There are several way to install this plugin in your project:
 
@@ -327,7 +325,7 @@ There are several way to install this plugin in your project:
 
 
 Using composer
----------------------
+"""""""""""""""""""""""""
 
 Ad this lines inside the composer.json file:
 
@@ -353,7 +351,7 @@ Then in your ProjectConfiguration file you have to activate the plugin and defin
 
 
 Using a git submodule
--------------------------------
+"""""""""""""""""""""""""""""""""""
 
 First, install atoum as a submodule:
 
@@ -379,7 +377,7 @@ Finally, enable the plugin in in your ProjectConfiguration file:
 
 
 Write tests
-================
+-----------------------------------------------------
 
 Tests must include the bootstrap file from the plugin:
 
@@ -390,7 +388,7 @@ Tests must include the bootstrap file from the plugin:
 
 
 Launch tests
-================
+-----------------------------------------------------
 
 The symfony command atoum:test is available. The tests can then be launched in this way:
 
@@ -400,7 +398,7 @@ The symfony command atoum:test is available. The tests can then be launched in t
 
 All the arguments of atoum are available.
 
-It's therefore, for example, possible to give a configuration file like this:
+It's therefore, for example, possible to give a configuration file like this :
 
 .. code-block:: php
 

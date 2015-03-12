@@ -1,7 +1,8 @@
 
+
 .. _cookbook_optimiser_php:
 
-Optimiser PHP pour exécuter les tests le plus rapidement possible
+Optimize PHP to run the tests as fast as possible
 *****************************************************************
 
 Par défaut, atoum exécute chaque test dans un processus PHP séparé afin d'en garantir l'isolation. De plus, afin d'optimiser les performances et exploiter au maximum, il n'exécute pas chaque test de manière séquentielle mais parallèlement. Enfin, le code de atoum est de plus conçu de façon à s'exécuter le plus rapidement possible.
@@ -57,4 +58,3 @@ Une fois cela effectué, vous n'aurez plus qu'à exécuter vos tests pour consta
 
 
 In case of problems or doubt, just feel free to consult the`official documentation  <http://php.net/manual/en/faq.build.php>`_ on the compilation of PHP.
-
