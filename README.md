@@ -62,4 +62,5 @@ They must stay the same. It will be easier for other people to translate other p
 ### Where can I find the syntax for the files?
 We use the reStructuredText syntax. You can find it on the [sphinx website](http://sphinx-doc.org/rest.html).
 
-
+### What are the title underline order?
+In reStructuredText synthaxe, you can use a wide variety of character to underline. The good order for them are take into *source/fr/index.rst* file.
