@@ -5,10 +5,10 @@ float
 
 It's the assertion dedicated to decimal numbers.
 
-Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
+If you try to test a variable that is not a decimal number with this assertion, this will fail.
 
 .. note::
-   ``null`` n'est pas un nombre décimal. Reportez-vous au manuel de PHP pour savoir ce que `is_float <http://php.net/is_float>`_ considère ou non comme un nombre décimal.
+   ``null`` is not a decimal number. Refer to the PHP manual to know what `is_float <http://php.net/is_float>`_ considered or not as a float.
 
 
 .. _float-is-equal-to:
@@ -76,22 +76,22 @@ isLessThanOrEqualTo
 isNearlyEqualTo
 ===============
 
-``isNearlyEqualTo`` vérifie que le nombre décimal est approximativement égal à la valeur qu'elle reçoit en argument.
+``isNearlyEqualTo`` checks that the float is approximatively equal to the value it receives as an argument.
 
-En effet, en informatique, les nombres décimaux sont gérées d'une façon qui ne permet pas d'effectuer des comparaisons précises sans recourir à des outils spécialisés. Essayez par exemple d'exécuter la commande suivante:
+Indeed, in computer science, decimal numbers are managed in a way that does not allow for accurate comparisons without the use of specialized tools. Try for example to run the following command:
 
 .. code-block:: shell
 
    $ php -r 'var_dump(1 - 0.97 === 0.03);'
    bool(false)
 
-Le résultat devrait pourtant être ``true``.
+The result should be "true".
 
 .. note::
-   Pour avoir plus d'informations sur ce phénomène, lisez la documentation PHP sur `le type float et sa précision <http://php.net/types.float>`_.
+   For more information on this topics, read the PHP documentation on `the float precision <http://php.net/types.float>`_.
 
 
-Cette méthode cherche donc à minorer ce problème.
+This method is therefore seeking to reduce this problem.
 
 .. code-block:: php
 
@@ -105,7 +105,7 @@ Cette méthode cherche donc à minorer ce problème.
    ;
 
 .. note::
-   Pour avoir plus d'informations sur l'algorithme utilisé, consultez le `floating point guide <http://www.floating-point-gui.de/errors/comparison/>`_.
+   For more information about the algorithm used, see the `floating point guide <http://www.floating-point-gui.de/errors/comparison/>`_.
 
 
 .. _float-is-not-equal-to:
