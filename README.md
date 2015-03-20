@@ -62,4 +62,5 @@ They must stay the same. It will be easier for other people to translate other p
 ### Where can I find the syntax for the files?
 We use the reStructuredText syntax. You can find it on the [sphinx website](http://sphinx-doc.org/rest.html).
 
-
+### What are the title underline order?
+In reStructuredText syntax, you can use a wide variety of character to underline. The order use in the atoum documentation is : #, *, =, -, ", ^, `, :, ., ' . Now if you have more than 4 subdivisions, think subdivide into multiple files.
