@@ -375,7 +375,7 @@ It's also possible to pass several argments to ``dump()``, as the following way:
 stop
 ====
 
-The ``stop()`` method is also easy to use:
+The ``stop()``method is also easy to use:
 
 .. code-block:: php
 
@@ -431,23 +431,23 @@ Of course, it's possible to call several times ``executeOnFailure()`` in the sam
 The initialization methods
 *****************************
 
-Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (``concurrent``) :
+Here is the process, when atoum executes the test methods of a class with the default engine (``concurrent``):
 
-#. appel de la méthode ``setUp()`` de la classe de test ;
-#. lancement d'un sous-processus PHP pour exécuter **chaque méthode** de test ;
-#. dans le sous-processus PHP, appel de la méthode ``beforeTestMethod()`` de la classe de test ;
-#. dans le sous-processus PHP, appel de la méthode de test ;
-#. dans le sous-processus PHP, appel de la méthode ``afterTestMethod()`` de la classe de test ;
-#. une fois le sous-processus PHP terminé, appel de la méthode ``tearDown()`` de la classe de test.
+#. call of the ``setUp()`` method from the tested class;
+#. launch of a PHP sub-process for **each test method**;
+#. in the PHP sub-process, call of the ``beforeTestMethod()`` method of the test class;
+#. in the PHP sub-process, call of the test method;
+#. in the PHP sub-process, call of the ``afterTestMethod()`` method of the test class;
+#. once the PHP sub-process finished, call of the ``tearDown()`` method from thze test class.
 
 .. note::
-   Pour plus d'informations sur les moteurs d'exécution des tests d'atoum, vous pouvez lire le paragraphe sur l'annotation `@engine`_.
+   For more information on the execution engine of test in atoum, you can read the section about the annotation `@engine`_.
 
-Les méthodes ``setUp()`` et ``tearDown()`` permettent donc respectivement d'initialiser et de nettoyer l'environnement de test pour l'ensemble des méthodes de test de la classe exécutée.
+The methods ``setUp()`` and ``tearDown()`` allow respectively to initialize and clean up the test environment for all the test method of the running class.
 
-Les méthodes ``beforeTestMethod()`` et ``afterTestMethod()`` permettent respectivement d'initialiser et de nettoyer l'environnement d'exécution des tests individuellement pour chacune des méthodes de test de la classe, puisqu'elles sont exécutées dans le même sous-processus, au contraire de ``setUp()`` et ``tearDown()``.
+The methods ``beforeTestMethod()`` and ``afterTestMethod()`` allows respectively to initialize and clean up the execution environment of the individual tests for all test method of the class. Since they are executed in the same subprocess, in contrast of ``setUp()`` and ``tearDown()``.
 
-C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et ``afterTestMethod()`` acceptent comme argument le nom de la méthode de test exécutée, afin de pouvoir ajuster les traitements en conséquence.
+It's also the reason why the methods  ``beforeTestMethod()`` and ``afterTestMethod()`` accept as argument the name of the test method executed, in order to adjust the treatment accordingly.
 
 .. code-block:: php
 
@@ -465,22 +465,22 @@ C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et
    {
        public function setUp()
        {
-           // Exécutée *avant l'ensemble* des méthodes de test.
-           // Initialisation globale.
+           // Executed *before all* test methods.
+           // global initialization.
        }
 
        public function beforeTestMethod($method)
        {
-           // Exécutée *avant chaque* méthode de test.
+           // Executed *before each* test method.
 
            switch ($method)
            {
                case 'testGetOwner':
-                   // Initialisation pour testGetOwner().
+                   // Initialization for testGetOwner().
                break;
 
                case 'testGetOperations':
-                   // Initialisation pour testGetOperations().
+                   // Initialization for testGetOperations().
                break;
            }
        }
@@ -497,36 +497,36 @@ C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et
 
        public function afterTestMethod($method)
        {
-           // Exécutée *après chaque* méthode de test.
+           // Executed *after each* test method.
 
            switch ($method)
            {
                case 'testGetOwner':
-                   // Nettoyage pour testGetOwner().
+                   // Cleaning for testGetOwner().
                break;
 
                case 'testGetOperations':
-                   // Nettoyage pour testGetOperations().
+                   // Cleaning for testGetOperations().
                break;
            }
        }
 
        public function tearDown()
        {
-           // Exécutée après l'ensemble des méthodes de test.
-           // Nettoyage global.
+           // Executed after all the test methods.
+           // Overall cleaning.
        }
    }
 
-Par défaut, les méthodes ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` et ``tearDown()`` ne font absolument rien.
+By default, the ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` and ``tearDown()`` methods does absolutely nothing.
 
 It is therefore the responsibility of the programmer to overload when needed in the test classes concerned.
 
 
-Fournisseurs de données (data provider)
+Data providers
 ***************************************
 
-Pour vous aider à tester efficacement vos classes, atoum met à votre disposition des fournisseurs de données (data provider en anglais).
+To help you to effectively test your classes, atoum puts data providers at your disposal.
 
 A data provider is a method in class test which generate arguments for et test method, arguments that will be used by the methode to validate assertions.
 
@@ -554,9 +554,9 @@ Vous pouvez néanmoins définir manuellement le nom de la méthode du fournisseu
        ...
    }
 
-Évidemment, il ne faut pas oublier de définir, au niveau de la méthode de test, les arguments correspondant à ceux qui seront retournés par le fournisseur de données. Si ce n'est pas le cas, atoum générera une erreur lors de l'exécution des tests.
+Of course, do not forget to define, at the level of the test method, the arguments that correspond to those that will be returned by the data provider. If not, atoum will generate an error when running the tests.
 
-La méthode du fournisseur de données est une simple méthode protected qui retourne un tableau ou un itérateur contenant des données :
+The data provider method is a single protected method that returns an array or an iterator containing data:
 
 .. code-block:: php
 
@@ -565,7 +565,7 @@ La méthode du fournisseur de données est une simple méthode protected qui ret
    {
        ...
 
-       // Fournisseur de données de testSum().
+       // Provides data for testSum().
        protected function sumDataProvider()
        {
            return array(
@@ -586,37 +586,37 @@ Lors de l'exécution des tests, atoum appellera la méthode de test ``testSum()`
 
 .. _les-bouchons-mock:
 
-Les bouchons (mock)
+The mocks
 *******************
 
-atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes, inexistantes, abstraites ou non) ou d'interfaces. Grâce à ces bouchons, vous pourrez simuler des comportements en redéfinissant les méthodes publiques de vos classes.
+atoum has a powerful mock system and easy-to-implement allowing you to generate mocks from (existing, nonexistent, abstract or not) classes or interfaces. With these mocks, you can simulate behaviors by redefining the public methods of your classes.
 
 
-Générer un bouchon
+Generate a mock
 ==================
 
-Il y a plusieurs manières de créer un bouchon à partir d'une interface ou d'une classe.
+There are several ways to create a mock from an interface or a class.
 
-La plus simple est de créer un objet dont le nom absolu est préfixé par ``mock``:
+The simplest is to create an object with the absolute name is prefixed by "mock":
 
 .. code-block:: php
 
    <?php
-   // création d'un bouchon de l'interface \Countable
+   // creation of a mock of the interface \Countable
    $countableMock = new \mock\Countable;
 
-   // création d'un bouchon de la classe abstraite
+   // creation of a mock from the abstract class
    // \Vendor\Project\AbstractClass
    $vendorAppMock = new \mock\Vendor\Project\AbstractClass;
 
-   // création d'un bouchon de la classe \StdClass
+   // creation of mock of the \StdClass class
    $stdObject     = new \mock\StdClass;
 
-   // création d'un bouchon à partir d'une classe inexistante
+   // creation of a mock from a non-existing class
    $anonymousMock = new \mock\My\Unknown\Class;
 
 
-Le générateur de bouchon
+The mock generator
 ========================
 
 atoum s'appuie sur un composant spécialisé pour générer les bouchons : le ``mockGenerator``. Vous avez accès à ce dernier dans vos tests afin de modifier la procédure de génération des mocks.
@@ -624,10 +624,10 @@ atoum s'appuie sur un composant spécialisé pour générer les bouchons : le `
 Par défaut, les bouchons seront générés dans le namespace ``mock`` et se comporteront exactement de la même manière que les instances de la classe originale (le bouchon hérite directement de la classe originale).
 
 
-Changer le nom de la classe
+Change the name of the class
 ---------------------------
 
-Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le ``mockGenerator``.
+If you wish to change the name of the class or its namespace, you must use the ``mockGenerator``.
 
 Sa méthode ``generate`` prend 3 paramètres :
 
@@ -642,7 +642,7 @@ Sa méthode ``generate`` prend 3 paramètres :
    // on ne change que l'espace de nom
    $this->mockGenerator->generate('\Countable', '\MyMock');
 
-   // création d'un bouchon de la classe abstraite
+   // creation of a mock from the abstract class
    // \Vendor\Project\AbstractClass vers \MyMock\AClass
    // on change l'espace de nom et le nom de la classe
    $this->mockGenerator->generate('\Vendor\Project\AbstractClass', '\MyMock', 'AClass');
@@ -657,20 +657,23 @@ Sa méthode ``generate`` prend 3 paramètres :
    $stdObject     = new \mock\OneClass;
 
 .. note::
-   Si vous n'utilisez que le premier argument et ne changez ni l'espace de nommage ni le nom de la classe, alors la première solution est équivalente, plus simple à lire et recommandée.
+   If you use only the first argument and do not change the namespace or the name of the class, then the first solution is equivalent, easiest to read and recommended.
+   
+.. note::
+   Vous pouvez accéder au code de la classe générée par le générateur de mock en appelant ``$this->mockGenerator->getMockedClassCode()``, afin de débugger, par exemple. Cette méthode prend les mêmes arguments que la méthode ``generate``.
 
 .. code-block:: php
 
    <?php
    $countableMock = new \mock\Countable;
 
-   // est équivalent à:
+   // is equivalent to:
 
-   $this->mockGenerator->generate('\Countable');   // inutile
+   $this->mockGenerator->generate('\Countable');   // useless
    $countableMock = new \mock\Countable;
 
 
-Shunter les appels aux méthodes parentes
+Shunt calls to parent methods
 ----------------------------------------
 
 Un bouchon hérite directement de la classe à partir de laquelle il a été généré, ses méthodes se comportent donc exactement de la même manière.
@@ -701,7 +704,7 @@ Ici, toutes les méthodes du bouchon se comporteront comme si elles n'avaient pa
    $countableMock = new \mock\OneClass;
 
 
-Rendre une méthode orpheline
+Make an orphan method
 ----------------------------
 
 Il peut parfois être intéressant de rendre une méthode orpheline, c'est-à-dire, lui donner une signature et une implémentation vide. Cela peut être particulièrement utile pour générer des bouchons sans avoir à instancier toutes leurs dépendances.
@@ -734,12 +737,12 @@ Il peut parfois être intéressant de rendre une méthode orpheline, c'est-à-di
    $object = new FirstClass($mock);
 
 
-Modifier le comportement d'un bouchon
+Modify the behavior of a mock
 =====================================
 
-Une fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
+Once the mock created and instantiated, it is often useful to be able to change the behavior of its methods.
 
-Pour cela, il faut passer par son contrôleur en utilisant l'une des méthodes suivantes :
+To do this, you must use its controller using one of the following methods:
 
 .. code-block:: php
 
@@ -893,10 +896,10 @@ methodsMatching
    ``methodsMatching`` utilise `preg_match <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`_ pour avoir plus d'informations sur le sujet.
 
 
-Cas particulier du constructeur
+Particular case of the constructor
 ===============================
 
-Pour bouchonner le constructeur d'une classe, il faut :
+To mock the constructor of a class, you need:
 
 * créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
 * définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
@@ -911,10 +914,10 @@ Pour bouchonner le constructeur d'une classe, il faut :
    $mockDbClient = new \mock\Database\Client(DB_HOST, DB_USER, DB_PASS, $controller);
 
 
-Tester un bouchon
+Test mock
 =================
 
-atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
+atoum lets you verify that a mock was used properly.
 
 .. code-block:: php
 

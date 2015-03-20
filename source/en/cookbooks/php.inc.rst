@@ -5,7 +5,7 @@
 Optimize PHP to run the tests as fast as possible
 *****************************************************************
 
-Par défaut, atoum exécute chaque test dans un processus PHP séparé afin d'en garantir l'isolation. De plus, afin d'optimiser les performances et exploiter au maximum, il n'exécute pas chaque test de manière séquentielle mais parallèlement. Enfin, le code de atoum est de plus conçu de façon à s'exécuter le plus rapidement possible.
+By default, atoum runs each test in a separate PHP process in order to guarantee the insulation. In addition, in order to optimize performance and exploit to the maximum, it does not perform each test in a sequential manner but at the same time. Finally, the code of Atum is more designed to run as fast as possible.
 
 Grâce à tout cela, atoum est donc capable d'exécuter très rapidement un grand nombre de test. Cependant, en fonction du système d'exploitation, la création de chacun des sous-processus permettant l'isolation des tests peut être une opération longue et donc susceptible d'avoir un impact important sur les performances globale d'atoum. Il peut donc être très pertinent d'optimiser la taille du binaire PHP qui sera utilisé dans chaque processus afin d'exécuter encore plus rapidement les tests.
 
@@ -20,7 +20,7 @@ Traditionnellement, une fois les sources du langage récupéré via `php.net <ht
 	# make
 	# make install
 
-Il est à noter que la commande *make install* doit être exécutée en tant que super-administrateur pour fonctionner correctement. Vu que nous voulons une version sur mesure de PHP, il est nécessaire de modifier cette procédure au niveau de la commande *./configure*. C'est en effet cette commande qui permet de définir, entre autre chose, les modules qui seront intégrés à PHP lors de sa compilation, comme le prouve le résultat de la commande *./configure --help*.
+Note that the command *make install* must be executed as root to function properly. Vu que nous voulons une version sur mesure de PHP, il est nécessaire de modifier cette procédure au niveau de la commande *./configure*. C'est en effet cette commande qui permet de définir, entre autre chose, les modules qui seront intégrés à PHP lors de sa compilation, comme le prouve le résultat de la commande *./configure --help*.
 
 Pour obtenir une version de PHP correspondant précisément à vos besoins, il faut donc commencer par demander la désactivation de l'ensemble des modules par défaut, via l'option *--disable-all*. Une fois cela effectué, il faut ajouter l'option *--enable-cli* pour obtenir uniquement à l'issue de la compilation uniquement le binaire PHP utilisable en ligne de commande. Il n'y a plus ensuite qu'à ajouter via les options * --enable-* * adéquate les modules nécessaires à l'exécution de vos tests, ainsi que les éventuelles options * --with-* * nécessaires à la compilation de ces modules. À titre d'exemple, la commande à utiliser pour compiler un binaire PHP en ligne de commande nécessaire et suffisant pour exécuter les tests unitaires de atoum sous Mac OS X est :
 
@@ -31,7 +31,7 @@ Pour obtenir une version de PHP correspondant précisément à vos besoins, il f
 
 Il est à noter que si vous souhaiter installer votre binaire PHP à un endroit précis pour ne pas remplacer celui déjà installé au niveau de votre système d'exploitation, vous pouvez utiliser l'option *--prefix=path/to/destination/directory*, comme indiqué dans l'aide de *./configure*, disponible via l'option *--help*. Vous pourrez ensuite l'utiliser pour exécuter vos tests via l'argument *-p* de atoum.
 
-Une fois la commande *./configure* exécutée avec les options adéquates, il n'y a plus qu'à poursuivre l'installation de PHP de manière traditionnelle :
+Once the command *. / configure * executed with the appropriate options, there just need to continue with the installation of PHP in the traditional way:
 
 .. code-block:: shell
 
@@ -39,7 +39,7 @@ Une fois la commande *./configure* exécutée avec les options adéquates, il n'
 	# make install
 
 
-Une fois cela effectué, vous n'aurez plus qu'à exécuter vos tests pour constater la différence en terme de vitesse d'exécution. À titre d'information, sous Mac OS X lion sur un MacBook Air 2012, grâce à la procédure décrite ci-dessus, il est possible de passer d'un binaire PHP de 21 Mo à un binaire PHP de 4.7 Mo, ce qui permet de passer le temps d'exécution de l'ensemble des tests unitaires de atoum de 34 secondes à 17 secondes, soit un gain de 50% :
+Once this done, you only have to run your tests to see the difference in terms of execution speed. For information purposes, under Mac OS X lion on a MacBook Air 2012, using the procedure described above, it's possible to switch from 21 MB PHP binary to a 4.7 MB PHP binary which allows to pass the execution time of all the atoum unit tests of 34 seconds to 17 seconds, a 50% gain:
 
 .. code-block:: shell
 

@@ -54,7 +54,7 @@ Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\te
 
 
 
-Étape 3 : Création d'une classe de test
+Step 3: Creating a test class
 -----------------------------------------------------
 
 Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
