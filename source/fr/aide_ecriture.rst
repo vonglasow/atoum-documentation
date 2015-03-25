@@ -968,10 +968,10 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
    ;
 
 .. important::
-   On ne peut pas mettre de \ devant les fonctions a simulé car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
+   On ne peut pas mettre de \\ devant les fonctions à simuler car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
    
 .. important::
-   Pour la meme raison, si une fonction native a déjà été appelée son bouchonnage sera sans effet.
+   Pour la même raison, si une fonction native a déjà été appelée, son bouchonnage sera sans effet.
 
 .. code-block:: php
 
