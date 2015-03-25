@@ -760,15 +760,15 @@ Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publi
    <?php
    $mockDbClient = new \mock\Database\Client();
 
-   // redéfinie la méthode connect : elle retournera toujours true
+   // redéfinit la méthode connect : elle retournera toujours true
    $this->calling($mockDbClient)->connect = true;
 
-   // redéfinie la méthode select : elle exécutera la fonction anonyme passée
+   // redéfinit la méthode select : elle exécutera la fonction anonyme passée
    $this->calling($mockDbClient)->select = function() {
        return array();
    };
 
-   // redéfinie la méthode query avec des arguments
+   // redéfinit la méthode query avec des arguments
    $result = array();
    $this->calling($mockDbClient)->query = function(Query $query) use($result) {
        switch($query->type) {
@@ -968,10 +968,10 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
    ;
 
 .. important::
-   On ne peut pas mettre de \ devant les fonctions a simulé car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
+   On ne peut pas mettre de \\ devant les fonctions à simuler car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
    
 .. important::
-   Pour la meme raison, si une fonction native a déjà été appelée son bouchonnage sera sans effet.
+   Pour la même raison, si une fonction native a déjà été appelée, son bouchonnage sera sans effet.
 
 .. code-block:: php
 
