@@ -760,15 +760,15 @@ Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publi
    <?php
    $mockDbClient = new \mock\Database\Client();
 
-   // redéfinie la méthode connect : elle retournera toujours true
+   // redéfinit la méthode connect : elle retournera toujours true
    $this->calling($mockDbClient)->connect = true;
 
-   // redéfinie la méthode select : elle exécutera la fonction anonyme passée
+   // redéfinit la méthode select : elle exécutera la fonction anonyme passée
    $this->calling($mockDbClient)->select = function() {
        return array();
    };
 
-   // redéfinie la méthode query avec des arguments
+   // redéfinit la méthode query avec des arguments
    $result = array();
    $this->calling($mockDbClient)->query = function(Query $query) use($result) {
        switch($query->type) {
