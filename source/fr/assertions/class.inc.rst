@@ -22,6 +22,24 @@ C'est l'assertion dédiée aux classes.
 
 Il est conseillé d'utiliser exclusivement ``->class()``.
 
+.. _has-constant:
+
+hasConstant
+=========
+
+``hasConstant`` vérifie que la classe possède bien la constante testée.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->class('\StdClass')
+           ->hasConstant('FOO')       // échoue
+
+       ->class('\FilesystemIterator')
+           ->hasConstant('CURRENT_AS_PATHNAME')       // passe
+   ;
+
 .. _has-interface:
 
 hasInterface
@@ -79,7 +97,6 @@ hasNoParent
 .. warning::
    | Une classe peut implémenter une ou plusieurs interfaces et n'hériter d'aucune classe.
    | ``hasNoParent`` ne vérifie pas les interfaces, uniquement les classes héritées.
-
 
 .. _has-parent:
 
