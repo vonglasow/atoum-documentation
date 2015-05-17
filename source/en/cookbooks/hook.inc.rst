@@ -18,9 +18,9 @@ The installation of a pre-commit hook is very simple and takes place in two stag
 Step 1: Creation of the script to run
 =======================================
 
-Lors de l'ajout de code à un dépôt, Git recherche le fichier ``.git/hook/pre-commit`` à la racine du dépôt et l'exécute s'il existe et qu'il dispose des droits nécessaires.
+When adding code to a repository, Git looks for the file ``.git/hook/pre-commit`` in the root of the repository and executes it if it exists and that it has the necessary rights.
 
-Pour mettre en place le hook, il vous faut donc créer le fichier ``.git/hook/pre-commit`` et y ajouter le code suivant :
+To set up the hook, you must therefore create the ``.git/hook/pre-commit`` file and add the following code:
 
 .. code-block:: php
 
@@ -45,7 +45,7 @@ Pour mettre en place le hook, il vous faut donc créer le fichier ``.git/hook/pr
       }
    }
 
-Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant l'extension ``.php`` et dans des répertoires dont le chemin contient ``/Tests/Units/``. If this is not your case, you will need to modify the script depending on your context.
+The code below assumes that your unit tests are in files with the extension ``.php`` and directories path contains ``/ Tests/Units``. If this is not your case, you will need to modify the script depending on your context.
 
 .. note::
    In the example above, the test files must include atoum for the hook works.
@@ -62,13 +62,13 @@ The tests are run very quickly with atoum, all unit tests can be run before each
 Step 2: Add execution rights
 ======================================
 
-Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être rendu exécutable à l'aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :
+To be usable by Git, the file ``.git/hook/pre-commit`` must be made executable by using the following command, executed in command line from the directory of your deposit:
 
 .. code-block:: shell
 
    $ chmod u+x `.git/hook/pre-commit`
 
-À partir de cet instant, les tests unitaires contenus dans les répertoires dont le chemin contient ``/Tests/Units/`` seront lancés automatiquement lorsque vous effectuerez la commande ``git commit``, si des fichiers ayant l'extension ``.php`` ont été modifiés.
+From this moment on, unit tests contained in the directories with the path contains ``/ Tests/Units`` will be launched automatically when you perform the command ``git commit``, if files with the extension ``.php`` have been changed.
 
-Et si d'aventure un test ne passe pas, les fichiers ne seront pas ajoutés au dépôt. Il vous faudra alors effectuer les corrections nécessaires, utiliser la commande ``git add`` sur les fichiers modifiés et utiliser à nouveau ``git commit``.
+And if unfortunately a test does not pass, the files will not be added to the repository. You must then make the necessary adjustments, use the command ``git add`` on modified files and use again ``git commit``.
 

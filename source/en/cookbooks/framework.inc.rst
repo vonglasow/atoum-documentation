@@ -13,13 +13,13 @@ Use with ezPublish
 Step 1: Installation of atoum in eZ Publish
 -----------------------------------------------------
 
-Le framework eZ Publish possède déjà un répertoire dédiés aux tests, nommés logiquement tests. C'est donc dans ce répertoire que devra être placée l':ref:`archive PHAR <archive-phar>` de atoum. Les fichiers de tests unitaires utilisant atoum seront quand à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
+The eZ Publish framework have already a directory dedicated to tests, logically named tests. It's in this directory that should be placed  the :ref:`PHAR archive <archive-phar>` of atoum. The unit test files using atoum will be placed in a subdirectory *tests/atoum* so they don't conflict with the existing.
 
 
-Étape 2 : Création de la classe de test de base
+Step 2: Creating the class of the base tests
 -----------------------------------------------------
 
-Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\test*. Cependant, cette dernière ne prend pas en compte les spécificités de *eZ Publish*. Il est donc nécessaire de définir une classe de test de base, dérivée de *\mageekguy\atoum\test*, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier *tests\atoum\test.php* :
+A class based on atoum msut extend the class *\mageekguy\atoum\test*. However, this one doesn't take into account the specificities of *eZ Publish*. It's therefore mandatory to define a base test class, derived from *\mageekguy\atoum\test*, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file *tests\atoum\test.php*:
 
 .. code-block:: php
 
@@ -57,7 +57,7 @@ Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\te
 Step 3: Creating a test class
 -----------------------------------------------------
 
-Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
+By default, atoum asks that unit tests classes are in a namespace containing *test(s)\unit(s)*, in order to deduce the name of the tested class. For example, the namespace *\nameofprojet* will be used in the following. For simplicity, it's further advisable to model the test tree on the tested classes tree, in order to quickly locate the class of a tested class, and vice versa.
 
 .. code-block:: php
 
@@ -78,10 +78,10 @@ Par défaut, atoum demande à ce que les classes de tests unitaires soient dans 
 	}
 
 
-Étapes 4 : Exécution des tests unitaires
+Step 4: Running the unit tests
 -----------------------------------------------------
 
-Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet :
+Once a test class created, simply execute this command-line to start the test from the root of the project:
 
 .. code-block:: shell
 
@@ -96,23 +96,23 @@ Thnaks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
 Use with Symfony 2
 ==============================
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
+If you want to use atoum within your Symfony projects, you can install the Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
-Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
+If you want to install and configure atoum manually, here's how to do it.
 
 
-Étape 1: installation d'atoum
+Step 1: installation of atoum
 -----------------------------------------------------
 
-Si vous utilisez Symfony 2.0, `téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
+If you use Symfony 2.0, `download the PHAR <archive-phar>`_ and place it in the vendor directory which is at the root of your project.
 
-Si vous utilisez Symfony 2.1+, `ajoutez atoum dans votre fichier composer.json <installation-par-composer>`_.
+If you use Symfony 2.1+, `add atoum in your composer.json <installation-par-composer>`_.
 
 
-Étape 2: création de la classe de test
+Step 2: create the test class
 -----------------------------------------------------
 
-Imaginons que nous voulions tester cet Entity:
+Imagine that we wanted to test this Entity:
 
 .. code-block:: php
 
@@ -152,12 +152,12 @@ Imaginons que nous voulions tester cet Entity:
    }
 
 .. note::
-   Pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au `manuel Symfony <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
+   For more information about creating Entity in Symfony 2, refer to <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
 
 
-Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stoqués tous les tests de ce Bundle.
+Create the directory Tests/Units in your Bundle (for example src/Acme/DemoBundle/Tests/Units). It's in this directory that will be stored all tests of this Bundle.
 
-Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.
+Create a Test.php file that will serve as a base for all new tests in this Bundle.
 
 .. code-block:: php
 
@@ -206,19 +206,19 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
    }
 
 .. note::
-   L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1+.
+   The inclusion of atoum's PHAR archive is only necessary for Symfony 2.0. Remove this line if you use Symfony 2.1+.
 
 
 .. note::
-   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+   By default, atoum uses namespace tests/units for testing. However Symfony 2 and its class loader require capitalization at the beginning of the names. For this reason, we change the namespace of the tests through the method: setTestNamespace('Tests\Units').
 
 
-Étape 3: écriture d'un test
+Step 3: write a test
 -----------------------------------------------------
 
-Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
+In the Tests/Units directory, simply recreate the tree of the classes that you want to test (for example src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
-Créons notre fichier de test:
+Create our test file:
 
 .. code-block:: php
 
@@ -245,34 +245,34 @@ Créons notre fichier de test:
    }
 
 
-Étape 4: lancement des tests
+Step 4: launch tests
 -----------------------------------------------------
 
-Si vous utilisez Symfony 2.0:
+If you use Symfony 2.0:
 
 .. code-block:: shell
 
-   # Lancement des tests d'un fichier
+   # Launch tests of one file
    $ php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
-   # Lancement de tous les tests du Bundle
+   # Launch all tests of the Bundle
    $ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
 
-Si vous utilisez Symfony 2.1+:
+If you use Symfony 2.1+:
 
 .. code-block:: shell
 
-   # Lancement des tests d'un fichier
+   # Launch tests of one file
    $ ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
-   # Lancement de tous les tests du Bundle
+   # Launch all tests of the Bundle
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
 .. note::
-   Vous pouvez obtenir plus d'informations sur le `lancement des tests <lancement-des-tests>`_ dans le chapitre qui y est consacré.
+   You can get more information on the `test launch <lancement-des-tests>`_ in the chapter which is dedicated to.
 
 
-Dans tous les cas, voilà ce que vous devriez obtenir:
+In any case, this is what you should get:
 
 .. code-block:: shell
 

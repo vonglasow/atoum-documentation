@@ -1,7 +1,7 @@
 
 .. _cookbook_change_default-namespace:
 
-Changer l'espace de nom par défaut
+Change the default namespace
 **********************************
 
 Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\#i`` par le caractère  ``\``.
@@ -14,7 +14,7 @@ Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il 
    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Il faut donc modifier l'expression régulière utilisée, et il est possible de le faire de plusieurs manières. La plus simple est de faire appel à l'annotions ``@namespace`` appliquée à la classe de test, de la manière suivante :
+Therefore, modify the regular expression used, and it is possible to do so in several ways. La plus simple est de faire appel à l'annotions ``@namespace`` appliquée à la classe de test, de la manière suivante :
 
 .. code-block:: php
 
@@ -67,7 +67,7 @@ le constructeur de la classe de test, de la manière suivante :
    }
 
 
-La méthode ``atoum\test::setTestNamespace()`` accepte en effet un unique argument qui doit être l'expression régulière correspondant à l'espace de nom de votre classe de test. Et pour ne pas avoir à répéter l'appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toute dans une classe abstraite de la manière suivante :
+The ``atoum\test:setTestNamespace()`` method indeed accepts a single argument which must be the regular expression matches the namespace of your test class. And to not have to repeat the call to this method in each test class, just do it once and for all in an abstract class in the following manner:
 
 .. code-block:: php
 
@@ -112,7 +112,7 @@ Thus, you will only have to do derive your unit test classes from this abstract 
    }
 
 
-En cas de modification de l'espace de nommage réservé aux tests unitaires, il ne sera donc nécessaire de ne modifier que la classe abstraite.
+If changes to unit tests namespace, it is therefore necessary to change only the abstract class.
 
 De plus, il n'est pas obligatoire d'utiliser une expression régulière, que ce soit au niveau de l'annotation ``@namespace`` ou de la méthode  ``atoum\test::setTestNamespace()``, et une simple chaîne de caractères peut également fonctionner.
 
