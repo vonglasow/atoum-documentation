@@ -27,17 +27,17 @@ But it's recommended to only use ``->class()``.
 hasConstant
 =========
 
-``hasConstant`` vérifie que la classe possède bien la constante testée.
+"hasConstant" checks that the class has the tested constant.
 
 .. code-block:: php
 
    <?php
    $this
        ->class('\StdClass')
-           ->hasConstant('FOO')       // échoue
+           ->hasConstant('FOO')       // fails
 
        ->class('\FilesystemIterator')
-           ->hasConstant('CURRENT_AS_PATHNAME')       // passe
+           ->hasConstant('CURRENT_AS_PATHNAME')       // passes
    ;
 
 .. _has-interface:
