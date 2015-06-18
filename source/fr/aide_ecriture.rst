@@ -226,7 +226,7 @@ Voici un exemple
        }
    }
 
-Ceci peut-être simplifier avec la nouvelle synthaxe
+Ceci peut être simplifié avec la nouvelle syntaxe
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
@@ -247,14 +247,14 @@ Ceci peut-être simplifier avec la nouvelle synthaxe
    }
 
 
-Comme on le voix c'est légérement plus simple mais surtout cela présente deux aventages :
+Comme on le voit, c'est légérement plus simple mais surtout cela présente deux avantages :
 
-* On ne manipule pas le nom de la class tester
-* On ne manipule pas l'instance ainsi créer
+* On ne manipule pas le nom de la classe testée
+* On ne manipule pas l'instance ainsi créée
 
-Par ailleurs, vous pouvez facilement validez que l'on a bien l'instance tester avec ``isTestedInstance``.
+Par ailleurs, on peut facilement valider que l'on a bien l'instance testée avec ``isTestedInstance``, comme expliquer dans l'exemple précédent.
 
-Pour passer des arguments aux constructeurs, il suffit de faire ainsi :
+Pour passer des arguments au constructeur, il suffit de le faire au travers de ``newTestedInstance`` :
 .. code-block:: php
 
    $this->newTestedInstance($argument1, $argument2)
