@@ -247,7 +247,7 @@ Ceci peut être simplifié avec la nouvelle syntaxe
    }
 
 
-Comme on le voit, c'est légérement plus simple mais surtout cela présente deux avantages :
+Comme on le voit, c'est légèrement plus simple mais surtout cela présente deux avantages :
 
 * On ne manipule pas le nom de la classe testée
 * On ne manipule pas l'instance ainsi créée
