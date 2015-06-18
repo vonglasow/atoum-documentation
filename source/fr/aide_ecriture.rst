@@ -206,7 +206,7 @@ newTestedInstance & testedInstance
 ********************************************
 Lorsque l'on effectue des tests, il faut bien souvent créer une nouvelle instance de la classe et passer celle-ci dans divers paramètres. Une aide à l'écriture est disponible pour ce cas précis, il s'agit de ``newTestedInstance`` et de ``testedInstance``
 
-Voici un exemple
+Voici un exemple :
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
@@ -226,7 +226,7 @@ Voici un exemple
        }
    }
 
-Ceci peut être simplifié avec la nouvelle syntaxe
+Ceci peut être simplifié avec la nouvelle syntaxe :
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
