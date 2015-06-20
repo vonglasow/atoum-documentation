@@ -1044,28 +1044,12 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
          ->isTestedInstance()
    ;
 
-Les annotations
-***************
 
-@dataProvider
-=============
+Les moteurs d'exécution
+***********************
+Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des methodes) existent. Ceux-ci sont configurable a travers l'annotation ``@engine``. Par défaut, les différents tests s'exécute de manière parallèle, dans des sous processus PHP, c'est le mode ``oncurrent``.
 
-.. important::
-   We need help to write this section !
-
-@engine
-=======
-
-.. important::
-   We need help to write this section !
-
-.. <mageekguy> par défaut atoum exécute chaque méthode de test dans un sous-processus php séparée, et en parallèle
-   <mageekguy> mais ça n'a rien d'obligatoire
-   <mageekguy> nativement, tu peux lui dire d'exécuter les tests avec son moteur par défaut (donc, concurrent, que j'ai décrits ci-dessus)
-   <mageekguy> ou alors avec isolate, qui exécute dans un sous-processus mais séquentiellement
-   <mageekguy> ou alors inline, donc tout dans le même processus PHP
-   <mageekguy> (à la PHPUnit par défaut, en clair)
-   <mageekguy> inline est très très rapide mais il n'y alors plus d'isolation des tests
-   <mageekguy> isolate apporte l'isolation mais est très lent, et sert à que dalle de mon point de vue (c'est pour moi juste un poc)
-   <mageekguy> concurrent est le meilleur compromis entre l'isolation et les perf
-   <mageekguy> tout ça se commande à l'aide de l'annotation @engine sur la classe ou sur une méthode spécifique
+Il existe actuellement trois mode d'éxécution :
+* *inline* : tout s'exécute dans le même processus, ceci revient au même comportement que PHPUnit. Même si ce mode est très rapide, il n'y a pas d'isolation des tests.
+* *isolate* : s'exécute de manière séquentielle dans un sous-processus PHP. Ce mode d'exécution est assez lent.
+* *concurrent* : le mdoe par défaut, s'exécute de manière parallèle, dans des sous-processus PHP. 
