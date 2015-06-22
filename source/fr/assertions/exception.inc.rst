@@ -29,11 +29,14 @@ Nous pouvons même facilement récupérer la dernière exception via ``$this->ex
    $this
        ->exception(
            function() use($myObject) {
-               // ce code lève une exception: throw new \Exception;
+               // ce code lève une exception: throw new \Exception('erreur', 42);
                $myObject->doOneThing('wrongParameter');
            }
-       )->isIdenticalTo($this->exception)
+       )->isIdenticalTo($this->exception) // passe
    ;
+   
+   $this->integer($this->exception->getCode())->isEqualTo(42); // passe
+   $this->string($this->exception->getMessage())->isEqualTo('erreur'); // passe
 
 
 .. _has-code:
