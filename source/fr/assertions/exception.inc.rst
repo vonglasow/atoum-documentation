@@ -35,9 +35,8 @@ Nous pouvons même facilement récupérer la dernière exception via ``$this->ex
        )->isIdenticalTo($this->exception) // passe
    ;
    
-   $this->integer($this->exception->getCode())->isEqualTo(42); // passe
-   $this->string($this->exception->getMessage())->isEqualTo('erreur'); // passe
-
+   $this->exception->hasCode(42); // passe
+   $this->exception->hasMessage('erreur'); // passe
 
 .. _has-code:
 
