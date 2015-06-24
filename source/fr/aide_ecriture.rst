@@ -1047,9 +1047,9 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
 
 Les moteurs d'exécution
 ***********************
-Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des methodes) existent. Ceux-ci sont configurable a travers l'annotation ``@engine``. Par défaut, les différents tests s'exécute de manière parallèle, dans des sous processus PHP, c'est le mode ``oncurrent``.
+Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des methodes) existent. Ceux-ci sont configurable a travers l'annotation ``@engine``. Par défaut, les différents tests s'exécute de manière parallèle, dans des sous processus PHP, c'est le mode ``concurrent``.
 
 Il existe actuellement trois mode d'éxécution :
 * *inline* : tout s'exécute dans le même processus, ceci revient au même comportement que PHPUnit. Même si ce mode est très rapide, il n'y a pas d'isolation des tests.
 * *isolate* : s'exécute de manière séquentielle dans un sous-processus PHP. Ce mode d'exécution est assez lent.
-* *concurrent* : le mdoe par défaut, s'exécute de manière parallèle, dans des sous-processus PHP. 
+* *concurrent* : le mode par défaut, s'exécute de manière parallèle, dans des sous-processus PHP. 
