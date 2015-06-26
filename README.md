@@ -64,3 +64,6 @@ We use the reStructuredText syntax. You can find it on the [sphinx website](http
 
 ### What are the title underline order?
 In reStructuredText syntax, you can use a wide variety of character to underline. The order use in the atoum documentation is : #, *, =, -, ", ^, `, :, ., ' . Now if you have more than 4 subdivisions, think subdivide into multiple files.
+
+### What's the licence of this documentation.
+This documentation is under CC by-nc-sa 4.0. You can find more information on [this page](LICENCE.md)
