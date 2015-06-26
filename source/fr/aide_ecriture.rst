@@ -207,6 +207,7 @@ newTestedInstance & testedInstance
 Lorsque l'on effectue des tests, il faut bien souvent créer une nouvelle instance de la classe et passer celle-ci dans divers paramètres. Une aide à l'écriture est disponible pour ce cas précis, il s'agit de ``newTestedInstance`` et de ``testedInstance``
 
 Voici un exemple :
+
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
@@ -227,6 +228,7 @@ Voici un exemple :
    }
 
 Ceci peut être simplifié avec la nouvelle syntaxe :
+
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
@@ -255,6 +257,7 @@ Comme on le voit, c'est légèrement plus simple mais surtout cela présente deu
 Par ailleurs, on peut facilement valider que l'on a bien l'instance testée avec ``isTestedInstance``, comme expliqué dans l'exemple précédent.
 
 Pour passer des arguments au constructeur, il suffit de le faire au travers de ``newTestedInstance`` :
+
 .. code-block:: php
 
    $this->newTestedInstance($argument1, $argument2)
@@ -1044,28 +1047,76 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
          ->isTestedInstance()
    ;
 
-Les annotations
-***************
 
-@dataProvider
-=============
+.. _@engine:
 
-.. important::
-   We need help to write this section !
+Les moteurs d'exécution
+***********************
+Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des méthodes) existent. Ceux-ci sont configurables via l'annotation ``@engine``. Par défaut, les différents tests s'exécutent en parallèle, dans des sous-processus PHP, c'est le mode ``concurrent``.
 
-@engine
-=======
+Il existe actuellement trois modes d'exécution :
+* *inline* : les tests s'exécutent dans le même processus, cela revient au même comportement que PHPUnit. Même si ce mode est très rapide, il n'y a pas d'isolation des tests.
+* *isolate* : les tests s'exécutent de manière séquentielle dans un sous-processus PHP. Ce mode d'exécution est assez lent.
+* *concurrent* : le mode par défaut, les tests s'exécutent en parallèle, dans des sous-processus PHP. 
 
-.. important::
-   We need help to write this section !
+Voici un exemple :
 
-.. <mageekguy> par défaut atoum exécute chaque méthode de test dans un sous-processus php séparée, et en parallèle
-   <mageekguy> mais ça n'a rien d'obligatoire
-   <mageekguy> nativement, tu peux lui dire d'exécuter les tests avec son moteur par défaut (donc, concurrent, que j'ai décrits ci-dessus)
-   <mageekguy> ou alors avec isolate, qui exécute dans un sous-processus mais séquentiellement
-   <mageekguy> ou alors inline, donc tout dans le même processus PHP
-   <mageekguy> (à la PHPUnit par défaut, en clair)
-   <mageekguy> inline est très très rapide mais il n'y alors plus d'isolation des tests
-   <mageekguy> isolate apporte l'isolation mais est très lent, et sert à que dalle de mon point de vue (c'est pour moi juste un poc)
-   <mageekguy> concurrent est le meilleur compromis entre l'isolation et les perf
-   <mageekguy> tout ça se commande à l'aide de l'annotation @engine sur la classe ou sur une méthode spécifique
+.. code-block:: php
+
+<?php
+
+/**
+ * @engine concurrent
+ */
+class Foo extends \atoum
+{
+	public function testBarWithBaz()
+	{
+		sleep(1);
+		$this->newTestedInstance;
+		$baz = new \Baz();
+		$this->object($this->testedInstance->setBaz($baz))
+			->isIdenticalTo($this->testedInstance);
+			
+		$this->string($this->testedInstance->bar())
+			->isIdenticalTo('baz');
+	}
+	
+	public function testBarWithoutBaz()
+	{
+		sleep(1);
+		$this->newTestedInstance;
+		$this->string($this->testedInstance->bar())
+			->isIdenticalTo('foo');
+	}
+}
+
+En mode ``concurent`` :
+
+.. code-block:: shell
+
+=> Test duration: 2.01 seconds.
+=> Memory usage: 0.50 Mb.
+> Total test duration: 2.01 seconds.
+> Total test memory usage: 0.50 Mb.
+> Running duration: 1.08 seconds.
+
+En mode ``inline`` :
+
+.. code-block:: shell
+
+=> Test duration: 2.01 seconds.
+=> Memory usage: 0.25 Mb.
+> Total test duration: 2.01 seconds.
+> Total test memory usage: 0.25 Mb.
+> Running duration: 2.01 seconds.
+
+En mode ``isolate`` :
+
+.. code-block:: shell
+
+=> Test duration: 2.00 seconds.
+=> Memory usage: 0.50 Mb.
+> Total test duration: 2.00 seconds.
+> Total test memory usage: 0.50 Mb.
+> Running duration: 2.10 seconds.
