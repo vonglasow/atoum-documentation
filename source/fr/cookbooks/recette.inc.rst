@@ -14,7 +14,7 @@ Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il 
    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Il faut donc modifier l'expression régulière utilisée, et il est possible de le faire de plusieurs manières. La plus simple est de faire appel à l'annotions ``@namespace`` appliquée à la classe de test, de la manière suivante :
+Il faut donc modifier l'expression régulière utilisée, et il est possible de le faire de plusieurs manières. La plus simple est de faire appel à l'annotation ``@namespace`` appliquée à la classe de test, de la manière suivante :
 
 .. code-block:: php
 
@@ -67,7 +67,7 @@ le constructeur de la classe de test, de la manière suivante :
    }
 
 
-La méthode ``atoum\test::setTestNamespace()`` accepte en effet un unique argument qui doit être l'expression régulière correspondant à l'espace de nom de votre classe de test. Et pour ne pas avoir à répéter l'appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toute dans une classe abstraite de la manière suivante :
+La méthode ``atoum\test::setTestNamespace()`` accepte en effet un unique argument qui doit être l'expression régulière correspondant à l'espace de nom de votre classe de test. Et pour ne pas avoir à répéter l'appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toutes dans une classe abstraite de la manière suivante :
 
 .. code-block:: php
 
@@ -124,7 +124,7 @@ En effet, atoum fait appel par défaut à une expression régulière afin que so
 * ``Tests\Units\``
 * ``TEST\UNIT\``
 
-Cependant, en règle général, l'espace de nom utilisé pour les classes de test est fixe, et il n'est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacé par la chaîne de caractères ``my\tests``, par exemple grâce à l'annotation ``@namespace`` :
+Cependant, en règle général, l'espace de nom utilisé pour les classes de test est fixe, et il n'est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacée par la chaîne de caractères ``my\tests``, par exemple grâce à l'annotation ``@namespace`` :
 
 .. code-block:: php
 

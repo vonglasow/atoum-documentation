@@ -108,7 +108,7 @@ Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http:
 Si vous n'avez pas de fichier de configuration
 """""""""""""""""""""""""""""""""""""""""""""""
 
-Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vous recommandons d'extraire le répertoire ressources de atoum dans celui de votre choix à l'aide de la commande suivante :
+Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vous recommandons d'extraire le répertoire ressource d’atoum dans celui de votre choix à l'aide de la commande suivante :
 
 * Si vous utilisez l'archive Phar d'atoum :
 

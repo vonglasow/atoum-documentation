@@ -6,11 +6,11 @@ Hook git
 
 Une bonne pratique, lorsqu'on utilise un logiciel de gestion de versions, est de ne jamais ajouter à un dépôt du code non fonctionnel, afin de pouvoir récupérer une version propre et utilisable du code à tout moment et à n'importe quel endroit de l'historique du dépôt.
 
-Cela implique donc, entre autre, que les tests unitaires doivent passer dans leur intégralité avant que les fichiers créés ou modifiés soient ajoutés au dépôt, et en conséquence, le développeur est censé exécuter les tests unitaires avant d'intégrer son code dans le dépôt.
+Cela implique donc, entre autres, que les tests unitaires doivent passer dans leur intégralité avant que les fichiers créés ou modifiés soient ajoutés au dépôt, et en conséquence, le développeur est censé exécuter les tests unitaires avant d'intégrer son code dans le dépôt.
 
 Cependant, dans les faits, il est très facile pour le développeur d'omettre cette étape, et votre dépôt peut donc contenir à plus ou moins brève échéance du code ne respectant  pas les contraintes imposées par les tests unitaires.
 
-Heureusement, les logiciels de gestion de versions en général et Git en particulier dispose d'un mécanisme, connu sous le nom de hook de pré-commit permettant d'exécuter automatiquement des tâches lors de l'ajout de code dans un dépôt.
+Heureusement, les logiciels de gestion de versions en général et Git en particulier disposent d'un mécanisme, connu sous le nom de hook de pré-commit permettant d'exécuter automatiquement des tâches lors de l'ajout de code dans un dépôt.
 
 L'installation d'un hook de pré-commit est très simple et se déroule en deux étapes.
 
@@ -50,7 +50,7 @@ Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant 
 .. note::
    Dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
 
-Les tests étant executés très rapidement avec atoum, on peut donc lancer l'ensemble des tests unitaires avant chaque commit avec un hook comme celui-ci :
+Les tests étant exécutés très rapidement avec atoum, on peut donc lancer l'ensemble des tests unitaires avant chaque commit avec un hook comme celui-ci :
 
 .. code-block:: php
 
