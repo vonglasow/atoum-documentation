@@ -88,7 +88,7 @@ Une fois une classe de test créée, il suffit d'exécuter en ligne de commande 
 	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
 
 
-Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutorial.
+Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutoriel.
 
 
 .. _utilisation-avec-symfony-2:
@@ -210,7 +210,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
 
 .. note::
-   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exige des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
 
 
 Étape 3: écriture d'un test
