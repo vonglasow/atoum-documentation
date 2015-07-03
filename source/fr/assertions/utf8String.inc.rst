@@ -6,7 +6,7 @@ utf8String
 C'est l'assertion dédiée aux chaînes de caractères UTF-8.
 
 .. note::
-   ``utf8Strings`` utilise les fonctions ``mb_*`` pour gérer les chaînes multi-octets. Reportez-vous au manuel de PHP pour avoir plus d'information sur l'extension `mbstring <http://php.net/mbstring>`_.
+   ``utf8Strings`` utilise les fonctions ``mb_*`` pour gérer les chaînes multioctets. Reportez-vous au manuel de PHP pour avoir plus d'information sur l'extension `mbstring <http://php.net/mbstring>`_.
 
 
 .. _utf8-string-contains:

@@ -195,7 +195,7 @@ isNull
    $this
        ->variable($emptyString)
            ->isNull()              // échoue
-                                   // (c'est vide mais pas null)
+                                   // (c'est vide, mais pas null)
 
        ->variable($null)
            ->isNull()              // passe
@@ -216,7 +216,7 @@ isNotNull
 
    $this
        ->variable($emptyString)
-           ->isNotNull()           // passe (c'est vide mais pas null)
+           ->isNotNull()           // passe (c'est vide, mais pas null)
 
        ->variable($null)
            ->isNotNull()           // échoue
