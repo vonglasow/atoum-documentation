@@ -1,13 +1,13 @@
 Aide à l'écriture
 #################
 
-Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières, et l'une d'elle est d'utiliser des mots-clefs tels que ``given``, ``if``, ``and`` ou bien encore ``then``, ``when`` ou ``assert`` qui permettent de mieux organiser et de rendre plus lisible les tests.
+Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières, et l'une d'elles est d'utiliser des mots-clefs tels que ``given``, ``if``, ``and`` ou bien encore ``then``, ``when`` ou ``assert`` qui permettent de mieux organiser et de rendre plus lisibles les tests.
 
 
 ``given``, ``if``, ``and`` et ``then``
 ****************************************
 
-L'utilisation de ces mots-clefs est très intuitive :
+L'utilisation de ces mots-clefs est très intuitive :
 
 .. code-block:: php
 
@@ -32,7 +32,7 @@ Ainsi, ``given``, ``if`` et ``and`` permettent de définir les conditions préal
 
 Cependant, il n'y a pas de grammaire régissant l'ordre d'utilisation de ces mots-clefs et aucune vérification syntaxique n'est effectuée par atoum.
 
-En conséquence, il est de la responsabilité du développeur de les utiliser de façon à ce que le test soit lisible, même s'il est par exemple tout à fait possible d'écrire le test de la manière suivante :
+En conséquence, il est de la responsabilité du développeur de les utiliser de façon à ce que le test soit lisible, même s'il est par exemple tout à fait possible d'écrire le test de la manière suivante :
 
 .. code-block:: php
 
@@ -50,7 +50,7 @@ En conséquence, il est de la responsabilité du développeur de les utiliser de
 
 Pour les mêmes raisons, l'utilisation de ``then`` est facultative.
 
-Il est également important de noter qu'il est tout à fait possible d'écrire le même test en n'utilisant aucun mot-clef :
+Il est également important de noter qu'il est tout à fait possible d'écrire le même test en n'utilisant aucun mot-clef :
 
 .. code-block:: php
 
@@ -74,7 +74,7 @@ when
 
 En plus de ``given``, ``if``, ``and`` et ``then``, il existe également d'autres mots-clefs.
 
-L'un d'entre eux est ``when``. Il dispose d'une fonctionnalité spécifique introduite pour contourner le fait qu'il est illégal d'écrire en PHP le code suivant :
+L'un d'entre eux est ``when``. Il dispose d'une fonctionnalité spécifique introduite pour contourner le fait qu'il est illégal d'écrire en PHP le code suivant :
 
 .. code-block:: php
 
@@ -87,11 +87,11 @@ L'un d'entre eux est ``when``. Il dispose d'une fonctionnalité spécifique intr
                ->isZero()
    ;
 
-Le langage génère en effet dans ce cas l'erreur fatale : ``Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'``
+Le langage génère en effet dans ce cas l'erreur fatale : ``Parse error: syntax error, unexpected 'unset' (T_UNSET), expecting ')'``
 
 Il est en effet impossible d'utiliser ``unset()`` comme argument d'une fonction.
 
-Pour résoudre ce problème, le mot-clef ``when`` est capable d'interpréter l'éventuelle fonction anonyme qui lui est passée en argument, ce qui permet d'écrire le test précédent de la manière suivante :
+Pour résoudre ce problème, le mot-clef ``when`` est capable d'interpréter l'éventuelle fonction anonyme qui lui est passée en argument, ce qui permet d'écrire le test précédent de la manière suivante :
 
 .. code-block:: php
 
@@ -116,7 +116,7 @@ assert
 
 Enfin, il existe le mot-clef ``assert`` qui a également un fonctionnement un peu particulier.
 
-Pour illustrer son fonctionnement, le test suivant va être utilisé :
+Pour illustrer son fonctionnement, le test suivant va être utilisé :
 
 .. code-block:: php
 
@@ -138,7 +138,7 @@ Pour illustrer son fonctionnement, le test suivant va être utilisé :
    ;
 
 Le test précédent présente un inconvénient en terme de maintenance, car si le développeur a besoin d'intercaler un ou plusieurs nouveaux appels à bar::doOtherThing() entre les deux appels déjà effectués, il sera obligé de mettre à jour en conséquence la valeur de l'argument passé à exactly().
-Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes :
+Pour remédier à ce problème, vous pouvez remettre à zéro un mock de 2 manières différentes :
 
 * soit en utilisant $mock->getMockController()->resetCalls() ;
 * soit en utilisant $this->resetMock($mock).
@@ -176,7 +176,7 @@ Ces méthodes effacent la mémoire du contrôleur, il est donc possible d'écrir
 
 Le mot-clef ``assert`` permet de se passer de l'appel explicite à ``resetCalls()`` ou ``resetMock`` et de plus il provoque l'effacement de la mémoire de l'ensemble des adaptateurs et des contrôleurs de mock définis au moment de son utilisation.
 
-Grâce à lui, il est donc possible d'écrire le test précédent d'une façon plus simple et plus lisible, d'autant qu'il est possible de passer une chaîne de caractère à assert afin d'expliquer le rôle des assertions suivantes :
+Grâce à lui, il est donc possible d'écrire le test précédent d'une façon plus simple et plus lisible, d'autant qu'il est possible de passer une chaîne de caractère à assert afin d'expliquer le rôle des assertions suivantes :
 
 .. code-block:: php
 
@@ -249,7 +249,7 @@ Ceci peut être simplifié avec la nouvelle syntaxe :
    }
 
 
-Comme on le voit, c'est légèrement plus simple mais surtout cela présente deux avantages :
+Comme on le voit, c'est légèrement plus simple, mais surtout cela présente deux avantages :
 
 * On ne manipule pas le nom de la classe testée
 * On ne manipule pas l'instance ainsi créée
@@ -266,14 +266,14 @@ Pour passer des arguments au constructeur, il suffit de le faire au travers de `
 Le mode loop
 ****************
 
-Lorsqu'un développeur fait du développement piloté par les tests, il travaille généralement de la manière suivante :
+Lorsqu'un développeur fait du développement piloté par les tests, il travaille généralement de la manière suivante :
 
 # il commence par créer le test correspondant à ce qu'il veut développer ;
 # il exécute le test qu'il vient de créer ;
 # il écrit le code permettant au test de passer avec succès ;
 # il modifie ou complète son test et repars à l'étape 2.
 
-Concrètement, cela signifie qu'il doit :
+Concrètement, cela signifie qu'il doit :
 
 * créer son code dans son éditeur favori ;
 * quitter son éditeur puis exécuter son test dans une console ;
@@ -289,7 +289,7 @@ atoum propose le mode ``loop`` disponible via les arguments ``-l`` ou ``--loop``
 
 Dans ce mode, atoum commence par exécuter une première fois les tests qui lui sont demandés.
 
-Une fois les tests terminés, si les tests ont été passés avec succès par le code, atoum se met simplement en attente :
+Une fois les tests terminés, si les tests ont été passés avec succès par le code, atoum se met simplement en attente :
 
 .. code-block:: shell
 
@@ -312,7 +312,7 @@ Une fois les tests terminés, si les tests ont été passés avec succès par le
 
 Si le développeur presse ``Enter``, atoum réexécutera à nouveau les mêmes tests, sans aucune autre action de la part du développeur.
 
-Dans le cas où le code ne passe pas les tests avec succès, c'est-à-dire si des assertions ne sont pas vérifiées ou s'il y a eu des erreurs ou des exceptions, atoum se met également en attente :
+Dans le cas où le code ne passe pas les tests avec succès, c'est-à-dire si des assertions ne sont pas vérifiées ou s'il y a eu des erreurs ou des exceptions, atoum se met également en attente :
 
 .. code-block:: shell
 
@@ -381,17 +381,17 @@ De plus, une fois que tous les tests en échec passeront à nouveau avec succès
 Bien évidemment, le mode ``loop`` ne prend en compte que :ref:`le ou les fichiers de tests unitaires lancés <fichiers-a-executer>` par atoum.
 
 
-Le mode debug
+Le mode débug
 *************
 
 Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
 
-Dans ce cas, l'une des techniques possibles pour remédier au problème est de tracer le comportement du code concerné, soit directement au cœur de la classe testée à l'aide d'un déboggueur ou de fonctions du type de ``var_dump()`` ou ``print_r()``, soit au niveau du test unitaire.
+Dans ce cas, l'une des techniques possibles pour remédier au problème est de tracer le comportement du code concerné, soit directement au cœur de la classe testée à l'aide d'un débogueur ou de fonctions du type de ``var_dump()`` ou ``print_r()``, soit au niveau du test unitaire.
 
-Et il se trouve que atoum dispose d'un certain nombre d'outils pour faciliter la tâche du développeur dans ce dernier contexte.
+Et il se trouve qu’atoum dispose d'un certain nombre d'outils pour faciliter la tâche du développeur dans ce dernier contexte.
 
-Ces outils ne sont cependant actif que lorsque atoum est exécuté à l'aide de l'argument ``--debug``, afin que l'exécution des tests unitaires ne soit pas perturbée par les instructions relatives au débogage hors de ce contexte.
-Lorsque l'argument ``--debug`` est utilisé, trois méthodes peuvent être activée :
+Ces outils ne sont cependant actifs que lorsqu’atoum est exécuté à l'aide de l'argument ``--debug``, afin que l'exécution des tests unitaires ne soit pas perturbée par les instructions relatives au débogage hors de ce contexte.
+Lorsque l'argument ``--debug`` est utilisé, trois méthodes peuvent être activées :
 
 * ``dump()`` qui permet de connaître le contenu d'une variable ;
 * ``stop()`` qui permet d'arrêter l'exécution d'un test ;
@@ -402,7 +402,7 @@ Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caract
 
 dump
 ====
-La méthode ``dump()`` peut s'utiliser de la manière suivante :
+La méthode ``dump()`` peut s'utiliser de la manière suivante :
 
 .. code-block:: php
 
@@ -417,7 +417,7 @@ La méthode ``dump()`` peut s'utiliser de la manière suivante :
 
 Lors de l'exécution du test, le retour de la méthode ``foo::getBar()`` sera affiché sur la sortie standard.
 
-Il est également possible de passer plusieurs arguments à ``dump()``, de la manière suivante :
+Il est également possible de passer plusieurs arguments à ``dump()``, de la manière suivante :
 
 .. code-block:: php
 
@@ -436,7 +436,7 @@ Il est également possible de passer plusieurs arguments à ``dump()``, de la ma
 stop
 ====
 
-L'utilisation de la méthode ``stop()`` est également très simple :
+L'utilisation de la méthode ``stop()`` est également très simple :
 
 .. code-block:: php
 
@@ -462,7 +462,7 @@ executeOnFailure
 
 La méthode ``executeOnFailure()`` est très puissante et tout aussi simple à utiliser.
 
-Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l'une des assertions composant le test n'est pas vérifiée. Elle s'utilise de la manière suivante :
+Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l'une des assertions composant le test n'est pas vérifiée. Elle s'utilise de la manière suivante :
 
 .. code-block:: php
 
@@ -593,7 +593,7 @@ Un fournisseur de données est une méthode d'une classe de test chargée de gé
 
 Si une méthode de test ``testFoo`` prend des arguments et qu'aucune annotation relative à un fournisseur de données n'est définie, atoum cherchera automatiquement la méthode protected ``testFooDataProvider``.
 
-Vous pouvez néanmoins définir manuellement le nom de la méthode du fournisseur de données grâce à l'annotation ``@dataProvider`` appliquée à la méthode de test concernée, de la manière suivante :
+Vous pouvez néanmoins définir manuellement le nom de la méthode du fournisseur de données grâce à l'annotation ``@dataProvider`` appliquée à la méthode de test concernée, de la manière suivante :
 
 .. code-block:: php
 
@@ -680,7 +680,7 @@ La plus simple est de créer un objet dont le nom absolu est préfixé par ``moc
 Le générateur de bouchon
 ========================
 
-atoum s'appuie sur un composant spécialisé pour générer les bouchons : le ``mockGenerator``. Vous avez accès à ce dernier dans vos tests afin de modifier la procédure de génération des mocks.
+atoum s'appuie sur un composant spécialisé pour générer les bouchons : le ``mockGenerator``. Vous avez accès à ce dernier dans vos tests afin de modifier la procédure de génération des mocks.
 
 Par défaut, les bouchons seront générés dans le namespace ``mock`` et se comporteront exactement de la même manière que les instances de la classe originale (le bouchon hérite directement de la classe originale).
 
@@ -690,7 +690,7 @@ Changer le nom de la classe
 
 Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le ``mockGenerator``.
 
-Sa méthode ``generate`` prend 3 paramètres :
+Sa méthode ``generate`` prend 3 paramètres :
 
 * le nom de l'interface ou de la classe à bouchonner ;
 * le nouvel espace de nom, optionnel ;
@@ -739,7 +739,7 @@ Shunter les appels aux méthodes parentes
 
 Un bouchon hérite directement de la classe à partir de laquelle il a été généré, ses méthodes se comportent donc exactement de la même manière.
 
-Dans certains cas, il peut être utile de shunter les appels aux méthodes parentes afin que leur code ne soit plus exécuté. Le ``mockGenerator`` met à votre disposition plusieurs méthodes pour y parvenir :
+Dans certains cas, il peut être utile de shunter les appels aux méthodes parentes afin que leur code ne soit plus exécuté. Le ``mockGenerator`` met à votre disposition plusieurs méthodes pour y parvenir :
 
 .. code-block:: php
 
@@ -752,7 +752,7 @@ Dans certains cas, il peut être utile de shunter les appels aux méthodes paren
    // le bouchon fera à nouveau appel à la classe parente
    $this->mockGenerator->unshuntParentClassCalls();
 
-Ici, toutes les méthodes du bouchon se comporteront comme si elles n'avaient pas d'implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
+Ici, toutes les méthodes du bouchon se comporteront comme si elles n'avaient pas d'implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
 
 .. code-block:: php
 
@@ -803,7 +803,7 @@ Modifier le comportement d'un bouchon
 
 Une fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
 
-Pour cela, il faut passer par son contrôleur en utilisant l'une des méthodes suivantes :
+Pour cela, il faut passer par son contrôleur en utilisant l'une des méthodes suivantes :
 
 .. code-block:: php
 
@@ -814,7 +814,7 @@ Pour cela, il faut passer par son contrôleur en utilisant l'une des méthodes s
    // Équivalent à
    $this->calling($mockDbClient)->connect = function() {};
 
-Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
+Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
 
 .. code-block:: php
 
@@ -847,7 +847,7 @@ Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publi
 .. note::
    La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d'informations sur le sujet.
 
-Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d'obtenir le comportement souhaité :
+Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d'obtenir le comportement souhaité :
 
 * Utiliser une valeur statique qui sera retournée par la méthode
 * Utiliser une implémentation courte grâce aux fonctions anonymes de PHP
@@ -870,7 +870,7 @@ Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'app
    $this->calling($mockDbClient)->count[3] = 42;
 
 * Le premier appel retournera 13.
-* Le second aura le comportement par défaut, c'est à dire un nombre aléatoire.
+* Le second aura le comportement par défaut, c'est-à-dire un nombre aléatoire.
 * Le troisième appel retournera 42.
 * Tous les appels suivants auront le comportement par défaut, c'est à dire des nombres aléatoires.
 
@@ -880,7 +880,7 @@ Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement
 methods
 -------
 
-``methods`` vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes le comportement doit être modifié :
+``methods`` vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes le comportement doit être modifié :
 
 .. code-block:: php
 
@@ -932,7 +932,7 @@ Dans le cas du dernier exemple, vous devriez plutôt utiliser `methodsMatching`_
 methodsMatching
 -----------------
 
-``methodsMatching`` vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument :
+``methodsMatching`` vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument :
 
 .. code-block:: php
 
@@ -960,7 +960,7 @@ methodsMatching
 Cas particulier du constructeur
 ===============================
 
-Pour bouchonner le constructeur d'une classe, il faut :
+Pour bouchonner le constructeur d'une classe, il faut :
 
 * créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
 * définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
@@ -1029,7 +1029,7 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
    ;
 
 .. important::
-   On ne peut pas mettre de \\ devant les fonctions à simuler car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
+   On ne peut pas mettre de \\ devant les fonctions à simuler, car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
    
 .. important::
    Pour la même raison, si une fonction native a déjà été appelée, son bouchonnage sera sans effet.
