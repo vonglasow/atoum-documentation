@@ -13,13 +13,13 @@ Comment participer
 
 Convention de codage
 --------------------
-Le code source d'atoum respecte certaines conventions. Si vous souhaitez contribuer au project, votre code devra respecter ces même règles :
+Le code source d'atoum respecte certaines conventions. Si vous souhaitez contribuer au projet, votre code devra respecter ces mêmes règles :
 
-* L'indentation est fait avec le caractère de tabulation
+* L'indentation est faite avec le caractère de tabulation
 * Les noms des espaces de noms, classes, membres, méthodes et constantes sont en ``lowerCamelCase``
 * Le code doit être testé
 
-L'exemple ci-dessous n'a aucun sens mais il permet de présenter plus en détail la manière dont le code est écrit :
+L'exemple ci-dessous n'a aucun sens, mais il permet de présenter plus en détail la manière dont le code est écrit :
 
 .. code-block:: php
 
