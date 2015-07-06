@@ -19,7 +19,7 @@ En anglais
 En français
 ===========
 
-* Un excellent `tutorial <http://www.croes.org/gerald/blog/testez-votre-code-avec-atoum/558/>` par `Gérald Croës <http://www.croes.org/gerald/blog>` pour débuter avec *atoum*.
+* Un excellent `tutoriel <http://www.croes.org/gerald/blog/testez-votre-code-avec-atoum/558/>` par `Gérald Croës <http://www.croes.org/gerald/blog>` pour débuter avec *atoum*.
 * Un `plug-in <https://github.com/agallou/sfAtoumPlugin>` pour Symfony 1.x.
 * Un `billet <http://blog.eexit.net/2011/11/php-projet-silex-tdd-pour-le-code-metier.html>` de Joris Berthelot qui explique comment utiliser *atoum* avec `Silex <http://silex.sensiolabs.org/>` en développement piloté par les tests.
 * Un autre `billet <http://blog.eexit.net/2012/06/php-utiliser-lautoloader-de-composer-avec-atoum.html>` de Joris Berthelot pour qui explique comment utiliser *atoum* avec le `Zend Framework <http://framework.zend.com/>`.

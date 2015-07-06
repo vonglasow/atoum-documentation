@@ -100,7 +100,7 @@ Une fois que vous avez préciser à atoum les :ref:`fichiers à exécuter <fichi
 Par espace de noms
 ==================
 
-Pour filtrer sur l'espace de noms, c'est à dire n'exécuter que les tests d'un espace de noms donné, il vous suffit d'utiliser l'option -ns ou --namespaces.
+Pour filtrer sur l'espace de noms, c'est-à-dire n'exécuter que les tests d'un espace de noms donné, il vous suffit d'utiliser l'option -ns ou --namespaces.
 
 .. code-block:: shell
 
@@ -115,7 +115,7 @@ Pour filtrer sur l'espace de noms, c'est à dire n'exécuter que les tests d'un 
 Une classe ou une méthode
 =========================
 
-Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les tests d'une classe ou d'une méthode donnée, il vous suffit d'utiliser l'option -m ou --methods.
+Pour filtrer sur la classe ou une méthode, c'est-à-dire n'exécuter que les tests d'une classe ou d'une méthode donnée, il vous suffit d'utiliser l'option -m ou --methods.
 
 .. code-block:: shell
 
