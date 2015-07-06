@@ -13,7 +13,7 @@ Utilisation avec ez Publish
 Étape 1 : Installation d'atoum au sein d'eZ Publish
 -----------------------------------------------------
 
-Le framework eZ Publish possède déjà un répertoire dédiés aux tests, nommés logiquement tests. C'est donc dans ce répertoire que devra être placée l':ref:`archive PHAR <archive-phar>` de atoum. Les fichiers de tests unitaires utilisant atoum seront quand à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
+Le framework eZ Publish possède déjà un répertoire dédié aux tests, nommé logiquement tests. C'est donc dans ce répertoire que devra être placé l':ref:`archive PHAR <archive-phar>` d’atoum. Les fichiers de tests unitaires utilisant atoum seront quant à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
 
 
 Étape 2 : Création de la classe de test de base
@@ -88,7 +88,7 @@ Une fois une classe de test créée, il suffit d'exécuter en ligne de commande 
 	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
 
 
-Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutorial.
+Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutoriel.
 
 
 .. _utilisation-avec-symfony-2:
@@ -155,7 +155,7 @@ Imaginons que nous voulions tester cet Entity:
    Pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au `manuel Symfony <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
 
 
-Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stoqués tous les tests de ce Bundle.
+Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stockés tous les tests de ce Bundle.
 
 Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.
 
@@ -210,7 +210,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
 
 .. note::
-   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exigent des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exige des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
 
 
 Étape 3: écriture d'un test

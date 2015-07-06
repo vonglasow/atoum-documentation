@@ -1,7 +1,7 @@
 Option de la ligne de commande
 ##############################
 
-La plupart des options existent sous 2 formes, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifférement l'une ou l'autre forme.
+La plupart des options existent sous 2 formes, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifféremment l'une ou l'autre forme.
 
 Certaines options acceptent plusieurs valeurs :
 
@@ -167,7 +167,7 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer.
 -mcn <integer> / --max-children-number <integer>
 ************************************************
 
-Cette option vous permet de définir le nombre maximum de processus lancé pour exécuter les tests.
+Cette option vous permet de définir le nombre maximum de processus lancés pour exécuter les tests.
 
 .. code-block:: shell
 
@@ -178,7 +178,7 @@ Cette option vous permet de définir le nombre maximum de processus lancé pour 
 -ncc / --no-code-coverage
 *************************
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code.
+Cette option vous permet de désactiver la génération du rapport de la couverture de code.
 
 .. code-block:: shell
 
@@ -189,7 +189,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -nccfc <classes> / --no-code-coverage-for-classes <classes>
 ***********************************************************
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code pour une ou plusieurs classe.
+Cette option vous permet de désactiver la génération du rapport de la couverture de code pour une ou plusieurs classe.
 
 .. code-block:: shell
 
@@ -203,7 +203,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
 *********************************************************************
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code pour un ou plusieurs espaces de noms.
+Cette option vous permet de désactiver la génération du rapport de la couverture de code pour un ou plusieurs espaces de noms.
 
 .. code-block:: shell
 
@@ -217,7 +217,7 @@ Cette option vous permet de désactiver la génération du rapport de la covertu
 -nccid <directories> / --no-code-coverage-in-directories <directories>
 **********************************************************************
 
-Cette option vous permet de désactiver la génération du rapport de la coverture de code pour un ou plusieurs répertoires.
+Cette option vous permet de désactiver la génération du rapport de la couverture de code pour un ou plusieurs répertoires.
 
 .. code-block:: shell
 
@@ -249,7 +249,7 @@ Cette option vous permet de spécifier le chemin de l'exécutable php à utilise
    $ ./bin/atoum -p /usr/bin/php5
    $ ./bin/atoum --php /usr/bin/php5
 
-Par défaut, la valeur est recherchée parmis les valeurs suivantes (dans l'ordre):
+Par défaut, la valeur est recherchée parmi les valeurs suivantes (dans l'ordre):
 
 * constante PHP_BINARY
 * variable d'environnement PHP_PEAR_PHP_BIN

@@ -36,7 +36,7 @@ isGreaterThan
    $this
        ->integer($zero)
            ->isGreaterThan(-1)     // passe
-           ->isGreaterThan('-1')   // échoue car "-1"
+           ->isGreaterThan('-1')   // échoue, car "-1"
                                    // n'est pas un entier
            ->isGreaterThan(0)      // échoue
    ;
@@ -57,7 +57,7 @@ isGreaterThanOrEqualTo
        ->integer($zero)
            ->isGreaterThanOrEqualTo(-1)    // passe
            ->isGreaterThanOrEqualTo(0)     // passe
-           ->isGreaterThanOrEqualTo('-1')  // échoue car "-1"
+           ->isGreaterThanOrEqualTo('-1')  // échoue, car "-1"
                                            // n'est pas un entier
    ;
 
@@ -86,7 +86,7 @@ isLessThan
    $this
        ->integer($zero)
            ->isLessThan(10)    // passe
-           ->isLessThan('10')  // échoue car "10" n'est pas un entier
+           ->isLessThan('10')  // échoue, car "10" n'est pas un entier
            ->isLessThan(0)     // échoue
    ;
 
@@ -106,7 +106,7 @@ isLessThanOrEqualTo
        ->integer($zero)
            ->isLessThanOrEqualTo(10)       // passe
            ->isLessThanOrEqualTo(0)        // passe
-           ->isLessThanOrEqualTo('10')     // échoue car "10"
+           ->isLessThanOrEqualTo('10')     // échoue, car "10"
                                            // n'est pas un entier
    ;
 

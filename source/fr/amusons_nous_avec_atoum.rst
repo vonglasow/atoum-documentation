@@ -1,9 +1,9 @@
-Amusons nous avec atoum
+Amusons-nous avec atoum
 #######################
 
 Rapport
 *******
-Les rapports de tests, peuvent être décoré pour être plus sympa à lire. 
+Les rapports de tests peuvent être décorés afin d'être plus agréables ou sympa à lire. 
 Pour cela, dans le :ref:`fichier de configuration <fichier-de-configuration>` d'atoum, ajoutez le code suivant
 
 .. code-block:: php

@@ -55,7 +55,7 @@ windows
 Exemples dans le reste de la documentation
 ==========================================
 
-Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrit avec la forme suivante:
+Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrites avec la forme suivante:
 
 .. code-block:: shell
 
@@ -100,7 +100,7 @@ Une fois que vous avez préciser à atoum les :ref:`fichiers à exécuter <fichi
 Par espace de noms
 ==================
 
-Pour filtrer sur l'espace de noms, c'est à dire n'exécuter que les tests d'un espace de noms donné, il vous suffit d'utiliser l'option -ns ou --namespaces.
+Pour filtrer sur l'espace de noms, c'est-à-dire n'exécuter que les tests d'un espace de noms donné, il vous suffit d'utiliser l'option -ns ou --namespaces.
 
 .. code-block:: shell
 
@@ -115,7 +115,7 @@ Pour filtrer sur l'espace de noms, c'est à dire n'exécuter que les tests d'un 
 Une classe ou une méthode
 =========================
 
-Pour filtrer sur la classe ou une méthode, c'est à dire n'exécuter que les tests d'une classe ou d'une méthode donnée, il vous suffit d'utiliser l'option -m ou --methods.
+Pour filtrer sur la classe ou une méthode, c'est-à-dire n'exécuter que les tests d'une classe ou d'une méthode donnée, il vous suffit d'utiliser l'option -m ou --methods.
 
 .. code-block:: shell
 
@@ -145,7 +145,7 @@ Si vous remplacez le nom de la class par ``*``, cela revient à dire que vous fi
 Tags
 ====
 
-Tout comme de nombreux outils dont `Behat <http://behat.org>`_, atoum vous permet de tagger vos tests unitaires et de n'exécuter que ceux ayant un ou plusieurs tags spécifiques.
+Tout comme de nombreux outils, dont `Behat <http://behat.org>`_, atoum vous permet de taguer vos tests unitaires et de n'exécuter que ceux ayant un ou plusieurs tags spécifiques.
 
 Pour cela, il faut commencer par définir un ou plusieurs tags pour une ou plusieurs classes de tests unitaires.
 
@@ -172,7 +172,7 @@ Cela se fait très simplement grâce aux annotations et à la balise @tags:
        }
    }
 
-De la même manière, il est également possible de tagger les méthodes de test.
+De la même manière, il est également possible de taguer les méthodes de test.
 
 .. note::
    Les tags définis au niveau d'une méthode prennent le pas sur ceux définis au niveau de la classe.
@@ -205,7 +205,7 @@ Une fois les tags nécessaires définis, il n'y a plus qu'à exécuter les tests
 
    $ ./bin/atoum -d tests/units -t thisIsOneTag
 
-Attention, cette instruction n'a de sens que s'il y a une ou plusieurs classes de tests unitaires et qu'au moins l'une d'entres elles porte le tag spécifié. Dans le cas contraire, aucun test ne sera exécuté.
+Attention, cette instruction n'a de sens que s'il y a une ou plusieurs classes de tests unitaires et qu'au moins l'une d'entre elles porte le tag spécifié. Dans le cas contraire, aucun test ne sera exécuté.
 
 Il est possible de définir plusieurs tags:
 
@@ -213,7 +213,7 @@ Il est possible de définir plusieurs tags:
 
    $ ./bin/atoum -d tests/units -t thisIsOneTag thisIsThreeTag
 
-Dans ce dernier cas, les classes de tests ayant été taggés soit avec thisIsOneTag, soit avec thisIsThreeTag, seront les seules à être exécutées.
+Dans ce dernier cas, les classes de tests ayant été tagués soit avec thisIsOneTag, soit avec thisIsThreeTag, seront les seules à être exécutées.
 
 
 .. _fichier-de-configuration:
@@ -229,7 +229,7 @@ Couverture du code
 
 Par défaut, si PHP dispose de l'extension `Xdebug <http://xdebug.org>`_, atoum indique en ligne de commande le taux de couverture du code par les tests venant d'être exécutés.
 
-Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans le cas contraire, il affiche le taux de couverture globale ainsi que celui de chaque méthode de la classe testée sous la forme la forme d'un pourcentage.
+Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans le cas contraire, il affiche le taux de couverture globale ainsi que celui de chaque méthode de la classe testée sous la forme d'un pourcentage.
 
 .. code-block:: shell
 
@@ -262,7 +262,7 @@ Il est cependant possible d'obtenir une représentation plus précise du taux de
 
 Pour l'obtenir, il suffit de se baser sur les modèles de fichiers de configuration inclus dans atoum.
 
-Si vous utlisez l'archive PHAR, il faut les extraire en utilisant la commande suivante:
+Si vous utilisez l'archive PHAR, il faut les extraire en utilisant la commande suivante:
 
 .. code-block:: php
 
@@ -308,7 +308,7 @@ Une fois les tests exécutés, atoum génèrera alors le rapport de couverture d
 Notifications
 =============
 
-atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs système de notification : `Growl`_, `Mac OS X Notification Center`_, `Libnotify`_.
+atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs systèmes de notification : `Growl`_, `Mac OS X Notification Center`_, `Libnotify`_.
 
 
 Growl
@@ -440,7 +440,7 @@ De plus, ils ne sont pas inclus au même moment, puisque le fichier de configura
 
 Cependant, dans ce cas, il ne sera plus possible d'exécuter directement un fichier de test directement via l'exécutable PHP en ligne de commande.
 
-Pour cela, il suffit d'inclure dans le fichier de ``bootstrap`` le fichier scripts/runner.php ou l'archive PHAR de atoum et d'exécuter systématiquement les tests en ligne de commande via scripts/runner.php ou l'archive PHAR.
+Pour cela, il suffit d'inclure dans le fichier de ``bootstrap`` le fichier scripts/runner.php ou l'archive PHAR d’atoum et d'exécuter systématiquement les tests en ligne de commande via scripts/runner.php ou l'archive PHAR.
 
 Le fichier de ``bootstrap`` doit donc au minimum contenir ceci:
 
@@ -451,5 +451,5 @@ Le fichier de ``bootstrap`` doit donc au minimum contenir ceci:
    // si l'archive PHAR est utilisée :
    require_once path/to/mageekguy.atoum.phar;
 
-   // ou si les sources sont utilisés :
+   // ou si les sources sont utilisées :
    // require_once path/atoum/scripts/runner.php

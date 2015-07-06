@@ -33,7 +33,7 @@ Il est à noter, qu'afin de simplifier l'écriture des tests sur les tableaux, d
 	;
 
 .. note::
-   Cette forme d'écriture n'est diponible qu'a partir de PHP 5.4 et supérieur.
+   Cette forme d'écriture n'est disponible qu'à partir de PHP 5.4 et supérieur.
 
 
 .. _array-contains:
