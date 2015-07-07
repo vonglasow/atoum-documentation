@@ -5,7 +5,7 @@
 Optimiser PHP pour exécuter les tests le plus rapidement possible
 *****************************************************************
 
-Par défaut, atoum exécute chaque test dans un processus PHP séparé afin d'en garantir l'isolation. De plus, afin d'optimiser les performances et exploiter au maximum, il n'exécute pas chaque test de manière séquentielle, mais parallèlement. Enfin, le code d’atoum est de plus conçu de façon à s'exécuter le plus rapidement possible.
+Par défaut, le :ref:`moteur d'exécution <@engine>` d'atoum lance chaque test dans un processus PHP séparé afin d'en garantir l'isolation. De plus, afin d'optimiser les performances, il n'exécute pas chaque test de manière séquentielle, mais en parallèle. Par ailleurs, atoum est conçu de façon à s'exécuter le plus rapidement possible.
 
 Grâce à tout cela, atoum est donc capable d'exécuter très rapidement un grand nombre de tests. Cependant, en fonction du système d'exploitation, la création de chacun des sous-processus permettant l'isolation des tests peut être une opération longue et donc susceptible d'avoir un impact important sur les performances globales d'atoum. Il peut donc être très pertinent d'optimiser la taille du binaire PHP qui sera utilisé dans chaque processus afin d'exécuter encore plus rapidement les tests.
 
