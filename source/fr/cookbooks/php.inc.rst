@@ -22,7 +22,7 @@ Traditionnellement, une fois les sources du langage récupéré via `php.net <ht
 
 Il est à noter que la commande *make install* doit être exécutée en tant que super-administrateur pour fonctionner correctement. Vu que nous voulons une version sur mesure de PHP, il est nécessaire de modifier cette procédure au niveau de la commande *./configure*. C'est en effet cette commande qui permet de définir, entre autres choses, les modules qui seront intégrés à PHP lors de sa compilation, comme le prouve le résultat de la commande *./configure --help*.
 
-Pour obtenir une version de PHP correspondant précisément à vos besoins, il faut donc commencer par demander la désactivation de l'ensemble des modules par défaut, via l'option *--disable-all*. Une fois cela effectué, il faut ajouter l'option *--enable-cli* pour obtenir uniquement à l'issue de la compilation uniquement le binaire PHP utilisable en ligne de commande. Il n'y a plus ensuite qu'à ajouter via les options * --enable-* * adéquates les modules nécessaires à l'exécution de vos tests, ainsi que les éventuelles options * --with-* * nécessaires à la compilation de ces modules. À titre d'exemple, la commande à utiliser pour compiler un binaire PHP en ligne de commande nécessaire et suffisant pour exécuter les tests unitaires de atoum sous Mac OS X est :
+Pour obtenir une version de PHP correspondant précisément à vos besoins, il faut donc commencer par demander la désactivation de l'ensemble des modules par défaut, via l'option *--disable-all*. Une fois cela effectué, il faut ajouter l'option *--enable-cli* pour obtenir uniquement, à l'issue de la compilation, le binaire PHP utilisable en ligne de commande. Il n'y a plus ensuite qu'à ajouter via les options * --enable-* * adéquates les modules nécessaires à l'exécution de vos tests, ainsi que les éventuelles options * --with-* * nécessaires à la compilation de ces modules. À titre d'exemple, la commande à utiliser pour compiler un binaire PHP en ligne de commande nécessaire et suffisant pour exécuter les tests unitaires de atoum sous Mac OS X est :
 
 .. code-block:: shell
 
@@ -39,7 +39,7 @@ Une fois la commande *./configure* exécutée avec les options adéquates, il n'
 	# make install
 
 
-Une fois cela effectué, vous n'aurez plus qu'à exécuter vos tests pour constater la différence en terme de vitesse d'exécution. À titre d'information, sous Mac OS X lion sur un MacBook Air 2012, grâce à la procédure décrite ci-dessus, il est possible de passer d'un binaire PHP de 21 Mo à un binaire PHP de 4.7 Mo, ce qui permet de passer le temps d'exécution de l'ensemble des tests unitaires d’atoum de 34 secondes à 17 secondes, soit un gain de 50% :
+Une fois cela effectué, vous n'aurez plus qu'à exécuter vos tests pour constater la différence en terme de vitesse d'exécution. À titre d'information, sous Mac OS X Lion sur un MacBook Air 2012, grâce à la procédure décrite ci-dessus, il est possible de passer d'un binaire PHP de 21 Mo à un binaire PHP de 4.7 Mo, ce qui permet de passer le temps d'exécution de l'ensemble des tests unitaires d’atoum de 34 secondes à 17 secondes, soit un gain de 50% :
 
 .. code-block:: shell
 

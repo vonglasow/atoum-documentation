@@ -14,7 +14,7 @@ Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il 
    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Il faut donc modifier l'expression régulière utilisée, et il est possible de le faire de plusieurs manières. La plus simple est de faire appel à l'annotation ``@namespace`` appliquée à la classe de test, de la manière suivante :
+Il faut donc modifier l'expression régulière utilisée, ceci est possible de plusieurs manières. Le plus simple est de faire appel à l'annotation ``@namespace`` appliquée à la classe de test, de la manière suivante :
 
 .. code-block:: php
 
@@ -124,7 +124,7 @@ En effet, atoum fait appel par défaut à une expression régulière afin que so
 * ``Tests\Units\``
 * ``TEST\UNIT\``
 
-Cependant, en règle général, l'espace de nom utilisé pour les classes de test est fixe, et il n'est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacée par la chaîne de caractères ``my\tests``, par exemple grâce à l'annotation ``@namespace`` :
+Cependant, en règle général, l'espace de nom utilisé pour les classes de test est fixe et il n'est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacée par la chaîne de caractères ``my\tests``, par exemple grâce à l'annotation ``@namespace`` :
 
 .. code-block:: php
 
