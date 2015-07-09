@@ -88,7 +88,7 @@ Once a test class created, simply execute this command-line to start the test fr
 	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
 
 
-Thnaks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
+Thanks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
 
 
 .. _utilisation-avec-symfony-2:

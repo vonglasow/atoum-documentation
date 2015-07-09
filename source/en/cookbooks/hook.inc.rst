@@ -50,7 +50,7 @@ The code below assumes that your unit tests are in files with the extension ``.p
 .. note::
    In the example above, the test files must include atoum for the hook works.
 
-The tests are run very quickly with atoum, all unit tests can be run before each commit with a hook like this:
+The tests are run very quickly with atoum, all unit tests can be run before each commit with a hook like this :
 
 .. code-block:: php
 

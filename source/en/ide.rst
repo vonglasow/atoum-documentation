@@ -2,8 +2,8 @@ Integration of atoum in your IDE
 ##################################
 
 
-Sublime Text 2
-**************
+Sublime Text 2
+****************
 
 A `plug-in for SublimeText 2 <https://github.com/toin0u/Sublime-atoum>`_ allows the execution of unit tests by atoum and the visualization of the result without leaving the editor.
 

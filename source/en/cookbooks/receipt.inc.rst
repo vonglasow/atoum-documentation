@@ -14,7 +14,7 @@ Thus, if the test class name is ``vendor\project\tests\units\foo``, it will dedu
    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Therefore, modify the regular expression used, and it is possible to do so in several ways. The easiest way is to appeal to him annotions ``@namespace`` applied to the test class in the following way:
+We must therefore change the regular expression we used, this is possible in several ways. The easiest way is to applied the annotations ``@namespace`` to the test class in the following way :
 
 .. code-block:: php
 
@@ -124,7 +124,7 @@ Indeed atoum by default use a regular expression so that the user can use a wide
 * ``Tests\Units\``
 * ``TEST\UNIT\``
 
-However, in general, the namespace used to test classes is fixed, and it's not necessary to use a regular expression if the default isn't suitable. In our case, it could be replaced with the string ``my\tests``, for example through the ``@namespace`` annotation:
+However, in general, the namespace used to test classes is fixed, and it's not necessary to use a regular expression if the default isn't suitable. In our case, it could be replaced with the string ``my\tests``, for example through the ``@namespace`` annotation :
 
 .. code-block:: php
 

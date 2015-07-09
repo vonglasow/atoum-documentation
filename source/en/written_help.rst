@@ -1,13 +1,14 @@
 Writing help
 #################
 
-There are several ways to write unit test with atoum, one of them is to use keywords like ``given``, ``if``, ``and`` or  ``then``, ``when`` or ``assert`` so you can structure the tests, making them more readable.
+There are several ways to write unit test with atoum, one of them is to use keywords like ``given``, ``if``, ``and`` and even ``then``, ``when``  or ``assert`` so you can structure the tests, making them more readable.
 
+.. _given-if-and-then:
 
 ``given``, ``if``, ``and`` and ``then``
 ****************************************
 
-You can use these keywords intuitively:
+You can use these keywords very intuitively:
 
 .. code-block:: php
 
@@ -32,7 +33,7 @@ Thus, ``given``, ``if`` and ``and`` specify the prerequisites assertions that fo
 
 However, no grammar is ruling the order nor the syntax of these keywords in atoum.
 
-As a result, the developer has to use the keywords wisely in order to make the test as readable as possible, even if it's possible to write the like the following:
+As a result, the developer has to use the keywords wisely in order to make the test as readable as possible. Wrongly used, you could end up with tests written like the following:
 
 .. code-block:: php
 
@@ -50,7 +51,7 @@ As a result, the developer has to use the keywords wisely in order to make the t
 
 For the same reason, the use of ``then`` is also optional.
 
-It's also important to note that you can write the exact same test without using any of the previous keywords:
+Notice that you can write the exact same test without using any of the previous keywords:
 
 .. code-block:: php
 
@@ -68,6 +69,7 @@ It's also important to note that you can write the exact same test without using
 
 The test will not be slower or faster to run and there is no advantage to use one notation or another, the important thing is to choose one and stick to it. In this way it will facilitate maintenance of the tests (the problem is exactly the same as coding conventions).
 
+.. _when:
 
 when
 ****
@@ -110,6 +112,7 @@ To resolve this problem, the keyword ``when`` is able to interpret the possible 
 
 Of course, if ``when`` doesn't received an anonymous function as an argument, it behaves exactly as ``given``, ``if``, ``and`` and ``then``, namely that it does absolutely nothing functionally speaking.
 
+.. _asserter:
 
 assert
 ******
@@ -259,9 +262,11 @@ As seen, it's slightly simpler but especially this has two advantages:
 Furthermore, we can easily validate that the instance is available with "isTestedInstance", as explained in the previous example.
 
 To pass some arguments to the constructor, it's easy through "newTestedInstance":
+
 .. code-block:: php
 
    $this->newTestedInstance($argument1, $argument2)
+
 
 .. _mode-loop:
 
@@ -277,7 +282,7 @@ When a developer doing TDD (test-driven development), it usually works as follow
 
 In practice, this means that he must:
 
-* create its code in his favorite editor;
+* create its code in his favourite editor;
 * exit the editor and then run its test in a console;
 * return to his editor to write the code that enables the test to pass ;
 * return to the console to restart its test execution;
@@ -382,10 +387,10 @@ Moreover, once all failed tests pass again successfully, atoum will automaticall
 
 Of course, the ``loop`` mode will take only :ref:`the files with unit tests launch <fichiers-a-executer>` by atoum.
 
-.. _mode-debug:
+.. _le-mode-debug:
 
-Debug mode
-*************
+The debug mode
+******************
 
 Sometimes tests fail and it's hard to find why.
 
@@ -394,7 +399,7 @@ In this case, one of the techniques available to solve the problem is to trace t
 atoum provides some tools to help you in this process, debugging directly in unit tests.
 
 Those tools are only available when you run atoum and enable the debug mode using the``--debug`` command line argument, this is to avoid unexpected debug output when running in standard mode.
-When the developer enables the debug mode (``--debug``), three methods can be used:
+When the developer enables the debug mode (``--debug``), three methods can be used :
 
 * ``dump()`` to dump the content of a variable;
 * ``stop()`` to stop a running test;
@@ -402,6 +407,7 @@ When the developer enables the debug mode (``--debug``), three methods can be us
 
 Those three method are accessible through the atoum fluent interface.
 
+.. _dump:
 
 dump
 ====
@@ -420,7 +426,7 @@ The ``dump()`` method can be used as follows:
 
 When the test is running, the return of the method ``foo::getBar()`` will be displayed through the standard output.
 
-It's also possible to pass several argments to ``dump()``, as the following way:
+It's also possible to pass several arguments to ``dump()``, as the following way:
 
 .. code-block:: php
 
@@ -436,6 +442,7 @@ It's also possible to pass several argments to ``dump()``, as the following way:
 .. important::
    The ``dump`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
 
+.. _stop:
 
 stop
 ====
@@ -460,6 +467,8 @@ If ``--debug`` is used, the last two lines will not be executed.
 .. important::
    The ``stop`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
 
+
+.. _executeOnFailure:
 
 executeOnFailure
 ================
@@ -492,6 +501,8 @@ Of course, it's possible to call several times ``executeOnFailure()`` in the sam
 .. important::
    The method ``executeOnFailure`` is enabled only if you run the tests with the argument ``--debug``. Ontherwise, this method will be totally ignored.
 
+
+.. _initialization_method:
 
 The initialization methods
 *****************************
@@ -587,6 +598,7 @@ By default, the ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` and `
 
 It is therefore the responsibility of the programmer to overload when needed in the test classes concerned.
 
+.. _data-provider:
 
 Data providers
 ***************************************
@@ -688,12 +700,13 @@ atoum relies on a specialized component to generate the mock: the ``mockGenerato
 
 By default, the mock will be generated in the "mock" namespace and behave exactly in the same way as instances of the original class (mock inherits directly from the original class).
 
+
 Change the name of the class
------------------------------
+---------------------------
 
 If you wish to change the name of the class or its namespace, you must use the ``mockGenerator``.
 
-Its method ``generate`` takes 3 parameters:
+Its method ``generate`` takes 3 parameters :
 
 * the name of the interface or class to mock;
 * the new namespace, optional;
@@ -848,7 +861,7 @@ The ``mockController`` allows you to redefine **only public and abstract methods
    $this->calling($mockDbClient)->connect->throw = new \Database\Client\Exception();
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`_ for more information on the subject.
+   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`__ for more information on the subject.
 
 As you can see, it is possible to use several methods to get the desired behavior:
 
@@ -883,7 +896,7 @@ If you want several methods of the mock have the same behavior, you can use the 
 methods
 -------
 
-"methods" allows you, thanks to the anonymous function passed as an argument, to define to what methods the behavior must be modified:
+``methods`` allows you, thanks to the anonymous function passed as an argument, to define to what methods the behavior must be modified:
 
 .. code-block:: php
 
@@ -929,11 +942,11 @@ methods
 In the case of the last example, you should instead use `methodsMatching`_.
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`_ for more information on the subject.
+   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`__ for more information on the subject.
 
 
 methodsMatching
------------------
+--------------------------------
 
 ``methodsMatching`` allows you to set the methods where the behavior must be modified using the regular expression passed as an argument:
 
@@ -957,7 +970,7 @@ methodsMatching
    ;
 
 .. note::
-   ``methodsMatching`` use `preg_match <http://php.net/preg_match>`_ and regular expressions. Refer to the `PHP manual <http://php.net/preg_match>`_ for more information on the subject.
+   ``methodsMatching`` use `preg_match <http://php.net/preg_match>`_ and regular expressions. Refer to the `PHP manual <http://php.net/pcre>`__ for more information on the subject.
 
 
 Particular case of the constructor
@@ -1032,7 +1045,7 @@ atoum allow to easyly simulate the behavious of native PHP functions.
    ;
 
 .. important::
-   The \\ is not allowed before any functions to simulate because atoum take the resolution mecanisme of PHP's namespace.
+   The \\ is not allowed before any functions to simulate because atoum take the resolution mechanism of PHP's namespace.
    
 .. important::
    For the same reason, if a native function was already called before, his mocking will be without any effect.
@@ -1050,28 +1063,80 @@ atoum allow to easyly simulate the behavious of native PHP functions.
          ->isTestedInstance()
    ;
 
-The annotations
-***************
 
-@dataProvider
-=============
+.. _@engine:
 
-.. important::
-   We need help to write this section !
+Execution engine
+***********************
 
-@engine
-=======
+Several execution engines to run the tests (at the level of the class or methods) are available. These are configurable via the annotation ``@engine``. By default, the different tests run in parallel in sub-processes of PHP, this is the ``concurrent`` mode.
 
-.. important::
-   We need help to write this section !
+Currently, there is three execution modes:
+* *inline*: tests run in the same process, this is the same behaviour as PHPUnit. Although this mode is very fast, there's no insulation of the tests.
+* *isolate*: tests run sequentially in a subprocess of PHP. This form of execution is quite slow.
+* *concurrent*: the default mode, the tests run in parallel, in PHP sub-processes. 
 
-.. <mageekguy> par défaut atoum exécute chaque méthode de test dans un sous-processus php séparée, et en parallèle
-   <mageekguy> mais ça n'a rien d'obligatoire
-   <mageekguy> nativement, tu peux lui dire d'exécuter les tests avec son moteur par défaut (donc, concurrent, que j'ai décrits ci-dessus)
-   <mageekguy> ou alors avec isolate, qui exécute dans un sous-processus mais séquentiellement
-   <mageekguy> ou alors inline, donc tout dans le même processus PHP
-   <mageekguy> (à la PHPUnit par défaut, en clair)
-   <mageekguy> inline est très très rapide mais il n'y alors plus d'isolation des tests
-   <mageekguy> isolate apporte l'isolation mais est très lent, et sert à que dalle de mon point de vue (c'est pour moi juste un poc)
-   <mageekguy> concurrent est le meilleur compromis entre l'isolation et les perf
-   <mageekguy> tout ça se commande à l'aide de l'annotation @engine sur la classe ou sur une méthode spécifique
+Here's an example :
+
+.. code-block:: php
+
+  <?php
+  
+  /**
+   * @engine concurrent
+   */
+  class Foo extends \atoum
+  {
+  	public function testBarWithBaz()
+  	{
+  		sleep(1);
+  		$this->newTestedInstance;
+  		$baz = new \Baz();
+  		$this->object($this->testedInstance->setBaz($baz))
+  			->isIdenticalTo($this->testedInstance);
+  			
+  		$this->string($this->testedInstance->bar())
+  			->isIdenticalTo('baz');
+  	}
+  	
+  	public function testBarWithoutBaz()
+  	{
+  		sleep(1);
+  		$this->newTestedInstance;
+  		$this->string($this->testedInstance->bar())
+  			->isIdenticalTo('foo');
+  	}
+  }
+
+In ``concurent`` mode:
+
+.. code-block:: shell
+
+=> Test duration: 2.01 seconds.
+=> Memory usage: 0.50 Mb.
+> Total test duration: 2.01 seconds.
+> Total test memory usage: 0.50 Mb.
+> Running duration: 1.08 seconds.
+
+
+In ``inline`` mode:
+
+.. code-block:: shell
+
+=> Test duration: 2.01 seconds.
+=> Memory usage: 0.25 Mb.
+> Total test duration: 2.01 seconds.
+> Total test memory usage: 0.25 Mb.
+> Running duration: 2.01 seconds.
+
+
+In ``isolate`` mode:
+
+.. code-block:: shell
+
+=> Test duration: 2.00 seconds.
+=> Memory usage: 0.50 Mb.
+> Total test duration: 2.00 seconds.
+> Total test memory usage: 0.50 Mb.
+> Running duration: 2.10 seconds.
+

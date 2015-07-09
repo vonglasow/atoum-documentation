@@ -174,6 +174,8 @@ If you want to use atoum within a Zend Framework 2 project, a component exists a
 The instructions for installation and usage are available on this page.
 
 
+.. _atoum-philosophie:
+
 The philosophy of atoum
 ************************
 
@@ -268,9 +270,7 @@ You should see something like this:
    > Running duration: 0.04 second.
    Success (1 test, 1/1 method, 0 void method, 0 skipped method, 2 assertions)!
 
-
 We just test that the method ``getHiAtoum``:
-
 * returns a string;
 * that is equals to ``"Hi atoum !"``.
 
