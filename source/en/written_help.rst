@@ -447,7 +447,7 @@ It's also possible to pass several arguments to ``dump()``, as the following way
 stop
 ====
 
-The ``stop()``method is also easy to use:
+The ``stop()`` method is also easy to use:
 
 .. code-block:: php
 
@@ -702,7 +702,7 @@ By default, the mock will be generated in the "mock" namespace and behave exactl
 
 
 Change the name of the class
----------------------------
+-----------------------------
 
 If you wish to change the name of the class or its namespace, you must use the ``mockGenerator``.
 
@@ -974,7 +974,7 @@ methodsMatching
 
 
 Particular case of the constructor
-===============================
+===================================
 
 To mock the constructor of a class, you need:
 

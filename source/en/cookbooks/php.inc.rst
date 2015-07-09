@@ -29,9 +29,9 @@ Pour obtenir une version de PHP correspondant précisément à vos besoins, il f
 	# ./configure --disable-all --sysconfdir=/private/etc --enable-cli --with-config-file-path=/etc --with-libxml-dir=/usr  --with-pcre-regex --enable-phar --enable-hash --enable-json --enable-libxml --enable-session --enable-tokenizer --enable-posix --enable-dom
 
 
-Noted that if you wish to install your PHP binary to a specific location to avoid replacing the one already installed at the level of your operating system, you can use the option *-prefix = path/to/destination/directory*, as shown in the help of *./configure*, available via the option *-help*. You can then use it to run your tests via the argument *-p * of atoum.
+Noted that if you wish to install your PHP binary to a specific location to avoid replacing the one already installed at the level of your operating system, you can use the option *-prefix = path/to/destination/directory*, as shown in the help of *./configure*, available via the option *-help*. You can then use it to run your tests via the argument *-p* of atoum.
 
-Once the command *. / configure * executed with the appropriate options, there just need to continue with the installation of PHP in the traditional way:
+Once the command *./configure* executed with the appropriate options, there just need to continue with the installation of PHP in the traditional way:
 
 .. code-block:: shell
 
