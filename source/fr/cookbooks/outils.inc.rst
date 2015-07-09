@@ -199,11 +199,11 @@ Il suffit tout simplement d'activer la publication des rapports au format JUnit 
 Utilisation avec Travis-ci
 ===========================
 
-Il est assez simple d'utiliser atoum dans l'outil qu'est `Travis-CI <https://travis-ci.org>`_. En effet, l'ensemble des étapes est indiqué dans la `documentation officielle <http://docs.travis-ci.com/user/languages/php/#Working-with-atoum>`_ :
+Il est assez simple d'utiliser atoum dans l'outil qu'est `Travis-CI <https://travis-ci.org>`__. En effet, l'ensemble des étapes est indiqué dans la `documentation officielle <http://docs.travis-ci.com/user/languages/php/#Working-with-atoum>`__ :
 * Créer votre fichier .travis.yml dans votre projet;
 * Ajoutez-y les deux lignes suivantes :
 
-.. code-block:: yml
+.. code-block:: yaml
 
    before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
    script: php mageekguy.atoum.phar
@@ -211,7 +211,7 @@ Il est assez simple d'utiliser atoum dans l'outil qu'est `Travis-CI <https://tra
 
 Voici un exemple de fichier `.travis.yml` dont les tests présents dans le dossier `tests` seront exécuter.
 
-.. code-block:: yml
+.. code-block:: yaml
 
    language: php
    php:

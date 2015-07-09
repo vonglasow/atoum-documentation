@@ -67,3 +67,6 @@ In reStructuredText syntax, you can use a wide variety of character to underline
 
 ### What's the licence of this documentation.
 This documentation is under CC by-nc-sa 4.0. You can find more information on [this page](LICENCE.md)
+
+### I have a problem, where can I find help?
+You can check our IRC channels [##atoum on freenode](https://webchat.freenode.net/?channels=##atoum)

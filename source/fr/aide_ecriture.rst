@@ -3,6 +3,7 @@ Aide à l'écriture
 
 Il est possible d'écrire des tests unitaires avec atoum de plusieurs manières, et l'une d'elles est d'utiliser des mots-clefs tels que ``given``, ``if``, ``and`` ou bien encore ``then``, ``when`` ou ``assert`` qui permettent de mieux organiser et de rendre plus lisibles les tests.
 
+.. _given-if-and-then:
 
 ``given``, ``if``, ``and`` et ``then``
 ****************************************
@@ -68,6 +69,7 @@ Il est également important de noter qu'il est tout à fait possible d'écrire l
 
 Le test ne sera pas plus lent ou plus rapide à exécuter et il n'y a aucun avantage à utiliser une notation ou une autre, l'important étant d'en choisir une et de s'y tenir pour faciliter la maintenance des tests (la problématique est exactement la même que celle des conventions de codage).
 
+.. _when:
 
 when
 ****
@@ -110,6 +112,7 @@ Pour résoudre ce problème, le mot-clef ``when`` est capable d'interpréter l'�
 
 Bien évidemment, si ``when`` ne reçoit pas de fonction anonyme en argument, il se comporte exactement comme ``given``, ``if``, ``and`` et ``then``, à savoir qu'il ne fait absolument rien fonctionnellement parlant.
 
+.. _asserter:
 
 assert
 ******
@@ -202,8 +205,10 @@ Grâce à lui, il est donc possible d'écrire le test précédent d'une façon p
 La chaîne de caractères sera de plus reprise dans les messages générés par atoum si l'une des assertions ne passe pas avec succès.
 
 .. _newTestedInstance:
+
 newTestedInstance & testedInstance
 ********************************************
+
 Lorsque l'on effectue des tests, il faut bien souvent créer une nouvelle instance de la classe et passer celle-ci dans divers paramètres. Une aide à l'écriture est disponible pour ce cas précis, il s'agit de ``newTestedInstance`` et de ``testedInstance``
 
 Voici un exemple :
@@ -262,6 +267,8 @@ Pour passer des arguments au constructeur, il suffit de le faire au travers de `
 
    $this->newTestedInstance($argument1, $argument2)
 
+
+.. _mode-loop:
 
 Le mode loop
 ****************
@@ -380,6 +387,7 @@ De plus, une fois que tous les tests en échec passeront à nouveau avec succès
 
 Bien évidemment, le mode ``loop`` ne prend en compte que :ref:`le ou les fichiers de tests unitaires lancés <fichiers-a-executer>` par atoum.
 
+.. _le-mode-debug:
 
 Le mode débug
 *************
@@ -399,6 +407,7 @@ Lorsque l'argument ``--debug`` est utilisé, trois méthodes peuvent être activ
 
 Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caractérise atoum.
 
+.. _dump:
 
 dump
 ====
@@ -433,6 +442,8 @@ Il est également possible de passer plusieurs arguments à ``dump()``, de la ma
 .. important::
    La méthode ``dump`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
+.. _stop:
+
 stop
 ====
 
@@ -456,6 +467,8 @@ Si ``--debug`` est utilisé, les 2 dernières lignes ne seront pas exécutées.
 .. important::
    La méthode ``stop`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
+
+.. _executeOnFailure:
 
 executeOnFailure
 ================
@@ -488,6 +501,8 @@ Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFa
 .. important::
    La méthode ``executeOnFailure`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
+
+.. _initialization_method:
 
 Les méthodes d'initialisation
 *****************************
@@ -583,6 +598,7 @@ Par défaut, les méthodes ``setUp()``, ``beforeTestMethod()``, ``afterTestMetho
 
 Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les classes de test concerné.
 
+.. _data-provider:
 
 Fournisseurs de données (data provider)
 ***************************************
@@ -845,7 +861,7 @@ Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publi
    $this->calling($mockDbClient)->connect->throw = new \Database\Client\Exception();
 
 .. note::
-   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d'informations sur le sujet.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`__ pour avoir plus d'informations sur le sujet.
 
 Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d'obtenir le comportement souhaité :
 
@@ -926,7 +942,7 @@ methods
 Dans le cas du dernier exemple, vous devriez plutôt utiliser `methodsMatching`_.
 
 .. note::
-   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`_ pour avoir plus d'informations sur le sujet.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`__ pour avoir plus d'informations sur le sujet.
 
 
 methodsMatching
@@ -954,7 +970,7 @@ methodsMatching
    ;
 
 .. note::
-   ``methodsMatching`` utilise `preg_match <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`_ pour avoir plus d'informations sur le sujet.
+   ``methodsMatching`` utilise `preg_match <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`__ pour avoir plus d'informations sur le sujet.
 
 
 Cas particulier du constructeur
@@ -1052,6 +1068,7 @@ atoum permet de très facilement simuler le comportement des fonctions natives d
 
 Les moteurs d'exécution
 ***********************
+
 Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des méthodes) existent. Ceux-ci sont configurables via l'annotation ``@engine``. Par défaut, les différents tests s'exécutent en parallèle, dans des sous-processus PHP, c'est le mode ``concurrent``.
 
 Il existe actuellement trois modes d'exécution :
@@ -1063,33 +1080,33 @@ Voici un exemple :
 
 .. code-block:: php
 
-<?php
-
-/**
- * @engine concurrent
- */
-class Foo extends \atoum
-{
-	public function testBarWithBaz()
-	{
-		sleep(1);
-		$this->newTestedInstance;
-		$baz = new \Baz();
-		$this->object($this->testedInstance->setBaz($baz))
-			->isIdenticalTo($this->testedInstance);
-			
-		$this->string($this->testedInstance->bar())
-			->isIdenticalTo('baz');
-	}
-	
-	public function testBarWithoutBaz()
-	{
-		sleep(1);
-		$this->newTestedInstance;
-		$this->string($this->testedInstance->bar())
-			->isIdenticalTo('foo');
-	}
-}
+  <?php
+  
+  /**
+   * @engine concurrent
+   */
+  class Foo extends \atoum
+  {
+  	public function testBarWithBaz()
+  	{
+  		sleep(1);
+  		$this->newTestedInstance;
+  		$baz = new \Baz();
+  		$this->object($this->testedInstance->setBaz($baz))
+  			->isIdenticalTo($this->testedInstance);
+  			
+  		$this->string($this->testedInstance->bar())
+  			->isIdenticalTo('baz');
+  	}
+  	
+  	public function testBarWithoutBaz()
+  	{
+  		sleep(1);
+  		$this->newTestedInstance;
+  		$this->string($this->testedInstance->bar())
+  			->isIdenticalTo('foo');
+  	}
+  }
 
 En mode ``concurent`` :
 
@@ -1101,6 +1118,7 @@ En mode ``concurent`` :
 > Total test memory usage: 0.50 Mb.
 > Running duration: 1.08 seconds.
 
+
 En mode ``inline`` :
 
 .. code-block:: shell
@@ -1111,6 +1129,7 @@ En mode ``inline`` :
 > Total test memory usage: 0.25 Mb.
 > Running duration: 2.01 seconds.
 
+
 En mode ``isolate`` :
 
 .. code-block:: shell
@@ -1120,3 +1139,4 @@ En mode ``isolate`` :
 > Total test duration: 2.00 seconds.
 > Total test memory usage: 0.50 Mb.
 > Running duration: 2.10 seconds.
+
