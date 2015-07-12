@@ -66,7 +66,7 @@ Cette option vous permet d'activer le mode debug
    $ ./bin/atoum --debug
 
 .. note::
-   Reportez-vous à la section sur le :ref:`le-mode-debug`_ pour avoir plus d'informations.
+   Reportez-vous à la section sur le :ref:`le-mode-debug` pour avoir plus d'informations.
 
 
 -drt <string> / --default-report-title <string>
@@ -138,7 +138,7 @@ Cette option vous permet d'activer le mode loop d'atoum.
    $ ./bin/atoum --loop
 
 .. note::
-   Reportez-vous à la section sur le :ref:`mode-loop`_ pour avoir plus d'informations.
+   Reportez-vous à la section sur le :ref:`mode-loop` pour avoir plus d'informations.
 
 
 -m <class::method> / --methods <class::methods>

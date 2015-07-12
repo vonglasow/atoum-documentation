@@ -201,9 +201,9 @@ Use with Travis-CI
 
 it's simple to use atoum with a tool like `Travis-CI <https://travis-ci.org>`_. Indeed, all the steps are described in the `official documentation <http://docs.travis-ci.com/user/languages/php/#Working-with-atoum>`_ :
 * Create your .travis.yml in your project;
-* Add it the next two lines :
+* Add it the next two lines:
 
-.. code-block:: yml
+.. code-block:: yaml
 
    before_script: wget http://downloads.atoum.org/nightly/mageekguy.atoum.phar
    script: php mageekguy.atoum.phar
@@ -211,7 +211,7 @@ it's simple to use atoum with a tool like `Travis-CI <https://travis-ci.org>`_. 
 
 Here is an example file `.travis.yml` where the unit tests in the `tests` folder will be run.
 
-.. code-block:: yml
+.. code-block:: yaml
 
    language: php
    php:

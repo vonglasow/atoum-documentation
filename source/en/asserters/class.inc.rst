@@ -25,7 +25,7 @@ But it's recommended to only use ``->class()``.
 .. _has-constant:
 
 hasConstant
-=========
+===========
 
 "hasConstant" checks that the class has the tested constant.
 

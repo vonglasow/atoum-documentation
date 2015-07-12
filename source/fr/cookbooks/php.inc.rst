@@ -57,4 +57,4 @@ Une fois cela effectué, vous n'aurez plus qu'à exécuter vos tests pour consta
 	Success (144 tests, 1048/1048 methods, 16655 assertions, 0 error, 0 exception) !
 
 
-En cas de problèmes ou simplement de doutes, n'hésitez pas à consulter la `documentation officielle <http://php.net/manual/fr/faq.build.php>`_ sur la compilation.
+En cas de problèmes ou simplement de doutes, n'hésitez pas à consulter la `documentation officielle <http://php.net/manual/fr/faq.build.php>`__ sur la compilation.

@@ -21,7 +21,22 @@ C'est l'assertion dédiée aux exceptions.
    The syntax uses anonymous functions (also called closures) introduced in PHP 5.3.
    For more details, read the PHP's documentation on `anonymous functions <http://php.net/functions.anonymous>`_.
 
+We can easily retrieve the last exception with ``$this->exception``.
 
+.. code-block:: php
+
+   <?php
+   $this
+       ->exception(
+           function() use($myObject) {
+               // This code throws a exception: throw new \Exception('Message', 42);
+               $myObject->doOneThing('wrongParameter');
+           }
+       )->isIdenticalTo($this->exception) // passes
+   ;
+   
+   $this->exception->hasCode(42); // passes
+   $this->exception->hasMessage('erreur'); // passes
 
 .. _has-code:
 
