@@ -5,7 +5,7 @@
 Optimize PHP to run the tests as fast as possible
 *****************************************************************
 
-By default, the :ref:`moteur d'exécution <@engine>` of atoum launch each test in a separate PHP process to ensure the insulation. In addition, to maximize performance, it doesn't perform each test sequentially, but in parallel. Furthermore, atoum is designed to run as fast as possible.
+By default, the :ref:`engine execution <@engine>` of atoum launch each test in a separate PHP process to ensure the insulation. In addition, to maximize performance, it doesn't perform each test sequentially, but in parallel. Furthermore, atoum is designed to run as fast as possible.
 
 Through all of this, atoum is therefore able to execute very quickly large numbers of tests. However, depending on the operating system, the creation of each of the sub-processes that permit insulation of the tests can be a long operation and therefore likely to have a significant impact on the overall performance of atoum. So, it can be very relevant to optimize the size of the binary PHP that will be used in each process to run even faster tests.
 
