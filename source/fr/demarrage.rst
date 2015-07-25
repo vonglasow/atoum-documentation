@@ -130,8 +130,8 @@ Créez ensuite un fichier ``composer.json`` contenant le JSON (JavaScript Object
 .. code-block:: json
 
    {
-       "require" : {
-           "atoum/atoum" : "dev-master"
+       "require-dev": {
+           "atoum/atoum": "~2.1"
        }
    }
 
