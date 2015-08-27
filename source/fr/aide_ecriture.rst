@@ -14,7 +14,7 @@ L'utilisation de ces mots-clefs est très intuitive :
 
    <?php
    $this
-       ->given($computer = new computer()))
+       ->given($computer = new computer())
        ->if($computer->prepare())
        ->and(
            $computer->setFirstOperand(2),
