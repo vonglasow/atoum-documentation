@@ -268,6 +268,24 @@ Pour passer des arguments au constructeur, il suffit de le faire au travers de `
    $this->newTestedInstance($argument1, $argument2)
 
 
+Si vous voulez tester une méthode statique de votre classe, vous pouvez récupérer la classe testée avec cette syntaxe :
+
+.. code-block::
+   namespace jubianchi\atoum\preview\tests\units;
+   
+   use atoum;
+   
+   class foo extends atoum
+   {
+       public function testBar()
+       {
+         $this
+           ->if($class = $this->testedClass->getClass())
+           ->then
+             ->object($class::bar())
+  ```
+
+
 .. _mode-loop:
 
 Le mode loop
