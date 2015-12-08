@@ -47,6 +47,10 @@ Or you can also use
 * Having php cli available
 * Having crowdin-cli installed
 
+### Build using docker
+
+	SPHINXBUILD="docker run --rm -v $PWD:/doc umbrellium/sphinx-doc sphinx-build" ./builddoc html
+
 ## F.A.Q.
 
 ### Why crowdin?
