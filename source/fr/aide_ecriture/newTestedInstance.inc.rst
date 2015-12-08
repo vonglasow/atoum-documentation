@@ -65,7 +65,8 @@ Pour passer des arguments au constructeur, il suffit de le faire au travers de `
 
 Si vous voulez tester une méthode statique de votre classe, vous pouvez récupérer la classe testée avec cette syntaxe :
 
-.. code-block::
+.. code-block:: php
+
    namespace jubianchi\atoum\preview\tests\units;
    
    use atoum;
@@ -78,4 +79,4 @@ Si vous voulez tester une méthode statique de votre classe, vous pouvez récup�
            ->if($class = $this->testedClass->getClass())
            ->then
              ->object($class::bar())
-  ```
+

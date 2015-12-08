@@ -27,6 +27,7 @@ Here's an example :
        }
    }
 
+
 This can be simplified with a new syntax:
 
 .. code-block:: php
@@ -65,7 +66,8 @@ To pass some arguments to the constructor, it's easy through "newTestedInstance"
 
 If you want to test a static method of your class, you can get the tested class name with this syntax:
 
-.. code-block::
+.. code-block:: php
+
    namespace jubianchi\atoum\preview\tests\units;
    
    use atoum;
@@ -78,5 +80,5 @@ If you want to test a static method of your class, you can get the tested class 
            ->if($class = $this->testedClass->getClass())
            ->then
              ->object($class::bar())
-  ```
+
 
