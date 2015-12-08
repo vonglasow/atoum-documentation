@@ -15,42 +15,27 @@ files:
   -
     source      : '/source/fr/cookbooks/framework.inc.rst'
     dest        : '/source/fr/cookbooks/framework.inc.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-    languages_mapping:
-      file_name:
-        en: cookbooks/framework.inc
+    translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
 
   -
     source      : '/source/fr/cookbooks/hook.inc.rst'
     dest        : '/source/fr/cookbooks/hook.inc.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-    languages_mapping:
-      file_name:
-        en: cookbooks/hook.inc
+    translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
 
   -
     source      : '/source/fr/cookbooks/outils.inc.rst'
     dest        : '/source/fr/cookbooks/outils.inc.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-    languages_mapping:
-      file_name:
-        en: cookbooks/tools.inc
+    translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
 
   -
     source      : '/source/fr/cookbooks/php.inc.rst'
     dest        : '/source/fr/cookbooks/php.inc.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-    languages_mapping:
-      file_name:
-        en: cookbooks/php.inc
+    translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
 
   -
     source      : '/source/fr/cookbooks/recette.inc.rst'
     dest        : '/source/fr/cookbooks/recette.inc.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-    languages_mapping:
-      file_name:
-        en: cookbooks/receipt.inc
+    translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
 
   -
     source      : '/source/fr/extensions.rst'
@@ -80,6 +65,51 @@ files:
     languages_mapping:
       file_name:
         en: written_help
+
+  -
+    source      : '/source/fr/aide_ecriture/given-if-and-then.inc.rst'
+    dest        : '/source/fr/aide_ecriture/given-if-and-then.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/asserter.inc.rst'
+    dest        : '/source/fr/aide_ecriture/asserter.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/newTestedInstance.inc.rst'
+    dest        : '/source/fr/aide_ecriture/newTestedInstance.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/mode-loop.inc.rst'
+    dest        : '/source/fr/aide_ecriture/mode-loop.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/mode-debug.inc.rst'
+    dest        : '/source/fr/aide_ecriture/mode-debug.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/initialization_method.inc.rst'
+    dest        : '/source/fr/aide_ecriture/initialization_method.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/data-provider.inc.rst'
+    dest        : '/source/fr/aide_ecriture/data-provider.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/mocks.inc.rst'
+    dest        : '/source/fr/aide_ecriture/mocks.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/engine.inc.rst'
+    dest        : '/source/fr/aide_ecriture/engine.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
 
   -
     source      : '/source/fr/assertions.rst'
