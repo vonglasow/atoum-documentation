@@ -14,7 +14,7 @@ You can use these keywords very intuitively:
 
    <?php
    $this
-       ->given($computer = new computer()))
+       ->given($computer = new computer())
        ->if($computer->prepare())
        ->and(
            $computer->setFirstOperand(2),
@@ -268,7 +268,7 @@ To pass some arguments to the constructor, it's easy through "newTestedInstance"
    $this->newTestedInstance($argument1, $argument2)
 
 
-If you want to test a static method of your class, you can get the tested class name with this syntax:
+If you want to test a static method of your class, you can retrieve the tested class with this syntax:
 
 .. code-block::
    namespace jubianchi\atoum\preview\tests\units;
