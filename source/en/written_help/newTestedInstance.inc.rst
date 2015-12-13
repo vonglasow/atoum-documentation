@@ -27,15 +27,14 @@ Here's an example :
        }
    }
 
-
 This can be simplified with a new syntax:
 
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
-   
+
    use atoum;
-   
+
    class foo extends atoum
    {
        public function testBar()
@@ -64,14 +63,14 @@ To pass some arguments to the constructor, it's easy through "newTestedInstance"
    $this->newTestedInstance($argument1, $argument2)
 
 
-If you want to test a static method of your class, you can get the tested class name with this syntax:
+If you want to test a static method of your class, you can retrieve the tested class with this syntax:
 
-.. code-block:: php
+.. code-block::
 
-   namespace jubianchi\atoum\preview\tests\units;
-   
+namespace jubianchi\atoum\preview\tests\units;
+
    use atoum;
-   
+
    class foo extends atoum
    {
        public function testBar()
@@ -80,5 +79,3 @@ If you want to test a static method of your class, you can get the tested class 
            ->if($class = $this->testedClass->getClass())
            ->then
              ->object($class::bar())
-
-

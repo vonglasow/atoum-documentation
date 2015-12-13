@@ -58,6 +58,5 @@ The data provider method is a single protected method that returns an array or a
 When running the tests, atoum will call test method ``testSum()`` with the arguments ``(1, 1)``, ``(1, 2)``, ``(-1, 1)`` and ``(-1, 2)`` returned by the method ``sumDataProvider()``.
 
 .. warning::
-   The insulation of the tests will not be used in this context, which means that each successive call to the method ``testSum()`` will be realized in the same PHP process.
-
+The insulation of the tests will not be used in this context, which means that each successive call to the method ``testSum()`` will be realized in the same PHP process.
 

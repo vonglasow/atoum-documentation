@@ -12,7 +12,7 @@ You can use these keywords very intuitively:
 
    <?php
    $this
-       ->given($computer = new computer()))
+       ->given($computer = new computer())
        ->if($computer->prepare())
        ->and(
            $computer->setFirstOperand(2),
@@ -109,4 +109,3 @@ To resolve this problem, the keyword ``when`` is able to interpret the possible 
    ;
 
 Of course, if ``when`` doesn't received an anonymous function as an argument, it behaves exactly as ``given``, ``if``, ``and`` and ``then``, namely that it does absolutely nothing functionally speaking.
-

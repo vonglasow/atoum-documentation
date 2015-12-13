@@ -1,4 +1,5 @@
 
+
 .. _@engine:
 
 Execution engine
@@ -9,14 +10,14 @@ Several execution engines to run the tests (at the level of the class or methods
 Currently, there is three execution modes:
 * *inline*: tests run in the same process, this is the same behaviour as PHPUnit. Although this mode is very fast, there's no insulation of the tests.
 * *isolate*: tests run sequentially in a subprocess of PHP. This form of execution is quite slow.
-* *concurrent*: the default mode, the tests run in parallel, in PHP sub-processes. 
+* *concurrent*: the default mode, the tests run in parallel, in PHP sub-processes.
 
 Here's an example :
 
 .. code-block:: php
 
   <?php
-  
+
   /**
    * @engine concurrent
    */
@@ -29,11 +30,11 @@ Here's an example :
   		$baz = new \Baz();
   		$this->object($this->testedInstance->setBaz($baz))
   			->isIdenticalTo($this->testedInstance);
-  			
+
   		$this->string($this->testedInstance->bar())
   			->isIdenticalTo('baz');
   	}
-  	
+
   	public function testBarWithoutBaz()
   	{
   		sleep(1);
@@ -74,5 +75,4 @@ In ``isolate`` mode:
 > Total test duration: 2.00 seconds.
 > Total test memory usage: 0.50 Mb.
 > Running duration: 2.10 seconds.
-
 

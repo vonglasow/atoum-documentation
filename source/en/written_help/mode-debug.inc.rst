@@ -52,7 +52,7 @@ It's also possible to pass several arguments to ``dump()``, as the following way
    ;
 
 .. important::
-   The ``dump`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
+The ``dump`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
 
 .. _stop:
 
@@ -77,7 +77,7 @@ The ``stop()`` method is also easy to use:
 If ``--debug`` is used, the last two lines will not be executed.
 
 .. important::
-   The ``stop`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
+The ``stop`` method is enabled only if you launch the tests with the ``--debug`` argument. Ontherwise, this method will be totally ignored.
 
 
 .. _executeOnFailure:
@@ -111,5 +111,5 @@ In the previous example, unlike ``dump()`` that  systematically causing the disp
 Of course, it's possible to call several times ``executeOnFailure()`` in the same test method to defined several closure to be executed if the test fails.
 
 .. important::
-   The method ``executeOnFailure`` is enabled only if you run the tests with the argument ``--debug``. Ontherwise, this method will be totally ignored.
+The method ``executeOnFailure`` is enabled only if you run the tests with the argument ``--debug``. Ontherwise, this method will be totally ignored.
 
