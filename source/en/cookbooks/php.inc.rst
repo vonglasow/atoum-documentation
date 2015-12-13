@@ -20,9 +20,9 @@ Traditionally, once sources of language retrieved via `php.net <http://www.php.n
 	# make
 	# make install
 
-Note that the command *make install* must be executed as root to function properly. Vu que nous voulons une version sur mesure de PHP, il est nécessaire de modifier cette procédure au niveau de la commande *./configure*. C'est en effet cette commande qui permet de définir, entre autres choses, les modules qui seront intégrés à PHP lors de sa compilation, comme le prouve le résultat de la commande *./configure --help*.
+Note that the command *make install* must be executed as root to function properly. Because we want a custom version of PHP, it's necessary to change this procedure at the level of the command *./configure*. It's this command that allows to define, among other things, the modules that will be integrated to PHP in its compilation, like we see in the output of the command *./configure --help*.
 
-Pour obtenir une version de PHP correspondant précisément à vos besoins, il faut donc commencer par demander la désactivation de l'ensemble des modules par défaut, via l'option *--disable-all*. Une fois cela effectué, il faut ajouter l'option *--enable-cli* pour obtenir uniquement, à l'issue de la compilation, le binaire PHP utilisable en ligne de commande. Il n'y a plus ensuite qu'à ajouter via les options * --enable-* * adéquates les modules nécessaires à l'exécution de vos tests, ainsi que les éventuelles options * --with-* * nécessaires à la compilation de ces modules. À titre d'exemple, la commande à utiliser pour compiler un binaire PHP en ligne de commande nécessaire et suffisant pour exécuter les tests unitaires de atoum sous Mac OS X est :
+To get a version of PHP corresponding exactly to your needs, you need to start by disable all of the default modules, via the option *--disable-all*. Once this done, it's required to add the option *--enable-cli* to get only, at the end of compilation, a usable PHP binary. Then add via the options * --enable-* * the modules required for the execution of your tests, as well as any options * --with-* * necessary to compile these modules. For example, the command to use to compile a binary PHP command-line necessary and sufficient to run the unit tests of atoum in Mac OS X is:
 
 .. code-block:: shell
 
