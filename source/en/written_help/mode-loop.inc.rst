@@ -1,5 +1,4 @@
 
-
 .. _mode-loop:
 
 The loop mode
@@ -8,17 +7,17 @@ The loop mode
 When a developer doing TDD (test-driven development), it usually works as following:
 
 # He start writing test corresponding to what he wants to develop ;
-# then runs the test created;
-# then writes the code to pass the test;
+# then runs the test created ;
+# then writes the code to pass the test ;
 # then amends or complete his test and go back to step 2.
 
 In practice, this means that he must:
 
-* create its code in his favourite editor;
-* exit the editor and then run its test in a console;
+* create its code in his favourite editor ;
+* exit the editor and then run its test in a console ;
 * return to his editor to write the code that enables the test to pass ;
-* return to the console to restart its test execution;
-* return to his publisher in order to amend or supplement its test;
+* return to the console to restart its test execution ;
+* return to his publisher in order to amend or supplement its test ;
 
 There is therefore a cycle that will be repeated as long as the functionality haven't been developed entirely.
 
@@ -51,7 +50,7 @@ Once the tests are complete, if tests successfully pass, atoum simply wait:
 
 If the developer press the ``Enter`` key, atoum will reexecute the same test again, without any other action from the developer.
 
-In the case where the code doesn't pass the tests successfully, i.e. If assertions fails or if there were errors or exceptions, atoum also start waiting:
+In the case where the code doesn't pass the tests successfully, i.e. If assertions fails or if there were errors or exceptions, atoum also start waiting :
 
 .. code-block:: shell
 

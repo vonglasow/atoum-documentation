@@ -4,17 +4,17 @@
 The initialization methods
 *****************************
 
-Here is the process, when atoum executes the test methods of a class with the default engine (``concurrent``):
+Here is the process, when atoum executes the test methods of a class with the default engine (``concurrent``) :
 
-#. call of the ``setUp()`` method from the tested class;
-#. launch of a PHP sub-process for **each test method**;
-#. in the PHP sub-process, call of the ``beforeTestMethod()`` method of the test class;
-#. in the PHP sub-process, call of the test method;
-#. in the PHP sub-process, call of the ``afterTestMethod()`` method of the test class;
+#. call of the ``setUp()`` method from the tested class ;
+#. launch of a PHP sub-process for **each** test method ;
+#. in the PHP sub-process, call of the ``beforeTestMethod()`` method of the test class ;
+#. in the PHP sub-process, call of the test method ;
+#. in the PHP sub-process, call of the ``afterTestMethod()`` method of the test class ;
 #. once the PHP sub-process finished, call of the ``tearDown()`` method from thze test class.
 
 .. note::
-For more information on the execution engine of test in atoum, you can read the section about the annotation `@engine`_.
+   For more information on the execution engine of test in atoum, you can read the section about the annotation `@engine`_.
 
 The methods ``setUp()`` and ``tearDown()`` allow respectively to initialize and clean up the test environment for all the test method of the running class.
 

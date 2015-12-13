@@ -25,19 +25,19 @@ You can use these keywords very intuitively:
                ->isEqualTo(4)
    ;
 
-It's important to note that these keywords don't have any another purpose than giving the test a more readable form. They don't supplement the test with any technical effect. The only goal here is to help the reader, human or more specificaly developper, to understand what's happening in the test.
+It's important to note that these keywords don't have any another purpose than giving the test a more readable form. They don't supplement the test with any technical effect. The only goal here is to help the reader, human or more specifically developer, to understand what's happening in the test.
 
 Thus, ``given``, ``if`` and ``and`` specify the prerequisites assertions that follows the keyword ``then`` pass.
 
 However, no grammar is ruling the order nor the syntax of these keywords in atoum.
 
-As a result, the developer has to use the keywords wisely in order to make the test as readable as possible. Wrongly used, you could end up with tests written like the following:
+As a result, the developer has to use the keywords wisely in order to make the test as readable as possible. Wrongly used, you could end up with tests written like the following :
 
 .. code-block:: php
 
    <?php
    $this
-       ->and($computer = new computer()))
+       ->and($computer = new computer())
        ->if($computer->setFirstOperand(2))
        ->then
        ->given($computer->setSecondOperand(2))
@@ -74,7 +74,7 @@ when
 
 In addition to ``given``, ``if``, ``and`` and ``then``, there are also other keywords.
 
-One of them is ``when``. It has a specific feature introduced to work around that it is illegal to write the following PHP code:
+One of them is ``when``. It has a specific feature introduced to work around that it is illegal to write the following PHP code :
 
 .. code-block:: php
 

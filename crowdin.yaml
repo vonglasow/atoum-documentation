@@ -26,6 +26,9 @@ files:
     source      : '/source/fr/cookbooks/outils.inc.rst'
     dest        : '/source/fr/cookbooks/outils.inc.txt'
     translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: cookbooks/tools.inc
 
   -
     source      : '/source/fr/cookbooks/php.inc.rst'
@@ -36,6 +39,9 @@ files:
     source      : '/source/fr/cookbooks/recette.inc.rst'
     dest        : '/source/fr/cookbooks/recette.inc.txt'
     translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        en: cookbooks/receipt.inc
 
   -
     source      : '/source/fr/extensions.rst'

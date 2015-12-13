@@ -6,7 +6,7 @@ assert
 
 Finally, there is the keyword ``assert`` which also has a somewhat unusual operation.
 
-To illustrate its operation, the following test will be used:
+To illustrate its operation, the following test will be used :
 
 .. code-block:: php
 
@@ -27,10 +27,10 @@ To illustrate its operation, the following test will be used:
                    ->exactly(2)
    ;
 
-The previous test has a disadvantage in terms of maintenance, because if the developer needs to add one or more new calls to bar::doOtherThing() betweenthe  two calls already made, it will have to update the value of the argument passed to exactly().
-To resolve this problem, you can reset a mock in 2 different ways:
+The previous test has a disadvantage in terms of maintenance, because if the developer needs to add one or more new calls to bar::doOtherThing() between the two calls already made, it will have to update the value of the argument passed to exactly().
+To resolve this problem, you can reset a mock in 2 different ways :
 
-* either by using $mock->getMockController()->resetCalls();
+* either by using $mock->getMockController()->resetCalls() ;
 * or by using $this->resetMock($mock).
 
 .. code-block:: php
@@ -66,7 +66,7 @@ These methods erase the memory of the controller, so it's now possible to write 
 
 The keyword ``assert`` avoids the need for explicitcall to ``resetCalls()`` or ``esetMock`` and also it 'll erase the memory of adapters and mock's controllers defined at the time of  use.
 
-Thanks to him, it's possible to write the previous test in a simpler and more readable way, especially as it is possible to pass a string to assert that explain the role of the following assertions:
+Thanks to him, it's possible to write the previous test in a simpler and more readable way, especially as it is possible to pass a string to assert that explain the role of the following assertions :
 
 .. code-block:: php
 

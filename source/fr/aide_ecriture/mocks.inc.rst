@@ -40,7 +40,7 @@ Par défaut, les bouchons seront générés dans le namespace ``mock`` et se com
 
 
 Changer le nom de la classe
----------------------------
+-----------------------------
 
 Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le ``mockGenerator``.
 
@@ -312,7 +312,7 @@ methodsMatching
 
 
 Cas particulier du constructeur
-===============================
+===================================
 
 Pour bouchonner le constructeur d'une classe, il faut :
 

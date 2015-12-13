@@ -2,7 +2,7 @@
 .. _le-mode-debug:
 
 Le mode débug
-*************
+***************
 
 Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
 

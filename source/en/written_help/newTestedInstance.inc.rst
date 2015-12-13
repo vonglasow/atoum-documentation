@@ -32,9 +32,9 @@ This can be simplified with a new syntax:
 .. code-block:: php
 
    namespace jubianchi\atoum\preview\tests\units;
-
+   
    use atoum;
-
+   
    class foo extends atoum
    {
        public function testBar()
@@ -54,9 +54,9 @@ As seen, it's slightly simpler but especially this has two advantages:
 * We are not manipulate the name of the tested class
 * We are not manipulate the tested instance
 
-Furthermore, we can easily validate that the instance is available with "isTestedInstance", as explained in the previous example.
+Furthermore, we can easily validate that the instance is available with ``isTestedInstance``, as explained in the previous example.
 
-To pass some arguments to the constructor, it's easy through "newTestedInstance":
+To pass some arguments to the constructor, it's easy through ``newTestedInstance``:
 
 .. code-block:: php
 
@@ -65,12 +65,12 @@ To pass some arguments to the constructor, it's easy through "newTestedInstance"
 
 If you want to test a static method of your class, you can retrieve the tested class with this syntax:
 
-.. code-block::
+.. code-block:: php
 
-namespace jubianchi\atoum\preview\tests\units;
-
+   namespace jubianchi\atoum\preview\tests\units;
+   
    use atoum;
-
+   
    class foo extends atoum
    {
        public function testBar()
@@ -79,3 +79,4 @@ namespace jubianchi\atoum\preview\tests\units;
            ->if($class = $this->testedClass->getClass())
            ->then
              ->object($class::bar())
+
