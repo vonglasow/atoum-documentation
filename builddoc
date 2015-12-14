@@ -2,7 +2,7 @@
 <?php
 	# You can set these variables from the command line.
 	$SPHINXOPTS  = '';
-	$SPHINXBUILD = 'sphinx-build';
+	$SPHINXBUILD = getenv('SPHINXBUILD') ?: 'sphinx-build';
 	$SOURCEDIR   = 'source';
 	$BUILDDIR    = 'build';
 
@@ -17,8 +17,8 @@
         );
 
         # Internal variables.
-        $SOURCEDIR     = __DIR__ . '/' . $SOURCEDIR;
-        $BUILDDIR      = __DIR__ . '/' . $BUILDDIR;
+        $SOURCEDIR     = $SOURCEDIR;
+        $BUILDDIR      = $BUILDDIR;
         $ALLSPHINXOPTS = "-D latex_paper_size=a4 $SPHINXOPTS";
 
         # function to manage languages
@@ -133,7 +133,7 @@
     }
 
     function checkExecutable($executable, $errorMessage) {
-        if (command("which $executable", false) !== 0) {
+        /*if (command("which $executable", false) !== 0) {
             throw new Exception($errorMessage);
-        }
+        }*/
     }
