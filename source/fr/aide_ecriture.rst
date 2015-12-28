@@ -8,6 +8,8 @@ Aide à l'écriture
 .. include:: aide_ecriture/mode-debug.inc.rst
 .. include:: aide_ecriture/initialization_method.inc.rst
 .. include:: aide_ecriture/data-provider.inc.rst
+.. include:: aide_ecriture/annotation-extension.inc.rst
+.. include:: aide_ecriture/annotation-php.inc.rst
 .. include:: aide_ecriture/mocks.inc.rst
 .. include:: aide_ecriture/engine.inc.rst
 
