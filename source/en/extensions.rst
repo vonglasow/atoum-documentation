@@ -7,3 +7,4 @@ atoum has an extension mechanism for adding functionality that is not intended t
 * `visibility-extension <https://github.com/atoum/visibility-extension>`_ : allows to overrides the visibility of methods. This allows to test protected and private methods,
 * `json-schema-extension <https://github.com/atoum/json-schema-extension>`_ : allows to valid a JSON's return with a JSON-Schema,
 * `ruler-extension <https://github.com/atoum/ruler-extension>`_ : add an extra parameter to command that launch atoum to launch only some test based on complex rules.
+* `blackfire-extension <https://github.com/atoum/blackfire-extension>`_ : write your Blackfire test suites with atoum.
