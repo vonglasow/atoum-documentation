@@ -356,7 +356,7 @@ This option makes the test suite fail if there is at least one void test method.
    $ ./bin/atoum -fivm
    $ ./bin/atoum --fail-if-void-methods
 
-
+.. _cli-opts-fail-if-skipped-methods:
 
 -fism, --fail-if-skipped-methods
 ********************************
