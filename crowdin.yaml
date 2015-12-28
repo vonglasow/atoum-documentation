@@ -118,6 +118,16 @@ files:
     translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
 
   -
+    source      : '/source/fr/aide_ecriture/annotation-extension.inc.rst'
+    dest        : '/source/fr/aide_ecriture/annotation-extension.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
+    source      : '/source/fr/aide_ecriture/annotation-php.inc.rst'
+    dest        : '/source/fr/aide_ecriture/annotation-php.inc.txt'
+    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+
+  -
     source      : '/source/fr/assertions.rst'
     dest        : '/source/fr/assertions.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
