@@ -7,3 +7,4 @@ atoum bénéficie d'un mécanisme d'extensions permettant d'ajouter des fonction
 * `visibility-extension <https://github.com/atoum/visibility-extension>`_ : permet de surcharger la visibilité des méthodes afin de tester les méthodes protégées et privées,
 * `json-schema-extension <https://github.com/atoum/json-schema-extension>`_ : permet de valider un retour JSON via JSON-Schema,
 * `ruler-extension <https://github.com/atoum/ruler-extension>`_ : ajoute une option à la ligne de commande d'atoum pour ne lancer que certains tests selon des règles pouvant être complexes.
+* `blackfire-extension <https://github.com/atoum/blackfire-extension>`_ : écrivez votre suite de test Blackfire avec atoum.
