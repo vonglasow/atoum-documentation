@@ -168,7 +168,7 @@ To test this configuration, simply run atoum specifying the configuration file y
 At the end of the tests, you will have the xUnit report inside the folder specified in the configuration.
 
 
-Step 3: Laucnhing tests via Jenklins (or Hudson)
+Step 3: Launching tests via Jenklins (or Hudson)
 --------------------------------------------------------------
 
 There are several possibilities depending on how you build your project :
