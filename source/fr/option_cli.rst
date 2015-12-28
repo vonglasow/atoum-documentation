@@ -1,3 +1,5 @@
+.. _cli-options:
+
 Option de la ligne de commande
 ##############################
 
@@ -23,6 +25,8 @@ Certaines options acceptent plusieurs valeurs :
    $ ./bin/atoum -f MyFirstTest.php MySecondTest.php -f MyThirdTest.php MyFourthTest.php
 
 
+.. _cli-options-bootstrap_file:
+
 -bf <file> / --bootstrap-file <file>
 ************************************
 
@@ -33,6 +37,8 @@ Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.
    $ ./bin/atoum -bf /path/to/bootstrap.php
    $ ./bin/atoum --bootstrap-file /path/to/bootstrap.php
 
+
+.. _cli-options-configuration:
 
 -c <file> / --configuration <file>
 **********************************
@@ -45,6 +51,8 @@ Cette option vous permet de spécifier le chemin vers le fichier de configuratio
    $ ./bin/atoum --configuration tests/units/conf/coverage.php
 
 
+.. _cli-options-directories:
+
 -d <directories> / --directories <directories>
 **********************************************
 
@@ -55,6 +63,8 @@ Cette option vous permet de spécifier le ou les répertoires de tests à lancer
    $ ./bin/atoum -d tests/units/db/
    $ ./bin/atoum --directories tests/units/db/ tests/units/entities/
 
+
+.. _cli-options-debug:
 
 --debug
 *******
@@ -68,6 +78,8 @@ Cette option vous permet d'activer le mode debug
 .. note::
    Reportez-vous à la section sur le :ref:`le-mode-debug` pour avoir plus d'informations.
 
+
+.. _cli-options-report-title:
 
 -drt <string> / --default-report-title <string>
 ***********************************************
@@ -83,6 +95,8 @@ Cette option vous permet de spécifier le titre par défaut des rapports génér
    Si le titre comporte des espaces, il faut obligatoirement l'entourer de guillemets.
 
 
+.. _cli-options-file:
+
 -f <files> / --files <files>
 ****************************
 
@@ -93,6 +107,8 @@ Cette option vous permet de spécifier le ou les fichiers de tests à lancer.
    $ ./bin/atoum -f tests/units/db/mysql.php
    $ ./bin/atoum --files tests/units/db/mysql.php tests/units/db/pgsql.php
 
+
+.. _cli-options-force_terminal:
 
 -ft / --force-terminal
 **********************
@@ -105,6 +121,8 @@ Cette option vous permet de forcer la sortie vers le terminal.
    $ ./bin/atoum --force-terminal
 
 
+.. _cli-options-glob:
+
 -g <pattern> / --glob <pattern>
 *******************************
 
@@ -116,6 +134,8 @@ Cette option vous permet de spécifier les fichiers de tests à lancer en foncti
    $ ./bin/atoum --glob ???
 
 
+.. _cli-options-help:
+
 -h / --help
 ***********
 
@@ -126,6 +146,8 @@ Cette option vous permet d'afficher la liste des options disponibles.
    $ ./bin/atoum -h
    $ ./bin/atoum --help
 
+
+.. _cli-options-loop:
 
 -l / --loop
 ***********
@@ -140,6 +162,8 @@ Cette option vous permet d'activer le mode loop d'atoum.
 .. note::
    Reportez-vous à la section sur le :ref:`mode-loop` pour avoir plus d'informations.
 
+
+.. _cli-options-methods:
 
 -m <class::method> / --methods <class::methods>
 ***********************************************
@@ -164,6 +188,8 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer.
    Reportez-vous à la section sur les filtres par :ref:`filtres-par-classe-ou-methode` pour avoir plus d'informations.
 
 
+.. _cli-options-max_children_number:
+
 -mcn <integer> / --max-children-number <integer>
 ************************************************
 
@@ -175,6 +201,8 @@ Cette option vous permet de définir le nombre maximum de processus lancés pour
    $ ./bin/atoum --max-children-number 3
 
 
+.. _cli-options-ncc:
+
 -ncc / --no-code-coverage
 *************************
 
@@ -185,6 +213,8 @@ Cette option vous permet de désactiver la génération du rapport de la couvert
    $ ./bin/atoum -ncc
    $ ./bin/atoum --no-code-coverage
 
+
+.. _cli-options-nccfc:
 
 -nccfc <classes> / --no-code-coverage-for-classes <classes>
 ***********************************************************
@@ -200,6 +230,8 @@ Cette option vous permet de désactiver la génération du rapport de la couvert
    Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
 
 
+.. _cli-options-nccfns:
+
 -nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
 *********************************************************************
 
@@ -214,6 +246,8 @@ Cette option vous permet de désactiver la génération du rapport de la couvert
    Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
 
 
+.. _cli-options-nccid:
+
 -nccid <directories> / --no-code-coverage-in-directories <directories>
 **********************************************************************
 
@@ -224,6 +258,8 @@ Cette option vous permet de désactiver la génération du rapport de la couvert
    $ ./bin/atoum -nccid /path/to/exclude
    $ ./bin/atoum --no-code-coverage-in-directories /path/to/exclude/1 /path/to/exclude/2
 
+
+.. _cli-options-ns:
 
 -ns <namespaces> / --namespaces <namespaces>
 ********************************************
@@ -238,6 +274,8 @@ Cette option vous permet de filtrer les classes et les méthodes en fonction des
 .. note::
    Reportez-vous à la section sur les filtres :ref:`filtres-par-namespace` pour avoir plus d'informations.
 
+
+.. _cli-options-php:
 
 -p <file> / --php <file>
 ************************
@@ -257,6 +295,8 @@ Par défaut, la valeur est recherchée parmi les valeurs suivantes (dans l'ordre
 * constante PHP_BINDIR + '/php'
 
 
+.. _cli-options-sf:
+
 -sf <file> / --score-file <file>
 ********************************
 
@@ -267,6 +307,8 @@ Cette option vous permet de spécifier le chemin vers le fichier des résultats 
    $ ./bin/atoum -sf /path/to/atoum.score
    $ ./bin/atoum --score-file /path/to/atoum.score
 
+
+.. _cli-options-tags:
 
 -t <tags> / --tags <tags>
 *************************
@@ -282,6 +324,8 @@ Cette option vous permet de filtrer les classes et les méthodes à lancer en fo
    Reportez-vous à la section sur les filtres par :ref:`filtres-par-tag` pour avoir plus d'informations.
 
 
+.. _cli-options-test_all:
+
 --test-all
 **********
 
@@ -291,6 +335,8 @@ Cette option vous permet de lancer les tests se trouvant dans les répertoires d
 
    $ ./bin/atoum --test-all
 
+
+.. _cli-options-test_it:
 
 --test-it
 *********
@@ -302,6 +348,8 @@ Cette option vous permet de lancer les tests unitaires d'atoum pour vérifier qu
    $ ./bin/atoum --test-it
 
 
+.. _cli-options-tfe:
+
 -tfe <extensions> / --test-file-extensions <extensions>
 *******************************************************
 
@@ -312,6 +360,8 @@ Cette option vous permet de spécifier le ou les extensions des fichiers de test
    $ ./bin/atoum -tfe phpt
    $ ./bin/atoum --test-file-extensions phpt php5t
 
+
+.. _cli-options-ulr:
 
 -ulr / --use-light-report
 *************************
@@ -345,6 +395,36 @@ Cette option vous permet d'alléger la sortie généré par atoum.
    [SSSSSSSSSSSSSSSSSSSS________________________________________][1141/1141]
    Success (154 tests, 1141/1141 methods, 0 void method, 0 skipped method, 16875 assertions) !
 
+
+
+.. _cli-options-fivm:
+
+-fivm, --fail-if-void-methods
+*****************************
+
+
+This option makes the test suite fail if there is at least one void test method.
+
+.. code-block:: shell
+
+   $ ./bin/atoum -fivm
+   $ ./bin/atoum --fail-if-void-methods
+
+
+.. _cli-options-fism:
+
+-fism, --fail-if-skipped-methods
+********************************
+
+This option makes the test suite fail if there is at least one skipped test method
+
+.. code-block:: shell
+
+   $ ./bin/atoum -fism
+   $ ./bin/atoum --fail-if-skipped-methods
+
+
+.. _cli-options-vesion:
 
 -v / --version
 **************
