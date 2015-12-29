@@ -53,7 +53,7 @@ isCallable
    ;
 
 .. note::
-   Pour être identifiés comme ``callable``, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique ```__invoke``  < http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_.
+   Pour être identifiés comme ``callable``, vos objets devront être instanciés à partir de classes qui implémentent la méthode magique `__invoke <http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_.
 
 
 .. hint::
