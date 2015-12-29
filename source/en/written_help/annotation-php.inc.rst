@@ -28,7 +28,7 @@ With this example the test will only be executed if the PHP version is greater o
 By default the tests will pass when a test is skipped. But you can use the :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` command line option to make the test fail when an extension is not present.
 
 
-Internally, atoum uses PHP's `version_compare<http://php.net/version_compare>`_ function to do the comparison.
+Internally, atoum uses PHP's `version_compare <http://php.net/version_compare>`_ function to do the comparison.
 
 You're not limited to the greater equal operator. You can pass any version_compare operator.
 
