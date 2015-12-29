@@ -27,7 +27,7 @@ Dans cette exemple, le test ne sera exécuté que si la version de PHP est supé
 .. note::
 Par défaut, le test passe lorsqu'il est passé. Mais vous pouvez utiliser :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` l'option de la ligne de commande afin de faire échoué les tests passés.
 
-En interne, atoum utilise le `comparateur de version de PHP<http://php.net/version_compare>`_ pour effectuer la comparaison.
+En interne, atoum utilise le `comparateur de version de PHP <http://php.net/version_compare>`_ pour effectuer la comparaison.
 
 Vous n'êtes pas limité à l'opérateur égale ou supérieur. Vous pouvez passé tout les opérateurs de version_compare.
 
