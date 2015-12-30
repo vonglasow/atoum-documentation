@@ -24,6 +24,28 @@ contains
            ->contains('php')   // fails
    ;
 
+
+.. _string-endwith:
+
+endWith
+=======
+
+``endWith`` checks that a string ends with another given string.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->endWith('world')     // passes
+           ->endWith('lo world')  // passes
+           ->endWith('Hello')     // fails
+           ->endWith(' ')         // fails
+   ;
+
+
 .. _string-has-length:
 
 hasLength
@@ -248,4 +270,68 @@ notContains
            ->notContains(';')     // passes
            ->notContains('ll')    // fails
            ->notContains(' ')     // fails
+   ;
+
+
+.. _string-not-end-with:
+
+notEndWith
+==========
+
+``notEndWith`` checks that a string doesn't ends with another given string.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->notEndWith('Hello')     // passes
+           ->notEndWith(' ')         // passes
+           ->notEndWith('world')  // fails
+           ->notEndWith('lo world')        // fails
+   ;
+
+
+.. _string-not-start-with:
+
+notStartWith
+============
+
+``notStartWith`` checks that a string doesn't starts with another given string.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->notStartWith('world')    // passes
+           ->notStartWith(' ')        // passes
+           ->notStartWith('Hello wo')  // fails
+           ->notStartWith('He')       // fails
+   ;
+
+
+.. _string-start-with:
+
+startWith
+=========
+
+``startWith`` checks that a string starts with another given string.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->startWith('Hello wo') // passes
+           ->startWith('He')       // passes
+           ->startWith('world')    // fails
+           ->startWith(' ')        // fails
+
    ;

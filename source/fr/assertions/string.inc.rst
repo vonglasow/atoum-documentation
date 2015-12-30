@@ -24,6 +24,28 @@ contains
            ->contains('php')   // échoue
    ;
 
+
+.. _string-endwith:
+
+endWith
+=======
+
+``endWith`` vérifie qu'une chaîne de caractère se termine par une autre chaîne de caractère donnée.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->endWith('world')     // passe
+           ->endWith('lo world')  // passe
+           ->endWith('Hello')     // échoue
+           ->endWith(' ')         // échoue
+   ;
+
+
 .. _string-has-length:
 
 hasLength
@@ -247,4 +269,67 @@ notContains
            ->notContains(';')     // passe
            ->notContains('ll')    // échoue
            ->notContains(' ')     // échoue
+   ;
+
+
+.. _string-not-end-with:
+
+notEndWith
+==========
+
+``notEndWith`` vérifie qu'une chaîne de caractère ne se termine pas par une autre chaîne de caractère donnée.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->notEndWith('Hello')     // passe
+           ->notEndWith(' ')         // passe
+           ->notEndWith('world')     // échoue
+           ->notEndWith('lo world')  // échoue
+   ;
+
+
+.. _string-not-start-with:
+
+notStartWith
+============
+
+``notStartWith`` vérifie qu'une chaîne de caractère ne commence pas par une autre chaîne de caractère donnée.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->notStartWith('world')     // passe
+           ->notStartWith(' ')         // passe
+           ->notStartWith('Hello wo')  // échoue
+           ->notStartWith('He')        // échoue
+   ;
+
+.. _string-start-with:
+
+startWith
+=========
+
+``startWith`` vérifie qu'une chaîne de caractère commence par une autre chaîne de caractère donnée.
+
+.. code-block:: php
+
+   <?php
+   $string = 'Hello world';
+
+   $this
+       ->string($string)
+           ->startWith('Hello wo') // passe
+           ->startWith('He')       // passe
+           ->startWith('world')    // échoue
+           ->startWith(' ')        // échoue
+
    ;
