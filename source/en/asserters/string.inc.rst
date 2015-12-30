@@ -197,6 +197,18 @@ length
                ->isGreaterThanOrEqualTo(5)
    ;
 
+
+.. _string-match:
+
+match
+=====
+
+.. hint::
+   ``match`` is an alias of the ``matches`` method.
+   For more information, refer to the documentation of  :ref:`string::matches <string-matches>`
+
+
+
 .. _string-matches:
 
 matches
