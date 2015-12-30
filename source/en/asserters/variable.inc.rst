@@ -221,3 +221,44 @@ isNotNull
        ->variable($null)
            ->isNotNull()           // fails
    ;
+
+.. _is-not-true:
+
+isNotTrue
+=========
+
+``isNotTrue`` check that the variable is strictly not equal to ``true``.
+
+.. code-block:: php
+
+   <?php
+   $true  = true;
+   $false = false;
+   $this
+       ->variable($true)
+           ->isNotTrue()     // fails
+
+       ->variable($false)
+           ->isNotTrue()     // succeed
+   ;
+
+
+.. _is-not-false:
+
+isNotFalse
+==========
+
+``isNotFalse`` check that the variable is strictly not equal to ``false``.
+
+.. code-block:: php
+
+   <?php
+   $true  = true;
+   $false = false;
+   $this
+       ->variable($false)
+           ->isNotFalse()     // fails
+
+       ->variable($true)
+           ->isNotFalse()     // succeed
+   ;
