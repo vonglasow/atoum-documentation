@@ -28,7 +28,7 @@ files:
     translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
     languages_mapping:
       file_name:
-        en: cookbooks/tools.inc
+        en: tools.inc
 
   -
     source      : '/source/fr/cookbooks/php.inc.rst'
@@ -41,7 +41,7 @@ files:
     translation : '/source/%two_letters_code%/cookbooks/%file_name%.rst'
     languages_mapping:
       file_name:
-        en: cookbooks/receipt.inc
+        en: receipt.inc
 
   -
     source      : '/source/fr/extensions.rst'
