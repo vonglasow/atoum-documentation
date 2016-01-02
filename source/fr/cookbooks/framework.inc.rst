@@ -104,9 +104,9 @@ Si vous souhaitez installer et configurer atoum manuellement, voici comment fair
 Étape 1: installation d'atoum
 -----------------------------------------------------
 
-Si vous utilisez Symfony 2.0, `téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
+Si vous utilisez Symfony 2.0, :ref:`téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
 
-Si vous utilisez Symfony 2.1+, `ajoutez atoum dans votre fichier composer.json <installation-par-composer>`_.
+Si vous utilisez Symfony 2.1+, :ref:`ajoutez atoum dans votre fichier composer.json <installation-par-composer>`_.
 
 
 Étape 2: création de la classe de test

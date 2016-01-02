@@ -230,7 +230,6 @@ match
    For more information, refer to the documentation of  :ref:`string::matches <string-matches>`
 
 
-
 .. _string-matches:
 
 matches
@@ -313,7 +312,6 @@ notStartWith
            ->notStartWith('Hello wo')  // fails
            ->notStartWith('He')       // fails
    ;
-
 
 .. _string-start-with:
 
