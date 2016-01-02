@@ -31,5 +31,5 @@ Le test ne sera exécuter que si l'extension intl est présente. Dans le cas con
 
 
 .. note::
-Par défaut, le test passe lorsqu'il est passé. Mais vous pouvez utiliser :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` l'option de la ligne de commande afin de faire échoué les tests passés.
+   Par défaut, le test passe lorsqu'il est passé. Mais vous pouvez utiliser :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` l'option de la ligne de commande afin de faire échoué les tests passés.
 
