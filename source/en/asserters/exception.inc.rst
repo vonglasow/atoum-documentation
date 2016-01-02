@@ -3,7 +3,7 @@
 exception
 *********
 
-C'est l'assertion dédiée aux exceptions.
+It's the assertion dedicated to exceptions.
 
 .. code-block:: php
 
