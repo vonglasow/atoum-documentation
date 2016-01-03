@@ -210,6 +210,58 @@ withIdenticalArguments
    | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withArguments <with-arguments>`.
 
 
+
+.. _with-at-least-arguments:
+
+withAtLeastArguments
+````````````````````
+
+``withAtLeastArguments`` permet de spécifier les paramètres minimums attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
+
+.. code-block:: php
+
+   <?php
+   $this
+      ->if($mock = new \mock\example)
+      ->and($mock->test('a', 'b'))
+      ->mock($mock)
+      ->call('test')
+            ->withAtLeastArguments(array('a'))->once() //passes
+            ->withAtLeastArguments(array('a', 'b'))->once() //passes
+            ->withAtLeastArguments(array('c'))->once() //fails
+   ;
+
+.. warning::
+   | ``withAtLeastArguments`` ne teste pas le type des arguments.
+   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`withAtLeastIdenticalArguments <with-at-least-identical-arguments>`.
+
+
+
+.. _with-at-least-identical-arguments:
+
+withAtLeastIdenticalArguments
+`````````````````````````````
+
+``withAtLeastIdenticalArguments`` permet de spécifier les paramètres minimums attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->if($mock = new \mock\example)
+       ->and($mock->test(1, 2))
+       ->mock($mock)
+           ->call('test')
+           ->withAtLeastIdenticalArguments(array(1))->once() //passes
+           ->withAtLeastIdenticalArguments(array(1, 2))->once() //passes
+           ->withAtLeastIdenticalArguments(array('1'))->once() //fails
+   ;
+
+.. warning::
+   | ``withAtLeastIdenticalArguments`` teste le type des arguments.
+   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withAtLeastArguments <with-at-least-arguments>`.
+
+
 .. _was-called:
 
 wasCalled
