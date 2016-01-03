@@ -261,6 +261,31 @@ withAtLeastIdenticalArguments
    |  If you do not want to check the type, use :ref:`withIdenticalArguments <with-at-least-arguments>`.
 
 
+.. _without-any-argument:
+
+withoutAnyArgument
+``````````````````
+
+``withoutAnyArgument`` lets you indicate that the method should not receive any argument when called (see :ref:`call <call-anchor>`).
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when($mock = new \mock\example)
+       ->if($mock->test())
+       ->mock($mock)
+           ->call('test')
+               ->withoutAnyArgument()->once() // passes
+       ->if($mock->test2('argument'))
+       ->mock($mock)
+           ->call('test2')
+               ->withoutAnyArgument()->once() // fails
+   ;
+
+.. note::
+      ``withoutAnyArgument`` is equivalent to call :ref:`withAtLeastArguments<with-at-least-arguments>` with an empty array: ``->withAtLeastArguments(array())``.
+
 
 .. _was-called:
 
