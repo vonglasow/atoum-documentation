@@ -299,3 +299,67 @@ wasNotCalled
        ->mock($mock)
            ->wasNotCalled()
    ;
+
+before
+======
+
+``before`` checks if the method has been called before the one passed as parameter.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when($mock = new \mock\example)
+       ->if(
+           $mock->test(),
+           $mock->test2()
+       )
+       ->mock($mock)
+       ->call('test')
+           ->before($this->mock($mock)->call('test2')->once())
+           ->once() // passes
+   ;
+
+   $this
+       ->when($mock = new \mock\example)
+       ->if(
+           $mock->test2(),
+           $mock->test()
+       )
+       ->mock($mock)
+       ->call('test')
+           ->before($this->mock($mock)->call('test2')->once())
+           ->once() // fails
+   ;
+
+after
+=====
+
+``after`` checks if the method has been called after the one passed as parameter.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when($mock = new \mock\example)
+       ->if(
+           $mock->test2(),
+           $mock->test()
+       )
+       ->mock($mock)
+       ->call('test')
+           ->after($this->mock($mock)->call('test2')->once())
+           ->once() // passes
+   ;
+
+   $this
+       ->when($mock = new \mock\example)
+       ->if(
+           $mock->test(),
+           $mock->test2()
+       )
+       ->mock($mock)
+       ->call('test')
+           ->after($this->mock($mock)->call('test2')->once())
+           ->once() // fails
+   ;
