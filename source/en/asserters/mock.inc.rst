@@ -210,6 +210,58 @@ withIdenticalArguments
    |  If you do not want to check the type, use :ref:`withArguments <with-arguments>`.
 
 
+.. _with-at-least-arguments:
+
+withAtLeastArguments
+````````````````````
+
+``withAtLeastArguments`` let you specify the minimum expected arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+
+.. code-block:: php
+
+   <?php
+   $this
+      ->if($mock = new \mock\example)
+      ->and($mock->test('a', 'b'))
+      ->mock($mock)
+      ->call('test')
+            ->withAtLeastArguments(array('a'))->once() //passes
+            ->withAtLeastArguments(array('a', 'b'))->once() //passes
+            ->withAtLeastArguments(array('c'))->once() //fails
+   ;
+
+.. warning::
+   | ``withAtLeastArguments`` does not check the arguments type.
+   | If you also want to check the type, use :ref:`withAtLeastIdenticalArguments <with-at-least-identical-arguments>`.
+
+
+
+.. _with-at-least-identical-arguments:
+
+withAtLeastIdenticalArguments
+`````````````````````````````
+
+``withAtLeastIdenticalArguments`` let you specify the minimum expected arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->if($mock = new \mock\example)
+       ->and($mock->test(1, 2))
+       ->mock($mock)
+           ->call('test')
+           ->withAtLeastIdenticalArguments(array(1))->once() //passes
+           ->withAtLeastIdenticalArguments(array(1, 2))->once() //passes
+           ->withAtLeastIdenticalArguments(array('1'))->once() //fails
+   ;
+
+.. warning::
+   | ``withAtLeastIdenticalArguments`` checks the arguments type.
+   |  If you do not want to check the type, use :ref:`withIdenticalArguments <with-at-least-arguments>`.
+
+
+
 .. _was-called:
 
 wasCalled
