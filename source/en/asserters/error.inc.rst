@@ -99,7 +99,17 @@ withType
                trigger_error('message');
            }
        )
-           ->error()
-               ->withType(E_USER_NOTICE)   // pass
-               ->withType(E_USER_WARNING)  // failed
+       ->error()
+           ->withType(E_USER_NOTICE)   // pass
+           ->exists()
+
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withType(E_USER_WARNING)  // fails
+           ->exists()
    ;
+
