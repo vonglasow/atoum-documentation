@@ -113,3 +113,79 @@ withType
            ->exists()
    ;
 
+
+.. _with-message:
+
+withMessage
+===========
+
+``withMessage`` vérifie le contenu du message de l'erreur levée.
+
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withMessage('message')
+           ->exists() // passe
+   ;
+
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withMessage('MESSAGE')
+           ->exists() // échoue
+   ;
+
+
+.. _with-any-message:
+
+withAnyMessage
+==============
+
+``withAnyMessage`` ne vérifie pas le message de l'erreur. C'est le comportement par défaut de l'asserter. Donc ``->error()->withAnyMessage()->exists()`` est l'équivalent de ``->error()->exists()``. Cette méthode existe pour ajouter de la sémantique dans vos tests.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error();
+           }
+       )
+       ->error()
+           ->withAnyMessage()
+           ->exists() // passe
+   ;
+
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withAnyMessage()
+           ->exists() // passe
+   ;
+
+   $this
+       ->when(
+           function() {
+           }
+       )
+       ->error()
+           ->withAnyMessage()
+           ->exists() // échoue
+   ;
