@@ -113,3 +113,78 @@ withType
            ->exists()
    ;
 
+
+.. _with-message:
+
+withMessage
+===========
+
+``withMessage`` checks the message content of the raised error.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withMessage('message')
+           ->exists() // passes
+   ;
+
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withMessage('MESSAGE')
+           ->exists() // fails
+   ;
+
+
+.. _with-any-message:
+
+withAnyMessage
+==============
+
+``withAnyMessage`` does not check the error message. That's the default  behaviour. So ``->error()->withAnyMessage()->exists()`` is the equivalent of ``->error()->exists()``. This method is here if you want to add semantic to your test.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error();
+           }
+       )
+       ->error()
+           ->withAnyMessage()
+           ->exists() // passes
+   ;
+
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withAnyMessage()
+           ->exists() // passes
+   ;
+
+   $this
+       ->when(
+           function() {
+           }
+       )
+       ->error()
+           ->withAnyMessage()
+           ->exists() // fails
+   ;
