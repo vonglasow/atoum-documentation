@@ -114,6 +114,36 @@ withType
    ;
 
 
+.. _with-any-type:
+
+withAnyType
+===========
+
+``withAnyType`` does not check the type of the raised error. That's the default behaviour. So ``->error()->withAnyType()->exists()`` is the equivalent of ``->error()->exists()``. This method is here if you want to add semantic to your test.
+
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withAnyType() // pass
+           ->exists()
+       ->when(
+           function() {
+           }
+       )
+       ->error()
+           ->withAnyType()
+           ->exists() // fails
+   ;
+
+
 .. _with-message:
 
 withMessage

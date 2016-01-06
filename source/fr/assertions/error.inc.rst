@@ -114,6 +114,36 @@ withType
    ;
 
 
+.. _with-any-type:
+
+withAnyType
+===========
+
+``withAnyType`` ne vérifie pas le type de l'erreur. C'est le comportement par défaut de l'asserter. Donc ``->error()->withAnyType()->exists()`` est l'équivalent de ``->error()->exists()``. Cette méthode existe pour ajouter de la sémantique dans vos tests.
+
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withAnyType()   // passe
+           ->exists()
+       ->when(
+           function() {
+           }
+       )
+       ->error()
+           ->withAnyType()
+           ->exists() // échoue
+   ;
+
+
 .. _with-message:
 
 withMessage
