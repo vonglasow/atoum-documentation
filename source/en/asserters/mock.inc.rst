@@ -210,6 +210,7 @@ withIdenticalArguments
    |  If you do not want to check the type, use :ref:`withArguments <with-arguments>`.
 
 
+
 .. _with-at-least-arguments:
 
 withAtLeastArguments
@@ -258,7 +259,7 @@ withAtLeastIdenticalArguments
 
 .. warning::
    | ``withAtLeastIdenticalArguments`` checks the arguments type.
-   |  If you do not want to check the type, use :ref:`withIdenticalArguments <with-at-least-arguments>`.
+   | If you do not want to check the type, use :ref:`withIdenticalArguments <with-at-least-arguments>`.
 
 
 .. _without-any-argument:
@@ -285,7 +286,6 @@ withoutAnyArgument
 
 .. note::
       ``withoutAnyArgument`` is equivalent to call :ref:`withAtLeastArguments<with-at-least-arguments>` with an empty array: ``->withAtLeastArguments(array())``.
-
 
 .. _was-called:
 
