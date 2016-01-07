@@ -219,3 +219,37 @@ withAnyMessage
            ->withAnyMessage()
            ->exists() // échoue
    ;
+
+
+
+.. _with-pattern:
+
+withPattern
+===========
+
+``withPattern`` vérifie que le contenu du message de l'erreur levée respecte l'expression rationnelle passée en paramètre.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withPattern('/^mess.*$/')
+           ->exists() // passe
+   ;
+
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withPattern('/^mess$/')
+           ->exists() // échoue
+   ;
