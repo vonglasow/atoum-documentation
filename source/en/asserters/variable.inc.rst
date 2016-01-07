@@ -53,7 +53,7 @@ isEqualTo
 
 .. warning::
    | ``isEqualTo`` doesn't test the type of variable.
-   | If you want also to check the type, use :ref:`isIdenticalTo <variable-is-identical-to>`.
+   | If you also want to check the type, use :ref:`isIdenticalTo <variable-is-identical-to>`.
 
 
 .. _variable-is-identical-to:
@@ -61,7 +61,7 @@ isEqualTo
 isIdenticalTo
 =============
 
-``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. Inthe case of an object, ``isIdenticalTo`` checks that the data is referencing on the same instance.
+``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. Inthe case of an object, ``isIdenticalTo`` checks that the data is referencing the same instance.
 
 .. code-block:: php
 
@@ -85,7 +85,7 @@ isIdenticalTo
 
 .. warning::
    | ``isIdenticalTo`` test the type of variable.
-   | If you doesn't want its type, use :ref:`isEqualTo <variable-is-equal-to>`.
+   | If you don't want to check its type, use :ref:`isEqualTo <variable-is-equal-to>`.
 
 
 .. _variable-is-not-callable:
@@ -123,7 +123,7 @@ isNotCallable
 isNotEqualTo
 ============
 
-``isNotEqualTo`` checks that the variable is not the same value the the given one.
+``isNotEqualTo`` checks that the variable does not have the same value as the given one.
 
 .. code-block:: php
 
@@ -142,7 +142,7 @@ isNotEqualTo
 
 .. warning::
    | ``isNotEqualTo`` doesn't test the type of variable.
-   | If you want also to check the type, use :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
+   | If you also want to check the type, use :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
 
 
 .. _variable-is-not-identical-to:
@@ -150,9 +150,9 @@ isNotEqualTo
 isNotIdenticalTo
 ================
 
-``isNotIdenticalTo`` checks that the variable hasn't the same type nor the same value than the given one.
+``isNotIdenticalTo`` checks that the variable does not have the same type nor the same value than the given one.
 
-Inthe case of an object, ``isNotIdenticalTo`` checks that the data isn't referencing on the same instance.
+In the case of an object, ``isNotIdenticalTo`` checks that the data isn't referencing on the same instance.
 
 .. code-block:: php
 
@@ -176,7 +176,7 @@ Inthe case of an object, ``isNotIdenticalTo`` checks that the data isn't referen
 
 .. warning::
    | ``isNotIdenticalTo`` test the type of variable.
-   | If you doesn't want to check its type, use :ref:`isNotEqualTo <variable-is-not-equal-to>`.
+   | If you don't want to check its type, use :ref:`isNotEqualTo <variable-is-not-equal-to>`.
 
 
 .. _is-null:

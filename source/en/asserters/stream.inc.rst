@@ -26,7 +26,7 @@ isRead
        )
        ->if(file_get_contents($streamController->getPath()))
        ->stream($streamController)
-           ->isRead() // passes
+           ->isRead() // passe
    ;
 
    $this
@@ -34,7 +34,7 @@ isRead
            $streamController = \atoum\mock\stream::get(),
            $streamController->file_get_contents = 'myFakeContent'
        )
-       ->if() //we do nothing
+       ->if() // we do nothing
        ->stream($streamController)
            ->isRead() // fails
    ;
@@ -65,7 +65,7 @@ isWritten
         $streamController = \atoum\mock\stream::get(),
         $streamController->file_put_contents = strlen($content = 'myTestContent')
       )
-      ->if() //we do nothing
+      ->if() // we do nothing
       ->stream($streamController)
          ->isWritten() // fails
    ;
@@ -79,4 +79,6 @@ isWrited
 .. hint::
 ``isWrited`` is an alias to the isWritten method.
    For more information, refer to the documentation of :ref:`stream::isWritten <is-written>`
+
+
 
