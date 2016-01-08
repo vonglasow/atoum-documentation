@@ -219,3 +219,36 @@ withAnyMessage
            ->withAnyMessage()
            ->exists() // fails
    ;
+
+
+.. _with-pattern:
+
+withPattern
+===========
+
+``withPattern`` checks the message content of the raised error against a regular expression.
+
+.. code-block:: php
+
+   <?php
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withPattern('/^mess.*$/')
+           ->exists() // passes
+   ;
+
+   $this
+       ->when(
+           function() {
+               trigger_error('message');
+           }
+       )
+       ->error()
+           ->withPattern('/^mess$/')
+           ->exists() // fails
+   ;
