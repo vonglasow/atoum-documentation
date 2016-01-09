@@ -96,6 +96,8 @@ pygments_style = 'sphinx'
 
 
 # -- Options for HTML output ----------------------------------------------
+html_theme = "atoum"
+html_theme_path = ["../../_themes", ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
