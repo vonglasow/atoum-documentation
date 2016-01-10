@@ -101,6 +101,27 @@
    .rst-content .document div[itemprop="articleBody"] {
        padding: 45px 0 0 0;
     }
+
+    .wy-side-nav-search {
+      padding: 5px 12px 12px 12px;
+    }
+
+    .wy-side-nav-search > a {
+      margin: 0;
+    }
+
+    .translations-list {
+      margin: 10px 0;
+    }
+
+    .translations-list a {
+       color: #9D5C57;
+       text-decoration: none;
+       padding: 0.2em 0.2em 0.15em;
+       background: none repeat scroll 0% 0% #F5F2E7;
+       display: inline-block;
+       margin: 0 5px;
+    }
   </style>
 </head>
 
@@ -127,6 +148,11 @@
             <img src="{{ pathto('_static/' + logo, 1) }}" class="logo" />
           {% endif %}
           </a>
+
+          <div class="translations-list">
+            <a href="http://docs.atoum.org/en/">EN</a>
+            <a href="http://docs.atoum.org/fr/">FR</a>
+          </div>
 
           {% if theme_display_version %}
             {%- set nav_version = version %}
