@@ -221,7 +221,7 @@ In the latter case, the tests that have been tagged with thisIsOneTag, either th
 Configuration file
 ************************
 
-If you name your configuration file ``. atoum.php``, atoum will load it automatically if this file is located in the current directory. The ``-c`` parameter is optional in this case.
+If you name your configuration file ``.atoum.php``, atoum will load it automatically if this file is located in the current directory. The ``-c`` parameter is optional in this case.
 
 
 Code coverage
@@ -422,7 +422,7 @@ atoum allows the definition of a ``bootstrap`` file, which will be run before ea
 
 This makes it possible to define, for example, an autoloading classes, read a configuration file or perform any other operation necessary for the proper performance of the tests.
 
-The definition of this ``bootstrap`` file can be done in two different ways, either in command line, or via a configuration file.
+The definition of this ``bootstrap`` file can be done in two different ways, either in command line, or via a configuration file. If you name your bootstrap file ``.bootstrap.atoum.php``, atoum will load it automatically if this file is located in the directory where you launch atoum.
 
 In command line, you should use the argument -bf or the argument --bootstrap-file followed by the absolute or relative path to the concerned file:
 
