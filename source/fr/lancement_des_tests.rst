@@ -422,7 +422,7 @@ atoum autorise la définition d'un fichier de ``bootstrap`` qui sera exécuté a
 
 Il devient ainsi possible de définir, par exemple, une fonction d'auto-chargement de classes, de lire un fichier de configuration ou de réaliser toute autre opération nécessaire à la bonne exécution des tests.
 
-La définition de ce fichier de ``bootstrap`` peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration.
+La définition de ce fichier de ``bootstrap`` peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration. Si vous nommez votre fichier ``.bootstrap.atoum.php``, atoum le chargera automatiquement s'il se trouve dans le répertoire courant.
 
 En ligne de commande, il faut utiliser au choix l'argument -bf ou l'argument --bootstrap-file suivi du chemin relatif ou absolu vers le fichier concerné:
 
