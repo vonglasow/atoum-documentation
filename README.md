@@ -31,6 +31,7 @@ The second option is the easiest for most people.
 
 1. Create the new directory under *source/LANGUAGE*, where *LANGUAGE* is the locale code for the new language you want to add (see [this page](https://crowdin.com/page/api/language-codes) for the list of supported languages and their locale code on Crowdin)
 1. In the *crowdin.yaml* file add the new language for each translation (under *languages_mapping*)
+1. Set the language in conf.py (see the [language list](http://www.sphinx-doc.org/en/stable/config.html#confval-language))
 1. Push your translation to Crowdin
 
 ## Building the documentation
