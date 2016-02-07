@@ -21,7 +21,7 @@ The second option is the easiest for most people.
 
 ## Adding new pages
 
-1. Create the page in French (French is the reference language) or at least create an issue to ask someone to do it for you
+1. Create the page in English or at least create an issue to ask someone to do it for you
 1. This page must have a name related to its content and should be named in the language you are translating into
 1. In the *source/LANGUAGE/index.rst* file, create a link to your new page
 1. In the *crowdin.yaml* file, create the information related to this new page now ready for translation
@@ -77,3 +77,8 @@ This documentation is under the CC by-nc-sa 4.0 licence. You can find more infor
 
 ### I have a problem, where can I find help?
 You can check our IRC channel [##atoum on freenode](https://webchat.freenode.net/?channels=##atoum)
+
+### What thing should not be translated
+Some thing should not be translated
+* anchor/ref
+* directory name

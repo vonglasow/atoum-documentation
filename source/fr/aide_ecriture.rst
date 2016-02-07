@@ -1,15 +1,15 @@
 Aide à l'écriture
 #################
 
-.. include:: aide_ecriture/given-if-and-then.inc.rst
-.. include:: aide_ecriture/asserter.inc.rst
-.. include:: aide_ecriture/newTestedInstance.inc.rst
-.. include:: aide_ecriture/mode-loop.inc.rst
-.. include:: aide_ecriture/mode-debug.inc.rst
-.. include:: aide_ecriture/initialization_method.inc.rst
-.. include:: aide_ecriture/data-provider.inc.rst
-.. include:: aide_ecriture/annotation-extension.inc.rst
-.. include:: aide_ecriture/annotation-php.inc.rst
-.. include:: aide_ecriture/mocks.inc.rst
-.. include:: aide_ecriture/engine.inc.rst
+.. include:: written_help/given-if-and-then.inc.rst
+.. include:: written_help/asserter.inc.rst
+.. include:: written_help/newTestedInstance.inc.rst
+.. include:: written_help/mode-loop.inc.rst
+.. include:: written_help/mode-debug.inc.rst
+.. include:: written_help/initialization_method.inc.rst
+.. include:: written_help/data-provider.inc.rst
+.. include:: written_help/annotation-extension.inc.rst
+.. include:: written_help/annotation-php.inc.rst
+.. include:: written_help/mocks.inc.rst
+.. include:: written_help/engine.inc.rst
 
