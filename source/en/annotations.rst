@@ -33,6 +33,6 @@ Method's annotation
 
 
 
-.. include:: written_help/data-provider.inc.rst
-.. include:: written_help/annotation-extension.inc.rst
-.. include:: written_help/annotation-php.inc.rst
+.. include:: annotations/data-provider.inc.rst
+.. include:: annotations/annotation-extension.inc.rst
+.. include:: annotations/annotation-php.inc.rst
