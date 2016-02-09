@@ -1,5 +1,5 @@
-Asserters
-##########
+Asserters collection
+########################
 
 .. include:: asserters/afterDestructionOf.inc.rst
 .. include:: asserters/array.inc.rst

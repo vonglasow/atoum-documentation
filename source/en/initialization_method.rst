@@ -1,3 +1,6 @@
+Fine tuning atoum behaviour
+##################################
+
 
 .. _initialization_method:
 
