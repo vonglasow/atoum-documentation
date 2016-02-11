@@ -33,3 +33,4 @@ atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few adva
    extensions
    contribute
    annotations
+   licences

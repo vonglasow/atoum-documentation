@@ -17,7 +17,7 @@ In command line, you should use the argument -bf or the argument --bootstrap-fil
    $ ./bin/atoum -bf path/to/bootstrap/file
 
 .. note::
-A bootstrap file is not a configuration file and therefore does not have the same opportunities.
+   A bootstrap file is not a configuration file and therefore does not have the same opportunities.
 
 
 In a configuration file, atoum is configurable via the $runner variable, which is not defined in a ``bootstrap`` file.

@@ -71,7 +71,7 @@ For exemple:
    $coverageField->setRootUrl('http://url/of/web/site');
 
 .. note::
-It is also possible to change the title of the report using the first argument to the constructor of the class ``mageekguy\atoum\report\fields\runner\coverage\html``.
+   It is also possible to change the title of the report using the first argument to the constructor of the class ``mageekguy\atoum\report\fields\runner\coverage\html``.
 
 
 Once this is done, you just have to use the configuration file when running the tests, as follows:
@@ -83,7 +83,7 @@ Once this is done, you just have to use the configuration file when running the 
 Once the tests run, atoum generate the code coverage report in HTML format in the directory that you set earlier, and it will be readable using the browser of your choice.
 
 .. note::
-The calculation of code coverage by tests as well as the generation of the corresponding report may slow significantly the performance of the tests. Then it can be interesting, not to systematically use the corresponding configuration file, or disable them temporarily using the -ncc argument.
+   The calculation of code coverage by tests as well as the generation of the corresponding report may slow significantly the performance of the tests. Then it can be interesting, not to systematically use the corresponding configuration file, or disable them temporarily using the -ncc argument.
 
 
 .. _notifications-anchor:
@@ -134,7 +134,7 @@ This feature uses the ``terminal-notifier`` utility. To check if it is available
 You will have the path to the executable or the message ``terminal-notifier not found`` if it is not installed.
 
 .. note::
-Visit `the project's Github page <https://github.com/alloy/terminal-notifier>`_ to get more information on ``terminal-notifier``.
+   Visit `the project's Github page <https://github.com/alloy/terminal-notifier>`_ to get more information on ``terminal-notifier``.
 
 
 Then just add the following code to your configuration file:

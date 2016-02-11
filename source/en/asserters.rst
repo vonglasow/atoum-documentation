@@ -1,3 +1,5 @@
+.. _asserters_collection:
+
 Asserters collection
 ########################
 
