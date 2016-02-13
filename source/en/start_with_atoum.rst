@@ -8,7 +8,7 @@ Start with atoum
 Installation
 ************
 
-If you want to iuse it, simply download the latest version.
+If you want to use it, simply download the latest version.
 
 You can install atom from several ways:
 
@@ -37,17 +37,17 @@ You can download the latest stable version of atoum directly from the official w
 Update
 -----------
 
-The update of the archive is very simple. Just run the following command:
+The process to update the archive is very simple. Just run the following command:
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar --update
 
 .. note::
-   The update of atoum requires the modification of the PHAR archive. However, by default, the configuration of PHP desn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
+   Update process modify the PHAR archive. But the default PHP configuration doesn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
 
 
-If a newer version exists then it will be downloaded automatically and installed in the archive:
+If a newer version is available then it will be downloaded automatically and installed in the archive:
 
 .. code-block:: shell
 
@@ -70,7 +70,7 @@ atoum doesn't require any confirmation from the user to be upgraded, because it'
 List the versions contained in the archive
 --------------------------------------------
 
-To see the contained versions in archive following each updates, you need to use the argument ``--list-available-versions``, or ``-lav``:
+You can list archive contained versions by using the argument ``--list-available-versions``, or ``-lav``:
 
 .. code-block:: shell
 
