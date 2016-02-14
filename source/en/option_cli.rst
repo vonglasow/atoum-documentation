@@ -13,7 +13,7 @@ Some options accept multiple values:
 
 
 .. note::
-   You must use once only each option. Otherwise, only the last one is take.
+   You must use once only each option. Otherwise, only the last one is used.
 
 
 .. code-block:: shell
@@ -56,7 +56,7 @@ This option allows you to specify the path to the configuration file used for ru
 -d <directories> / --directories <directories>
 **********************************************
 
-This option allows you to specify the directorie(s) of tests to run.
+This option allows you to specify the tests directory(ies) to run.
 
 .. code-block:: shell
 
@@ -84,7 +84,7 @@ This option allows you to enable debug mode
 -drt <string> / --default-report-title <string>
 ***********************************************
 
-Cette option vous permet de spécifier le titre par défaut des rapports générés par atoum.
+This option allow you to specify atoum reports default title.
 
 .. code-block:: shell
 
@@ -92,7 +92,7 @@ Cette option vous permet de spécifier le titre par défaut des rapports génér
    $ ./bin/atoum --default-report-title "My Title"
 
 .. note::
-   If the title contains spaces, you must suround it with quotation.
+   If the title contains spaces, you must surround it with quotes.
 
 
 .. _cli-options-file:
@@ -219,7 +219,7 @@ This option allows you to disable the generation of the code coverage report.
 -nccfc <classes> / --no-code-coverage-for-classes <classes>
 ***********************************************************
 
-This option allows you to disable the generation of the report of the cover of code for one or more class.
+This option allows you to disable the generation of the code coverage report for one or more class.
 
 .. code-block:: shell
 
@@ -235,7 +235,7 @@ This option allows you to disable the generation of the report of the cover of c
 -nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
 *********************************************************************
 
-This option allows you to disable the generation of the report of the cover of code for one or more namespaces.
+This option allows you to disable the generation of the code coverage report for one or more namespaces.
 
 .. code-block:: shell
 
@@ -251,7 +251,7 @@ This option allows you to disable the generation of the report of the cover of c
 -nccid <directories> / --no-code-coverage-in-directories <directories>
 **********************************************************************
 
-This option allows you to disable the generation of the report of the cover of code for one or more directories.
+This option allows you to disable the generation of the code coverage report for one or more directories.
 
 .. code-block:: shell
 
@@ -264,7 +264,7 @@ This option allows you to disable the generation of the report of the cover of c
 -ns <namespaces> / --namespaces <namespaces>
 ********************************************
 
-This option allows you to filter the classes and methods based on namespaces.
+This option allows you to filter the classes and methods tested, based on namespaces.
 
 .. code-block:: shell
 
@@ -287,7 +287,7 @@ This option allows you to specify the path to the php executable used to run you
    $ ./bin/atoum -p /usr/bin/php5
    $ ./bin/atoum --php /usr/bin/php5
 
-By default, the value is seach amongst the following values (in order):
+By default, the value is search amongst the following values (in order):
 
 * PHP_BINARY constant
 * PHP_PEAR_PHP_BIN environment variable
@@ -313,7 +313,7 @@ This option allows you to specify the path to the output file created by atoum.
 -t <tags> / --tags <tags>
 *************************
 
-This option allows you to filter the classes and methods to launch based on the tags.
+This option allows you to filter the classes and methods to launch based on tags.
 
 .. code-block:: shell
 
@@ -329,7 +329,7 @@ This option allows you to filter the classes and methods to launch based on the 
 --test-all
 **********
 
-This option allows you to run the tests in the directories defined in the configuration file through $script->addTestAllDirectory('path/to/directory').
+This option allows you to run the tests in directories defined in the configuration file through ``$script->addTestAllDirectory('path/to/directory')``.
 
 .. code-block:: shell
 
@@ -341,7 +341,7 @@ This option allows you to run the tests in the directories defined in the config
 --test-it
 *********
 
-This option allows you to launch the unit tests of atoum to check that it runs smoothly on your server.
+This option allows you to launch atoum own unit tests to check that it runs smoothly on your server.
 
 .. code-block:: shell
 
