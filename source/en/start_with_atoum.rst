@@ -15,7 +15,7 @@ You can install atom from several ways:
 * by downloading the `PHAR archive`_ ;
 * with `composer`_;
 * by cloning the `Github`_ repository;
-* see also the :ref:`integration with your frameworks <utilisation-avec-frameworks>`_
+* see also the :ref:`integration with your frameworks <utilisation-avec-frameworks>`.
 
 
 .. _archive-phar:
