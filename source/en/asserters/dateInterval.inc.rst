@@ -3,9 +3,9 @@
 dateInterval
 ************
 
-It's the assertion dedicated to the object `DateInterval <http://php.net/dateinterval>`_.
+It's the assertion dedicated to `DateInterval <http://php.net/dateinterval>`_ object.
 
-If you try to test a value that's not a ``DateInterval`` (or a child class) with this assertion it will fail.
+If you try to test a value that is not a ``DateInterval`` (or a child class) with this assertion it will fail.
 
 .. _date-interval-is-clone-of:
 
@@ -14,7 +14,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of  :ref:`object::isCloneOf <object-is-clone-of>`
+   For more information, refer to the documentation of :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _date-interval-is-equal-to:
@@ -44,7 +44,7 @@ isEqualTo
 isGreaterThan
 =============
 
-``isGreaterThan`` checks that the duration of the object  ``DateInterval`` is longer to the duration of the given ``DateInterval`` object.
+``isGreaterThan`` checks that the duration of the object  ``DateInterval`` is higher to the duration of the given ``DateInterval`` object.
 
 .. code-block:: php
 
@@ -66,7 +66,7 @@ isGreaterThan
 isGreaterThanOrEqualTo
 ======================
 
-``isGreaterThanOrEqualTo`` checks that the duration of the object ``DateInterval`` is longer or equals to the duration of another object ``DateInterval``.
+``isGreaterThanOrEqualTo`` checks that the duration of the object ``DateInterval`` is higher or equals to the duration of another object ``DateInterval``.
 
 .. code-block:: php
 
@@ -93,7 +93,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refere to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _date-interval-is-instance-of:
@@ -111,7 +111,7 @@ isInstanceOf
 isLessThan
 ==========
 
-``isLessThan`` checks that the duration of the object  ``DateInterval`` is shorter than the duration of the given ``DateInterval`` object.
+``isLessThan`` checks that the duration of the object  ``DateInterval`` is lower than the duration of the given ``DateInterval`` object.
 
 .. code-block:: php
 
@@ -133,7 +133,7 @@ isLessThan
 isLessThanOrEqualTo
 ===================
 
-``isLessThanOrEqualTo`` checks that the duration of the object ``DateInterval`` is shorter or equals to the duration of another object ``DateInterval``.
+``isLessThanOrEqualTo`` checks that the duration of the object ``DateInterval`` is lower or equals to the duration of another object ``DateInterval``.
 
 .. code-block:: php
 
@@ -160,7 +160,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of  :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _date-interval-is-not-identical-to:
@@ -170,7 +170,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
 
 
 .. _date-interval-is-zero:

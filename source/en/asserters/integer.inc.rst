@@ -5,7 +5,7 @@ integer
 
 It's the assertion dedicated to integers.
 
-If you try to test a variable that is not an integer with this assertion, this will fail.
+If you try to test a variable that is not an integer with this assertion, it will fail.
 
 .. note::
    ``null`` isn't an integer. Refer to the PHP's manual  `is_int <http://php.net/is_int>`_ to known what's considered as an integer or not.
@@ -18,7 +18,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _integer-is-greater-than:
@@ -26,7 +26,7 @@ isEqualTo
 isGreaterThan
 =============
 
-``isGreaterThan`` checks that the integer is strictly higher than the given one.
+``isGreaterThan`` checks that the integer is strictly higher than given one.
 
 .. code-block:: php
 
@@ -68,7 +68,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _integer-is-less-than:
@@ -117,7 +117,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _integer-is-not-identical-to:
@@ -127,7 +127,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _integer-is-zero:

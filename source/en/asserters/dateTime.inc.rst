@@ -3,16 +3,16 @@
 dateTime
 ********
 
-It's the assertion dedicated to the object `DateTime <http://php.net/datetime>`_.
+It's the assertion dedicated to `DateTime <http://php.net/datetime>`_  object.
 
-If you try to test a value that's not a ``DateTime`` (or a child class) with this assertion it will fail.
+If you try to test a value that is not a ``DateTime`` (or a child class) with this assertion it will fail.
 
 .. _date-time-has-date:
 
 hasDate
 =======
 
-``hasDate`` checks the date part of object ``DateTime``.
+``hasDate`` checks the date part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -31,7 +31,7 @@ hasDate
 hasDateAndTime
 ==============
 
-``hasDateAndTime`` checks the date and the hour of the objet ``DateTime``
+``hasDateAndTime`` checks date and hour part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -53,7 +53,7 @@ hasDateAndTime
 hasDay
 ======
 
-``hasDay`` checks the day of the ``DateTime`` object.
+``hasDay`` checks day part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -70,7 +70,7 @@ hasDay
 hasHours
 ========
 
-``hasHours`` checks the time of the objet ``DateTime``.
+``hasHours`` checks time part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -89,7 +89,7 @@ hasHours
 hasMinutes
 ==========
 
-``hasMinutes`` checks the minutes part of the objet ``DateTime``.
+``hasMinutes`` checks minutes part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -108,7 +108,7 @@ hasMinutes
 hasMonth
 ========
 
-``hasMonth`` checks the month part of objet ``DateTime``.
+``hasMonth`` checks month part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -125,7 +125,7 @@ hasMonth
 hasSeconds
 ==========
 
-``hasSeconds`` checks the seconds of the ``DateTime`` object.
+``hasSeconds`` checks seconds part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -144,7 +144,7 @@ hasSeconds
 hasTime
 =======
 
-``hasTime`` checks the time part of the objet ``DateTime``
+``hasTime`` checks time part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -163,7 +163,7 @@ hasTime
 hasTimezone
 ===========
 
-``hasTimezone`` checks the timezone of the ``DateTime`` object.
+``hasTimezone`` checks timezone part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -180,7 +180,7 @@ hasTimezone
 hasYear
 =======
 
-``hasYear`` checks the year of the ``DateTime`` object.
+``hasYear`` checks year part of the ``DateTime`` object.
 
 .. code-block:: php
 
@@ -199,7 +199,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of  :ref:`object::isCloneOf <object-is-clone-of>`
+   For more information, refer to the documentation of :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _date-time-is-equal-to:
@@ -209,7 +209,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of  :ref:`object::isEqualTo <object-is-equal-to>`
+   For more information, refer to the documentation of :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _dat-time-is-identical-to:
@@ -219,7 +219,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refere to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _date-time-is-instance-of:
@@ -239,7 +239,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of  :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _date-time-is-not-identical-to:
@@ -249,4 +249,4 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`

@@ -3,7 +3,7 @@
 mock
 ****
 
-This is the asserter for mocks.
+It's the assertion dedicated to mocks.
 
 .. code-block:: php
 
@@ -15,7 +15,7 @@ This is the asserter for mocks.
    ;
 
 .. note::
-   Refer to the documentation on :ref:`mock <les-bouchons-mock>` for more information on how to create and manage mocks.
+   Refer to the documentation of :ref:`mock <les-bouchons-mock>` for more information on how to create and manage mocks.
 
 
 .. _call-anchor:
@@ -23,7 +23,7 @@ This is the asserter for mocks.
 call
 ====
 
-``call`` let you specify which method of the mock to check, his call must be followed by a call to one of the following verification method like `atLeastOnce`_, `once/twice/thrice`_, `exactly`_, etc...
+``call`` let you specify which method of mock to check, it call must be followed by a call to one of the following verification method like `atLeastOnce`_, `once/twice/thrice`_, `exactly`_, etc...
 
 .. code-block:: php
 
@@ -141,9 +141,9 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) from
 withAnyArguments
 ````````````````
 
-``withAnyArguments`` allow to check any argument, non-specified, when we call the tested method (see :ref:`call <call-anchor>`) of the tested mock.
+``withAnyArguments`` allow to check any argument, non-specified, when we call the tested method (see :ref:`call <call-anchor>`) of tested mock.
 
-This method is useful to reset the arguments of the tested method, like in the following example:
+This method is useful to reset the arguments of tested method, like in the following example:
 
 .. code-block:: php
 
@@ -190,7 +190,7 @@ withArguments
 withIdenticalArguments
 ``````````````````````
 
-``withIdenticalArguments`` let you specify the expected arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+``withIdenticalArguments`` let you specify the expected typed arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
 
 .. code-block:: php
 
@@ -242,7 +242,7 @@ withAtLeastArguments
 withAtLeastIdenticalArguments
 `````````````````````````````
 
-``withAtLeastIdenticalArguments`` let you specify the minimum expected arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+``withAtLeastIdenticalArguments`` let you specify the minimum expected typed arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
 
 .. code-block:: php
 

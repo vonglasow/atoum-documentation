@@ -3,7 +3,7 @@
 output
 ******
 
-It's the assertion dedicated to tests on outputs, so everything wich supposed to be displayed on the screen.
+It's the assertion dedicated to tests on outputs, so everything witch supposed to be displayed on the screen.
 
 .. code-block:: php
 
@@ -27,7 +27,7 @@ contains
 ========
 
 .. hint::
-   ``contains`` is a method herited from the ``string`` asserter.
+   ``contains`` is a method inherited from the ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::contains <string-contains>`
 
 
@@ -37,7 +37,7 @@ hasLength
 =========
 
 .. hint::
-   ``hasLength`` is a method herited from the ``string`` asserter.
+   ``hasLength`` is a method inherited from the ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::hasLength <string-has-length>`
 
 
@@ -48,7 +48,7 @@ hasLengthGreaterThan
 
 .. hint::
    ``hasLengthGreaterThan`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation  for :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
+   For more information, refer to the documentation of :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
 
 
 .. _output-has-length-less-than:
@@ -58,7 +58,7 @@ hasLengthLessThan
 
 .. hint::
    ``hasLengthLessThan`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation  for :ref:`string::hasLengthLessThan <string-has-length-less-than>`
+   For more information, refer to the documentation of :ref:`string::hasLengthLessThan <string-has-length-less-than>`
 
 
 .. _output-is-empty:
@@ -78,7 +78,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _output-is-equal-to-contents-of-file:
@@ -98,7 +98,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _output-is-not-empty:
@@ -118,7 +118,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _output-is-not-identical-to:
@@ -128,7 +128,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _output-matches:

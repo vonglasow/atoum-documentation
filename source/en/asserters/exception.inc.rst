@@ -43,7 +43,7 @@ We can easily retrieve the last exception with ``$this->exception``.
 hasCode
 =======
 
-``hasCode`` checks the code of the exception.
+``hasCode`` checks exception code.
 
 .. code-block:: php
 
@@ -63,7 +63,7 @@ hasCode
 hasDefaultCode
 ==============
 
-``hasDefaultCode`` checks that the code of the exception is the default value, 0.
+``hasDefaultCode`` checks that exception code is the default value, 0.
 
 .. code-block:: php
 
@@ -87,7 +87,7 @@ hasDefaultCode
 hasMessage
 ==========
 
-``hasMessage`` checks the message from the exception.
+``hasMessage`` checks exception message.
 
 .. code-block:: php
 
@@ -108,7 +108,7 @@ hasMessage
 hasNestedException
 ==================
 
-``hasNestedException`` checks that the exception contains a reference to another exception. If the type of the exception is given, this will also checks the class of the exception.
+``hasNestedException`` checks that the exception contains a reference to another exception. If the exception type is given, this will also checks the exception class.
 
 .. code-block:: php
 
@@ -150,7 +150,7 @@ isCloneOf
 
 .. hint::
    ``isCloneOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of  :ref:`object::isCloneOf <object-is-clone-of>`
+   For more information, refer to the documentation of :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _exception-is-equal-to:
@@ -160,7 +160,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of  :ref:`object::isEqualTo <object-is-equal-to>`
+   For more information, refer to the documentation of :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _exception-is-identical-to:
@@ -170,7 +170,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refere to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _exception-is-instance-of:
@@ -190,7 +190,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of  :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _exception-is-not-identical-to:
@@ -200,7 +200,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
 
 
 .. _message-anchor:
@@ -208,7 +208,7 @@ isNotIdenticalTo
 message
 =======
 
-``message`` enables you to get an asserter of type :ref:`string <string-anchor>` containing the message of the tested exception.
+``message`` allow you to get an asserter of type :ref:`string <string-anchor>` containing the tested exception message.
 
 .. code-block:: php
 

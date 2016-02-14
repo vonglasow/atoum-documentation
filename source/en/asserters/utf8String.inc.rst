@@ -25,7 +25,7 @@ hasLength
 =========
 
 .. hint::
-   ``hasLength`` is a method herited from the ``string`` asserter.
+   ``hasLength`` is a method inherited from the ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::hasLength <string-has-length>`
 
 
@@ -36,7 +36,7 @@ hasLengthGreaterThan
 
 .. hint::
    ``hasLengthGreaterThan`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation  for :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
+   For more information, refer to the documentation of :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
 
 
 .. _utf8-string-has-length-less-than:
@@ -46,7 +46,7 @@ hasLengthLessThan
 
 .. hint::
    ``hasLengthLessThan`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation  for :ref:`string::hasLengthLessThan <string-has-length-less-than>`
+   For more information, refer to the documentation of :ref:`string::hasLengthLessThan <string-has-length-less-than>`
 
 
 .. _utf8-string-is-empty:
@@ -66,7 +66,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _utf8-string-is-equal-to-contents-of-file:
@@ -86,7 +86,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _utf8-string-is-not-empty:
@@ -106,7 +106,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _utf8-string-is-not-identical-to:
@@ -116,7 +116,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _utf8-string-matches:
@@ -137,7 +137,7 @@ matches
 .. code-block:: php
 
    <?php
-   $vdm   = "Today at 57 years, my father got a tatoot of a Unicorn on his shoulder. VDM";
+   $vdm = "Today at 57 years, my father got a tatoo of a Unicorn on his shoulder. FML";
 
    $this
        ->utf8String($vdm)
@@ -150,5 +150,5 @@ notContains
 ===========
 
 .. hint::
-   ``notContains`` is a method herited from the ``string`` asserter.
+   ``notContains`` is a method inherited from the ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::notContains <string-not-contains>`

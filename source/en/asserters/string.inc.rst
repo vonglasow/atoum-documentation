@@ -10,7 +10,7 @@ It's the assertion dedicated to the strings.
 contains
 ========
 
-``contains`` checks that a string contains a given string.
+``contains`` checks that a string contains another given string.
 
 .. code-block:: php
 
@@ -51,7 +51,7 @@ endWith
 hasLength
 =========
 
-``hasLength`` checks the size of the string.
+``hasLength`` checks the string size.
 
 .. code-block:: php
 
@@ -69,7 +69,7 @@ hasLength
 hasLengthGreaterThan
 ====================
 
-``hasLengthGreaterThan`` checks that the size of a string is grater that the given one.
+``hasLengthGreaterThan`` checks that the string size is greater that the given one.
 
 .. code-block:: php
 
@@ -87,7 +87,7 @@ hasLengthGreaterThan
 hasLengthLessThan
 =================
 
-``hasLengthLessThan`` checks that the size of the string is shorter that the given one.
+``hasLengthLessThan`` checks that the string size is lower that the given one.
 
 .. code-block:: php
 
@@ -105,7 +105,7 @@ hasLengthLessThan
 isEmpty
 =======
 
-``isEmpty`` checks that a string is empty.
+``isEmpty`` checks that the string is empty.
 
 .. code-block:: php
 
@@ -128,7 +128,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _string-is-equal-to-contents-of-file:
@@ -136,7 +136,7 @@ isEqualTo
 isEqualToContentsOfFile
 =======================
 
-``isEqualToContentsOfFile`` checks that a string is equal to the content of a file given by its path.
+``isEqualToContentsOfFile`` checks that the string is equal to the content of a file given by its path.
 
 .. code-block:: php
 
@@ -157,7 +157,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _string-is-not-empty:
@@ -188,7 +188,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _string-is-not-identical-to:
@@ -198,7 +198,7 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _length-anchor:
@@ -227,7 +227,7 @@ match
 
 .. hint::
    ``match`` is an alias of the ``matches`` method.
-   For more information, refer to the documentation of  :ref:`string::matches <string-matches>`
+   For more information, refer to the documentation of :ref:`string::matches <string-matches>`
 
 
 .. _string-matches:
@@ -235,7 +235,7 @@ match
 matches
 =======
 
-``matches`` checks that a regular expression match the string.
+``matches`` checks that a regular expression match the tested string.
 
 .. code-block:: php
 
@@ -256,7 +256,7 @@ matches
 notContains
 ===========
 
-``notContains`` checks that a string doesn't contains another given string.
+``notContains`` checks that the tested string doesn't contains another string.
 
 .. code-block:: php
 
@@ -277,7 +277,7 @@ notContains
 notEndWith
 ==========
 
-``notEndWith`` checks that a string doesn't ends with another given string.
+``notEndWith`` checks that the tested string doesn't ends with another string.
 
 .. code-block:: php
 
@@ -298,7 +298,7 @@ notEndWith
 notStartWith
 ============
 
-``notStartWith`` checks that a string doesn't starts with another given string.
+``notStartWith`` checks that the tested string doesn't starts with another string.
 
 .. code-block:: php
 
@@ -318,7 +318,7 @@ notStartWith
 startWith
 =========
 
-``startWith`` checks that a string starts with another given string.
+``startWith`` checks that the tested string starts with another string.
 
 .. code-block:: php
 

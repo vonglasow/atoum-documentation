@@ -29,7 +29,7 @@ hasDateAndTime
 
 .. hint::
    ``hasDateAndTime`` is a method inherited from the ``dateTime`` asserter.
-   For more informations, refere to the documentation of :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>`
+   For more informations, refer to the documentation of :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>`
 
 
 .. _mysql-date-time-has-day:
@@ -139,7 +139,7 @@ isIdenticalTo
 
 .. hint::
    ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refere to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
+   For more information, refer to the documentation :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _mysql-date-time-is-instance-of:
@@ -159,7 +159,7 @@ isNotEqualTo
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of  :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _mysql-date-time-is-not-identical-to:
@@ -169,4 +169,4 @@ isNotIdenticalTo
 
 .. hint::
    ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`

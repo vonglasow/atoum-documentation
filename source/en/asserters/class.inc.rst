@@ -17,7 +17,7 @@ It's the assertion dedicated to classes.
    ;
 
 .. note::
-   The keyword ``class`` is a reserved word in PHP, it wasn't possible to create a ``class`` asserter. It's therefore called ``phpClass`` and an alias ``class`` has been created. You can meet both ``->phpClass()`` or ``->class()``.
+   The keyword ``class`` is a reserved word in PHP, it wasn't possible to create a ``class`` asserter. It's therefore called ``phpClass`` and an alias ``class`` has been created. You can meet either ``->phpClass()`` or ``->class()``.
 
 
 But it's recommended to only use ``->class()``.
@@ -81,7 +81,7 @@ hasMethod
 hasNoParent
 ===========
 
-``hasNoParent`` checks that the class doesn't  inherit from any class.
+``hasNoParent`` checks that the class doesn't inherit from any class.
 
 .. code-block:: php
 
@@ -95,7 +95,7 @@ hasNoParent
    ;
 
 .. warning::
-   | A class can implement one or more interfaces, and inherit from no class.
+   | A class can implement one or more interfaces, and have no inheritance.
    | ``hasNoParent`` doesn't check interfaces, only the inherited classes.
 
 .. _has-parent:
@@ -117,7 +117,7 @@ hasParent
    ;
 
 .. warning::
-   | A class can implement one or more interfaces, and inherit from no class.
+   | A class can implement one or more interfaces, and have no inheritance.
    | ``hasParent`` doesn't check interfaces, only the inherited classes.
 
 
@@ -175,7 +175,7 @@ In this case, the tested class is a final one
 isSubclassOf
 ============
 
-``isSubclassOf`` checks that the class inherit from the given class.
+``isSubclassOf`` checks that the tested class inherit from given class.
 
 .. code-block:: php
 

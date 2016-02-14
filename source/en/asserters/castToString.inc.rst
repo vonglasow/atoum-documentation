@@ -27,7 +27,7 @@ contains
 ========
 
 .. hint::
-   ``contains`` is a method herited from the ``string`` asserter.
+   ``contains`` is a method herited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::contains <string-contains>`
 
 
@@ -37,7 +37,7 @@ notContains
 ===========
 
 .. hint::
-   ``notContains`` is a method herited from the ``string`` asserter.
+   ``notContains`` is a method herited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::notContains <string-not-contains>`
 
 
@@ -47,7 +47,7 @@ hasLength
 =========
 
 .. hint::
-   ``hasLength`` is a method herited from the ``string`` asserter.
+   ``hasLength`` is a method herited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::hasLength <string-has-length>`
 
 
@@ -57,7 +57,7 @@ hasLengthGreaterThan
 ====================
 
 .. hint::
-   ``hasLengthGreaterThan`` is a method inherited from the ``string`` asserter.
+   ``hasLengthGreaterThan`` is a method inherited from ``string`` asserter.
    For more information, refer to the documentation  for :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
 
 
@@ -67,7 +67,7 @@ hasLengthLessThan
 =================
 
 .. hint::
-   ``hasLengthLessThan`` is a method inherited from the ``string`` asserter.
+   ``hasLengthLessThan`` is a method inherited from ``string`` asserter.
    For more information, refer to the documentation  for :ref:`string::hasLengthLessThan <string-has-length-less-than>`
 
 
@@ -77,7 +77,7 @@ isEmpty
 =======
 
 .. hint::
-   ``isEmpty`` is a method inherited from the ``string`` asserter.
+   ``isEmpty`` is a method inherited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::isEmpty <string-is-empty>`
 
 
@@ -87,7 +87,7 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
+   ``isEqualTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
@@ -97,7 +97,7 @@ isEqualToContentsOfFile
 =======================
 
 .. hint::
-   ``isEqualToContentsOfFile`` is a method inherited from the ``string`` asserter.
+   ``isEqualToContentsOfFile`` is a method inherited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>`
 
 
@@ -107,7 +107,7 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   ``isIdenticalTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
@@ -117,7 +117,7 @@ isNotEmpty
 ==========
 
 .. hint::
-   ``isNotEmpty`` is a method inherited from the ``string`` asserter.
+   ``isNotEmpty`` is a method inherited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::isNotEmpty <string-is-not-empty>`
 
 
@@ -127,7 +127,7 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
+   ``isNotEqualTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
@@ -137,7 +137,7 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   ``isNotIdenticalTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
@@ -147,5 +147,5 @@ matches
 =======
 
 .. hint::
-   ``matches`` is a method inherited from the ``string`` asserter.
+   ``matches`` is a method inherited from ``string`` asserter.
    For more information, refer to the documentation of :ref:`string::match <string-matches>`

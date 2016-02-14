@@ -6,7 +6,7 @@ array
 It's the assertion dedicated to arrays.
 
 .. note::
-   ``array`` is a reserved word in PHP, it hasn't been possible to create an ``array`` assertion. It's therefore called ``phpArray`` and an alias ``array`` was created. S, you can meet both ``->phpArray()`` or ``->array()``.
+   ``array`` is a reserved word in PHP, it hasn't been possible to create an ``array`` assertion. It's therefore called ``phpArray`` and an alias ``array`` was created. So, you can meet either``->phpArray()`` or ``->array()``.
 
 
 It's recommended to use only ``->array()`` in order to simplify the reading of tests.
@@ -17,7 +17,7 @@ It's recommended to use only ``->array()`` in order to simplify the reading of t
 Syntactic sugar
 =================
 
-In order to simplify the writing of tests on the arrays, some syntactic sugar is available. It allows to make various assertions directly on the keys of the tested array.
+In order to simplify the writing of tests with arrays, some syntactic sugar is available. It allows to make various assertions directly on the keys of the tested array.
 
 .. code-block:: php
 
@@ -33,7 +33,7 @@ In order to simplify the writing of tests on the arrays, some syntactic sugar is
 	;
 
 .. note::
-   This form of writing is available from PHP 5.4 or higher.
+   This writing form is available from PHP 5.4.
 
 
 .. _array-contains:
@@ -61,7 +61,7 @@ contains
 
 
 .. warning::
-   | ``contains`` doesn't check the type of data.
+   | ``contains`` doesn't check the data type.
    | If you want also to check its type, use :ref:`strictlyContains <strictly-contains>`.
 
 
@@ -70,7 +70,7 @@ contains
 containsValues
 ==============
 
-``containsValues`` checks that an array contains all data in from the given array.
+``containsValues`` checks that an array contains all data from a given array.
 
 .. code-block:: php
 
@@ -89,7 +89,7 @@ containsValues
 
 
 .. warning::
-   | ``containsValues`` doesn't test the type of data.
+   | ``containsValues`` doesn't test data type.
    | If you  also want to check their types, use :ref:`strictlyContainsValues <strictly-contains-values>`.
 
 
@@ -126,7 +126,7 @@ hasKey
 
 
 .. warning::
-   ``hasKey`` doesn't test the type of keys.
+   ``hasKey`` doesn't test the key type.
 
 
 .. _has-keys:
@@ -134,7 +134,7 @@ hasKey
 hasKeys
 =======
 
-``hasKeys`` checks that an array contains all the given keys.
+``hasKeys`` checks that an array contains all given keys.
 
 .. code-block:: php
 
@@ -162,7 +162,7 @@ hasKeys
 
 
 .. warning::
-   ``hasKeys`` doesn't test the type of keys.
+   ``hasKeys`` doesn't test the keys type.
 
 
 .. _array-has-size:
@@ -274,7 +274,7 @@ isNotIdenticalTo
 keys
 ====
 
-``keys`` allows you to retrieve an asserter :ref:`array <array-anchor>` containing the keys of the tested table.
+``keys`` allows you to retrieve an asserter :ref:`array <array-anchor>` containing the tested table keys.
 
 .. code-block:: php
 
@@ -300,7 +300,7 @@ keys
 notContains
 ===========
 
-``notContains`` checks that an array doesn't contains the given data.
+``notContains`` checks that an array doesn't contains a given data.
 
 .. code-block:: php
 
@@ -319,7 +319,7 @@ notContains
 
 
 .. warning::
-   | ``notContains`` doesn't check the type of data.
+   | ``notContains`` doesn't check the data type.
    | If you want also to check its type, use :ref:`strictlyNotContains <strictly-not-contains>`.
 
 
@@ -328,7 +328,7 @@ notContains
 notContainsValues
 =================
 
-``notContainsValues`` checks that an array doesn't contains any data from the given array.
+``notContainsValues`` checks that an array doesn't contains any data from a given array.
 
 .. code-block:: php
 
@@ -347,7 +347,7 @@ notContainsValues
 
 
 .. warning::
-   | ``notContainsValues`` doesn't test the type of data.
+   | ``notContainsValues`` doesn't test the data type.
    | If you  also want to check their types, use :ref:`strictlyNotContainsValues <strictly-not-contains-values>`.
 
 
@@ -384,7 +384,7 @@ notHasKey
 
 
 .. warning::
-   ``notHasKey`` doesn't test the type of keys.
+   ``notHasKey`` doesn't test keys type.
 
 
 .. _not-has-keys:
@@ -392,7 +392,7 @@ notHasKey
 notHasKeys
 ==========
 
-``notHasKeys`` checks that an array doesn't contains any keys from the given array.
+``notHasKeys`` checks that an array doesn't contains any keys from a given array.
 
 .. code-block:: php
 
@@ -420,7 +420,7 @@ notHasKeys
 
 
 .. warning::
-   ``notHasKeys`` doesn't test the type of keys.
+   ``notHasKeys`` doesn't test keys type.
 
 
 .. _size-anchor:
@@ -428,7 +428,7 @@ notHasKeys
 size
 ====
 
-``size`` allow you to retrieve an  :ref:`integer <integer-anchor>` containing the size of the tested array.
+``size`` allow you to retrieve an  :ref:`integer <integer-anchor>` containing the size of tested array.
 
 .. code-block:: php
 
@@ -467,7 +467,7 @@ strictlyContains
 
 
 .. warning::
-   | ``strictlyContains`` test the type of data.
+   | ``strictlyContains`` test data type.
    | If you don't want to check the type, use :ref:`contains <array-contains>`.
 
 
@@ -476,7 +476,7 @@ strictlyContains
 strictlyContainsValues
 ======================
 
-``strictlyContainsValues`` checks that an array contains all the given data (same value and same type).
+``strictlyContainsValues`` checks that an array contains all given data (same value and same type).
 
 .. code-block:: php
 
@@ -497,7 +497,7 @@ strictlyContainsValues
 
 
 .. warning::
-   | ``strictlyContainsValues`` test the type of data.
+   | ``strictlyContainsValues`` test data type.
    | If you don't want to check the types, use :ref:`containsValues <contains-values>`.
 
 
@@ -526,7 +526,7 @@ strictlyNotContains
 
 
 .. warning::
-   | ``strictlyNotContains`` test the type of data.
+   | ``strictlyNotContains`` test data type.
    | If you don't want to check the type, use :ref:`contains <array-not-contains>`.
 
 
@@ -535,7 +535,7 @@ strictlyNotContains
 strictlyNotContainsValues
 =========================
 
-``strictlyNotContainsValues`` checks that an array doesn't contains any of the given data (same value and same type).
+``strictlyNotContainsValues`` checks that an array doesn't contains any of given data (same value and same type).
 
 .. code-block:: php
 
@@ -556,5 +556,5 @@ strictlyNotContainsValues
 
 
 .. warning::
-   | ``strictlyNotContainsValues`` tests the type of data.
+   | ``strictlyNotContainsValues`` tests data type.
    | If you don't want to check the types, use :ref:`notContainsValues <not-contains-values>`.
