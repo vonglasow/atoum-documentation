@@ -45,7 +45,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'atoum'
-copyright = '2014 atoum team CC by-nc-sa 4.0'
+copyright = '2014-2016 atoum team CC by-nc-sa 4.0'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

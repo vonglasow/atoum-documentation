@@ -1,3 +1,5 @@
+.. _fine_tuning:
+
 Fine tuning atoum behaviour
 ##################################
 

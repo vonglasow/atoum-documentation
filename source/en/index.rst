@@ -25,12 +25,12 @@ atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few adva
    engine
    mode-loop
    mode-debug
-   initialization_method
-   cookbook
+   fine_tuning
    configuration_bootstraping
-   ide
-   option_cli
-   extensions
-   contribute
    annotations
+   option_cli
+   cookbook
+   extensions
+   ide
+   contribute
    licences

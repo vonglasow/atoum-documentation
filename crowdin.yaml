@@ -88,19 +88,19 @@ files:
     translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/how_to_write_test_cases/mode-loop.rst'
-    dest        : '/source/en/how_to_write_test_cases/mode-loop.inc.txt'
-    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
+    source      : '/source/en/mode-loop.rst'
+    dest        : '/source/en/mode-loop.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/how_to_write_test_cases/mode-debug.rst'
-    dest        : '/source/en/how_to_write_test_cases/mode-debug.inc.txt'
-    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
+    source      : '/source/en/mode-debug.rst'
+    dest        : '/source/en/mode-debug.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/how_to_write_test_cases/initialization_method.rst'
-    dest        : '/source/en/how_to_write_test_cases/initialization_method.inc.txt'
-    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
+    source      : '/source/en/fine_tuning.rst'
+    dest        : '/source/en/fine_tuning.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
     source      : '/source/en/how_to_write_test_cases/data-provider.inc.rst'
