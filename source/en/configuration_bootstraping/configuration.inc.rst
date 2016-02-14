@@ -1,4 +1,3 @@
-
 .. _fichier-de-configuration:
 
 Configuration file
@@ -10,7 +9,7 @@ If you name your configuration file ``.atoum.php``, atoum will load it automatic
 Code coverage
 ==================
 
-By default, if PHP has the extension `Xdebug <http://xdebug.org>`_, atoum indicates in command line, the rate of tests code coverage.
+By default, if PHP has the extension `Xdebug <http://xdebug.org>`_, atoum indicates in command line report, the rate of tests code coverage.
 
 If the coverage rate is 100%, atoum merely indicated. But otherwise, it displays the overall coverage and that of each method of the class tested in the form of a percentage.
 
@@ -51,7 +50,7 @@ If you use the PHAR archive, it must retrieve them by using the following comman
 
    php mageekguy.atoum.phar -er /path/to/destination/directory
 
-Once the extraction is done, you should have in the directory/path/to/destination/directory a directory called resources/configurations/runner.
+Once the extraction is done, you should have in the "directory/path/to/destination/directory" a directory called "resources/configurations/runner".
 
 If you are using atoum with a github repository clone :ref:`installation-par-github` or with composer :ref:`installation-par-composer`, the models can be found in ``/path/to/atoum/resources/configurations/runner``
 
@@ -196,3 +195,4 @@ Then just add the following code to your configuration file:
 
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
+
