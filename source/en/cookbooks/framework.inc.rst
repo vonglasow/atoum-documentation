@@ -270,7 +270,7 @@ If you use Symfony 2.1+:
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
 .. note::
-   You can get more information on the :ref:`test launch <lancement-des-tests>`_ in the chapter which is dedicated to.
+   You can get more information on the :ref:`test launch <lancement-des-tests>` in the chapter which is dedicated to.
 
 
 In any case, this is what you should get:
