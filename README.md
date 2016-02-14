@@ -1,3 +1,9 @@
+#Notes
+*for now the documentation is in total refactoring. Please avoid making some PR or some changes. Thanks*
+
+
+
+
 # Translation
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/atoum-documentation/localized.svg)](https://crowdin.com/project/atoum-documentation)
 
