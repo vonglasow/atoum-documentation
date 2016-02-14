@@ -15,9 +15,7 @@ You can install atom from several ways:
 * by downloading the `PHAR archive`_ ;
 * with `composer`_;
 * by cloning the `Github`_ repository;
-* using the `symfony 1 plugin`_;
-* using the `symfony 2 bundle`_;
-* using the `Zend Framework 2 component`_.
+* see also the `integration with your frameworks <utilisation-avec-frameworks>`_
 
 
 .. _archive-phar:
