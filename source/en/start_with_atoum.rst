@@ -15,7 +15,7 @@ You can install atom from several ways:
 * by downloading the `PHAR archive`_ ;
 * with `composer`_;
 * by cloning the `Github`_ repository;
-* see also the `integration with your frameworks <utilisation-avec-frameworks>`_
+* see also the :ref:`integration with your frameworks <utilisation-avec-frameworks>`_
 
 
 .. _archive-phar:
@@ -149,7 +149,7 @@ Finally, run the following command:
 Github
 ======
 
-If you want to use atoum directly from its sources, you can clone or « fork » the github repository: `git://github.com/atoum/atoum.git <git://github.com/atoum/atoum.git>`_
+If you want to use atoum directly from its sources, you can clone or « fork » the github repository: git://github.com/atoum/atoum.git
 
 
 .. _atoum-philosophie:
