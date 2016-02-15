@@ -3,7 +3,7 @@
 .. _@engine:
 
 Execution engine
-***********************
+****************
 
 Several execution engines to run the tests (at the level of the class or methods) are available. These are configurable via the annotation ``@engine``. By default, the different tests run in parallel in sub-processes of PHP, this is the ``concurrent`` mode.
 

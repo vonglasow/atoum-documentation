@@ -2,7 +2,7 @@
 .. _newTestedInstance:
 
 newTestedInstance & testedInstance
-********************************************
+**********************************
 
 When performing tests, we must often create a new instance of the class and pass it through parameters. Writing helper are available for this specific case, it's ``newTestedInstance`` and ``testedInstance``
 
@@ -51,8 +51,8 @@ This can be simplified with a new syntax:
 
 As seen, it's slightly simpler but especially this has two advantages:
 
-* We are not manipulate the name of the tested class
-* We are not manipulate the tested instance
+* We do not manipulate the name of the tested class
+* We do not manipulate the tested instance
 
 Furthermore, we can easily validate that the instance is available with ``isTestedInstance``, as explained in the previous example.
 

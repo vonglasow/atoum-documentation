@@ -2,7 +2,7 @@
 .. _le-mode-debug:
 
 Debugging test cases
-##########################
+####################
 
 Sometimes tests fail and it's hard to find why.
 
@@ -107,7 +107,7 @@ Indeed it takes a closure in argument that will be executed if one of the assert
                ->isIdenticalTo($bar)
    ;
 
-In the previous example, unlike ``dump()`` that  systematically causing the display to standard output of the contents of the variables that are passed as argument, the anonymous function passed as an argument will cause the display of the contents of the variable ``foo`` if one of the assertions is in failure.
+In the previous example, unlike ``dump()`` that systematically causing the display to standard output of the contents of the variables that are passed as argument, the anonymous function passed as an argument will cause the  ``foo`` variable content if one of the assertions fails.
 
 Of course, it's possible to call several times ``executeOnFailure()`` in the same test method to defined several closure to be executed if the test fails.
 

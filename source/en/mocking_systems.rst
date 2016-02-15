@@ -10,17 +10,17 @@ TODO get mock parts from everywhere + add stuff from issues
 .. _les-bouchons-mock:
 
 The mocks
-*******************
+*********
 
-atoum has a powerful mock system and easy-to-implement allowing you to generate mocks from (existing, nonexistent, abstract or not) classes or interfaces. With these mocks, you can simulate behaviors by redefining the public methods of your classes.
+atoum has a powerful and easy-to-implement mock system allowing you to generate mocks from (existing, nonexistent, abstract or not) classes or interfaces. With these mocks, you can simulate behaviors by redefining the public methods of your classes.
 
 
 Generate a mock
-==================
+===============
 
 There are several ways to create a mock from an interface or a class.
 
-The simplest is to create an object with the absolute name is prefixed by ``mock``:
+The simplest one is to create an object with the absolute name prefixed by ``mock``:
 
 .. code-block:: php
 
@@ -40,7 +40,7 @@ The simplest is to create an object with the absolute name is prefixed by ``mock
 
 
 The mock generator
-========================
+==================
 
 atoum relies on a specialized component to generate the mock: the ``mockGenerator``. You have access to the latter in your tests in order to modify the procedure for generation of the mocks.
 
@@ -48,11 +48,11 @@ By default, the mock will be generated in the "mock" namespace and behave exactl
 
 
 Change the name of the class
------------------------------
+----------------------------
 
 If you wish to change the name of the class or its namespace, you must use the ``mockGenerator``.
 
-Its method ``generate`` takes 3 parameters:
+Its ``generate`` method takes 3 parameters:
 
 * the name of the interface or class to mock ;
 * the new namespace, optional ;
@@ -97,7 +97,7 @@ Its method ``generate`` takes 3 parameters:
 
 
 Shunt calls to parent methods
-----------------------------------------
+-----------------------------
 
 A mock inherits from the class from which it was generated, its methods therefore behave exactly the same way.
 
@@ -128,7 +128,7 @@ Here, all mock methods will behave as if they had no implementation however they
 
 
 Make an orphan method
-----------------------------
+---------------------
 
 It may be interesting to make an orphan method, that is, give him a signature and implementation empty. This can be particularly useful for generating mocks without having to instantiate all their dependencies.
 
@@ -161,7 +161,7 @@ It may be interesting to make an orphan method, that is, give him a signature an
 
 
 Modify the behavior of a mock
-=====================================
+=============================
 
 Once the mock created and instantiated, it is often useful to be able to change the behaviour of its methods.
 
@@ -176,7 +176,7 @@ To do this, you must use its controller using one of the following methods:
    // Equivalent to
    $this->calling($mockDbClient)->connect = function() {};
 
-The ``mockController`` allows you to redefine **only public and abstract methods protected** and puts at your disposal several methods :
+The ``mockController`` allows you to redefine **only public and abstract protected methods** and puts at your disposal several methods :
 
 .. code-block:: php
 
@@ -285,7 +285,7 @@ methods
    ;
 
 
-In the case of the last example, you should instead use `methodsMatching`_.
+In the last example, you should instead use `methodsMatching`_.
 
 .. note::
    The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`__ for more information on the subject.
@@ -320,11 +320,11 @@ methodsMatching
 
 
 Particular case of the constructor
-===================================
+==================================
 
-To mock the constructor of a class, you need:
+To mock class constructor, you need:
 
-* create an instance of the \atoum\mock\controller class before you call the constructor of the mock ;
+* create an instance of \atoum\mock\controller class before you call the constructor of the mock ;
 * set via this control the behaviour of the constructor of the mock using an anonymous function ;
 * inject the controller during the instantiation of the mock in the last argument.
 
@@ -338,7 +338,7 @@ To mock the constructor of a class, you need:
 
 
 Test mock
-=================
+=========
 
 atoum lets you verify that a mock was used properly.
 
@@ -368,6 +368,7 @@ atoum lets you verify that a mock was used properly.
 
 The mocking (mock) of native PHP functions
 **************************************************
+
 atoum allow to easyly simulate the behavious of native PHP functions.
 
 .. code-block:: php

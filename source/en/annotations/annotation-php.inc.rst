@@ -1,7 +1,7 @@
 .. _annotation-php:
 
 PHP Version
-**************
+***********
 
 Some of your tests may require a specific version of PHP to work (for example, the test may only work on PHP 7). Telling atoum that the test requires a version of PHP is done through annotations and the tag ``@php``.
 
@@ -43,7 +43,7 @@ For example:
       // test content
    }
 
-Will skip the test if the PHP version is greater equal to 5.4
+Will skip the test if the PHP version is greater or equal to 5.4
 
 .. code-block:: shell
 

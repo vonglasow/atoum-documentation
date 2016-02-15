@@ -4,7 +4,7 @@ There are several ways to write unit test with atoum, one of them is to use keyw
 .. _given-if-and-then:
 
 ``given``, ``if``, ``and`` and ``then``
-****************************************
+***************************************
 
 You can use these keywords very intuitively:
 
