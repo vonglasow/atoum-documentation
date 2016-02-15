@@ -3,7 +3,7 @@
 stream
 ******
 
-This is the assertion dedicated to the streams.
+It's the assertion dedicated to the streams.
 
 It's based on atoum virtual filesystem (VFS). A new `stream wrapper <http://php.net/streamWrapper>`_ will be registered (starting with ``atoum://``).
 
@@ -77,7 +77,7 @@ isWrited
 ========
 
 .. hint::
-   ``isWrited`` is an alias to the isWritten method.
+   ``isWrited`` is an alias to the ``isWritten`` method.
    For more information, refer to the documentation of :ref:`stream::isWritten <is-written>`
 
 

@@ -3,9 +3,9 @@
 afterDestructionOf
 ******************
 
-It's the assertion that is dedicated to object destruction.
+It's the dedicated assertion to object destruction.
 
-This assertion verifies that the given object is valid and check if ``__destruct()`` method is defined and then invokes it.
+This assertion check that the given object is valid and check if ``__destruct()`` method is defined and then invokes it.
 
 If ``__destruct()`` exists and is executed without any error or exception then the test succeeds.
 

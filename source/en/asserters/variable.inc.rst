@@ -38,7 +38,7 @@ isCallable
 isEqualTo
 =========
 
-``isEqualTo`` verifies that the variable is equal to a given data.
+``isEqualTo`` verifies that the variable is equal to a given value.
 
 .. code-block:: php
 
@@ -61,7 +61,7 @@ isEqualTo
 isIdenticalTo
 =============
 
-``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. Inthe case of an object, ``isIdenticalTo`` checks that the data is referencing the same instance.
+``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. In the case of an object, ``isIdenticalTo`` checks that the data is referencing the same instance.
 
 .. code-block:: php
 

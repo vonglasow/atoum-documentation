@@ -9,7 +9,7 @@ Executable
 atoum has an executable that allows you to run your tests with command line.
 
 With phar archive
-===================
+=================
 
 If you used the phar archive, it's executable itself.
 
@@ -29,7 +29,7 @@ windows
 
 
 With sources
-================
+============
 
 If you use sources, the executable could be found in path/to/atoum/bin.
 
@@ -53,7 +53,7 @@ windows
 
 
 Example in the rest of the documentation
-==========================================
+========================================
 
 In the following examples, the commands to launch tests with atoum will be written with this syntax:
 
@@ -67,11 +67,11 @@ This is exactly the command that you might use if you had  :ref:`installation-pa
 .. _fichiers-a-executer:
 
 Files to run
-*******************
+************
 
 
 By files
-============
+========
 
 To run a specific file test, simply use the -f option or --files.
 
@@ -81,7 +81,7 @@ To run a specific file test, simply use the -f option or --files.
 
 
 By folders
-===============
+==========
 
 To run a test in a folder, simply use the -d option or --directories.
 
@@ -98,9 +98,9 @@ Once you have told to atoum :ref:`which files it must execute <fichiers-a-execut
 .. _filtres-par-namespace:
 
 By namespace
-==================
+============
 
-To filter on the namespace, i.e. execute only test on given namespace, you have to use the option -ns or --namespaces.
+To filter on the namespace, i.e. execute only test on given namespace, you have to use the option ``-ns`` or ``--namespaces``.
 
 .. code-block:: shell
 
@@ -113,9 +113,9 @@ To filter on the namespace, i.e. execute only test on given namespace, you have 
 .. _filtres-par-classe-ou-methode:
 
 A class or a method
-=========================
+===================
 
-To filter on the class or a method, i.e. only run tests of a class or a method, just use the option -m or --methods.
+To filter on a class or a method, i.e. only run tests of a class or a method, just use the option ``-m`` or ``--methods``.
 
 .. code-block:: shell
 
@@ -127,13 +127,11 @@ To filter on the class or a method, i.e. only run tests of a class or a method, 
 
 You can replace the name of the class or the method by ``*`` to mean ``all``.
 
-If you change the name of the method by ``*``, that is to say that you filter by class.
-
 .. code-block:: shell
 
    $ ./bin/atoum -d tests/units -m mageekguy\\atoum\\tests\\units\\asserters\\string::*
 
-If you change the name of the class by "*", that is to say that you filter by method.
+Using "*" instead of class name mean you can filter by method name.
 
 .. code-block:: shell
 
@@ -149,7 +147,7 @@ Like many tools including `Behat <http://behat.org>`_, atoum allows you to tag y
 
 For this, we must start by defining one or more tags to one or several classes of unit tests.
 
-This is easily done through annotations and the tag @tags:
+This is easily done through annotations and the @tags tag:
 
 .. code-block:: php
 
@@ -199,7 +197,7 @@ In the same way, it is also possible to tag test methods.
        }
    }
 
-Once the necessary tags defined, just have to run the tests with the appropriate tags by using the option --tags, or -t in its short version:
+Once the necessary tags defined, just have to run the tests with the appropriate tags by using the option ``--tags``, or ``-t`` in its short version:
 
 .. code-block:: shell
 
@@ -214,4 +212,3 @@ It's possible to define several tags:
    $ ./bin/atoum -d tests/units -t thisIsOneTag thisIsThreeTag
 
 In the latter case, the tests that have been tagged with thisIsOneTag, either thisIsThreeTag, classes will be the only to be executed.
-

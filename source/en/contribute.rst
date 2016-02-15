@@ -18,9 +18,9 @@ Coding convention
 --------------------
 The source code of atoum follows some conventions. If you wish to contribute to this project, your code must need to follow the same rules:
 
-* The indentation is done with the tab character
-* The names of namespaces, classes, members, methods, and constants are in ``lowerCamelCase``
-* The code must be tested
+* The indentation must be done with tab character,
+* The names of namespaces, classes, members, methods, and constants follow the ``lowerCamelCase`` convention,
+* The code must be tested.
 
 The example below makes no sense but it allows to present more in detail the way in which the code is written:
 
@@ -102,7 +102,7 @@ The example below makes no sense but it allows to present more in detail the way
    }
 
 
-Also here is an example of a unit test:
+Also here is an example of an unit test:
 
 .. code-block:: php
 

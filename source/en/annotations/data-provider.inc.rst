@@ -2,11 +2,11 @@
 .. _data-provider:
 
 Data providers
-***************************************
+**************
 
-To help you to effectively test your classes, atoum puts data providers at your disposal.
+To help you to effectively test your classes, atoum provide you some data providers.
 
-A data provider is a method in class test which generate arguments for et test method, arguments that will be used by the method to validate assertions.
+A data provider is a method in class test which generate arguments for test method, arguments that will be used by the method to validate assertions.
 
 If a test method ``testFoo`` takes arguments and no annotation on a data provider is set, atoum will automatically seek the protected ``testFooDataProvider`` method.
 
@@ -32,7 +32,7 @@ However, you can manually set the method name of the data provider through the `
        ...
    }
 
-Of course, do not forget to define, at the level of the test method, the arguments that correspond to those that will be returned by the data provider. If not, atoum will generate an error when running the tests.
+Obviously, do not forget to define, at the level of the test method, arguments that correspond to those that will be returned by the data provider. If not, atoum will generate an error when running the tests.
 
 The data provider method is a single protected method that returns an array or an iterator containing data :
 

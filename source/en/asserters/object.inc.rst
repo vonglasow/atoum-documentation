@@ -5,7 +5,7 @@ object
 
 It's the assertion dedicated to objects.
 
-If you try to test a variable that is not an object with this assertion, this will fail.
+If you try to test a variable that is not an object with this assertion, it will fail.
 
 .. note::
    ``null`` isn't an object. Refer to the PHP's manual `is_object <http://php.net/is_object>`_  to know what is considered as an object or not.
@@ -16,7 +16,7 @@ If you try to test a variable that is not an object with this assertion, this wi
 hasSize
 =======
 
-``hasSize`` checks the size of an objet that implements the interface ``Countable``.
+``hasSize`` checks the size of an object that implements the interface ``Countable``.
 
 .. code-block:: php
 
@@ -53,12 +53,12 @@ isCallable
    ;
 
 .. note::
-   To be indentified as ``callable``, your objects should be instantiated from classes that implements the magic `__invoke <http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_.
+   To be identified as ``callable``, your objects should be instantiated from classes that implements the magic `__invoke <http://www.php.net/manual/fr/language.oop5.magic.php#object.invoke>`_.
 
 
 .. hint::
    ``isCallable`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation :ref:`variable::isCallable <variable-is-callable>`
+   For more information, refer to the documentation of :ref:`variable::isCallable <variable-is-callable>`
 
 
 .. _object-is-clone-of:
@@ -115,7 +115,7 @@ isEqualTo
 =========
 
 ``isEqualTo`` checks that an object is equal to another.
-Two objects are consider equals when they have the same attributes and values, and they are isntance of the same class.
+Two objects are consider equals when they have the same attributes and values, and they are instances of the same class.
 
 .. note::
    For more details, read the PHP's documentation about `comparing objects <http://php.net/language.oop5.object-comparison>`_.
@@ -123,7 +123,7 @@ Two objects are consider equals when they have the same attributes and values, a
 
 .. hint::
    ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _object-is-identical-to:
@@ -132,7 +132,7 @@ isIdenticalTo
 =============
 
 ``isIdenticalTo`` checks that two objects are identical.
-Two objects are considered identical when they refere to the same instance of a same class.
+Two objects are considered identical when they refer to the same instance of the same class.
 
 .. note::
    For more details, read the PHP's documentation about `comparing objects <http://php.net/language.oop5.object-comparison>`_.
@@ -140,7 +140,7 @@ Two objects are considered identical when they refere to the same instance of a 
 
 .. hint::
    ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _object-is-instance-of:
@@ -200,10 +200,10 @@ isInstanceOf
    ;
 
 .. note::
-   The name of the classes and the interfaces must be absolute, because any namesapce imports are not taken into account.
+   The name of the classes and the interfaces must be absolute, because any namespace imports are ignored.
 
 .. hint::
-   Note that with PHP ``>= 5.5`` you can use the keyword ``class`` to get the absolute class names, for example ``$this->object($foo)->isInstanceOf(FooClass::class)``.
+   Notice that with PHP ``>= 5.5`` you can use the keyword ``class`` to get the absolute class names, for example ``$this->object($foo)->isInstanceOf(FooClass::class)``.
 
 
 .. _object-is-not-callable:
@@ -232,7 +232,7 @@ isNotCallable
 
 .. hint::
    ``isNotCallable`` is a method inherited from the ``variable`` asserter.
-   For more information, refere to the documentation :ref:`variable::isNotCallable <variable-is-not-callable>`
+   For more information, refer to the documentation of :ref:`variable::isNotCallable <variable-is-not-callable>`
 
 
 .. _object-is-not-equal-to:
@@ -241,7 +241,7 @@ isNotEqualTo
 ============
 
 ``isEqualTo`` checks that an object is not equal to another.
-Two objects are consider equals when they have the same attributes and values, and they are isntance of the same class.
+Two objects are consider equals when they have the same attributes and values, and they are instance of the same class.
 
 .. note::
    For more details, read the PHP's documentation about `comparing objects <http://php.net/language.oop5.object-comparison>`_.
@@ -249,7 +249,7 @@ Two objects are consider equals when they have the same attributes and values, a
 
 .. hint::
    ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _object-is-not-identical-to:
@@ -257,8 +257,8 @@ Two objects are consider equals when they have the same attributes and values, a
 isNotIdenticalTo
 ================
 
-``isIdenticalTo`` checks tha two objects are not identical.
-Two objects are considered identical when they refere to the same instance of a same class.
+``isIdenticalTo`` checks the two objects are not identical.
+Two objects are considered identical when they refer to the same instance of same class.
 
 .. note::
    For more details, read the PHP's documentation about `comparing objects <http://php.net/language.oop5.object-comparison>`_.
@@ -266,4 +266,4 @@ Two objects are considered identical when they refere to the same instance of a 
 
 .. hint::
    ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`

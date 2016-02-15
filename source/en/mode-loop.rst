@@ -2,7 +2,7 @@
 .. _mode-loop:
 
 Loop mode
-##################
+#########
 
 When a developer doing TDD (test-driven development), it usually works as following:
 
@@ -21,9 +21,9 @@ In practice, this means that he must:
 
 There is therefore a cycle that will be repeated as long as the functionality haven't been developed entirely.
 
-We can notice that, during this cycle, the developer must seize recurrently the same command in the terminal to run the unit tests.
+We can notice that, during this cycle, the developer must relaunch repeatedly the same command in the terminal to run the unit tests.
 
-atoum offers the available ``loop`` mode  via the arguments ``-l`` or ``--loop``, which allows the developer to not restart manually the test and thus to streamline the development process.
+atoum offers the ``loop`` mode via the arguments ``-l`` or ``--loop``, which allows the developer to not restart manually the test and thus to streamline the development process.
 
 In this mode, atoum begins run once the tests that are requested.
 

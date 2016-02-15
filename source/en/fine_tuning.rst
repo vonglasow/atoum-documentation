@@ -7,7 +7,7 @@ Fine tuning atoum behaviour
 .. _initialization_method:
 
 The initialization methods
-*****************************
+**************************
 
 Here is the process, when atoum executes the test methods of a class with the default engine (``concurrent``) :
 
@@ -16,14 +16,14 @@ Here is the process, when atoum executes the test methods of a class with the de
 #. in the PHP sub-process, call of the ``beforeTestMethod()`` method of the test class ;
 #. in the PHP sub-process, call of the test method ;
 #. in the PHP sub-process, call of the ``afterTestMethod()`` method of the test class ;
-#. once the PHP sub-process finished, call of the ``tearDown()`` method from thze test class.
+#. once the PHP sub-process finished, call of the ``tearDown()`` method from the test class.
 
 .. note::
    For more information on the execution engine of test in atoum, you can read the section about the annotation :ref:`@engine <@engine>`.
 
 The methods ``setUp()`` and ``tearDown()`` allow respectively to initialize and clean up the test environment for all the test method of the running class.
 
-The methods ``beforeTestMethod()`` and ``afterTestMethod()`` allows respectively to initialize and clean up the execution environment of the individual tests for all test method of the class. Since they are executed in the same subprocess, in contrast of ``setUp()`` and ``tearDown()``.
+The methods ``beforeTestMethod()`` and ``afterTestMethod()`` allows respectively to initialize and clean up the execution environment of the individual tests for all test method of the class. In contrast of ``setUp()`` and ``tearDown()``, they are executed in the same subprocess.
 
 It's also the reason why the methods  ``beforeTestMethod()`` and ``afterTestMethod()`` accept as argument the name of the test method executed, in order to adjust the treatment accordingly.
 
@@ -98,4 +98,4 @@ It's also the reason why the methods  ``beforeTestMethod()`` and ``afterTestMeth
 
 By default, the ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` and ``tearDown()`` methods does absolutely nothing.
 
-It is therefore the responsibility of the programmer to overload when needed in the test classes concerned.
+It is therefore the responsibility of the developer to overload when needed in the test classes concerned.

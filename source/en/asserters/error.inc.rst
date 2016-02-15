@@ -3,7 +3,7 @@
 error
 *****
 
-It's assertion dedicated to errors.
+It's the assertion dedicated to errors.
 
 .. code-block:: php
 
@@ -60,7 +60,7 @@ exists
 notExists
 =========
 
-``notExists`` checks that an error was raised during the execution of the previous code.
+``notExists`` checks that no errors was raised during the execution of the previous code.
 
 .. code-block:: php
 
@@ -119,7 +119,7 @@ withType
 withAnyType
 ===========
 
-``withAnyType`` does not check the type of the raised error. That's the default behaviour. So ``->error()->withAnyType()->exists()`` is the equivalent of ``->error()->exists()``. This method is here if you want to add semantic to your test.
+``withAnyType`` does not check the type of the raised error. That's the default behaviour. So ``->error()->withAnyType()->exists()`` is the equivalent of ``->error()->exists()``. This method allow to add semantic to your test.
 
 
 .. code-block:: php
@@ -149,7 +149,7 @@ withAnyType
 withMessage
 ===========
 
-``withMessage`` checks the message content of the raised error.
+``withMessage`` checks message content of raised error.
 
 
 .. code-block:: php
@@ -183,7 +183,7 @@ withMessage
 withAnyMessage
 ==============
 
-``withAnyMessage`` does not check the error message. That's the default behaviour. So ``->error()->withAnyMessage()->exists()`` is the equivalent of ``->error()->exists()``. This method is here if you want to add semantic to your test.
+``withAnyMessage`` does not check the error message. That's the default behaviour. So ``->error()->withAnyMessage()->exists()`` is the equivalent of ``->error()->exists()``. This method allow to add semantic to your test.
 
 .. code-block:: php
 
@@ -226,7 +226,7 @@ withAnyMessage
 withPattern
 ===========
 
-``withPattern`` checks the message content of the raised error against a regular expression.
+``withPattern`` checks message content of raised error against a regular expression.
 
 .. code-block:: php
 

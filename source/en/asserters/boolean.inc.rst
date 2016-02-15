@@ -3,9 +3,9 @@
 boolean
 *******
 
-This is the assertion dedicated to the booleans.
+This is the assertion dedicated to booleans.
 
-If you try to test a variable that is not a boolean with this assertion, this will fail.
+If you try to test a variable that is not a boolean with this assertion, it will fail.
 
 .. note::
    ``null`` is not a boolean. Report the the PHP manual to know what `is_bool <http://php.net/is_bool>`_ considers or not to be a boolean.
@@ -48,7 +48,7 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   ``isIdenticalTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
@@ -58,7 +58,7 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
+   ``isNotEqualTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
@@ -68,7 +68,7 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   ``isNotIdenticalTo`` is a method inherited from ``variable`` asserter.
    For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
