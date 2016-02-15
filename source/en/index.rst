@@ -16,13 +16,21 @@ atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few adva
 .. toctree::
    :maxdepth: 2
 
-   getting_started
-   ide
-   launch_test
-   option_cli
-   written_help
+   start_with_atoum
+   first_test
+   running_tests
+   how_to_write_test_cases
    asserters
+   mocking_systems
+   engine
+   mode-loop
+   mode-debug
+   fine_tuning
+   configuration_bootstraping
+   annotations
+   option_cli
    cookbook
    extensions
+   ide
    contribute
-   having_fun_with_atoum
+   licences

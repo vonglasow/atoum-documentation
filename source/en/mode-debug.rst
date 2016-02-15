@@ -1,8 +1,8 @@
 
 .. _le-mode-debug:
 
-The debug mode
-***************
+Debugging test cases
+##########################
 
 Sometimes tests fail and it's hard to find why.
 
@@ -22,7 +22,8 @@ Those three method are accessible through the atoum fluent interface.
 .. _dump:
 
 dump
-====
+****
+
 The ``dump()`` method can be used as follows:
 
 .. code-block:: php
@@ -57,7 +58,7 @@ It's also possible to pass several arguments to ``dump()``, as the following way
 .. _stop:
 
 stop
-====
+****
 
 The ``stop()`` method is also easy to use:
 
@@ -83,7 +84,7 @@ If ``--debug`` is used, the last two lines will not be executed.
 .. _executeOnFailure:
 
 executeOnFailure
-================
+****************
 
 The method ``executeOnFailure()`` is very powerful and also simple to use.
 

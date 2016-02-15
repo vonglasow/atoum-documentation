@@ -65,67 +65,67 @@ files:
         fr: demarrage
 
   -
-    source      : '/source/en/written_help.rst'
-    dest        : '/source/en/written_help.txt'
+    source      : '/source/en/how_to_write_test_cases.rst'
+    dest        : '/source/en/how_to_write_test_cases.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
       file_name:
         fr: aide_ecriture
 
   -
-    source      : '/source/en/written_help/given-if-and-then.inc.rst'
-    dest        : '/source/en/written_help/given-if-and-then.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/given-if-and-then.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/given-if-and-then.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/asserter.inc.rst'
-    dest        : '/source/en/written_help/asserter.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/asserter.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/asserter.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/newTestedInstance.inc.rst'
-    dest        : '/source/en/written_help/newTestedInstance.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/newTestedInstance.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/newTestedInstance.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/mode-loop.inc.rst'
-    dest        : '/source/en/written_help/mode-loop.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/mode-loop.rst'
+    dest        : '/source/en/mode-loop.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/mode-debug.inc.rst'
-    dest        : '/source/en/written_help/mode-debug.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/mode-debug.rst'
+    dest        : '/source/en/mode-debug.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/initialization_method.inc.rst'
-    dest        : '/source/en/written_help/initialization_method.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/fine_tuning.rst'
+    dest        : '/source/en/fine_tuning.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/data-provider.inc.rst'
-    dest        : '/source/en/written_help/data-provider.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/data-provider.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/data-provider.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/mocks.inc.rst'
-    dest        : '/source/en/written_help/mocks.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/mocks.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/mocks.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/engine.inc.rst'
-    dest        : '/source/en/written_help/engine.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/engine.rst'
+    dest        : '/source/en/engine.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/annotation-extension.inc.rst'
-    dest        : '/source/en/written_help/annotation-extension.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/annotation-extension.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/annotation-extension.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
-    source      : '/source/en/written_help/annotation-php.inc.rst'
-    dest        : '/source/en/written_help/annotation-php.inc.txt'
-    translation : '/source/%two_letters_code%/written_help/%file_name%.rst'
+    source      : '/source/en/how_to_write_test_cases/annotation-php.inc.rst'
+    dest        : '/source/en/how_to_write_test_cases/annotation-php.inc.txt'
+    translation : '/source/%two_letters_code%/how_to_write_test_cases/%file_name%.rst'
 
   -
     source      : '/source/en/asserters.rst'
@@ -241,7 +241,7 @@ files:
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
-    source      : '/source/en/launch_test.rst'
+    source      : '/source/en/running_tests.rst'
     dest        : '/source/en/launch_test.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
@@ -259,7 +259,7 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/having_fun_with_atoum.rst'
+    source      : '/source/en/having_fun_with_atoum.inc.rst'
     dest        : '/source/en/having_fun_with_atoum.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:

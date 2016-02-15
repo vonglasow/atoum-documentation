@@ -77,7 +77,7 @@ isWrited
 ========
 
 .. hint::
-``isWrited`` is an alias to the isWritten method.
+   ``isWrited`` is an alias to the isWritten method.
    For more information, refer to the documentation of :ref:`stream::isWritten <is-written>`
 
 

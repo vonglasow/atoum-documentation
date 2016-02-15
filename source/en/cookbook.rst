@@ -1,3 +1,5 @@
+.. _cookbok:
+
 Cookbook
 ########
 

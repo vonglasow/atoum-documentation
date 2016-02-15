@@ -19,7 +19,8 @@ The eZ Publish framework have already a directory dedicated to tests, logically 
 Step 2: Creating the class of the base tests
 -----------------------------------------------------
 
-A class based on atoum msut extend the class *\mageekguy\atoum\test*. However, this one doesn't take into account the specificities of *eZ Publish*. It's therefore mandatory to define a base test class, derived from *\mageekguy\atoum\test*, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file *tests\atoum\test.php*:
+A class based on atoum must extend the class *\mageekguy\atoum\test*. However, this one doesn't take into account the specificities of *eZ Publish*. It's therefore mandatory to
+define a base test class, derived from *\mageekguy\atoum\test*, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file *tests\atoum\test.php*:
 
 .. code-block:: php
 
@@ -104,9 +105,9 @@ If you want to install and configure atoum manually, here's how to do it.
 Step 1: installation of atoum
 -----------------------------------------------------
 
-If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>`_ and place it in the vendor directory which is at the root of your project.
+If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>` and place it in the vendor directory which is at the root of your project.
 
-If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`_.
+If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`.
 
 
 Step 2: create the test class
@@ -269,7 +270,7 @@ If you use Symfony 2.1+:
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
 .. note::
-   You can get more information on the `test launch <lancement-des-tests>`_ in the chapter which is dedicated to.
+   You can get more information on the :ref:`test launch <lancement-des-tests>` in the chapter which is dedicated to.
 
 
 In any case, this is what you should get:
@@ -404,4 +405,29 @@ It's therefore, for example, possible to give a configuration file like this :
 
    <?php
    php symfony atoum:test -c config/atoum/hudson.php
+
+
+
+Symfony 1 plugin
+================
+
+To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+
+The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
+
+
+Symfony 2 bundle
+================
+
+To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
+
+The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
+
+
+Zend Framework 2 component
+==========================
+
+If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the following address:`https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+
+The instructions for installation and usage are available on this page.
 

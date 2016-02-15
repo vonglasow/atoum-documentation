@@ -1,3 +1,8 @@
+.. _fine_tuning:
+
+Fine tuning atoum behaviour
+##################################
+
 
 .. _initialization_method:
 
@@ -14,7 +19,7 @@ Here is the process, when atoum executes the test methods of a class with the de
 #. once the PHP sub-process finished, call of the ``tearDown()`` method from thze test class.
 
 .. note::
-   For more information on the execution engine of test in atoum, you can read the section about the annotation `@engine`_.
+   For more information on the execution engine of test in atoum, you can read the section about the annotation :ref:`@engine <@engine>`.
 
 The methods ``setUp()`` and ``tearDown()`` allow respectively to initialize and clean up the test environment for all the test method of the running class.
 

@@ -1,8 +1,8 @@
 
 .. _mode-loop:
 
-The loop mode
-****************
+Loop mode
+##################
 
 When a developer doing TDD (test-driven development), it usually works as following:
 

@@ -1,5 +1,9 @@
+.. _start_with_atoum:
+
 Start with atoum
 ###################
+
+.. _installation:
 
 Installation
 ************
@@ -11,9 +15,7 @@ You can install atom from several ways:
 * by downloading the `PHAR archive`_ ;
 * with `composer`_;
 * by cloning the `Github`_ repository;
-* using the `symfony 1 plugin`_;
-* using the `symfony 2 bundle`_;
-* using the `Zend Framework 2 component`_.
+* see also the :ref:`integration with your frameworks <utilisation-avec-frameworks>`.
 
 
 .. _archive-phar:
@@ -23,7 +25,7 @@ PHAR archive
 
 A PHAR (PHp ARchive) is created automatically on each modification of atoum.
 
-PHAR is an archive format for PHP application. Availaible since PHP 5.3.
+PHAR is an archive format for PHP application.
 
 
 Installation
@@ -147,31 +149,7 @@ Finally, run the following command:
 Github
 ======
 
-If you want to use atoum directly from its sources, you can clone or « fork » the github repository: `git://github.com/atoum/atoum.git <git://github.com/atoum/atoum.git>`_
-
-
-Symfony 1 plugin
-================
-
-To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
-
-The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
-
-
-Symfony 2 bundle
-================
-
-To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
-
-The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
-
-
-Zend Framework 2 component
-==========================
-
-If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the following address:`https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
-
-The instructions for installation and usage are available on this page.
+If you want to use atoum directly from its sources, you can clone or « fork » the github repository: git://github.com/atoum/atoum.git
 
 
 .. _atoum-philosophie:
