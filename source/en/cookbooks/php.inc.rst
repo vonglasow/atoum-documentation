@@ -3,13 +3,13 @@
 .. _cookbook_optimiser_php:
 
 Optimize PHP to run the tests as fast as possible
-*****************************************************************
+*************************************************
 
 By default, the :ref:`engine execution <@engine>` of atoum launch each test in a separate PHP process to ensure the insulation. In addition, to maximize performance, it doesn't perform each test sequentially, but in parallel. Furthermore, atoum is designed to run as fast as possible.
 
-Through all of this, atoum is therefore able to execute very quickly large numbers of tests. However, depending on the operating system, the creation of each of the sub-processes that permit insulation of the tests can be a long operation and therefore likely to have a significant impact on the overall performance of atoum. So, it can be very relevant to optimize the size of the binary PHP that will be used in each process to run even faster tests.
+Through all of this, atoum is therefore able to execute very quickly large numbers of tests. However, depending on the operating system, the creation of each of the sub-processes that permit tests insulation can be a long operation and therefore likely to have a significant impact on the overall performance of atoum. So, it can be very relevant to optimize the size of the binary PHP that will be used in each process to run even faster tests.
 
-Indeed, more the binary to be used in a subprocess is small, more the creation of the corresponding sub-process occurs quickly. However, by default, the binary PHP command line embarks on most cases a number of modules that are not necessarily useful to run the tests. To convince you, simply retrieve the list of modules into your PHP executable with the command *php -m*. Then you will definitely notice that most of them are completely unnecessary to the proper execution of your tests. And moreover, that it's possible to turn them off when PHP is compiled in order to obtain a more compact binary. But there is a price to pay for it, since you then must compile *PHP* manually. it's however not too expensive, because the procedure for this is relatively simple.
+Indeed, more the binary to be used in a subprocess is small, more the creation of the corresponding sub-process occurs quickly. However, by default, the binary PHP command line contain on most cases a number of modules that are not necessarily useful to run the tests. To convince you, simply retrieve the list of modules into your PHP executable with the command *php -m*. Then you will definitely notice that most of them are completely unnecessary to the proper execution of your tests. And moreover, that it's possible to turn them off when PHP is compiled in order to obtain a more compact binary. But there is a price to pay for it, since you then must compile *PHP* manually. it's however not too expensive, because the procedure for this is relatively simple.
 
 Traditionally, once sources of language retrieved via `php.net <http://www.php.net/>`_ compiling PHP is done as follows under UNIX:
 

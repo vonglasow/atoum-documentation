@@ -2,9 +2,9 @@
 .. _cookbook_change_default-namespace:
 
 Change the default namespace
-**********************************
+****************************
 
-At the beginning of the execution of a test class, atoum computes the name of the tested class. To do this, by default, it replaces in the name of the class the following regular expression ``#(?:^|\\\)tests?\\\units?\\#i`` by char ``\``.
+At the execution beginning of a test class, atoum computes the name of the tested class. To do this, by default, it replaces in the class name the following regular expression ``#(?:^|\\\)tests?\\\units?\\#i`` by char ``\``.
 
 Thus, if the test class name is ``vendor\project\tests\units\foo``, it will deduct in that the tested class named  is ``vendor\project\foo``. However, it may be necessary that the namespace of the test classes may not match this regular expression, and in this case, atoum then stops with the following error message:
 
@@ -38,7 +38,7 @@ We must therefore change the regular expression we used, this is possible in sev
    }
 
 
-This method is quick and simple to implement, but it has the disadvantage of having to be repeated in each test class, which is not so maintenable if there is some change in their namespace. The alternative is to call the ``atoum\test::setTestNamespace()`` method in the constructor of the test class, in this way:
+This method is quick and simple to implement, but it has the disadvantage of having to be repeated in each test class, which is not so maintainable if there is some change in their namespace. The alternative is to call the ``atoum\test::setTestNamespace()`` method in the constructor of the test class, in this way:
  
 
 .. code-block:: php
@@ -112,7 +112,7 @@ Thus, you will only have to do derive your unit test classes from this abstract 
    }
 
 
-If changes to unit tests namespace, it is therefore necessary to change only the abstract class.
+In case of unit tests namespace change, it is therefore necessary to change only the abstract class.
 
 Moreover, it's not mandatory to use a regular expression, either at the level of the ``@namespace`` annotation or the method ``atoum\test::setTestNamespace()`` a simple string can also works.
 

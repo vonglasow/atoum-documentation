@@ -6,7 +6,7 @@ Hook git
 
 A good practice, when using a version control system, is to never add a non-functional code in repository, in order to retrieve a version clean and usable code at any time and any place the history of the deposit.
 
-This implies, among other things, that the unit tests must pass in their entirety before the files created or modified are added to the repository, and as a result, the developer is supposed to run the unit tests before joining its code in the repository.
+This implies, among other things, that the unit tests must pass in their entirety before the files created or modified are added to the repository, and as a result, the developer is supposed to run the unit tests before pushed its code to the repository.
 
 However, in fact, it is very easy for the developer to omit this step and your repository may therefore contain, more or less imminent, code which does not respect the constraints imposed by unit tests.
 
@@ -16,7 +16,7 @@ The installation of a pre-commit hook is very simple and takes place in two stag
 
 
 Step 1: Creation of the script to run
-=======================================
+=====================================
 
 When adding code to a repository, Git looks for the file ``.git/hook/pre-commit`` in the root of the repository and executes it if it exists and that it has the necessary rights.
 
@@ -45,10 +45,10 @@ To set up the hook, you must therefore create the ``.git/hook/pre-commit`` file 
       }
    }
 
-The code below assumes that your unit tests are in files with the extension ``.php`` and directories path contains ``/ Tests/Units``. If this is not your case, you will need to modify the script depending on your context.
+The code below assumes that your unit tests are in files with the extension ``.php`` and directories path contains ``/ Tests/Units``. If this is not the case, you will need to modify the script depending on your context.
 
 .. note::
-   In the example above, the test files must include atoum for the hook works.
+   In the above example, the test files must include atoum for the hook works.
 
 The tests are run very quickly with atoum, all unit tests can be run before each commit with a hook like this :
 
@@ -60,9 +60,9 @@ The tests are run very quickly with atoum, all unit tests can be run before each
 
 
 Step 2: Add execution rights
-======================================
+============================
 
-To be usable by Git, the file ``.git/hook/pre-commit`` must be made executable by using the following command, executed in command line from the directory of your deposit:
+To be usable by Git, the file ``.git/hook/pre-commit`` must be executable by using the following command, executed in command line from the directory of your deposit:
 
 .. code-block:: shell
 
