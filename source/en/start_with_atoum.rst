@@ -2,11 +2,9 @@
 .. _start_with_atoum:
 
 Start with atoum
-###################
+#################
 
-You first need to :ref:`install it<installation>`, and then try to start your :ref:`first test<first-tests>`. But to understand how to do it, the best is to read the following
-section.
-
+You first need to :ref:`install it<installation>`, and then try to start your :ref:`first test<first-tests>`. But to understand how to do it, the best is to read the following section.
 
 .. _atoum-philosophie:
 
