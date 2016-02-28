@@ -26,7 +26,7 @@ Moreover, they are not included at the same time, since the configurations file 
 
 However, in this case, it will not be possible to directly execute a test file directly from the PHP executable in command line.
 
-To do this, simply include in the ``bootstrap`` the file ``scripts/runner.php`` or PHAR archive of atoum and systematically execute tests by command line via ``scripts/runner.php` or PHAR archive.
+To do this, simply include in the ``bootstrap`` the file ``scripts/runner.php`` or PHAR archive of atoum and systematically execute tests by command line via ``scripts/runner.php`` or PHAR archive.
 
 Therefore, the ``bootstrap`` file must at least contain this:
 
