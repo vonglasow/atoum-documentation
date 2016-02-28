@@ -17,6 +17,7 @@ atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few adva
    :maxdepth: 2
 
    start_with_atoum
+   installation
    first_test
    running_tests
    how_to_write_test_cases

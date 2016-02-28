@@ -1,3 +1,6 @@
+
+.. _first-tests:
+
 First Tests
 ##################
 
