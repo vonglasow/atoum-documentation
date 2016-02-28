@@ -20,6 +20,7 @@ In command line, you should use the ``-bf`` or ``--bootstrap-file`` argument fol
    A bootstrap file is not a configuration file and therefore does not have the same opportunities.
 
 .. _framework-zend-framework-2:
+
 In a configuration file, atoum is configurable via the ``$runner`` variable, which is not defined in a ``bootstrap`` file.
 
 Moreover, they are not included at the same time, since the configurations file is included by atoum before the tests run but after tests launch, while the ``bootstrap``, if it's define, is the first file included by atoum itself. Finally, the ``bootstrap`` file can allow to not have to systematically include the ``scripts/runner.php`` file or atoum PHAR archive in test classes.
