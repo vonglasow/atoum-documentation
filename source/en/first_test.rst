@@ -96,7 +96,8 @@ You should see something like this:
 
 
 We just test that the method ``getHiAtoum``:
-* returns a :ref:`string<string>`;
+
+* returns a :ref:`string<string-anchor>`;
 * that :ref:`is equals to<string-is-equal-to>` ``"Hi atoum !"``.
 
 The tests are passed, everything is green. Here, your code is solid as a rock with atoum!
@@ -106,7 +107,7 @@ Dissecting the test
 *******************
 It's important you understand each thung we use in this test. So here is some information about it.
 
-We use the namespace ``Vendor\Project\tests\units`` where ``Vendor\Project`` is the namespace of the class and ``tests\units`` the part of the namespace use by atoum to understand that we are on test namespace. This special namespace is configurable and it's explain in the :ref:`appropriate section<change-the-default-namespace>`.
-Inside the test method, we use a special syntax *:ref:`given and then<given-if-and-and-then>`* that do nothing excepting making the test more readable.
-Finally we use another simple tricks with :ref:`newTestedInstance and testedInstance<newtestedinstance-testedinstance>` to get a new instance of the tested class.
+We use the namespace ``Vendor\Project\tests\units`` where ``Vendor\Project`` is the namespace of the class and ``tests\units`` the part of the namespace use by atoum to understand that we are on test namespace. This special namespace is configurable and it's explain in the :ref:`appropriate section<cookbook_change_default-namespace>`.
+Inside the test method, we use a special syntax *:ref:`given and then<given-if-and-then>`* that do nothing excepting making the test more readable.
+Finally we use another simple tricks with :ref:`newTestedInstance and testedInstance<newTestedInstance>` to get a new instance of the tested class.
 
