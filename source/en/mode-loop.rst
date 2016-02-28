@@ -6,10 +6,10 @@ Loop mode
 
 When a developer doing TDD (test-driven development), it usually works as following:
 
-# He start writing test corresponding to what he wants to develop ;
-# then runs the test created ;
-# then writes the code to pass the test ;
-# then amends or complete his test and go back to step 2.
+#. He start writing test corresponding to what he wants to develop ;
+#. then runs the test created ;
+#. then writes the code to pass the test ;
+#. then amends or complete his test and go back to step 2.
 
 In practice, this means that he must:
 

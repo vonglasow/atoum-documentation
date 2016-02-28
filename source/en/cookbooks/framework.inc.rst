@@ -105,9 +105,9 @@ If you want to install and configure atoum manually, here's how to do it.
 Step 1: installation of atoum
 -----------------------------
 
-If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>`_ and place it in the vendor directory which is at the root of your project.
+If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>` and place it in the vendor directory which is at the root of your project.
 
-If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`_.
+If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`.
 
 
 Step 2: create the test class
@@ -407,22 +407,26 @@ It's therefore, for example, possible to give a configuration file like this :
    php symfony atoum:test -c config/atoum/hudson.php
 
 
+.. _framework-symfony-1-plugin:
 
 Symfony 1 plugin
 ================
 
 To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4`_ as well as on the github page.
+The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
 
+
+.. _framework-symfony-2-bundle:
 
 Symfony 2 bundle
 ================
 
 To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
 
-The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2`_ as well as on the github page.
+The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
 
+.. _framework-zend-framework-2:
 
 Zend Framework 2 component
 ==========================
@@ -430,4 +434,3 @@ Zend Framework 2 component
 If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the following address:`https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
 
 The instructions for installation and usage are available on this page.
-

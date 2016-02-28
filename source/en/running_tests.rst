@@ -90,6 +90,8 @@ To run a test in a folder, simply use the -d option or --directories.
    $ ./bin/atoum -d tests/units
 
 
+You can find more useful arguments to give to the :ref`command line<cli-options>` in the appropriate sections.
+
 Filters
 *******
 

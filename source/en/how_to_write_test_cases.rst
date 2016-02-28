@@ -1,13 +1,7 @@
 How to write test cases
-####################################
+#######################
 
-
-TODO
-
-Fifth, the “How to write a test case” Section (ex-“Write help” Section) contains sub-sections
-that are not well located, such as “The loop mode” or “The debug mode”.
-This latter can be at the top-level under the “Debugging test cases” name.
-
+After you have created your :ref:`first test<first-tests>` and understood `how to run it<lancement-des-tests>`, you probably want to write better tests. In this section you will see how to add some syntactic sugar to help you write better test and in an easier way.
 
 .. include:: how_to_write_test_cases/given-if-and-then.inc.rst
 .. include:: how_to_write_test_cases/asserter.inc.rst
