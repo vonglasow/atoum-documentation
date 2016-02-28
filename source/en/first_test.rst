@@ -108,6 +108,6 @@ Dissecting the test
 It's important you understand each thung we use in this test. So here is some information about it.
 
 We use the namespace ``Vendor\Project\tests\units`` where ``Vendor\Project`` is the namespace of the class and ``tests\units`` the part of the namespace use by atoum to understand that we are on test namespace. This special namespace is configurable and it's explain in the :ref:`appropriate section<cookbook_change_default-namespace>`.
-Inside the test method, we use a special syntax *:ref:`given and then<given-if-and-then>`* that do nothing excepting making the test more readable.
+Inside the test method, we use a special syntax :ref:`given and then<given-if-and-then>` that do nothing excepting making the test more readable.
 Finally we use another simple tricks with :ref:`newTestedInstance and testedInstance<newTestedInstance>` to get a new instance of the tested class.
 
