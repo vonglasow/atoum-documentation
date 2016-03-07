@@ -1,39 +1,35 @@
 .. _annotations:
 
 Annotations
-#####################
+###########
 
 In this section we simply list all annotation that you can use with atoum.
 
-TODO link to related version
-
 Class's annotation
-***********************
+******************
 
-* @dataProvider
-* @extensions
+* :ref:`@dataProvider <data-provider>`
+* :ref:`@extensions <annotation-php-extension>`
 * @hasNotVoidMethods
 * @hasVoidMethods
 * @ignore
 * @maxChildrenNumber
 * @methodPrefix
-* @namespace
-* @php
-* @tags
+* :ref:`@namespace <cookbook_change_default-namespace>`
+* :ref:`@php <annotation-php>`
+* :ref:`@tags <filtres-par-tag>`
 
 Method's annotation
-***********************
+*******************
 
-* @dataProvider
-* @engine
-* @extensions
+* :ref:`@dataProvider <data-provider>`
+* :ref:`@engine <@engine>`
+* :ref:`@extensions <annotation-php-extension>`
 * @ignore
 * @isNotVoid
 * @isVoid
-* @php
-* @tags
-
-
+* :ref:`@php <annotation-php>`
+* :ref:`@tags <filtres-par-tag>`
 
 .. include:: annotations/data-provider.inc.rst
 .. include:: annotations/annotation-extension.inc.rst
