@@ -1,7 +1,7 @@
 .. _annotation-php-extension:
 
 PHP Extensions
-****************
+**************
 
 Some of your tests may require one or more PHP extension(s). Telling atoum that a test requires an extension is easily done through annotations and the tag ``@extensions``. After the tag ``@extensions``, just add one or more extension names, separated by a space.
 
