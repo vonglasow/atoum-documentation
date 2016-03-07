@@ -3,8 +3,10 @@
    Nevertheless, in the doc atoum, here's the selected order: #, *, =,-, ', ^, ',:,., ' "
    If you have more than 4 levels, split your file into multiple files.
 
+.. _home:
+
 What is atoum?
-====================
+==============
 
 atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few advantages over these:
 
@@ -13,7 +15,10 @@ atoum is a unit test framework like PHPUnit or SimpleTest, but it has a few adva
 * It is intuitive, its syntax is to be as close to the English natural language;
 * despite the constant changes of atoum, backward compatibility is one of the priorities of its developers.
 
+You can find more information on the `official website <http://atoum.org/>`_.
+
 .. toctree::
+   :numbered:
    :maxdepth: 2
 
    start_with_atoum
