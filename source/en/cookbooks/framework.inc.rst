@@ -431,6 +431,6 @@ The instructions for installation and use are the cookbook :ref:`utilisation-ave
 Zend Framework 2 component
 ==========================
 
-If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the following address:`https://github.com/blanchonvincent/zend-framework-test-atoum <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the `following address <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
 
 The instructions for installation and usage are available on this page.
