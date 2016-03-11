@@ -121,129 +121,112 @@ files:
 
   -
     source      : '/source/en/asserters/afterDestructionOf.inc.rst'
-    dest        : '/source/en/asserters/afterDestructionOf.inc.rst'
+    dest        : '/source/en/asserters/afterDestructionOf.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/array.inc.rst'
-    dest        : '/source/en/asserters/array.inc.rst'
+    dest        : '/source/en/asserters/array.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/boolean.inc.rst'
-    dest        : '/source/en/asserters/boolean.inc.rst'
+    dest        : '/source/en/asserters/boolean.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/castToString.inc.rst'
-    dest        : '/source/en/asserters/castToString.inc.rst'
+    dest        : '/source/en/asserters/castToString.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/class.inc.rst'
-    dest        : '/source/en/asserters/class.inc.rst'
+    dest        : '/source/en/asserters/class.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/dateInterval.inc.rst'
-    dest        : '/source/en/asserters/dateInterval.inc.rst'
+    dest        : '/source/en/asserters/dateInterval.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/dateTime.inc.rst'
-    dest        : '/source/en/asserters/dateTime.inc.rst'
+    dest        : '/source/en/asserters/dateTime.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/error.inc.rst'
-    dest        : '/source/en/asserters/error.inc.rst'
+    dest        : '/source/en/asserters/error.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/exception.inc.rst'
-    dest        : '/source/en/asserters/exception.inc.rst'
+    dest        : '/source/en/asserters/exception.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/float.inc.rst'
-    dest        : '/source/en/asserters/float.inc.rst'
+    dest        : '/source/en/asserters/float.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/hash.inc.rst'
-    dest        : '/source/en/asserters/hash.inc.rst'
+    dest        : '/source/en/asserters/hash.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/integer.inc.rst'
-    dest        : '/source/en/asserters/integer.inc.rst'
+    dest        : '/source/en/asserters/integer.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/mock.inc.rst'
-    dest        : '/source/en/asserters/mock.inc.rst'
+    dest        : '/source/en/asserters/mock.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/mysqlDateTime.inc.rst'
-    dest        : '/source/en/asserters/mysqlDateTime.inc.rst'
+    dest        : '/source/en/asserters/mysqlDateTime.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/object.inc.rst'
-    dest        : '/source/en/asserters/object.inc.rst'
+    dest        : '/source/en/asserters/object.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/output.inc.rst'
-    dest        : '/source/en/asserters/output.inc.rst'
+    dest        : '/source/en/asserters/output.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/sizeOf.inc.rst'
-    dest        : '/source/en/asserters/sizeOf.inc.rst'
+    dest        : '/source/en/asserters/sizeOf.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/stream.inc.rst'
-    dest        : '/source/en/asserters/stream.inc.rst'
+    dest        : '/source/en/asserters/stream.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/string.inc.rst'
-    dest        : '/source/en/asserters/string.inc.rst'
+    dest        : '/source/en/asserters/string.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/utf8String.inc.rst'
-    dest        : '/source/en/asserters/utf8String.inc.rst'
+    dest        : '/source/en/asserters/utf8String.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
 
   -
     source      : '/source/en/asserters/variable.inc.rst'
-    dest        : '/source/en/asserters/variable.inc.rst'
+    dest        : '/source/en/asserters/variable.inc.txt'
     translation : '/source/%two_letters_code%/asserters/%file_name%.rst'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   -
     source      : '/source/en/running_tests.rst'
-    dest        : '/source/en/launch_test.txt'
+    dest        : '/source/en/running_tests.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
     languages_mapping:
       file_name:
@@ -260,14 +243,54 @@ files:
     translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -
-    source      : '/source/en/having_fun_with_atoum.inc.rst'
-    dest        : '/source/en/having_fun_with_atoum.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-    languages_mapping:
-      file_name:
-        fr: amusons_nous_avec_atoum
+    source      : '/source/en/configuration_bootstraping/bootstrap.inc.rst'
+    dest        : '/source/en/configuration_bootstraping/bootstrap.inc.txt'
+    translation : '/source/%two_letters_code%/configuration_bootstraping/%file_name%.rst'
 
   -
-    source      : '/source/en/extra_ressource.rst'
-    dest        : '/source/en/extra_ressource.txt'
+    source      : '/source/en/configuration_bootstraping/configuration.inc.rst'
+    dest        : '/source/en/configuration_bootstraping/configuration.inc.txt'
+    translation : '/source/%two_letters_code%/configuration_bootstraping/%file_name%.rst'
+
+  -
+    source      : '/source/en/configuration_bootstraping/having_fun_with_atoum.inc.rst'
+    dest        : '/source/en/configuration_bootstraping/having_fun_with_atoum.inc.txt'
+    translation : '/source/%two_letters_code%/configuration_bootstraping/%file_name%.rst'
+    languages_mapping:
+      file_name:
+        fr: configuration_bootstraping/amusons_nous_avec_atoum
+
+  -
+    source      : '/source/en/annotations.rst'
+    dest        : '/source/en/annotations.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/en/asserters.rst'
+    dest        : '/source/en/asserters.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/en/configuration_bootstraping.rst'
+    dest        : '/source/en/configuration_bootstraping.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/en/first_test.rst'
+    dest        : '/source/en/first_test.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/en/installation.rst'
+    dest        : '/source/en/installation.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/en/licences.rst'
+    dest        : '/source/en/licences.txt'
+    translation : '/source/%two_letters_code%/%file_name%.rst'
+
+  -
+    source      : '/source/en/start_with_atoum.rst'
+    dest        : '/source/en/start_with_atoum.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
