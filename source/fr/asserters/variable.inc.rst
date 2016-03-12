@@ -3,14 +3,14 @@
 variable
 ********
 
-C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
+It's the basic assertion of all variables. It contains the necessary tests for any type of variable.
 
 .. _variable-is-callable:
 
 isCallable
 ==========
 
-``isCallable`` vérifie que la variable peut être appelée comme fonction.
+``isCallable`` verifies that the variable can be called as a function.
 
 .. code-block:: php
 
@@ -21,7 +21,7 @@ isCallable
 
    $this
        ->variable($f)
-           ->isCallable()  // passe
+           ->isCallable()  // succeed
 
        ->variable('\Vendor\Project\foobar')
            ->isCallable()
@@ -38,7 +38,7 @@ isCallable
 isEqualTo
 =========
 
-``isEqualTo`` vérifie que la variable est égale à une certaine donnée.
+``isEqualTo`` verifies that the variable is equal to a given value.
 
 .. code-block:: php
 
@@ -47,13 +47,13 @@ isEqualTo
 
    $this
        ->variable($a)
-           ->isEqualTo('a')    // passe
+           ->isEqualTo('a')    // passes
    ;
 
 
 .. warning::
-   | ``isEqualTo`` ne teste pas le type de la variable.
-   | Si vous souhaitez vérifier également son type, utilisez :ref:`isIdenticalTo <variable-is-identical-to>`.
+   | ``isEqualTo`` doesn't test the type of variable.
+   | If you also want to check the type, use :ref:`isIdenticalTo <variable-is-identical-to>`.
 
 
 .. _variable-is-identical-to:
@@ -61,7 +61,7 @@ isEqualTo
 isIdenticalTo
 =============
 
-``isIdenticalTo`` vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, ``isIdenticalTo`` vérifie que les données pointent sur la même instance.
+``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. In the case of an object, ``isIdenticalTo`` checks that the data is referencing the same instance.
 
 .. code-block:: php
 
@@ -70,7 +70,7 @@ isIdenticalTo
 
    $this
        ->variable($a)
-           ->isIdenticalTo(1)          // échoue
+           ->isIdenticalTo(1)          // fails
    ;
 
    $stdClass1 = new \StdClass();
@@ -79,13 +79,13 @@ isIdenticalTo
 
    $this
        ->variable($stdClass1)
-           ->isIdenticalTo(stdClass3)  // passe
-           ->isIdenticalTo(stdClass2)  // échoue
+           ->isIdenticalTo(stdClass3)  // passes
+           ->isIdenticalTo(stdClass2)  // fails
    ;
 
 .. warning::
-   | ``isIdenticalTo`` teste le type de la variable.
-   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isEqualTo <variable-is-equal-to>`.
+   | ``isIdenticalTo`` test the type of variable.
+   | If you don't want to check its type, use :ref:`isEqualTo <variable-is-equal-to>`.
 
 
 .. _variable-is-not-callable:
@@ -93,7 +93,7 @@ isIdenticalTo
 isNotCallable
 =============
 
-``isNotCallable`` vérifie que la variable ne peut pas être appelée comme fonction.
+``isNotCallable`` checks that the variable can't be called like a function.
 
 .. code-block:: php
 
@@ -106,16 +106,16 @@ isNotCallable
 
    $this
        ->variable($f)
-           ->isNotCallable()   // échoue
+           ->isNotCallable()   // fails
 
        ->variable($int)
-           ->isNotCallable()   // passe
+           ->isNotCallable()   // passes
 
        ->variable($string)
-           ->isNotCallable()   // passe
+           ->isNotCallable()   // passes
 
        ->variable(new StdClass)
-           ->isNotCallable()   // passe
+           ->isNotCallable()   // passes
    ;
 
 .. _variable-is-not-equal-to:
@@ -123,7 +123,7 @@ isNotCallable
 isNotEqualTo
 ============
 
-``isNotEqualTo`` vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
+``isNotEqualTo`` checks that the variable does not have the same value as the given one.
 
 .. code-block:: php
 
@@ -133,16 +133,16 @@ isNotEqualTo
 
    $this
        ->variable($a)
-           ->isNotEqualTo('b')     // passe
-           ->isNotEqualTo('a')     // échoue
+           ->isNotEqualTo('b')     // passes
+           ->isNotEqualTo('a')     // fails
 
        ->variable($aString)
-           ->isNotEqualTo($1)      // échoue
+           ->isNotEqualTo($1)      // fails
    ;
 
 .. warning::
-   | ``isNotEqualTo`` ne teste pas le type de la variable.
-   | Si vous souhaitez vérifier également son type, utilisez :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
+   | ``isNotEqualTo`` doesn't test the type of variable.
+   | If you also want to check the type, use :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
 
 
 .. _variable-is-not-identical-to:
@@ -150,9 +150,9 @@ isNotEqualTo
 isNotIdenticalTo
 ================
 
-``isNotIdenticalTo`` vérifie que la variable n'a ni le même type ni la même valeur qu'une certaine donnée.
+``isNotIdenticalTo`` checks that the variable does not have the same type nor the same value than the given one.
 
-Dans le cas d'objets, ``isNotIdenticalTo`` vérifie que les données ne pointent pas sur la même instance.
+In the case of an object, ``isNotIdenticalTo`` checks that the data isn't referencing on the same instance.
 
 .. code-block:: php
 
@@ -161,7 +161,7 @@ Dans le cas d'objets, ``isNotIdenticalTo`` vérifie que les données ne pointent
 
    $this
        ->variable($a)
-           ->isNotIdenticalTo(1)           // passe
+           ->isNotIdenticalTo(1)           // passes
    ;
 
    $stdClass1 = new \StdClass();
@@ -170,13 +170,13 @@ Dans le cas d'objets, ``isNotIdenticalTo`` vérifie que les données ne pointent
 
    $this
        ->variable($stdClass1)
-           ->isNotIdenticalTo(stdClass2)   // passe
-           ->isNotIdenticalTo(stdClass3)   // échoue
+           ->isNotIdenticalTo(stdClass2)   // passes
+           ->isNotIdenticalTo(stdClass3)   // fails
    ;
 
 .. warning::
-   | ``isNotIdenticalTo`` teste le type de la variable.
-   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isNotEqualTo <variable-is-not-equal-to>`.
+   | ``isNotIdenticalTo`` test the type of variable.
+   | If you don't want to check its type, use :ref:`isNotEqualTo <variable-is-not-equal-to>`.
 
 
 .. _is-null:
@@ -184,7 +184,7 @@ Dans le cas d'objets, ``isNotIdenticalTo`` vérifie que les données ne pointent
 isNull
 ======
 
-``isNull`` vérifie que la variable est nulle.
+``isNull`` checks that the variable is null.
 
 .. code-block:: php
 
@@ -194,11 +194,11 @@ isNull
 
    $this
        ->variable($emptyString)
-           ->isNull()              // échoue
-                                   // (c'est vide, mais pas null)
+           ->isNull()              // fails
+                                   // (it's empty but not null)
 
        ->variable($null)
-           ->isNull()              // passe
+           ->isNull()              // passes
    ;
 
 .. _is-not-null:
@@ -206,7 +206,7 @@ isNull
 isNotNull
 =========
 
-``isNotNull`` vérifie que la variable n'est pas nulle.
+``isNotNull`` checks that the variable is not null.
 
 .. code-block:: php
 
@@ -216,10 +216,10 @@ isNotNull
 
    $this
        ->variable($emptyString)
-           ->isNotNull()           // passe (c'est vide, mais pas null)
+           ->isNotNull()           // passes (it's empty but not null)
 
        ->variable($null)
-           ->isNotNull()           // échoue
+           ->isNotNull()           // fails
    ;
 
 .. _is-not-true:
@@ -227,7 +227,7 @@ isNotNull
 isNotTrue
 =========
 
-``isNotTrue`` vérifie que la variable n'est strictement pas égale à ``true``.
+``isNotTrue`` check that the variable is strictly not equal to ``true``.
 
 .. code-block:: php
 
@@ -236,10 +236,10 @@ isNotTrue
    $false = false;
    $this
        ->variable($true)
-           ->isNotTrue()     // échoue
+           ->isNotTrue()     // fails
 
        ->variable($false)
-           ->isNotTrue()     // passe
+           ->isNotTrue()     // succeed
    ;
 
 
@@ -248,7 +248,7 @@ isNotTrue
 isNotFalse
 ==========
 
-``isNotFalse`` vérifie que la variable n'est strictement pas égale à ``false``.
+``isNotFalse`` check that the variable is strictly not equal to ``false``.
 
 .. code-block:: php
 
@@ -257,8 +257,8 @@ isNotFalse
    $false = false;
    $this
        ->variable($false)
-           ->isNotFalse()     // échoue
+           ->isNotFalse()     // fails
 
        ->variable($true)
-           ->isNotFalse()     // passe
+           ->isNotFalse()     // succeed
    ;

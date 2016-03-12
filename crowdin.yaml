@@ -1,4 +1,4 @@
-project_identifier: atoum-documentation
+project_identifier: atoum
 api_key: c967e730da9f8e05551d53fa6f28823e
 
 files:
@@ -258,16 +258,11 @@ files:
     translation : '/source/%two_letters_code%/configuration_bootstraping/%file_name%.rst'
     languages_mapping:
       file_name:
-        fr: configuration_bootstraping/amusons_nous_avec_atoum
+        fr: amusons_nous_avec_atoum.inc
 
   -
     source      : '/source/en/annotations.rst'
     dest        : '/source/en/annotations.txt'
-    translation : '/source/%two_letters_code%/%file_name%.rst'
-
-  -
-    source      : '/source/en/asserters.rst'
-    dest        : '/source/en/asserters.txt'
     translation : '/source/%two_letters_code%/%file_name%.rst'
 
   -

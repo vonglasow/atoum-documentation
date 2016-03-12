@@ -3,18 +3,18 @@
 stream
 ******
 
-Assertion dédiée aux flux.
+It's the assertion dedicated to the streams.
 
-Elle est basée sur le système de fichier virtuel d'atoum (VFS). Un nouveau `stream wrapper <http://php.net/manual/fr/class.streamwrapper.php>`_ sera enregistré (qui commence par ``atoum://``).
+It's based on atoum virtual filesystem (VFS). A new `stream wrapper <http://php.net/streamWrapper>`_ will be registered (starting with ``atoum://``).
 
-Le bouchon va créer un nouveau fichier dans le VFS et le chemin du flux sera accessible en appellant la méthode ``getPath`` sur le controlleur de flux (par exemple ``atoum://mockUniqId``).
+The mock will create a new file in the VFS and the steam path will be accessible via the ``getPath`` method on the stream controller (something like ``atoum://mockUniqId``).
 
 .. _is-read:
 
 isRead
 ======
 
-``isRead`` vérifie si le flux bouchoné à bien été lu.
+``isRead`` checks if a mocked stream has been read.
 
 .. code-block:: php
 
@@ -34,9 +34,9 @@ isRead
            $streamController = \atoum\mock\stream::get(),
            $streamController->file_get_contents = 'myFakeContent'
        )
-       ->if() //we do nothing
+       ->if() // we do nothing
        ->stream($streamController)
-           ->isRead() // échoue
+           ->isRead() // fails
    ;
 
 
@@ -45,7 +45,7 @@ isRead
 isWritten
 =========
 
-``isWritten`` vérifie si le flux bouchoné à bien été écrit.
+``isWritten`` checks if a mocked stream has been written.
 
 .. code-block:: php
 
@@ -57,7 +57,7 @@ isWritten
        )
        ->if(file_put_contents($streamController->getPath(), $content))
        ->stream($streamController)
-           ->isWritten() // passe
+           ->isWritten() // passes
    ;
 
    $this
@@ -65,9 +65,9 @@ isWritten
         $streamController = \atoum\mock\stream::get(),
         $streamController->file_put_contents = strlen($content = 'myTestContent')
       )
-      ->if() //we do nothing
+      ->if() // we do nothing
       ->stream($streamController)
-         ->isWritten() // échoue
+         ->isWritten() // fails
    ;
 
 
@@ -77,8 +77,8 @@ isWrited
 ========
 
 .. hint::
-``isWrited`` est un alias de la méthode ``isWritten``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`stream::isWritten <is-written>`
+   ``isWrited`` is an alias to the ``isWritten`` method.
+   For more information, refer to the documentation of :ref:`stream::isWritten <is-written>`
 
 
 

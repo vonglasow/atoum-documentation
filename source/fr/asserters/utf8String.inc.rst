@@ -3,10 +3,10 @@
 utf8String
 **********
 
-C'est l'assertion dédiée aux chaînes de caractères UTF-8.
+It's the asserter dedicated to UTF-8 strings.
 
 .. note::
-   ``utf8Strings`` utilise les fonctions ``mb_*`` pour gérer les chaînes multioctets. Reportez-vous au manuel de PHP pour avoir plus d'information sur l'extension `mbstring <http://php.net/mbstring>`_.
+   ``utf8Strings`` use the functions ``mb_*`` to manage multi-byte strings. Refer to the PHP manual for more information about `mbstring <http://php.net/mbstring>`_ extension.
 
 
 .. _utf8-string-contains:
@@ -15,8 +15,8 @@ contains
 ========
 
 .. hint::
-   ``contains`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::contains <string-contains>`
+   ``contains`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::contains <string-contains>`
 
 
 .. _utf8-string-has-length:
@@ -25,8 +25,8 @@ hasLength
 =========
 
 .. hint::
-   ``hasLength`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::hasLength <string-has-length>`
+   ``hasLength`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::hasLength <string-has-length>`
 
 
 .. _utf8-string-has-length-greater-than:
@@ -35,8 +35,8 @@ hasLengthGreaterThan
 ====================
 
 .. hint::
-   ``hasLengthGreaterThan`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
+   ``hasLengthGreaterThan`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::hasLengthGreaterThan <string-has-length-greater-than>`
 
 
 .. _utf8-string-has-length-less-than:
@@ -45,8 +45,8 @@ hasLengthLessThan
 =================
 
 .. hint::
-   ``hasLengthLessThan`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::hasLengthLessThan <string-has-length-less-than>`
+   ``hasLengthLessThan`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::hasLengthLessThan <string-has-length-less-than>`
 
 
 .. _utf8-string-is-empty:
@@ -55,8 +55,8 @@ isEmpty
 =======
 
 .. hint::
-   ``isEmpty`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::isEmpty <string-is-empty>`
+   ``isEmpty`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::isEmpty <string-is-empty>`
 
 
 .. _utf8-string-is-equal-to:
@@ -65,8 +65,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
+   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _utf8-string-is-equal-to-contents-of-file:
@@ -75,8 +75,8 @@ isEqualToContentsOfFile
 =======================
 
 .. hint::
-   ``isEqualToContentsOfFile`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>`
+   ``isEqualToContentsOfFile`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>`
 
 
 .. _utf8-string-is-identical-to:
@@ -85,8 +85,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _utf8-string-is-not-empty:
@@ -95,8 +95,8 @@ isNotEmpty
 ==========
 
 .. hint::
-   ``isNotEmpty`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::isNotEmpty <string-is-not-empty>`
+   ``isNotEmpty`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::isNotEmpty <string-is-not-empty>`
 
 
 .. _utf8-string-is-not-equal-to:
@@ -105,8 +105,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _utf8-string-is-not-identical-to:
@@ -115,8 +115,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _utf8-string-matches:
@@ -125,23 +125,23 @@ matches
 =======
 
 .. hint::
-   ``matches`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::matches <string-matches>`
+   ``matches`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::match <string-matches>`
 
 
 .. note::
-   Pensez à bien ajouter ``u`` comme option de recherche dans votre expression régulière.
-   Pour plus de précision, lisez la documentation PHP sur `les options de recherche des expressions régulières <http://php.net/reference.pcre.pattern.modifiers>`_.
+   Remember to add ``u`` in your regular expression, in the option part.
+   For more precision, read the PHP's documentation about `the options for search in regular expression  <http://php.net/reference.pcre.pattern.modifiers>`_.
 
 
 .. code-block:: php
 
    <?php
-   $vdm = "Aujourd'hui, à 57 ans, mon père s'est fait tatouer une licorne sur l'épaule. VDM";
+   $vdm = "Today at 57 years, my father got a tatoo of a Unicorn on his shoulder. FML";
 
    $this
        ->utf8String($vdm)
-           ->matches("#^Aujourd'hui.*VDM$#u")
+           ->matches("#^Today.*VDM$#u")
    ;
 
 .. _utf8-string-not-contains:
@@ -150,5 +150,5 @@ notContains
 ===========
 
 .. hint::
-   ``notContains`` est une méthode héritée de l'asserter ``string``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::notContains <string-not-contains>`
+   ``notContains`` is a method inherited from the ``string`` asserter.
+   For more information, refer to the documentation of :ref:`string::notContains <string-not-contains>`

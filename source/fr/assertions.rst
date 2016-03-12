@@ -1,5 +1,14 @@
-Assertions
-##########
+.. _asserters_collection:
+
+Asserters collection
+####################
+
+..
+.. .. sidebar:: TOC
+..
+..  .. contents::
+..    :depth: 2
+..    :local:
 
 .. include:: asserters/afterDestructionOf.inc.rst
 .. include:: asserters/array.inc.rst
