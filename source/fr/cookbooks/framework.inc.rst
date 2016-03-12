@@ -1,25 +1,26 @@
 
 .. _utilisation-avec-frameworks:
 
-Utilisation avec des frameworks
-********************************
+Use with frameworks
+*******************
 
 .. _utilisation-avec-ezpublish:
 
-Utilisation avec ez Publish
-=============================
+Use with ezPublish
+==================
 
 
-Étape 1 : Installation d'atoum au sein d'eZ Publish
------------------------------------------------------
+Step 1: Installation of atoum in eZ Publish
+-------------------------------------------
 
-Le framework eZ Publish possède déjà un répertoire dédié aux tests, nommé logiquement tests. C'est donc dans ce répertoire que devra être placé l':ref:`archive PHAR <archive-phar>` d’atoum. Les fichiers de tests unitaires utilisant atoum seront quant à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
+The eZ Publish framework have already a directory dedicated to tests, logically named tests. It's in this directory that should be placed  the :ref:`PHAR archive <archive-phar>` of atoum. The unit test files using atoum will be placed in a subdirectory *tests/atoum* so they don't conflict with the existing.
 
 
-Étape 2 : Création de la classe de test de base
------------------------------------------------------
+Step 2: Creating the class of the base tests
+--------------------------------------------
 
-Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\test*. Cependant, cette dernière ne prend pas en compte les spécificités de *eZ Publish*. Il est donc nécessaire de définir une classe de test de base, dérivée de *\mageekguy\atoum\test*, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier *tests\atoum\test.php* :
+A class based on atoum must extend the class ``\mageekguy\atoum\test``. However, this one doesn't take into account of *eZ Publish* specificities. It's therefore mandatory to
+define a base test class, derived from ``\mageekguy\atoum\test``, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file ``tests\atoum\test.php``:
 
 .. code-block:: php
 
@@ -54,16 +55,16 @@ Une classe de test basée sur atoum doit étendre la classe *\mageekguy\atoum\te
 
 
 
-Étape 3 : Création d'une classe de test
------------------------------------------------------
+Step 3: Creating a test class
+-----------------------------
 
-Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
+By default, atoum asks that unit tests classes are in a namespace containing *test(s)\unit(s)*, in order to deduce the name of the tested class. For example, the namespace *\nameofprojet* will be used in the following. For simplicity, it's further advisable to model the test tree on the tested classes tree, in order to quickly locate the class of a tested class, and vice versa.
 
 .. code-block:: php
 
 	<?php
 
-	namespace nomdeprojet\tests\units;
+	namespace nameofproject\tests\units;
 
 	require_once '../test.php';
 
@@ -78,41 +79,41 @@ Par défaut, atoum demande à ce que les classes de tests unitaires soient dans 
 	}
 
 
-Étapes 4 : Exécution des tests unitaires
------------------------------------------------------
+Step 4: Running the unit tests
+------------------------------
 
-Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet :
+Once a test class created, simply execute this command-line to start the test from the root of the project:
 
 .. code-block:: shell
 
 	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
 
 
-Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutoriel.
+Thanks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
 
 
 .. _utilisation-avec-symfony-2:
 
-Utilisation avec Symfony 2
-==============================
+Use with Symfony 2
+==================
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
+If you want to use atoum within your Symfony projects, you can install the Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
-Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
-
-
-Étape 1: installation d'atoum
------------------------------------------------------
-
-Si vous utilisez Symfony 2.0, :ref:`téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
-
-Si vous utilisez Symfony 2.1+, :ref:`ajoutez atoum dans votre fichier composer.json <installation-par-composer>`_.
+If you want to install and configure atoum manually, here's how to do it.
 
 
-Étape 2: création de la classe de test
------------------------------------------------------
+Step 1: installation of atoum
+-----------------------------
 
-Imaginons que nous voulions tester cet Entity:
+If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>` and place it in the vendor directory which is at the root of your project.
+
+If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`.
+
+
+Step 2: create the test class
+-----------------------------
+
+Imagine that we wanted to test this Entity:
 
 .. code-block:: php
 
@@ -152,12 +153,12 @@ Imaginons que nous voulions tester cet Entity:
    }
 
 .. note::
-   Pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au `manuel Symfony <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
+   For more information about creating Entity in Symfony 2, refer to <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
 
 
-Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stockés tous les tests de ce Bundle.
+Create the directory Tests/Units in your Bundle (for example src/Acme/DemoBundle/Tests/Units). It's in this directory that will be stored all tests of this Bundle.
 
-Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.
+Create a Test.php file that will serve as a base for all new tests in this Bundle.
 
 .. code-block:: php
 
@@ -165,7 +166,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
    // src/Acme/DemoBundle/Tests/Units/Test.php
    namespace Acme\DemoBundle\Tests\Units;
 
-   // On inclus et active le class loader
+   // It includes the class loader and active it
    require_once __DIR__ . '/../../../../../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
    $loader = new \Symfony\Component\ClassLoader\UniversalClassLoader();
@@ -181,7 +182,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
    use mageekguy\atoum;
 
-   // Pour Symfony 2.0 uniquement !
+   // For Symfony 2.0 only !
    require_once __DIR__ . '/../../../../../vendor/mageekguy.atoum.phar';
 
    abstract class Test extends atoum
@@ -206,19 +207,19 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
    }
 
 .. note::
-   L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1+.
+   The inclusion of atoum's PHAR archive is only necessary for Symfony 2.0. Remove this line if you use Symfony 2.1+.
 
 
 .. note::
-   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exige des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
+   By default, atoum uses namespace tests/units for testing. However Symfony 2 and its class loader require capitalization at the beginning of the names. For this reason, we change tests namespace through the method: setTestNamespace('Tests\Units').
 
 
-Étape 3: écriture d'un test
------------------------------------------------------
+Step 3: write a test
+--------------------
 
-Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
+In the Tests/Units directory, simply recreate the tree of the classes that you want to test (for example src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
-Créons notre fichier de test:
+Create our test file:
 
 .. code-block:: php
 
@@ -245,34 +246,34 @@ Créons notre fichier de test:
    }
 
 
-Étape 4: lancement des tests
------------------------------------------------------
+Step 4: launch tests
+--------------------
 
-Si vous utilisez Symfony 2.0:
+If you use Symfony 2.0:
 
 .. code-block:: shell
 
-   # Lancement des tests d'un fichier
+   # Launch tests of one file
    $ php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
-   # Lancement de tous les tests du Bundle
+   # Launch all tests of the Bundle
    $ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
 
-Si vous utilisez Symfony 2.1+:
+If you use Symfony 2.1+:
 
 .. code-block:: shell
 
-   # Lancement des tests d'un fichier
+   # Launch tests of one file
    $ ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
-   # Lancement de tous les tests du Bundle
+   # Launch all tests of the Bundle
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
 .. note::
-   Vous pouvez obtenir plus d'informations sur le `lancement des tests <lancement-des-tests>`_ dans le chapitre qui y est consacré.
+   You can get more information on the :ref:`test launch <lancement-des-tests>` in the chapter which is dedicated to.
 
 
-Dans tous les cas, voilà ce que vous devriez obtenir:
+In any case, this is what you should get:
 
 .. code-block:: shell
 
@@ -309,25 +310,25 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 
 .. _utilisation-avec-symfony-1-4:
 
-Utilisation avec symfony 1.4
-====================================
+Use with symfony 1.4
+====================
 
-Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+If you want to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
 
 Installation
------------------------------------------------------
+------------
 
-Il existe plusieurs méthodes d'installation du plugin dans votre projet :
+There are several ways to install this plugin in your project:
 
 * installation via composer
-* installation via des submodules git
+* installation via git submodules
 
 
-En utilisant composer
-"""""""""""""""""""""""""
+Using composer
+""""""""""""""
 
-Ajouter ceci dans le composer.json :
+Add this lines inside the composer.json file:
 
 .. code-block:: json
 
@@ -335,9 +336,9 @@ Ajouter ceci dans le composer.json :
      "atoum/sfAtoumPlugin": "*"
    },
 
-Après avoir effectué un ``php composer.phar update``, le plugin devrait se trouver dans le dossier plugins et atoum dans un dossier ``vendor``.
+After a ``php composer.phar update`` the plugin should be in the plugin folder and atoum in the ``vendor`` folder.
 
-Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le chemin d'atoum.
+Then, in your ProjectConfiguration file, you have to activate the plugin and define the atoum path.
 
 .. code-block:: php
 
@@ -350,22 +351,22 @@ Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le ch
    }
 
 
-En utilisant des submodules git
-"""""""""""""""""""""""""""""""""""
+Using a git submodule
+"""""""""""""""""""""
 
-Il faut tout d'abord ajouter atoum en tant que submodule :
+First, install atoum as a submodule:
 
 .. code-block:: shell
 
    $ git submodule add git://github.com/atoum/atoum.git lib/vendor/atoum
 
-Puis ensuite ajouter le sfAtoumPlugin en tant que submodule :
+Then install sfAtoumPlugin as a git submodule:
 
 .. code-block:: shell
 
    $ git submodule add git://github.com/atoum/sfAtoumPlugin.git plugins/sfAtoumPlugin
 
-Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
+Finally, enable the plugin in in your ProjectConfiguration file:
 
 .. code-block:: php
 
@@ -376,10 +377,10 @@ Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
    }
 
 
-Ecrire les tests
------------------------------------------------------
+Write tests
+-----------
 
-Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
+Tests must include the bootstrap file from the plugin:
 
 .. code-block:: php
 
@@ -387,21 +388,49 @@ Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
    require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 
 
-Lancer les tests
------------------------------------------------------
+Launch tests
+------------
 
-La commande symfony atoum:test est disponible. Les tests peuvent alors se lancer de cette façon :
+The symfony command ``atoum:test`` is available. The tests can then be launched in this way:
 
 .. code-block:: shell
 
    $ ./symfony atoum:test
 
-Toutes les paramètres d'atoum sont disponibles.
+All the arguments of atoum are available.
 
-Il est donc, par exemple, possible de passer un fichier de configuration comme ceci :
+It's therefore, for example, possible to give a configuration file like this :
 
 .. code-block:: php
 
    <?php
    php symfony atoum:test -c config/atoum/hudson.php
 
+
+.. _framework-symfony-1-plugin:
+
+Symfony 1 plugin
+================
+
+To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+
+The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
+
+
+.. _framework-symfony-2-bundle:
+
+Symfony 2 bundle
+================
+
+To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
+
+The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
+
+.. _framework-zend-framework-2:
+
+Zend Framework 2 component
+==========================
+
+If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the `following address <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+
+The instructions for installation and usage are available on this page.

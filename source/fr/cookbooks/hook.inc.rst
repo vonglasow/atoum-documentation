@@ -4,23 +4,23 @@
 Hook git
 ********
 
-Une bonne pratique, lorsqu'on utilise un logiciel de gestion de versions, est de ne jamais ajouter à un dépôt du code non fonctionnel, afin de pouvoir récupérer une version propre et utilisable du code à tout moment et à n'importe quel endroit de l'historique du dépôt.
+A good practice, when using a version control system, is to never add a non-functional code in repository, in order to retrieve a version clean and usable code at any time and any place the history of the deposit.
 
-Cela implique donc, entre autres, que les tests unitaires doivent passer dans leur intégralité avant que les fichiers créés ou modifiés soient ajoutés au dépôt et, en conséquence, le développeur est censé exécuter les tests unitaires avant d'intégrer son code dans le dépôt.
+This implies, among other things, that the unit tests must pass in their entirety before the files created or modified are added to the repository, and as a result, the developer is supposed to run the unit tests before pushed its code to the repository.
 
-Cependant, dans les faits, il est très facile pour le développeur d'omettre cette étape, et votre dépôt peut donc contenir à plus ou moins brève échéance du code ne respectant pas les contraintes imposées par les tests unitaires.
+However, in fact, it is very easy for the developer to omit this step and your repository may therefore contain, more or less imminent, code which does not respect the constraints imposed by unit tests.
 
-Heureusement, les logiciels de gestion de versions en général et Git en particulier disposent d'un mécanisme, connu sous le nom de hook de pré-commit permettant d'exécuter automatiquement des tâches lors de l'ajout de code dans un dépôt.
+Fortunately, version control software in general and in particular Git has a mechanism, known as the pre-commit hook name to automatically perform tasks when adding code in a repository.
 
-L'installation d'un hook de pré-commit est très simple et se déroule en deux étapes.
+The installation of a pre-commit hook is very simple and takes place in two stages.
 
 
-Étape 1 : Création du script à exécuter
-=======================================
+Step 1: Creation of the script to run
+=====================================
 
-Lors de l'ajout de code à un dépôt, Git recherche le fichier ``.git/hook/pre-commit`` à la racine du dépôt et l'exécute s'il existe et qu'il dispose des droits nécessaires.
+When adding code to a repository, Git looks for the file ``.git/hook/pre-commit`` in the root of the repository and executes it if it exists and that it has the necessary rights.
 
-Pour mettre en place le hook, il vous faut donc créer le fichier ``.git/hook/pre-commit`` et y ajouter le code suivant :
+To set up the hook, you must therefore create the ``.git/hook/pre-commit`` file and add the following code:
 
 .. code-block:: php
 
@@ -45,12 +45,12 @@ Pour mettre en place le hook, il vous faut donc créer le fichier ``.git/hook/pr
       }
    }
 
-Le code ci-dessous suppose que vos tests unitaires sont dans des fichiers ayant l'extension ``.php`` et dans des répertoires dont le chemin contient ``/Tests/Units/``. Si ce n'est pas votre cas, vous devrez modifier le script suivant votre contexte.
+The code below assumes that your unit tests are in files with the extension ``.php`` and directories path contains ``/ Tests/Units``. If this is not the case, you will need to modify the script depending on your context.
 
 .. note::
-   Dans l'exemple ci-dessus, les fichiers de test doivent inclure atoum pour que le hook fonctionne.
+   In the above example, the test files must include atoum for the hook works.
 
-Les tests étant exécutés très rapidement avec atoum, on peut donc lancer l'ensemble des tests unitaires avant chaque commit avec un hook comme celui-ci :
+The tests are run very quickly with atoum, all unit tests can be run before each commit with a hook like this :
 
 .. code-block:: php
 
@@ -59,16 +59,16 @@ Les tests étant exécutés très rapidement avec atoum, on peut donc lancer l'e
    ./bin/atoum -d tests/
 
 
-Étape 2 : Ajout des droits d'exécution
-======================================
+Step 2: Add execution rights
+============================
 
-Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être rendu exécutable à l'aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :
+To be usable by Git, the file ``.git/hook/pre-commit`` must be executable by using the following command, executed in command line from the directory of your deposit:
 
 .. code-block:: shell
 
    $ chmod u+x `.git/hook/pre-commit`
 
-À partir de cet instant, les tests unitaires contenus dans les répertoires dont le chemin contient ``/Tests/Units/`` seront lancés automatiquement lorsque vous effectuerez la commande ``git commit``, si des fichiers ayant l'extension ``.php`` ont été modifiés.
+From this moment on, unit tests contained in the directories with the path contains ``/ Tests/Units`` will be launched automatically when you perform the command ``git commit``, if files with the extension ``.php`` have been changed.
 
-Et si d'aventure un test ne passe pas, les fichiers ne seront pas ajoutés au dépôt. Il vous faudra alors effectuer les corrections nécessaires, utiliser la commande ``git add`` sur les fichiers modifiés et utiliser à nouveau ``git commit``.
+And if unfortunately a test does not pass, the files will not be added to the repository. You must then make the necessary adjustments, use the command ``git add`` on modified files and use again ``git commit``.
 

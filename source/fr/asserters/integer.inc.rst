@@ -3,12 +3,12 @@
 integer
 *******
 
-C'est l'assertion dédiée aux entiers.
+It's the assertion dedicated to integers.
 
-Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
+If you try to test a variable that is not an integer with this assertion, it will fail.
 
 .. note::
-   ``null`` n'est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que `is_int <http://php.net/is_int>`_ considère ou non comme un entier.
+   ``null`` isn't an integer. Refer to the PHP's manual  `is_int <http://php.net/is_int>`_ to known what's considered as an integer or not.
 
 
 .. _integer-is-equal-to:
@@ -17,8 +17,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
+   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _integer-is-greater-than:
@@ -26,7 +26,7 @@ isEqualTo
 isGreaterThan
 =============
 
-``isGreaterThan`` vérifie que l'entier est strictement supérieur à une certaine donnée.
+``isGreaterThan`` checks that the integer is strictly higher than given one.
 
 .. code-block:: php
 
@@ -35,10 +35,10 @@ isGreaterThan
 
    $this
        ->integer($zero)
-           ->isGreaterThan(-1)     // passe
-           ->isGreaterThan('-1')   // échoue, car "-1"
-                                   // n'est pas un entier
-           ->isGreaterThan(0)      // échoue
+           ->isGreaterThan(-1)     // passes
+           ->isGreaterThan('-1')   // fails because "-1"
+                                   // isn't an integer
+           ->isGreaterThan(0)      // fails
    ;
 
 .. _integer-is-greater-than-or-equal-to:
@@ -46,7 +46,7 @@ isGreaterThan
 isGreaterThanOrEqualTo
 ======================
 
-``isGreaterThanOrEqualTo`` vérifie que l'entier est supérieur ou égal à une certaine donnée.
+``isGreaterThanOrEqualTo`` checks that an integer is higher or equal to a given one.
 
 .. code-block:: php
 
@@ -55,10 +55,10 @@ isGreaterThanOrEqualTo
 
    $this
        ->integer($zero)
-           ->isGreaterThanOrEqualTo(-1)    // passe
-           ->isGreaterThanOrEqualTo(0)     // passe
-           ->isGreaterThanOrEqualTo('-1')  // échoue, car "-1"
-                                           // n'est pas un entier
+           ->isGreaterThanOrEqualTo(-1)    // passes
+           ->isGreaterThanOrEqualTo(0)     // passes
+           ->isGreaterThanOrEqualTo('-1')  // fails because "-1"
+                                           // isn't an integer
    ;
 
 .. _integer-is-identical-to:
@@ -67,8 +67,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _integer-is-less-than:
@@ -76,7 +76,7 @@ isIdenticalTo
 isLessThan
 ==========
 
-``isLessThan`` vérifie que l'entier est strictement inférieur à une certaine donnée.
+``isLessThan`` checks that the integer is strictly lower than a given one.
 
 .. code-block:: php
 
@@ -85,9 +85,9 @@ isLessThan
 
    $this
        ->integer($zero)
-           ->isLessThan(10)    // passe
-           ->isLessThan('10')  // échoue, car "10" n'est pas un entier
-           ->isLessThan(0)     // échoue
+           ->isLessThan(10)    // passes
+           ->isLessThan('10')  // fails because"10" isn't an integer
+           ->isLessThan(0)     // fails
    ;
 
 .. _integer-is-less-than-or-equal-to:
@@ -95,7 +95,7 @@ isLessThan
 isLessThanOrEqualTo
 ===================
 
-``isLessThanOrEqualTo`` vérifie que l'entier est inférieur ou égal à une certaine donnée.
+``isLessThanOrEqualTo`` checks that an integer is lower or equal to a given one.
 
 .. code-block:: php
 
@@ -104,10 +104,10 @@ isLessThanOrEqualTo
 
    $this
        ->integer($zero)
-           ->isLessThanOrEqualTo(10)       // passe
-           ->isLessThanOrEqualTo(0)        // passe
-           ->isLessThanOrEqualTo('10')     // échoue, car "10"
-                                           // n'est pas un entier
+           ->isLessThanOrEqualTo(10)       // passes
+           ->isLessThanOrEqualTo(0)        // passes
+           ->isLessThanOrEqualTo('10')     // fails because "10"
+                                           // isn't an integer
    ;
 
 .. _integer-is-not-equal-to:
@@ -116,8 +116,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _integer-is-not-identical-to:
@@ -126,8 +126,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _integer-is-zero:
@@ -135,7 +135,7 @@ isNotIdenticalTo
 isZero
 ======
 
-``isZero`` vérifie que l'entier est égal à 0.
+``isZero`` checks that the integer is equal to 0.
 
 .. code-block:: php
 
@@ -145,11 +145,11 @@ isZero
 
    $this
        ->integer($zero)
-           ->isZero()          // passe
+           ->isZero()          // passes
 
        ->integer($notZero)
-           ->isZero()          // échoue
+           ->isZero()          // fails
    ;
 
 .. note::
-   ``isZero`` est équivalent à ``isEqualTo(0)``.
+   ``isZero`` is equivalent to ``isEqualTo(0)``.

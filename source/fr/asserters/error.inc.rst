@@ -3,7 +3,7 @@
 error
 *****
 
-C'est l'assertion dédiée aux erreurs.
+It's the assertion dedicated to errors.
 
 .. code-block:: php
 
@@ -15,16 +15,16 @@ C'est l'assertion dédiée aux erreurs.
            }
        )
            ->error()
-               ->exists() // ou notExists
+               ->exists() // or notExists
    ;
 
 .. note::
-   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
-   Pour plus de précision, lisez la documentation PHP sur `les fonctions anonymes <http://php.net/functions.anonymous>`_.
+   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3.
+   For more details, read the PHP's documentation on `anonymous functions <http://php.net/functions.anonymous>`_.
 
 
 .. warning::
-   Les types d'erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
+   The error types E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING as well as the E_STRICT can't be managed with this function.
 
 
 .. _exists-anchor:
@@ -32,7 +32,7 @@ C'est l'assertion dédiée aux erreurs.
 exists
 ======
 
-``exists`` vérifie qu'une erreur a été levée lors de l'exécution du code précédent.
+``exists`` checks that an error was raised during the execution of the previous code.
 
 .. code-block:: php
 
@@ -44,15 +44,15 @@ exists
            }
        )
            ->error()
-               ->exists()      // passe
+               ->exists()      // pass
 
        ->when(
            function() {
-               // code sans erreur
+               // code without error
            }
        )
            ->error()
-               ->exists()      // échoue
+               ->exists()      // failed
    ;
 
 .. _not-exists:
@@ -60,7 +60,7 @@ exists
 notExists
 =========
 
-``notExists`` vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
+``notExists`` checks that no errors was raised during the execution of the previous code.
 
 .. code-block:: php
 
@@ -72,15 +72,15 @@ notExists
            }
        )
            ->error()
-               ->notExists()   // échoue
+               ->notExists()   // fails
 
        ->when(
            function() {
-               // code sans erreur
+               // code without error
            }
        )
            ->error()
-               ->notExists()   // passe
+               ->notExists()   // pass
    ;
 
 .. _with-type:
@@ -88,7 +88,7 @@ notExists
 withType
 ========
 
-``withType`` vérifie le type de l'erreur levée.
+``withType`` checks the type of the raised error.
 
 .. code-block:: php
 
@@ -100,7 +100,7 @@ withType
            }
        )
        ->error()
-           ->withType(E_USER_NOTICE)   // passe
+           ->withType(E_USER_NOTICE)   // pass
            ->exists()
 
        ->when(
@@ -109,7 +109,7 @@ withType
            }
        )
        ->error()
-           ->withType(E_USER_WARNING)  // échoue
+           ->withType(E_USER_WARNING)  // failed
            ->exists()
    ;
 
@@ -119,7 +119,7 @@ withType
 withAnyType
 ===========
 
-``withAnyType`` ne vérifie pas le type de l'erreur. C'est le comportement par défaut de l'asserter. Donc ``->error()->withAnyType()->exists()`` est l'équivalent de ``->error()->exists()``. Cette méthode existe pour ajouter de la sémantique dans vos tests.
+``withAnyType`` does not check the type of the raised error. That's the default behaviour. So ``->error()->withAnyType()->exists()`` is the equivalent of ``->error()->exists()``. This method allow to add semantic to your test.
 
 
 .. code-block:: php
@@ -132,7 +132,7 @@ withAnyType
            }
        )
        ->error()
-           ->withAnyType()   // passe
+           ->withAnyType() // pass
            ->exists()
        ->when(
            function() {
@@ -140,7 +140,7 @@ withAnyType
        )
        ->error()
            ->withAnyType()
-           ->exists() // échoue
+           ->exists() // fails
    ;
 
 
@@ -149,7 +149,7 @@ withAnyType
 withMessage
 ===========
 
-``withMessage`` vérifie le contenu du message de l'erreur levée.
+``withMessage`` checks message content of raised error.
 
 
 .. code-block:: php
@@ -163,7 +163,7 @@ withMessage
        )
        ->error()
            ->withMessage('message')
-           ->exists() // passe
+           ->exists() // passes
    ;
 
    $this
@@ -174,7 +174,7 @@ withMessage
        )
        ->error()
            ->withMessage('MESSAGE')
-           ->exists() // échoue
+           ->exists() // fails
    ;
 
 
@@ -183,7 +183,7 @@ withMessage
 withAnyMessage
 ==============
 
-``withAnyMessage`` ne vérifie pas le message de l'erreur. C'est le comportement par défaut de l'asserter. Donc ``->error()->withAnyMessage()->exists()`` est l'équivalent de ``->error()->exists()``. Cette méthode existe pour ajouter de la sémantique dans vos tests.
+``withAnyMessage`` does not check the error message. That's the default behaviour. So ``->error()->withAnyMessage()->exists()`` is the equivalent of ``->error()->exists()``. This method allow to add semantic to your test.
 
 .. code-block:: php
 
@@ -196,7 +196,7 @@ withAnyMessage
        )
        ->error()
            ->withAnyMessage()
-           ->exists() // passe
+           ->exists() // passes
    ;
 
    $this
@@ -207,7 +207,7 @@ withAnyMessage
        )
        ->error()
            ->withAnyMessage()
-           ->exists() // passe
+           ->exists() // passes
    ;
 
    $this
@@ -217,9 +217,8 @@ withAnyMessage
        )
        ->error()
            ->withAnyMessage()
-           ->exists() // échoue
+           ->exists() // fails
    ;
-
 
 
 .. _with-pattern:
@@ -227,7 +226,7 @@ withAnyMessage
 withPattern
 ===========
 
-``withPattern`` vérifie que le contenu du message de l'erreur levée respecte l'expression rationnelle passée en paramètre.
+``withPattern`` checks message content of raised error against a regular expression.
 
 .. code-block:: php
 
@@ -240,7 +239,7 @@ withPattern
        )
        ->error()
            ->withPattern('/^mess.*$/')
-           ->exists() // passe
+           ->exists() // passes
    ;
 
    $this
@@ -251,5 +250,5 @@ withPattern
        )
        ->error()
            ->withPattern('/^mess$/')
-           ->exists() // échoue
+           ->exists() // fails
    ;

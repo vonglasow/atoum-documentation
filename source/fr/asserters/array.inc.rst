@@ -3,21 +3,21 @@
 array
 *****
 
-C'est l'assertion dédiée aux tableaux.
+It's the assertion dedicated to arrays.
 
 .. note::
-   ``array`` étant un mot réservé en PHP, il n'a pas été possible de créer une assertion ``array``. Elle s'appelle donc ``phpArray`` et un alias ``array`` a été créé. Vous pourrez donc rencontrer des ``->phpArray()`` ou des ``->array()``.
+   ``array`` is a reserved word in PHP, it hasn't been possible to create an ``array`` assertion. It's therefore called ``phpArray`` and an alias ``array`` was created. So, you can meet either``->phpArray()`` or ``->array()``.
 
 
-Il est conseillé d'utiliser exclusivement ``->array()`` afin de simplifier la lecture des tests.
+It's recommended to use only ``->array()`` in order to simplify the reading of tests.
 
 
 .. _sucre-syntaxique:
 
-Sucre syntaxique
+Syntactic sugar
 =================
 
-Il est à noter, qu'afin de simplifier l'écriture des tests sur les tableaux, du sucre syntaxique est disponible. Celui-ci permet d'effectuer diverses assertions directement sur les clefs du tableau testé.
+In order to simplify the writing of tests with arrays, some syntactic sugar is available. It allows to make various assertions directly on the keys of the tested array.
 
 .. code-block:: php
 
@@ -33,7 +33,7 @@ Il est à noter, qu'afin de simplifier l'écriture des tests sur les tableaux, d
 	;
 
 .. note::
-   Cette forme d'écriture n'est disponible qu'à partir de PHP 5.4 et supérieur.
+   This writing form is available from PHP 5.4.
 
 
 .. _array-contains:
@@ -41,7 +41,7 @@ Il est à noter, qu'afin de simplifier l'écriture des tests sur les tableaux, d
 contains
 ========
 
-``contains`` vérifie qu'un tableau contient une certaine donnée.
+``contains`` check that array contains some data.
 
 .. code-block:: php
 
@@ -50,19 +50,19 @@ contains
 
    $this
        ->array($fibonacci)
-           ->contains('1')     // passe
-           ->contains(1)       // passe, ne vérifie pas...
-           ->contains('2')     // ... le type de la donnée
-           ->contains(10)      // échoue
+           ->contains('1')     // succeed
+           ->contains(1)       // succeed, but data type...
+           ->contains('2')     // ... is not checked
+           ->contains(10)      // failed
    ;
 
 .. note::
-   ``contains`` ne fait pas de recherche récursive.
+   ``contains`` doesn't check recursively.
 
 
 .. warning::
-   | ``contains`` ne teste pas le type de la donnée.
-   | Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyContains <strictly-contains>`.
+   | ``contains`` doesn't check the data type.
+   | If you want also to check its type, use :ref:`strictlyContains <strictly-contains>`.
 
 
 .. _contains-values:
@@ -70,7 +70,7 @@ contains
 containsValues
 ==============
 
-``containsValues`` vérifie qu'un tableau contient toutes les données fournies dans un tableau.
+``containsValues`` checks that an array contains all data from a given array.
 
 .. code-block:: php
 
@@ -79,18 +79,18 @@ containsValues
 
    $this
        ->array($array)
-           ->containsValues(array(1, 2, 3))        // passe
-           ->containsValues(array('5', '8', '13')) // passe
-           ->containsValues(array(0, 1, 2))        // échoue
+           ->containsValues(array(1, 2, 3))        // succeed
+           ->containsValues(array('5', '8', '13')) // succeed
+           ->containsValues(array(0, 1, 2))        // failed
    ;
 
 .. note::
-   ``containsValues`` ne fait pas de recherche récursive.
+   ``containsValues`` doesn't search recursively.
 
 
 .. warning::
-   | ``containsValues`` ne teste pas le type des données.
-   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyContainsValues <strictly-contains-values>`.
+   | ``containsValues`` doesn't test data type.
+   | If you  also want to check their types, use :ref:`strictlyContainsValues <strictly-contains-values>`.
 
 
 .. _has-key:
@@ -98,7 +98,7 @@ containsValues
 hasKey
 ======
 
-``hasKey`` vérifie qu'un tableau contient une certaine clef.
+``hasKey`` check that the table contains a given key.
 
 .. code-block:: php
 
@@ -111,22 +111,22 @@ hasKey
 
    $this
        ->array($fibonacci)
-           ->hasKey(0)         // passe
-           ->hasKey(1)         // passe
-           ->hasKey('1')       // passe
-           ->hasKey(10)        // échoue
+           ->hasKey(0)         // passes
+           ->hasKey(1)         // passes
+           ->hasKey('1')       // passes
+           ->hasKey(10)        // failed
 
        ->array($atoum)
-           ->hasKey('name')    // passe
-           ->hasKey('price')   // échoue
+           ->hasKey('name')    // passes
+           ->hasKey('price')   // fails
    ;
 
 .. note::
-   ``hasKey`` ne fait pas de recherche récursive.
+   ``hasKey`` doesn't search recursively.
 
 
 .. warning::
-   ``hasKey`` ne teste pas le type des clefs.
+   ``hasKey`` doesn't test the key type.
 
 
 .. _has-keys:
@@ -134,7 +134,7 @@ hasKey
 hasKeys
 =======
 
-``hasKeys`` vérifie qu'un tableau contient toutes les clefs fournies dans un tableau.
+``hasKeys`` checks that an array contains all given keys.
 
 .. code-block:: php
 
@@ -147,22 +147,22 @@ hasKeys
 
    $this
        ->array($fibonacci)
-           ->hasKeys(array(0, 2, 4))           // passe
-           ->hasKeys(array('0', 2))            // passe
-           ->hasKeys(array('4', 0, 3))         // passe
-           ->hasKeys(array(0, 3, 10))          // échoue
+           ->hasKeys(array(0, 2, 4))           // passes
+           ->hasKeys(array('0', 2))            // passes
+           ->hasKeys(array('4', 0, 3))         // passes
+           ->hasKeys(array(0, 3, 10))          // fails
 
        ->array($atoum)
-           ->hasKeys(array('name', 'owner'))   // passe
-           ->hasKeys(array('name', 'price'))   // échoue
+           ->hasKeys(array('name', 'owner'))   // passes
+           ->hasKeys(array('name', 'price'))   // fails
    ;
 
 .. note::
-   ``hasKeys`` ne fait pas de recherche récursive.
+   ``hasKeys`` doesn't search recursively.
 
 
 .. warning::
-   ``hasKeys`` ne teste pas le type des clefs.
+   ``hasKeys`` doesn't test the keys type.
 
 
 .. _array-has-size:
@@ -170,7 +170,7 @@ hasKeys
 hasSize
 =======
 
-``hasSize`` vérifie la taille d'un tableau.
+``hasSize`` checks the size of an array.
 
 .. code-block:: php
 
@@ -179,12 +179,12 @@ hasSize
 
    $this
        ->array($fibonacci)
-           ->hasSize(7)        // passe
-           ->hasSize(10)       // échoue
+           ->hasSize(7)        // passes
+           ->hasSize(10)       // fails
    ;
 
 .. note::
-   ``hasSize`` n'est pas récursif.
+   ``hasSize`` is not recursive.
 
 
 .. _array-is-empty:
@@ -192,7 +192,7 @@ hasSize
 isEmpty
 =======
 
-``isEmpty`` vérifie qu'un tableau est vide.
+``isEmpty`` checks that an array is empty.
 
 .. code-block:: php
 
@@ -202,10 +202,10 @@ isEmpty
 
    $this
        ->array($emptyArray)
-           ->isEmpty()         // passe
+           ->isEmpty()         // passes
 
        ->array($nonEmptyArray)
-           ->isEmpty()         // échoue
+           ->isEmpty()         // fails
    ;
 
 .. _array-is-equal-to:
@@ -214,8 +214,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
+   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _array-is-identical-to:
@@ -224,8 +224,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _array-is-not-empty:
@@ -233,7 +233,7 @@ isIdenticalTo
 isNotEmpty
 ==========
 
-``isNotEmpty`` vérifie qu'un tableau n'est pas vide.
+``isNotEmpty`` checks that an array is not empty.
 
 .. code-block:: php
 
@@ -243,10 +243,10 @@ isNotEmpty
 
    $this
        ->array($emptyArray)
-           ->isNotEmpty()      // échoue
+           ->isNotEmpty()      // fails
 
        ->array($nonEmptyArray)
-           ->isNotEmpty()      // passe
+           ->isNotEmpty()      // passes
    ;
 
 .. _array-is-not-equal-to:
@@ -255,8 +255,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _array-is-not-identical-to:
@@ -265,8 +265,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
-   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
+   For more information, refer to the documentation of  :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _keys-anchor:
@@ -274,7 +274,7 @@ isNotIdenticalTo
 keys
 ====
 
-``keys`` vous permet de récupérer un asserter de type :ref:`array <array-anchor>` contenant les clefs du tableau testé.
+``keys`` allows you to retrieve an asserter :ref:`array <array-anchor>` containing the tested table keys.
 
 .. code-block:: php
 
@@ -300,7 +300,7 @@ keys
 notContains
 ===========
 
-``notContains`` vérifie qu'un tableau ne contient pas une donnée.
+``notContains`` checks that an array doesn't contains a given data.
 
 .. code-block:: php
 
@@ -309,18 +309,18 @@ notContains
 
    $this
        ->array($fibonacci)
-           ->notContains(null)         // passe
-           ->notContains(1)            // échoue
-           ->notContains(10)           // passe
+           ->notContains(null)         // passes
+           ->notContains(1)            // fails
+           ->notContains(10)           // passes
    ;
 
 .. note::
-   ``notContains`` ne fait pas de recherche récursive.
+   ``notContains`` doesn't search recursively.
 
 
 .. warning::
-   | ``notContains`` ne teste pas le type de la donnée.
-   | Si vous souhaitez vérifier également son type, utilisez :ref:`strictlyNotContains <strictly-not-contains>`.
+   | ``notContains`` doesn't check the data type.
+   | If you want also to check its type, use :ref:`strictlyNotContains <strictly-not-contains>`.
 
 
 .. _not-contains-values:
@@ -328,7 +328,7 @@ notContains
 notContainsValues
 =================
 
-``notContainsValues`` vérifie qu'un tableau ne contient aucune des données fournies dans un tableau.
+``notContainsValues`` checks that an array doesn't contains any data from a given array.
 
 .. code-block:: php
 
@@ -337,18 +337,18 @@ notContainsValues
 
    $this
        ->array($array)
-           ->notContainsValues(array(1, 4, 10))    // échoue
-           ->notContainsValues(array(4, 10, 34))   // passe
-           ->notContainsValues(array(1, '2', 3))   // échoue
+           ->notContainsValues(array(1, 4, 10))    // fails
+           ->notContainsValues(array(4, 10, 34))   // passes
+           ->notContainsValues(array(1, '2', 3))   // fails
    ;
 
 .. note::
-   ``notContainsValues`` ne fait pas de recherche récursive.
+   ``notContainsValues`` doesn't search recursively.
 
 
 .. warning::
-   | ``notContainsValues`` ne teste pas le type des données.
-   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`strictlyNotContainsValues <strictly-not-contains-values>`.
+   | ``notContainsValues`` doesn't test the data type.
+   | If you  also want to check their types, use :ref:`strictlyNotContainsValues <strictly-not-contains-values>`.
 
 
 .. _not-has-key:
@@ -356,7 +356,7 @@ notContainsValues
 notHasKey
 =========
 
-``notHasKey`` vérifie qu'un tableau ne contient pas une certaine clef.
+``notHasKey`` checks that an array doesn't contains a given key.
 
 .. code-block:: php
 
@@ -369,22 +369,22 @@ notHasKey
 
    $this
        ->array($fibonacci)
-           ->notHasKey(0)          // échoue
-           ->notHasKey(1)          // échoue
-           ->notHasKey('1')        // échoue
-           ->notHasKey(10)         // passe
+           ->notHasKey(0)          // fails
+           ->notHasKey(1)          // fails
+           ->notHasKey('1')        // fails
+           ->notHasKey(10)         // passes
 
        ->array($atoum)
-           ->notHasKey('name')     // échoue
-           ->notHasKey('price')    // passe
+           ->notHasKey('name')     // fails
+           ->notHasKey('price')    // passes
    ;
 
 .. note::
-   ``notHasKey`` ne fait pas de recherche récursive.
+   ``notHasKey`` doesn't search recursively.
 
 
 .. warning::
-   ``notHasKey`` ne teste pas le type des clefs.
+   ``notHasKey`` doesn't test keys type.
 
 
 .. _not-has-keys:
@@ -392,7 +392,7 @@ notHasKey
 notHasKeys
 ==========
 
-``notHasKeys`` vérifie qu'un tableau ne contient aucune des clefs fournies dans un tableau.
+``notHasKeys`` checks that an array doesn't contains any keys from a given array.
 
 .. code-block:: php
 
@@ -405,22 +405,22 @@ notHasKeys
 
    $this
        ->array($fibonacci)
-           ->notHasKeys(array(0, 2, 4))            // échoue
-           ->notHasKeys(array('0', 2))             // échoue
-           ->notHasKeys(array('4', 0, 3))          // échoue
-           ->notHasKeys(array(10, 11, 12))         // passe
+           ->notHasKeys(array(0, 2, 4))            // fails
+           ->notHasKeys(array('0', 2))             // fails
+           ->notHasKeys(array('4', 0, 3))          // fails
+           ->notHasKeys(array(10, 11, 12))         // passes
 
        ->array($atoum)
-           ->notHasKeys(array('name', 'owner'))    // échoue
-           ->notHasKeys(array('foo', 'price'))     // passe
+           ->notHasKeys(array('name', 'owner'))    // fails
+           ->notHasKeys(array('foo', 'price'))     // passes
    ;
 
 .. note::
-   ``notHasKeys`` ne fait pas de recherche récursive.
+   ``notHasKeys`` doesn't search recursively.
 
 
 .. warning::
-   ``notHasKeys`` ne teste pas le type des clefs.
+   ``notHasKeys`` doesn't test keys type.
 
 
 .. _size-anchor:
@@ -428,7 +428,7 @@ notHasKeys
 size
 ====
 
-``size`` vous permet de récupérer un asserter de type :ref:`integer <integer-anchor>` contenant la taille du tableau testé.
+``size`` allow you to retrieve an  :ref:`integer <integer-anchor>` containing the size of tested array.
 
 .. code-block:: php
 
@@ -446,7 +446,7 @@ size
 strictlyContains
 ================
 
-``strictlyContains`` vérifie qu'un tableau contient une certaine donnée (même valeur et même type).
+``strictlyContains`` checks that an array contains some data (same value and same type).
 
 .. code-block:: php
 
@@ -455,20 +455,20 @@ strictlyContains
 
    $this
        ->array($fibonacci)
-           ->strictlyContains('1')     // passe
-           ->strictlyContains(1)       // échoue
-           ->strictlyContains('2')     // échoue
-           ->strictlyContains(2)       // passe
-           ->strictlyContains(10)      // échoue
+           ->strictlyContains('1')     // passes
+           ->strictlyContains(1)       // fails
+           ->strictlyContains('2')     // fails
+           ->strictlyContains(2)       // passes
+           ->strictlyContains(10)      // fails
    ;
 
 .. note::
-   ``strictlyContains`` ne fait pas de recherche récursive.
+   ``strictlyContains`` doesn't search recursively.
 
 
 .. warning::
-   | ``strictlyContains`` teste le type de la donnée.
-   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`contains <array-contains>`.
+   | ``strictlyContains`` test data type.
+   | If you don't want to check the type, use :ref:`contains <array-contains>`.
 
 
 .. _strictly-contains-values:
@@ -476,7 +476,7 @@ strictlyContains
 strictlyContainsValues
 ======================
 
-``strictlyContainsValues`` vérifie qu'un tableau contient toutes les données fournies dans un tableau (même valeur et même type).
+``strictlyContainsValues`` checks that an array contains all given data (same value and same type).
 
 .. code-block:: php
 
@@ -485,20 +485,20 @@ strictlyContainsValues
 
    $this
        ->array($array)
-           ->strictlyContainsValues(array('1', 2, '3'))    // passe
-           ->strictlyContainsValues(array(1, 2, 3))        // échoue
-           ->strictlyContainsValues(array(5, '8', 13))     // passe
-           ->strictlyContainsValues(array('5', '8', '13')) // échoue
-           ->strictlyContainsValues(array(0, '1', 2))      // échoue
+           ->strictlyContainsValues(array('1', 2, '3'))    // passes
+           ->strictlyContainsValues(array(1, 2, 3))        // fails
+           ->strictlyContainsValues(array(5, '8', 13))     // passes
+           ->strictlyContainsValues(array('5', '8', '13')) // fails
+           ->strictlyContainsValues(array(0, '1', 2))      // fails
    ;
 
 .. note::
-   ``strictlyContainsValues`` ne fait pas de recherche récursive.
+   ``strictlyContainsValue`` doesn't search recursively.
 
 
 .. warning::
-   | ``strictlyContainsValues`` teste le type des données.
-   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`containsValues <contains-values>`.
+   | ``strictlyContainsValues`` test data type.
+   | If you don't want to check the types, use :ref:`containsValues <contains-values>`.
 
 
 .. _strictly-not-contains:
@@ -506,7 +506,7 @@ strictlyContainsValues
 strictlyNotContains
 ===================
 
-``strictlyNotContains`` vérifie qu'un tableau ne contient pas une donnée (même valeur et même type).
+``strictlyNotContains`` check that an array doesn't contains a data (same value and same type).
 
 .. code-block:: php
 
@@ -515,19 +515,19 @@ strictlyNotContains
 
    $this
        ->array($fibonacci)
-           ->strictlyNotContains(null)         // passe
-           ->strictlyNotContains('1')          // échoue
-           ->strictlyNotContains(1)            // passe
-           ->strictlyNotContains(10)           // passe
+           ->strictlyNotContains(null)         // passes
+           ->strictlyNotContains('1')          // fails
+           ->strictlyNotContains(1)            // passes
+           ->strictlyNotContains(10)           // passes
    ;
 
 .. note::
-   ``strictlyNotContains`` ne fait pas de recherche récursive.
+   ``strictlyNotContains`` doesn't search recursively.
 
 
 .. warning::
-   | ``strictlyNotContains`` teste le type de la donnée.
-   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`notContains <array-not-contains>`.
+   | ``strictlyNotContains`` test data type.
+   | If you don't want to check the type, use :ref:`contains <array-not-contains>`.
 
 
 .. _strictly-not-contains-values:
@@ -535,7 +535,7 @@ strictlyNotContains
 strictlyNotContainsValues
 =========================
 
-``strictlyNotContainsValues`` vérifie qu'un tableau ne contient aucune des données fournies dans un tableau (même valeur et même type).
+``strictlyNotContainsValues`` checks that an array doesn't contains any of given data (same value and same type).
 
 .. code-block:: php
 
@@ -544,17 +544,17 @@ strictlyNotContainsValues
 
    $this
        ->array($array)
-           ->strictlyNotContainsValues(array('1', 4, 10))  // échoue
-           ->strictlyNotContainsValues(array(1, 4, 10))    // passe
-           ->strictlyNotContainsValues(array(4, 10, 34))   // passe
-           ->strictlyNotContainsValues(array('1', 2, '3')) // échoue
-           ->strictlyNotContainsValues(array(1, '2', 3))   // passe
+           ->strictlyNotContainsValues(array('1', 4, 10))  // fails
+           ->strictlyNotContainsValues(array(1, 4, 10))    // passes
+           ->strictlyNotContainsValues(array(4, 10, 34))   // passes
+           ->strictlyNotContainsValues(array('1', 2, '3')) // fails
+           ->strictlyNotContainsValues(array(1, '2', 3))   // passes
    ;
 
 .. note::
-   ``strictlyNotContainsValues`` ne fait pas de recherche récursive.
+   ``strictlyNotContainsValues`` doesn't search recursively.
 
 
 .. warning::
-   | ``strictlyNotContainsValues`` teste le type des données.
-   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`notContainsValues <not-contains-values>`.
+   | ``strictlyNotContainsValues`` tests data type.
+   | If you don't want to check the types, use :ref:`notContainsValues <not-contains-values>`.

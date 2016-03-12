@@ -2,11 +2,11 @@
 .. _newTestedInstance:
 
 newTestedInstance & testedInstance
-********************************************
+**********************************
 
-Lorsque l'on effectue des tests, il faut bien souvent créer une nouvelle instance de la classe et passer celle-ci dans divers paramètres. Une aide à l'écriture est disponible pour ce cas précis, il s'agit de ``newTestedInstance`` et de ``testedInstance``
+When performing tests, we must often create a new instance of the class and pass it through parameters. Writing helper are available for this specific case, it's ``newTestedInstance`` and ``testedInstance``
 
-Voici un exemple :
+Here's an example :
 
 .. code-block:: php
 
@@ -27,7 +27,7 @@ Voici un exemple :
        }
    }
 
-Ceci peut être simplifié avec la nouvelle syntaxe :
+This can be simplified with a new syntax:
 
 .. code-block:: php
 
@@ -49,21 +49,21 @@ Ceci peut être simplifié avec la nouvelle syntaxe :
    }
 
 
-Comme on le voit, c'est légèrement plus simple, mais surtout cela présente deux avantages :
+As seen, it's slightly simpler but especially this has two advantages:
 
-* On ne manipule pas le nom de la classe testée
-* On ne manipule pas l'instance ainsi créée
+* We do not manipulate the name of the tested class
+* We do not manipulate the tested instance
 
-Par ailleurs, on peut facilement valider que l'on a bien l'instance testée avec ``isTestedInstance``, comme expliqué dans l'exemple précédent.
+Furthermore, we can easily validate that the instance is available with ``isTestedInstance``, as explained in the previous example.
 
-Pour passer des arguments au constructeur, il suffit de le faire au travers de ``newTestedInstance`` :
+To pass some arguments to the constructor, it's easy through ``newTestedInstance``:
 
 .. code-block:: php
 
    $this->newTestedInstance($argument1, $argument2)
 
 
-Si vous voulez tester une méthode statique de votre classe, vous pouvez récupérer la classe testée avec cette syntaxe :
+If you want to test a static method of your class, you can retrieve the tested class with this syntax:
 
 .. code-block:: php
 
