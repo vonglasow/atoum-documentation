@@ -1,11 +1,11 @@
 .. _cli-options:
 
-Command line options
+Option de la ligne de commande
 ##############################
 
-Most options exist in 2 forms, a short from 1 to 6 characters and a long more explicit. These two forms do strictly the same thing. You can use indifferently the both form.
+La plupart des options existent sous 2 formes, une courte de 1 à 6 caractères et une longue, plus explicative. Ces 2 formes font strictement la même chose. Vous pouvez utiliser indifféremment l'une ou l'autre forme.
 
-Some options accept multiple values:
+Certaines options acceptent plusieurs valeurs :
 
 .. code-block:: shell
 
@@ -13,15 +13,15 @@ Some options accept multiple values:
 
 
 .. note::
-   You must use once only each option. Otherwise, only the last one is used.
+   Vous ne devez mettre qu'une seule fois chaque option. Autrement, seul le dernier argument sera utilisé.
 
 
 .. code-block:: shell
 
-   # Only test MySecondTest.php
+   # Ne test que MySecondTest.php
    $ ./bin/atoum -f MyFirstTest.php -f MySecondTest.php
 
-   # Only test MyThirdTest.php and MyFourthTest.php
+   # Ne test que MyThirdTest.php et MyFourthTest.php
    $ ./bin/atoum -f MyFirstTest.php MySecondTest.php -f MyThirdTest.php MyFourthTest.php
 
 
@@ -33,7 +33,7 @@ Configuration & bootstrap
 -bf <file> / --bootstrap-file <file>
 ====================================
 
-This option allows you to specify the path to the bootstrap file.
+Cette option vous permet de spécifier le chemin vers le fichier de bootstrap.
 
 .. code-block:: shell
 
@@ -46,14 +46,14 @@ This option allows you to specify the path to the bootstrap file.
 -c <file> / --configuration <file>
 ==================================
 
-This option allows you to specify the path to the configuration file used for running the tests.
+Cette option vous permet de spécifier le chemin vers le fichier de configuration à utiliser pour lancer les tests.
 
 .. code-block:: shell
 
    $ ./bin/atoum -c config/atoum.php
    $ ./bin/atoum --configuration tests/units/conf/coverage.php
 
-Filtering
+Filtrage
 *********
 
 .. _cli-options-directories:
@@ -61,7 +61,7 @@ Filtering
 -d <directories> / --directories <directories>
 ==============================================
 
-This option allows you to specify the tests directory(ies) to run.
+Cette option vous permet de spécifier le répertoire des test à exécuter.
 
 .. code-block:: shell
 
@@ -74,7 +74,7 @@ This option allows you to specify the tests directory(ies) to run.
 -f <files> / --files <files>
 ============================
 
-This option allows you to specify the test files to run.
+Cette option vous permet de spécifier le ou les fichiers de tests à lancer.
 
 .. code-block:: shell
 
@@ -87,7 +87,7 @@ This option allows you to specify the test files to run.
 -g <pattern> / --glob <pattern>
 ===============================
 
-This option allows you to specify the test files to launch based on a pattern.
+Cette option vous permet de spécifier les fichiers de tests à lancer en fonction d'un schéma.
 
 .. code-block:: shell
 
@@ -100,24 +100,24 @@ This option allows you to specify the test files to launch based on a pattern.
 -m <class::method> / --methods <class::methods>
 ===============================================
 
-This option allows you to filter the classes and methods to launch.
+Cette option vous permet de filtrer les classes et les méthodes à lancer.
 
 .. code-block:: shell
 
-   # launch only the method testMyMethod of the class vendor\\project\\test\\units\\myClass
+   # lance uniquement la méthode testMyMethod de la classe vendor\\project\\test\\units\\myClass
    $ ./bin/atoum -m vendor\\project\\test\\units\\myClass::testMyMethod
    $ ./bin/atoum --methods vendor\\project\\test\\units\\myClass::testMyMethod
 
-   # launche all the test methods in class vendor\\project\\test\\units\\myClass
+   # lance toutes les méthodes de test de la classe vendor\\project\\test\\units\\myClass
    $ ./bin/atoum -m vendor\\project\\test\\units\\myClass::*
    $ ./bin/atoum --methods vendor\\project\\test\\units\\myClass::*
 
-   # launche only methods named testMyMethod fromm all test classes
+   # lance uniquement les méthodes testMyMethod de toutes les classes de test
    $ ./bin/atoum -m *::testMyMethod
    $ ./bin/atoum --methods *::testMyMethod
 
 .. note::
-   Refer to the section on filters by :ref:`filtres-par-classe-ou-methode` for more information.
+   Reportez-vous à la section sur les filtres par :ref:`filtres-par-classe-ou-methode` pour avoir plus d'informations.
 
 
 .. _cli-options-ns:
@@ -125,7 +125,7 @@ This option allows you to filter the classes and methods to launch.
 -ns <namespaces> / --namespaces <namespaces>
 ============================================
 
-This option allows you to filter the classes and methods tested, based on namespaces.
+Cette option vous permet de filtrer les classes et les méthodes en fonction des espaces de noms.
 
 .. code-block:: shell
 
@@ -133,14 +133,14 @@ This option allows you to filter the classes and methods tested, based on namesp
    $ ./bin/atoum --namespaces mageekguy\\atoum\\tests\\units\\asserters
 
 .. note::
-   Refer to the section on filters  :ref:`filtres-par-namespace` for more information.
+   Reportez-vous à la section sur les filtres :ref:`filtres-par-namespace` pour avoir plus d'informations.
 
 .. _cli-options-tags:
 
 -t <tags> / --tags <tags>
 =========================
 
-This option allows you to filter the classes and methods to launch based on tags.
+Cette option vous permet de filtrer les classes et les méthodes à lancer en fonction des tags.
 
 .. code-block:: shell
 
@@ -148,7 +148,7 @@ This option allows you to filter the classes and methods to launch based on tags
    $ ./bin/atoum --tags OneTag TwoTag
 
 .. note::
-   Refer to the section on filters by :ref:`filtres-par-tag` for more information.
+   Reportez-vous à la section sur les filtres par :ref:`filtres-par-tag` pour avoir plus d'informations.
 
 
 .. _cli-options-test_all:
@@ -156,7 +156,7 @@ This option allows you to filter the classes and methods to launch based on tags
 --test-all
 ==========
 
-This option allows you to run the tests in directories defined in the configuration file through ``$script->addTestAllDirectory('path/to/directory')``.
+Cette option vous permet de lancer les tests se trouvant dans les répertoires définis dans le fichier de configuration via ``$script->addTestAllDirectory('path/to/directory')``.
 
 .. code-block:: shell
 
@@ -167,7 +167,7 @@ This option allows you to run the tests in directories defined in the configurat
 --test-it
 =========
 
-This option allows you to launch atoum own unit tests to check that it runs smoothly on your server.
+Cette option vous permet de lancer les propre test unitaire pour vérifier qu'atoum fonctionne parfaitement sur votre serveur.
 
 .. code-block:: shell
 
@@ -179,7 +179,7 @@ This option allows you to launch atoum own unit tests to check that it runs smoo
 -tfe <extensions> / --test-file-extensions <extensions>
 =======================================================
 
-This option allows you to specify the extensions of test files to run.
+Cette option vous permet de spécifier le ou les extensions des fichiers de tests à lancer.
 
 .. code-block:: shell
 
@@ -187,29 +187,29 @@ This option allows you to specify the extensions of test files to run.
    $ ./bin/atoum --test-file-extensions phpt php5t
 
 
-Debug & loop
-************
+Débugage & boucle
+*******************
 
 .. _cli-options-debug:
 
 --debug
 =======
 
-This option allows you to enable debug mode
+Cette option vous permet d'activer le mode debug
 
 .. code-block:: shell
 
    $ ./bin/atoum --debug
 
 .. note::
-   Refer to the section on the :ref:`le-mode-debug` for more information.
+   Reportez-vous à la section sur le :ref:`le-mode-debug` pour avoir plus d'informations.
 
 .. _cli-options-loop:
 
 -l / --loop
 ===========
 
-This option allows you to activate the loop mode of atoum.
+Cette option vous permet d'activer le mode loop d'atoum.
 
 .. code-block:: shell
 
@@ -217,18 +217,18 @@ This option allows you to activate the loop mode of atoum.
    $ ./bin/atoum --loop
 
 .. note::
-   Refer to the section on the :ref:`mode-loop` for more information.
+   Reportez-vous à la section sur le :ref:`mode-loop` pour avoir plus d'informations.
 
 
-Coverage & reports
-******************
+Couverture & rapports
+***********************
 
 .. _cli-options-report-title:
 
 -drt <string> / --default-report-title <string>
 ===============================================
 
-This option allow you to specify atoum reports default title.
+Cette option permet de spécifier le titre par défaut du rapport d'atoum.
 
 .. code-block:: shell
 
@@ -236,7 +236,7 @@ This option allow you to specify atoum reports default title.
    $ ./bin/atoum --default-report-title "My Title"
 
 .. note::
-   If the title contains spaces, you must surround it with quotes.
+   Si le titre comporte des espaces, il faut obligatoirement l'entourer de guillemets.
 
 
 .. _cli-options-force_terminal:
@@ -244,7 +244,7 @@ This option allow you to specify atoum reports default title.
 -ft / --force-terminal
 ======================
 
-This option allows you to force the output to the terminal.
+Cette option vous permet de forcer la sortie vers le terminal.
 
 .. code-block:: shell
 
@@ -257,7 +257,7 @@ This option allows you to force the output to the terminal.
 -sf <file> / --score-file <file>
 ================================
 
-This option allows you to specify the path to the output file created by atoum.
+Cette option vous permet de spécifier le chemin vers le fichier des résultats créé par atoum.
 
 .. code-block:: shell
 
@@ -269,7 +269,7 @@ This option allows you to specify the path to the output file created by atoum.
 -ncc / --no-code-coverage
 =========================
 
-This option allows you to disable the generation of the code coverage report.
+Cette option vous permet de désactiver la génération du rapport de la couverture de code.
 
 .. code-block:: shell
 
@@ -282,7 +282,7 @@ This option allows you to disable the generation of the code coverage report.
 -nccfc <classes> / --no-code-coverage-for-classes <classes>
 ===========================================================
 
-This option allows you to disable the generation of the code coverage report for one or more class.
+Cette option vous permet de désactiver la génération du rapport de couverture de code pour un ou plusieurs classes.
 
 .. code-block:: shell
 
@@ -290,7 +290,7 @@ This option allows you to disable the generation of the code coverage report for
    $ ./bin/atoum --no-code-coverage-for-classes vendor\\project\\db\\mysql vendor\\project\\db\\pgsql
 
 .. note::
-   It's important to double each backslash to avoid they interpretation by the shell.
+   Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
 
 
 .. _cli-options-nccfns:
@@ -298,7 +298,7 @@ This option allows you to disable the generation of the code coverage report for
 -nccfns <namespaces> / --no-code-coverage-for-namespaces <namespaces>
 =====================================================================
 
-This option allows you to disable the generation of the code coverage report for one or more namespaces.
+Cette option vous permet de désactiver la génération du rapport de couverture de code pour un ou plusieurs classes.
 
 .. code-block:: shell
 
@@ -306,7 +306,7 @@ This option allows you to disable the generation of the code coverage report for
    $ ./bin/atoum --no-code-coverage-for-namespaces vendor\\outside\\lib1 vendor\\outside\\lib2
 
 .. note::
-   It's important to double each backslash to avoid they interpretation by the shell.
+   Il est important de doubler chaque backslash pour éviter qu'ils soient interprétés par le shell.
 
 
 .. _cli-options-nccid:
@@ -314,7 +314,7 @@ This option allows you to disable the generation of the code coverage report for
 -nccid <directories> / --no-code-coverage-in-directories <directories>
 ======================================================================
 
-This option allows you to disable the generation of the code coverage report for one or more directories.
+Cette option vous permet de désactiver la génération du rapport de couverture de code pour un ou plusieurs classes.
 
 .. code-block:: shell
 
@@ -326,7 +326,7 @@ This option allows you to disable the generation of the code coverage report for
 -ulr / --use-light-report
 =========================
 
-This option allows you to reduce the output generated by atoum.
+Cette option vous permet d'alléger la sortie généré par atoum.
 
 .. code-block:: shell
 
@@ -355,7 +355,7 @@ This option allows you to reduce the output generated by atoum.
    [SSSSSSSSSSSSSSSSSSSS________________________________________][1141/1141]
    Success (154 tests, 1141/1141 methods, 0 void method, 0 skipped method, 16875 assertions) !
 
-Failure & success
+Échec & succès
 *****************
 
 .. _cli-options-fivm:
@@ -364,7 +364,7 @@ Failure & success
 =============================
 
 
-This option makes the test suite fail if there is at least one void test method.
+Cette option va faire échouer la suite de tests s'il y a au moins une méthode vide.
 
 .. code-block:: shell
 
@@ -377,14 +377,14 @@ This option makes the test suite fail if there is at least one void test method.
 -fism, --fail-if-skipped-methods
 ================================
 
-This option makes the test suite fail if there is at least one skipped test method
+Cette option va faire échouer la suite de tests s'il y a au moins une méthode ignorée
 
 .. code-block:: shell
 
    $ ./bin/atoum -fism
    $ ./bin/atoum --fail-if-skipped-methods
 
-Other arguments
+Autres arguments
 ***************
 
 .. _cli-options-max_children_number:
@@ -392,7 +392,7 @@ Other arguments
 -mcn <integer> / --max-children-number <integer>
 ================================================
 
-This option allows you to set the maximum number of processes launched to run the tests.
+Cette option vous permet de définir le nombre maximum de processus lancés pour exécuter les tests.
 
 .. code-block:: shell
 
@@ -404,26 +404,26 @@ This option allows you to set the maximum number of processes launched to run th
 -p <file> / --php <file>
 ========================
 
-This option allows you to specify the path to the php executable used to run your tests.
+Cette option vous permet de spécifier le chemin de l'exécutable php à utiliser pour lancer vos tests.
 
 .. code-block:: shell
 
    $ ./bin/atoum -p /usr/bin/php5
    $ ./bin/atoum --php /usr/bin/php5
 
-By default, the value is search amongst the following values (in order):
+Par défaut, la valeur est recherchée parmi les valeurs suivantes (dans l'ordre) :
 
-* PHP_BINARY constant
-* PHP_PEAR_PHP_BIN environment variable
-* PHPBIN environment variable
-* constant PHP_BINDIR + '/php'
+* constante PHP_BINARY
+* variable d'environnement PHP_PEAR_PHP_BIN
+* variable d'environnement PHPBIN
+* constante PHP_BINDIR + '/php'
 
 .. _cli-options-help:
 
 -h / --help
 ===========
 
-This option allows you to display a list of available options.
+Cette option vous permet d'afficher la liste des options disponibles.
 
 .. code-block:: shell
 
@@ -435,7 +435,7 @@ This option allows you to display a list of available options.
 -v / --version
 ==============
 
-This option allows you to display the current version of atoum.
+Cette option vous permet d'afficher la version courante d'atoum.
 
 .. code-block:: shell
 

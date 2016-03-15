@@ -2,7 +2,7 @@
 .. _start_with_atoum:
 
 Démarrer avec atoum
-#################
+###################
 
 Vous devez d'abord :ref:`l'installer <installation>`, et puis essayez de démarrer votre :ref:`premier test<first-tests>`. Mais pour comprendre comment le faire, vous devez de garder à l'esprit de la philosophie d'atoum.
 
