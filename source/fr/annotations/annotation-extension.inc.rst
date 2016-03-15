@@ -3,7 +3,7 @@
 PHP Extensions
 **************
 
-Some of your tests may require one or more PHP extension(s). Telling atoum that a test requires an extension is easily done through annotations and the tag ``@extensions``. After the tag ``@extensions``, just add one or more extension names, separated by a space.
+Certains des tests peuvent requérire une ou plusieurs extensions PHP. atoum permet de définir cela directement à travers une annotation ``@extensions``. Après l'annotation ``@extensions``, ajouter simplement le nom d'une ou plusieurs extension, séparé par une virgule.
 
 
 .. code-block:: php
@@ -23,7 +23,7 @@ Some of your tests may require one or more PHP extension(s). Telling atoum that 
        }
    }
 
-The test will only be executed if the extension is present. If not the test will be skipped and this message will be displayed.
+Le test ne sera exécuter que si l'extension intl est présente. Dans le cas contraire, le test sera passé et le message suivant sera affiché.
 
 .. code-block:: shell
 
@@ -31,5 +31,5 @@ The test will only be executed if the extension is present. If not the test will
 
 
 .. note::
-   By default the tests will pass when a test is skipped. But you can use the :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` command line option to make the test fail when an extension is not present.
+   Par défaut, le test passe lorsqu'il est passé. Mais vous pouvez utiliser :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` l'option de la ligne de commande afin de faire échoué les tests passés.
 

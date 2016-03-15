@@ -3,9 +3,9 @@
 PHP Version
 ***********
 
-Some of your tests may require a specific version of PHP to work (for example, the test may only work on PHP 7). Telling atoum that the test requires a version of PHP is done through annotations and the tag ``@php``.
+Certain de vos test peuvent requérir une version spécifique de PHP pour fonctionner (par exemple, pour certains test ne fonctionnant que avec PHP 7). Dire à atoum qu'un test require une version spécifique de PHP est fait à travers l'annotation ``@php``.
 
-By default, without providing any operator, the tests will only be executed if the PHP version is greater or equal to the version in the tag:
+Par défaut, sans fournir d'opérateur, le test ne sera exécuté que si la version de PHP est supérieur ou égale à la version du tag in the tag :
 
 .. code-block:: php
 
@@ -14,10 +14,10 @@ By default, without providing any operator, the tests will only be executed if t
     */
    public function testMethod()
    {
-      // test content
+      // contenu du test
    }
 
-With this example the test will only be executed if the PHP version is greater of equal to PHP 7.0. If not the test will be skipped and this message will be displayed:
+Dans cette exemple, le test ne sera exécuté que si la version de PHP est supérieur ou égale à PHP 7.0. Dans le cas contraire, le test sera passé et le message suivant sera affiché :
 
 .. code-block:: shell
 
@@ -25,13 +25,13 @@ With this example the test will only be executed if the PHP version is greater o
 
 
 .. note::
-   By default the tests will pass when a test is skipped. But you can use the :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` command line option to make the test fail when an extension is not present.
+   Par défaut, le test passe lorsqu'il est passé. Mais vous pouvez utiliser :ref:`--fail-if-skipped-methods<cli-opts-fail-if-skipped-methods>` l'option de la ligne de commande afin de faire échoué les tests passés.
 
-Internally, atoum uses PHP's `version_compare <http://php.net/version_compare>`_ function to do the comparison.
+En interne, atoum utilise le `comparateur de version de PHP <http://php.net/version_compare>`_ pour effectuer la comparaison.
 
-You're not limited to the greater equal operator. You can pass any version_compare operator.
+Vous n'êtes pas limité à l'opérateur égale ou supérieur. Vous pouvez passé tout les opérateurs de version_compare.
 
-For example:
+Par exemple :
 
 .. code-block:: php
 
@@ -40,16 +40,16 @@ For example:
     */
    public function testMethod()
    {
-      // test content
+      // contenu du test
    }
 
-Will skip the test if the PHP version is greater or equal to 5.4
+Va passé le test si la version de PHP est supérieur ou égal à PHP 5.4
 
 .. code-block:: shell
 
    vendor\project\tests\units\foo::testBar(): PHP version 5.5.9-1ubuntu4.5 is not < to 5.4
 
-You can also pass multiple conditions, with multiple ``@php`` annotations. For example:
+Vous pouvez aussi utilisé de multiple condition, avec l'annotation ``@php``. Par exemple :
 
 .. code-block:: php
 
@@ -59,5 +59,5 @@ You can also pass multiple conditions, with multiple ``@php`` annotations. For e
     */
    public function testMethod()
    {
-      // test content
+      // contenu du test
    }
