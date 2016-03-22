@@ -1,17 +1,17 @@
 
 .. _first-tests:
 
-First Tests
+Premiers tests
 ##################
 
-You need to write a test class for each tested class.
+Vous avez besoin d'écrire une classe de test pour chaque classe testé.
 
-Imagine that you want to test the traditional class ``HelloWorld``, then you must create the test class ``test\units\HelloWorld``.
+Imaginez que vous vouliez tester la traditionnelle classe ``HelloWorld``, alors vous devez créer la classe de test ``test\units\HelloWorld``.
 
 .. note::
-	atoum use namespace. For example, to test the ``Vendor\Project\HelloWorld`` class, you must create the class ``Vendor\Project\tests\units\HelloWorld`` or ``tests\units\Vendor\Project\HelloWorld``.
+	atoum utilise les espaces de noms. Par exemple, pour tester la classe ``Vendor\Project\HelloWorld``, vous devez créer la classe ``Vendor\Project\tests\units\HelloWorld``.
 
-Here is the code of the ``HelloWorld`` class that we will test.
+Voici le code de la classe ``HelloWorld`` que nous allons tester.
 
 .. code-block:: php
 
@@ -29,15 +29,15 @@ Here is the code of the ``HelloWorld`` class that we will test.
    }
 
 
-Now, here is the code of the test class that we could write.
+Maintenant, voici le code de la classe de test que nous pourrions écrire.
 
 .. code-block:: php
 
    <?php
    # src/Vendor/Project/tests/units/HelloWorld.php
 
-   // The test class has is own namespace :
-   // The namespace of the tested class + "test\units"
+   // La classe de test a son propre namespace :
+   // Le namespace de la classe à tester + "tests\units"
    namespace Vendor\Project\tests\units;
 
    // You must include the tested class (if you have no autoloader)
@@ -46,36 +46,36 @@ Now, here is the code of the test class that we could write.
    use atoum;
 
    /*
-    * Test class for Vendor\Project\HelloWorld
+    * Classe de test pour Vendor\Project\HelloWorld
     *
-    * Note that they had the same name that the tested class
-    * and that it derives frim the atoum class
+    * Remarquez qu'elle porte le même nom que la classe à tester
+    * et qu'elle dérive de la classe atoum
     */
    class HelloWorld extends atoum
    {
        /*
-        * This method is dedicated to the getHiAtoum() method
+        * Cette méthode est dédiée à la méthode getHiAtoum()
         */
        public function testGetHiAtoum ()
        {
            $this
-               // creation of a new instance of the tested class
+               // création d'une nouvelle instance de la classe à tester
                ->given($this->newTestedInstance)
 
                ->then
 
-	               // we test that the getHiAtoum method returns
-	               // a string...
+	               // nous testons que la méthode getHiAtoum retourne bien
+	               // une chaîne de caractère...
 	               ->string($this->testedInstance->getHiAtoum())
-	                   // ... and that this string is the one we want,
-	                   // namely 'Hi atoum !'
+	                   // ... et que la chaîne est bien celle attendue,
+	                   // c'est-à-dire 'Hi atoum !'
 	                   ->isEqualTo('Hi atoum !')
            ;
        }
    }
 
-Now, launch our tests.
-You should see something like this:
+Maintenant, lançons nos tests.
+Vous devriez voir quelque chose comme ça :
 
 .. code-block:: shell
 
@@ -95,12 +95,12 @@ You should see something like this:
    Success (1 test, 1/1 method, 0 void method, 0 skipped method, 2 assertions)!
 
 
-We just test that the method ``getHiAtoum``:
+Nous venons de tester que la méthode ``getHiAtoum`` :
 
-* returns a :ref:`string<string-anchor>`;
+* retourne une :ref:`chaîne de caractère <string-anchor>`;
 * that :ref:`is equals to<string-is-equal-to>` ``"Hi atoum !"``.
 
-The tests are passed, everything is green. Here, your code is solid as a rock with atoum!
+Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
 
 
 Dissecting the test

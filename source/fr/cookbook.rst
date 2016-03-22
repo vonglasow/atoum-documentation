@@ -3,7 +3,7 @@
 Cookbook
 ########
 
-.. include:: cookbooks/receipt.inc.rst
+.. include:: cookbooks/recette.inc.rst
 .. include:: cookbooks/hook.inc.rst
-.. include:: cookbooks/tools.inc.rst
+.. include:: cookbooks/outils.inc.rst
 .. include:: cookbooks/framework.inc.rst

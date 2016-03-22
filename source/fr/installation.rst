@@ -4,46 +4,46 @@
 Installation
 ************
 
-If you want to use it, simply download the latest version.
+Si vous souhaitez l'utiliser, il vous suffit de télécharger la dernière version.
 
-You can install atom from several ways:
+Vous pouvez installer atoum de plusieurs manières :
 
-* by downloading the `PHAR archive`_ ;
-* with `composer`_;
-* by cloning the `Github`_ repository;
-* see also the :ref:`integration with your frameworks <utilisation-avec-frameworks>`.
+* en téléchargeant l'`archive PHAR`_ ;
+* à l'aide de `Composer`_ ;
+* en clonant le dépôt `Github`_ ;
+* voir aussi :ref:`l'integration d'atoum dans votre frameworks <utilisation-avec-frameworks>`.
 
 
 .. _archive-phar:
 
-PHAR archive
+Archive PHAR
 ============
 
-A PHAR (PHp ARchive) is created automatically on each modification of atoum.
+Une archive PHAR (PHp ARchive) est créée automatiquement à chaque modification d'atoum.
 
-PHAR is an archive format for PHP application.
+PHAR est un format d'archive applicative pour PHP.
 
 
 Installation
 ------------
 
-You can download the latest stable version of atoum directly from the official website: `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
+Vous pouvez télécharger la dernière version stable d'atoum directement depuis le site officiel : `http://downloads.atoum.org/nightly/mageekguy.atoum.phar <http://downloads.atoum.org/nightly/mageekguy.atoum.phar>`_
 
 
-Update
------------
+Mise à jour
+----------------------
 
-The process to update the archive is very simple. Just run the following command:
+La mise à jour de l'archive est très simple. Il vous suffit de lancer la commande suivante :
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar --update
 
 .. note::
-	Update process modify the PHAR archive. But the default PHP configuration doesn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
+	Le processus de mise à jour modifie l'archive PHAR. Cependant, par défaut la configuration de PHP ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
 
-If a newer version is available then it will be downloaded automatically and installed in the archive:
+Si une version plus récente existe, elle sera alors téléchargée automatiquement et installée au sein de l'archive :
 
 .. code-block:: shell
 
@@ -53,7 +53,7 @@ If a newer version is available then it will be downloaded automatically and ins
    Enable version 'nightly-2416-201402121146'... Done !
    Atoum was updated to version 'nightly-2416-201402121146' successfully !
 
-If there is no newer version, atoum will stop immediately:
+S'il n'existe pas de version plus récente, atoum s'arrêtera immédiatement :
 
 .. code-block:: shell
 
@@ -61,12 +61,12 @@ If there is no newer version, atoum will stop immediately:
    Checking if a new version is available... Done !
    There is no new version available !
 
-atoum doesn't require any confirmation from the user to be upgraded, because it's very easy to get back to a previous version.
+atoum ne demande aucune confirmation de la part de l'utilisateur pour réaliser la mise à jour, car il est très facile de revenir à une version précédente.
 
-List the versions contained in the archive
---------------------------------------------
+Lister les versions contenues dans l'archive
+--------------------------------------------------------
 
-You can list archive contained versions by using the argument ``--list-available-versions``, or ``-lav``:
+Vous pouvez lister les versions disponibles dans les archives en utilisant ``--list-available-versions`` ou ``-lav``:
 
 .. code-block:: shell
 
@@ -75,39 +75,39 @@ You can list archive contained versions by using the argument ``--list-available
      nightly-1568-201210311708
    * nightly-2416-201402121146
 
-The list of versions in the archive is displayed, the currently active version being preceded by ``*``.
+La liste des versions présentes dans l'archive est alors affichée, la version actuellement active étant précédée de ``*``.
 
-Change the current version
----------------------------
+Changer la version courante
+-----------------------------------
 
-To activate another version, just use the argument ``--enable-version``, or ``-ev``, followed by the name of the version to use:
+Pour activer une autre version, il suffit d'utiliser l'argument ``--enable-version``, ou ``-ev`` en version abrégée, suivi du nom de la version à utiliser :
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar -ev DEVELOPMENT
 
 .. note::
-	The modification of the current version requires the modification of the PHAR archive. However, by default, the configuration of PHP desn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
+	La modification de la version courante nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
 
-Deleting older versions
---------------------------------
+Suppression d'anciennes versions
+-----------------------------------------
 
-Over time, the archive may contain multiple versions of atoum who are no longer used.
+Au cours du temps, l'archive peut contenir plusieurs versions d'atoum qui ne sont plus utilisées.
 
-To remove them, just use the argument ``--delete-version``, or ``-dv`` followed by the name of the version to deleted:
+Pour les supprimer, il suffit d'utiliser l'argument ``--delete-version``, ou ``-dv`` dans sa version abrégée, suivi du nom de la version à supprimer :
 
 .. code-block:: shell
 
    $ php -d phar.readonly=0 mageekguy.atoum.phar -dv nightly-941-201201011548
 
-The version is then removed.
+La version est alors supprimée.
 
 .. warning::
-	It's not possible to delete the current version.
+	Il n'est pas possible de supprimer la version active.
 
 .. note::
-	Deleting a version requires the modification of the PHAR archive. However, by default, the configuration of PHP desn't allow it. This is why it is mandatory to use the directive ``-d phar.readonly=0``.
+	La suppression d'une version nécessite la modification de l'archive PHAR. Or par défaut, la configuration de php ne l'autorise pas. Voilà pourquoi il faut utiliser la directive ``-d phar.readonly=0``.
 
 
 .. _installation-par-composer:
@@ -115,15 +115,15 @@ The version is then removed.
 Composer
 ========
 
-`Composer <http://getcomposer.org>`_ is a dependency management tool in PHP.
+`Composer <http://getcomposer.org>`_ est un outil de gestion de dépendance en PHP.
 
-Start by installing composer:
+Commencez par installer composer :
 
 .. code-block:: shell
 
    $ curl -s https://getcomposer.org/installer | php
 
-Then create a file ``composer.json`` containing the following JSON (JavaScript Object Notation):
+Créez ensuite un fichier ``composer.json`` contenant le JSON (JavaScript Object Notation) suivant :
 
 .. code-block:: json
 
@@ -133,7 +133,7 @@ Then create a file ``composer.json`` containing the following JSON (JavaScript O
        }
    }
 
-Finally, run the following command:
+Enfin, exécutez la commande suivante :
 
 .. code-block:: shell
 
@@ -145,4 +145,4 @@ Finally, run the following command:
 Github
 ======
 
-If you want to use atoum directly from its sources, you can clone or « fork » the github repository: git://github.com/atoum/atoum.git
+Si vous souhaitez utiliser atoum directement depuis ses sources, vous pouvez cloner ou « forker » le dépôt github : `git://github.com/atoum/atoum.git <git://github.com/atoum/atoum.git>`_

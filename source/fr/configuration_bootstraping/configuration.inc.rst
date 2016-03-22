@@ -1,17 +1,17 @@
 .. _fichier-de-configuration:
 
-Configuration file
+Fichier de configuration
 ************************
 
-If you name your configuration file ``.atoum.php``, atoum will load it automatically if this file is located in the current directory. The ``-c`` parameter is optional in this case.
+Si vous nommez votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement si ce fichier se trouve dans le répertoire courant. Le paramètre ``-c`` est donc optionnel dans ce cas.
 
 
-Code coverage
+Couverture du code
 ==================
 
-By default, if PHP has the extension `Xdebug <http://xdebug.org>`_, atoum indicates in command line report, the rate of tests code coverage.
+Par défaut, si PHP dispose de l'extension `Xdebug <http://xdebug.org>`_, atoum indique en ligne de commande le taux de couverture du code par les tests venant d'être exécutés.
 
-If the coverage rate is 100%, atoum merely indicated. But otherwise, it displays the overall coverage and that of each method of the class tested in the form of a percentage.
+Si le taux de couverture est de 100%, atoum se contente de l'indiquer. Mais dans le cas contraire, il affiche le taux de couverture globale ainsi que celui de chaque méthode de la classe testée sous la forme d'un pourcentage.
 
 .. code-block:: shell
 
@@ -40,49 +40,49 @@ If the coverage rate is 100%, atoum merely indicated. But otherwise, it displays
    > Running duration: 2.36 seconds.
    Success (1 test, 27 methods, 485 assertions, 0 error, 0 exception) !
 
-However, it is possible to get a more accurate representation of the rate of code coverage by tests, in HTML report.
+Il est cependant possible d'obtenir une représentation plus précise du taux de couverture du code par les tests, sous la forme d'un rapport au format HTML.
 
-To get it, simply rely on models of configuration files included in atoum.
+Pour l'obtenir, il suffit de se baser sur les modèles de fichiers de configuration inclus dans atoum.
 
-If you use the PHAR archive, it must retrieve them by using the following command:
+Si vous utlisez l'archive PHAR, il faut les extraire en utilisant la commande suivante :
 
 .. code-block:: php
 
    php mageekguy.atoum.phar -er /path/to/destination/directory
 
-Once the extraction is done, you should have in the "directory/path/to/destination/directory" a directory called "resources/configurations/runner".
+Une fois l'extraction effectuée, vous devriez avoir dans le répertoire /path/to/destination/directory un répertoire nommé resources/configurations/runner.
 
-If you are using atoum with a github repository clone :ref:`installation-par-github` or with composer :ref:`installation-par-composer`, the models can be found in ``/path/to/atoum/resources/configurations/runner``
+Dans le cas où vous utilisez atoum en ayant cloné le dépôt :ref:`installation-par-github` ou l'ayant installé via :ref:`installation-par-composer`, les modèles se trouvent dans ``/path/to/atoum/resources/configurations/runner``
 
-In this directory, there is, among other interesting things, a template of configuration file for atoum named ``coverage.php.dist`` that you need to copy to the location of your choice. Rename the ``coverage.php``.
+Dans ce répertoire, il y a, entre autre chose intéressante, un modèle de fichier de configuration pour atoum nommé ``coverage.php.dist`` qu'il vous faudra copier à l'emplacement de votre choix. Renommez le ``coverage.php``.
 
-After copying the file, just have to change it with the editor of your choice to define the directory where the HTML files will be generated and the URL from which the report should be accessible.
+Une fois le fichier copié, il n'y a plus qu'à le modifier à l'aide de l'éditeur de votre choix afin de définir le répertoire dans lequel les fichiers HTML devront être générés ainsi que l'URL à partir de laquelle le rapport devra être accessible.
 
-For exemple:
+Par exemple :
 
 .. code-block:: php
 
    $coverageField = new atoum\report\fields\runner\coverage\html(
-       'Code coverage of my project',
+       'Code coverage de mon projet',
        '/path/to/destination/directory'
    );
 
    $coverageField->setRootUrl('http://url/of/web/site');
 
 .. note::
-   It is also possible to change the title of the report using the first argument to the constructor of the class ``mageekguy\atoum\report\fields\runner\coverage\html``.
+   Il est également possible de modifier le titre du rapport à l'aide du premier argument du constructeur de la classe ``mageekguy\atoum\report\fields\runner\coverage\html``.
 
 
-Once this is done, you just have to use the configuration file when running the tests, as follows:
+Une fois tout cela effectué, il n'y a plus qu'à utiliser le fichier de configuration lors de l'exécution des tests, de la manière suivante :
 
 .. code-block:: shell
 
    $ ./bin/atoum -c path/to/coverage.php -d tests/units
 
-Once the tests run, atoum generate the code coverage report in HTML format in the directory that you set earlier, and it will be readable using the browser of your choice.
+Une fois les tests exécutés, atoum génèrera alors le rapport de couverture du code au format HTML dans le répertoire que vous aurez défini précédemment, et il sera lisible à l'aide du navigateur de votre choix.
 
 .. note::
-   The calculation of code coverage by tests as well as the generation of the corresponding report may slow significantly the performance of the tests. Then it can be interesting, not to systematically use the corresponding configuration file, or disable them temporarily using the -ncc argument.
+   Le calcul du taux de couverture du code par les tests ainsi que la génération du rapport correspondant peuvent ralentir de manière notable l'exécution des tests. Il peut être alors intéressant de ne pas utiliser systématiquement le fichier de configuration correspondant, ou bien de les désactiver temporairement à l'aide de l'argument -ncc.
 
 
 .. _notifications-anchor:
@@ -90,21 +90,21 @@ Once the tests run, atoum generate the code coverage report in HTML format in th
 Notifications
 =============
 
-atoum is able to warn you when the tests are run using several notification system: `Growl`_, `Mac OS X Notification Center`_, `Libnotify`_.
+atoum est capable de vous prévenir lorsque les tests sont exécutés en utilisant plusieurs systèmes de notification : `Growl`_, `Mac OS X Notification Center`_, `Libnotify`_.
 
 
 Growl
 -----
 
-This feature requires the presence of the executable ``growlnotify``. To check if it is available, use the following command:
+Cette fonctionnalité nécessite la présence de l'exécutable ``growlnotify``. Pour vérifier s'il est disponible, utilisez la commande suivante :
 
 .. code-block:: shell
 
    $ which growlnotify
 
-You will have the path to the executable or the message ``growlnotify not found`` if it is not installed.
+Vous aurez alors le chemin de l'exécutable ou alors le message ``growlnotify not found`` s'il n'est pas installé.
 
-Then just add the following code to your configuration file:
+Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 
 .. code-block:: php
 
@@ -124,19 +124,19 @@ Then just add the following code to your configuration file:
 Mac OS X Notification Center
 ----------------------------
 
-This feature uses the ``terminal-notifier`` utility. To check if it is available, use the following command:
+Cette fonctionnalité nécessite la présence de l'exécutable ``terminal-notifier``. Pour vérifier s'il est disponible, utilisez la commande suivante :
 
 .. code-block:: shell
 
    $ which terminal-notifier
 
-You will have the path to the executable or the message ``terminal-notifier not found`` if it is not installed.
+Vous aurez alors le chemin de l'exécutable ou alors le message ``terminal-notifier not found`` s'il n'est pas installé.
 
 .. note::
-   Visit `the project's Github page <https://github.com/alloy/terminal-notifier>`_ to get more information on ``terminal-notifier``.
+   Rendez-vous sur `la page Github du projet <https://github.com/alloy/terminal-notifier>`_ pour obtenir plus d'information sur l'installation de ``terminal-notifier``.
 
 
-Then just add the following code to your configuration file:
+Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 
 .. code-block:: php
 
@@ -146,7 +146,7 @@ Then just add the following code to your configuration file:
    $report = $script->AddDefaultReport();
    $report->addField($notifier, array(atoum\runner::runStop));
 
-On OS X, you can define a command to be executed when the user clicks on the notification.
+Sous OS X, vous avez la possibilité de définir une commande qui sera exécutée lorsque l'utilisateur cliquera sur la notification.
 
 .. code-block:: php
 
@@ -166,21 +166,21 @@ On OS X, you can define a command to be executed when the user clicks on the not
        ->addField($notifier, array(atoum\runner::runStop))
    ;
 
-The example above shows how to automatically open the code coverage report when the user clicks on the notification.
+L'exemple ci-dessus montre comment ouvrir le rapport de couverture du code lorsque l'utilisateur clique sur la notification.
 
 
 Libnotify
 ---------
 
-This feature requires the presence of the executable ``notify-send``. To check if it is available, use the following command:
+Cette fonctionnalité nécessite la présence de l'exécutable ``notify-send``. Pour vérifier s'il est disponible, utilisez la commande suivante :
 
 .. code-block:: shell
 
    $ which notify-send
 
-You will have the path to the executable or the message ``notify-send not found`` if it is not installed.
+Vous aurez alors le chemin de l'exécutable ou alors le message ``notify-send not found`` s'il n'est pas installé.
 
-Then just add the following code to your configuration file:
+Il suffit ensuite d'ajouter le code suivant à votre fichier de configuration :
 
 .. code-block:: php
 

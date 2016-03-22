@@ -1,42 +1,42 @@
 
 .. _bootstrap_file:
 
-Bootstrap file
+Fichier de bootstrap
 ********************
 
-atoum allows the definition of a ``bootstrap`` file, which will be run before each test method and which therefore allows to initialize the test execution environment.
+atoum autorise la définition d'un fichier de ``bootstrap`` qui sera exécuté avant chaque méthode de test et qui permet donc d'initialiser l'environnement d'exécution des tests.
 
-This makes it possible to define, for example, an autoloading classes, read a configuration file or perform any other operation necessary for the proper performance of the tests.
+Il devient ainsi possible de définir, par exemple, une fonction d'auto-chargement de classes, de lire un fichier de configuration ou de réaliser toute autre opération nécessaire à la bonne exécution des tests.
 
-The definition of this ``bootstrap`` file can be done in two different ways, either in command line, or via a configuration file. If you name your bootstrap file ``.bootstrap.atoum.php``, atoum will load it automatically if this file is located in the directory where you launch atoum.
+La définition de ce fichier de ``bootstrap`` peut se faire de deux façons différentes, soit en ligne de commande, soit via un fichier de configuration. Si vous nommez votre fichier de bootstrap ``.bootstrap.atoum.php``, atoum le chargera automatiquement si ce fichier se trouve dans le répertoire courant d'où vous lancer atoum.
 
-In command line, you should use the ``-bf`` or ``--bootstrap-file`` argument followed by the absolute or relative path to the concerned file:
+En ligne de commande, il faut utiliser au choix l'argument ``-bf`` ou l'argument ``--bootstrap-file`` suivi du chemin relatif ou absolu vers le fichier concerné :
 
 .. code-block:: shell
 
    $ ./bin/atoum -bf path/to/bootstrap/file
 
 .. note::
-   A bootstrap file is not a configuration file and therefore does not have the same opportunities.
+   Un fichier de bootstrap n'est pas un fichier de configuration et n'a donc pas les mêmes possibilités.
 
 .. _framework-zend-framework-2:
 
-In a configuration file, atoum is configurable via the ``$runner`` variable, which is not defined in a ``bootstrap`` file.
+Dans un fichier de configuration, atoum est configurable via la variable ``$runner``, qui n'est pas définie dans un fichier de ``bootstrap``.
 
-Moreover, they are not included at the same time, since the configurations file is included by atoum before the tests run but after tests launch, while the ``bootstrap``, if it's define, is the first file included by atoum itself. Finally, the ``bootstrap`` file can allow to not have to systematically include the ``scripts/runner.php`` file or atoum PHAR archive in test classes.
+De plus, ils ne sont pas inclus au même moment, puisque le fichier de configuration est inclus par atoum avant le début de l'exécution des tests mais après le lancement des tests, alors que le fichier de ``bootstrap``, s'il est défini, est le tout premier fichier inclus par atoum proprement dit. Enfin, le fichier de ``bootstrap`` peut permettre de ne pas avoir à inclure systématiquement le fichier ``scripts/runner.php`` ou l'archive PHAR de atoum dans les classes de test.
 
-However, in this case, it will not be possible to directly execute a test file directly from the PHP executable in command line.
+Cependant, dans ce cas, il ne sera plus possible d'exécuter directement un fichier de test directement via l'exécutable PHP en ligne de commande.
 
-To do this, simply include in the ``bootstrap`` the file ``scripts/runner.php`` or PHAR archive of atoum and systematically execute tests by command line via ``scripts/runner.php`` or PHAR archive.
+Pour cela, il suffit d'inclure dans le fichier de ``bootstrap`` le fichier ``scripts/runner.php`` ou l'archive PHAR d’atoum et d'exécuter systématiquement les tests en ligne de commande via ``scripts/runner.php`` ou l'archive PHAR.
 
-Therefore, the ``bootstrap`` file must at least contain this:
+Le fichier de ``bootstrap`` doit donc au minimum contenir ceci :
 
 .. code-block:: php
 
    <?php
 
-   // if the PHAR archive is used:
+   // si l'archive PHAR est utilisée :
    require_once path/to/mageekguy.atoum.phar;
 
-   // or if sources is used:
+   // ou si les sources sont utilisées :
    // require_once path/atoum/scripts/runner.php

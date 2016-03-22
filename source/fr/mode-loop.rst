@@ -1,33 +1,33 @@
 
 .. _mode-loop:
 
-Loop mode
-#########
+Mode répétition
+#############
 
-When a developer doing TDD (test-driven development), it usually works as following:
+Lorsqu'un développeur fait du développement piloté par les tests, il travaille généralement de la manière suivante :
 
-#. He start writing test corresponding to what he wants to develop ;
-#. then runs the test created ;
-#. then writes the code to pass the test ;
-#. then amends or complete his test and go back to step 2.
+#. il commence par créer le test correspondant à ce qu'il veut développer ;
+#. il exécute ensuite le test qu'il vient de créer ;
+#. il écrit le code permettant au test de passer avec succès ;
+#. il modifie ou complète son test et repars à l'étape 2.
 
-In practice, this means that he must:
+Concrètement, cela signifie qu'il doit :
 
-* create its code in his favourite editor ;
-* exit the editor and then run its test in a console ;
-* return to his editor to write the code that enables the test to pass ;
-* return to the console to restart its test execution ;
-* return to his publisher in order to amend or supplement its test ;
+* créer son code dans son éditeur favori ;
+* quitter son éditeur puis exécuter son test dans une console ;
+* revenir à son éditeur pour écrire le code permettant au test de passer avec succès ;
+* revenir à la console afin de relancer l'exécution de son test ;
+* revenir à son éditeur afin de modifier ou compléter son test ;
 
-There is therefore a cycle that will be repeated as long as the functionality haven't been developed entirely.
+Il y a donc bien un cycle qui se répétera tant que la fonctionnalité n'aura pas été développée dans son intégralité.
 
-We can notice that, during this cycle, the developer must relaunch repeatedly the same command in the terminal to run the unit tests.
+On peut remarquer que, durant ce cycle, le développeur devra saisir de manière récurrente la même commande dans le terminal afin de lancer l'exécution des tests unitaires.
 
-atoum offers the ``loop`` mode via the arguments ``-l`` or ``--loop``, which allows the developer to not restart manually the test and thus to streamline the development process.
+atoum propose le mode ``loop`` disponible via les arguments ``-l`` ou ``--loop``, qui permet au développeur de ne pas avoir à relancer manuellement les tests et permet donc de fluidifier le processus de développement.
 
-In this mode, atoum begins run once the tests that are requested.
+Dans ce mode, atoum commence par exécuter une première fois les tests qui lui sont demandés.
 
-Once the tests are complete, if tests successfully pass, atoum simply wait:
+Une fois les tests terminés, si les tests ont été passés avec succès par le code, atoum se met simplement en attente :
 
 .. code-block:: shell
 
@@ -48,9 +48,9 @@ Once the tests are complete, if tests successfully pass, atoum simply wait:
    Press <Enter> to reexecute, press any other key and <Enter> to stop...
 
 
-If the developer press the ``Enter`` key, atoum will reexecute the same test again, without any other action from the developer.
+Si le développeur presse ``Enter``, atoum réexécutera à nouveau les mêmes tests, sans aucune autre action de la part du développeur.
 
-In the case where the code doesn't pass the tests successfully, i.e. If assertions fails or if there were errors or exceptions, atoum also start waiting :
+Dans le cas où le code ne passe pas les tests avec succès, c'est-à-dire si des assertions ne sont pas vérifiées ou s'il y a eu des erreurs ou des exceptions, atoum se met également en attente :
 
 .. code-block:: shell
 
@@ -78,11 +78,11 @@ In the case where the code doesn't pass the tests successfully, i.e. If assertio
    Press <Enter> to reexecute, press any other key and <Enter> to stop...
 
 
-If the developer press the ``Enter`` key, instead of replay the same tests again like if the tests have been passed successfully, atoum will only execute the tests that have failed, rather than replay them all.
+Si le développeur presse la touche ``Enter``, au lieu de rejouer les mêmes tests comme dans le cas où les tests ont été passés avec succès, atoum n'exécutera que les tests en échec, au lieu de les rejouer dans leur intégralité.
 
-The developer can pops issues and replay error tests as many times as necessary simply by pressing ``Enter``.
+Le développeur pourra alors dépiler les problèmes et rejouer les tests en erreur autant de fois que nécessaire simplement en appuyant sur ``Enter``.
 
-Moreover, once all failed tests pass again successfully, atoum will automatically run all of the test suite to detect any regressions introduced by the corrections made by the developer.
+De plus, une fois que tous les tests en échec passeront à nouveau avec succès, atoum exécutera automatiquement la totalité de la suite de tests afin de détecter les éventuelles régressions introduites par la ou les corrections effectuées par le développeur.
 
 .. code-block:: shell
 
@@ -116,4 +116,4 @@ Moreover, once all failed tests pass again successfully, atoum will automaticall
    Press <Enter> to reexecute, press any other key and <Enter> to stop...
 
 
-Of course, the ``loop`` mode will take only :ref:`the files with unit tests launch <fichiers-a-executer>` by atoum.
+Bien évidemment, le mode ``loop`` ne prend en compte que :ref:`le ou les fichiers de tests unitaires lancés <fichiers-a-executer>` par atoum.

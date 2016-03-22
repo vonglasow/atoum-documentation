@@ -1,30 +1,30 @@
 
 .. _le-mode-debug:
 
-Debugging test cases
+Débogage des scénarios de test
 ####################
 
-Sometimes tests fail and it's hard to find why.
+Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
 
-In this case, one of the techniques available to solve the problem is to trace the behaviour of the concerned code, or directly inside the tested class using a debugger or a functions like ``var_dump()`` or ``print_r()``, or directly inside the unit test of the class.
+Dans ce cas, l'une des techniques possibles pour remédier au problème est de tracer le comportement du code concerné, soit directement au cœur de la classe testée à l'aide d'un débogueur ou de fonctions du type de ``var_dump()`` ou ``print_r()``, soit au niveau du test unitaire.
 
-atoum provides some tools to help you in this process, debugging directly in unit tests.
+atoum fourni un certain nombre d'outils pour faciliter la tâche de débogage directement dans les tests unitaires.
 
-Those tools are only available when you run atoum and enable the debug mode using the``--debug`` command line argument, this is to avoid unexpected debug output when running in standard mode.
-When the developer enables the debug mode (``--debug``), three methods can be used:
+Ces outils ne sont cependant actifs que lorsqu’atoum est exécuté à l'aide de l'argument ``--debug``, afin que l'exécution des tests unitaires ne soit pas perturbée par les instructions relatives au débogage hors de ce contexte.
+Lorsque l'argument ``--debug`` est utilisé, trois méthodes peuvent être activée :
 
-* ``dump()`` to dump the content of a variable ;
-* ``stop()`` to stop a running test ;
-* ``executeOnFailure()`` to set a closure to be executed when an assertion fails.
+* ``dump()`` qui permet de connaître le contenu d'une variable ;
+* ``stop()`` qui permet d'arrêter l'exécution d'un test ;
+* ``executeOnFailure()`` qui permet de définir une fonction anonyme qui ne sera exécutée qu'en cas d'échec d'une assertion.
 
-Those three method are accessible through the atoum fluent interface.
+Ces trois méthodes s'intègrent parfaitement dans l'interface fluide qui caractérise atoum.
 
 .. _dump:
 
 dump
 ****
 
-The ``dump()`` method can be used as follows:
+La méthode ``dump()`` peut s'utiliser de la manière suivante :
 
 .. code-block:: php
 
@@ -37,9 +37,9 @@ The ``dump()`` method can be used as follows:
            ->dump($foo->getBar())
    ;
 
-When the test is running, the return of the method ``foo::getBar()`` will be displayed through the standard output.
+Lors de l'exécution du test, le retour de la méthode ``foo::getBar()`` sera affiché sur la sortie standard.
 
-It's also possible to pass several arguments to ``dump()``, as the following way :
+Il est également possible de passer plusieurs arguments à ``dump()``, de la manière suivante :
 
 .. code-block:: php
 
@@ -53,14 +53,14 @@ It's also possible to pass several arguments to ``dump()``, as the following way
    ;
 
 .. important::
-   The ``dump`` method is enabled only if you launch the tests with the ``--debug`` argument. Otherwise, this method will be totally ignored.
+   La méthode ``dump`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
 .. _stop:
 
 stop
 ****
 
-The ``stop()`` method is also easy to use:
+L'utilisation de la méthode ``stop()`` est également très simple :
 
 .. code-block:: php
 
@@ -70,15 +70,15 @@ The ``stop()`` method is also easy to use:
        ->then
            ->object($foo->setBar($bar = new bar()))
                ->isIdenticalTo($foo)
-           ->stop() // the test will stop here if --debug is used
+           ->stop() // le test s'arrêtera ici si --debug est utilisé
            ->object($foo->getBar())
                ->isIdenticalTo($bar)
    ;
 
-If ``--debug`` is used, the last two lines will not be executed.
+Si ``--debug`` est utilisé, les 2 dernières lignes ne seront pas exécutées.
 
 .. important::
-   The ``stop`` method is enabled only if you launch the tests with the ``--debug`` argument. Otherwise, this method will be totally ignored.
+   La méthode ``stop`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
 
 .. _executeOnFailure:
@@ -86,9 +86,9 @@ If ``--debug`` is used, the last two lines will not be executed.
 executeOnFailure
 ****************
 
-The method ``executeOnFailure()`` is very powerful and also simple to use.
+La méthode ``executeOnFailure()`` est très puissante et tout aussi simple à utiliser.
 
-Indeed it takes a closure in argument that will be executed if one of the assertions inside the test doesn't pass. It can be used as follows:
+Elle prend en effet en argument une fonction anonyme qui sera exécutée si et seulement si l'une des assertions composant le test n'est pas vérifiée. Elle s'utilise de la manière suivante :
 
 .. code-block:: php
 
@@ -107,10 +107,10 @@ Indeed it takes a closure in argument that will be executed if one of the assert
                ->isIdenticalTo($bar)
    ;
 
-In the previous example, unlike ``dump()`` that systematically causing the display to standard output of the contents of the variables that are passed as argument, the anonymous function passed as an argument will cause the  ``foo`` variable content if one of the assertions fails.
+Dans l'exemple précédent, contrairement à ``dump()`` qui provoque systématiquement l'affichage sur la sortie standard le contenu des variables qui lui sont passées en argument, la fonction anonyme passée en argument ne provoquera l'affichage du contenu de la variable ``foo`` que si l'une des assertions suivantes est en échec.
 
-Of course, it's possible to call several times ``executeOnFailure()`` in the same test method to defined several closure to be executed if the test fails.
+Bien évidemment, il est possible de faire appel plusieurs fois à ``executeOnFailure()`` dans une même méthode de test pour définir plusieurs fonctions anonymes différentes devant être exécutées en cas d'échec du test.
 
 .. important::
-   The method ``executeOnFailure`` is enabled only if you run the tests with the argument ``--debug``. Otherwise, this method will be totally ignored.
+   La méthode ``executeOnFailure`` n'est activée que si vous lancez les tests avec l'argument ``--debug``. Dans le cas contraire, cette méthode sera totalement ignorée.
 
