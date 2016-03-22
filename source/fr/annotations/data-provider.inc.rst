@@ -2,15 +2,15 @@
 .. _data-provider:
 
 Data providers
-**************
+************
 
-To help you to effectively test your classes, atoum provide you some data providers.
+Atoum vous propose plusieurs types de fournisseurs de données pour aider à tester le plus efficacement possible vos classes.
 
-A data provider is a method in class test which generate arguments for test method, arguments that will be used by the method to validate assertions.
+Un data provider est une méthode spécifique d'une classe de test chargée de générer des arguments pour une méthode de test, arguments qui seront utilisés par ladite méthode pour valider des assertions.
 
-If a test method ``testFoo`` takes arguments and no annotation on a data provider is set, atoum will automatically seek the protected ``testFooDataProvider`` method.
+Si méthode de test ``testFoo`` prend des arguments, mais qu'aucune annotation précisant le data provider n'est présente, atoum va automatiquement rechercher une méthode ``testFooDataProvider``.
 
-However, you can manually set the method name of the data provider through the ``@dataProvider`` annotation applied to the relevant test method, as follows :
+Vous pouvez également définir manuellement le nom de la méthode du data provider grâce à l'annotation ``@dataProvider`` à ajouter à la méthode de test :
 
 .. code-block:: php
 
@@ -32,9 +32,9 @@ However, you can manually set the method name of the data provider through the `
        ...
    }
 
-Obviously, do not forget to define, at the level of the test method, arguments that correspond to those that will be returned by the data provider. If not, atoum will generate an error when running the tests.
+Bien évidemment, il faut penser a définir les arguments de la méthode de test qui vont recevoir les données retournées par le data provider. Dans le cas contraire, atoum va retourner des erreurs lors de l'exécution des tests.
 
-The data provider method is a single protected method that returns an array or an iterator containing data :
+Un data provider est une méthode protégée qui retourne un tableau ou un itérateur qui contient de simples valeurs :
 
 .. code-block:: php
 
@@ -43,7 +43,7 @@ The data provider method is a single protected method that returns an array or a
    {
        ...
 
-       // Provides data for testSum().
+       // Fourni des données pour testSum().
        protected function sumDataProvider()
        {
            return array(
@@ -55,7 +55,7 @@ The data provider method is a single protected method that returns an array or a
        }
    }
 
-When running the tests, atoum will call test method ``testSum()`` with the arguments ``(1, 1)``, ``(1, 2)``, ``(-1, 1)`` and ``(-1, 2)`` returned by the method ``sumDataProvider()``.
+Lors de l'exécution des test, atoum va appeler la méthode ``testSum()`` avec les arguments ``(1, 1)``, ``(1, 2)``, ``(-1, 1)`` et ``(-1, 2)``, tels que retournés par la méthode ``sumDataProvider()``.
 
 .. warning::
-   The insulation of the tests will not be used in this context, which means that each successive call to the method ``testSum()`` will be realized in the same PHP process.
+   L'isolation des tests ne sera pas utilisée dans ce cas d'utilisation, ce qui signifie que les appels successifs à la méthode ``testSum()`` seront exécutés dans le même processus PHP.

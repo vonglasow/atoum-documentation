@@ -1,16 +1,16 @@
-Having fun with atoum
+Amusons-nous avec atoum
 *********************
 
-Report
+Rapport
 ******
 
-Tests reports can be decorated to be more pleasant or fun to read.
-To do this in the  :ref:`configuration file <fichier-de-configuration>` of atoum, add the following code
+Les rapports de tests peuvent être décorés afin d'être plus agréables ou sympa à lire.
+Pour cela, dans le :ref:`fichier de configuration <fichier-de-configuration>` d'atoum, ajoutez le code suivant
 
 .. code-block:: php
 
 	<?php
-	// Default configuration file is .atoum.php
+	// Le fichier de configuration par défaut est .atoum.php
 	// ...
 
 	$stdout = new \mageekguy\atoum\writers\std\out;

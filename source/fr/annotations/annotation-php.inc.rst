@@ -3,7 +3,7 @@
 PHP Version
 ***********
 
-Certain de vos test peuvent requérir une version spécifique de PHP pour fonctionner (par exemple, pour certains test ne fonctionnant que avec PHP 7). Dire à atoum qu'un test require une version spécifique de PHP est fait à travers l'annotation ``@php``.
+Certains de vos tests peuvent requérir une version spécifique de PHP pour fonctionner (par exemple, pour certains tests ne fonctionnant qu'avec PHP 7). Dire à atoum qu'un test requiert une version spécifique de PHP s'effectue au travers de l'annotation ``@php``.
 
 Par défaut, sans fournir d'opérateur, le test ne sera exécuté que si la version de PHP est supérieur ou égale à la version du tag in the tag :
 

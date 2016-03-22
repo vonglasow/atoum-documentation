@@ -3,10 +3,10 @@
 Annotations
 ###########
 
-In this section we simply list all annotation that you can use with atoum.
+Dans cette section nous listons toutes les annotations utilisables avec atoum.
 
-Class's annotation
-******************
+Annotation de classe
+**************************
 
 * :ref:`@dataProvider <data-provider>`
 * :ref:`@extensions <annotation-php-extension>`
@@ -19,8 +19,8 @@ Class's annotation
 * :ref:`@php <annotation-php>`
 * :ref:`@tags <filtres-par-tag>`
 
-Method's annotation
-*******************
+Annotation des méthodes
+***************************
 
 * :ref:`@dataProvider <data-provider>`
 * :ref:`@engine <@engine>`
