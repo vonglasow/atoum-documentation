@@ -1,31 +1,31 @@
 .. _fine_tuning:
 
-Fine tuning atoum behaviour
+Ajustement du comportement d'atoum
 ##################################
 
 
 .. _initialization_method:
 
-The initialization methods
+Les méthodes d'initialisation
 **************************
 
-Here is the process, when atoum executes the test methods of a class with the default engine (``concurrent``) :
+Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (``concurrent``) :
 
-#. call of the ``setUp()`` method from the tested class ;
-#. launch of a PHP sub-process for **each** test method ;
-#. in the PHP sub-process, call of the ``beforeTestMethod()`` method of the test class ;
-#. in the PHP sub-process, call of the test method ;
-#. in the PHP sub-process, call of the ``afterTestMethod()`` method of the test class ;
-#. once the PHP sub-process finished, call of the ``tearDown()`` method from the test class.
+#. appel de la méthode ``setUp()`` de la classe de test ;
+#. lancement d'un sous-processus PHP pour exécuter **chaque méthode** de test ;
+#. dans le sous-processus PHP, appel de la méthode ``beforeTestMethod()`` de la classe de test ;
+#. dans le sous-processus PHP, appel de la méthode de test ;
+#. dans le sous-processus PHP, appel de la méthode ``afterTestMethod()`` de la classe de test ;
+#. une fois le sous-processus PHP terminé, appel de la méthode ``tearDown()`` de la classe de test.
 
 .. note::
-   For more information on the execution engine of test in atoum, you can read the section about the annotation :ref:`@engine <@engine>`.
+   Pour plus d'informations sur les moteurs d'exécution des tests d'atoum, vous pouvez lire le paragraphe sur l'annotation :ref:`@engine <@engine>`.
 
-The methods ``setUp()`` and ``tearDown()`` allow respectively to initialize and clean up the test environment for all the test method of the running class.
+Les méthodes ``setUp()`` et ``tearDown()`` permettent donc respectivement d'initialiser et de nettoyer l'environnement de test pour l'ensemble des méthodes de test de la classe exécutée.
 
 The methods ``beforeTestMethod()`` and ``afterTestMethod()`` allows respectively to initialize and clean up the execution environment of the individual tests for all test method of the class. In contrast of ``setUp()`` and ``tearDown()``, they are executed in the same subprocess.
 
-It's also the reason why the methods  ``beforeTestMethod()`` and ``afterTestMethod()`` accept as argument the name of the test method executed, in order to adjust the treatment accordingly.
+C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et ``afterTestMethod()`` acceptent comme argument le nom de la méthode de test exécutée, afin de pouvoir ajuster les traitements en conséquence.
 
 .. code-block:: php
 
@@ -43,22 +43,22 @@ It's also the reason why the methods  ``beforeTestMethod()`` and ``afterTestMeth
    {
        public function setUp()
        {
-           // Executed *before all* test methods.
-           // global initialization.
+           // Exécutée *avant l'ensemble* des méthodes de test.
+           // Initialisation globale.
        }
 
        public function beforeTestMethod($method)
        {
-           // Executed *before each* test method.
+           // Exécutée *avant chaque* méthode de test.
 
            switch ($method)
            {
                case 'testGetOwner':
-                   // Initialization for testGetOwner().
+                   // Initialisation pour testGetOwner().
                break;
 
                case 'testGetOperations':
-                   // Initialization for testGetOperations().
+                   // Initialisation pour testGetOperations().
                break;
            }
        }
@@ -75,27 +75,27 @@ It's also the reason why the methods  ``beforeTestMethod()`` and ``afterTestMeth
 
        public function afterTestMethod($method)
        {
-           // Executed *after each* test method.
+           // Exécutée *après chaque* méthode de test.
 
            switch ($method)
            {
                case 'testGetOwner':
-                   // Cleaning for testGetOwner().
+                   // Nettoyage pour testGetOwner().
                break;
 
                case 'testGetOperations':
-                   // Cleaning for testGetOperations().
+                   // Nettoyage pour testGetOperations().
                break;
            }
        }
 
        public function tearDown()
        {
-           // Executed after all the test methods.
-           // Overall cleaning.
+           // Exécutée après l'ensemble des méthodes de test.
+           // Nettoyage global.
        }
    }
 
-By default, the ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` and ``tearDown()`` methods does absolutely nothing.
+Par défaut, les méthodes ``setUp()``, ``beforeTestMethod()``, ``afterTestMethod()`` et ``tearDown()`` ne font absolument rien.
 
-It is therefore the responsibility of the developer to overload when needed in the test classes concerned.
+Il est donc de la responsabilité du programmeur de les surcharger lorsque c'est nécessaire dans les classes de test concerné.
