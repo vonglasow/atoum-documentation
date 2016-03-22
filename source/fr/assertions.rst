@@ -1,24 +1,33 @@
-Assertions
-##########
+.. _asserters_collection:
 
-.. include:: assertions/afterDestructionOf.inc.rst
-.. include:: assertions/array.inc.rst
-.. include:: assertions/boolean.inc.rst
-.. include:: assertions/castToString.inc.rst
-.. include:: assertions/class.inc.rst
-.. include:: assertions/dateInterval.inc.rst
-.. include:: assertions/dateTime.inc.rst
-.. include:: assertions/error.inc.rst
-.. include:: assertions/exception.inc.rst
-.. include:: assertions/float.inc.rst
-.. include:: assertions/hash.inc.rst
-.. include:: assertions/integer.inc.rst
-.. include:: assertions/mock.inc.rst
-.. include:: assertions/mysqlDateTime.inc.rst
-.. include:: assertions/object.inc.rst
-.. include:: assertions/output.inc.rst
-.. include:: assertions/sizeOf.inc.rst
-.. include:: assertions/stream.inc.rst
-.. include:: assertions/string.inc.rst
-.. include:: assertions/utf8String.inc.rst
-.. include:: assertions/variable.inc.rst
+Asserters collection
+####################
+
+..
+.. .. sidebar:: TOC
+..
+..  .. contents::
+..    :depth: 2
+..    :local:
+
+.. include:: asserters/afterDestructionOf.inc.rst
+.. include:: asserters/array.inc.rst
+.. include:: asserters/boolean.inc.rst
+.. include:: asserters/castToString.inc.rst
+.. include:: asserters/class.inc.rst
+.. include:: asserters/dateInterval.inc.rst
+.. include:: asserters/dateTime.inc.rst
+.. include:: asserters/error.inc.rst
+.. include:: asserters/exception.inc.rst
+.. include:: asserters/float.inc.rst
+.. include:: asserters/hash.inc.rst
+.. include:: asserters/integer.inc.rst
+.. include:: asserters/mock.inc.rst
+.. include:: asserters/mysqlDateTime.inc.rst
+.. include:: asserters/object.inc.rst
+.. include:: asserters/output.inc.rst
+.. include:: asserters/sizeOf.inc.rst
+.. include:: asserters/stream.inc.rst
+.. include:: asserters/string.inc.rst
+.. include:: asserters/utf8String.inc.rst
+.. include:: asserters/variable.inc.rst

@@ -39,7 +39,7 @@ Once in possession of the ``atoum.vmb`` file, it's required to edit with VIM:
 
    $ vim path/to/atoum.vmb
 
-It's now reuired to ask to VIM the installation of the plug-in by using the command:
+It's now required to ask VIM the installation of the plug-in by using the command:
 
 .. code-block:: vim
 
@@ -57,7 +57,7 @@ Once in this configuration, the following command will launch the execution of t
 
    :Atoum
 
-The the tests are executed, and once they are finished, a report based on the configuration of atoum file located in the directory ``ftplugin/php/atoum.vim`` in your ``.vim`` directory is generated in a new window.
+The tests are executed, and once they are finished, a report based on the configuration of atoum file located in the directory ``ftplugin/php/atoum.vim`` in your ``.vim`` directory is generated in a new window.
 
 Of course, you are free to bind this command to the combination of keys of your choice, for example adding the following line in your ``.vimrc`` file:
 
@@ -77,8 +77,8 @@ You can specify another configuration file for atoum by adding the following lin
 
    call atoum#defineConfiguration('/path/to/project/directory', '/path/to/atoum/configuration/file', '.php')
 
-Indeed the function ``atoum#defineConfiguration`` permit to defined the configuration's file to use based on the directory where the unit tests file resides.
-It accepts three arguments:
+Indeed the function ``atoum#defineConfiguration`` allow to defined the configuration file to use, based on the directory where the unit test files are located.
+It take three arguments:
 
 * a path to the directory containing the unit tests;
 * a path to the configuration's file of atoum to be used;
@@ -94,14 +94,14 @@ For more details on the use of plug-in, help is available in VIM with the follow
 Automatically open failed tests
 *****************************************
 
-atoum is able to automatically open files from failed tests at the end of they executions. Several editors are currently supported:
+atoum is able to automatically open files from failed tests at the end of there execution. Several editors are currently supported:
 
 * `macvim`_ (Mac OS X)
 * `gvim`_ (Unix)
 * `PhpStorm`_ (Mac OS X/Unix)
 * `gedit`_ (Unix)
 
-To use this feature, you need to change the :ref:`configuration file <fichier-de-configuration>` of atoum:
+To use this feature, you need to change the :ref:`configuration file <fichier-de-configuration>`:
 
 
 macvim
@@ -177,7 +177,7 @@ If you are under Mac OS X, use the following configuration:
    $runner->addReport($cliReport);
 
 
-In a Unix environment, use the following configuration:
+Under Unix environment, use the following configuration:
 
 .. code-block:: php
 

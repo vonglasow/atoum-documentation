@@ -2,24 +2,25 @@
 .. _utilisation-avec-frameworks:
 
 Use with frameworks
-********************************
+*******************
 
 .. _utilisation-avec-ezpublish:
 
 Use with ezPublish
-=============================
+==================
 
 
 Step 1: Installation of atoum in eZ Publish
------------------------------------------------------
+-------------------------------------------
 
 The eZ Publish framework have already a directory dedicated to tests, logically named tests. It's in this directory that should be placed  the :ref:`PHAR archive <archive-phar>` of atoum. The unit test files using atoum will be placed in a subdirectory *tests/atoum* so they don't conflict with the existing.
 
 
 Step 2: Creating the class of the base tests
------------------------------------------------------
+--------------------------------------------
 
-A class based on atoum msut extend the class *\mageekguy\atoum\test*. However, this one doesn't take into account the specificities of *eZ Publish*. It's therefore mandatory to define a base test class, derived from *\mageekguy\atoum\test*, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file *tests\atoum\test.php*:
+A class based on atoum must extend the class ``\mageekguy\atoum\test``. However, this one doesn't take into account of *eZ Publish* specificities. It's therefore mandatory to
+define a base test class, derived from ``\mageekguy\atoum\test``, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file ``tests\atoum\test.php``:
 
 .. code-block:: php
 
@@ -55,7 +56,7 @@ A class based on atoum msut extend the class *\mageekguy\atoum\test*. However, t
 
 
 Step 3: Creating a test class
------------------------------------------------------
+-----------------------------
 
 By default, atoum asks that unit tests classes are in a namespace containing *test(s)\unit(s)*, in order to deduce the name of the tested class. For example, the namespace *\nameofprojet* will be used in the following. For simplicity, it's further advisable to model the test tree on the tested classes tree, in order to quickly locate the class of a tested class, and vice versa.
 
@@ -79,7 +80,7 @@ By default, atoum asks that unit tests classes are in a namespace containing *te
 
 
 Step 4: Running the unit tests
------------------------------------------------------
+------------------------------
 
 Once a test class created, simply execute this command-line to start the test from the root of the project:
 
@@ -94,7 +95,7 @@ Thanks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
 .. _utilisation-avec-symfony-2:
 
 Use with Symfony 2
-==============================
+==================
 
 If you want to use atoum within your Symfony projects, you can install the Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
@@ -102,15 +103,15 @@ If you want to install and configure atoum manually, here's how to do it.
 
 
 Step 1: installation of atoum
------------------------------------------------------
+-----------------------------
 
-If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>`_ and place it in the vendor directory which is at the root of your project.
+If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>` and place it in the vendor directory which is at the root of your project.
 
-If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`_.
+If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`.
 
 
 Step 2: create the test class
------------------------------------------------------
+-----------------------------
 
 Imagine that we wanted to test this Entity:
 
@@ -210,11 +211,11 @@ Create a Test.php file that will serve as a base for all new tests in this Bundl
 
 
 .. note::
-   By default, atoum uses namespace tests/units for testing. However Symfony 2 and its class loader require capitalization at the beginning of the names. For this reason, we change the namespace of the tests through the method: setTestNamespace('Tests\Units').
+   By default, atoum uses namespace tests/units for testing. However Symfony 2 and its class loader require capitalization at the beginning of the names. For this reason, we change tests namespace through the method: setTestNamespace('Tests\Units').
 
 
 Step 3: write a test
------------------------------------------------------
+--------------------
 
 In the Tests/Units directory, simply recreate the tree of the classes that you want to test (for example src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
@@ -246,7 +247,7 @@ Create our test file:
 
 
 Step 4: launch tests
------------------------------------------------------
+--------------------
 
 If you use Symfony 2.0:
 
@@ -269,7 +270,7 @@ If you use Symfony 2.1+:
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
 .. note::
-   You can get more information on the `test launch <lancement-des-tests>`_ in the chapter which is dedicated to.
+   You can get more information on the :ref:`test launch <lancement-des-tests>` in the chapter which is dedicated to.
 
 
 In any case, this is what you should get:
@@ -309,25 +310,25 @@ In any case, this is what you should get:
 
 .. _utilisation-avec-symfony-1-4:
 
-Use withn symfony 1.4
-====================================
+Use with symfony 1.4
+====================
 
-If you wich to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+If you want to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
 
 Installation
------------------------------------------------------
+------------
 
-There are several way to install this plugin in your project:
+There are several ways to install this plugin in your project:
 
 * installation via composer
 * installation via git submodules
 
 
 Using composer
-"""""""""""""""""""""""""
+""""""""""""""
 
-Ad this lines inside the composer.json file:
+Add this lines inside the composer.json file:
 
 .. code-block:: json
 
@@ -337,7 +338,7 @@ Ad this lines inside the composer.json file:
 
 After a ``php composer.phar update`` the plugin should be in the plugin folder and atoum in the ``vendor`` folder.
 
-Then in your ProjectConfiguration file you have to activate the plugin and define the atoum path.
+Then, in your ProjectConfiguration file, you have to activate the plugin and define the atoum path.
 
 .. code-block:: php
 
@@ -351,7 +352,7 @@ Then in your ProjectConfiguration file you have to activate the plugin and defin
 
 
 Using a git submodule
-"""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""
 
 First, install atoum as a submodule:
 
@@ -377,7 +378,7 @@ Finally, enable the plugin in in your ProjectConfiguration file:
 
 
 Write tests
------------------------------------------------------
+-----------
 
 Tests must include the bootstrap file from the plugin:
 
@@ -388,9 +389,9 @@ Tests must include the bootstrap file from the plugin:
 
 
 Launch tests
------------------------------------------------------
+------------
 
-The symfony command atoum:test is available. The tests can then be launched in this way:
+The symfony command ``atoum:test`` is available. The tests can then be launched in this way:
 
 .. code-block:: shell
 
@@ -405,3 +406,31 @@ It's therefore, for example, possible to give a configuration file like this :
    <?php
    php symfony atoum:test -c config/atoum/hudson.php
 
+
+.. _framework-symfony-1-plugin:
+
+Symfony 1 plugin
+================
+
+To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+
+The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
+
+
+.. _framework-symfony-2-bundle:
+
+Symfony 2 bundle
+================
+
+To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
+
+The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
+
+.. _framework-zend-framework-2:
+
+Zend Framework 2 component
+==========================
+
+If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the `following address <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+
+The instructions for installation and usage are available on this page.
