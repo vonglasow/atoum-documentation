@@ -4,9 +4,9 @@
 newTestedInstance & testedInstance
 **********************************
 
-When performing tests, we must often create a new instance of the class and pass it through parameters. Writing helper are available for this specific case, it's ``newTestedInstance`` and ``testedInstance``
+Lorsque l'on effectue des tests, il faut bien souvent créer une nouvelle instance de la classe et passer celle-ci dans divers paramètres. Une aide à l'écriture est disponible pour ce cas précis, il s'agit de ``newTestedInstance`` et de ``testedInstance``
 
-Here's an example :
+Voici un exemple :
 
 .. code-block:: php
 
@@ -27,7 +27,7 @@ Here's an example :
        }
    }
 
-This can be simplified with a new syntax:
+Ceci peut être simplifié avec la nouvelle syntaxe :
 
 .. code-block:: php
 
@@ -49,21 +49,21 @@ This can be simplified with a new syntax:
    }
 
 
-As seen, it's slightly simpler but especially this has two advantages:
+Comme on le voit, c'est légèrement plus simple, mais surtout cela présente deux avantages :
 
-* We do not manipulate the name of the tested class
-* We do not manipulate the tested instance
+* On ne manipule pas le nom de la classe testée
+* On ne manipule pas l'instance ainsi créée
 
-Furthermore, we can easily validate that the instance is available with ``isTestedInstance``, as explained in the previous example.
+Par ailleurs, on peut facilement valider que l'on a bien l'instance testée avec ``isTestedInstance``, comme expliqué dans l'exemple précédent.
 
-To pass some arguments to the constructor, it's easy through ``newTestedInstance``:
+Pour passer des arguments au constructeur, il suffit de le faire au travers de ``newTestedInstance`` :
 
 .. code-block:: php
 
    $this->newTestedInstance($argument1, $argument2)
 
 
-If you want to test a static method of your class, you can retrieve the tested class with this syntax:
+Si vous voulez tester une méthode statique de votre classe, vous pouvez récupérer la classe testée avec cette syntaxe :
 
 .. code-block:: php
 

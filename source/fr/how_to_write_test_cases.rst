@@ -1,7 +1,7 @@
-How to write test cases
+Comment écrire des scénarios de test
 #######################
 
-After you have created your :ref:`first test<first-tests>` and understood `how to run it<lancement-des-tests>`, you probably want to write better tests. In this section you will see how to add some syntactic sugar to help you write better test and in an easier way.
+Après avoir créer votre :ref:`premier test<first-tests>` et compris `comment le lancer<lancement-des-tests>`, vous voulez probablement écrire de meilleurs tests. Dans cette section, vous trouverez comment ajouter du sucre syntaxique pour vous aider dans l'écriture de vos tests et ce de manière simple.
 
 .. include:: how_to_write_test_cases/given-if-and-then.inc.rst
 .. include:: how_to_write_test_cases/asserter.inc.rst

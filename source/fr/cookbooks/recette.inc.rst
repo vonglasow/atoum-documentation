@@ -1,12 +1,12 @@
 
 .. _cookbook_change_default-namespace:
 
-Change the default namespace
+Changer l'espace de nom par défaut
 ****************************
 
-At the execution beginning of a test class, atoum computes the name of the tested class. To do this, by default, it replaces in the class name the following regular expression ``#(?:^|\\\)tests?\\\units?\\#i`` by char ``\``.
+Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\#i`` par le caractère  ``\``.
 
-Thus, if the test class name is ``vendor\project\tests\units\foo``, it will deduct in that the tested class named  is ``vendor\project\foo``. However, it may be necessary that the namespace of the test classes may not match this regular expression, and in this case, atoum then stops with the following error message:
+Ainsi, si la classe de test porte le nom ``vendor\project\tests\units\foo``, il en déduira  que la classe testée porte le nom ``vendor\project\foo``. Cependant, il peut être nécessaire que l'espace de nom des classes de test ne corresponde pas à cette expression régulière, et dans ce cas, atoum s'arrête alors avec le message d'erreur suivant :
 
 .. code-block:: shell
 
@@ -14,7 +14,7 @@ Thus, if the test class name is ``vendor\project\tests\units\foo``, it will dedu
    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-We must therefore change the regular expression we used, this is possible in several ways. The easiest way is to applied the annotations ``@namespace`` to the test class in the following way :
+Il faut donc modifier l'expression régulière utilisée, ceci est possible de plusieurs manières. Le plus simple est de faire appel à l'annotation ``@namespace`` appliquée à la classe de test, de la manière suivante :
 
 .. code-block:: php
 
@@ -38,7 +38,7 @@ We must therefore change the regular expression we used, this is possible in sev
    }
 
 
-This method is quick and simple to implement, but it has the disadvantage of having to be repeated in each test class, which is not so maintainable if there is some change in their namespace. The alternative is to call the ``atoum\test::setTestNamespace()`` method in the constructor of the test class, in this way:
+Cette méthode est simple et rapide à mettre en œuvre, mais elle présente l'inconvénient de devoir être répétée dans chaque classe de test, ce qui peut compliquer leur maintenance en cas de modification de leur espace de nom. L'alternative consiste à faire appel à la méthode ``atoum\test::setTestNamespace()`` dans le constructeur de la classe, de cette manière :
  
 
 .. code-block:: php
@@ -67,7 +67,7 @@ This method is quick and simple to implement, but it has the disadvantage of hav
    }
 
 
-The ``atoum\test:setTestNamespace()`` method indeed accepts a single argument which must be the regular expression matches the namespace of your test class. And to not have to repeat the call to this method in each test class, just do it once and for all in an abstract class in the following manner:
+La méthode ``atoum\test::setTestNamespace()`` accepte en effet un unique argument qui doit être l'expression régulière correspondant à l'espace de nom de votre classe de test. Et pour ne pas avoir à répéter l'appel à cette méthode dans chaque classe de test, il suffit de le faire une bonne fois pour toutes dans une classe abstraite de la manière suivante :
 
 .. code-block:: php
 
@@ -90,7 +90,7 @@ The ``atoum\test:setTestNamespace()`` method indeed accepts a single argument wh
    }
 
 
-Thus, you will only have to do derive your unit test classes from this abstract class:
+Ainsi, vous n'aurez plus qu'à faire dériver vos classes de tests unitaires de cette classe abstraite :
 
 .. code-block:: php
 
@@ -112,11 +112,11 @@ Thus, you will only have to do derive your unit test classes from this abstract 
    }
 
 
-In case of unit tests namespace change, it is therefore necessary to change only the abstract class.
+En cas de modification de l'espace de nommage réservé aux tests unitaires, il ne sera donc nécessaire de ne modifier que la classe abstraite.
 
-Moreover, it's not mandatory to use a regular expression, either at the level of the ``@namespace`` annotation or the method ``atoum\test::setTestNamespace()`` a simple string can also works.
+De plus, il n'est pas obligatoire d'utiliser une expression régulière, que ce soit au niveau de l'annotation ``@namespace`` ou de la méthode  ``atoum\test::setTestNamespace()``, et une simple chaîne de caractères peut également fonctionner.
 
-Indeed atoum by default use a regular expression so that the user can use a wide range of namespaces without the need to configure it at this level. This therefore allows it to accept for example, without any special configuration the following namespaces:
+En effet, atoum fait appel par défaut à une expression régulière afin que son utilisateur puisse utiliser par défaut un large panel d'espaces de nom sans avoir besoin de le configurer à ce niveau. Cela lui permet donc d'accepter par exemple sans configuration particulière les espaces de nomsuivants :
 
 * ``test\unit\``
 * ``Test\Unit\``
@@ -124,7 +124,7 @@ Indeed atoum by default use a regular expression so that the user can use a wide
 * ``Tests\Units\``
 * ``TEST\UNIT\``
 
-However, in general, the namespace used to test classes is fixed, and it's not necessary to use a regular expression if the default isn't suitable. In our case, it could be replaced with the string ``my\tests``, for example through the ``@namespace`` annotation :
+Cependant, en règle général, l'espace de nom utilisé pour les classes de test est fixe et il n'est donc pas nécessaire de recourir à une expression régulière si celle par défaut ne convient pas. Dans notre cas, elle pourrait être remplacée par la chaîne de caractères ``my\tests``, par exemple grâce à l'annotation ``@namespace`` :
 
 .. code-block:: php
 
@@ -151,10 +151,10 @@ However, in general, the namespace used to test classes is fixed, and it's not n
 
 .. _cookbook_singleton:
 
-Test of a singleton
+Test d'un singleton
 *******************
 
-To test a method that always returns the same instance of an object, checks that two calls to the tested method are the same.
+Pour tester si une méthode retourne bien systématiquement la même instance d'un objet, vérifiez que deux appels successifs à la méthode testée sont bien identiques.
 
 .. code-block:: php
 
