@@ -12,7 +12,7 @@ TODO get mock parts from everywhere + add stuff from issues
 The mocks
 *********
 
-atoum has a powerful and easy-to-implement mock system allowing you to generate mocks from (existing, nonexistent, abstract or not) classes or interfaces. With these mocks, you can simulate behaviors by redefining the public methods of your classes.
+atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes, inexistantes, abstraites ou non) ou d'interfaces. With these mocks, you can simulate behaviors by redefining the public methods of your classes.
 
 
 Generate a mock

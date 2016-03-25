@@ -2,7 +2,7 @@
 .. _data-provider:
 
 Data providers
-************
+**************
 
 Atoum vous propose plusieurs types de fournisseurs de données pour aider à tester le plus efficacement possible vos classes.
 

@@ -3,9 +3,9 @@
 integer
 *******
 
-It's the assertion dedicated to integers.
+C'est l'assertion dédiée aux entiers.
 
-If you try to test a variable that is not an integer with this assertion, it will fail.
+Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
 
 .. note::
    ``null`` isn't an integer. Refer to the PHP's manual  `is_int <http://php.net/is_int>`_ to known what's considered as an integer or not.

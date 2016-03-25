@@ -3,7 +3,7 @@
 hash
 ****
 
-It's the assertion dedicated to tests on hashes (digital fingerprints).
+C'est l'assertion dédiée aux tests sur les hashs (empreintes numériques).
 
 .. _hash-contains:
 

@@ -5,7 +5,7 @@ float
 
 It's the assertion dedicated to decimal numbers.
 
-If you try to test a variable that is not a decimal number with this assertion, it will fail.
+Si vous essayez de tester une variable qui n'est pas un nombre décimal avec cette assertion, cela échouera.
 
 .. note::
    ``null`` is not a decimal number. Refer to the PHP manual to know what `is_float <http://php.net/is_float>`_ considered or not as a float.

@@ -3,9 +3,9 @@
 mysqlDateTime
 *************
 
-It's the assertion dedicated to objects representing MySQL date and based on `DateTime <http://php.net/datetime>`_ object.
+C'est l'assertion dédiée aux objets décrivant une date MySQL et basée sur l'objet `DateTime <http://php.net/datetime>`_.
 
-Dates must use a format compatible with MySQL and many other DBMSS (database management system), i.e. "Y-m-d H:i:s"
+Les dates doivent utiliser un format compatible avec MySQL et de nombreux autre SGBD (Système de gestion de base de données)), à savoir "Y-m-d H:i:s" "Y-m-d H:i:s"
 
 .. note::
    For more information, refer to the documentation of the `date() <http://php.net/date>`_ function from the PHP manual.

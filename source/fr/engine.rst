@@ -2,18 +2,18 @@
 
 .. _@engine:
 
-Execution engine
-****************
+Les moteurs d'exécution
+*******************
 
-Several execution engines to run the tests (at the level of the class or methods) are available. These are configurable via the annotation ``@engine``. By default, the different tests run in parallel in sub-processes of PHP, this is the ``concurrent`` mode.
+Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des méthodes) existent. Ceux-ci sont configurables via l'annotation ``@engine``. Par défaut, les différents tests s'exécutent en parallèle, dans des sous-processus PHP, c'est le mode ``concurrent``.
 
-Currently, there is three execution modes :
+Il existe actuellement trois modes d'exécution :
 
-* *inline*: tests run in the same process, this is the same behaviour as PHPUnit. Although this mode is very fast, there's no insulation of the tests.
-* *isolate*: tests run sequentially in a subprocess of PHP. This form of execution is quite slow.
-* *concurrent*: the default mode, the tests run in parallel, in PHP sub-processes. 
+* *inline* : les tests s'exécutent dans le même processus, cela revient au même comportement que PHPUnit. Même si ce mode est très rapide, il n'y a pas d'isolation des tests.
+* *isolate* : les tests s'exécutent de manière séquentielle dans un sous-processus PHP. Ce mode d'exécution est assez lent.
+* *concurrent* : le mode par défaut, les tests s'exécutent en parallèle, dans des sous-processus PHP. 
 
-Here's an example :
+Voici un exemple :
 
 .. code-block:: php
 
@@ -45,7 +45,7 @@ Here's an example :
   	}
   }
 
-In ``concurent`` mode :
+En mode ``concurent`` :
 
 .. code-block:: shell
 
@@ -56,7 +56,7 @@ In ``concurent`` mode :
   > Running duration: 1.08 seconds.
 
 
-In ``inline`` mode :
+En mode ``inline`` :
 
 .. code-block:: shell
 
@@ -67,7 +67,7 @@ In ``inline`` mode :
   > Running duration: 2.01 seconds.
 
 
-In ``isolate`` mode :
+En mode ``isolate`` :
 
 .. code-block:: shell
 

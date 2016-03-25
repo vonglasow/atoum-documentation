@@ -5,7 +5,7 @@ dateTime
 
 It's the assertion dedicated to `DateTime <http://php.net/datetime>`_  object.
 
-If you try to test a value that is not a ``DateTime`` (or a child class) with this assertion it will fail.
+Si vous essayez de tester une variable qui n'est pas un objet ``DateTime`` (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
 .. _date-time-has-date:
 

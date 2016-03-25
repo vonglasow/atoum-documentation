@@ -3,7 +3,7 @@
 sizeOf
 ******
 
-It's the assertion dedicated to tests on the size of the arrays and objects implementing the interface ``Countable``.
+C'est l'assertion dédiée aux tests sur la taille des tableaux et des objets implémentant l'interface ``Countable``.
 
 .. code-block:: php
 

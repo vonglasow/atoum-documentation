@@ -3,7 +3,7 @@
 variable
 ********
 
-It's the basic assertion of all variables. It contains the necessary tests for any type of variable.
+C'est l'assertion de base de toutes les variables. Elle contient les tests nécessaires à n'importe quel type de variable.
 
 .. _variable-is-callable:
 

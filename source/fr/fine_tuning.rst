@@ -23,7 +23,7 @@ Voici le processus, lorsque atoum exécute les méthodes de test d'une classe av
 
 Les méthodes ``setUp()`` et ``tearDown()`` permettent donc respectivement d'initialiser et de nettoyer l'environnement de test pour l'ensemble des méthodes de test de la classe exécutée.
 
-The methods ``beforeTestMethod()`` and ``afterTestMethod()`` allows respectively to initialize and clean up the execution environment of the individual tests for all test method of the class. In contrast of ``setUp()`` and ``tearDown()``, they are executed in the same subprocess.
+Les méthodes ``beforeTestMethod()`` et ``afterTestMethod()`` permet respectivement d'initialiser et de nettoyer l'environnement d'exécution des tests individuels pour toutes les méthodes de test de la classe. À l'opposé ``setUp()`` et ``tearDown()``, sont exécutées dans le sous-processus lui-même.
 
 C'est d'ailleurs la raison pour laquelle les méthodes ``beforeTestMethod()`` et ``afterTestMethod()`` acceptent comme argument le nom de la méthode de test exécutée, afin de pouvoir ajuster les traitements en conséquence.
 

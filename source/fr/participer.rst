@@ -1,12 +1,12 @@
 .. _contribute:
 
-Contribute
+Participer
 ==========
 
 .. _how-to-contribute:
 
-How to contribute
-------------------
+Comment participer
+------------------------
 
 .. important::
    We need help to write this section !
@@ -14,15 +14,15 @@ How to contribute
 
 .. _convention-de-codage:
 
-Coding convention
---------------------
-The source code of atoum follows some conventions. If you wish to contribute to this project, your code must need to follow the same rules:
+Convention de codage
+------------------------
+Le code source d'atoum respecte certaines conventions. Si vous souhaitez contribuer au projet, votre code devra respecter ces mêmes règles :
 
-* The indentation must be done with tab character,
-* The names of namespaces, classes, members, methods, and constants follow the ``lowerCamelCase`` convention,
-* The code must be tested.
+* L'indentation est faite avec le caractère de tabulation,
+* Les noms des espaces de noms, classes, membres, méthodes et constantes sont en ``lowerCamelCase``,
+* Le code doit être testé.
 
-The example below makes no sense but it allows to present more in detail the way in which the code is written:
+L'exemple ci-dessous n'a aucun sens, mais il permet de présenter plus en détail la manière dont le code est écrit :
 
 .. code-block:: php
 
@@ -102,7 +102,7 @@ The example below makes no sense but it allows to present more in detail the way
    }
 
 
-Also here is an example of an unit test:
+Voici également un exemple de test unitaire :
 
 .. code-block:: php
 

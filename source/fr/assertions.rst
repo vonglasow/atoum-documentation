@@ -1,7 +1,7 @@
 .. _asserters_collection:
 
-Asserters collection
-####################
+Lisstes des asserters
+#####################
 
 ..
 .. .. sidebar:: TOC

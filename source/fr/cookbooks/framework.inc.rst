@@ -1,26 +1,26 @@
 
 .. _utilisation-avec-frameworks:
 
-Use with frameworks
-*******************
+Utilisation avec des frameworks
+****************************
 
 .. _utilisation-avec-ezpublish:
 
-Use with ezPublish
-==================
+Utilisation avec ez Publish
+=========================
 
 
-Step 1: Installation of atoum in eZ Publish
--------------------------------------------
+Étape 1 : Installation d'atoum au sein d'eZ Publish
+-------------------------------------------------------
 
-The eZ Publish framework have already a directory dedicated to tests, logically named tests. It's in this directory that should be placed  the :ref:`PHAR archive <archive-phar>` of atoum. The unit test files using atoum will be placed in a subdirectory *tests/atoum* so they don't conflict with the existing.
+Le framework eZ Publish possède déjà un répertoire dédié aux tests, nommé logiquement tests. C'est donc dans ce répertoire que devra être placé l':ref:`archive PHAR <archive-phar>` d’atoum. Les fichiers de tests unitaires utilisant atoum seront quant à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
 
 
-Step 2: Creating the class of the base tests
---------------------------------------------
+Étape 2 : Création de la classe de test de base
+---------------------------------------------------
 
-A class based on atoum must extend the class ``\mageekguy\atoum\test``. However, this one doesn't take into account of *eZ Publish* specificities. It's therefore mandatory to
-define a base test class, derived from ``\mageekguy\atoum\test``, which will take into account these specificities and will derive all of the classes of unit tests. To do this, just defined the following class in the file ``tests\atoum\test.php``:
+Une classe de test basée sur atoum doit étendre la classe ``\mageekguy\atoum\test``. However, this one doesn't take into account of *eZ Publish* specificities. It's therefore mandatory to
+Il est donc nécessaire de définir une classe de test de base, dérivée de ``\mageekguy\atoum\test``, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier ``tests\atoum\test.php`` :
 
 .. code-block:: php
 
@@ -55,16 +55,16 @@ define a base test class, derived from ``\mageekguy\atoum\test``, which will tak
 
 
 
-Step 3: Creating a test class
+Étape 3 : Création d'une classe de test
 -----------------------------
 
-By default, atoum asks that unit tests classes are in a namespace containing *test(s)\unit(s)*, in order to deduce the name of the tested class. For example, the namespace *\nameofprojet* will be used in the following. For simplicity, it's further advisable to model the test tree on the tested classes tree, in order to quickly locate the class of a tested class, and vice versa.
+Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
 
 .. code-block:: php
 
 	<?php
 
-	namespace nameofproject\tests\units;
+	namespace nomdeprojet\tests\units;
 
 	require_once '../test.php';
 
@@ -79,41 +79,41 @@ By default, atoum asks that unit tests classes are in a namespace containing *te
 	}
 
 
-Step 4: Running the unit tests
+Étapes 4 : Exécution des tests unitaires
 ------------------------------
 
-Once a test class created, simply execute this command-line to start the test from the root of the project:
+Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet :
 
 .. code-block:: shell
 
 	# php tests/atoum/mageekguy.atoum.phar -d tests/atoum/units
 
 
-Thanks to `Jérémy Poulain <https://github.com/Tharkun>`_ for this tutorial.
+Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutoriel.
 
 
 .. _utilisation-avec-symfony-2:
 
-Use with Symfony 2
-==================
+Utilisation avec Symfony 2
+=========================
 
-If you want to use atoum within your Symfony projects, you can install the Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
+Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
-If you want to install and configure atoum manually, here's how to do it.
+Si vous souhaitez installer et configurer atoum manuellement, voici comment faire.
 
 
-Step 1: installation of atoum
+Étape 1: installation d'atoum
 -----------------------------
 
-If you use Symfony 2.0, :ref:`download the PHAR <archive-phar>` and place it in the vendor directory which is at the root of your project.
+Si vous utilisez Symfony 2.0, :ref:`téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
 
-If you use Symfony 2.1+, :ref:`add atoum in your composer.json <installation-par-composer>`.
+Si vous utilisez Symfony 2.1+, :ref:`ajoutez atoum dans votre fichier composer.json <installation-par-composer>`_.
 
 
-Step 2: create the test class
+Étape 2: création de la classe de test
 -----------------------------
 
-Imagine that we wanted to test this Entity:
+Imaginons que nous voulions tester cet Entity:
 
 .. code-block:: php
 
@@ -153,12 +153,12 @@ Imagine that we wanted to test this Entity:
    }
 
 .. note::
-   For more information about creating Entity in Symfony 2, refer to <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
+   Pour plus d'informations sur la création d'Entity dans Symfony 2, reportez-vous au `manuel Symfony <http://symfony.com/fr/doc/current/book/doctrine.html#creer-une-classe-entite>`_.
 
 
-Create the directory Tests/Units in your Bundle (for example src/Acme/DemoBundle/Tests/Units). It's in this directory that will be stored all tests of this Bundle.
+Créez le répertoire Tests/Units dans votre Bundle (par exemple src/Acme/DemoBundle/Tests/Units). C'est dans ce répertoire que seront stockés tous les tests de ce Bundle.
 
-Create a Test.php file that will serve as a base for all new tests in this Bundle.
+Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bundle.
 
 .. code-block:: php
 
@@ -166,7 +166,7 @@ Create a Test.php file that will serve as a base for all new tests in this Bundl
    // src/Acme/DemoBundle/Tests/Units/Test.php
    namespace Acme\DemoBundle\Tests\Units;
 
-   // It includes the class loader and active it
+   // On inclus et active le class loader
    require_once __DIR__ . '/../../../../../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
 
    $loader = new \Symfony\Component\ClassLoader\UniversalClassLoader();
@@ -182,7 +182,7 @@ Create a Test.php file that will serve as a base for all new tests in this Bundl
 
    use mageekguy\atoum;
 
-   // For Symfony 2.0 only !
+   // Pour Symfony 2.0 uniquement !
    require_once __DIR__ . '/../../../../../vendor/mageekguy.atoum.phar';
 
    abstract class Test extends atoum
@@ -207,14 +207,14 @@ Create a Test.php file that will serve as a base for all new tests in this Bundl
    }
 
 .. note::
-   The inclusion of atoum's PHAR archive is only necessary for Symfony 2.0. Remove this line if you use Symfony 2.1+.
+   L'inclusion de l'archive PHAR d'atoum n'est nécessaire que pour Symfony 2.0. Supprimez cette ligne dans le cas où vous utilisez Symfony 2.1+.
 
 
 .. note::
-   By default, atoum uses namespace tests/units for testing. However Symfony 2 and its class loader require capitalization at the beginning of the names. For this reason, we change tests namespace through the method: setTestNamespace('Tests\Units').
+   Par défaut, atoum utilise le namespace tests/units pour les tests. Or Symfony 2 et son class loader exige des majuscules au début des noms. Pour cette raison, nous changeons le namespace des tests grâce à la méthode setTestNamespace('Tests\Units').
 
 
-Step 3: write a test
+Étape 3: écriture d'un test
 --------------------
 
 In the Tests/Units directory, simply recreate the tree of the classes that you want to test (for example src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
@@ -299,7 +299,7 @@ In any case, this is what you should get:
    > Class Acme\DemoBundle\Entity\Car: 42.86%
    ==========================================
    > Acme\DemoBundle\Entity\Car::getId(): 0.00%
-   --------------------------------------------
+   ---------------------------------------------------
    > Acme\DemoBundle\Entity\Car::setMaxSpeed(): 0.00%
    --------------------------------------------------
    > Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%

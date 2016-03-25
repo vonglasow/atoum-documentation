@@ -5,10 +5,10 @@ boolean
 
 This is the assertion dedicated to booleans.
 
-If you try to test a variable that is not a boolean with this assertion, it will fail.
+Si vous essayez de tester une variable qui n'est pas un booléen avec cette assertion, cela échouera.
 
 .. note::
-   ``null`` is not a boolean. Report the the PHP manual to know what `is_bool <http://php.net/is_bool>`_ considers or not to be a boolean.
+   ``null`` is not a boolean. Reportez-vous au manuel de PHP pour savoir ce que `is_bool <http://php.net/is_bool>`_ considère ou non comme un booléen.
 
 
 .. _boolean-is-equal-to:
