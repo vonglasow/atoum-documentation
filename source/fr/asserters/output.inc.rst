@@ -3,7 +3,7 @@
 output
 ******
 
-It's the assertion dedicated to tests on outputs, so everything witch supposed to be displayed on the screen.
+C'est l'assertion dédiée aux tests sur les sorties, c'est-à-dire tout ce qui est censé être affiché à l'écran.
 
 .. code-block:: php
 

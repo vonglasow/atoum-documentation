@@ -3,7 +3,7 @@
 utf8String
 **********
 
-It's the asserter dedicated to UTF-8 strings.
+C'est l'assertion dédiée aux chaînes de caractères UTF-8.
 
 .. note::
    ``utf8Strings`` use the functions ``mb_*`` to manage multi-byte strings. Refer to the PHP manual for more information about `mbstring <http://php.net/mbstring>`_ extension.

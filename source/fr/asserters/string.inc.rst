@@ -3,7 +3,7 @@
 string
 ******
 
-It's the assertion dedicated to the strings.
+C'est l'assertion dédiée aux chaînes de caractères.
 
 .. _string-contains:
 

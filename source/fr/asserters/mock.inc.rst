@@ -3,7 +3,7 @@
 mock
 ****
 
-It's the assertion dedicated to mocks.
+C'est l'assertion dédiée aux mocks.
 
 .. code-block:: php
 

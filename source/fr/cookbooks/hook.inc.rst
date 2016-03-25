@@ -16,7 +16,7 @@ L'installation d'un hook de pré-commit est très simple et se déroule en deux 
 
 
 Étape 1 : Création du script à exécuter
-=====================================
+=======================================
 
 Lors de l'ajout de code à un dépôt, Git recherche le fichier ``.git/hook/pre-commit`` à la racine du dépôt et l'exécute s'il existe et qu'il dispose des droits nécessaires.
 
@@ -60,7 +60,7 @@ Les tests étant exécutés très rapidement avec atoum, on peut donc lancer l'e
 
 
 Étape 2 : Ajout des droits d'exécution
-============================
+=====================================
 
 Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être rendu exécutable à l'aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :
 

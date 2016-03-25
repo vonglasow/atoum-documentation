@@ -2,22 +2,22 @@
 .. _utilisation-avec-frameworks:
 
 Utilisation avec des frameworks
-*******************
+****************************
 
 .. _utilisation-avec-ezpublish:
 
 Utilisation avec ez Publish
-==================
+=========================
 
 
 Étape 1 : Installation d'atoum au sein d'eZ Publish
--------------------------------------------
+-------------------------------------------------------
 
 Le framework eZ Publish possède déjà un répertoire dédié aux tests, nommé logiquement tests. C'est donc dans ce répertoire que devra être placé l':ref:`archive PHAR <archive-phar>` d’atoum. Les fichiers de tests unitaires utilisant atoum seront quant à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
 
 
 Étape 2 : Création de la classe de test de base
---------------------------------------------
+---------------------------------------------------
 
 Une classe de test basée sur atoum doit étendre la classe ``\mageekguy\atoum\test``. However, this one doesn't take into account of *eZ Publish* specificities. It's therefore mandatory to
 Il est donc nécessaire de définir une classe de test de base, dérivée de ``\mageekguy\atoum\test``, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier ``tests\atoum\test.php`` :
@@ -95,7 +95,7 @@ Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutoriel.
 .. _utilisation-avec-symfony-2:
 
 Utilisation avec Symfony 2
-==================
+=========================
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
@@ -299,7 +299,7 @@ In any case, this is what you should get:
    > Class Acme\DemoBundle\Entity\Car: 42.86%
    ==========================================
    > Acme\DemoBundle\Entity\Car::getId(): 0.00%
-   --------------------------------------------
+   ---------------------------------------------------
    > Acme\DemoBundle\Entity\Car::setMaxSpeed(): 0.00%
    --------------------------------------------------
    > Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%

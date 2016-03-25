@@ -5,7 +5,7 @@ dateInterval
 
 It's the assertion dedicated to `DateInterval <http://php.net/dateinterval>`_ object.
 
-If you try to test a value that is not a ``DateInterval`` (or a child class) with this assertion it will fail.
+Si vous essayez de tester une variable qui n'est pas un objet ``DateInterval`` (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
 .. _date-interval-is-clone-of:
 
