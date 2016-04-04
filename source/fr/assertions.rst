@@ -1,6 +1,6 @@
 .. _asserters_collection:
 
-Lisstes des asserters
+Listes des asserters
 #####################
 
 ..
