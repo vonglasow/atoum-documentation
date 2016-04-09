@@ -3,7 +3,7 @@
 dateInterval
 ************
 
-It's the assertion dedicated to `DateInterval <http://php.net/dateinterval>`_ object.
+C'est l'assertion dédiée à l'objet `DateInterval <http://php.net/dateinterval>`_.
 
 Si vous essayez de tester une variable qui n'est pas un objet ``DateInterval`` (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
@@ -13,8 +13,8 @@ isCloneOf
 =========
 
 .. hint::
-   ``isCloneOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of :ref:`object::isCloneOf <object-is-clone-of>`
+   ``isCloneOf`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _date-interval-is-equal-to:
@@ -22,7 +22,7 @@ isCloneOf
 isEqualTo
 =========
 
-``isEqualTo`` checks that the duration of object ``DateInterval`` is equals to to the duration of another ``DateInterval`` object.
+``isEqualTo`` vérifie que la durée de l'objet ``DateInterval`` est égale à la durée d'un autre objet ``DateInterval``.
 
 .. code-block:: php
 
@@ -31,10 +31,10 @@ isEqualTo
 
    $this
        ->dateInterval($di)
-           ->isEqualTo(                // passes
+           ->isEqualTo(                // passe
                new DateInterval('P1D')
            )
-           ->isEqualTo(                // fails
+           ->isEqualTo(                // échoue
                new DateInterval('P2D')
            )
    ;
@@ -44,7 +44,7 @@ isEqualTo
 isGreaterThan
 =============
 
-``isGreaterThan`` checks that the duration of the object  ``DateInterval`` is higher to the duration of the given ``DateInterval`` object.
+``isGreaterThan`` vérifie que la durée de l'objet ``DateInterval`` est supérieure à la durée d'un autre objet ``DateInterval``.
 
 .. code-block:: php
 
@@ -53,10 +53,10 @@ isGreaterThan
 
    $this
        ->dateInterval($di)
-           ->isGreaterThan(            // passes
+           ->isGreaterThan(            // passe
                new DateInterval('P1D')
            )
-           ->isGreaterThan(            // fails
+           ->isGreaterThan(            // échoue
                new DateInterval('P2D')
            )
    ;
@@ -66,7 +66,7 @@ isGreaterThan
 isGreaterThanOrEqualTo
 ======================
 
-``isGreaterThanOrEqualTo`` checks that the duration of the object ``DateInterval`` is higher or equals to the duration of another object ``DateInterval``.
+``isGreaterThanOrEqualTo`` vérifie que la durée de l'objet ``DateInterval`` est supérieure ou égale à la durée d'un autre objet ``DateInterval``.
 
 .. code-block:: php
 
@@ -75,13 +75,13 @@ isGreaterThanOrEqualTo
 
    $this
        ->dateInterval($di)
-           ->isGreaterThanOrEqualTo(   // passes
+           ->isGreaterThanOrEqualTo(   // passe
                new DateInterval('P1D')
            )
-           ->isGreaterThanOrEqualTo(   // passes
+           ->isGreaterThanOrEqualTo(   // passe
                new DateInterval('P2D')
            )
-           ->isGreaterThanOrEqualTo(   // fails
+           ->isGreaterThanOrEqualTo(   // échoue
                new DateInterval('P3D')
            )
    ;
@@ -92,8 +92,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isIdenticalTo <object-is-identical-to>`
+   ``isIdenticalTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _date-interval-is-instance-of:
@@ -102,8 +102,8 @@ isInstanceOf
 ============
 
 .. hint::
-   ``isInstanceOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of :ref:`object::isInstanceOf <object-is-instance-of>`
+   ``isInstanceOf`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _date-interval-is-less-than:
@@ -111,7 +111,7 @@ isInstanceOf
 isLessThan
 ==========
 
-``isLessThan`` checks that the duration of the object  ``DateInterval`` is lower than the duration of the given ``DateInterval`` object.
+``isLessThan`` vérifie que la durée de l'objet ``DateInterval`` est inférieure à la durée d'un autre objet ``DateInterval``.
 
 .. code-block:: php
 
@@ -120,10 +120,10 @@ isLessThan
 
    $this
        ->dateInterval($di)
-           ->isLessThan(               // passes
+           ->isLessThan(               // passe
                new DateInterval('P2D')
            )
-           ->isLessThan(               // fails
+           ->isLessThan(               // échoue
                new DateInterval('P1D')
            )
    ;
@@ -133,7 +133,7 @@ isLessThan
 isLessThanOrEqualTo
 ===================
 
-``isLessThanOrEqualTo`` checks that the duration of the object ``DateInterval`` is lower or equals to the duration of another object ``DateInterval``.
+``isLessThanOrEqualTo`` vérifie que la durée de l'objet ``DateInterval`` est inférieure ou égale à la durée d'un autre objet ``DateInterval``.
 
 .. code-block:: php
 
@@ -142,13 +142,13 @@ isLessThanOrEqualTo
 
    $this
        ->dateInterval($di)
-           ->isLessThanOrEqualTo(      // passes
+           ->isLessThanOrEqualTo(      // passe
                new DateInterval('P3D')
            )
-           ->isLessThanOrEqualTo(      // passes
+           ->isLessThanOrEqualTo(      // passe
                new DateInterval('P2D')
            )
-           ->isLessThanOrEqualTo(      // fails
+           ->isLessThanOrEqualTo(      // échoue
                new DateInterval('P1D')
            )
    ;
@@ -159,8 +159,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   ``isNotEqualTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _date-interval-is-not-identical-to:
@@ -169,8 +169,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
 
 
 .. _date-interval-is-zero:
@@ -178,7 +178,7 @@ isNotIdenticalTo
 isZero
 ======
 
-``isZero`` check the duration of ``DateInterval`` is equal to 0.
+``isZero`` vérifie que la durée de l'objet ``DateInterval`` est égale à 0.
 
 .. code-block:: php
 
@@ -188,7 +188,7 @@ isZero
 
    $this
        ->dateInterval($di1)
-           ->isZero()      // passes
+           ->isZero()      // passe
        ->dateInterval($di2)
-           ->isZero()      // fails
+           ->isZero()      // échoue
    ;

@@ -2,24 +2,24 @@
 .. _cookbook_utilisation_behat:
 
 Utilisation dans behat
-************
+**********************
 
-The *asserters* from atoum are very easy to use outside your traditional unit tests. Il vous suffit d'importer la classe *mageekguy\atoum\asserter* en n'oubliant pas d'assurer le chargement des classes nécessaires (atoum fournit une classe d'autoload disponible dans *classes/autoloader.php*).
+Les *asserters* d'atoum sont très facilement utilisables hors de vos tests unitaires classiques. Il vous suffit d'importer la classe *mageekguy\atoum\asserter* en n'oubliant pas d'assurer le chargement des classes nécessaires (atoum fournit une classe d'autoload disponible dans *classes/autoloader.php*).
 L'exemple suivant illustre cette utilisation des asserters atoum à l'intérieur de vos *steps* Behat.
 
 Installation
 ============
 
-Simply install atoum and Behat in your project via pear, git clone, zip... Here is an example with dependency manager *Composer* :
+Installez simplement atoum et Behat dans votre projet via pear, git clone, zip... Voici un exemple avec le gestionnaire de dépendances *Composer* :
 
 .. code-block:: json
 
    "require-dev": {
            "behat/behat": "2.4@stable",
-           "atoum/atoum": "~2.5",
+           "atoum/atoum": "~2.5"
    }
 
-It is obviously mandatory to update  your composer dependencies with the command :
+Il est évidemment nécessaire de remettre à jour vos dépendances composer en lançant la commande :
 
 .. code-block:: shell
 
@@ -29,7 +29,7 @@ It is obviously mandatory to update  your composer dependencies with the command
 Configuration
 =============
 
-As mentioned in the introduction, just import the asserter classes from atoum and ensure that they are loaded. For Behat, configuration of asserters are done inside the class *FeatureContext.php* (located by default in your directory */root-of-project/features/bootstrap/*).
+Comme mentionné en introduction, il suffit d'importer la classe d'asserter et d'assurer le chargement des classes d'atoum. Pour Behat, la configuration des asserters s'effectue dans votre classe *FeatureContext.php* (située par défaut dans le répertoire */RACINE DE VOTRE PROJET/features/bootstrap/*).
 
 .. code-block:: php
 
@@ -58,10 +58,10 @@ As mentioned in the introduction, just import the asserter classes from atoum an
    }
 
 
-Usage
-=====
+Utilisation
+===========
 
-After these 2 particular trivial steps, your *steps* can be extended with the atoum asserters :
+Après ces 2 étapes particulièrement triviales, vos *steps* peuvent s'enrichir des asserters atoum :
 
 .. code-block:: php
 
@@ -85,53 +85,53 @@ After these 2 particular trivial steps, your *steps* can be extended with the at
        }
    }
 
-Once again, this is only an example specific to Behat but it remains valid for all needs of using the asserters of atoum outside the initial context.
+Encore une fois, ceci n'est qu'un exemple spécifique à Behat mais il reste valable pour tous les besoins d'utilisation des asserters d'atoum hors contexte initial.
 
 
 
 .. _cookbook_utilisation_ci:
 
-Use with continous integration tools (CI)
-*****************************************
+Utilisation dans des outils d'intégration continue (CI)
+*******************************************************
 
 .. _cookbook_utilisation_jenkins:
 
-Use inside Jenkins (or Hudson)
-==============================
+Utilisation dans Jenkins (ou Hudson)
+====================================
 
-It's very simple to  the results of atoum to `Jenkins <http://jenkins-ci.org/>`_ (or `Hudson <http://hudson-ci.org/>`_) as xUnit results.
+Il est très simple d'intégrer les résultats de tests atoum à `Jenkins <http://jenkins-ci.org/>`_ (ou `Hudson <http://hudson-ci.org/>`_) en tant que résultats xUnit.
 
 
-Step1: Add a xUnit report to the configuration of atoum
--------------------------------------------------------
+Étape 1 : Ajout d'un rapport xUnit à la configuration atoum
+-----------------------------------------------------------
 
-If you don't have a configuration file
-""""""""""""""""""""""""""""""""""""""
+Si vous n'avez pas de fichier de configuration
+""""""""""""""""""""""""""""""""""""""""""""""
 
-If you don't have a configuration file for atoum yet, we recommend that you extract the directory resource of atoum in that one of your choice by using the following command :
+Si vous ne disposez pas encore d'un fichier de configuration pour atoum, nous vous recommandons d'extraire le répertoire ressource d’atoum dans celui de votre choix à l'aide de la commande suivante :
 
-* If you are using the Phar archive of atoum :
+* Si vous utilisez l'archive Phar d'atoum :
 
 .. code-block:: shell
 
    $ php mageekguy.atoum.phar --extractRessourcesTo /tmp/atoum-src
-   $ cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /my/project/atoum.php
+   $ cp /tmp/atoum-src/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
 
-* If you are using the sources of atoum :
+* Si vous utilisez les sources d'atoum :
 
 .. code-block:: shell
 
-   $ cp /path/to/atoum/resources/configurations/runner/xunit.php.dist /my/project/.atoum.php
+   $ cp /chemin/vers/atoum/resources/configurations/runner/xunit.php.dist /mon/projet/.atoum.php
 
-* You can also directly copy the files from `the Github repository <https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist>`_
+* Vous pouvez également copier le fichier directement `depuis le dépôt Github <https://github.com/atoum/atoum/blob/master/resources/configurations/runner/xunit.php.dist>`_
 
-There is one last step, edit this file to set the path to the xUnit report where atoum will generate it. This file is ready to use, with him, you will keep the default report and gain a xUnit report for each launch of tests.
+Il ne vous reste plus qu'à éditer ce fichier pour choisir l'emplacement où atoum génèrera le rapport xUnit. Ce fichier est prêt à l'emploi, avec lui, vous conservez le rapport par défaut d'atoum et vous obtiendrez un rapport xUnit à la suite de chaque lancement des tests.
 
 
-If you already have a configuration file
-""""""""""""""""""""""""""""""""""""""""
+Si vous avez déjà un fichier de configuration
+"""""""""""""""""""""""""""""""""""""""""""""
 
-If you already have a configuration file, simply add the following lines :
+Si vous disposez déjà d'un fichier de configuration, il vous suffit d'y ajouter les lignes suivantes :
 
 .. code-block:: php
 
@@ -148,60 +148,60 @@ If you already have a configuration file, simply add the following lines :
    /*
     * Xunit writer
     */
-   $writer = new atoum\writers\file('/path/to/the/report/atoum.xunit.xml');
+   $writer = new atoum\writers\file('/chemin/vers/le/rapport/atoum.xunit.xml');
    $xunit->addWriter($writer);
 
 
-Step 2: Test the configuration
-------------------------------
+Étape 2 : Tester la configuration
+---------------------------------
 
-To test this configuration, simply run atoum specifying the configuration file you want to use :
+Pour tester cette configuration, il suffit de lancer atoum en lui précisant le fichier de configuration que vous souhaitez utiliser :
 
 .. code-block:: shell
 
-   $ ./bin/atoum -d /path/to/the/unit/tests -c /path/to/the/configuration.php
+   $ ./bin/atoum -d /chemin/vers/les/tests/units -c /chemin/vers/la/configuration.php
 
 .. note::
-   If you named your configuration file  ``.atoum.php``, it will be load automatically. The ``-c`` parameter is optional in this case.
-   To let atoum load automatically the ``.atoum.php`` file, you will need to run test from the folder where this file resides or one of his childs.
+   Si vous avez nommé votre fichier de configuration ``.atoum.php``, atoum le chargera automatiquement. Le paramètre ``-c`` est donc optionnel dans ce cas.
+   Pour qu'atoum charge automatiquement ce fichier, vous devrez lancer les tests à partir du dossier où se trouve le fichier ``.atoum.php`` ou d'un de ses enfants.
 
-At the end of the tests, you will have the xUnit report inside the folder specified in the configuration.
+À la fin de l'exécution des tests, vous devriez voir le rapport xUnit dans le répertoire indiqué dans le fichier de configuration.
 
 
-Step 3: Launching tests via Jenkins (or Hudson)
------------------------------------------------
+Étape 3 : Lancement des tests via Jenkins (ou Hudson)
+-----------------------------------------------------
 
-There are several possibilities depending on how you build your project :
+Il existe pour cela plusieurs possibilités selon la façon dont vous construisez votre projet :
 
-* If you use a script, simply add the previous command.
-* If you use a utility tool like `phing <https://www.phing.info/>`_ or `ant <http://ant.apache.org/>`_, simply add a task. In the case of ant, an exec task type :
+* Si vous utilisez un script, il vous suffit d'y ajouter la commande précédente.
+* Si vous passez par un utilitaire tel que `phing <https://www.phing.info/>`_ ou `ant <http://ant.apache.org/>`_, il suffit d'ajouter une tâche. Dans le cas de ant, un tâche de type exec :
 
 .. code-block:: xml
 
    <target name="unitTests">
      <exec executable="/usr/bin/php" failonerror="yes" failifexecutionfails="yes">
-       <arg line="/path/to/mageekguy.atoum.phar -p /path/to/php -d /path/to/test/folder -c /path/to/atoumConfig.php" />
+       <arg line="/path/to/mageekguy.atoum.phar -p /chemin/vers/php -d /path/to/test/folder -c /path/to/atoumConfig.php" />
      </exec>
    </target>
 
-Notice the addition of ``-p /path/to/php`` that permit to atoum to know the path to the php binary to use to run the unit tests.
+Vous noterez l'ajout du paramètre ``-p /chemin/vers/php`` qui permet d'indiquer à atoum le chemin vers le binaire PHP qu'il doit utiliser pour exécuter les tests unitaires.
 
 
-Step 4: Publish the report with Jenkins (or Hudson)
----------------------------------------------------
+Étape 4 : Publier le rapport avec Jenkins (ou Hudson)
+-----------------------------------------------------
 
-Simply enable the publication of report with JUnit or xUnit format of the plugin you are using, specifying the path to the file generated by atoum.
+Il suffit tout simplement d'activer la publication des rapports au format JUnit ou xUnit, en fonction du plug-in que vous utilisez, en lui indiquant le chemin d'accès au fichier généré par atoum.
 
 
 
 .. _cookbook_utilisation_travis-ci:
 
-Use with Travis-CI
-==================
+Utilisation avec Travis-ci
+==========================
 
-It's simple to use atoum with a tool like `Travis-CI <https://travis-ci.org>`_. Indeed, all the steps are described in the `official documentation <http://docs.travis-ci.com/user/languages/php/#Working-with-atoum>`_ :
-* Create your .travis.yml in your project;
-* Add it the next two lines:
+Il est assez simple d'utiliser atoum dans l'outil qu'est `Travis-CI <https://travis-ci.org>`__. En effet, l'ensemble des étapes est indiqué dans la `documentation officielle <http://docs.travis-ci.com/user/languages/php/#Working-with-atoum>`__ :
+* Créer votre fichier .travis.yml dans votre projet;
+* Ajoutez-y les deux lignes suivantes :
 
 .. code-block:: yaml
 
@@ -209,7 +209,7 @@ It's simple to use atoum with a tool like `Travis-CI <https://travis-ci.org>`_. 
    script: php mageekguy.atoum.phar
 
 
-Here is an example file `.travis.yml` where the unit tests in the `tests` folder will be run.
+Voici un exemple de fichier `.travis.yml` dont les tests présents dans le dossier `tests` seront exécuter.
 
 .. code-block:: yaml
 

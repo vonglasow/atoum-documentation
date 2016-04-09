@@ -19,7 +19,7 @@ Le framework eZ Publish possède déjà un répertoire dédié aux tests, nommé
 Étape 2 : Création de la classe de test de base
 ---------------------------------------------------
 
-Une classe de test basée sur atoum doit étendre la classe ``\mageekguy\atoum\test``. However, this one doesn't take into account of *eZ Publish* specificities. It's therefore mandatory to
+Une classe de test basée sur atoum doit étendre la classe ``\mageekguy\atoum\test``. Toutefois, celle-ci ne tient pas compte des spécifications de *eZ Publish*. .
 Il est donc nécessaire de définir une classe de test de base, dérivée de ``\mageekguy\atoum\test``, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier ``tests\atoum\test.php`` :
 
 .. code-block:: php
@@ -217,9 +217,9 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 Étape 3: écriture d'un test
 --------------------
 
-In the Tests/Units directory, simply recreate the tree of the classes that you want to test (for example src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
+Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
-Create our test file:
+Créons notre fichier de test:
 
 .. code-block:: php
 
@@ -246,34 +246,34 @@ Create our test file:
    }
 
 
-Step 4: launch tests
+Étape 4: lancement des tests
 --------------------
 
-If you use Symfony 2.0:
+Si vous utilisez Symfony 2.0:
 
 .. code-block:: shell
 
-   # Launch tests of one file
+   # Lancement des tests d'un fichier
    $ php vendor/mageekguy.atoum.phar -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
-   # Launch all tests of the Bundle
+   # Lancement de tous les tests du Bundle
    $ php vendor/mageekguy.atoum.phar -d src/Acme/DemoBundle/Tests/Units
 
-If you use Symfony 2.1+:
+Si vous utilisez Symfony 2.1+:
 
 .. code-block:: shell
 
-   # Launch tests of one file
+   # Lancement des tests d'un fichier
    $ ./bin/atoum -f src/Acme/DemoBundle/Tests/Units/Entity/Car.php
 
-   # Launch all tests of the Bundle
+   # Lancement de tous les tests du Bundle
    $ ./bin/atoum -d src/Acme/DemoBundle/Tests/Units
 
 .. note::
-   You can get more information on the :ref:`test launch <lancement-des-tests>` in the chapter which is dedicated to.
+   Vous pouvez obtenir plus d'informations sur le :ref:`lancement des tests <lancement-des-tests>` dans le chapitre qui y est consacré.
 
 
-In any case, this is what you should get:
+Dans tous les cas, voilà ce que vous devriez obtenir:
 
 .. code-block:: shell
 
@@ -310,25 +310,25 @@ In any case, this is what you should get:
 
 .. _utilisation-avec-symfony-1-4:
 
-Use with symfony 1.4
+Utilisation avec symfony 1.4
 ====================
 
-If you want to use atoum inside your Symfony 1.4 project, you can install the plugins sfAtoumPlugin. It's available on this address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
 
 Installation
 ------------
 
-There are several ways to install this plugin in your project:
+Il existe plusieurs méthodes d'installation du plugin dans votre projet :
 
 * installation via composer
-* installation via git submodules
+* installation via des submodules git
 
 
-Using composer
+En utilisant composer
 """"""""""""""
 
-Add this lines inside the composer.json file:
+Ajouter ceci dans le composer.json :
 
 .. code-block:: json
 
@@ -336,9 +336,9 @@ Add this lines inside the composer.json file:
      "atoum/sfAtoumPlugin": "*"
    },
 
-After a ``php composer.phar update`` the plugin should be in the plugin folder and atoum in the ``vendor`` folder.
+Après avoir effectué un ``php composer.phar update``, le plugin devrait se trouver dans le dossier plugins et atoum dans un dossier ``vendor``.
 
-Then, in your ProjectConfiguration file, you have to activate the plugin and define the atoum path.
+Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le chemin d'atoum.
 
 .. code-block:: php
 
@@ -351,22 +351,22 @@ Then, in your ProjectConfiguration file, you have to activate the plugin and def
    }
 
 
-Using a git submodule
+En utilisant des submodules git
 """""""""""""""""""""
 
-First, install atoum as a submodule:
+Il faut tout d'abord ajouter atoum en tant que submodule :
 
 .. code-block:: shell
 
    $ git submodule add git://github.com/atoum/atoum.git lib/vendor/atoum
 
-Then install sfAtoumPlugin as a git submodule:
+Puis ensuite ajouter le sfAtoumPlugin en tant que submodule :
 
 .. code-block:: shell
 
    $ git submodule add git://github.com/atoum/sfAtoumPlugin.git plugins/sfAtoumPlugin
 
-Finally, enable the plugin in in your ProjectConfiguration file:
+Enfin, il faut activer le plugin dans le fichier ProjectConfiguration :
 
 .. code-block:: php
 
@@ -377,10 +377,10 @@ Finally, enable the plugin in in your ProjectConfiguration file:
    }
 
 
-Write tests
------------
+Ecrire les tests
+----------------
 
-Tests must include the bootstrap file from the plugin:
+Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
 
 .. code-block:: php
 
@@ -388,18 +388,18 @@ Tests must include the bootstrap file from the plugin:
    require_once __DIR__ . '/../../../../plugins/sfAtoumPlugin/bootstrap/unit.php';
 
 
-Launch tests
+Lancer les tests
 ------------
 
-The symfony command ``atoum:test`` is available. The tests can then be launched in this way:
+La commande symfony ``atoum:test`` est disponible. Les tests peuvent alors se lancer de cette façon :
 
 .. code-block:: shell
 
    $ ./symfony atoum:test
 
-All the arguments of atoum are available.
+Toutes les paramètres d'atoum sont disponibles.
 
-It's therefore, for example, possible to give a configuration file like this :
+Il est donc, par exemple, possible de passer un fichier de configuration comme ceci :
 
 .. code-block:: php
 
@@ -409,28 +409,28 @@ It's therefore, for example, possible to give a configuration file like this :
 
 .. _framework-symfony-1-plugin:
 
-Symfony 1 plugin
+Plugin symfony 1
 ================
 
-To use atoum within a symfony project 1, a plug-in exists and is available at the following address: `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
+Pour utiliser atoum au sein d'un projet symfony 1, un plug-in existe et est disponible à l'adresse suivante : `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
-The instructions for installation and use are the cookbook  :ref:`utilisation-avec-symfony-1-4` as well as on the github page.
+Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-1-4` ainsi que sur la page github.
 
 
 .. _framework-symfony-2-bundle:
 
-Symfony 2 bundle
+Bundle Symfony 2
 ================
 
-To use atoum inside a Symfony 2 project, the bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_  is available.
+Pour utiliser atoum au sein d'un projet Symfony 2, le bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_ est disponible.
 
-The instructions for installation and use are the cookbook :ref:`utilisation-avec-symfony-2` as well as on the github page.
+Toutes les instructions pour son installation et son utilisation se trouvent dans le cookbook :ref:`utilisation-avec-symfony-2` ainsi que sur la page github.
 
 .. _framework-zend-framework-2:
 
-Zend Framework 2 component
+Composant Zend Framework 2
 ==========================
 
-If you want to use atoum within a Zend Framework 2 project, a component exists and is available at the `following address <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
+Si vous souhaitez utiliser atoum au sein d'un projet Zend Framework 2, un composant existe et est disponible à `l'adresse suivante <https://github.com/blanchonvincent/zend-framework-test-atoum>`_.
 
-The instructions for installation and usage are available on this page.
+Toutes les instructions pour son installation et son utilisation sont disponibles sur cette page.

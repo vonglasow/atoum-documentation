@@ -3,7 +3,7 @@
 error
 *****
 
-It's the assertion dedicated to errors.
+C'est l'assertion dédiée aux erreurs.
 
 .. code-block:: php
 
@@ -19,12 +19,12 @@ It's the assertion dedicated to errors.
    ;
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3.
-   For more details, read the PHP's documentation on `anonymous functions <http://php.net/functions.anonymous>`_.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
+   Pour plus de précision, lisez la documentation PHP sur `les fonctions anonymes <http://php.net/functions.anonymous>`_.
 
 
 .. warning::
-   The error types E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING as well as the E_STRICT can't be managed with this function.
+   Les types d'erreur E_ERROR, E_PARSE, E_CORE_ERROR, E_CORE_WARNING, E_COMPILE_ERROR, E_COMPILE_WARNING ainsi que la plupart des E_STRICT ne peuvent pas être gérés avec cette fonction.
 
 
 .. _exists-anchor:
@@ -32,7 +32,7 @@ It's the assertion dedicated to errors.
 exists
 ======
 
-``exists`` checks that an error was raised during the execution of the previous code.
+``exists`` vérifie qu'une erreur a été levée lors de l'exécution du code précédent.
 
 .. code-block:: php
 
@@ -60,7 +60,7 @@ exists
 notExists
 =========
 
-``notExists`` checks that no errors was raised during the execution of the previous code.
+``notExists`` vérifie qu'aucune erreur n'a été levée lors de l'exécution du code précédent.
 
 .. code-block:: php
 
@@ -88,7 +88,7 @@ notExists
 withType
 ========
 
-``withType`` checks the type of the raised error.
+``withType`` vérifie le type de l'erreur levée.
 
 .. code-block:: php
 
@@ -119,7 +119,7 @@ withType
 withAnyType
 ===========
 
-``withAnyType`` does not check the type of the raised error. That's the default behaviour. So ``->error()->withAnyType()->exists()`` is the equivalent of ``->error()->exists()``. This method allow to add semantic to your test.
+``withAnyType`` ne vérifie pas le type de l'erreur. C'est le comportement par défaut de l'asserter. Donc ``->error()->withAnyType()->exists()`` est l'équivalent de ``->error()->exists()``. Cette méthode existe pour ajouter de la sémantique dans vos tests.
 
 
 .. code-block:: php
@@ -149,7 +149,7 @@ withAnyType
 withMessage
 ===========
 
-``withMessage`` checks message content of raised error.
+``withMessage`` vérifie le contenu du message de l'erreur levée.
 
 
 .. code-block:: php
@@ -183,7 +183,7 @@ withMessage
 withAnyMessage
 ==============
 
-``withAnyMessage`` does not check the error message. That's the default behaviour. So ``->error()->withAnyMessage()->exists()`` is the equivalent of ``->error()->exists()``. This method allow to add semantic to your test.
+``withAnyMessage`` ne vérifie pas le message de l'erreur. C'est le comportement par défaut de l'asserter. Donc ``->error()->withAnyMessage()->exists()`` est l'équivalent de ``->error()->exists()``. Cette méthode existe pour ajouter de la sémantique dans vos tests.
 
 .. code-block:: php
 
@@ -226,7 +226,7 @@ withAnyMessage
 withPattern
 ===========
 
-``withPattern`` checks message content of raised error against a regular expression.
+``withPattern`` vérifie le contenu du message de l'erreur soulevée par l'expression régulière.
 
 .. code-block:: php
 

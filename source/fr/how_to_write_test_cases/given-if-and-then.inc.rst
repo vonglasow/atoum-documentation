@@ -25,13 +25,13 @@ L'utilisation de ces mots-clefs est très intuitive :
                ->isEqualTo(4)
    ;
 
-It's important to note that these keywords don't have any another purpose than giving the test a more readable form. They don't supplement the test with any technical effect. The only goal here is to help the reader, human or more specifically developer, to understand what's happening in the test.
+Il est important de noter que ces mots-clés n'ont pas un autre but que de donner aux tests une forme plus lisible. Elles n'ont aucun effet technique sur les tests. Le seul but est d'aider le lecteur, les humains ou plus précisément le développeur, à comprendre ce qui se passe dans le test.
 
 Ainsi, ``given``, ``if`` et ``and`` permettent de définir les conditions préalables pour que les assertions qui suivent le mot-clef ``then`` passent avec succès.
 
 Cependant, il n'y a pas de grammaire régissant l'ordre d'utilisation de ces mots-clefs et aucune vérification syntaxique n'est effectuée par atoum.
 
-As a result, the developer has to use the keywords wisely in order to make the test as readable as possible. Wrongly used, you could end up with tests written like the following :
+Ainsi, le développeurs utiliseras ces mots-clés a bon escient  pour rendre les tests aussi lisibles que possible. Mal utilisé, vous finiriez avec des tests écrit de la manière suivante :
 
 .. code-block:: php
 
@@ -65,7 +65,7 @@ Il est également important de noter qu'il est tout à fait possible d'écrire l
            ->isEqualTo(4)
    ;
 
-The test will not be slower or faster to run and there is no advantage to use one notation or another, the important thing is to choose one and stick to it. In this way it will facilitate maintenance of the tests (the problem is exactly the same as coding conventions).
+Le test ne sera pas plus lent ou plus rapide à exécuter, et il n'y a aucun avantage à utiliser une notation plutôt qu'une autre, l'important est d'en choisir une et de s'y tenir. De cette façon, cela permet de facilité la maintenance des tests (le problème est exactement le même que les conventions de codage).
 
 .. _when:
 

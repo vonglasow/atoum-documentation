@@ -7,14 +7,14 @@ C'est l'assertion dédiée aux streams.
 
 Elle est basée sur le système de fichier virtuel d'atoum (VFS). A new `stream wrapper <http://php.net/streamWrapper>`_ will be registered (starting with ``atoum://``).
 
-The mock will create a new file in the VFS and the steam path will be accessible via the ``getPath`` method on the stream controller (something like ``atoum://mockUniqId``).
+Le bouchon va créer un nouveau fichier dans le VFS et le chemin du flux sera accessible en appellant la méthode ``getPath`` sur le controlleur de flux (par exemple ``atoum://mockUniqId``).
 
 .. _is-read:
 
 isRead
 ======
 
-``isRead`` checks if a mocked stream has been read.
+``isRead`` vérifie si le flux bouchoné à bien été lu.
 
 .. code-block:: php
 

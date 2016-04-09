@@ -17,7 +17,7 @@ C'est l'assertion dédiée aux tests sur les sorties, c'est-à-dire tout ce qui 
    ;
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
    For more details, read the PHP's documentation on `anonymous functions <http://php.net/functions.anonymous>`_.
 
 
@@ -28,7 +28,7 @@ contains
 
 .. hint::
    ``contains`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::contains <string-contains>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::contains <string-contains>`
 
 
 .. _output-has-length:

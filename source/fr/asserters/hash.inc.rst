@@ -12,7 +12,7 @@ contains
 
 .. hint::
    ``contains`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::contains <string-contains>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::contains <string-contains>`
 
 
 .. _hash-is-equal-to:

@@ -40,7 +40,7 @@ Maintenant, voici le code de la classe de test que nous pourrions écrire.
    // Le namespace de la classe à tester + "tests\units"
    namespace Vendor\Project\tests\units;
 
-   // You must include the tested class (if you have no autoloader)
+   // Vous devez inclure la classe testée (si vous n'avez pas d'autoloader)
    require_once __DIR__ . '/../../HelloWorld.php';
 
    use atoum;
@@ -98,16 +98,16 @@ Vous devriez voir quelque chose comme ça :
 Nous venons de tester que la méthode ``getHiAtoum`` :
 
 * retourne une :ref:`chaîne de caractère <string-anchor>`;
-* that :ref:`is equals to<string-is-equal-to>` ``"Hi atoum !"``.
+* que :ref:`c'est égale à <string-is-equal-to>` ``"Hi atoum !"``.
 
 Les tests sont passés, tout est au vert. Voilà, votre code est solide comme un roc grâce à atoum !
 
 
-Dissecting the test
-*******************
-It's important you understand each thung we use in this test. So here is some information about it.
+Dissection du test
+******************
+Il est important que vous compreniez chaque chose que nous utilisons dans ce test. Voici quelques informations à ce sujet.
 
-We use the namespace ``Vendor\Project\tests\units`` where ``Vendor\Project`` is the namespace of the class and ``tests\units`` the part of the namespace use by atoum to understand that we are on test namespace. This special namespace is configurable and it's explain in the :ref:`appropriate section<cookbook_change_default-namespace>`.
-Inside the test method, we use a special syntax :ref:`given and then<given-if-and-then>` that do nothing excepting making the test more readable.
-Finally we use another simple tricks with :ref:`newTestedInstance and testedInstance<newTestedInstance>` to get a new instance of the tested class.
+Nous utilisons l'espace de noms ``Vendor\Project\tests\units`` où ``Vendor\Project`` est l'espace de noms de la classe et  ``tests\units`` la partie de l'espace de noms utiliser par atoum pour comprendre que nous sommes dans l'espace de nom de test. Cette espace de nom est configurable et ceci est expliqué dans la  :ref:`section appropriée <cookbook_change_default-namespace>`.
+Dans la méthode de test, nous utilisons une syntaxe particulière :ref:`given et then<given-if-and-then>` qui ne fais rien excepté rendre le test plus lisible.
+Finalement, nous utilisons un autre truc simple :ref:`newTestedInstance et testedInstance<newTestedInstance>` pour obtenir une instance de la class testée.
 

@@ -8,7 +8,7 @@ C'est l'assertion dédiée aux objets décrivant une date MySQL et basée sur l'
 Les dates doivent utiliser un format compatible avec MySQL et de nombreux autre SGBD (Système de gestion de base de données)), à savoir "Y-m-d H:i:s" "Y-m-d H:i:s"
 
 .. note::
-   For more information, refer to the documentation of the `date() <http://php.net/date>`_ function from the PHP manual.
+   Reportez-vous à la documentation de la fonction `date() <http://php.net/date>`_ du manuel de PHP pour plus d'information.
 
 If you try to test a value that's not a ``DateTime`` (or a child class) with this assertion it will fail.
 
@@ -18,7 +18,7 @@ hasDate
 =======
 
 .. hint::
-   ``hasDate`` is a method inherited from the ``dateTime`` asserter.
+   ``hasDate`` est une méthode héritée de l'asserter ``dateTime``.
    For more information, refer to the documentation of :ref:`dateTime::hasDate <date-time-has-date>`
 
 
@@ -29,7 +29,7 @@ hasDateAndTime
 
 .. hint::
    ``hasDateAndTime`` is a method inherited from the ``dateTime`` asserter.
-   For more informations, refer to the documentation of :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`dateTime::hasDateAndTime <date-time-has-date-and-time>`
 
 
 .. _mysql-date-time-has-day:

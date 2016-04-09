@@ -8,7 +8,7 @@ C'est l'assertion dédiée aux entiers.
 Si vous essayez de tester une variable qui n'est pas un entier avec cette assertion, cela échouera.
 
 .. note::
-   ``null`` isn't an integer. Refer to the PHP's manual  `is_int <http://php.net/is_int>`_ to known what's considered as an integer or not.
+   ``null`` n'est pas un entier. Reportez-vous au manuel de PHP pour savoir ce que `is_int <http://php.net/is_int>`_ considère ou non comme un entier.
 
 
 .. _integer-is-equal-to:
@@ -17,8 +17,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
+   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _integer-is-greater-than:
@@ -26,7 +26,7 @@ isEqualTo
 isGreaterThan
 =============
 
-``isGreaterThan`` checks that the integer is strictly higher than given one.
+``isGreaterThan`` vérifie que l'entier est strictement supérieur à une certaine donnée.
 
 .. code-block:: php
 

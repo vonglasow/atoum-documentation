@@ -3,7 +3,7 @@
 dateTime
 ********
 
-It's the assertion dedicated to `DateTime <http://php.net/datetime>`_  object.
+C'est l'assertion dédiée à l'objet `DateTime <http://php.net/datetime>`_.
 
 Si vous essayez de tester une variable qui n'est pas un objet ``DateTime`` (ou une classe qui l'étend) avec cette assertion, cela échouera.
 
@@ -12,7 +12,7 @@ Si vous essayez de tester une variable qui n'est pas un objet ``DateTime`` (ou u
 hasDate
 =======
 
-``hasDate`` checks the date part of the ``DateTime`` object.
+``hasDate`` vérifie la partie date de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -21,9 +21,9 @@ hasDate
 
    $this
        ->dateTime($dt)
-           ->hasDate('1981', '02', '13')   // passes
-           ->hasDate('1981', '2',  '13')   // passes
-           ->hasDate(1981,   2,    13)     // passes
+           ->hasDate('1981', '02', '13')   // passe
+           ->hasDate('1981', '2',  '13')   // passe
+           ->hasDate(1981,   2,    13)     // passe
    ;
 
 .. _date-time-has-date-and-time:
@@ -31,7 +31,7 @@ hasDate
 hasDateAndTime
 ==============
 
-``hasDateAndTime`` checks date and hour part of the ``DateTime`` object.
+``hasDateAndTime`` vérifie la partie date et heure de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -40,11 +40,11 @@ hasDateAndTime
 
    $this
        ->dateTime($dt)
-           // passes
+           // passe
            ->hasDateAndTime('1981', '02', '13', '01', '02', '03')
-           // passes
+           // passe
            ->hasDateAndTime('1981', '2',  '13', '1',  '2',  '3')
-           // passes
+           // passe
            ->hasDateAndTime(1981,   2,    13,   1,    2,    3)
    ;
 
@@ -53,7 +53,7 @@ hasDateAndTime
 hasDay
 ======
 
-``hasDay`` checks day part of the ``DateTime`` object.
+``hasDay`` vérifie le jour de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -62,7 +62,7 @@ hasDay
 
    $this
        ->dateTime($dt)
-           ->hasDay(13)        // passes
+           ->hasDay(13)        // passe
    ;
 
 .. _date-time-has-hours:
@@ -70,7 +70,7 @@ hasDay
 hasHours
 ========
 
-``hasHours`` checks time part of the ``DateTime`` object.
+``hasHours`` vérifie l'heure de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -79,9 +79,9 @@ hasHours
 
    $this
        ->dateTime($dt)
-           ->hasHours('01')    // passes
-           ->hasHours('1')     // passes
-           ->hasHours(1)       // passes
+           ->hasHours('01')    // passe
+           ->hasHours('1')     // passe
+           ->hasHours(1)       // passe
    ;
 
 .. _date-time-has-minutes:
@@ -89,7 +89,7 @@ hasHours
 hasMinutes
 ==========
 
-``hasMinutes`` checks minutes part of the ``DateTime`` object.
+``hasMinutes`` vérifie les minutes de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -98,9 +98,9 @@ hasMinutes
 
    $this
        ->dateTime($dt)
-           ->hasMinutes('02')  // passes
-           ->hasMinutes('2')   // passes
-           ->hasMinutes(2)     // passes
+           ->hasMinutes('02')  // passe
+           ->hasMinutes('2')   // passe
+           ->hasMinutes(2)     // passe
    ;
 
 .. _date-time-has-month:
@@ -108,7 +108,7 @@ hasMinutes
 hasMonth
 ========
 
-``hasMonth`` checks month part of the ``DateTime`` object.
+``hasMonth`` vérifie le mois de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -117,7 +117,7 @@ hasMonth
 
    $this
        ->dateTime($dt)
-           ->hasMonth(2)       // passes
+           ->hasMonth(2)       // passe
    ;
 
 .. _date-time-has-seconds:
@@ -125,7 +125,7 @@ hasMonth
 hasSeconds
 ==========
 
-``hasSeconds`` checks seconds part of the ``DateTime`` object.
+``hasSeconds`` vérifie les secondes de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -134,9 +134,9 @@ hasSeconds
 
    $this
        ->dateTime($dt)
-           ->hasSeconds('03')    // passes
-           ->hasSeconds('3')     // passes
-           ->hasSeconds(3)       // passes
+           ->hasSeconds('03')    // passe
+           ->hasSeconds('3')     // passe
+           ->hasSeconds(3)       // passe
    ;
 
 .. _date-time-has-time:
@@ -144,7 +144,7 @@ hasSeconds
 hasTime
 =======
 
-``hasTime`` checks time part of the ``DateTime`` object.
+``hasTime`` vérifie le temps de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -153,9 +153,9 @@ hasTime
 
    $this
        ->dateTime($dt)
-           ->hasTime('01', '02', '03')     // passes
-           ->hasTime('1',  '2',  '3')      // passes
-           ->hasTime(1,    2,    3)        // passes
+           ->hasTime('01', '02', '03')     // passe
+           ->hasTime('1',  '2',  '3')      // passe
+           ->hasTime(1,    2,    3)        // passe
    ;
 
 .. _date-time-has-timezone:
@@ -163,7 +163,7 @@ hasTime
 hasTimezone
 ===========
 
-``hasTimezone`` checks timezone part of the ``DateTime`` object.
+``hasTimezone`` vérifie le fuseau horaire de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -180,7 +180,7 @@ hasTimezone
 hasYear
 =======
 
-``hasYear`` checks year part of the ``DateTime`` object.
+``hasYear`` vérifie l'année de l'objet ``DateTime``.
 
 .. code-block:: php
 
@@ -189,7 +189,7 @@ hasYear
 
    $this
        ->dateTime($dt)
-           ->hasYear(1981)     // passes
+           ->hasYear(1981)     // passe
    ;
 
 .. _date-time-is-clone-of:
@@ -198,8 +198,8 @@ isCloneOf
 =========
 
 .. hint::
-   ``isCloneOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of :ref:`object::isCloneOf <object-is-clone-of>`
+   ``isCloneOf`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _date-time-is-equal-to:
@@ -208,8 +208,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isEqualTo <object-is-equal-to>`
+   ``isEqualTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _dat-time-is-identical-to:
@@ -218,8 +218,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isIdenticalTo <object-is-identical-to>`
+   ``isIdenticalTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _date-time-is-instance-of:
@@ -228,8 +228,8 @@ isInstanceOf
 ============
 
 .. hint::
-   ``isInstanceOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of :ref:`object::isInstanceOf <object-is-instance-of>`
+   ``isInstanceOf`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _date-time-is-not-equal-to:
@@ -238,8 +238,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   ``isNotEqualTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _date-time-is-not-identical-to:
@@ -248,5 +248,5 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`

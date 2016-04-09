@@ -25,7 +25,7 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
+   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
    For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
