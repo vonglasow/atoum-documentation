@@ -19,8 +19,8 @@ contains
 
    $this
        ->string($string)
-           ->contains('ll')    // passes
-           ->contains(' ')     // passes
+           ->contains('ll')    // passe
+           ->contains(' ')     // passe
            ->contains('php')   // fails
    ;
 

@@ -3,7 +3,7 @@
 exception
 *********
 
-It's the assertion dedicated to exceptions.
+C'est l'assertion dédiée aux exceptions.
 
 .. code-block:: php
 
@@ -11,17 +11,17 @@ It's the assertion dedicated to exceptions.
    $this
        ->exception(
            function() use($myObject) {
-               // this code throws an exception: throw new \Exception;
+               // ce code lève une exception: throw new \Exception;
                $myObject->doOneThing('wrongParameter');
            }
        )
    ;
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3.
-   For more details, read the PHP's documentation on `anonymous functions <http://php.net/functions.anonymous>`_.
+   La syntaxe utilise les fonctions anonymes (aussi appelées fermetures ou closures) introduites en PHP 5.3.
+   Pour plus de précision, lisez la documentation PHP sur `les fonctions anonymes <http://php.net/functions.anonymous>`_.
 
-We can easily retrieve the last exception with ``$this->exception``.
+Nous pouvons même facilement récupérer la dernière exception via ``$this->exception``.
 
 .. code-block:: php
 
@@ -29,7 +29,7 @@ We can easily retrieve the last exception with ``$this->exception``.
    $this
        ->exception(
            function() use($myObject) {
-               // This code throws a exception: throw new \Exception('Message', 42);
+               // ce code lève une exception: throw new \Exception('erreur', 42);
                $myObject->doOneThing('wrongParameter');
            }
        )->isIdenticalTo($this->exception) // passes
@@ -43,7 +43,7 @@ We can easily retrieve the last exception with ``$this->exception``.
 hasCode
 =======
 
-``hasCode`` checks exception code.
+``hasMessage`` vérifie le code de l'exception.
 
 .. code-block:: php
 
@@ -51,7 +51,7 @@ hasCode
    $this
        ->exception(
            function() use($myObject) {
-               // This code throws a exception: throw new \Exception('Message', 42);
+               // ce code lève une exception: throw new \Exception('erreur', 42);
                $myObject->doOneThing('wrongParameter');
            }
        )
@@ -63,7 +63,7 @@ hasCode
 hasDefaultCode
 ==============
 
-``hasDefaultCode`` checks that exception code is the default value, 0.
+``hasDefaultCode`` vérifie que le code de l'exception est la valeur par défaut, c'est-à-dire 0.
 
 .. code-block:: php
 
@@ -71,7 +71,7 @@ hasDefaultCode
    $this
        ->exception(
            function() use($myObject) {
-               // this code throws an exception: throw new \Exception;
+               // ce code lève une exception: throw new \Exception;
                $myObject->doOneThing('wrongParameter');
            }
        )
@@ -87,7 +87,7 @@ hasDefaultCode
 hasMessage
 ==========
 
-``hasMessage`` checks exception message.
+``hasMessage`` vérifie le message de l'exception.
 
 .. code-block:: php
 
@@ -95,7 +95,7 @@ hasMessage
    $this
        ->exception(
            function() use($myObject) {
-               // This code throws a exception: throw new \Exception('Message');
+               // ce code lève une exception: throw new \Exception('Message');
                $myObject->doOneThing('wrongParameter');
            }
        )
@@ -108,7 +108,7 @@ hasMessage
 hasNestedException
 ==================
 
-``hasNestedException`` checks that the exception contains a reference to another exception. If the exception type is given, this will also checks the exception class.
+``hasNestedException`` vérifie que l'exception contient une référence vers l'exception précédente. Si le type d'exception est fournie, cela va aussi vérifier la classe de l'exception.
 
 .. code-block:: php
 
@@ -116,7 +116,7 @@ hasNestedException
    $this
        ->exception(
            function() use($myObject) {
-               // This code throws a exception: throw new \Exception('Message');
+               // ce code lève une exception: throw new \Exception('Message');
                $myObject->doOneThing('wrongParameter');
            }
        )
@@ -125,12 +125,12 @@ hasNestedException
        ->exception(
            function() use($myObject) {
                try {
-                   // This code throws a exception: throw new \FirstException('Message 1', 42);
+                   // ce code lève une exception: throw new \FirstException('Message 1', 42);
                    $myObject->doOneThing('wrongParameter');
                }
-               // ... the exception is caught...
+               // ... l'exception est attrapée...
                catch(\FirstException $e) {
-                   // ... and then throws encapsulated inside a second one
+                   // ... puis relancée, encapsulée dans une seconde exception
                    throw new \SecondException('Message 2', 24, $e);
                }
            }
@@ -149,8 +149,8 @@ isCloneOf
 =========
 
 .. hint::
-   ``isCloneOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of :ref:`object::isCloneOf <object-is-clone-of>`
+   ``isCloneOf`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isCloneOf <object-is-clone-of>`
 
 
 .. _exception-is-equal-to:
@@ -159,8 +159,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isEqualTo <object-is-equal-to>`
+   ``isEqualTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isEqualTo <object-is-equal-to>`
 
 
 .. _exception-is-identical-to:
@@ -169,8 +169,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isIdenticalTo <object-is-identical-to>`
+   ``isIdenticalTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isIdenticalTo <object-is-identical-to>`
 
 
 .. _exception-is-instance-of:
@@ -179,8 +179,8 @@ isInstanceOf
 ============
 
 .. hint::
-   ``isInstanceOf`` is a method inherited from asserter ``object``.
-   For more information, refer to the documentation of :ref:`object::isInstanceOf <object-is-instance-of>`
+   ``isInstanceOf`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isInstanceOf <object-is-instance-of>`
 
 
 .. _exception-is-not-equal-to:
@@ -189,8 +189,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isNotEqualTo <object-is-not-equal-to>`
+   ``isNotEqualTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotEqualTo <object-is-not-equal-to>`
 
 
 .. _exception-is-not-identical-to:
@@ -199,8 +199,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is an inherited method from ``object`` asserter.
-   For more information, refer to the documentation of :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
+   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``object``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`object::isNotIdenticalTo <object-is-not-identical-to>`
 
 
 .. _message-anchor:
@@ -208,7 +208,7 @@ isNotIdenticalTo
 message
 =======
 
-``message`` allow you to get an asserter of type :ref:`string <string-anchor>` containing the tested exception message.
+``message`` vous permet de récupérer un asserter de type :ref:`string <string-anchor>` contenant le message de l'exception testée.
 
 .. code-block:: php
 

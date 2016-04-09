@@ -9,90 +9,90 @@ TODO get mock parts from everywhere + add stuff from issues
 
 .. _les-bouchons-mock:
 
-The mocks
-*********
+Les bouchons (mock)
+*******************
 
-atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes, inexistantes, abstraites ou non) ou d'interfaces. With these mocks, you can simulate behaviors by redefining the public methods of your classes.
+atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple à mettre en œuvre qui vous permettra de générer des mocks à partir de classes (existantes, inexistantes, abstraites ou non) ou d'interfaces. Grâce à ces bouchons, vous pourrez simuler des comportements en redéfinissant les méthodes publiques de vos classes.
 
 
-Generate a mock
+Générer un bouchon
 ===============
 
-There are several ways to create a mock from an interface or a class.
+Il y a plusieurs manières de créer un bouchon à partir d'une interface ou d'une classe.
 
-The simplest one is to create an object with the absolute name prefixed by ``mock``:
+La plus simple est de créer un objet dont le nom absolu est préfixé par ``mock``:
 
 .. code-block:: php
 
    <?php
-   // creation of a mock of the interface \Countable
+   // création d'un bouchon de l'interface \Countable
    $countableMock = new \mock\Countable;
 
-   // creation of a mock from the abstract class
+   // création d'un bouchon de la classe abstraite
    // \Vendor\Project\AbstractClass
    $vendorAppMock = new \mock\Vendor\Project\AbstractClass;
 
-   // creation of mock of the \StdClass class
+   // création d'un bouchon de la classe \StdClass
    $stdObject     = new \mock\StdClass;
 
-   // creation of a mock from a non-existing class
+   // création d'un bouchon à partir d'une classe inexistante
    $anonymousMock = new \mock\My\Unknown\Class;
 
 
-The mock generator
-==================
+Le générateur de bouchon
+========================
 
-atoum relies on a specialized component to generate the mock: the ``mockGenerator``. You have access to the latter in your tests in order to modify the procedure for generation of the mocks.
+atoum s'appuie sur un composant spécialisé pour générer les bouchons : le ``mockGenerator``. Vous avez accès à ce dernier dans vos tests afin de modifier la procédure de génération des mocks.
 
-By default, the mock will be generated in the "mock" namespace and behave exactly in the same way as instances of the original class (mock inherits directly from the original class).
+Par défaut, les bouchons seront générés dans le namespace ``mock`` et se comporteront exactement de la même manière que les instances de la classe originale (le bouchon hérite directement de la classe originale).
 
 
-Change the name of the class
-----------------------------
+Changer le nom de la classe
+---------------------------
 
-If you wish to change the name of the class or its namespace, you must use the ``mockGenerator``.
+Si vous désirez changer le nom de la classe ou son espace de nom, vous devez utiliser le ``mockGenerator``.
 
-Its ``generate`` method takes 3 parameters:
+La méthode ``generate`` prend trois paramètres :
 
-* the name of the interface or class to mock ;
-* the new namespace, optional ;
-* the new name of class, optional.
+* le nom de l'interface ou de la classe à bouchonner ;
+* le nouvel espace de nom, optionnel ;
+* le nouveau nom de la classe, optionnel.
 
 .. code-block:: php
 
    <?php
-   // creation of a mock of the interface \Countable to \MyMock\Countable
-   // we only change the namespace
+   // création d'un bouchon de l'interface \Countable vers \MyMock\Countable
+   // on ne change que l'espace de nom
    $this->mockGenerator->generate('\Countable', '\MyMock');
 
-   // creation of a mock from the abstract class
-   // \Vendor\Project\AbstractClass to \MyMock\AClass
-   // change the namespace and class name
+   // création d'un bouchon de la classe abstraite
+   // \Vendor\Project\AbstractClass vers \MyMock\AClass
+   // on change l'espace de nom et le nom de la classe
    $this->mockGenerator->generate('\Vendor\Project\AbstractClass', '\MyMock', 'AClass');
 
-   // creation of a mock of \StdClass to \mock\OneClass
-   // We only changes the name of the class
+   // création d'un bouchon de la classe \StdClass vers \mock\OneClass
+   // on ne change que le nom de la classe
    $this->mockGenerator->generate('\StdClass', null, 'OneClass');
 
-   // we can now instantiate these mocks
+   // on peut maintenant instancier ces mocks
    $vendorAppMock = new \myMock\AClass;
    $countableMock = new \myMock\Countable;
    $stdObject     = new \mock\OneClass;
 
 .. note::
-   If you use only the first argument and do not change the namespace or the name of the class, then the first solution is equivalent, easiest to read and recommended.
+   Si vous n'utilisez que le premier argument et ne changez ni l'espace de nommage ni le nom de la classe, alors la première solution est équivalente, plus simple à lire et recommandée.
 
 .. note::
-   You can access to the code from the class generated by the mock generator by calling ``$this->mockGenerator->getMockedClassCode()``, in order to debug, for example. This method takes the same arguments as the method ``generate``.
+   Vous pouvez accéder au code de la classe générée par le générateur de mock en appelant ``$this->mockGenerator->getMockedClassCode()``, afin de débugger, par exemple. Cette méthode prend les mêmes arguments que la méthode ``generate``.
 
 .. code-block:: php
 
    <?php
    $countableMock = new \mock\Countable;
 
-   // is equivalent to:
+   // est équivalent à:
 
-   $this->mockGenerator->generate('\Countable');   // useless
+   $this->mockGenerator->generate('\Countable');   // inutile
    $countableMock = new \mock\Countable;
 
 

@@ -6,7 +6,7 @@ utf8String
 C'est l'assertion dédiée aux chaînes de caractères UTF-8.
 
 .. note::
-   ``utf8Strings`` use the functions ``mb_*`` to manage multi-byte strings. Refer to the PHP manual for more information about `mbstring <http://php.net/mbstring>`_ extension.
+   ``utf8Strings`` utilise les fonctions ``mb_*`` pour gérer les chaînes multioctets. Reportez-vous au manuel de PHP pour avoir plus d'information sur l'extension `mbstring <http://php.net/mbstring>`_.
 
 
 .. _utf8-string-contains:
@@ -16,7 +16,7 @@ contains
 
 .. hint::
    ``contains`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::contains <string-contains>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::contains <string-contains>`
 
 
 .. _utf8-string-has-length:

@@ -33,7 +33,7 @@ call
        ->given($mock = new \mock\MyFirstClass)
        ->and($object = new MySecondClass($mock))
 
-       ->if($object->methodThatCallMyMethod())  // This will call myMethod from $mock
+       ->if($object->methodThatCallMyMethod())  // Cela va appeler la méthode myMethod de $mock
        ->then
 
        ->mock($mock)

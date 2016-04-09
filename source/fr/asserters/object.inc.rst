@@ -8,7 +8,7 @@ C'est l'assertion dédiée aux objets.
 Si vous essayez de tester une variable qui n'est pas un objet avec cette assertion, cela échouera.
 
 .. note::
-   ``null`` isn't an object. Refer to the PHP's manual `is_object <http://php.net/is_object>`_  to know what is considered as an object or not.
+   ``null`` n'est pas un objet. Reportez-vous au manuel de PHP pour savoir ce que `is_object <http://php.net/is_object>`_ considère ou non comme un objet.
 
 
 .. _object-has-size:
