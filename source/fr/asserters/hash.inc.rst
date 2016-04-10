@@ -11,7 +11,7 @@ contains
 ========
 
 .. hint::
-   ``contains`` is a method inherited from the ``string`` asserter.
+   ``contains`` est une méthode héritée de l'asserter ``string``.
    Pour plus d'informations, reportez-vous à la documentation de :ref:`string::contains <string-contains>`
 
 
@@ -21,8 +21,8 @@ isEqualTo
 =========
 
 .. hint::
-   ``isEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
+   ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _hash-is-equal-to-contents-of-file:
@@ -31,8 +31,8 @@ isEqualToContentsOfFile
 =======================
 
 .. hint::
-   ``isEqualToContentsOfFile`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>`
+   ``isEqualToContentsOfFile`` est une méthode héritée de l'asserter ``string``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::isEqualToContentsOfFile <string-is-equal-to-contents-of-file>`
 
 
 .. _hash-is-identical-to:
@@ -41,8 +41,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _is-md5:
@@ -50,7 +50,7 @@ isIdenticalTo
 isMd5
 =====
 
-``isMd5`` checks that the string is a ``md5`` format, i.r. a hexadecimal string of 32 length.
+``isMd5`` vérifie que la chaîne de caractère est du format ``md5``, par exemple une chaîne de caractère d'une longueur de 32.
 
 .. code-block:: php
 
@@ -60,9 +60,9 @@ isMd5
 
    $this
        ->hash($hash)
-           ->isMd5()       // passes
+           ->isMd5()       // passe
        ->hash($notHash)
-           ->isMd5()       // fails
+           ->isMd5()       // échoue
    ;
 
 .. _hash-is-not-equal-to:
@@ -71,8 +71,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _hash-is-not-identical-to:
@@ -81,8 +81,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _is-sha1:
@@ -90,7 +90,7 @@ isNotIdenticalTo
 isSha1
 ======
 
-``isSha1`` checks that the string is a ``sha1`` format, i.e. a hexadecimal string of 40 length.
+``isSha1`` vérifie que la chaîne de caractère est du format ``sha1``, par exemple une chaîne de caractère d'une longueur de 40.
 
 .. code-block:: php
 
@@ -100,9 +100,9 @@ isSha1
 
    $this
        ->hash($hash)
-           ->isSha1()      // passes
+           ->isSha1()      // passe
        ->hash($notHash)
-           ->isSha1()      // fails
+           ->isSha1()      // échoue
    ;
 
 .. _is-sha256:
@@ -110,7 +110,7 @@ isSha1
 isSha256
 ========
 
-``isSha256`` checks that the string is a ``sha256`` format, i.e. a hexadecimal string of 64 length.
+``isSha256`` vérifie que la chaîne de caractère est du format ``sha256``, par exemple une chaîne de caractère d'une longueur de 64 caractères.
 
 .. code-block:: php
 
@@ -120,9 +120,9 @@ isSha256
 
    $this
        ->hash($hash)
-           ->isSha256()    // passes
+           ->isSha256()    // passe
        ->hash($notHash)
-           ->isSha256()    // fails
+           ->isSha256()    // échoue
    ;
 
 .. _is-sha512:
@@ -130,7 +130,7 @@ isSha256
 isSha512
 ========
 
-``isSha512`` checks that the string is a ``sha512`` format, i.e. a hexadecimal string of 128 length.
+``isSha512`` vérifie que la chaîne de caractère est du format ``sha512``, c'est-à-dire,  une chaîne de caractère d'une longueur de 128 caractères.
 
 .. code-block:: php
 
@@ -140,9 +140,9 @@ isSha512
 
    $this
        ->hash($hash)
-           ->isSha512()    // passes
+           ->isSha512()    // passe
        ->hash($notHash)
-           ->isSha512()    // fails
+           ->isSha512()    // échoue
    ;
 
 .. _hash-not-contains:
@@ -151,5 +151,5 @@ notContains
 ===========
 
 .. hint::
-   ``notContains`` is a method inherited from the ``string`` asserter.
-   For more information, refer to the documentation of :ref:`string::notContains <string-not-contains>`
+   ``notContains`` est une méthode héritée de l'asserter ``string``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`string::notContains <string-not-contains>`

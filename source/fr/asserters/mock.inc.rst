@@ -15,7 +15,7 @@ C'est l'assertion dédiée aux mocks.
    ;
 
 .. note::
-   Refer to the documentation of :ref:`mock <les-bouchons-mock>` for more information on how to create and manage mocks.
+   Reportez-vous à la documentation sur :ref:`les bouchons (mock) <les-bouchons-mock>` pour obtenir plus d'informations sur la façon de créer et gérer les bouchons.
 
 
 .. _call-anchor:
@@ -23,7 +23,7 @@ C'est l'assertion dédiée aux mocks.
 call
 ====
 
-``call`` let you specify which method of mock to check, it call must be followed by a call to one of the following verification method like `atLeastOnce`_, `once/twice/thrice`_, `exactly`_, etc...
+``call`` permet de spécifier une méthode du mock à tester, son appel doit être suivi d'un appel à une méthode de vérification d'appel comme `atLeastOnce`_, `once/twice/thrice`_, `exactly`_, etc...
 
 .. code-block:: php
 
@@ -46,7 +46,7 @@ call
 atLeastOnce
 ```````````
 
-``atLeastOnce`` check that the tested method (see :ref:`call <call-anchor>`) from the mock has been called at least once.
+``atLeastOnce`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé a été appelée au moins une fois.
 
 .. code-block:: php
 
@@ -66,7 +66,7 @@ atLeastOnce
 exactly
 ```````
 
-``exactly`` check that the tested method (see :ref:`call <call-anchor>`) has been called a specific number of times.
+``exactly`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé exactement un certain nombre de fois.
 
 .. code-block:: php
 
@@ -86,7 +86,7 @@ exactly
 never
 `````
 
-``never`` check that the tested method (see :ref:`call <call-anchor>`) has never been called.
+``never`` vérifie que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé n'a jamais été appelée.
 
 .. code-block:: php
 
@@ -102,18 +102,18 @@ never
    ;
 
 .. note::
-   ``never`` is equivalent to ``:ref:`exactly <exactly-anchor>`(0)``.
+   ``never`` est équivalent à ``:ref:`exactly <exactly-anchor>`(0)``.
 
 
 .. _once-twice-thrice:
 
 once/twice/thrice
 `````````````````
-This asserters check that the tested method (see :ref:`call <call-anchor>`) from the tested mock has been called exactly:
+Ces assertions vérifient que la méthode testée (voir :ref:`call <call-anchor>`) du mock testé a été appelée exactement :
 
-* once
-* twice
-* thrice
+* une fois (once)
+* deux fois (twice)
+* trois fois (thrice)
 
 .. code-block:: php
 
@@ -133,7 +133,7 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) from
    ;
 
 .. note::
-   ``once``, ``twice`` and ``thrice`` are respectively equivalent to ``:ref:`exactly <exactly-anchor>`(1)``, ``:ref:`exactly <exactly-anchor>`(2)`` and ``:ref:`exactly <exactly-anchor>`(3)``.
+   ``once``, ``twice`` et ``thrice`` sont respectivement équivalents à un appel à ``:ref:`exactly <exactly-anchor>`(1)``, ``:ref:`exactly <exactly-anchor>`(2)`` et ``:ref:`exactly <exactly-anchor>`(3)``.
 
 
 .. _with-any-arguments:
@@ -141,9 +141,9 @@ This asserters check that the tested method (see :ref:`call <call-anchor>`) from
 withAnyArguments
 ````````````````
 
-``withAnyArguments`` allow to check any argument, non-specified, when we call the tested method (see :ref:`call <call-anchor>`) of tested mock.
+``withAnyArguments`` permet de ne pas spécifier les arguments attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
-This method is useful to reset the arguments of tested method, like in the following example:
+Cette méthode est surtout utile pour remettre à zéro les arguments, comme dans l'exemple suivant :
 
 .. code-block:: php
 
@@ -165,7 +165,7 @@ This method is useful to reset the arguments of tested method, like in the follo
 withArguments
 `````````````
 
-``withArguments`` let you specify the expected arguments that the tested method should receive when called (see :ref:`call <call-anchor>`).
+``withArguments`` permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 .. code-block:: php
 
@@ -181,8 +181,8 @@ withArguments
    ;
 
 .. warning::
-   | ``withArguments`` does not check the arguments type.
-   | If you also want to check the type, use :ref:`withIdenticalArguments <with-identical-arguments>`.
+   | ``withArguments`` ne teste pas le type des arguments.
+   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`withIdenticalArguments <with-identical-arguments>`.
 
 
 .. _with-identical-arguments:
@@ -190,7 +190,7 @@ withArguments
 withIdenticalArguments
 ``````````````````````
 
-``withIdenticalArguments`` let you specify the expected typed arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+``withIdenticalArguments`` permet de spécifier les paramètres attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 .. code-block:: php
 
@@ -206,8 +206,8 @@ withIdenticalArguments
    ;
 
 .. warning::
-   | ``withIdenticalArguments`` checks the arguments type.
-   |  If you do not want to check the type, use :ref:`withArguments <with-arguments>`.
+   | ``withIdenticalArguments`` teste le type des arguments.
+   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withArguments <with-arguments>`.
 
 
 
@@ -216,7 +216,7 @@ withIdenticalArguments
 withAtLeastArguments
 ````````````````````
 
-``withAtLeastArguments`` let you specify the minimum expected arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+``withAtLeastArguments`` permet de spécifier les paramètres minimums attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 .. code-block:: php
 
@@ -232,8 +232,8 @@ withAtLeastArguments
    ;
 
 .. warning::
-   | ``withAtLeastArguments`` does not check the arguments type.
-   | If you also want to check the type, use :ref:`withAtLeastIdenticalArguments <with-at-least-identical-arguments>`.
+   | ``withAtLeastArguments`` ne teste pas le type des arguments.
+   | Si vous souhaitez vérifier également leurs types, utilisez :ref:`withAtLeastIdenticalArguments <with-at-least-identical-arguments>`.
 
 
 
@@ -242,7 +242,7 @@ withAtLeastArguments
 withAtLeastIdenticalArguments
 `````````````````````````````
 
-``withAtLeastIdenticalArguments`` let you specify the minimum expected typed arguments that tested method should receive when called (see :ref:`call <call-anchor>`).
+``withAtLeastIdenticalArguments`` permet de spécifier les paramètres minimums attendus lors de l'appel à la méthode testée (voir :ref:`call <call-anchor>`) du mock testé.
 
 .. code-block:: php
 
@@ -258,8 +258,8 @@ withAtLeastIdenticalArguments
    ;
 
 .. warning::
-   | ``withAtLeastIdenticalArguments`` checks the arguments type.
-   | If you do not want to check the type, use :ref:`withIdenticalArguments <with-at-least-arguments>`.
+   | ``withAtLeastIdenticalArguments`` teste le type des arguments.
+   | Si vous ne souhaitez pas vérifier leurs types, utilisez :ref:`withAtLeastArguments <with-at-least-arguments>`.
 
 
 .. _without-any-argument:
@@ -267,7 +267,7 @@ withAtLeastIdenticalArguments
 withoutAnyArgument
 ``````````````````
 
-``withoutAnyArgument`` lets you indicate that the method should not receive any argument when called (see :ref:`call <call-anchor>`).
+``withoutAnyArgument`` permet de spécifier que la méthode ne doit recevoir aucun paramètre lors de son appel (voir :ref:`call <call-anchor>`).
 
 .. code-block:: php
 
@@ -277,22 +277,22 @@ withoutAnyArgument
        ->if($mock->test())
        ->mock($mock)
            ->call('test')
-               ->withoutAnyArgument()->once() // passes
+               ->withoutAnyArgument()->once() // passe
        ->if($mock->test2('argument'))
        ->mock($mock)
            ->call('test2')
-               ->withoutAnyArgument()->once() // fails
+               ->withoutAnyArgument()->once() // échoue
    ;
 
 .. note::
-      ``withoutAnyArgument`` is equivalent to call :ref:`withAtLeastArguments<with-at-least-arguments>` with an empty array: ``->withAtLeastArguments(array())``.
+      ``withoutAnyArgument`` reviens à appeler :ref:`withAtLeastArguments<with-at-least-arguments>` avec un tableau vide : ``->withAtLeastArguments(array())``.
 
 .. _was-called:
 
 wasCalled
 =========
 
-``wasCalled`` checks that at least one method of the mock has been called at least once.
+``wasCalled`` vérifie qu'au moins une méthode du mock a été appelée au moins une fois.
 
 .. code-block:: php
 
@@ -311,7 +311,7 @@ wasCalled
 wasNotCalled
 ============
 
-``wasNotCalled`` checks that no method of the mock has been called.
+``wasNotCalled`` vérifie qu'aucune méthode du mock n'a été appelée.
 
 .. code-block:: php
 
@@ -328,7 +328,7 @@ wasNotCalled
 before
 ======
 
-``before`` checks if the method has been called before the one passed as parameter.
+``before`` vérifie que la méthode a été appelée avant la méthode passée en paramètre.
 
 .. code-block:: php
 
@@ -342,7 +342,7 @@ before
        ->mock($mock)
        ->call('test')
            ->before($this->mock($mock)->call('test2')->once())
-           ->once() // passes
+           ->once() // passe
    ;
 
    $this
@@ -354,13 +354,13 @@ before
        ->mock($mock)
        ->call('test')
            ->before($this->mock($mock)->call('test2')->once())
-           ->once() // fails
+           ->once() // échoue
    ;
 
 after
 =====
 
-``after`` checks if the method has been called after the one passed as parameter.
+``after`` vérifie que la méthode a été appelée après la méthode passée en paramètre.
 
 .. code-block:: php
 
@@ -374,7 +374,7 @@ after
        ->mock($mock)
        ->call('test')
            ->after($this->mock($mock)->call('test2')->once())
-           ->once() // passes
+           ->once() // passe
    ;
 
    $this
@@ -386,5 +386,5 @@ after
        ->mock($mock)
        ->call('test')
            ->after($this->mock($mock)->call('test2')->once())
-           ->once() // fails
+           ->once() // échoue
    ;
