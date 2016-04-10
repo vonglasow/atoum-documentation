@@ -10,7 +10,7 @@ C'est l'assertion de base de toutes les variables. Elle contient les tests néce
 isCallable
 ==========
 
-``isCallable`` verifies that the variable can be called as a function.
+``isCallable`` vérifie que la variable peut être appelée comme fonction.
 
 .. code-block:: php
 
@@ -21,7 +21,7 @@ isCallable
 
    $this
        ->variable($f)
-           ->isCallable()  // succeed
+           ->isCallable()  // passe
 
        ->variable('\Vendor\Project\foobar')
            ->isCallable()
@@ -38,7 +38,7 @@ isCallable
 isEqualTo
 =========
 
-``isEqualTo`` verifies that the variable is equal to a given value.
+``isEqualTo`` vérifie que la variable est égale à une certaine donnée.
 
 .. code-block:: php
 
@@ -47,13 +47,13 @@ isEqualTo
 
    $this
        ->variable($a)
-           ->isEqualTo('a')    // passes
+           ->isEqualTo('a')    // passe
    ;
 
 
 .. warning::
-   | ``isEqualTo`` doesn't test the type of variable.
-   | If you also want to check the type, use :ref:`isIdenticalTo <variable-is-identical-to>`.
+   | ``isEqualTo`` ne teste pas le type de la variable.
+   | Si vous souhaitez vérifier également son type, utilisez :ref:`isIdenticalTo <variable-is-identical-to>`.
 
 
 .. _variable-is-identical-to:
@@ -61,7 +61,7 @@ isEqualTo
 isIdenticalTo
 =============
 
-``isIdenticalTo`` checks that the variable has the same value and the same type than the given data. In the case of an object, ``isIdenticalTo`` checks that the data is referencing the same instance.
+``isIdenticalTo`` vérifie que la variable a la même valeur et le même type qu'une certaine donnée. Dans le cas d'objets, ``isIdenticalTo`` vérifie que les données pointent sur la même instance.
 
 .. code-block:: php
 
@@ -70,7 +70,7 @@ isIdenticalTo
 
    $this
        ->variable($a)
-           ->isIdenticalTo(1)          // fails
+           ->isIdenticalTo(1)          // échoue
    ;
 
    $stdClass1 = new \StdClass();
@@ -79,13 +79,13 @@ isIdenticalTo
 
    $this
        ->variable($stdClass1)
-           ->isIdenticalTo(stdClass3)  // passes
-           ->isIdenticalTo(stdClass2)  // fails
+           ->isIdenticalTo(stdClass3)  // passe
+           ->isIdenticalTo(stdClass2)  // échoue
    ;
 
 .. warning::
-   | ``isIdenticalTo`` test the type of variable.
-   | If you don't want to check its type, use :ref:`isEqualTo <variable-is-equal-to>`.
+   | ``isIdenticalTo`` teste le type de la variable.
+   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isEqualTo <variable-is-equal-to>`.
 
 
 .. _variable-is-not-callable:
@@ -93,7 +93,7 @@ isIdenticalTo
 isNotCallable
 =============
 
-``isNotCallable`` checks that the variable can't be called like a function.
+``isNotCallable`` vérifie que la variable ne peut pas être appelée comme fonction.
 
 .. code-block:: php
 
@@ -106,16 +106,16 @@ isNotCallable
 
    $this
        ->variable($f)
-           ->isNotCallable()   // fails
+           ->isNotCallable()   // échoue
 
        ->variable($int)
-           ->isNotCallable()   // passes
+           ->isNotCallable()   // passe
 
        ->variable($string)
-           ->isNotCallable()   // passes
+           ->isNotCallable()   // passe
 
        ->variable(new StdClass)
-           ->isNotCallable()   // passes
+           ->isNotCallable()   // passe
    ;
 
 .. _variable-is-not-equal-to:
@@ -123,7 +123,7 @@ isNotCallable
 isNotEqualTo
 ============
 
-``isNotEqualTo`` checks that the variable does not have the same value as the given one.
+``isNotEqualTo`` vérifie que la variable n'a pas la même valeur qu'une certaine donnée.
 
 .. code-block:: php
 
@@ -133,16 +133,16 @@ isNotEqualTo
 
    $this
        ->variable($a)
-           ->isNotEqualTo('b')     // passes
-           ->isNotEqualTo('a')     // fails
+           ->isNotEqualTo('b')     // passe
+           ->isNotEqualTo('a')     // échoue
 
        ->variable($aString)
-           ->isNotEqualTo($1)      // fails
+           ->isNotEqualTo($1)      // échoue
    ;
 
 .. warning::
-   | ``isNotEqualTo`` doesn't test the type of variable.
-   | If you also want to check the type, use :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
+   | ``isNotEqualTo`` ne teste pas le type de la variable.
+   | Si vous souhaitez vérifier également son type, utilisez :ref:`isNotIdenticalTo <variable-is-not-identical-to>`.
 
 
 .. _variable-is-not-identical-to:
@@ -150,9 +150,9 @@ isNotEqualTo
 isNotIdenticalTo
 ================
 
-``isNotIdenticalTo`` checks that the variable does not have the same type nor the same value than the given one.
+``isNotIdenticalTo`` vérifie que la variable n'a ni le même type ni la même valeur qu'une certaine donnée.
 
-In the case of an object, ``isNotIdenticalTo`` checks that the data isn't referencing on the same instance.
+Dans le cas d'objets, ``isNotIdenticalTo`` vérifie que les données ne pointent pas sur la même instance.
 
 .. code-block:: php
 
@@ -161,7 +161,7 @@ In the case of an object, ``isNotIdenticalTo`` checks that the data isn't refere
 
    $this
        ->variable($a)
-           ->isNotIdenticalTo(1)           // passes
+           ->isNotIdenticalTo(1)           // passe
    ;
 
    $stdClass1 = new \StdClass();
@@ -170,13 +170,13 @@ In the case of an object, ``isNotIdenticalTo`` checks that the data isn't refere
 
    $this
        ->variable($stdClass1)
-           ->isNotIdenticalTo(stdClass2)   // passes
-           ->isNotIdenticalTo(stdClass3)   // fails
+           ->isNotIdenticalTo(stdClass2)   // passe
+           ->isNotIdenticalTo(stdClass3)   // échoue
    ;
 
 .. warning::
-   | ``isNotIdenticalTo`` test the type of variable.
-   | If you don't want to check its type, use :ref:`isNotEqualTo <variable-is-not-equal-to>`.
+   | ``isNotIdenticalTo`` teste le type de la variable.
+   | Si vous ne souhaitez pas vérifier son type, utilisez :ref:`isNotEqualTo <variable-is-not-equal-to>`.
 
 
 .. _is-null:
@@ -184,7 +184,7 @@ In the case of an object, ``isNotIdenticalTo`` checks that the data isn't refere
 isNull
 ======
 
-``isNull`` checks that the variable is null.
+``isNull`` vérifie que la variable est nulle.
 
 .. code-block:: php
 
@@ -194,11 +194,11 @@ isNull
 
    $this
        ->variable($emptyString)
-           ->isNull()              // fails
-                                   // (it's empty but not null)
+           ->isNull()              // échoue
+                                   // (c'est vide, mais pas null)
 
        ->variable($null)
-           ->isNull()              // passes
+           ->isNull()              // passe
    ;
 
 .. _is-not-null:
@@ -206,7 +206,7 @@ isNull
 isNotNull
 =========
 
-``isNotNull`` checks that the variable is not null.
+``isNotNull`` vérifie que la variable n'est pas nulle.
 
 .. code-block:: php
 
@@ -216,10 +216,10 @@ isNotNull
 
    $this
        ->variable($emptyString)
-           ->isNotNull()           // passes (it's empty but not null)
+           ->isNotNull()           // passe (c'est vide, mais pas null)
 
        ->variable($null)
-           ->isNotNull()           // fails
+           ->isNotNull()           // échoue
    ;
 
 .. _is-not-true:
@@ -227,7 +227,7 @@ isNotNull
 isNotTrue
 =========
 
-``isNotTrue`` check that the variable is strictly not equal to ``true``.
+``isNotTrue`` vérifie que la variable n'est strictement pas égale à ``true``.
 
 .. code-block:: php
 
@@ -236,10 +236,10 @@ isNotTrue
    $false = false;
    $this
        ->variable($true)
-           ->isNotTrue()     // fails
+           ->isNotTrue()     // échoue
 
        ->variable($false)
-           ->isNotTrue()     // succeed
+           ->isNotTrue()     // passe
    ;
 
 
@@ -248,7 +248,7 @@ isNotTrue
 isNotFalse
 ==========
 
-``isNotFalse`` check that the variable is strictly not equal to ``false``.
+``isNotFalse`` vérifie que la variable n'est strictement pas égale à ``false``.
 
 .. code-block:: php
 
@@ -257,8 +257,8 @@ isNotFalse
    $false = false;
    $this
        ->variable($false)
-           ->isNotFalse()     // fails
+           ->isNotFalse()     // échoue
 
        ->variable($true)
-           ->isNotFalse()     // succeed
+           ->isNotFalse()     // passe
    ;

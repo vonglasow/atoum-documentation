@@ -5,7 +5,7 @@ stream
 
 C'est l'assertion dédiée aux streams.
 
-Elle est basée sur le système de fichier virtuel d'atoum (VFS). A new `stream wrapper <http://php.net/streamWrapper>`_ will be registered (starting with ``atoum://``).
+Elle est basée sur le système de fichier virtuel d'atoum (VFS). Un nouveau `stream wrapper <http://php.net/manual/fr/class.streamwrapper.php>`_ sera enregistré (qui commence par ``atoum://``).
 
 Le bouchon va créer un nouveau fichier dans le VFS et le chemin du flux sera accessible en appellant la méthode ``getPath`` sur le controlleur de flux (par exemple ``atoum://mockUniqId``).
 
@@ -34,9 +34,9 @@ isRead
            $streamController = \atoum\mock\stream::get(),
            $streamController->file_get_contents = 'myFakeContent'
        )
-       ->if() // we do nothing
+       ->if() //we do nothing
        ->stream($streamController)
-           ->isRead() // fails
+           ->isRead() // échoue
    ;
 
 
@@ -45,7 +45,7 @@ isRead
 isWritten
 =========
 
-``isWritten`` checks if a mocked stream has been written.
+``isWritten`` vérifie si le flux bouchoné à bien été écrit.
 
 .. code-block:: php
 
@@ -57,7 +57,7 @@ isWritten
        )
        ->if(file_put_contents($streamController->getPath(), $content))
        ->stream($streamController)
-           ->isWritten() // passes
+           ->isWritten() // passe
    ;
 
    $this
@@ -65,9 +65,9 @@ isWritten
         $streamController = \atoum\mock\stream::get(),
         $streamController->file_put_contents = strlen($content = 'myTestContent')
       )
-      ->if() // we do nothing
+      ->if() //we do nothing
       ->stream($streamController)
-         ->isWritten() // fails
+         ->isWritten() // échoue
    ;
 
 
@@ -77,8 +77,8 @@ isWrited
 ========
 
 .. hint::
-   ``isWrited`` is an alias to the ``isWritten`` method.
-   For more information, refer to the documentation of :ref:`stream::isWritten <is-written>`
+   ``isWrited`` est un alias de la méthode ``isWritten``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`stream::isWritten <is-written>`
 
 
 
