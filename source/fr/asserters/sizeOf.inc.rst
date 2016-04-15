@@ -26,7 +26,7 @@ isEqualTo
 
 .. hint::
    ``isEqualTo`` est une méthode héritée de l'asserter ``variable``.
-   For more information, refer to the documentation of :ref:`variable::isEqualTo <variable-is-equal-to>`
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isEqualTo <variable-is-equal-to>`
 
 
 .. _size-of-is-greater-than:
@@ -35,8 +35,8 @@ isGreaterThan
 =============
 
 .. hint::
-   ``isGreaterThan`` is a method inherited from the ``integer`` asserter.
-   For more information, refer to the documentation of :ref:`integer::isGreaterThan <integer-is-greater-than>`
+   ``isGreaterThan`` est une méthode héritée de l'asserter ``integer``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`integer::isGreaterThan <integer-is-greater-than>`
 
 
 .. _size-of-is-greater-than-or-equal-to:
@@ -45,8 +45,8 @@ isGreaterThanOrEqualTo
 ======================
 
 .. hint::
-   ``isGreaterThanOrEqualTo`` is a method inherited from the ``integer`` asserter.
-   For more information, refer to the documentation of :ref:`integer::isGreaterThanOrEqualTo <integer-is-greater-than-or-equal-to>`
+   ``isGreaterThanOrEqualTo`` est une méthode héritée de l'asserter ``integer``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`integer::isGreaterThanOrEqualTo <integer-is-greater-than-or-equal-to>`
 
 
 .. _size-of-is-identical-to:
@@ -55,8 +55,8 @@ isIdenticalTo
 =============
 
 .. hint::
-   ``isIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isIdenticalTo <variable-is-identical-to>`
+   ``isIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isIdenticalTo <variable-is-identical-to>`
 
 
 .. _size-of-is-less-than:
@@ -65,8 +65,8 @@ isLessThan
 ==========
 
 .. hint::
-   ``isLessThan`` is a method inherited from the ``integer`` asserter.
-   For more information, refer to the documentation of :ref:`integer::isLessThan <integer-is-less-than>`
+   ``isLessThan`` est une méthode héritée de l'asserter ``integer``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`integer::isLessThan <integer-is-less-than>`
 
 
 .. _size-of-is-less-than-or-equal-to:
@@ -75,8 +75,8 @@ isLessThanOrEqualTo
 ===================
 
 .. hint::
-   ``isLessThanOrEqualTo`` is a method inherited from the ``integer`` asserter.
-   For more information, refer to the documentation of :ref:`integer::isLessThanOrEqualTo <integer-is-less-than-or-equal-to>`
+   ``isLessThanOrEqualTo`` est une méthode héritée de l'asserter ``integer``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`integer::isLessThanOrEqualTo <integer-is-less-than-or-equal-to>`
 
 
 .. _size-of-is-not-equal-to:
@@ -85,8 +85,8 @@ isNotEqualTo
 ============
 
 .. hint::
-   ``isNotEqualTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
+   ``isNotEqualTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotEqualTo <variable-is-not-equal-to>`
 
 
 .. _size-of-is-not-identical-to:
@@ -95,8 +95,8 @@ isNotIdenticalTo
 ================
 
 .. hint::
-   ``isNotIdenticalTo`` is a method inherited from the ``variable`` asserter.
-   For more information, refer to the documentation of :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
+   ``isNotIdenticalTo`` est une méthode héritée de l'asserter ``variable``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`variable::isNotIdenticalTo <variable-is-not-identical-to>`
 
 
 .. _size-of-is-zero:
@@ -105,5 +105,5 @@ isZero
 ======
 
 .. hint::
-   ``isZero`` is a method inherited from the ``integer`` asserter.
-   For more information, refer to the documentation of :ref:`integer::isZero <integer-is-zero>`
+   ``isZero`` est une méthode héritée de l'asserter ``integer``.
+   Pour plus d'informations, reportez-vous à la documentation de :ref:`integer::isZero <integer-is-zero>`
