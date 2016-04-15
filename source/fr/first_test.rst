@@ -2,7 +2,7 @@
 .. _first-tests:
 
 Premiers tests
-##################
+##############
 
 Vous avez besoin d'écrire une classe de test pour chaque classe testé.
 
@@ -94,8 +94,7 @@ Vous devriez voir quelque chose comme ça :
    > Running duration: 0.04 second.
    Success (1 test, 1/1 method, 0 void method, 0 skipped method, 2 assertions)!
 
-
-Nous venons de tester que la méthode ``getHiAtoum`` :
+Nous venons de tester que la méthode ``getHiAtoum`` :
 
 * retourne une :ref:`chaîne de caractère <string-anchor>`;
 * que :ref:`c'est égale à <string-is-equal-to>` ``"Hi atoum !"``.

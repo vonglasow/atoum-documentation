@@ -356,7 +356,7 @@ Cette option vous permet d'alléger la sortie généré par atoum.
    Success (154 tests, 1141/1141 methods, 0 void method, 0 skipped method, 16875 assertions) !
 
 Échec & succès
-*****************
+**************
 
 .. _cli-options-fivm:
 
@@ -385,7 +385,7 @@ Cette option va faire échouer la suite de tests s'il y a au moins une méthode 
    $ ./bin/atoum --fail-if-skipped-methods
 
 Autres arguments
-***************
+****************
 
 .. _cli-options-max_children_number:
 

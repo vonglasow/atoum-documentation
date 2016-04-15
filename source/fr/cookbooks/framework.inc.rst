@@ -2,22 +2,22 @@
 .. _utilisation-avec-frameworks:
 
 Utilisation avec des frameworks
-****************************
+*******************************
 
 .. _utilisation-avec-ezpublish:
 
 Utilisation avec ez Publish
-=========================
+===========================
 
 
 Étape 1 : Installation d'atoum au sein d'eZ Publish
--------------------------------------------------------
+---------------------------------------------------
 
 Le framework eZ Publish possède déjà un répertoire dédié aux tests, nommé logiquement tests. C'est donc dans ce répertoire que devra être placé l':ref:`archive PHAR <archive-phar>` d’atoum. Les fichiers de tests unitaires utilisant atoum seront quant à eux placés dans un sous-répertoire *tests/atoum* afin qu'ils ne soient pas en conflit avec l'existant.
 
 
 Étape 2 : Création de la classe de test de base
----------------------------------------------------
+-----------------------------------------------
 
 Une classe de test basée sur atoum doit étendre la classe ``\mageekguy\atoum\test``. Toutefois, celle-ci ne tient pas compte des spécifications de *eZ Publish*. .
 Il est donc nécessaire de définir une classe de test de base, dérivée de ``\mageekguy\atoum\test``, qui prendra en compte ces spécifités et donc dérivera l'ensemble des classes de tests unitaires. Pour cela, il suffit de définir la classe suivante dans le fichier ``tests\atoum\test.php`` :
@@ -56,7 +56,7 @@ Il est donc nécessaire de définir une classe de test de base, dérivée de ``\
 
 
 Étape 3 : Création d'une classe de test
------------------------------
+---------------------------------------
 
 Par défaut, atoum demande à ce que les classes de tests unitaires soient dans un espace de noms contenant *test(s)\unit(s)*, afin de pouvoir déduire le nom de la classe testée. À titre d'exemple, l'espace de noms *\nomprojet* sera utilisé dans ce qui suit. Pour plus de simplicité, il est de plus conseillé de calquer l'arborescence des classes de test sur celle des classes testées, afin de pouvoir localiser rapidement la classe de test d'une classe, et inversement.
 
@@ -80,7 +80,7 @@ Par défaut, atoum demande à ce que les classes de tests unitaires soient dans 
 
 
 Étapes 4 : Exécution des tests unitaires
-------------------------------
+----------------------------------------
 
 Une fois une classe de test créée, il suffit d'exécuter en ligne de commande l'instruction ci-dessous pour lancer le test, en se plaçant à la racine du projet :
 
@@ -95,7 +95,7 @@ Merci `Jérémy Poulain <https://github.com/Tharkun>`_ pour ce tutoriel.
 .. _utilisation-avec-symfony-2:
 
 Utilisation avec Symfony 2
-=========================
+===========================
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony, vous pouvez installer le Bundle `AtoumBundle <https://github.com/atoum/AtoumBundle>`_.
 
@@ -103,15 +103,15 @@ Si vous souhaitez installer et configurer atoum manuellement, voici comment fair
 
 
 Étape 1: installation d'atoum
------------------------------
+---------------------------------------
 
-Si vous utilisez Symfony 2.0, :ref:`téléchargez l'archive PHAR <archive-phar>`_ et placez-la dans le répertoire vendor qui est à la racine de votre projet.
+Si vous utilisez Symfony 2.0, :ref:`téléchargez l'archive PHAR <archive-phar>` et placez-la dans le répertoire vendor qui est à la racine de votre projet.
 
-Si vous utilisez Symfony 2.1+, :ref:`ajoutez atoum dans votre fichier composer.json <installation-par-composer>`_.
+Si vous utilisez Symfony 2.1+, :ref:`ajoutez atoum dans votre fichier composer.json <installation-par-composer>`.
 
 
 Étape 2: création de la classe de test
------------------------------
+---------------------------------------
 
 Imaginons que nous voulions tester cet Entity:
 
@@ -215,7 +215,7 @@ Créez un fichier Test.php qui servira de base à tous les futurs tests de ce Bu
 
 
 Étape 3: écriture d'un test
---------------------
+---------------------------
 
 Dans le répertoire Tests/Units, il vous suffit de recréer l'arborescence des classes que vous souhaitez tester (par exemple src/Acme/DemoBundle/Tests/Units/Entity/Car.php).
 
@@ -247,7 +247,7 @@ Créons notre fichier de test:
 
 
 Étape 4: lancement des tests
---------------------
+----------------------------
 
 Si vous utilisez Symfony 2.0:
 
@@ -299,7 +299,7 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
    > Class Acme\DemoBundle\Entity\Car: 42.86%
    ==========================================
    > Acme\DemoBundle\Entity\Car::getId(): 0.00%
-   ---------------------------------------------------
+   -----------------------------------------------
    > Acme\DemoBundle\Entity\Car::setMaxSpeed(): 0.00%
    --------------------------------------------------
    > Acme\DemoBundle\Entity\Car::getMaxSpeed(): 0.00%
@@ -311,7 +311,7 @@ Dans tous les cas, voilà ce que vous devriez obtenir:
 .. _utilisation-avec-symfony-1-4:
 
 Utilisation avec symfony 1.4
-====================
+============================
 
 Si vous souhaitez utiliser atoum au sein de vos projets Symfony 1.4, vous pouvez installer le  plugin sfAtoumPlugin. Celui-ci est disponible à l'adresse suivante:  `https://github.com/atoum/sfAtoumPlugin <https://github.com/atoum/sfAtoumPlugin>`_.
 
@@ -326,7 +326,7 @@ Il existe plusieurs méthodes d'installation du plugin dans votre projet :
 
 
 En utilisant composer
-""""""""""""""
+"""""""""""""""""""""
 
 Ajouter ceci dans le composer.json :
 
@@ -352,7 +352,7 @@ Il faut ensuite activer le plugin dans le ProjectConfiguration et indiquer le ch
 
 
 En utilisant des submodules git
-"""""""""""""""""""""
+"""""""""""""""""""""""""""""""
 
 Il faut tout d'abord ajouter atoum en tant que submodule :
 
@@ -389,7 +389,7 @@ Les tests doivent inclure le fichier de bootstrap se trouvant dans le plugin :
 
 
 Lancer les tests
-------------
+----------------
 
 La commande symfony ``atoum:test`` est disponible. Les tests peuvent alors se lancer de cette façon :
 

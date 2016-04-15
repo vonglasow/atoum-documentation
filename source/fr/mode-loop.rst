@@ -2,7 +2,7 @@
 .. _mode-loop:
 
 Mode répétition
-#############
+###############
 
 Lorsqu'un développeur fait du développement piloté par les tests, il travaille généralement de la manière suivante :
 

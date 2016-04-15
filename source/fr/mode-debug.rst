@@ -2,7 +2,7 @@
 .. _le-mode-debug:
 
 Débogage des scénarios de test
-####################
+##############################
 
 Parfois, un test ne passe pas et il est difficile d'en découvrir la raison.
 

@@ -7,7 +7,7 @@ Ajustement du comportement d'atoum
 .. _initialization_method:
 
 Les méthodes d'initialisation
-**************************
+*****************************
 
 Voici le processus, lorsque atoum exécute les méthodes de test d'une classe avec le moteur par défaut (``concurrent``) :
 
