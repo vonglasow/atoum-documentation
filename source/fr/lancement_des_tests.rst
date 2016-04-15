@@ -9,7 +9,7 @@ Exécutable
 atoum dispose d'un exécutable qui vous permet de lancer vos tests en ligne de commande.
 
 Avec l'archive phar
-=================
+===================
 
 Si vous utilisez l'archive phar, elle est elle-même l'exécutable.
 
@@ -21,7 +21,7 @@ linux / mac
    $ php path/to/mageekguy.atoum.phar
 
 windows
-------------
+-------
 
 .. code-block:: shell
 
@@ -29,7 +29,7 @@ windows
 
 
 Avec les sources
-============
+================
 
 Si vous utilisez les sources, l'exécutable se trouve dans path/to/atoum/bin.
 
@@ -45,7 +45,7 @@ linux / mac
    $ ./path/to/bin/atoum
 
 windows
-------------
+-------
 
 .. code-block:: shell
 
@@ -53,7 +53,7 @@ windows
 
 
 Exemples dans le reste de la documentation
-========================================
+==========================================
 
 Dans les exemples suivants, les commandes pour lancer les tests avec atoum seront écrites avec la forme suivante :
 
@@ -67,11 +67,11 @@ C'est exactement la commande que vous pourriez utiliser si vous avez :ref:`insta
 .. _fichiers-a-executer:
 
 Fichiers à exécuter
-****************
+*******************
 
 
 Par fichiers
-========
+============
 
 Pour lancer les tests d'un fichier, il vous suffit d'utiliser l'option -f ou --files.
 
@@ -81,7 +81,7 @@ Pour lancer les tests d'un fichier, il vous suffit d'utiliser l'option -f ou --f
 
 
 Par répertoires
-=============
+===============
 
 Pour lancer les tests d'un répertoire, il vous suffit d'utiliser l'option -d ou --directories.
 
@@ -100,7 +100,7 @@ Une fois que vous avez préciser à atoum les :ref:`fichiers à exécuter <fichi
 .. _filtres-par-namespace:
 
 Par espace de noms
-============
+================
 
 Pour filtrer sur les espace de nom, par example exécuter le test seulement sur un espace de nom, il suffit d'utiliser l'option ``-ns`` or ``--namespaces``.
 
@@ -115,7 +115,7 @@ Pour filtrer sur les espace de nom, par example exécuter le test seulement sur 
 .. _filtres-par-classe-ou-methode:
 
 Une classe ou une méthode
-=====================
+=========================
 
 Pour filtrer sur une classe ou une méthode, c'est-à-dire exécuter seulement des tests d'une classe ou une méthode, il suffit d'utiliser l'option ``-m`` ou ``--methods``.
 

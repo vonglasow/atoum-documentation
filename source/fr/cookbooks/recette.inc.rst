@@ -2,7 +2,7 @@
 .. _cookbook_change_default-namespace:
 
 Changer l'espace de nom par défaut
-*********************************
+**********************************
 
 Au début de l'exécution d'une classe de test, atoum calcule le nom de la classe testée. Pour cela, par défaut, il remplace dans le nom de la classe de test l'expression  régulière ``#(?:^|\\\)tests?\\\units?\\#i`` par le caractère  ``\``.
 

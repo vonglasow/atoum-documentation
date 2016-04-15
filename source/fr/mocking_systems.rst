@@ -16,7 +16,7 @@ atoum dispose d'un système de bouchonnage (mock en anglais) puissant et simple 
 
 
 Générer un bouchon
-===============
+==================
 
 Il y a plusieurs manières de créer un bouchon à partir d'une interface ou d'une classe.
 

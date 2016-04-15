@@ -2,7 +2,7 @@
 .. _first-tests:
 
 Premiers tests
-##################
+##############
 
 Vous avez besoin d'écrire une classe de test pour chaque classe testé.
 

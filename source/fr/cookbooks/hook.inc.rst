@@ -60,7 +60,7 @@ Les tests étant exécutés très rapidement avec atoum, on peut donc lancer l'e
 
 
 Étape 2 : Ajout des droits d'exécution
-=====================================
+======================================
 
 Pour être utilisable par Git, le fichier ``.git/hook/pre-commit`` doit être rendu exécutable à l'aide de la commande suivante, exécutée en ligne de commande à partir du répertoire de votre dépôt :
 

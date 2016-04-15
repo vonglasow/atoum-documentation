@@ -3,7 +3,7 @@
 .. _@engine:
 
 Les moteurs d'exécution
-*******************
+***********************
 
 Plusieurs moteurs d'exécutions des tests (au niveau de la classe ou des méthodes) existent. Ceux-ci sont configurables via l'annotation ``@engine``. Par défaut, les différents tests s'exécutent en parallèle, dans des sous-processus PHP, c'est le mode ``concurrent``.
 
