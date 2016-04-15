@@ -1,7 +1,7 @@
 .. _mocking_systems:
 
-Mocking systems
-#########################
+Système de mocks
+################
 
 TODO get mock parts from everywhere + add stuff from issues
 
@@ -96,41 +96,41 @@ La méthode ``generate`` prend trois paramètres :
    $countableMock = new \mock\Countable;
 
 
-Shunt calls to parent methods
------------------------------
+Shunter les appels aux méthodes parentes
+----------------------------------------
 
-A mock inherits from the class from which it was generated, its methods therefore behave exactly the same way.
+Un bouchon hérite directement de la classe à partir de laquelle il a été généré, ses méthodes se comportent donc exactement de la même manière.
 
-In some cases, it may be useful to shunt calls to parent methods so that their code is not run. The ``mockGenerator`` offers several methods to achieve this :
+Dans certains cas, il peut être utile de shunter les appels aux méthodes parentes afin que leur code ne soit plus exécuté. Le ``mockGenerator`` met à votre disposition plusieurs méthodes pour y parvenir :
 
 .. code-block:: php
 
    <?php
-   // The mock will not call the parent class
+   // le bouchon ne fera pas appel à la classe parente
    $this->mockGenerator->shuntParentClassCalls();
 
    $mock = new \mock\OneClass;
 
-   // the mock will again call the parent class
+   // le bouchon fera à nouveau appel à la classe parente
    $this->mockGenerator->unshuntParentClassCalls();
 
-Here, all mock methods will behave as if they had no implementation however they will keep the signature of the original methods. You can also specify the methods you want to shunt :
+Ici, toutes les méthodes du bouchon se comporteront comme si elles n'avaient pas d'implémentation par contre elles conserveront la signature des méthodes originales. Vous pouvez également préciser les méthodes que vous souhaitez shunter :
 
 .. code-block:: php
 
    <?php
-   // the mock will not call the parent class for the method firstMethod…...
+   // le bouchon ne fera pas appel à la classe parente pour la méthode firstMethod...
    $this->mockGenerator->shunt('firstMethod');
-   // ... nor for the method secondMethod
+   // ... ni pour la méthode secondMethod
    $this->mockGenerator->shunt('secondMethod');
 
    $countableMock = new \mock\OneClass;
 
 
-Make an orphan method
----------------------
+Rendre une méthode orpheline
+----------------------------
 
-It may be interesting to make an orphan method, that is, give him a signature and implementation empty. This can be particularly useful for generating mocks without having to instantiate all their dependencies.
+Il peut parfois être intéressant de rendre une méthode orpheline, c'est-à-dire, lui donner une signature et une implémentation vide. Cela peut être particulièrement utile pour générer des bouchons sans avoir à instancier toutes leurs dépendances.
 
 .. code-block:: php
 
@@ -154,18 +154,18 @@ It may be interesting to make an orphan method, that is, give him a signature an
    $this->mockGenerator->orphanize('__construct');
    $this->mockGenerator->shuntParentClassCalls();
 
-   // We can instantiate the mock without injecting dependencies
+   // Nous pouvons instancier le bouchon sans injecter ses dépendances
    $mock = new \mock\SecondClass();
 
    $object = new FirstClass($mock);
 
 
-Modify the behavior of a mock
-=============================
+Modifier le comportement d'un bouchon
+=====================================
 
-Once the mock created and instantiated, it is often useful to be able to change the behaviour of its methods.
+Une fois le bouchon créé et instancié, il est souvent utile de pouvoir modifier le comportement de ses méthodes.
 
-To do this, you must use its controller using one of the following methods:
+Pour cela, il faut passer par son contrôleur en utilisant l'une des méthodes suivantes :
 
 .. code-block:: php
 
@@ -173,25 +173,25 @@ To do this, you must use its controller using one of the following methods:
    $mockDbClient = new \mock\Database\Client();
 
    $mockDbClient->getMockController()->connect = function() {};
-   // Equivalent to
+   // Équivalent à
    $this->calling($mockDbClient)->connect = function() {};
 
-The ``mockController`` allows you to redefine **only public and abstract protected methods** and puts at your disposal several methods :
+Le ``mockController`` vous permet de redéfinir **uniquement les méthodes publiques et abstraites protégées** et met à votre disposition plusieurs méthodes :
 
 .. code-block:: php
 
    <?php
    $mockDbClient = new \mock\Database\Client();
 
-   // Redefine the method connect: it will always return true
+   // redéfinit la méthode connect : elle retournera toujours true
    $this->calling($mockDbClient)->connect = true;
 
-   // Redefine the method select: it will execute the given anonymous function
+   // redéfinit la méthode select : elle exécutera la fonction anonyme passée
    $this->calling($mockDbClient)->select = function() {
        return array();
    };
 
-   // redefine the method query with arguments
+   // redéfinit la méthode query avec des arguments
    $result = array();
    $this->calling($mockDbClient)->query = function(Query $query) use($result) {
        switch($query->type) {
@@ -203,52 +203,52 @@ The ``mockController`` allows you to redefine **only public and abstract protect
        }
    };
 
-   // the method connect will throw an exception
+   // la méthode connect lèvera une exception
    $this->calling($mockDbClient)->connect->throw = new \Database\Client\Exception();
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`__ for more information on the subject.
+   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`__ pour avoir plus d'informations sur le sujet.
 
-As you can see, it is possible to use several methods to get the desired behaviour:
+Comme vous pouvez le voir, il est possible d'utiliser plusieurs méthodes afin d'obtenir le comportement souhaité :
 
-* Use a static value that will be returned by the method
-* Use a short implementation thanks to anonymous functions of PHP
-* Use the ``throw`` keyword to throw an exception
+* Utiliser une valeur statique qui sera retournée par la méthode
+* Utiliser une implémentation courte grâce aux fonctions anonymes de PHP
+* Utiliser le mot-clef ``throw`` pour lever une exception
 
-You can also specify multiple values based on the order of call:
+Vous pouvez également spécifier plusieurs valeurs en fonction de l'ordre d'appel :
 
 .. code-block:: php
 
    <?php
-   // default
+   // défaut
    $this->calling($mockDbClient)->count = rand(0, 10);
-   // equivalent to
+   // équivalent à
    $this->calling($mockDbClient)->count[0] = rand(0, 10);
 
-   // 1st call
+   // 1er appel
    $this->calling($mockDbClient)->count[1] = 13;
 
-   // 3rd call
+   // 3ème appel
    $this->calling($mockDbClient)->count[3] = 42;
 
-* The first call will return 13.
-* The second will be the default behavior, it means a random number.
-* The third call will return 42.
-* All subsequent calls will have the default behaviour, i.e. random numbers.
+* Le premier appel retournera 13.
+* Le second aura le comportement par défaut, c'est-à-dire un nombre aléatoire.
+* Le troisième appel retournera 42.
+* Tous les appels suivants auront le comportement par défaut, c'est à dire des nombres aléatoires.  
 
-If you want several methods of the mock have the same behavior, you can use the `methods`_ or `methodsMatching`_.
+Si vous souhaitez que plusieurs méthodes du bouchon aient le même comportement, vous pouvez utiliser les méthodes `methods`_ ou `methodsMatching`_.
 
 
 methods
 -------
 
-``methods`` allows you, thanks to the anonymous function passed as an argument, to define to what methods the behaviour must be modified :
+``methods`` vous permet, grâce à la fonction anonyme passée en argument, de définir pour quelles méthodes le comportement doit être modifié :
 
 .. code-block:: php
 
    <?php
-   // if the method has such and such name,
-   // we redefines its behavior
+   // si la méthode a tel ou tel nom,
+   // on redéfinit son comportement
    $this
        ->calling($mock)
            ->methods(
@@ -265,15 +265,15 @@ methods
                ->return = uniqid()
    ;
 
-   // we redefines the behavior of all methods
+   // on redéfinit le comportement de toutes les méthodes
    $this
        ->calling($mock)
            ->methods()
                ->return = null
    ;
 
-   // if the method begins by "get",
-   // we redefines its behavior
+   // si la méthode commence par "get",
+   // on redéfinit son comportement
    $this
        ->calling($mock)
            ->methods(
@@ -285,30 +285,30 @@ methods
    ;
 
 
-In the last example, you should instead use `methodsMatching`_.
+Dans le cas du dernier exemple, vous devriez plutôt utiliser `methodsMatching`_.
 
 .. note::
-   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Refer to `PHP manual <http://php.net/functions.anonymous>`__ for more information on the subject.
+   The syntax uses anonymous functions (also called closures) introduced in PHP 5.3. Reportez-vous au `manuel de PHP <http://php.net/functions.anonymous>`__ pour avoir plus d'informations sur le sujet.
 
 
 methodsMatching
 -----------------
 
-``methodsMatching`` allows you to set the methods where the behaviour must be modified using the regular expression passed as an argument :
+``methodsMatching`` vous permet de définir les méthodes où le comportement doit être modifié grâce à l'expression rationnelle passée en argument :
 
 .. code-block:: php
 
    <?php
-   // if the method begins by "is",
-   // we redefines its behavior
+   // si la méthode commence par "is",
+   // on redéfinit son comportement
    $this
        ->calling($mock)
            ->methodsMatching('/^is/')
                ->return = true
    ;
 
-   // if the method starts by "get" (case insensitive),
-   // we redefines its behavior
+   // si la méthode commence par "get" (insensible à la casse),
+   // on redéfinit son comportement
    $this
        ->calling($mock)
            ->methodsMatching('/^get/i')
@@ -316,17 +316,17 @@ methodsMatching
    ;
 
 .. note::
-   ``methodsMatching`` use `preg_match <http://php.net/preg_match>`_ and regular expressions. Refer to the `PHP manual <http://php.net/pcre>`__ for more information on the subject.
+   ``methodsMatching`` utilise `preg_match <http://php.net/preg_match>`_ et les expressions rationnelles. Reportez-vous au `manuel de PHP <http://php.net/pcre>`__ pour avoir plus d'informations sur le sujet.
 
 
-Particular case of the constructor
-==================================
+Cas particulier du constructeur
+===============================
 
-To mock class constructor, you need:
+Pour mocker le constructeur de la classe, vous avez besoin de :
 
-* create an instance of \atoum\mock\controller class before you call the constructor of the mock ;
-* set via this control the behaviour of the constructor of the mock using an anonymous function ;
-* inject the controller during the instantiation of the mock in the last argument.
+* créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
+* définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
+* injecter le contrôleur lors de l'instanciation du bouchon en dernier argument.
 
 .. code-block:: php
 
@@ -337,10 +337,10 @@ To mock class constructor, you need:
    $mockDbClient = new \mock\Database\Client(DB_HOST, DB_USER, DB_PASS, $controller);
 
 
-Test mock
-=========
+Tester un bouchon
+=================
 
-atoum lets you verify that a mock was used properly.
+atoum vous permet de vérifier qu'un bouchon a été utilisé correctement.
 
 .. code-block:: php
 
@@ -351,32 +351,32 @@ atoum lets you verify that a mock was used properly.
 
    $bankAccount = new \Vendor\Project\Bank\Account();
    $this
-       // use of the mock via another object
+       // utilisation du bouchon via un autre objet
        ->array($bankAccount->getOperations($mockDbClient))
            ->isEmpty()
 
-       // test of the mock
+       // test du bouchon
        ->mock($mockDbClient)
            ->call('query')
-               ->once() // check that the query method
-                               // has been called only once
+               ->once()        // vérifie que la méthode query
+                               // n'a été appelé qu'une seule fois
    ;
 
 .. note::
-   Refer to the documentation on the :ref:`mock-asserter` for more information on testing mocks.
+   Reportez-vous à la documentation sur l'assertion :ref:`mock-asserter` pour obtenir plus d'informations sur les tests des bouchons.
 
 
-The mocking (mock) of native PHP functions
+Le bouchonnage (mock) des fonctions natives de PHP
 **************************************************
 
-atoum allow to easyly simulate the behavious of native PHP functions.
+atoum permet de très facilement simuler le comportement des fonctions natives de PHP.
 
 .. code-block:: php
 
    <?php
 
    $this
-      ->assert('the file exist')
+      ->assert('le fichier existe')
          ->given($this->newTestedInstance())
          ->if($this->function->file_exists = true)
          ->then
@@ -384,7 +384,7 @@ atoum allow to easyly simulate the behavious of native PHP functions.
             ->isTestedInstance()
             ->function('file_exists')->wasCalled()->once()
 
-      ->assert('le fichier does not exist')
+      ->assert('le fichier n\'existe pas')
          ->given($this->newTestedInstance())
          ->if($this->function->file_exists = false )
          ->then
@@ -392,10 +392,10 @@ atoum allow to easyly simulate the behavious of native PHP functions.
    ;
 
 .. important::
-   The \\ is not allowed before any functions to simulate because atoum take the resolution mechanism of PHP's namespace.
+   On ne peut pas mettre de \\ devant les fonctions à simuler, car atoum s’appuie sur le mécanisme de résolution des espaces de nom de PHP.
 
 .. important::
-   For the same reason, if a native function was already called before, his mocking will be without any effect.
+   Pour la même raison, si une fonction native a déjà été appelée, son bouchonnage sera sans effet.
 
 .. code-block:: php
 
@@ -403,9 +403,9 @@ atoum allow to easyly simulate the behavious of native PHP functions.
 
    $this
       ->given($this->newTestedInstance())
-      ->exception(function() { $this->testedInstance->loadConfigFile(); }) // the function file_exists and is called before is mocking
+      ->exception(function() { $this->testedInstance->loadConfigFile(); }) //la fonction file_exists est appelée avant son bouchonnage
 
-      ->if($this->function->file_exists = true ) // the mocking can take the place of the native function file_exists
+      ->if($this->function->file_exists = true ) // le bouchonnage ne pourra pas prendre la place de la fonction native file_exists
       ->object($this->testedInstance->loadConfigFile())
          ->isTestedInstance()
    ;
