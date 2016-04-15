@@ -6,7 +6,7 @@
 .. _home:
 
 Qu'est-ce qu'atoum?
-================
+===================
 
 atoum est un framework de test unitaire, tout comme PHPUnit ou SimpleTest, mais il présente quelques avantages par rapport à ces derniers :
 
