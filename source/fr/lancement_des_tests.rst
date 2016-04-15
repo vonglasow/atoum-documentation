@@ -100,7 +100,7 @@ Une fois que vous avez préciser à atoum les :ref:`fichiers à exécuter <fichi
 .. _filtres-par-namespace:
 
 Par espace de noms
-================
+==================
 
 Pour filtrer sur les espace de nom, par example exécuter le test seulement sur un espace de nom, il suffit d'utiliser l'option ``-ns`` or ``--namespaces``.
 
