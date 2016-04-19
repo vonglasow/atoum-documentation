@@ -119,8 +119,6 @@ It's easy to install, simply follow theses steps:
 
 If you need more information check the `repository of the plugins <https://github.com/atoum/phpstorm-plugin>`_.
 
-
-
 .. _ide_atom:
 
 Atom
@@ -141,8 +139,6 @@ It's easy to install, simply follow the `official documentation <http://flight-m
 * Search for *atoum* in the list, then click on the install button
 
 If you need more information check the `repository of the package <https://github.com/atoum/atom-plugin>`_.
-
-
 
 .. _ide_auto-open-test:
 
