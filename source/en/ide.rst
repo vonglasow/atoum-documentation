@@ -1,14 +1,18 @@
-Integration of atoum in your IDE
-##################################
+.. _ide_integration:
 
+Integration of atoum in your IDE
+################################
+
+.. _ide_sublime2:
 
 Sublime Text 2
-****************
+**************
 
 A `plug-in for SublimeText 2 <https://github.com/toin0u/Sublime-atoum>`_ allows the execution of unit tests by atoum and the visualization of the result without leaving the editor.
 
 The information necessary for it's installation and it's configuration are available `on the blog's author <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
 
+.. _ide_vim:
 
 VIM
 ***
@@ -21,7 +25,7 @@ It's possible to navigate among errors, or even to go to the line in the editor 
 
 
 Installation of the plug-in atoum for VIM
-==========================================
+=========================================
 
 You will find the file corresponding to the plug-in, named ``atoum.vmb``, in the directory named ``resources/vim``.
 
@@ -47,7 +51,7 @@ It's now required to ask VIM the installation of the plug-in by using the comman
 
 
 Use of the plug-in atoum for VIM
-=====================================
+================================
 
 To use the plug-in, atoum must obviously be installed and you must be editing a file containing a class of unit tests based on atoum.
 
@@ -69,7 +73,7 @@ The use of the key ``F12`` on your keyboard in normal mode will call the command
 
 
 File's configuration management of atoum
-==============================================
+========================================
 
 You can specify another configuration file for atoum by adding the following line to your ``.vimrc`` file:
 
@@ -90,19 +94,67 @@ For more details on the use of plug-in, help is available in VIM with the follow
 
    :help atoum
 
+.. _ide_phpstorm:
+
+PhpStorm
+********
+
+atoum comes with an official plug-in for PHPStorm. It really helps you in your day-to-day development. The main functionality are:
+
+* Go to the test class from the tested class (shortcut : alt+shift+K)
+* Go to the tested class from the test class (shortcut : alt+shift+K)
+* Execute tests inside PhpStorm (shortcut : alt+shift+M)
+* Easily identify test files by a custom icon
+
+Installation
+============
+
+It's easy to install, simply follow theses steps:
+
+* Open PhpStorm
+* Go to *File -> Settings*, then click on *Plugins*
+* Click on Browse repositories
+* Search for *atoum* in the list, then click on the install button
+* Restart PhpStorm
+
+If you need more information check the `repository of the plugins <https://github.com/atoum/phpstorm-plugin>`_.
+
+.. _ide_atom:
+
+Atom
+****
+
+atoum comes with an official package for atom. It helps you in several tasks :
+
+* A panel with all tests
+* Run all the tests, a directory or the current one
+
+Installation
+============
+
+It's easy to install, simply follow the `official documentation <http://flight-manual.atom.io/using-atom/sections/atom-packages/>`_ or theses steps:
+
+* Open atom
+* Go to *Settings*, then click on *Install*
+* Search for *atoum* in the list, then click on the install button
+
+If you need more information check the `repository of the package <https://github.com/atoum/atom-plugin>`_.
+
+.. _ide_auto-open-test:
 
 Automatically open failed tests
-*****************************************
+*******************************
 
 atoum is able to automatically open files from failed tests at the end of there execution. Several editors are currently supported:
 
-* `macvim`_ (Mac OS X)
-* `gvim`_ (Unix)
-* `PhpStorm`_ (Mac OS X/Unix)
-* `gedit`_ (Unix)
+* :ref:`macvim<ide_auto-open_macvim>` (Mac OS X)
+* :ref:`gvim<ide_auto-open_gvim>` (Unix)
+* :ref:`PhpStorm<ide_auto-open_phpstorm>` (Mac OS X/Unix)
+* :ref:`gedit<ide_auto-open_gedit>` (Unix)
 
 To use this feature, you need to change the :ref:`configuration file <fichier-de-configuration>`:
 
+.. _ide_auto-open_macvim:
 
 macvim
 ======
@@ -123,6 +175,7 @@ macvim
 
    $runner->addReport($cliReport);
 
+.. _ide_auto-open_gvim:
 
 gvim
 ====
@@ -143,6 +196,7 @@ gvim
 
    $runner->addReport($cliReport);
 
+.. _ide_auto-open_phpstorm:
 
 PhpStorm
 ========
@@ -199,6 +253,7 @@ Under Unix environment, use the following configuration:
 
    $runner->addReport($cliReport);
 
+.. _ide_auto-open_gedit:
 
 gedit
 =====
