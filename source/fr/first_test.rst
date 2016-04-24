@@ -94,6 +94,7 @@ Vous devriez voir quelque chose comme ça :
    > Running duration: 0.04 second.
    Success (1 test, 1/1 method, 0 void method, 0 skipped method, 2 assertions)!
 
+
 Nous venons de tester que la méthode ``getHiAtoum`` :
 
 * retourne une :ref:`chaîne de caractère <string-anchor>`;

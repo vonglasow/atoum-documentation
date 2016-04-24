@@ -1,14 +1,18 @@
+.. _ide_integration:
+
 Intégration d'atoum dans votre IDE
 ##################################
 
+.. _ide_sublime2:
 
 Sublime Text 2
-****************
+**************
 
 Un `plug-in pour SublimeText 2 <https://github.com/toin0u/Sublime-atoum>`_ permet l'exécution des tests unitaires par atoum et la visualisation du résultat sans quitter l'éditeur.
 
 Les informations nécessaires à son installation et à sa configuration sont disponibles `sur le blog de son auteur <http://sbin.dk/2012/05/19/atoum-sublime-text-2-plugin/>`_.
 
+.. _ide_vim:
 
 VIM
 ***
@@ -21,7 +25,7 @@ Il est alors possible de naviguer parmi les éventuelles erreurs, voire de se re
 
 
 Installation du plug-in atoum pour VIM
-==========================================
+======================================
 
 Vous trouverez le fichier correspondant au plug-in, nommé ``atoum.vmb``, dans le répertoire ``resources/vim``.
 
@@ -69,7 +73,7 @@ L'utilisation de la touche ``F12`` de votre clavier en mode normal appellera alo
 
 
 Gestion des fichiers de configuration d’atoum
-==============================================
+=============================================
 
 Vous pouvez indiquer un autre fichier de configuration pour atoum en ajoutant la ligne suivante à votre fichier ``.vimrc`` :
 
@@ -90,19 +94,67 @@ Pour plus de détails sur l'utilisation du plug-in, une aide est disponible dans
 
    :help atoum
 
+.. _ide_phpstorm:
+
+PhpStorm
+********
+
+atoum possède avec un plug-in officiel pour PHPStorm. Il vous aide, au quotidien, dans votre développement. Les principales fonctionnalités sont :
+
+* Accédez à la classe de test depuis la classe testée (raccourci : alt+shift+K)
+* Accédez à la classe testée depuis la de test (shortcut : alt+shift+K)
+* Exécuté les tests à l'intérieur PhpStorm (shortcut : alt+shift+M)
+* Identification facile des fichiers de test via une icône spécifique
+
+Installation
+============
+
+C'est simple à installer, pour cela il suffit de suivre les étapes suivantes :
+
+* Ouvrir PHPStorm
+* Aller dans *Fichier -> Paramètres*, cliquer sur *Plugins*
+* Cliquer sur parcourir le répertoire
+* Chercher *atoum* dans la liste, cliquer sur le bouton installation
+* Redémarrer PHPStorm
+
+Si vous avez besoin de plus d'information, il suffit de lire le `repository du plugin <https://github.com/atoum/phpstorm-plugin>`_.
+
+.. _ide_atom:
+
+Atom
+****
+
+atoum possède avec un plug-in officiel pour atom. Celui-ci vous aide dans plusieurs tâches :
+
+* Un panneau avec tous les tests
+* Exécuter tous les tests, dans un répertoire ou dans le répertoire courant
+
+Installation
+============
+
+Il est simple d'installation, il suffit de suivre les étapes `d'installation officiel <http://flight-manual.atom.io/using-atom/sections/atom-packages/>`_ ou les étapes suivantes :
+
+* Ouvrir atom
+* Aller dans *Paramètres*, cliquer sur *Installation*
+* Chercher *atoum* dans la liste, cliquer sur le bouton installation
+
+Si vous avez besoin de plus d'information, il suffit de lire le `repository du package <https://github.com/atoum/atom-plugin>`_.
+
+.. _ide_auto-open-test:
 
 Ouvrir automatiquement les tests en échec
 *****************************************
 
 atoum est capable d'ouvrir automatiquement les fichiers des tests en échec à la fin de l'exécution. Plusieurs éditeurs sont actuellement supportés :
 
-* `macvim`_ (Mac OS X)
-* `gvim`_ (Unix)
-* `PhpStorm`_ (Mac OS X/Unix)
-* `gedit`_ (Unix)
+* :ref:`macvim<ide_auto-open_macvim>` (Mac OS X)
+* :ref:`gvim<ide_auto-open_gvim>` (Unix)
+* :ref:`PhpStorm<ide_auto-open_phpstorm>` (Mac OS X/Unix)
+* :ref:`gedit<ide_auto-open_gedit>` (Unix)
 
 Pour utiliser cette fonctionnalité, vous devrez modifier le :ref:`fichier de configuration <fichier-de-configuration>` d’atoum :
 
+.. _ide_auto-open_macvim:
 
 macvim
 ======
@@ -123,6 +175,7 @@ macvim
 
    $runner->addReport($cliReport);
 
+.. _ide_auto-open_gvim:
 
 gvim
 ====
@@ -143,6 +196,7 @@ gvim
 
    $runner->addReport($cliReport);
 
+.. _ide_auto-open_phpstorm:
 
 PhpStorm
 ========
@@ -199,6 +253,7 @@ Dans un environnement Unix, utilisez la configuration suivante :
 
    $runner->addReport($cliReport);
 
+.. _ide_auto-open_gedit:
 
 gedit
 =====
