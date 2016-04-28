@@ -324,7 +324,7 @@ Particular case of the constructor
 
 To mock class constructor, you need:
 
-* create an instance of \atoum\mock\controller class before you call the constructor of the mock ;
+* create an instance of \\atoum\\mock\\controller class before you call the constructor of the mock ;
 * set via this control the behaviour of the constructor of the mock using an anonymous function ;
 * inject the controller during the instantiation of the mock in the last argument.
 

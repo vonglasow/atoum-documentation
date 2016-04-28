@@ -324,7 +324,7 @@ Cas particulier du constructeur
 
 Pour mocker le constructeur de la classe, vous avez besoin de :
 
-* créer une instance de la classe \atoum\mock\controller avant d'appeler le constructeur du bouchon ;
+* créer une instance de la classe \\atoum\\mock\\controller avant d'appeler le constructeur du bouchon ;
 * définir via ce contrôleur le comportement du constructeur du bouchon à l'aide d'une fonction anonyme ;
 * injecter le contrôleur lors de l'instanciation du bouchon en dernier argument.
 
