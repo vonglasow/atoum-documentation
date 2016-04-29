@@ -45,7 +45,7 @@ Here's an example :
   	}
   }
 
-In ``concurent`` mode :
+In ``concurrent`` mode :
 
 .. code-block:: shell
 
